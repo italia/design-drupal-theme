@@ -1,0 +1,42 @@
+name: Bootstrap Italia
+type: theme
+description: Bootstrap Italia è un tema Bootstrap 4 conforme alle linee guida di design per i servizi web della PA
+package: Italia
+core: 8.x
+php: 7.2
+
+libraries:
+  - bootstrap-italia/bootstrap
+  - bootstrap-italia/style
+
+# libraries-override:
+# libraries-extend
+# hidden: true
+
+engine: twig
+
+logo: logo.svg
+screenshot: screenshot.png
+
+regions:
+  header_slim_ente: "Slim header: ente di appartenenza"
+  header_slim_menu: "Slim header: menu"
+  header_slim_lingua: "Slim header: lingua"
+  header_slim_action: "Slim header: action"
+  header_centrale_logo: "Header centrale: logo"
+  header_centrale_brand: "Header centrale: branding"
+  header_centrale_slogan: "Header centrale: slogan"
+  header_centrale_social: "Header centrale: social network"
+  header_centrale_search: "Header centrale: motore di ricerca"
+  header_nav: "Header Nav: menu navigazione"
+  navbar_branding: Navbar branding
+  navbar_left:  Navbar left
+  navbar_right: Navbar right
+  header: Header
+  content: Content
+  page_bottom: Page bottom
+  footer: Footer
+
+# features:
+# stylesheets-remove:
+# ckeditor_stylesheets:
