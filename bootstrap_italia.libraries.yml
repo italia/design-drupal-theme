@@ -1,0 +1,6 @@
+style:
+  css:
+    theme:
+      assets/bundle.css
+  js:
+    assets/bundle.js: {}

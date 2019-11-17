@@ -1,0 +1,3 @@
+bootstrap_italia.settings:
+  type: theme_settings
+  label: 'Bootstrap Italia settings'

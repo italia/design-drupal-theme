@@ -6,7 +6,6 @@ core: 8.x
 php: 7.2
 
 libraries:
-  - bootstrap-italia/bootstrap
   - bootstrap-italia/style
 
 # libraries-override:
