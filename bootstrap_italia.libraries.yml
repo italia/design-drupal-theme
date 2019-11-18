@@ -1,6 +1,10 @@
-style:
+global-styling:
   css:
     theme:
-      assets/bundle.css
+      assets/main.css: {}
+
+global-scripts:
   js:
     assets/bundle.js: {}
+  dependencies:
+    - core/jquery

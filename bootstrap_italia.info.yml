@@ -6,7 +6,8 @@ core: 8.x
 php: 7.2
 
 libraries:
-  - bootstrap-italia/style
+  - bootstrap_italia/global-styling
+  - bootstrap_italia/global-scripts
 
 # libraries-override:
 # libraries-extend
