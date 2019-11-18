@@ -1,10 +1,8 @@
 global-styling:
   css:
     theme:
-      assets/main.css: {}
+      assets/css/main.css: {}
 
 global-scripts:
   js:
-    assets/bundle.js: {}
-  dependencies:
-    - core/jquery
+    assets/js/bundle.js: {}
