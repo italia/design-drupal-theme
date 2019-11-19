@@ -6,3 +6,5 @@ global-styling:
 global-scripts:
   js:
     assets/js/bundle.js: {}
+  dependencies:
+    - core/jquery

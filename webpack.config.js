@@ -1,6 +1,7 @@
 var path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/js/index.js',
@@ -41,10 +42,14 @@ module.exports = {
   },
 
   plugins: [
-    new UglifyJsPlugin(),
+    new MinifyPlugin({},{}),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
     }),
   ],
 };
