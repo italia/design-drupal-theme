@@ -8,3 +8,4 @@ global-scripts:
     assets/js/bundle.js: {}
   dependencies:
     - core/jquery
+    - core/drupal

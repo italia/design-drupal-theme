@@ -1,7 +1,7 @@
 import '../../node_modules/bootstrap-italia/src/scss/bootstrap-italia.scss';
 
 // For jquery: see 'bootstrap_italia.libraries.yml'
-import '../../node_modules/jquery/dist/jquery.js';
+//import '../../node_modules/jquery/dist/jquery.js';
 import '../../node_modules/popper.js/dist/umd/popper.js';
 import '../../node_modules/owl.carousel/dist/owl.carousel.js';
 
@@ -44,4 +44,4 @@ import '../../node_modules/bootstrap-italia/src/js/plugins/select.js';
 import '../../node_modules/bootstrap-italia/src/js/plugins/rating.js';
 import '../../node_modules/bootstrap-italia/src/js/plugins/dimmer.js';
 
-//import './custom/example.js';
+import './custom/example.js';

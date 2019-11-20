@@ -25,6 +25,7 @@
   "license": "GPL-2.0-only",
   "devDependencies": {
     "babel-minify-webpack-plugin": "^0.3.1",
+    "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
