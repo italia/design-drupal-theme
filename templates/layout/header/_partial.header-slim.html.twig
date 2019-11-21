@@ -4,20 +4,17 @@
       <div class="row">
         <div class="col-12">
           <div class="it-header-slim-wrapper-content">
-            <a class="d-none d-lg-block navbar-brand" href="#">Ente appartenenza /Owner</a>
+            <a class="d-none d-lg-block navbar-brand" href="#">{{ ente_appartenenza }}</a>
             <div class="nav-mobile">
               <nav>
                 <a class="it-opener d-lg-none" data-toggle="collapse" href="#menu4" role="button" aria-expanded="false" aria-controls="menu4">
-                  <span>Ente appartenenza/Owner</span>
-                  <svg class="icon">
-                    <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-expand"></use>
-                  </svg>
+                  <span>{{ ente_appartenenza }}</span>
+                  {{ macros.icon('it-expand',base_path ~ directory) }}
                 </a>
                 <div class="link-list-wrapper collapse" id="menu4">
-                  <ul class="link-list">
-                    <li><a class="list-item" href="#">Link 1</a></li>
-                    <li><a class="list-item active" href="#">Link 2 Active</a></li>
-                  </ul>
+                  {% if page.header_slim_menu %}
+                    {{ page.header_slim_menu }}
+                  {% endif %}
                 </div>
               </nav>
             </div>
@@ -28,9 +25,7 @@
               <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
                   <span>ITA</span>
-                  <svg class="icon d-none d-lg-block">
-                    <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-expand"></use>
-                  </svg>
+                  {{ macros.icon('it-expand',base_path ~ directory) }}
                 </a>
                 <div class="dropdown-menu">
                   <div class="row">
