@@ -23,10 +23,13 @@
                 {{ page.header_slim_lingua }}
               {% endif %}
               <div class="it-access-top-wrapper">
-                <button class="btn btn-primary btn-sm" href="#" type="button">Accedi</button>
+                {% if logged_in %}
                   {% if page.header_slim_action %}
                     {{ page.header_slim_action }}
                   {% endif %}
+                {% else %}
+                  <a class="btn btn-primary btn-sm" href="/user">{{ 'Log in'|trans }}</a>
+                {% endif %}
               </div>
             </div>
           </div>

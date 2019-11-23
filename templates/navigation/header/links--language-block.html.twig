@@ -47,8 +47,9 @@
             {%- for item in links -%}
               <li{{ item.attributes }}>
                 {%- if item.link -%}
-                  {# @todo lo stile del testo è bianco? usare il debugger del browser #}
-                  {{ item.link|merge({'#options': {'attributes' : {'class' : ['list-item']} } }) }}
+                  <a{{ item.attributes.addClass('list-item') }} href="{{ item.link.url }}">
+                    <span>{{ item.link['#title'] }}</span>
+                  </a>
                 {%- elseif item.text_attributes -%}
                   <span{{ item.text_attributes }}>{{ item.text }}</span>
                 {%- else -%}
