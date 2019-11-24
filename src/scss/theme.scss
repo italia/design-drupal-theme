@@ -3,3 +3,8 @@
 #toolbar-administration.toolbar::before {
   height: 0;
 }
+
+// Fix header logo
+.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
+  width: 100px;
+}

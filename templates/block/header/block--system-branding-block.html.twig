@@ -26,9 +26,16 @@
 #}
 
 {% block content %}
-<a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+<a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" class="focus--mouse" rel="home">
   {% if site_logo %}
-      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon" />
+      {% set check = site_logo %}
+      {% if not (check ends with '.svg') %}
+        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon" />
+      {% else %}
+        <svg class="icon">
+          <use xlink:href="{{ site_logo }}#logo"></use>
+        </svg>
+      {% endif %}
   {% endif %}
   <div class="it-brand-text">
     {% if site_name %}
