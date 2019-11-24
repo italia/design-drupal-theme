@@ -27,7 +27,12 @@
 #}
 <div class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-    <span>{{ macros.icon('it-user',base_path ~ directory) }}</span>
+    {# Attualmente penso che utilizzare 'Utente' al posto del nome utente
+        o di nome e cognome sia la scelta più saggia.
+        Giusto per evitare di fornire un'utile informazione a chi tenta
+        di sbirciare lo schermo di un utente registrato.
+     #}
+    <span>{{ 'User'|trans }}</span>
     {{ macros.icon('it-expand',base_path ~ directory) }}
   </a>
   <div class="dropdown-menu">

@@ -8,15 +8,9 @@
             <div class="col-12">
               <div class="it-header-center-content-wrapper">
                 <div class="it-brand-wrapper">
-                  <a href="#">
-                    <svg class="icon">
-                      <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-code-circle"></use>
-                    </svg>
-                    <div class="it-brand-text">
-                      <h2 class="no_toc">Lorem Ipsum Lorem Ipsum</h2>
-                      <h3 class="no_toc d-none d-md-block">Inserire qui la tag line</h3>
-                    </div>
-                  </a>
+                  {% if page.header_centrale_brand %}
+                    {{ page.header_centrale_brand }}
+                  {% endif %}
                 </div>
                 <div class="it-right-zone">
                   <div class="it-socials d-none d-md-flex">
