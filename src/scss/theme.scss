@@ -1,4 +1,5 @@
 // Fix drupal toolbar
-#toolbar-administration.toolbar {
+#toolbar-administration.toolbar,
+#toolbar-administration.toolbar::before {
   height: 0;
 }
