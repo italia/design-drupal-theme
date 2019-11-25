@@ -1,0 +1,51 @@
+<div class="it-header-center-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="it-header-center-content-wrapper">
+          <div class="it-brand-wrapper">
+            {% if page.header_centrale_brand %}
+              {{ page.header_centrale_brand }}
+            {% endif %}
+          </div>
+          <div class="it-right-zone">
+            <div class="it-socials d-none d-md-flex">
+              <span>Seguici su</span>
+              <ul>
+                <li>
+                  <a href="#" aria-label="Facebook" target="_blank">
+                    <svg class="icon">
+                      <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" aria-label="Github" target="_blank">
+                    <svg class="icon">
+                      <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-github"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" aria-label="Twitter" target="_blank">
+                    <svg class="icon">
+                      <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-twitter"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="it-search-wrapper">
+              <span class="d-none d-md-block">Cerca</span>
+              <a class="search-link rounded-icon" aria-label="Cerca" href="#">
+                <svg class="icon">
+                  <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-search"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

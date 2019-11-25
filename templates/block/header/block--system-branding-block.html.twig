@@ -33,7 +33,7 @@
         <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon" />
       {% else %}
         <svg class="icon">
-          <use xlink:href="{{ site_logo }}#logo"></use>
+          <use href="{{ site_logo }}#logo" xlink:href="{{ site_logo }}#logo"></use>
         </svg>
       {% endif %}
   {% endif %}
