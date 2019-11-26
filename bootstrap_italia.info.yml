@@ -19,6 +19,7 @@ logo: logo.svg
 screenshot: screenshot.png
 
 regions:
+  page_top: Page top
   header_slim_ente: "Slim header: ente di appartenenza"
   header_slim_menu: "Slim header: menu"
   header_slim_lingua: "Slim header: lingua"
@@ -27,10 +28,6 @@ regions:
   header_centrale_social: "Header centrale: social network"
   header_centrale_search: "Header centrale: motore di ricerca"
   header_nav: "Header Nav: menu navigazione"
-  navbar_branding: Navbar branding
-  navbar_left:  Navbar left
-  navbar_right: Navbar right
-  header: Header
   content: Content
   page_bottom: Page bottom
   footer: Footer
