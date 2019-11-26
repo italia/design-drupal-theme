@@ -38,7 +38,7 @@
     {% for item in items %}
       {%
         set list_classes = [
-          'nav-item',
+          menu_level ? '' : 'nav-item',
           item.is_expanded ? 'expanded',
           item.is_collapsed ? 'collapsed',
           item.in_active_trail ? 'active',
@@ -48,16 +48,26 @@
       {%
         set link_classes = [
           menu_level ? 'list-item' : 'nav-link',
+          item.is_expanded ? 'dropdown-toggle',
+          item.is_collapsed ? 'collapsed',
           item.in_active_trail ? 'active',
         ]
       %}
       <li{{ item.attributes.addClass(list_classes) }}>
-        <a class="{{ link_classes|join(' ') }}" href="{{ item.url }}">
-          <span>{{ item.title }}</span>
-          {% if item.below %}
-            {{ macros.icon('it-expand',base_path ~ directory) }}
-          {% endif %}
-        </a>
+        {% if item.title == '<divider>' %}
+          <span class="divider"></span>
+        {% else %}
+          <a
+            class="{{ link_classes|join(' ') }}"
+            {{ item.is_expanded ? 'data-toggle="dropdown" aria-expandend="false"' : '' }}
+            href="{{ item.url }}"
+          >
+            <span>{{ item.title }}</span>
+            {% if item.is_expanded %}
+              {{ macros.icon('it-expand',base_path ~ directory) }}
+            {% endif %}
+          </a>
+        {% endif %}
         {% if item.below %}
           <div class="dropdown-menu">
             <div class="link-list-wrapper">
