@@ -18,16 +18,15 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
 {% import _self as menus %}
 
 {#
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+{{ menus.menu_links(items, attributes, 0, theme_path) }}
 
-{% macro menu_links(items, attributes, menu_level) %}
+{% macro menu_links(items, attributes, menu_level, theme_path) %}
   {% import _self as menus %}
   {% if items %}
     {% if menu_level == 0 %}
@@ -63,15 +62,17 @@
             href="{{ item.url }}"
           >
             <span>{{ item.title }}</span>
-            {% if item.is_expanded %}
-              {{ macros.icon('it-expand',base_path ~ directory) }}
+            {% if item.is_expanded and menu_level == 0 %}
+              <svg class="icon">
+                <use xlink:href="/{{ theme_path ~ directory }}/assets/icons/sprite.svg#it-expand"></use>
+              </svg>
             {% endif %}
           </a>
         {% endif %}
         {% if item.below %}
           <div class="dropdown-menu">
             <div class="link-list-wrapper">
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, theme_path) }}
             </div>
           </div>
         {% endif %}
