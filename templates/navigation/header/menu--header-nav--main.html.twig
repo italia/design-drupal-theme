@@ -18,14 +18,155 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% import _self as menus %}
+{% import '@bootstrap_italia/macros.twig' as macros %}
+{# { kint(items) } #}
 
+{# First level #}
+<ul{{ attributes.addClass('navbar-nav')}}>
+  {% for item in items %}
+
+    {# Megamenu check#}
+    {% set megamenu = true %}
+    {% for i in item.below %}
+      {# Qualsiasi bool moltiplicato per false da come risultato false. #}
+      {% set megamenu = i.is_expanded ? megamenu * true : megamenu * false %}
+    {% endfor %}
+
+    {%
+      set list_classes_first_level = [
+      'nav-item',
+      item.is_expanded ? 'dropdown',
+      item.is_collapsed ? 'collapsed',
+      item.in_active_trail ? 'active',
+      megamenu ? 'megamenu'
+    ]
+    %}
+    {%
+      set link_classes_first_level = [
+      'nav-link',
+      item.is_expanded ? 'dropdown-toggle',
+      item.is_collapsed ? 'collapsed',
+      item.in_active_trail ? 'active',
+    ]
+    %}
+    <li{{ item.attributes.addClass(list_classes_first_level) }}>
+      <a
+        class="{{ link_classes_first_level|join(' ') }}"
+        {{ item.is_expanded ? 'data-toggle="dropdown" aria-expandend="false"' : '' }}
+        href="{{ item.url }}"
+      >
+        <span>{{ item.title }}</span>
+        {% if item.is_expanded %}
+          {{ macros.icon('it-expand', '/' ~ directory ) }}
+        {% endif %}
+      </a>
+
+      {# Second level #}
+      {% if item.below %}
+        <div class="dropdown-menu">
+          {% if megamenu == false %}
+            <div class="link-list-wrapper">
+              <ul class="link-list">
+                {%
+                  set list_classes_second_level = [
+                  item.is_expanded ? 'expanded',
+                  item.is_collapsed ? 'collapsed',
+                  item.in_active_trail ? 'active',
+                  item.below ? 'dropdown'
+                ]
+                %}
+                {%
+                  set link_classes_second_level = [
+                  'list-item',
+                  item.is_expanded ? 'dropdown-toggle',
+                  item.is_collapsed ? 'collapsed',
+                  item.in_active_trail ? 'active',
+                ]
+                %}
+                {% for item_second in item.below %}
+                  <li{{ item_second.attributes.addClass(list_classes_second_level) }}>
+                    {% if item_second.title == '<divider>' %}
+                      <span class="divider"></span>
+                    {% else %}
+                      <a
+                        class="{{ link_classes_second_level|join(' ') }}"
+                        href="{{ item_second.url }}"
+                      >
+                        <span>{{ item_second.title }}</span>
+                        {% if item_second.is_expanded %}
+                          {{ macros.icon('it-expand', '/' ~ directory ) }}
+                        {% endif %}
+                      </a>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% else %} {# end no megamenu #}
+            <div class="row">
+              {% for m_items in item.below %}
+                <div class="col-xs-12 col-lg">
+                  <div class="link-list-wrapper">
+                    <ul class="link-list">
+                      {%
+                        set list_classes_second_level = [
+                        m_items.is_expanded ? 'expanded',
+                        m_items.is_collapsed ? 'collapsed',
+                        m_items.in_active_trail ? 'active',
+                        m_items.below ? 'dropdown'
+                      ]
+                      %}
+                      {%
+                        set link_classes_second_level = [
+                        'list-item',
+                        m_items.is_expanded ? 'expanded',
+                        m_items.is_collapsed ? 'collapsed',
+                        m_items.in_active_trail ? 'active',
+                      ]
+                      %}
+                      {% if m_items.title != '<hide>' %}
+                        <li>
+                          <h3 class="no_toc">
+                            <a
+                              class="{{ link_classes_second_level|join(' ') }} pl-0"
+                              {{ m_items.attributes }}
+                              href="{{ m_items.url }}"
+                            >
+                              <span>{{ m_items.title }}</span>
+                            </a>
+                          </h3>
+                        </li>
+                      {% endif %} {# end title #}
+                      {% for item_second in m_items.below %}
+                        <li{{ item_second.attributes.addClass(list_classes_second_level) }}>
+                          {% if item_second.title == '<divider>' %}
+                            <span class="divider"></span>
+                          {% else %}
+                            <a
+                              class="{{ link_classes_second_level|join(' ') }}"
+                              {{ item_second.attributes }}
+                              href="{{ item_second.url }}"
+                            >
+                              <span>{{ item_second.title }}</span>
+                              {% if item_second.is_expanded %}
+                                {{ macros.icon('it-expand', '/' ~ directory ) }}
+                              {% endif %}
+                            </a>
+                          {% endif %}
+                        </li>
+                      {% endfor %} {# end megamenu items #}
+                    </ul>
+                  </div>
+                </div>
+              {% endfor %} {# end megamenu for #}
+            </div>
+          {% endif %} {# end if megamenu #}
+        </div>
+      {% endif %} {# end second_level #}
+    </li>
+  {% endfor %} {# end main for #}
+</ul>
 {#
-  We call a macro which calls itself to render the full tree.
-  @see https://twig.symfony.com/doc/1.x/tags/macro.html
-#}
-{{ menus.menu_links(items, attributes, 0, theme_path) }}
-
 {% macro menu_links(items, attributes, menu_level, theme_path) %}
   {% import _self as menus %}
   {% if items %}
@@ -81,3 +222,4 @@
     </ul>
   {% endif %}
 {% endmacro %}
+#}
