@@ -20,17 +20,34 @@ screenshot: screenshot.png
 
 regions:
   page_top: Page top
+
+  # Header
   header_slim_ente: "Slim header: ente di appartenenza"
   header_slim_menu: "Slim header: menu"
   header_slim_lingua: "Slim header: lingua"
   header_slim_action: "Slim header: action"
-  header_centrale_brand: "Header centrale: branding"
+  brand: "Brand region"
   header_centrale_social: "Header centrale: social network"
   header_centrale_search: "Header centrale: motore di ricerca"
   header_nav: "Header Nav: menu navigazione"
+
   content: Content
+
+  # Footer
+  footer_top_first: "Footer top: first block"
+  footer_top_second: "Footer top: second block"
+  footer_top_third: "Footer top: third block"
+  footer_top_fourth: "Footer top: fourth block"
+
+  footer_center_first: "Footer center: first block"
+  footer_center_second: "Footer center: second block"
+  footer_center_third: "Footer center: third block"
+  footer_center_fourth: "Footer center: fourth block"
+
+  footer_bottom_first: "Footer bottom: first block"
+  footer_bottom_second: "Footer bottom: second block"
+
   page_bottom: Page bottom
-  footer: Footer
 
 # features:
 # stylesheets-remove:
