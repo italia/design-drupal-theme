@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see https://twig.symfony.com/doc/1.x/tags/macro.html
+#}
+<div class="row">
+  {% for item in items %}
+    <div class="col-lg3 col-md-3 col-sm-6 pb-2">
+      <h4>{{ link(item.title, item.url) }}</h4>
+      <div class="link-list-wrapper">
+        {% if item.below %}
+        <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
+          {% for item_second in item.below %}
+            <li{{ item_second.attributes }}>
+              {{ link(item_second.title, item_second.url) }}
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>

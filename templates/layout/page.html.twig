@@ -34,8 +34,8 @@
  */
 #}
 {% import '@bootstrap_italia/macros.twig' as macros %}
-{% include '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
-
-{{ page.content }}
-
-{% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
+<div id="page-default">
+  {% include '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
+  {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
+  {% include '@bootstrap_italia/layout/footer/_partial.footer.html.twig' %}
+</div>
