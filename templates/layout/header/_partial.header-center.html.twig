@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-12">
         <div class="it-header-center-content-wrapper">
-          <div class="it-brand-wrapper">
-            {% if page.brand %}
+          {% if page.brand %}
+            <div class="it-brand-wrapper">
               {{ page.brand }}
-            {% endif %}
-          </div>
+            </div>
+          {% endif %}
           <div class="it-right-zone">
             <div class="it-socials d-none d-md-flex">
               <span>Seguici su</span>
