@@ -18,22 +18,13 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-<div class="row">
-  {% set col = items|length > 4 ? 3 : 12 / items|length %}
+<h3 class="sr-only">{{ 'Useful links section'|trans }}</h3>
+<ul{{ attributes.addClass(
+  ['it-footer-small-prints-list','list-inline','mb-0','d-flex','flex-column','flex-md-row']
+) }}>
   {% for item in items %}
-    <div class="col-lg-{{ col }} col-md-{{ col }} col-sm-6 pb-2">
-      <h4>{{ link(item.title, item.url) }}</h4>
-      <div class="link-list-wrapper">
-        {% if item.below %}
-        <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
-          {% for item_second in item.below %}
-            <li{{ item_second.attributes }}>
-              {{ link(item_second.title, item_second.url) }}
-            </li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-    </div>
+    <li{{ item.attributes.addClass(['list-inline-item']) }}>
+      {{ link(item.title, item.url) }}
+    </li>
   {% endfor %}
-</div>
+</ul>

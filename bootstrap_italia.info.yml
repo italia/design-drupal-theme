@@ -21,8 +21,9 @@ screenshot: screenshot.png
 regions:
   page_top: Page top
 
+  disabled_blocks: "Disabled blocks"
+
   # Header
-  header_slim_ente: "Slim header: ente di appartenenza"
   header_slim_menu: "Slim header: menu"
   header_slim_lingua: "Slim header: lingua"
   header_slim_action: "Slim header: action"
@@ -40,7 +41,7 @@ regions:
   footer_third: "Footer third block"
   footer_fourth: "Footer fourth block"
 
-  footer_legal: "Footer legal info block"
+  footer_small_prints: "Footer small prints block"
   footer_credits: "Footer credits block"
 
   page_bottom: Page bottom

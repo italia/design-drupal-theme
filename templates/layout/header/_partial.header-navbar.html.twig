@@ -2,23 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <!--start nav-->
-        <nav class="navbar navbar-expand-lg has-megamenu">
-          <button class="custom-navbar-toggler" type="button" aria-controls="nav02" aria-expanded="false" aria-label="Toggle navigation" data-target="#nav02">
-            {{ macros.icon('it-burger',base_path ~ directory) }}
-          </button>
-          <div class="navbar-collapsable" id="nav02" style="display: none;">
-            <div class="overlay" style="display: none;"></div>
-            <div class="close-div sr-only">
-              <button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
-            </div>
-            <div class="menu-wrapper">
-              {% if page.header_nav %}
-                {{ page.header_nav }}
-              {% endif %}
-            </div>
-          </div>
-        </nav>
+        {% if page.header_nav %}
+          {{ page.header_nav }}
+        {% endif %}
       </div>
     </div>
   </div>

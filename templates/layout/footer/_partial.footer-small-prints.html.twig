@@ -1,0 +1,20 @@
+ {% if page.footer_small_prints or page.footer_credits %}
+   {%
+    set region1_classes = page.footer_small_prints and page.footer_credits ? 'col-lg-9 col-md-7' : 'col'
+   %}
+   {%
+     set region2_classes = page.footer_small_prints and page.footer_credits ? 'col-lg-3 col-md-5' : 'col'
+   %}
+  <div class="row">
+    {% if page.footer_small_prints %}
+      <div class="{{ region1_classes }}">
+        {{ page.footer_small_prints }}
+      </div>
+    {% endif %}
+    {% if page.footer_credits %}
+      <div class="{{ region2_classes }}">
+        {{ page.footer_credits }}
+      </div>
+    {% endif %}
+  </div>
+ {% endif %}

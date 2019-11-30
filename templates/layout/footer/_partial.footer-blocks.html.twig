@@ -15,36 +15,10 @@
         {{ page.footer_third }}
       </div>
     {% endif %}
-    <div class="col-lg-3 col-md-3 pb-2">
-      <h4>
-        <a href="#" title="Vai alla pagina: Seguici su">Seguici su</a>
-      </h4>
-      <ul class="list-inline text-left social">
-        <li class="list-inline-item">
-          <a class="p-2 text-white" href="#" target="_blank">
-            {{ macros.icon('it-designers-italia',base_path ~ directory) }}
-            <span class="sr-only">Designers Italia</span></a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a class="p-2 text-white" href="#" target="_blank">
-            {{ macros.icon('it-twitter',base_path ~ directory) }}
-            <span class="sr-only">Twitter</span></a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a class="p-2 text-white" href="#" target="_blank">
-            {{ macros.icon('it-medium',base_path ~ directory) }}
-            <span class="sr-only">Medium</span></a
-          >
-        </li>
-        <li class="list-inline-item">
-          <a class="p-2 text-white" href="#" target="_blank">
-            {{ macros.icon('it-behance',base_path ~ directory) }}
-            <span class="sr-only">Behance</span></a
-          >
-        </li>
-      </ul>
-    </div>
+    {% if page.footer_fourth %}
+      <div class="col-lg-3 col-md-3 pb-2">
+        {{ page.footer_fourth }}
+      </div>
+    {% endif %}
   </div>
 </section>
