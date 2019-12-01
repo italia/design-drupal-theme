@@ -57,7 +57,7 @@
       >
         <span>{{ item.title }}</span>
         {% if item.is_expanded %}
-          {{ macros.icon('it-expand', '/' ~ directory ) }}
+          {{ macros.icon('it-expand', base_path ~ directory ) }}
         {% endif %}
       </a>
 
@@ -94,7 +94,7 @@
                       >
                         <span>{{ item_second.title }}</span>
                         {% if item_second.is_expanded %}
-                          {{ macros.icon('it-expand', '/' ~ directory ) }}
+                          {{ macros.icon('it-expand', base_path ~ directory ) }}
                         {% endif %}
                       </a>
                     {% endif %}
@@ -148,9 +148,6 @@
                               href="{{ item_second.url }}"
                             >
                               <span>{{ item_second.title }}</span>
-                              {% if item_second.is_expanded %}
-                                {{ macros.icon('it-expand', '/' ~ directory ) }}
-                              {% endif %}
                             </a>
                           {% endif %}
                         </li>

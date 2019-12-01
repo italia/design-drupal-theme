@@ -13,5 +13,10 @@
  */
 #}
 {% if content %}
-  {{ content }}
+  <div{{ attributes
+          .setAttribute('id','it-region-'~region|clean_id)
+          .setAttribute('class','region '~region)
+  }}>
+    {{ content }}
+  </div>
 {% endif %}

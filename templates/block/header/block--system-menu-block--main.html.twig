@@ -40,7 +40,7 @@
   {{ attributes.addClass(['navbar','navbar-expand-lg','has-megamenu'])|without('role', 'aria-labelledby') }}
 >
   <button class="custom-navbar-toggler" type="button" aria-controls="{{ heading_id }}" aria-expanded="false" aria-label="Toggle navigation" data-target="#{{ heading_id }}">
-    {{ macros.icon('it-burger',base_path ~ directory) }}
+    {{ macros.icon('it-burger', base_path ~ directory) }}
   </button>
   <div class="navbar-collapsable" id="{{ heading_id }}" style="display: none;">
     <div class="overlay" style="display: none;"></div>
