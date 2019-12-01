@@ -28,8 +28,8 @@ regions:
   header_slim_lingua: "Slim header: lingua"
   header_slim_action: "Slim header: action"
   brand: "Brand region"
-  header_centrale_social: "Header centrale: social network"
-  header_centrale_search: "Header centrale: motore di ricerca"
+  header_center_social: "Header centrale: social network"
+  header_center_search: "Header centrale: motore di ricerca"
   header_nav: "Header Nav: menu navigazione"
 
   content: Content
