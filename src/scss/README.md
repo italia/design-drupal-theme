@@ -9,11 +9,14 @@ Per fix, drupal o bootstrap, modifica il file "_fix.scss"
 
 # Aggiungere stile custom
 Ad esempio, per aggiungere lo stile di una vista si procede nel seguente modo:
-1 aggiungere dentro la cartella "views" un file denominato "_id-vista.scss" con il seguente codice
+
+1. aggiungere dentro la cartella "views" un file denominato "_id-vista.scss" con il seguente codice
+
 
         #id-vista { ... }
 
-2 aggiungere il seguente codice dentro "views/_views.scss"
+2. aggiungere il seguente codice dentro "views/_views.scss"
+
 
         @import "id-vista"
 
