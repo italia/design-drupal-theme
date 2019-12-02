@@ -1,0 +1,32 @@
+/**
+ * Drupal Fix
+ */
+// Fix drupal toolbar
+#toolbar-administration.toolbar,
+#toolbar-administration.toolbar::before {
+  height: 0;
+}
+
+/*
+ * Bootstrap Italia Fix
+ */
+// Fix header logo
+.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
+  width: 100px;
+}
+
+// Fix slim header button a
+.it-header-slim-wrapper {
+  .it-header-slim-wrapper-content {
+    .it-header-slim-right-zone {
+      div.it-access-top-wrapper > a {
+        background: $header-slim-button-color;
+        padding-top: $header-slim-button-v-padding;
+        padding-bottom: $header-slim-button-v-padding;
+        &:hover {
+          background: $header-slim-button-hover-color;
+        }
+      }
+    }
+  }
+}

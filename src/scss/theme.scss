@@ -1,10 +1,18 @@
-// Fix drupal toolbar
-#toolbar-administration.toolbar,
-#toolbar-administration.toolbar::before {
-  height: 0;
-}
+@import "variables";
+@import '../../node_modules/bootstrap-italia/src/scss/bootstrap-italia.scss';
 
-// Fix header logo
-.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
-  width: 100px;
-}
+@import "fix";
+@import "functions";
+
+@import "admin/admin";
+@import "block/block";
+@import "content/content";
+@import "content-edit/content-edit";
+@import "dataset/dataset";
+@import "field/field";
+@import "form/form";
+@import "layout/layout";
+@import "misc/misc";
+@import "navigation/navigation";
+@import "user/user";
+@import "views/views";

@@ -1,4 +1,4 @@
-import '../../node_modules/bootstrap-italia/src/scss/bootstrap-italia.scss';
+import '../scss/theme.scss';
 
 // For jquery: see 'bootstrap_italia.libraries.yml'
 //import '../../node_modules/jquery/dist/jquery.js';
@@ -45,5 +45,3 @@ import '../../node_modules/bootstrap-italia/src/js/plugins/rating.js';
 import '../../node_modules/bootstrap-italia/src/js/plugins/dimmer.js';
 
 import './custom/example.js';
-
-import '../scss/theme.scss';
