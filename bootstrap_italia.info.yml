@@ -46,6 +46,9 @@ regions:
 
   page_bottom: Page bottom
 
+# see https://www.drupal.org/project/drupal/issues/474684
+# dependencies:
+
 # features:
 # stylesheets-remove:
 # ckeditor_stylesheets:

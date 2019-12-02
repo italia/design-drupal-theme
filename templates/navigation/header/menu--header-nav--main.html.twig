@@ -19,7 +19,6 @@
  */
 #}
 {% import '@bootstrap_italia/macros.twig' as macros %}
-{# { kint(items) } #}
 
 {# First level #}
 <ul{{ attributes.addClass('navbar-nav')}}>
@@ -57,7 +56,7 @@
       >
         <span>{{ item.title }}</span>
         {% if item.is_expanded %}
-          {{ macros.icon('it-expand', base_path ~ directory ) }}
+          {{ macros.icon('it-expand', base_path ~ '/' ~ directory ) }}
         {% endif %}
       </a>
 
@@ -94,7 +93,7 @@
                       >
                         <span>{{ item_second.title }}</span>
                         {% if item_second.is_expanded %}
-                          {{ macros.icon('it-expand', base_path ~ directory ) }}
+                          {{ macros.icon('it-expand', base_path ~ '/' ~ directory ) }}
                         {% endif %}
                       </a>
                     {% endif %}

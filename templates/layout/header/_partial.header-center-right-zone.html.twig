@@ -8,9 +8,7 @@
     <div class="it-search-wrapper">
       <span class="d-none d-md-block">Cerca</span>
       <a class="search-link rounded-icon" aria-label="Cerca" href="#" data-target="#search-modal" data-toggle="modal">
-        <svg class="icon">
-          <use xlink:href="{{ base_path ~ directory }}/assets/icons/sprite.svg#it-search"></use>
-        </svg>
+        {{ macros.icon('it-search', base_path ~ directory) }}
       </a>
       <!-- Search Modal -->
       <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
@@ -19,7 +17,7 @@
             <div class="modal-header">
               <h5 class="modal-title">{{ 'Search'|trans }}</h5>
               <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                {{ macros.icon('it-close', base_path ~ directory) }}
+                {{ macros.icon('it-close', base_path ~ '/' ~ directory) }}
               </button>
             </div>
             <div class="modal-body">
