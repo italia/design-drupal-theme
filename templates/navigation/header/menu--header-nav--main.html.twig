@@ -25,7 +25,7 @@
   {% for item in items %}
 
     {# Megamenu check#}
-    {% set megamenu = true %}
+    {% set megamenu = item.below ? true : false %}
     {% for i in item.below %}
       {# Qualsiasi bool moltiplicato per false da come risultato false. #}
       {% set megamenu = i.is_expanded ? megamenu * true : megamenu * false %}
