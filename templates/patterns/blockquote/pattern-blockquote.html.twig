@@ -1,0 +1,19 @@
+{# Prepare attributes #}
+{# Note how we inject a "variant" class to apply syles to variants #}
+{% set classes = [
+  'blockquote',
+  variant ? 'blockquote-' ~ variant,
+  attribution ? 'has-attribution',
+  uri ? 'has-uri'
+] %}
+
+{# Prepare URI #}
+{% if cite %}{% set attributes = attributes.setAttribute('cite', cite|render|trim) %}{% endif %}
+
+{# Render output #}
+<blockquote{{ attributes.addClass(classes) }}>
+  <div class="blockquote__content">{{ content }}</div>
+  {% if attribution %}
+    <footer class="blockquote__attribution">{{ attribution }}</footer>
+  {% endif %}
+</blockquote>

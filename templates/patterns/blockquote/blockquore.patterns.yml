@@ -1,0 +1,77 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+blockquote:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: 'Blockquote'
+  description: A block of text quoted from an external source.
+  variants:
+    default:
+      label: Default
+      description: Default blockquote.
+    highlighted:
+      label: Highlighted
+      description: Highlighted blockquote.
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    content:
+      type: text
+      label: Content
+      description: The body of the quote.
+      preview: 'To be or to not to be... That is the question.'
+    attribution:
+      type: text
+      label: Attribution
+      description: Reference to the original author (optional).
+      preview: 'William Shakespeare'
+    cite:
+      type: uri
+      label: Citation
+      description: URL where the original text can be found (optional).
+      preview: 'https://example.com/'
+  # Optional: Attached libraries.
+  #
+  # You can include libraries defined by other modules / themes with dependencies.
+  #
+  # These libraries are also available for include in theme libraries as
+  # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
+  # irrespective of whether a pattern of that type appears on the page.
+  #   Example: ui_patterns/button.button
+  libraries:
+    -
+      blockquote:
+        css:
+          component:
+            css/blockquote.css: {}
+
+  # Optional: Specify a TWIG template with 'use'.
+  #
+  #   Example:
+  #     use: 'themes/custom/THEME/patterns/blockquote/blockquote.html.twig'
+  #
+  # This usually contains a path relative to the Drupal root. Some documentation
+  # says that a theme-relative path can also be used, but it didn't work for me.
+  #
+  #   Example:
+  #     use: '@oldie/patterns/blockquote/blockquote.html.twig' (didn't work)
+  #
+  # Alternatively, you can use the 'components' module to have better-looking
+  # and flexible paths.
+  #
+  #   Examples:
+  #     use: '@patterns/blockquote/blockquote.html.twig'
+  #     use: '@blockquote/blockquote.html.twig'
+  #
+  # Not defining 'use' makes the UI Patterns module look for a template with
+  # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
+  #
+  #   Example: pattern-blockquote.html.twig
