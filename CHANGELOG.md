@@ -8,4 +8,5 @@ New
  - Add table template
  - Add ui_patterns module
  - Add blockquote pattern
- - Form: input, form-element
+ - Form: input, form-element, textarea
+ - Add breadcrumb template
