@@ -76,7 +76,8 @@ $(function() {
     })
 
   const updateTextFields = $input => {
-    const $labelAndIcon = $input.siblings('label, i')
+    //const $labelAndIcon = $input.siblings('label, i')
+    const $labelAndIcon = $("label[for='" + $input.attr('id') + "']")
     const hasValue = $input.val().length
     const hasPlaceholder = !!$input.attr('placeholder')
     if (hasValue || hasPlaceholder) {
@@ -114,14 +115,16 @@ $(function() {
         const hasDefaultValue = !!$this.val()
         const hasPlaceholder = !!$this.attr('placeholder')
         if (hasDefaultValue || hasPlaceholder) {
-          $this
-            .siblings('label, i')
+          $("label[for='" + $this.attr('id') + "']")
+          //$this
+            //.siblings('label, i')
             .css('transition', 'none')
             .addClass('active')
         }
 
         if (!hasDefaultValue && !hasPlaceholder) {
-          $this.siblings('label, i').removeClass('active')
+          //$this.siblings('label, i').removeClass('active')
+          $("label[for='" + $this.attr('id') + "']").removeClass('active')
           handleLabelWidth($this)
         }
       })
