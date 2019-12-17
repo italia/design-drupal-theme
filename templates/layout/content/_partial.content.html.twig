@@ -1,6 +1,36 @@
  {% block main %}
   <main>
     <div role="main" class="container main-container js-quickedit-main-content">
+      {% if page.title %}
+        <div class="it-page-title-wrapper">
+          {{ page.title }}
+        </div>
+      {% endif %}
+
+      {% if page.breadcrumb %}
+        <div class="it-breadcrumb-wrapper">
+          {{ page.breadcrumb }}
+        </div>
+      {% endif %}
+
+      {% if page.local_tasks %}
+        <div class="it-local-tasks-wrapper">
+          {{ page.local_tasks }}
+        </div>
+      {% endif %}
+
+      {% if page.help %}
+        <div class="it-help-wrapper">
+          {{ page.help }}
+        </div>
+      {% endif %}
+
+      {% if page.notification %}
+        <div class="it-notification-wrapper">
+          {{ page.notification }}
+        </div>
+      {% endif %}
+
       {{ page.content }}
     </div>
   </main>

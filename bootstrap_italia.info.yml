@@ -18,9 +18,9 @@ logo: logo.svg
 screenshot: screenshot.png
 
 regions:
-  page_top: Page top
+  page_top: "Page top"
 
-  disabled_blocks: "Disabled blocks"
+  disabled_blocks: "Blocchi disattivati"
 
   # Header
   header_slim_menu: "Slim header: menu"
@@ -31,6 +31,12 @@ regions:
   header_center_search: "Header centrale: motore di ricerca"
   header_nav: "Header Nav: menu navigazione"
 
+  # Content
+  title: "Titolo della pagina"
+  breadcrumb: "Breadcrumb"
+  local_tasks: "Schede e menu di amministrazione"
+  help: "Help"
+  notification: "Area notifiche"
   content: Content
 
   # Footer

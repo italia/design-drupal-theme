@@ -10,3 +10,9 @@ New
  - Add blockquote pattern
  - Form: input, form-element, textarea
  - Add breadcrumb template
+ - Add local tasks nav tabs template
+ - Add content region
+ - Add user login template
+ - Add checkbox template
+ - Add radio template
+ - Add select template

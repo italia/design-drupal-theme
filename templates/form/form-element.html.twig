@@ -49,6 +49,8 @@
     'js-form-item',
     'form-item',
     'form-group',
+    type == 'checkbox' or 'radio' ? 'form-check',
+    type == 'select' ? 'bootstrap-select-wrapper',
     'js-form-type-' ~ type|clean_class,
     'form-item-' ~ name|clean_class,
     'js-form-item-' ~ name|clean_class,
