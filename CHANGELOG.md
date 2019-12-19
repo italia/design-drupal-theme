@@ -16,3 +16,6 @@ New
  - Add checkbox template
  - Add radio template
  - Add select template
+ - Add components module
+ - #3099937 by arturopanetta: Save and Preview buttons looks untidy on the node pages
+ - Add ckeditor stylesheets

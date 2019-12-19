@@ -18,7 +18,7 @@
 ] %}
 
 {% if tag == 'input' %}
-  <input{{ attributes.assClass(classes) }} />
+  <input{{ attributes.addClass(classes) }} />
 {% else %}
   <{{ tag }}>{{ value }}</{{ tag }}>
 {% endif %}
