@@ -1,11 +1,6 @@
  {% block main %}
   <main>
     <div role="main" class="container main-container js-quickedit-main-content">
-      {% if page.title %}
-        <div class="it-page-title-wrapper">
-          {{ page.title }}
-        </div>
-      {% endif %}
 
       {% if page.breadcrumb %}
         <div class="it-breadcrumb-wrapper">
@@ -13,8 +8,14 @@
         </div>
       {% endif %}
 
+      {% if page.title %}
+        <div class="it-page-title-wrapper">
+          {{ page.title }}
+        </div>
+      {% endif %}
+
       {% if page.local_tasks %}
-        <div class="it-local-tasks-wrapper">
+        <div class="it-local-tasks-wrapper mb-5">
           {{ page.local_tasks }}
         </div>
       {% endif %}

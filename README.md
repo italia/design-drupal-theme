@@ -19,3 +19,7 @@ A Drupal theme which implements the Italia Design System
 or
 
     $ npm run build:dev
+
+# Webform integration
+    $ composer require drupal/webform
+    $ drush pm:enable inline_form_errors webform webform_attachment webform_bootstrap webform_image_select

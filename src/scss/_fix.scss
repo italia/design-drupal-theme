@@ -16,6 +16,7 @@
 }
 
 // Fix slim header button a
+// https://github.com/italia/bootstrap-italia/pull/417
 .it-header-slim-wrapper {
   .it-header-slim-wrapper-content {
     .it-header-slim-right-zone {
@@ -29,4 +30,9 @@
       }
     }
   }
+}
+
+// Fix autocomplete circle icon
+.form-control {
+  background-size: 18px 30% !important;
 }

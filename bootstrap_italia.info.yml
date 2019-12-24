@@ -8,7 +8,9 @@ core: 8.x
 libraries:
   - bootstrap_italia/global
 
-# libraries-override:
+libraries-override:
+  seven/glbal-styling: false
+
 # libraries-extend
 # hidden: true
 
@@ -55,7 +57,10 @@ regions:
 # dependencies:
 
 # features:
-# stylesheets-remove:
+stylesheets-remove:
+  - system.theme.css
+  - system.menus.css
+  - system.admin.css
 
 ckeditor_stylesheets:
   - assets/css/main.css
