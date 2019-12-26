@@ -33,7 +33,15 @@
     <js-placeholder token="{{ placeholder_token|raw }}">
     <script>window.__PUBLIC_PATH__ = '{{ base_path ~ "/" ~directory }}/assets/fonts'</script>
   </head>
-  <body{{ attributes }}>
+  {%
+    set classes = [
+      logged_in ? 'user-logged-in' : 'user-anonymous',
+      not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+      node_type ? 'page-node-type' ~ node_type|clean_class,
+      db_offline ? 'db-offline'
+    ]
+  %}
+  <body{{ attributes.addClass(classes) }}>
     {#
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.

@@ -7,6 +7,18 @@
   height: 0;
 }
 
+// Fix autocomplete circle icon
+.form-control {
+  background-size: 18px 30% !important;
+}
+
+/*
+ * Bootstrap 4 Fix
+ */
+.form-text {
+  margin-top: 0;
+}
+
 /*
  * Bootstrap Italia Fix
  */
@@ -30,9 +42,4 @@
       }
     }
   }
-}
-
-// Fix autocomplete circle icon
-.form-control {
-  background-size: 18px 30% !important;
 }

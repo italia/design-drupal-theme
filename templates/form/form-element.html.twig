@@ -48,8 +48,9 @@
   set classes = [
     'js-form-item',
     'form-item',
-    'form-group',
-    type == 'checkbox' or 'radio' ? 'form-check',
+    type != 'checkbox' and type != 'radio' and type != 'select' ? 'form-group',
+    type == 'checkbox' ? 'form-check',
+    type == 'radio' ? 'form-check',
     type == 'select' ? 'bootstrap-select-wrapper',
     'js-form-type-' ~ type|clean_class,
     'form-item-' ~ name|clean_class,
@@ -85,8 +86,12 @@
     {{ label }}
   {% endif %}
   {% if errors %}
-    <div class="form-item--error-message">
+    <div class="form-item--error-message invalid-feedback">
       {{ errors }}
+    </div>
+    {% else %}
+    <div class="valid-feedback">
+      {{ 'Validato!'|trans }}
     </div>
   {% endif %}
   {% if description_display in ['after', 'invisible'] and description.content %}

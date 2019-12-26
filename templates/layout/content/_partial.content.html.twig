@@ -1,38 +1,43 @@
  {% block main %}
   <main>
     <div role="main" class="container main-container js-quickedit-main-content">
+      <div class="row">
+        <div class="col">
+          {% if page.breadcrumb %}
+            <div class="it-breadcrumb-wrapper">
+              {{ page.breadcrumb }}
+            </div>
+          {% endif %}
 
-      {% if page.breadcrumb %}
-        <div class="it-breadcrumb-wrapper">
-          {{ page.breadcrumb }}
-        </div>
-      {% endif %}
+          {% if page.title %}
+            <div class="it-page-title-wrapper">
+              {{ page.title }}
+            </div>
+          {% endif %}
 
-      {% if page.title %}
-        <div class="it-page-title-wrapper">
-          {{ page.title }}
-        </div>
-      {% endif %}
+          {% if page.local_tasks %}
+            <div class="it-local-tasks-wrapper mb-5">
+              {{ page.local_tasks }}
+            </div>
+          {% endif %}
 
-      {% if page.local_tasks %}
-        <div class="it-local-tasks-wrapper mb-5">
-          {{ page.local_tasks }}
-        </div>
-      {% endif %}
+          {% if page.help %}
+            <div class="it-help-wrapper">
+              {{ page.help }}
+            </div>
+          {% endif %}
 
-      {% if page.help %}
-        <div class="it-help-wrapper">
-          {{ page.help }}
-        </div>
-      {% endif %}
+          {% if page.notification %}
+            <div class="it-notification-wrapper">
+              {{ page.notification }}
+            </div>
+          {% endif %}
 
-      {% if page.notification %}
-        <div class="it-notification-wrapper">
-          {{ page.notification }}
-        </div>
-      {% endif %}
-
-      {{ page.content }}
-    </div>
+          <div class="it-content-wrapper mt-5">
+            {{ page.content }}
+          </div>
+        </div> {# End col #}
+      </div> {# End row #}
+    </div> {# End container #}
   </main>
  {% endblock %}

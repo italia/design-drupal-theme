@@ -1,4 +1,13 @@
-Summary: 8.x-0.4
+# Summary: 8.x-0.5
+
+- Disable webform_bootstrap and webform_template module
+- Enable inline_form_errors core module
+- Fix margin-top on 'form-text' bootstrap 4
+- Add form validation and feedback message
+- Layout Login form, register e recovery password
+- Add body classes
+
+# Summary: 8.x-0.4
 
 Bug
  - #3100956 by arturopanetta: In the mobile breakpoint, the expansion icon is not displayed under "Ente di appartenenza"
