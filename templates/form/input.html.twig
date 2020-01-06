@@ -10,4 +10,10 @@
  * @see template_preprocess_input()
  */
 #}
-<input{{ attributes.addClass('form-control') }} />{{ children }}
+{%
+  set classes = [
+    attributes.hasClass('form-control-plaintext') ? '' : 'form-control',
+    attributes.type == 'password' ? 'input-password'
+  ]
+%}
+<input{{ attributes.addClass(classes) }} />{{ children }}

@@ -43,3 +43,8 @@
     }
   }
 }
+
+// Fix form description
+.form-group small.form-text {
+  position: relative;
+}

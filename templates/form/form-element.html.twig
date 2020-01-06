@@ -44,6 +44,7 @@
  * @see template_preprocess_form_element()
  */
 #}
+{% import '@bootstrap_italia/macros.twig' as macros %}
 {%
   set classes = [
     'js-form-item',
@@ -64,6 +65,8 @@
   set description_classes = [
     'description',
     description_display == 'invisible' ? 'visually-hidden',
+    'form-text',
+    'text-muted'
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
@@ -79,6 +82,9 @@
     </small>
   {% endif %}
   {{ children }}
+  {% if type == 'password' %}
+    {{ macros.password_icon(base_path ~ '/' ~ directory) }}
+  {% endif %}
   {% if suffix is not empty %}
     <span class="field-suffix">{{ suffix }}</span>
   {% endif %}
@@ -91,7 +97,7 @@
     </div>
     {% else %}
     <div class="valid-feedback">
-      {{ 'Validato!'|trans }}
+      {{ 'Compilato!'|trans }}
     </div>
   {% endif %}
   {% if description_display in ['after', 'invisible'] and description.content %}
