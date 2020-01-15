@@ -27,23 +27,6 @@
   width: 100px;
 }
 
-// Fix slim header button a
-// https://github.com/italia/bootstrap-italia/pull/417
-.it-header-slim-wrapper {
-  .it-header-slim-wrapper-content {
-    .it-header-slim-right-zone {
-      div.it-access-top-wrapper > a {
-        background: $header-slim-button-color;
-        padding-top: $header-slim-button-v-padding;
-        padding-bottom: $header-slim-button-v-padding;
-        &:hover {
-          background: $header-slim-button-hover-color;
-        }
-      }
-    }
-  }
-}
-
 // Fix form description
 .form-group small.form-text {
   position: relative;

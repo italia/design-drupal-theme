@@ -3,6 +3,8 @@
 - Add class 'form-text' and 'text-muted' to form description
 - Icon show/hide password field
 - Webform: support for 'form-control-plaintext' class
+- Update dependencies: bootstrap_italia 1.3.8 -> 1.3.9
+- Remove fix https://github.com/italia/bootstrap-italia/pull/417
 
 # Summary 8.x-0.5
 
