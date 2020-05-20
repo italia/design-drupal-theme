@@ -1,6 +1,8 @@
 # Summary 8.x-0.7
 
-- Update dependencies: bootstrap_italia 1.3.9 -> 1.3.10 
+- Update dependencies: bootstrap_italia 1.3.9 -> 1.3.10
+- Sub-theme skeleton
+- I have moved the components folder from templates to src
 
 # Summary 8.x-0.6
 

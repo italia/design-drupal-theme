@@ -68,4 +68,4 @@ ckeditor_stylesheets:
 component-libraries:
   bootstrap_italia_components:
     paths:
-      ./templates/components
+      ./src/components
