@@ -1,6 +1,6 @@
 # Summary 8.x-0.7
 
-- Update dependencies: bootstrap_italia 1.3.9 -> 1.3.10
+- Update dependencies: bootstrap_italia 1.3.9 -> 1.3.10 
 
 # Summary 8.x-0.6
 
