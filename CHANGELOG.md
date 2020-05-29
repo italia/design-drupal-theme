@@ -3,6 +3,7 @@
 - Update dependencies: bootstrap_italia 1.3.9 -> 1.3.10
 - Sub-theme skeleton
 - I have moved the components folder from templates to src
+- Fix mistake in info.yml line 12
 
 # Summary 8.x-0.6
 

@@ -9,7 +9,7 @@ libraries:
   - bootstrap_italia/global
 
 libraries-override:
-  seven/glbal-styling: false
+  seven/global-styling: false
 
 # libraries-extend
 # hidden: true
