@@ -4,6 +4,7 @@
 - Sub-theme skeleton
 - I have moved the components folder from templates to src
 - Fix mistake in info.yml line 12
+- Issue #3143842 by karishmaamin: Property 'base theme' needs to be set
 
 # Summary 8.x-0.6
 
