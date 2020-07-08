@@ -50,7 +50,8 @@ module.exports = {
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css'
     }),
-    new CopyPlugin([
+    new CopyPlugin({
+      patterns:[
       {
         from: './node_modules//bootstrap-italia/dist/svg/sprite.svg',
         to: 'icons/',
@@ -67,7 +68,8 @@ module.exports = {
         from: './node_modules/bootstrap-italia/src/fonts/',
         to: 'fonts/'
       },
-    ]),
+    ]
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'

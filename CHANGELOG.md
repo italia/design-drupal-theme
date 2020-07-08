@@ -1,3 +1,7 @@
+# Summary 8.x-0.9
+- Update webpack dependencies and webpack configuration
+- Update bootstrap_italia 1.3.10 -> 1.4.0
+
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x
 
