@@ -10,10 +10,23 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, \Drupal\Core\
     return;
   }
 
-  $form['ente_appartenenza'] = array(
-    '#type'           => 'textfield',
-    '#title'          => t('Ente di appartenenza'),
-    '#default_value'  => theme_get_setting('ente_appartenenza'),
-    '#description'    => t('Inserisci l\'ente di appartenenza'),
-  );
+  // Header settings.
+  $form['header_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Header'),
+    '#description' => t('Impostazioni personalizzabili per l\'intestazione del sito.'),
+    '#open' => TRUE,
+  ];
+  $form['header_settings']['nome_ente_appartenenza'] = [
+    '#type' => 'textfield',
+    '#title' => t('Nome Ente di Appartenenza'),
+    '#description' => t('Qui puoi personalizzare il nome dell\'Ente di Appartenenza.'),
+    '#default_value' => theme_get_setting('header_settings.nome_ente_appartenenza'),
+  ];
+  $form['header_settings']['url_ente_appartenenza'] = [
+    '#type' => 'url',
+    '#title' => t('URL Ente di Appartenenza'),
+    '#description' => t('Inserisci l\'URL per l\'Ente di Appartenenza. Inserisci indirizzo completo come: http://www.example.com.'),
+    '#default_value' => theme_get_setting('header_settings.url_ente_appartenenza'),
+  ];
 }

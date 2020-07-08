@@ -1,1 +1,3 @@
-ente_appartenenza: 'Ente appartenenza / Owner'
+header_settings:
+  nome_ente_appartenenza: 'Ministero Istruzione Università Ricerca'
+  url_ente_appartenenza: 'http://www.miur.gov.it/'
