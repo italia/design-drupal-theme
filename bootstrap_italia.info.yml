@@ -55,7 +55,10 @@ regions:
   page_bottom: Page bottom
 
 # see https://www.drupal.org/project/drupal/issues/474684
-# dependencies:
+dependencies:
+  - drupal:inline_form_errors
+  - drupal:components
+  - drupal:ui_patterns
 
 # features:
 stylesheets-remove:
