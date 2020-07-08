@@ -1,3 +1,6 @@
+# Summary 8.x-0.8
+- Removing compatibility with Core 9.x
+
 # Summary 8.x-0.7
 
 - Update dependencies: bootstrap_italia 1.3.9 -> 1.3.10
