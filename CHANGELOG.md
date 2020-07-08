@@ -8,6 +8,7 @@
 - webpack.config.js fix double slash
 - Issue #3157569 Set NAME and URL for "Ente di Appartenenza"
 - Issue #3146293 Automated Drupal 9 compatibility fixes
+- Core ^8 || ^9
 
 # Summary 8.x-0.6
 
