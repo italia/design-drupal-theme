@@ -1,11 +1,12 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
 /**
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $formState
  * @param null $form_id
  */
-function bootstrap_italia_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface &$formState, $form_id = NULL) {
+function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInterface &$formState, $form_id = NULL) {
   if (isset($form_id)) {
     return;
   }

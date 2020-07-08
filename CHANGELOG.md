@@ -7,6 +7,7 @@
 - Issue #3143842 by karishmaamin: Property 'base theme' needs to be set
 - webpack.config.js fix double slash
 - Issue #3157569 Set NAME and URL for "Ente di Appartenenza"
+- Issue #3146293 Automated Drupal 9 compatibility fixes
 
 # Summary 8.x-0.6
 
