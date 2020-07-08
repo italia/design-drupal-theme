@@ -51,9 +51,9 @@ module.exports = {
       chunkFilename: 'css/[id].css'
     }),
     new CopyPlugin({
-      patterns:[
+    patterns:[
       {
-        from: './node_modules//bootstrap-italia/dist/svg/sprite.svg',
+        from: './node_modules/bootstrap-italia/dist/svg/sprite.svg',
         to: 'icons/',
       },
       {
