@@ -2,6 +2,12 @@
 - Update webpack dependencies and webpack configuration
 - Update bootstrap_italia 1.3.10 -> 1.4.0
 - Added theme dependency declaration
+- Review configuration: webpack.config.js, package.json and composer.json
+- Add drush command skeleton
+
+      $ drush --include="web/themes/contrib/bootstrap_italia" bootstrap_italia:new-sub-theme theme_name
+
+-
 
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x

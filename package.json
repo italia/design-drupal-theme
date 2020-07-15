@@ -1,7 +1,7 @@
 {
   "name": "bootstrap_italia",
   "version": "1.4.0",
-  "description": "'Bootstrap Italia è un tema Bootstrap 4 conforme alle linee guida di design per i servizi web della PA'",
+  "description": "'A Drupal theme which implements the Italia Design System'",
   "main": "src/js/index.js",
   "scripts": {
     "test": "npm run test-htmlprofiler",

@@ -51,24 +51,24 @@ module.exports = {
       chunkFilename: 'css/[id].css'
     }),
     new CopyPlugin({
-    patterns:[
-      {
-        from: './node_modules/bootstrap-italia/dist/svg/sprite.svg',
-        to: 'icons/',
-      },
-      {
-        from: './node_modules/bootstrap-italia/src/assets/resizer-3x2.svg',
-        to: 'icons/'
-      },
-      {
-        from: './node_modules/bootstrap-italia/src/assets/upload-drag-drop-icon.svg',
-        to: 'icons/'
-      },
-      {
-        from: './node_modules/bootstrap-italia/src/fonts/',
-        to: 'fonts/'
-      },
-    ]
+      patterns:[
+        {
+          from: './node_modules/bootstrap-italia/dist/svg/sprite.svg',
+          to: 'icons/',
+        },
+        {
+          from: './node_modules/bootstrap-italia/src/assets/resizer-3x2.svg',
+          to: 'icons/'
+        },
+        {
+          from: './node_modules/bootstrap-italia/src/assets/upload-drag-drop-icon.svg',
+          to: 'icons/'
+        },
+        {
+          from: './node_modules/bootstrap-italia/src/fonts/',
+          to: 'fonts/'
+        },
+      ]
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

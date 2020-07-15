@@ -1,0 +1,38 @@
+{
+    "name": "drupal/bootstrap_italia",
+    "description": "A Drupal theme which implements the Italia Design System",
+    "type": "drupal-theme",
+    "homepage": "https://www.drupal.org/project/bootstrap_italia",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Pietro Arturo Panetta",
+            "email": "arturu@arturu.it",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "drupal/core": "^8.9",
+        "drupal/inline_form_errors": "^8.9",
+        "drupal/components": "^1.1",
+        "drupal/ui_patterns": "^1.1",
+        "drush/drush": "~9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drush\\Commands\\bootstrap_italia\\": "Commands/bootstrap_italia/"
+        }
+    },
+    "support": {
+        "issues": "http://drupal.org/project/issues/bootstrap_italia",
+        "source": "https://git.drupalcode.org/project/bootstrap_italia"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9 || ^10"
+            }
+        }
+    }
+}
