@@ -4,7 +4,7 @@ description: Bootstrap Italia è un tema Bootstrap 4 conforme alle linee guida d
 package: Italia
 core: 8.x
 base theme: stable
-# php: 7.2
+# php: 7.3
 
 libraries:
   - bootstrap_italia/global
