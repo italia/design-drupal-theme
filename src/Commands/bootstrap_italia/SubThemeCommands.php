@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\bootstrap_italia\Commands;
+namespace Drush\Commands\bootstrap_italia;
 
 use Consolidation\OutputFormatters\StructuredData\RowsOfFields;
 use Drush\Commands\DrushCommands;

@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Drupal\\bootstrap_italia\\": "src/"
+            "Drush\\Commands\\bootstrap_italia\\": "src/Commands/bootstrap_italia/"
         }
     },
     "support": {
