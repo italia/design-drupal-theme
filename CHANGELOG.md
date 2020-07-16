@@ -7,7 +7,7 @@
 
       $ drush --include="web/themes/contrib/bootstrap_italia" bootstrap_italia:new-sub-theme theme_name
 
--
+- Drush commands, compatibility with drush 10
 
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x

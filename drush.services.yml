@@ -1,5 +1,5 @@
 services:
-  bootstrap_italia.subtheme.command:
-    class: 'Drush\Commands\bootstrap_italia\SubThemeCommands'
+  bootstrap_italia.commands:
+    class: 'Drupal\bootstrap_italia\Commands\SubThemeCommands'
     tags:
       - { name: drush.command }

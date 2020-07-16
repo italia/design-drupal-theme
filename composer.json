@@ -12,16 +12,16 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.3",
         "drupal/core": "^8.9",
         "drupal/inline_form_errors": "^8.9",
         "drupal/components": "^1.1",
         "drupal/ui_patterns": "^1.1",
-        "drush/drush": "~9.0"
+        "drush/drush": "^10"
     },
     "autoload": {
         "psr-4": {
-            "Drush\\Commands\\bootstrap_italia\\": "Commands/bootstrap_italia/"
+            "Drupal\\bootstrap_italia\\": "src/"
         }
     },
     "support": {
