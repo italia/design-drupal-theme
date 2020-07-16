@@ -1,0 +1,33 @@
+/**
+ * Drupal Fix
+ */
+// Fix drupal toolbar
+#toolbar-administration.toolbar,
+#toolbar-administration.toolbar::before {
+  height: 0;
+}
+
+// Fix autocomplete circle icon
+.form-control {
+  background-size: 18px 30% !important;
+}
+
+/*
+ * Bootstrap 4 Fix
+ */
+.form-text {
+  margin-top: 0;
+}
+
+/*
+ * Bootstrap Italia Fix
+ */
+// Fix header logo
+.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
+  width: 100px;
+}
+
+// Fix form description
+.form-group small.form-text {
+  position: relative;
+}

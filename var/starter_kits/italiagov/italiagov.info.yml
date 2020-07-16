@@ -1,0 +1,73 @@
+name: Bootstrap Italia Gov - Child Theme
+type: theme
+description: Bootstrap Italia è un tema Bootstrap 4 conforme alle linee guida di design per i servizi web della PA
+package: Italia
+core: 8.x
+base theme: bootstrap_italia
+# php: 7.3
+
+libraries:
+  - italiagov/global
+
+libraries-override:
+  seven/global-styling: false
+
+# libraries-extend
+# hidden: true
+
+engine: twig
+
+logo: logo.svg
+screenshot: screenshot.png
+
+regions:
+  page_top: "Page top"
+
+  disabled_blocks: "Blocchi disattivati"
+
+  # Header
+  header_slim_menu: "Slim header: menu"
+  header_slim_lingua: "Slim header: lingua"
+  header_slim_action: "Slim header: action"
+  brand: "Brand region"
+  header_center_social: "Header centrale: social network"
+  header_center_search: "Header centrale: motore di ricerca"
+  header_nav: "Header Nav: menu navigazione"
+
+  # Content
+  title: "Titolo della pagina"
+  breadcrumb: "Breadcrumb"
+  local_tasks: "Schede e menu di amministrazione"
+  help: "Help"
+  notification: "Area notifiche"
+  content: Content
+
+  # Footer
+  footer_menu: "Footer menu"
+  footer_first: "Footer first block"
+  footer_second: "Footer second block"
+  footer_third: "Footer third block"
+  footer_fourth: "Footer fourth block"
+
+  footer_small_prints: "Footer small prints block"
+  footer_credits: "Footer credits block"
+
+  page_bottom: Page bottom
+
+# see https://www.drupal.org/project/drupal/issues/474684
+dependencies:
+  - drupal:bootstrap_italia
+
+# features:
+stylesheets-remove:
+  - system.theme.css
+  - system.menus.css
+  - system.admin.css
+
+ckeditor_stylesheets:
+  - assets/css/main.css
+
+component-libraries:
+  italiagov_components:
+    paths:
+      ./src/components

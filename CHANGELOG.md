@@ -9,6 +9,8 @@
 
 - Drush commands, compatibility with drush 10
 - Remove Drush commands
+- Add sub-theme in /var/starter_kits/italiagov
+- Add ddev start script in /var/bin/start-dev-test.sh for test in docker container
 
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x

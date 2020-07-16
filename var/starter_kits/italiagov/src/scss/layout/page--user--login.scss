@@ -1,0 +1,37 @@
+#page-user-login {
+  background-color: $primary;
+  min-height: 100vh;
+  .main-container {
+
+    #it-region-brand {
+      a {
+        display: flex;
+        text-decoration: none;
+
+        .icon {
+          width: 100px;
+          height: 82px;
+          margin-right: 16px;
+          fill: #ffffff;
+        }
+        h2, h3 {
+          color: #ffffff;
+        }
+        h2 {
+          font-size: 1.778em;
+          margin-bottom: 0;
+          font-weight: 600;
+        }
+        h3 {
+          font-size: .889em;
+          font-weight: normal;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .login-box > div {
+      background-color: #ffffff;
+    }
+  }
+}

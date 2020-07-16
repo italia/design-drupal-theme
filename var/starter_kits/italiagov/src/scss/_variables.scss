@@ -1,0 +1,11 @@
+/* Variables override */
+
+// Test from https://github.com/italia/bootstrap-italia-playground/blob/master/scss/bootstrap-italia-custom.scss
+// Per l'override del colore $primary della palette in formato HSB:
+
+// Per ottenere il colore #FF3333 (https://rgb.to/ff3333)
+// $primary-h:  0;    //<---- decommentare
+// $primary-s:  80;   //<---- decommentare
+// $primary-b:  100;  //<---- decommentare
+// Nota: per convertire il codice esadecimale di un colore formato HSB
+// è possibile utilizzare ad esempio il sito https://rgb.to/.
