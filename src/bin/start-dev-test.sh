@@ -10,7 +10,7 @@ ddev config --project-type=drupal8 --docroot=web --create-docroot
 ddev start
 ddev composer create "drupal/recommended-project:8.9"
 ddev composer require drush/drush
-#ddev composer require 'drupal/console:~1.0'
+#ddev composer require 'drupal/console:>=1.9'
 
 ddev exec drush -y site:install
 

@@ -1,5 +1,0 @@
-services:
-  bootstrap_italia.subtheme.command:
-    class: 'Drush\Commands\bootstrap_italia\SubThemeCommands'
-    tags:
-      - { name: drush.command }

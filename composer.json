@@ -17,20 +17,8 @@
         "drupal/ui_patterns": "^1.1",
         "drush/drush": "^10"
     },
-    "autoload": {
-        "psr-4": {
-            "Drush\\Commands\\bootstrap_italia\\": "src/Commands/bootstrap_italia/"
-        }
-    },
     "support": {
         "issues": "http://drupal.org/project/issues/bootstrap_italia",
         "source": "https://git.drupalcode.org/project/bootstrap_italia"
-    },
-    "extra": {
-        "drush": {
-            "services": {
-                "drush.services.yml": "^9 || ^10"
-            }
-        }
     }
 }
