@@ -13,6 +13,7 @@
 - Add ddev start script in /var/bin/start-dev-test.sh for test in docker container
 - Update README.md
 - Add comments in var/bin/start-dev-test.sh
+- Auto-configure default block during sub-theme installation
 
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x

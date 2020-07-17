@@ -1,7 +1,22 @@
-# design-drupal-theme
+# Description
 A Drupal theme which implements the Italia Design System
 
-# Install
+# Drupal configuration
+Install drupal 8.9 and drush 10 with composer (https://getcomposer.org/)
+
+    $ composer create "drupal/recommended-project:8.9" my_site_name_dir
+    $ composer require drush/drush:10
+
+Install drupal with the Italian language, you can use drush or your browser
+
+    $ drush site:install --locale=it
+
+After installation, if you wish, also install the English language
+
+    $ drush en locale
+    $ drush language-add en
+
+# Install theme
     $ cd <drupal-root>
 
     /* Install end Enable dependencies */
@@ -26,7 +41,7 @@ A Drupal theme which implements the Italia Design System
     $ cd custom/italiagov
     $ npm install
 
-# Usage
+# Manage and generate assets
     $ npm run build:prod
     $ drush cr
 
@@ -34,9 +49,9 @@ or
 
     $ npm run build:dev
 
-# Webform integration
+# Webform integration (optional)
     $ composer require drupal/webform
     $ drush pm:enable webform webform_ui webform_attachment webform_image_select
 
 # How to start a ddev container
-Run script in var/bin/start-dev-test.sh
+If you want an automated script that works for you, run script located at [var/bin/start-dev-test.sh](https://git.drupalcode.org/project/bootstrap_italia/-/tree/8.x-0.x/var/bin/start-dev-test.sh) and enjoy it

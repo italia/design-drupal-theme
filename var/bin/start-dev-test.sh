@@ -18,12 +18,16 @@ ddev composer require drush/drush
 #ddev composer require 'drupal/console:>=1.9'
 
 # Install drupal
-ddev exec drush -y site:install
+ddev exec drush -y site:install --locale=it
 
 # Install end Enable dependencies
 ddev exec drush -y pm:enable inline_form_errors
 ddev composer require drupal/components drupal/ui_patterns
 ddev exec drush -y pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
+
+# Language settings
+ddev exec drush -y en locale
+ddev exec drush -y language-add en
 
 # Download bootstrap_italia
 ddev composer require 'drupal/bootstrap_italia:0.x-dev'
@@ -53,5 +57,13 @@ ddev exec drush cr
 # Push ssh key in to container
 ddev auth ssh
 
+# Reset password message
+echo -e "Run \e[1m\e[31m ddev exec drush upwd admin my_password \e[0m if you don't know the administrator password"
+
 # Open browser
 #ddev launch
+
+# Remove test
+# ddev stop test-bootstrap-italia && ddev delete test-bootstrap-italia
+
+# then delete "test-bootstrap-italia" folder

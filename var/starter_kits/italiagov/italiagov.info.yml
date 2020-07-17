@@ -29,7 +29,7 @@ regions:
   header_slim_menu: "Slim header: menu"
   header_slim_lingua: "Slim header: lingua"
   header_slim_action: "Slim header: action"
-  brand: "Brand region"
+  brand: "Header centrale: Brand region"
   header_center_social: "Header centrale: social network"
   header_center_search: "Header centrale: motore di ricerca"
   header_nav: "Header Nav: menu navigazione"
