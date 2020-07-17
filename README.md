@@ -16,6 +16,8 @@ After installation, if you wish, also install the English language
     $ drush en locale
     $ drush language-add en
 
+Install npm: https://www.npmjs.com/get-npm
+
 # Install theme
     $ cd <drupal-root>
 
