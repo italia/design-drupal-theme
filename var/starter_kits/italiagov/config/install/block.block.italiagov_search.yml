@@ -1,0 +1,20 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - italiagov
+id: italiagov_search
+theme: italiagov
+region: header_center_search
+weight: -6
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Cerca
+  provider: search
+  label_display: visible
+  page_id: ''
+visibility: {  }

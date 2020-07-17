@@ -1,0 +1,7 @@
+langcode: it
+status: true
+dependencies: {  }
+id: small-prints
+label: 'Small prints'
+description: 'Small prints'
+locked: false

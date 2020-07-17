@@ -1,0 +1,19 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - italiagov
+id: italiagov_content
+theme: italiagov
+region: content
+weight: -7
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Contenuto della pagina principale'
+  provider: system
+  label_display: '0'
+visibility: {  }

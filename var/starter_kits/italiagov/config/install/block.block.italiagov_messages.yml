@@ -1,0 +1,19 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - italiagov
+id: italiagov_messages
+theme: italiagov
+region: notification
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Messaggi di stato'
+  provider: system
+  label_display: '0'
+visibility: {  }
