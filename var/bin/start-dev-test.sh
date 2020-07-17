@@ -13,7 +13,7 @@ ddev config --project-type=drupal8 --docroot=web --create-docroot
 ddev start
 
 # Download drupal
-ddev composer create "drupal/recommended-project:8.9"
+ddev composer create "drupal/recommended-project:8.9.2"
 ddev composer require drush/drush
 #ddev composer require 'drupal/console:>=1.9'
 

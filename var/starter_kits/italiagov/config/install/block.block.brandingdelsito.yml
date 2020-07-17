@@ -5,10 +5,10 @@ dependencies:
     - system
   theme:
     - italiagov
-id: italiagov_branding
+id: brandingdelsito
 theme: italiagov
 region: brand
-weight: -6
+weight: 0
 provider: null
 plugin: system_branding_block
 settings:
