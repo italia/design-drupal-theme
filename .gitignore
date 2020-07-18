@@ -4,6 +4,7 @@ assets
 node_modules
 package-lock.json
 
+var/starter_kits/italiagov/assets/
 var/starter_kits/italiagov/node_modules
 var/starter_kits/italiagov/package-lock.json
 
@@ -34,4 +35,4 @@ var/starter_kits/italiagov/package-lock.json
 nbproject
 Thumbs.db
 .vscode
-Eliminerei var/starter_kits/italiagov/src/components/
+/var/starter_kits/italiagov/assets/

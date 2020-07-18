@@ -1,5 +1,6 @@
 # Description
-A Drupal theme which implements the Italia Design System
+bootstrap_italia is a base theme for Drupal that implements [the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
+This theme uses webpack as a module bundler and includes the https://github.com/italia/bootstrap-italia/ library as a dependency.
 
 # Drupal configuration
 Install drupal 8.9 and drush 10 with composer (https://getcomposer.org/)
