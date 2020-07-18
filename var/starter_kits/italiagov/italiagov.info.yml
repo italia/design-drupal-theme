@@ -69,7 +69,7 @@ regions:
   footer_small_prints: "Footer - Menu small prints: info legali, privacy, ecc."
   footer_credits: "Footer - Crediti"
 
-  page_bottom: Page bottom # Don't remove
+  page_bottom: "Page bottom" # Don't remove
 
 # see https://www.drupal.org/project/drupal/issues/474684
 dependencies:
