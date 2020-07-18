@@ -71,6 +71,33 @@ regions:
 
   page_bottom: "Page bottom" # Don't remove
 
+  # Home page
+  home_first_full_width: "Home page - Prima regione full width"
+  home_first_row_first_region: "Home page - Prima riga - Prima regione"
+  home_first_row_second_region: "Home page - Prima riga - Seconda regione"
+  home_first_row_third_region: "Home page - Prima riga - Terza regione"
+  home_first_row_fourth_region: "Home page - Prima riga - Quarta regione"
+
+  home_second_full_width: "Home page - Seconda regione full width"
+  home_second_row_first_region: "Home page - Seconda riga - Prima regione"
+  home_second_row_second_region: "Home page - Seconda riga - Seconda regione"
+  home_second_row_third_region: "Home page - Seconda riga - Terza regione"
+  home_second_row_fourth_region: "Home page - Seconda riga - Quarta regione"
+
+  home_third_full_width: "Home page - Terza regione full width"
+  home_third_row_first_region: "Home page - Terza riga - Prima regione"
+  home_third_row_second_region: "Home page - Terza riga - Seconda regione"
+  home_third_row_third_region: "Home page - Terza riga - Terza regione"
+  home_third_row_fourth_region: "Home page - Terza riga - Quarta regione"
+
+  home_fourth_full_width: "Home page - Quarta regione full width"
+  home_fourth_row_first_region: "Home page - Quarta riga - Prima regione"
+  home_fourth_row_second_region: "Home page - Quarta riga - Seconda regione"
+  home_fourth_row_third_region: "Home page - Quarta riga - Terza regione"
+  home_fourth_row_fourth_region: "Home page - Quarta riga - Quarta regione"
+
+  home_last_full_width: "Home page - Ultima regione full width"
+
 # see https://www.drupal.org/project/drupal/issues/474684
 dependencies:
   - drupal:bootstrap_italia
