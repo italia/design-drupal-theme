@@ -14,6 +14,16 @@
 - Update README.md
 - Add comments in var/bin/start-dev-test.sh
 - Auto-configure default block during sub-theme installation
+- Add reggions:
+  - Before content: full width, first, second, third a fourth
+  - After content: full width, first, second, third a fourth
+ - Add home template
+ - Add home page regions
+   - First row: full width, first, second, third a fourth
+   - Second row: full width, first, second, third a fourth
+   - Third row: full width, first, second, third a fourth
+   - Fourth row: full width, first, second, third a fourth
+   - Last row: full width
 
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x
