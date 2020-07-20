@@ -5,7 +5,7 @@ This theme uses webpack as a module bundler and includes the https://github.com/
 # Drupal configuration
 Install drupal 8.9 and drush 10 with composer (https://getcomposer.org/)
 
-    $ composer create "drupal/recommended-project:8.9" my_site_name_dir
+    $ composer create "drupal/recommended-project:^8.9.0 < 9.0" my_site_name_dir
     $ composer require drush/drush:10
 
 Install drupal with the Italian language, you can use drush or your browser

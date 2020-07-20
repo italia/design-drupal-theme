@@ -13,7 +13,7 @@ ddev config --project-type=drupal8 --docroot=web --create-docroot
 ddev start
 
 # Download drupal
-ddev composer create "drupal/recommended-project:8.9.2"
+ddev composer create "'drupal/recommended-project':'^8.9.0 < 9.0'"
 ddev composer require drush/drush
 #ddev composer require 'drupal/console:>=1.9'
 
@@ -56,6 +56,9 @@ ddev exec drush cr
 
 # Push ssh key in to container
 ddev auth ssh
+
+# ddev info
+ddev describe
 
 # Reset password message
 echo -e "Run \e[1m\e[31m ddev exec drush upwd admin my_password \e[0m if you don't know the administrator password"
