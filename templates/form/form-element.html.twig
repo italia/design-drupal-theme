@@ -95,10 +95,12 @@
     <div class="form-item--error-message invalid-feedback">
       {{ errors }}
     </div>
+    {#
     {% else %}
     <div class="valid-feedback">
       {{ 'Compilato!'|trans }}
     </div>
+    #}
   {% endif %}
   {% if description_display in ['after', 'invisible'] and description.content %}
     <small{{ description.attributes.addClass(description_classes) }}>

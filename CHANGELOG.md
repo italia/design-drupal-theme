@@ -28,6 +28,9 @@
 - Add description ddev container
 - Fix drupal version on README.md
 - Add sidebars regions to template
+- Remove "compilato" form feedback
+- CSS Style for block demo view
+- Remove mt-5 on content region
 
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x
