@@ -1,4 +1,13 @@
 # Summary 8.x-0.9
+## Release note
+This version implements child themes and we recommend that you set the child theme as the default theme. Setting the main theme as the default theme is obsolete, but for compatibility with previous versions it will be kept until version 1.0.
+Before updating make sure that:
+- the Italian language is set as "default language"
+- the English language is installed
+The instructions are in the README.md file.
+Make a backup before upgrading to version 0.9.
+
+## All changes
 - Update webpack dependencies and webpack configuration
 - Update bootstrap_italia 1.3.10 -> 1.4.0
 - Added theme dependency declaration

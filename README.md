@@ -22,25 +22,25 @@ Install npm: https://www.npmjs.com/get-npm
 # Install theme
     $ cd <drupal-root>
 
-    /* Install end Enable dependencies */
+    /* 1. Install end Enable dependencies */
     $ drush pm:enable inline_form_errors
     $ composer require drupal/components drupal/ui_patterns
     $ drush pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
     $ composer require drupal/bootstrap_italia
 
-    /* Copy sub-theme to destination folder */
+    /* 2. Copy sub-theme to destination folder */
     $ cd web/themes/
     $ mkdir custom
     $ cp -r contrib/bootstrap_italia/var/starter_kits/italiagov custom/
 
-    /* Enable themes */
+    /* 3. Enable themes */
     $ drush -y theme:enable bootstrap_italia
     $ drush -y theme:enable italiagov
 
-    /* Set default theme */
+    /* 4. Set default theme */
     $ drush config-set system.theme default italiagov
 
-    /* Install assets */
+    /* 5. Install assets */
     $ cd custom/italiagov
     $ npm install
 
