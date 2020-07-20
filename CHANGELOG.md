@@ -24,6 +24,10 @@
    - Third row: full width, first, second, third a fourth
    - Fourth row: full width, first, second, third a fourth
    - Last row: full width
+- Fix drupal version on start-dev-test.sh
+- Add description ddev container
+- Fix drupal version on README.md
+- Add sidebars regions to template
 
 # Summary 8.x-0.8
 - Removing compatibility with Core 9.x
