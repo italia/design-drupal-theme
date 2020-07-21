@@ -50,6 +50,11 @@ card_article_simple:
       label: Signature
       description: Article signature (Author)
       preview: 'di Federico De Paolis'
+    readmore_link:
+      type: text
+      label: read more link
+      description: Link to article.
+      preview: '#'
   # Optional: Attached libraries.
   #
   # You can include libraries defined by other modules / themes with dependencies.
