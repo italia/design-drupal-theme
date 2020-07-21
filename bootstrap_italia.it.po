@@ -1,0 +1,2 @@
+msgid "Read more"
+msgstr "Leggi di più"
