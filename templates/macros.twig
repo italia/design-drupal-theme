@@ -1,16 +1,16 @@
-{% macro icon(icon_name,theme_path) %}
+{% macro icon(icon_name,active_theme_path) %}
   <svg class="icon">
-    <use xlink:href="{{ theme_path }}/assets/icons/sprite.svg#{{ icon_name }}"></use>
+    <use xlink:href="{{ active_theme_path }}/assets/icons/sprite.svg#{{ icon_name }}"></use>
   </svg>
 {% endmacro %}
 
-{% macro password_icon(theme_path) %}
+{% macro password_icon(active_theme_path) %}
   <span class="password-icon" aria-hidden="true">
     <svg class="password-icon-visible icon icon-sm">
-      <use xlink:href="{{ theme_path }}/assets/icons/sprite.svg#it-password-visible"></use>
+      <use xlink:href="{{ active_theme_path }}/assets/icons/sprite.svg#it-password-visible"></use>
     </svg>
     <svg class="password-icon-invisible icon icon-sm d-none">
-      <use xlink:href="{{ theme_path }}/assets/icons/sprite.svg#it-password-invisible"></use>
+      <use xlink:href="{{ active_theme_path }}/assets/icons/sprite.svg#it-password-invisible"></use>
     </svg>
   </span>
 {% endmacro %}
