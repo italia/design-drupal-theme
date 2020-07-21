@@ -1,0 +1,21 @@
+<!--start card-->
+<div class="card-wrapper">
+  <div class="card">
+    <div class="card-body">
+      <div class="category-top">
+        <a class="category" href="{{ link_category }}">{{ category }}</a>
+        <span class="data">{{ date }}</span>
+      </div>
+      <h5 class="card-title big-heading">{{ title }}</h5>
+      <p class="card-text">{{ text }}</p>
+      <span class="card-signature">{{ signature }}</span>
+      <a class="read-more" href="#">
+        <span class="text"> {{ 'Read more'|t }}</span>
+        <svg class="icon">
+          <use xlink:href="{{ base_path }}{{ active_theme_path() }}/assets/icons/sprite.svg#it-arrow-right"></use>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+<!--end card-->
