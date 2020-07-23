@@ -8,21 +8,10 @@
  */
 #}
 {% if breadcrumb %}
-  <nav class="breadcrumb-container" role="navigation" aria-labelledby="system-breadcrumb" aria-label="breadcrumb">
-    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
-    <ol class="breadcrumb">
-    {% for item in breadcrumb %}
-      {% if item.url %}
-        <li class="breadcrumb-item">
-          <a href="{{ item.url }}">{{ item.text }}</a>
-          <span class="separator">/</span>
-        </li>
-      {% else %}
-        <li class="breadcrumb-item active">
-          {{ item.text }}
-        </li>
-      {% endif %}
-    {% endfor %}
-    </ol>
-  </nav>
+{% include '@bootstrap_italia_components/breadcrumb/breadcrumb.twig' with {
+  darkbkg: darkbkg,
+  image: image,
+  separator: separator,
+  breadcrumb: breadcrumb
+} %}
 {% endif %}
