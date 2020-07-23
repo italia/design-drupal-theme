@@ -6,7 +6,8 @@ use Drupal\Core\Form\FormStateInterface;
  * @param \Drupal\Core\Form\FormStateInterface $formState
  * @param null $form_id
  */
-function italiagov_form_system_theme_settings_alter(&$form, FormStateInterface &$formState, $form_id = NULL) {
+function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
+
   // General "alters" use a form id. Settings should not be set here. The only
   // thing useful about this is if you need to alter the form for the running
   // theme and *not* the theme setting.
@@ -69,7 +70,8 @@ function italiagov_form_system_theme_settings_alter(&$form, FormStateInterface &
     '#default_value' => theme_get_setting('separator'),
     '#options' => [
       '>' => '>',
-      '&gt;' => '/',
+      '/' => '/',
     ],
   ];
+  
 }
