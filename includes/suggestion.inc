@@ -49,4 +49,16 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $suggestions[] = 'block__' . $view_mode;
     $suggestions[] = 'block__' . $bundle . $view_mode;
   }
+  if (!empty($variables['elements']['#id'])) { 
+    // if ($variables['elements']['#id'] == 'navigazioneprincipale') kpr($variables['elements']);
+    $block = \Drupal\block\Entity\Block::load($variables['elements']['#id']);
+    $region = $block->getRegion();
+    // adds suggestion with region and block id
+    $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
+    // adds suggestion with region id
+    $suggestions[] = 'block__' . $region;
+    // adds suggestions with base and derivative plugin id
+    $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
+    $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#derivative_plugin_id'];
+  }
 }
