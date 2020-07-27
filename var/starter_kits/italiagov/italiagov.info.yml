@@ -96,7 +96,7 @@ regions:
   home_fourth_row_third: "Home page - Quarta riga - Terza regione"
   home_fourth_row_fourth: "Home page - Quarta riga - Quarta regione"
 
-  home_last_full_width: "Home page - Ultima regione full width"
+  home_last_row_full_width: "Home page - Ultima regione full width"
 
 # see https://www.drupal.org/project/drupal/issues/474684
 dependencies:
