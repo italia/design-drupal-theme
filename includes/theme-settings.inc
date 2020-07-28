@@ -31,17 +31,17 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#open' => TRUE,
     '#group' => 'bootstrap',
   ];
-  $form['header_settings']['nome_ente_appartenenza'] = [
+  $form['header_settings']['ente_appartenenza_nome'] = [
     '#type' => 'textfield',
     '#title' => t('Nome Ente di Appartenenza'),
     '#description' => t('Qui puoi personalizzare il nome dell\'Ente di Appartenenza.'),
-    '#default_value' => theme_get_setting('nome_ente_appartenenza'),
+    '#default_value' => theme_get_setting('ente_appartenenza_nome'),
   ];
-  $form['header_settings']['url_ente_appartenenza'] = [
+  $form['header_settings']['ente_appartenenza_url'] = [
     '#type' => 'url',
     '#title' => t('URL Ente di Appartenenza'),
     '#description' => t('Inserisci l\'URL per l\'Ente di Appartenenza. Inserisci indirizzo completo come: http://www.example.com.'),
-    '#default_value' => theme_get_setting('url_ente_appartenenza'),
+    '#default_value' => theme_get_setting('ente_appartenenza_url'),
   ];
   // Breadcrumbs settings.
   $form['breadcrumbs_settings'] = [
@@ -73,5 +73,5 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       '/' => '/',
     ],
   ];
-  
+
 }
