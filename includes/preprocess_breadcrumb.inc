@@ -5,7 +5,7 @@
  */
 function bootstrap_italia_preprocess_breadcrumb(&$variables)
 {
-  $variables['darkbkg'] = (bool) theme_get_setting('darkbkg');
-  $variables['image'] = (bool) theme_get_setting('image');
-  $variables['separator'] = theme_get_setting('separator');
+  $variables['breadcrumb_dark_background'] = (bool) theme_get_setting('breadcrumb_dark_background');
+  $variables['breadcrumb_image'] = (bool) theme_get_setting('breadcrumb_image');
+  $variables['breadcrumb_separator'] = theme_get_setting('breadcrumb_separator');
 }
