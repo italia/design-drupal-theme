@@ -1,11 +1,6 @@
 {# Render output #}
-<!--start card-->
-<div class="card-wrapper">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{ title }}</h5>
-      <p class="card-text">{{ text }}</p>
-    </div>
-  </div>
-</div>
-<!--end card-->
+{% include '@bootstrap_italia_components/cards/card-simple.twig' with {
+  title: title,
+  text: text
+} %}
+
