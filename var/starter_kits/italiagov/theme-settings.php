@@ -69,7 +69,7 @@ function italiagov_form_system_theme_settings_alter(&$form, FormStateInterface &
     '#default_value' => theme_get_setting('separator'),
     '#options' => [
       '>' => '>',
-      '&gt;' => '/',
+      '/' => '/',
     ],
   ];
 }
