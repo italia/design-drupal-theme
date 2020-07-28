@@ -4,29 +4,31 @@
  * Template for a breadcrumb pattern
  *
  * Available config:
- * - darkbkg: true | false
- * - image: true | false
- * - separator: >, &gt;
+ * - breadcrumb_dark_background: true | false
+ * - breadcrumb_image: true | false
+ * - breadcrumb_separator: ">", "/";
  * - breadcrumb: Breadcrumb trail items
  */
 #}
 {% import '@bootstrap_italia/macros.twig' as macros %}
 {% set icon_classes = ['icon', 'icon-sm', 'align-top', 'mr-1'] %}
-{% if darkbkg %} 
+
+{% if breadcrumb_dark_background %}
   {% set dark = ' dark' %}
   {% set icon_classes = icon_classes|merge(['icon-white']) %}
 {% endif %}
+
 <nav class="breadcrumb-container" aria-label="breadcrumb">
   <ol class="breadcrumb{{ dark }}">
     {% for item in breadcrumb %}
-    {% if item.url %}
-    <li class="breadcrumb-item">
-      {% if image %}{{ macros.icon('it-link', base_path ~ '/' ~ directory, icon_classes ) }}{% endif %}<a
-        href="{{ item.url }}">{{ item.text }}</a>{% if separator %}<span
-        class="separator">{{ separator }}</span>{% endif %}</li>
-    {% else %}
-    <li class="breadcrumb-item active" aria-current="page">{{ item.text }}</li>
-    {% endif %}
+      {% if item.url %}
+        <li class="breadcrumb-item">
+          {% if breadcrumb_image %}{{ macros.icon('it-link', base_path ~ '/' ~ directory, icon_classes ) }}{% endif %}<a
+            href="{{ item.url }}">{{ item.text }}</a>{% if breadcrumb_separator %}<span
+            class="separator">{{ breadcrumb_separator }}</span>{% endif %}</li>
+      {% else %}
+        <li class="breadcrumb-item active" aria-current="page">{{ item.text }}</li>
+      {% endif %}
     {% endfor %}
   </ol>
 </nav>

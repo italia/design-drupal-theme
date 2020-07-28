@@ -51,23 +51,23 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#open' => TRUE,
     '#group' => 'bootstrap',
   ];
-  $form['breadcrumbs_settings']['darkbkg'] = [
+  $form['breadcrumbs_settings']['breadcrumb_dark_background'] = [
     '#type' => 'checkbox',
     '#title' => t('Sfondo scuro'),
     '#description' => t('Attiva un background scuro.'),
-    '#default_value' => theme_get_setting('darkbkg'),
+    '#default_value' => theme_get_setting('breadcrumb_dark_background'),
   ];
-  $form['breadcrumbs_settings']['image'] = [
+  $form['breadcrumbs_settings']['breadcrumb_image'] = [
     '#type' => 'checkbox',
     '#title' => t('Icona'),
     '#description' => t('Attiva icona prima delle voci.'),
-    '#default_value' => theme_get_setting('image'),
+    '#default_value' => theme_get_setting('breadcrumb_image'),
   ];
-  $form['breadcrumbs_settings']['separator'] = [
+  $form['breadcrumbs_settings']['breadcrumb_separator'] = [
     '#type' => 'select',
     '#title' => t('Separatore'),
     '#description' => t('Inserisci il separatore fra le voci (es: >).'),
-    '#default_value' => theme_get_setting('separator'),
+    '#default_value' => theme_get_setting('breadcrumb_separator'),
     '#options' => [
       '>' => '>',
       '/' => '/',

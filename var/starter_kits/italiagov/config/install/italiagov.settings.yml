@@ -1,5 +1,5 @@
 ente_appartenenza_nome: 'Developers Italia'
 ente_appartenenza_url: 'https://developers.italia.it'
-darkbkg: 0
-image: 0
-separator: /
+breadcrumb_dark_background: 0
+breadcrumb_image: 0
+breadcrumb_separator: /
