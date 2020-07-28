@@ -4,11 +4,11 @@
       <div class="row">
         <div class="col-12">
           <div class="it-header-slim-wrapper-content">
-            <a class="d-none d-lg-block navbar-brand" href="{{ url_ente_appartenenza }}" target="_blank">{{ nome_ente_appartenenza }}</a>
+            <a class="d-none d-lg-block navbar-brand" href="{{ ente_appartenenza_url }}" target="_blank">{{ ente_appartenenza_nome }}</a>
             <div class="nav-mobile">
               <nav>
-                <a class="it-opener d-lg-none" data-toggle="collapse" href="{{ url_ente_appartenenza }}" role="button" aria-expanded="false" aria-controls="menu4">
-                  <span>{{ nome_ente_appartenenza }}</span>
+                <a class="it-opener d-lg-none" data-toggle="collapse" href="{{ ente_appartenenza_url }}" role="button" aria-expanded="false" aria-controls="menu4">
+                  <span>{{ ente_appartenenza_url }}</span>
                   {{ macros.icon('it-expand', base_path ~ directory ) }}
                 </a>
                 <div class="link-list-wrapper collapse" id="menu4">
