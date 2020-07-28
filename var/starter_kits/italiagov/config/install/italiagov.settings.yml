@@ -1,3 +1,5 @@
-header_settings:
-  nome_ente_appartenenza: 'Developers Italia'
-  url_ente_appartenenza: 'https://developers.italia.it/'
+nome_ente_appartenenza: 'Developers Italia'
+url_ente_appartenenza: 'https://developers.italia.it'
+darkbkg: 0
+image: 0
+separator: /
