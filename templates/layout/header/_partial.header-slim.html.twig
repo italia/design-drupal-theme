@@ -28,7 +28,9 @@
                     {{ page.header_slim_action }}
                   {% endif %}
                 {% else %}
-                  <a class="btn btn-primary btn-sm" href="/user">{{ 'Log in'|trans }}</a>
+                  <a class="btn btn-primary btn-sm btn-icon" href="/user">
+                    {% include '@bootstrap_italia_components/avatar/avatar-icon.twig' %}
+                    {{ 'Log in'|trans }}</a>
                 {% endif %}
               </div>
             </div>

@@ -43,6 +43,27 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#description' => t('Inserisci l\'URL per l\'Ente di Appartenenza. Inserisci indirizzo completo come: http://www.example.com.'),
     '#default_value' => theme_get_setting('ente_appartenenza_url'),
   ];
+  // Avatar settings.
+  $form['avatar_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Avatar'),
+    '#description' => t('Impostazioni personalizzabili per avatar utente.'),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+  ];
+  $form['avatar_settings']['avatar_size'] = [
+    '#type' => 'select',
+    '#title' => t('Dimensione Avatar'),
+    '#description' => t('Seleziona la dimensione per l\'avatar (es: xs).'),
+    '#default_value' => theme_get_setting('avatar_size'),
+    '#options' => [
+      'xs' => 'xs',
+      'sm' => 'sm',
+      'md' => 'md',
+      'lg' => 'lg',
+      'xl' => 'xl',
+    ],
+  ];
   // Breadcrumbs settings.
   $form['breadcrumbs_settings'] = [
     '#type' => 'details',
