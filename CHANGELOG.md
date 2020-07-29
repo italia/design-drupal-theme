@@ -1,3 +1,18 @@
+# Summary 8.x.0.10
+- Add cards components
+- Issue #3131103 by braintec: fix theme path function
+- Breadcrumb settings and component template
+- Add classes parameter to macro icons
+- Refactoring theme hook
+- Add more suggestions to block
+- Add menu template to secondary sidebar
+- Fix various typo
+- Sub-theme: inherit settings
+- Refactoring settings variables name
+- Header slim: add avatar
+- Add alert component template
+- Add input-number template
+
 # Summary 8.x-0.9
 ## Release note
 This version implements child themes and we recommend that you set the child theme as the default theme. Setting the main theme as the default theme is obsolete, but for compatibility with previous versions it will be kept until version 1.0.
