@@ -11,6 +11,7 @@ libraries:
 
 libraries-override:
   seven/global-styling: false
+  bootstrap_italia/global: false
 
 # libraries-extend
 # hidden: true
