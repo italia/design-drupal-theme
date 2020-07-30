@@ -7,7 +7,7 @@
  *
  * Available config:
  * - list: option1 | option2 | option3 | option4
- * - string: string,
+ * - string: string
  * - boolean: true | false
  * - array: An array of...
  */
