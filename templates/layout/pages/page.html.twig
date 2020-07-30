@@ -35,6 +35,14 @@
 #}
 {% import '@bootstrap_italia/macros.twig' as macros %}
 <div id="page-default">
+  {% if back_to_top_enable %}
+    {% include '@bootstrap_italia_components/back_to_top/back_to_top.twig' with {
+      small: back_to_top_small,
+      dark: back_to_top_dark,
+      shadow: back_to_top_shadow,
+      icon_path: base_path ~ directory,
+    } %}
+  {% endif %}
   {% include '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
   {% include '@bootstrap_italia/layout/content/_partial.before-content.html.twig' %}
   {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}

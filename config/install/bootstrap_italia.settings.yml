@@ -1,3 +1,10 @@
-header_settings:
-  ente_appartenenza_nome: 'Ministero Istruzione Università Ricerca'
-  ente_appartenenza_url: 'http://www.miur.gov.it/'
+ente_appartenenza_nome: 'Developers Italia'
+ente_appartenenza_url: 'https://developers.italia.it'
+breadcrumb_dark_background: 0
+breadcrumb_image: 0
+breadcrumb_separator: /
+avatar_size: xs
+back_to_top_enable: 1
+back_to_top_small: 0
+back_to_top_dark: 0
+back_to_top_shadow: 0

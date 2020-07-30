@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Template for Back to top component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/alert/
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - small: true | false
+ * - dark: true | false
+ * - shadow: true | false
+ * - icon_path: base_path ~ '/' ~ directory
+ */
+#}
+{% import '@bootstrap_italia/macros.twig' as macros %}
+
+{%
+  set container_classes = [
+    'back-to-top',
+    small ? 'back-to-top-small',
+    dark ? 'dark',
+    shadow ? 'shadow'
+  ]
+%}
+{% set icon_class = dark ? 'icon-secondary' : 'icon-light' %}
+
+<a href="#" aria-hidden="true" data-attribute="back-to-top" class="{{ container_classes|join(' ') }}">
+  {{ macros.icon('it-arrow-up', icon_path, ['icon', icon_class] ) }}
+</a>

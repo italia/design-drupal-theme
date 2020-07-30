@@ -64,27 +64,37 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       'xl' => 'xl',
     ],
   ];
+
+  /* Tab Navigation settings */
+  $form['navigation_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Navigation'),
+    '#description' => t('Impostazioni personalizzabili per i componenti di navigazione.'),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+  ];
+
   // Breadcrumbs settings.
-  $form['breadcrumbs_settings'] = [
+  $form['navigation_settings']['breadcrumbs_settings'] = [
     '#type' => 'details',
     '#title' => t('Breadcrumbs'),
     '#description' => t('Impostazioni personalizzabili per le briciole di pane.'),
     '#open' => TRUE,
-    '#group' => 'bootstrap',
+    '#group' => 'navigation_settings',
   ];
-  $form['breadcrumbs_settings']['breadcrumb_dark_background'] = [
+  $form['navigation_settings']['breadcrumbs_settings']['breadcrumb_dark_background'] = [
     '#type' => 'checkbox',
     '#title' => t('Sfondo scuro'),
     '#description' => t('Attiva un background scuro.'),
     '#default_value' => theme_get_setting('breadcrumb_dark_background'),
   ];
-  $form['breadcrumbs_settings']['breadcrumb_image'] = [
+  $form['navigation_settings']['breadcrumbs_settings']['breadcrumb_image'] = [
     '#type' => 'checkbox',
     '#title' => t('Icona'),
     '#description' => t('Attiva icona prima delle voci.'),
     '#default_value' => theme_get_setting('breadcrumb_image'),
   ];
-  $form['breadcrumbs_settings']['breadcrumb_separator'] = [
+  $form['navigation_settings']['breadcrumbs_settings']['breadcrumb_separator'] = [
     '#type' => 'select',
     '#title' => t('Separatore'),
     '#description' => t('Inserisci il separatore fra le voci (es: >).'),
@@ -93,6 +103,34 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       '>' => '>',
       '/' => '/',
     ],
+  ];
+  // Back to top settings
+  $form['navigation_settings']['back_to_top'] = [
+    '#type' => 'details',
+    '#title' => t('Back to top'),
+    '#description' => t('Impostazioni personalizzabili per il pulsante Back to top.'),
+    '#open' => TRUE,
+    '#group' => 'navigation_settings',
+  ];
+  $form['navigation_settings']['back_to_top']['back_to_top_enable'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva il pulsante back to top'),
+    '#default_value' => theme_get_setting('back_to_top_enable'),
+  ];
+  $form['navigation_settings']['back_to_top']['back_to_top_small'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Usa la variante piccola'),
+    '#default_value' => theme_get_setting('back_to_top_small'),
+  ];
+  $form['navigation_settings']['back_to_top']['back_to_top_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Usa la variante per sfondo scuro'),
+    '#default_value' => theme_get_setting('back_to_top_dark'),
+  ];
+  $form['navigation_settings']['back_to_top']['back_to_top_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Usa l\'ombreggiatura del pulsante'),
+    '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
 
 }

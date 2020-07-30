@@ -13,6 +13,7 @@
 - Add alert component template
 - Add input-number template
 - Fix console error "Problema di sicurezza: i contenuti in x non possono caricare dati da https://x/assets/icons/sprite.svg."
+- Add back to top component
 
 # Summary 8.x-0.9
 ## Release note
