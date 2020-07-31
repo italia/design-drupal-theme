@@ -1,8 +1,8 @@
 <div class="it-right-zone">
   {% if page.header_center_social %}
-    <div class="it-socials d-none d-md-flex">
-      {{ page.header_center_social }}
-    </div>
+    {{ page.header_center_social }}
+  {% else %}
+    {% include '@bootstrap_italia_components/social/social.twig' %}
   {% endif %}
   {% if page.header_center_search %}
     <div class="it-search-wrapper">

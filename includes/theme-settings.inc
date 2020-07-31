@@ -85,6 +85,35 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     ],
   ];
 
+  // Social network
+  $form['social_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Social network'),
+    '#description' => t('Impostazioni personalizzabili per i social network.'),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+  ];
+
+  $socials = [
+    'Twitter',
+    'Facebook',
+    'YouTube',
+    'Instagram',
+    // 'Telegram', //manca icona
+    'WhatsApp',
+    // 'RSS', //manca icona
+  ];
+
+  foreach ($socials as $social) {
+    $low_social = strtolower($social);
+    $form['social_settings'][$low_social] = [
+      '#type' => 'url',
+      '#title' => t('URL profilo '. $social),
+      '#description' => t('Inserisci l\'URL del profilo '. $social .'. Inserisci indirizzo completo come: http://www.example.com.'),
+      '#default_value' => theme_get_setting($low_social),
+    ];
+  }
+
   /* Tab Navigation settings */
   $form['navigation_settings'] = [
     '#type' => 'details',
@@ -124,6 +153,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       '/' => '/',
     ],
   ];
+
   // Back to top settings
   $form['navigation_settings']['back_to_top'] = [
     '#type' => 'details',
