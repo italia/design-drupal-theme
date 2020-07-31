@@ -62,3 +62,18 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#derivative_plugin_id'];
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables)
+{
+  if (isset($variables['view'])) {
+    $view = $variables['view'];
+    $displayObj = $view->getDisplay();
+    $view = $variables['view'];
+    $displayObj = $view->getDisplay();
+    $suggestions[] = 'views_view_unformatted__' . $view->id();
+    $suggestions[] = 'views_view_unformatted__' . $view->id() . '__' . $displayObj->display['id'];
+  }
+}
