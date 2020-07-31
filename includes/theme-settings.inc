@@ -43,6 +43,26 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#description' => t('Inserisci l\'URL per l\'Ente di Appartenenza. Inserisci indirizzo completo come: http://www.example.com.'),
     '#default_value' => theme_get_setting('ente_appartenenza_url'),
   ];
+
+  // Right Action 
+  $form['right_action_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Tipo di pulsante login'),
+    '#description' => t('Selezione fra normale e full responsive.'),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+  ];
+  $form['right_action_settings']['right_action_size'] = [
+    '#type' => 'select',
+    '#title' => t('Dimensione pulsante login'),
+    '#description' => t('Seleziona la dimensione per pulsante login.'),
+    '#default_value' => theme_get_setting('right_action_size'),
+    '#options' => [
+      'normal' => 'Normale',
+      'full' => 'Full responsive',
+    ],
+  ];
+
   // Avatar settings.
   $form['avatar_settings'] = [
     '#type' => 'details',

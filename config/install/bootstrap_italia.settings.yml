@@ -4,6 +4,7 @@ breadcrumb_dark_background: 0
 breadcrumb_image: 0
 breadcrumb_separator: /
 avatar_size: xs
+right_action_size: 'normal'
 back_to_top_enable: 1
 back_to_top_small: 0
 back_to_top_dark: 0

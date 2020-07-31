@@ -1,4 +1,5 @@
 {% block headerSlim %}
+{% import '@bootstrap_italia/macros.twig' as macros %}
   <div class="it-header-slim-wrapper">
     <div class="container">
       <div class="row">
@@ -22,17 +23,26 @@
               {% if page.header_slim_lingua %}
                 {{ page.header_slim_lingua }}
               {% endif %}
-              <div class="it-access-top-wrapper">
-                {% if logged_in %}
-                  {% if page.header_slim_action %}
-                    {{ page.header_slim_action }}
-                  {% endif %}
-                {% else %}
+              {% if logged_in %}
+                {% if page.header_slim_action %}
+                  {{ page.header_slim_action }}
+                {% endif %}
+              {% else %}       
+                {% if right_action_size == 'normal' %}
+                <div class="it-access-top-wrapper">
                   <a class="btn btn-primary btn-sm btn-icon" href="/user">
                     {% include '@bootstrap_italia_components/avatar/avatar-icon.twig' %}
                     {{ 'Log in'|trans }}</a>
-                {% endif %}
-              </div>
+                </div>
+                {% elseif right_action_size == 'full' %}
+                  <a href="/user" class="btn btn-primary btn-icon btn-full">
+                    <span class="rounded-icon">
+                      {{ macros.icon('it-user', base_path ~ directory, ['icon', 'icon-primary'] ) }}
+                    </span>
+                    <span class="d-none d-lg-block">Accedi all'area personale</span>
+                  </a>
+                {% endif %}                 
+              {% endif %}
             </div>
           </div>
         </div>
