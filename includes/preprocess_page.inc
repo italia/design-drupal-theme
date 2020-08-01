@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\bootstrap_italia\Helper;
+
 /**
  * Implements hook_preprocess_page()
  */
@@ -9,16 +11,7 @@ function bootstrap_italia_preprocess_page(&$variables)
   $variables['ente_appartenenza_url'] = theme_get_setting('ente_appartenenza_url');
   $variables['avatar_size'] = theme_get_setting('avatar_size');
   // social
-  $socials = [
-    'Twitter',
-    'Facebook',
-    'YouTube',
-    'Instagram',
-    // 'Telegram', //manca icona
-    'WhatsApp',
-    // 'RSS', //manca icona
-  ];
-  foreach ($socials as $social) {
+  foreach (Helper::getSocialItems() as $social) {
     $low_social = strtolower($social);
     if (theme_get_setting($low_social)){
       $variables['socials'][$low_social]['label'] = $social;

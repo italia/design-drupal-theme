@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\bootstrap_italia\Helper;
 /**
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $formState
@@ -44,7 +45,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#default_value' => theme_get_setting('ente_appartenenza_url'),
   ];
 
-  // Right Action 
+  // Right Action
   $form['right_action_settings'] = [
     '#type' => 'details',
     '#title' => t('Tipo di pulsante login'),
@@ -94,17 +95,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#group' => 'bootstrap',
   ];
 
-  $socials = [
-    'Twitter',
-    'Facebook',
-    'YouTube',
-    'Instagram',
-    // 'Telegram', //manca icona
-    'WhatsApp',
-    // 'RSS', //manca icona
-  ];
-
-  foreach ($socials as $social) {
+  foreach (Helper::getSocialItems() as $social) {
     $low_social = strtolower($social);
     $form['social_settings'][$low_social] = [
       '#type' => 'url',

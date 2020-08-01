@@ -14,13 +14,13 @@
     <span>{{ 'Seguici su'|t }}</span>
     <ul>
       {% for social in socials %}
-      {% if social.url %}
-      <li>
-        <a aria-label="{{ social.label }}" href="{{ social.url }}" target="_blank">
-          {{ macros.icon('it-' ~ (social.label|lower) , base_path ~ directory) }}
-        </a>
-      </li>
-      {% endif %}
+        {% if social.url %}
+          <li>
+            <a aria-label="{{ social.label }}" href="{{ social.url }}" target="_blank">
+              {{ macros.icon('it-' ~ (social.label|lower) , base_path ~ directory) }}
+            </a>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
   </div>
