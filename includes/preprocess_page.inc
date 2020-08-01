@@ -20,8 +20,10 @@ function bootstrap_italia_preprocess_page(&$variables)
   ];
   foreach ($socials as $social) {
     $low_social = strtolower($social);
-    $variables['socials'][$low_social]['label'] = $social;
-    $variables['socials'][$low_social]['url'] = theme_get_setting($low_social);
+    if (theme_get_setting($low_social)){
+      $variables['socials'][$low_social]['label'] = $social;
+      $variables['socials'][$low_social]['url'] = theme_get_setting($low_social);
+    }
   }
   // end social
   $variables['right_action_size'] = theme_get_setting('right_action_size');
