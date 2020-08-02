@@ -24,7 +24,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#weight' => -10,
   ];
 
-  // Header settings.
+  /* Header settings ------------------------------------------------ */
   $form['header_settings'] = [
     '#type' => 'details',
     '#title' => t('Header'),
@@ -32,28 +32,37 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#open' => TRUE,
     '#group' => 'bootstrap',
   ];
-  $form['header_settings']['ente_appartenenza_nome'] = [
+
+  // Ente di appartenenza
+  $form['header_settings']['ente_appartenenza'] = [
+    '#type' => 'details',
+    '#title' => t('Ente di appartenenza'),
+    '#description' => t('Impostazioni personalizzabili l\'ente di appartenenza.'),
+    '#open' => TRUE,
+    '#group' => 'header_settings',
+  ];
+  $form['header_settings']['ente_appartenenza']['ente_appartenenza_nome'] = [
     '#type' => 'textfield',
     '#title' => t('Nome Ente di Appartenenza'),
     '#description' => t('Qui puoi personalizzare il nome dell\'Ente di Appartenenza.'),
     '#default_value' => theme_get_setting('ente_appartenenza_nome'),
   ];
-  $form['header_settings']['ente_appartenenza_url'] = [
+  $form['header_settings']['ente_appartenenza']['ente_appartenenza_url'] = [
     '#type' => 'url',
     '#title' => t('URL Ente di Appartenenza'),
-    '#description' => t('Inserisci l\'URL per l\'Ente di Appartenenza. Inserisci indirizzo completo come: http://www.example.com.'),
+    '#description' => t('Inserisci l\'URL per l\'Ente di Appartenenza. Inserisci indirizzo completo come: https://www.example.com.'),
     '#default_value' => theme_get_setting('ente_appartenenza_url'),
   ];
 
   // Right Action
-  $form['right_action_settings'] = [
+  $form['header_settings']['right_action_settings'] = [
     '#type' => 'details',
     '#title' => t('Tipo di pulsante login'),
     '#description' => t('Selezione fra normale e full responsive.'),
     '#open' => TRUE,
-    '#group' => 'bootstrap',
+    '#group' => 'header_settings',
   ];
-  $form['right_action_settings']['right_action_size'] = [
+  $form['header_settings']['right_action_settings']['right_action_size'] = [
     '#type' => 'select',
     '#title' => t('Dimensione pulsante login'),
     '#description' => t('Seleziona la dimensione per pulsante login.'),
@@ -63,6 +72,25 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       'full' => 'Full responsive',
     ],
   ];
+
+  // Social network
+  $form['header_settings']['social_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Social network'),
+    '#description' => t('Impostazioni personalizzabili per i social network.'),
+    '#open' => TRUE,
+    '#group' => 'header_settings',
+  ];
+
+  foreach (Helper::getSocialItems() as $social) {
+    $low_social = strtolower($social);
+    $form['header_settings']['social_settings'][$low_social] = [
+      '#type' => 'url',
+      '#title' => t('URL profilo '. $social),
+      '#description' => t('Inserisci l\'URL del profilo '. $social .'. Inserisci indirizzo completo come: http://www.example.com.'),
+      '#default_value' => theme_get_setting($low_social),
+    ];
+  }
 
   // Avatar settings.
   $form['avatar_settings'] = [
@@ -86,26 +114,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     ],
   ];
 
-  // Social network
-  $form['social_settings'] = [
-    '#type' => 'details',
-    '#title' => t('Social network'),
-    '#description' => t('Impostazioni personalizzabili per i social network.'),
-    '#open' => TRUE,
-    '#group' => 'bootstrap',
-  ];
-
-  foreach (Helper::getSocialItems() as $social) {
-    $low_social = strtolower($social);
-    $form['social_settings'][$low_social] = [
-      '#type' => 'url',
-      '#title' => t('URL profilo '. $social),
-      '#description' => t('Inserisci l\'URL del profilo '. $social .'. Inserisci indirizzo completo come: http://www.example.com.'),
-      '#default_value' => theme_get_setting($low_social),
-    ];
-  }
-
-  /* Tab Navigation settings */
+  /* Tab Navigation settings ------------------------------------------------ */
   $form['navigation_settings'] = [
     '#type' => 'details',
     '#title' => t('Navigation'),

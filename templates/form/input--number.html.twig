@@ -12,8 +12,8 @@
 #}
 {% set disabled = attributes.disabled ? ' disabled' : '' %}
 {% set attributes = attributes.disabled ? attributes.addClass('disabled') : attributes %}
-{% set attributes = attributes.removeClass('form-number').addClass('input-number') %}
-{#{ kint(attributes) }#}
+{% set attributes = attributes.removeClass('form-number') %}
+{{ kint(attributes) }}
 
 {#
   TODO: verifica questa condizione
@@ -27,7 +27,7 @@
     '#min': 0
     '#step': 0.01
 #}
-<span class="{{ attributes.class }}"{{ disabled }}>
+<span class="input-number{{ attributes.class != '' ? ' ' ~ attributes.class }}"{{ disabled }}>
   {# Do not add 'form-control' class to input number, otherwise spinner up and down not work #}
   <input{{ attributes|without('class') }} class="form-number" />
   <button class="input-number-add"{{ disabled }}>
