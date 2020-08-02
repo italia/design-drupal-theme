@@ -13,7 +13,7 @@
 {% set disabled = attributes.disabled ? ' disabled' : '' %}
 {% set attributes = attributes.disabled ? attributes.addClass('disabled') : attributes %}
 {% set attributes = attributes.removeClass('form-number') %}
-{{ kint(attributes) }}
+{#  { kint(attributes) } #}
 
 {#
   TODO: verifica questa condizione
