@@ -1,9 +1,18 @@
+slim_header_light: 0
 ente_appartenenza_nome: 'Developers Italia'
 ente_appartenenza_url: 'https://developers.italia.it'
 breadcrumb_dark_background: 0
 breadcrumb_image: 0
 breadcrumb_separator: /
 avatar_size: xs
+right_action_size: 'normal'
+twitter: false
+facebook: false
+youtube: false
+instagram: false
+telegram: false
+whatsapp: false
+rss: false
 back_to_top_enable: 1
 back_to_top_small: 0
 back_to_top_dark: 0

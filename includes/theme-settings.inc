@@ -33,6 +33,13 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#group' => 'bootstrap',
   ];
 
+  // Slim header light
+  $form['header_settings']['slim_header_light'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva slim header light'),
+    '#default_value' => theme_get_setting('slim_header_light'),
+  ];
+
   // Ente di appartenenza
   $form['header_settings']['ente_appartenenza'] = [
     '#type' => 'details',

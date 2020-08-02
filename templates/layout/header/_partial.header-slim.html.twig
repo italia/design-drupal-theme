@@ -1,6 +1,6 @@
 {% block headerSlim %}
 {% import '@bootstrap_italia/macros.twig' as macros %}
-  <div class="it-header-slim-wrapper">
+  <div class="it-header-slim-wrapper{{ slim_header_light ? ' theme-light' }}">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -27,7 +27,7 @@
                 {% if page.header_slim_action %}
                   {{ page.header_slim_action }}
                 {% endif %}
-              {% else %}       
+              {% else %}
                 {% if right_action_size == 'normal' %}
                 <div class="it-access-top-wrapper">
                   <a class="btn btn-primary btn-sm btn-icon" href="/user">
@@ -41,7 +41,7 @@
                     </span>
                     <span class="d-none d-lg-block">Accedi all'area personale</span>
                   </a>
-                {% endif %}                 
+                {% endif %}
               {% endif %}
             </div>
           </div>
