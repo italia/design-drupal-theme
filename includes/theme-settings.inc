@@ -28,16 +28,36 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
   $form['header_settings'] = [
     '#type' => 'details',
     '#title' => t('Header'),
-    '#description' => t('Impostazioni personalizzabili per l\'intestazione del sito.'),
+    '#description' => t('Impostazioni personalizzabili per l\'intestazione del sito. <a href="https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/" target="_blank">Docs://Header</a>'),
     '#open' => TRUE,
     '#group' => 'bootstrap',
   ];
 
+  // Layout and theme variants
+  $form['header_settings']['layout_and_variants'] = [
+    '#type' => 'details',
+    '#title' => t('Layout e varianti colore'),
+    '#description' => t('Impostazioni per il layout e le varianti colore.'),
+    '#open' => TRUE,
+    '#group' => 'header_settings',
+  ];
   // Slim header light
-  $form['header_settings']['slim_header_light'] = [
+  $form['header_settings']['layout_and_variants']['slim_header_light'] = [
     '#type' => 'checkbox',
-    '#title' => t('Attiva slim header light'),
+    '#title' => t('Attiva la variante chiara dello slim header'),
     '#default_value' => theme_get_setting('slim_header_light'),
+  ];
+  // Header center light
+  $form['header_settings']['layout_and_variants']['header_center_light'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva la variante chiara dell\'header centrale'),
+    '#default_value' => theme_get_setting('header_center_light'),
+  ];
+  // Header center small
+  $form['header_settings']['layout_and_variants']['header_center_small'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva la variante small dell\'header centrale'),
+    '#default_value' => theme_get_setting('header_center_small'),
   ];
 
   // Ente di appartenenza

@@ -1,4 +1,11 @@
-<div class="it-header-center-wrapper">
+{%
+  set wrapper_classes = [
+    header_center_light ? ' theme-light',
+    header_center_small ? ' it-small-header'
+  ]
+%}
+
+<div class="it-header-center-wrapper{{ wrapper_classes|join }}">
   <div class="container">
     <div class="row">
       <div class="col-12">
