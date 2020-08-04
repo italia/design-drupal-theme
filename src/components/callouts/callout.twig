@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Template for a callout pattern
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/callout/
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - variant: "default" | "highlight"
+ * - message_type: "success" | "warning" | "danger" | "important" | "note" | null
+ * - title: string
+ * - text: string
+ */
+#}
+{% import '@bootstrap_italia/macros.twig' as macros %}
+
+{% set classes = [
+  'callout',
+  variant != 'default' ? 'callout-highlight' : null,
+  message_type ? message_type : null
+] %}
+{% set type_sronly = {
+  success:   'Confermato'|t,
+  warning:   'Attenzione'|t,
+  danger:    'Pericolo'|t,
+  important: 'Importante'|t,
+  note:      'Nota'|t
+ } %}
+ {% set type_icons = {
+  success:   'it-check-circle',
+  warning:   'it-help-circle',
+  danger:    'it-close-circle',
+  important: 'it-info-circle',
+  note:      'it-info-circle'
+ } %}
+ {% set icon = message_type ? attribute(type_icons, message_type.__toString) : 'it-info-circle' %}
+
+<div{{ attributes.addClass(classes) }}>
+  <div class="callout-title">
+    {% if variant is not null and message_type is null %}{% else %}{{ macros.icon(icon, base_path ~
+    directory) }}{% endif %}{% if message_type %}
+  <span
+      class="sr-only">{{ attribute(type_sronly, message_type.__toString)  }}</span>{% endif %}{{ title }}</div>
+  <p>{{ text }}</p>
+</div>
