@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Template for Card component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - title: string
+ * - text: string
+ * - readmore_link: URL
+ */
+#}
+{% import '@bootstrap_italia/macros.twig' as macros %}
+<!--start card-->
+<div class="card-wrapper card-space">
+  <div class="card card-bg">
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ text }}</p>
+      <a class="read-more" href="{{ readmore_link }}">
+        <span class="text">Leggi di più</span>
+        {{ macros.icon('it-arrow-right', base_path ~ '/' ~ directory ) }}
+      </a>
+    </div>
+  </div>
+</div>
+<!--end card-->
