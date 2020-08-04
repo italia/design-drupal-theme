@@ -18,8 +18,6 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
-
 {# First level #}
 <ul{{ attributes.addClass('navbar-nav')}}>
   {% for item in items %}
@@ -56,7 +54,7 @@
       >
         <span>{{ item.title }}</span>
         {% if item.is_expanded %}
-          {{ macros.icon('it-expand', base_path ~ '/' ~ directory ) }}
+          {% include '@bootstrap_italia_components/icon/icon.twig' with {name: 'it-expand'} %}
         {% endif %}
       </a>
 
@@ -93,7 +91,7 @@
                       >
                         <span>{{ item_second.title }}</span>
                         {% if item_second.is_expanded %}
-                          {{ macros.icon('it-expand', base_path ~ '/' ~ directory ) }}
+                          {% include '@bootstrap_italia_components/icon/icon.twig' with {name: 'it-expand'} %}
                         {% endif %}
                       </a>
                     {% endif %}

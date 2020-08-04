@@ -1,9 +1,11 @@
+# Summary 8.x.0.11
+- Callout component and UI
+- Add icon component, **macro.icon is deprecated**
+
 # Summary 8.x.0.10
 ## Release note
 Update THEME.info.yml in your sub-theme with the new version placed in "/var/starter_kits/italiagov/italiagov.info.yml".
-Please
-
-Update "<your-theme>/src/scss/_fix.scss" with the new version placed in "/var/starter_kits/src/scss/_fix.scss"
+Please update "<your-theme>/src/scss/_fix.scss" with the new version placed in "/var/starter_kits/src/scss/_fix.scss"
 
 **This is the last release that support the use main theme as default theme. Please switch to sub-theme.**
 
