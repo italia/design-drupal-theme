@@ -75,7 +75,7 @@
   {% endif %}
   {% if prefix is not empty %}
     <div class="input-group-prepend">
-      <span class="field-prefix input-group-text">{{ prefix }} <a href="https://italia.github.io/bootstrap-italia/docs/form/input-numerico/#valuta">{{ "Consulta la guida, questo parametro non è supportato"|t }}</a></span>
+      <span class="field-prefix input-group-text">{{ prefix }}</span>
     </div>
   {% endif %}
   {% if description_display == 'before' and description.content %}
@@ -89,7 +89,7 @@
   {% endif %}
   {% if suffix is not empty %}
     <div class="input-group-append">
-      <span class="field-suffix input-group-text">{{ suffix }} <a href="https://italia.github.io/bootstrap-italia/docs/form/input-numerico/#valuta">{{ "Consulta la guida, questo parametro non è supportato"|t }}</a></span>
+      <span class="field-suffix input-group-text">{{ suffix }}</a></span>
     </div>
   {% endif %}
   {% if label_display == 'after' %}
