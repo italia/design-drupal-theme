@@ -9,22 +9,13 @@
  * - avatar_size: xs | sm | lg | xl
  */
 #}
-
-{% import '@bootstrap_italia/macros.twig' as macros %}
-
-{% if avatar_size == 'xs' %}
-  {% set icon_size = ['avatar', 'avatar-primary', 'size-xs'] %}
-{% elseif avatar_size == 'sm' %}
-  {% set icon_size = ['avatar', 'avatar-primary', 'size-sm'] %}
-{% elseif avatar_size == 'lg' %}
-  {% set icon_size = ['avatar', 'avatar-primary', 'size-lg'] %}
-{% elseif avatar_size == 'xl' %}
-  {% set icon_size = ['avatar', 'avatar-primary', 'size-xl'] %}
-{% else %}
-  {% set icon_size = ['avatar', 'avatar-primary', 'size-md'] %}
-{% endif %}
-<div{{ attributes.addClass(icon_size) }}>
-  {{ macros.icon('it-user', base_path ~ directory) }}
-  <span class="sr-only">Utente</span>
+{% set classes = [
+    'avatar',
+    'avatar-primary',
+    avatar_size ? 'size-'~avatar_size : 'size-md'
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-user' } %}
+  <span class="sr-only">{{ 'User'|t }}</span>
 </div>
-

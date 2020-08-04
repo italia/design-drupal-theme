@@ -12,7 +12,6 @@
  * - breadcrumb: Breadcrumb trail items
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
 {% set icon_classes = ['icon', 'icon-sm', 'align-top', 'mr-1'] %}
 
 {% if breadcrumb_dark_background %}
@@ -25,9 +24,19 @@
     {% for item in breadcrumb %}
       {% if item.url %}
         <li class="breadcrumb-item">
-          {% if breadcrumb_image %}{{ macros.icon('it-link', base_path ~ '/' ~ directory, icon_classes ) }}{% endif %}<a
-            href="{{ item.url }}">{{ item.text }}</a>{% if breadcrumb_separator %}<span
-            class="separator">{{ breadcrumb_separator }}</span>{% endif %}</li>
+          {% spaceless %}
+            {% if breadcrumb_image %}
+              {% include '@bootstrap_italia_components/icon/icon.twig' with {
+                name: 'it-link',
+                classes: [icon_classes]
+              } %}
+            {% endif %}
+            <a href="{{ item.url }}">{{ item.text }}</a>
+            {% if breadcrumb_separator %}
+              <span class="separator">{{ breadcrumb_separator }}</span>
+            {% endif %}
+          {% endspaceless %}
+        </li>
       {% else %}
         <li class="breadcrumb-item active" aria-current="page">{{ item.text }}</li>
       {% endif %}

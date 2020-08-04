@@ -1,5 +1,4 @@
 {% block headerSlim %}
-{% import '@bootstrap_italia/macros.twig' as macros %}
   <div class="it-header-slim-wrapper{{ slim_header_light ? ' theme-light' }}">
     <div class="container">
       <div class="row">
@@ -10,7 +9,7 @@
               <nav>
                 <a class="it-opener d-lg-none" data-toggle="collapse" href="{{ ente_appartenenza_url }}" role="button" aria-expanded="false" aria-controls="menu4">
                   <span>{{ ente_appartenenza_url }}</span>
-                  {{ macros.icon('it-expand', base_path ~ directory ) }}
+                  {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-expand' } %}
                 </a>
                 <div class="link-list-wrapper collapse" id="menu4">
                   {% if page.header_slim_menu %}
@@ -36,7 +35,10 @@
                 {% elseif right_action_size == 'full' %}
                   <a href="/user" class="btn btn-primary btn-icon btn-full">
                     <span class="rounded-icon">
-                      {{ macros.icon('it-user', base_path ~ directory, ['icon', 'icon-primary'] ) }}
+                      {% include '@bootstrap_italia_components/icon/icon.twig' with {
+                        name: 'it-user',
+                        classes: ['icon-primary']
+                      } %}
                     </span>
                     <span class="d-none d-lg-block">Accedi all'area personale</span>
                   </a>

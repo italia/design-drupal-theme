@@ -11,7 +11,6 @@
  * - readmore_link: URL
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
 <!--start card con ombreggiatura-->
 <div class="card-wrapper card-space">
   <div class="card card-bg">
@@ -19,8 +18,8 @@
       <h5 class="card-title">{{ title }}</h5>
       <p class="card-text">{{ text }}</p>
       <a class="read-more" href="{{ readmore_link }}">
-        <span class="text">Leggi di più</span>
-        {{ macros.icon('it-arrow-right', base_path ~ '/' ~ directory ) }}
+        <span class="text">{{ 'Read more'|t }}</span>
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
       </a>
     </div>
   </div>

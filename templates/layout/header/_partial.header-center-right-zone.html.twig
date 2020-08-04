@@ -8,7 +8,7 @@
     <div class="it-search-wrapper">
       <span class="d-none d-md-block">Cerca</span>
       <a class="search-link rounded-icon" aria-label="Cerca" href="#" data-target="#search-modal" data-toggle="modal">
-        {{ macros.icon('it-search', base_path ~ directory) }}
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-search' } %}
       </a>
       <!-- Search Modal -->
       <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
@@ -17,7 +17,7 @@
             <div class="modal-header">
               <h5 class="modal-title">{{ 'Search'|trans }}</h5>
               <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                {{ macros.icon('it-close', base_path ~ directory) }}
+                {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-close' } %}
               </button>
             </div>
             <div class="modal-body">

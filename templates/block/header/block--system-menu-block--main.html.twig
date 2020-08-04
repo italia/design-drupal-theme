@@ -31,7 +31,6 @@
  * http://www.w3.org/TR/WCAG-TECHS/H42.html for more information.
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
 <nav
   role="navigation"
@@ -39,7 +38,7 @@
   {{ attributes.addClass(['navbar','navbar-expand-lg','has-megamenu'])|without('role', 'aria-labelledby') }}
 >
   <button class="custom-navbar-toggler" type="button" aria-controls="{{ heading_id }}" aria-expanded="false" aria-label="Toggle navigation" data-target="#{{ heading_id }}">
-    {{ macros.icon('it-burger', base_path ~ directory) }}
+    {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-burger' } %}
   </button>
   <div class="navbar-collapsable" id="{{ heading_id }}" style="display: none;">
     <div class="overlay" style="display: none;"></div>

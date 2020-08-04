@@ -18,7 +18,6 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
 {% import _self as menus %}
 
 {#
@@ -33,7 +32,7 @@
         di sbirciare lo schermo di un utente registrato.
      #}
     <span>{{ 'User'|trans }}</span>
-    {{ macros.icon('it-expand', base_path ~ '/' ~ directory) }}
+    {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-expand' } %}
   </a>
   <div class="dropdown-menu">
     <div class="row">

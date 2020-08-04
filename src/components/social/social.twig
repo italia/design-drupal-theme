@@ -17,7 +17,7 @@
         {% if social.url %}
           <li>
             <a aria-label="{{ social.label }}" href="{{ social.url }}" target="_blank">
-              {{ macros.icon('it-' ~ (social.label|lower) , base_path ~ directory) }}
+              {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-' ~ (social.label|lower) } %}
             </a>
           </li>
         {% endif %}

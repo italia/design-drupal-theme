@@ -12,8 +12,6 @@
  * - icon_path: base_path ~ '/' ~ directory
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
-
 {%
   set container_classes = [
     'back-to-top',
@@ -25,5 +23,8 @@
 {% set icon_class = dark ? 'icon-secondary' : 'icon-light' %}
 
 <a href="#" aria-hidden="true" data-attribute="back-to-top" class="{{ container_classes|join(' ') }}">
-  {{ macros.icon('it-arrow-up', icon_path, ['icon', icon_class] ) }}
+  {% include '@bootstrap_italia_components/icon/icon.twig' with {
+    name: 'it-arrow-up',
+    classes: [icon_class]
+  } %}
 </a>

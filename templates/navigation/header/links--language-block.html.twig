@@ -31,13 +31,11 @@
  * @see template_preprocess_links()
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
-
 {% if links -%}
 <div class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
     <span>{{ current_language }}</span>
-    {{ macros.icon('it-expand', base_path ~ '/' ~ directory) }}
+    {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-expand' } %}
   </a>
   <div class="dropdown-menu">
     <div class="row">
