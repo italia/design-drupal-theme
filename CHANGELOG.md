@@ -1,4 +1,11 @@
 # Summary 8.x.0.10
+## Release note
+Update THEME.info.yml in your sub-theme with the new version of "/src/starter_kits/italiagov/italiagov.info.yml".
+Please
+
+**This is the last release that support the use main theme as default theme. Please switch to sub-theme.**
+
+## All changes
 - Add cards components
 - Issue #3131103 by braintec: fix theme path function
 - Breadcrumb settings and component template
