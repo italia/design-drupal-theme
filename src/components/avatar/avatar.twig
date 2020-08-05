@@ -25,7 +25,7 @@
   ]
 %}
 
-<{{ avatar_tag }} 
+<{{ avatar_tag }}
 {% if not avatar_link %}
   {{ attributes.addClass(avatar_classes) }}
 {% else %}
@@ -48,7 +48,7 @@
   {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-user' } %}
 {% endif %}
 {% if avatar_txt %}
-  <p aria-hidden="true">MR</p>
+  <p aria-hidden="true">{{ avatar_txt }}</p>
 {% endif %}
 {% if avatar_icon or avatar_txt %}
   <span class="sr-only">{{ sr_only_alt }}</span>
