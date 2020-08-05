@@ -6,6 +6,9 @@
 #toolbar-administration.toolbar::before {
   height: 0;
 }
+.toolbar {
+  position: static;
+}
 
 // Fix autocomplete circle icon
 .form-control {
