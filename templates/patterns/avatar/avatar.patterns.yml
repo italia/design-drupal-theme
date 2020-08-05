@@ -1,0 +1,107 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+avatar:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: 'Avatar'
+  description: Rappresentazione grafica di un’immagine utente. https://italia.github.io/bootstrap-italia/docs/componenti/avatar/
+  variants:
+    immagine:
+      label: Con immagine
+      description: Avatar con immagine.
+    testo:
+      label: Con testo
+      description: Avatar con testo.
+    icona:
+      label: Con icona
+      description: Avatar con icona.
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    avatar_type:
+      type: text
+      label: Avatar type
+      description: Colore di importanza.
+      preview: 'primary'
+    avatar_link:
+      type: text
+      label: Avatar URL for link
+      description: URL per avatar con link.
+      preview: '#'
+    a_tooltip:
+      type: text
+      label: Parametri link
+      description: E’ possibile associare un Tooltip con maggiori informazioni relative all’utente o all’azione associata utilizzando i Tooltip di Bootstrap.
+      preview: ''
+    avatar_size:
+      type: text
+      label: Avatar size
+      description: Grandezza dell'avatar.
+      preview: 'xl'
+    avatar_img:
+      type: text
+      label: Url immagine
+      description: Immagine (URL).
+      preview: 'https://randomuser.me/api/portraits/men/33.jpg'
+    avatar_icon:
+      type: text
+      label: Tipo di icona
+      description: Tipologia di icona.
+      preview: 'it-search'
+    avatar_txt:
+      type: text
+      label: Testo avatar
+      description: Es. iniziali dell'utente.
+      preview: 'MR'
+    sr_only_alt:
+      type: text
+      label: Testo per screenreader o ALT immagine.
+      description: Testo per screenreader ove previsto.
+      preview: 'Mario Rossi'
+    
+  # Optional: Attached libraries.
+  #
+  # You can include libraries defined by other modules / themes with dependencies.
+  #
+  # These libraries are also available for include in theme libraries as
+  # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
+  # irrespective of whether a pattern of that type appears on the page.
+  #   Example: ui_patterns/button.button
+  # libraries:
+  #   -
+  #     avatar:
+  #       css:
+  #         component:
+  #           css/avatar.css: {}
+
+  # Optional: Specify a TWIG template with 'use'.
+  #
+  #   Example:
+  #     use: 'themes/custom/THEME/patterns/blockquote/blockquote.html.twig'
+  #
+  # This usually contains a path relative to the Drupal root. Some documentation
+  # says that a theme-relative path can also be used, but it didn't work for me.
+  #
+  #   Example:
+  #     use: '@oldie/patterns/blockquote/blockquote.html.twig' (didn't work)
+  #
+  # Alternatively, you can use the 'components' module to have better-looking
+  # and flexible paths.
+  #
+  #   Examples:
+  #     use: '@patterns/blockquote/blockquote.html.twig'
+  #     use: '@blockquote/blockquote.html.twig'
+  #
+  # Not defining 'use' makes the UI Patterns module look for a template with
+  # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
+  #
+  #   Example: pattern-blockquote.html.twig

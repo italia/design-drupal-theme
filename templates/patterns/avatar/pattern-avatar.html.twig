@@ -1,0 +1,36 @@
+{# Prepare attributes #}
+{# Note how we use a "variant" #}
+
+{% if variant == "immagine" %}
+{% set avatar_icon = false %}
+{% set avatar_txt = false %}
+
+{% elseif variant == "testo" %}
+{% set avatar_img = false %}
+{% set avatar_icon = false %}
+
+{% elseif variant == "icona" %}
+{% set avatar_img = false %}
+{% set avatar_txt = false %}
+{% endif %}
+
+{% set a_tooltip = {
+  data_toggle: 'tooltip',
+  data_html: 'true',
+  data_placement: 'top',
+  title: '<strong>Mario Rossi</strong><br /><em>Editor</em>'
+} %}
+
+{% set avatar_tag = avatar_link ? 'a' : 'div' %}
+{# Render output #}
+{% include '@bootstrap_italia_components/avatar/avatar.twig' with {
+  avatar_tag: avatar_tag,
+  avatar_link: avatar_link,
+  a_tooltip: a_tooltip,
+  avatar_type: avatar_type,
+  avatar_size: avatar_size,
+  avatar_img: avatar_img,
+  avatar_icon: avatar_icon,
+  avatar_txt: avatar_txt,
+  sr_only_alt: sr_only_alt
+} %}
