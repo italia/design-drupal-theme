@@ -14,7 +14,7 @@
 #}
 {% import '@bootstrap_italia/macros.twig' as macros %}
 
-{% set classes = [
+{% set div_classes = [
   'callout',
   variant != 'default' ? 'callout-highlight' : null,
   message_type ? message_type : null
@@ -35,10 +35,12 @@
  } %}
  {% set icon = message_type ? attribute(type_icons, message_type.__toString) : 'it-info-circle' %}
 
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(div_classes) }}>
   <div class="callout-title">
-    {% if variant is not null and message_type is null %}{% else %}{{ macros.icon(icon, base_path ~
-    directory) }}{% endif %}{% if message_type %}
+    {% if variant is not null and message_type is null %}{% else %}{% include 
+      '@bootstrap_italia_components/icon/icon.twig' with {
+          name: icon
+        } %}{% endif %}{% if message_type %}
   <span
       class="sr-only">{{ attribute(type_sronly, message_type.__toString)  }}</span>{% endif %}{{ title }}</div>
   <p>{{ text }}</p>
