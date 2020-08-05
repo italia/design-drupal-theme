@@ -37,7 +37,7 @@
 
 <div{{ attributes.addClass(div_classes) }}>
   <div class="callout-title">
-    {% if variant is not null and message_type is null %}{% else %}{% include 
+    {% if not (variant is not null and message_type is null) %}{% include 
       '@bootstrap_italia_components/icon/icon.twig' with {
           name: icon
         } %}{% endif %}{% if message_type %}
