@@ -14,6 +14,7 @@
  * - light: bool
  * - padded: bool
  * - alignment: bottom | middle | top
+ * - library; string - your custom library
  *
  * Note: only first parameter is mandatory.
  * You can set this component in two main ways:
@@ -38,6 +39,8 @@
   {% set icon_classes = icon_classes|merge(classes) %}
 {% endif %}
 
+{% set library = library ? library : 'sprite.svg' %}
+
 <svg class="{{ icon_classes|join(' ')|trim }}">
-  <use xlink:href="/{{ active_theme_path() }}/assets/icons/sprite.svg#{{ name }}"></use>
+  <use xlink:href="/{{ active_theme_path() }}/assets/icons/{{ library }}#{{ name }}"></use>
 </svg>
