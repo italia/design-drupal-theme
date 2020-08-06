@@ -35,11 +35,12 @@
   {% import _self as menus %}
 
   {% if items %}
-    <ul id="collapse12"{{
+    {% set first_item = items|first %}
+    {# {{ dump(first_below|keys) }} #}
+    <ul {{
     menu_level == 0 ?
     attributes.addClass(['link-list']) :
-    attributes.addClass(['link-sublist collapse'])
-
+    attributes.addClass(['link-sublist collapse']).setAttribute('id', 'collapse-' ~ first_item.title|clean_id)
     }}>
 
     {% for item in items %}
@@ -70,10 +71,12 @@
             <h3>{{ item.title }}</h3>
           {% else %}
             {% if menu_level == 0 %}
+            {% set below = item.below %}
+            {% set first_below = below|first %}
               <a
                 class="{{ item_classes|join(' ') }}"
                 {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="false"' : '' }}
-                href="#collapse12"
+                href="#collapse-{{ first_below.title|clean_id }}"
               >
             {% else %}
               <a
