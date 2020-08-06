@@ -70,9 +70,9 @@
           {% if item.url|render == "<title>" %}
             <h3>{{ item.title }}</h3>
           {% else %}
-            {% if menu_level == 0 %}
-            {% set below = item.below %}
-            {% set first_below = below|first %}
+            {% if item.below %}
+              {% set below = item.below %}
+              {% set first_below = below|first %}
               <a
                 class="{{ item_classes|join(' ') }}"
                 {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="false"' : '' }}
