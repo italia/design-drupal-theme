@@ -23,9 +23,11 @@
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
-<div class="sidebar-linklist-wrapper">
-  <div class="link-list-wrapper">
-    {{ menus.menu_links(items, attributes, 0) }}
+<div class="sidebar-wrapper it-line-left-side">
+  <div class="sidebar-linklist-wrapper">
+    <div class="link-list-wrapper">
+      {{ menus.menu_links(items, attributes, 0) }}
+    </div>
   </div>
 </div>
 
@@ -33,26 +35,27 @@
   {% import _self as menus %}
 
   {% if items %}
-    <ul{{
-      menu_level == 0 ?
-      attributes.addClass(['link-list']) :
-      attributes.addClass(['link-sublist'])
+    <ul id="collapse12"{{
+    menu_level == 0 ?
+    attributes.addClass(['link-list']) :
+    attributes.addClass(['link-sublist collapse'])
+
     }}>
 
-    {% for item in items %}
-      {%
-        set list_classes = [
-        item.is_expanded ? 'expanded',
-        item.is_collapsed ? 'collapsed',
-        item.in_active_trail ? 'active',
-        item.below ? 'dropdown',
-        'menu-level-'~menu_level
-      ]
-      %}
-      <li{{ item.attributes.addClass(list_classes) }}>
-        {% if item.title == '<divider>' %}
+      {% for item in items %}
+        {%
+          set list_classes = [
+          item.is_expanded ? 'expanded',
+          item.is_collapsed ? 'collapsed',
+          item.in_active_trail ? 'active',
+          item.below ? 'dropdown',
+          'menu-level-'~menu_level
+        ]
+        %}
+        <li{{ item.attributes.addClass(list_classes) }}>
+          {% if item.title == '<divider>' %}
           <span class="divider"></span>
-        {% else %}
+          {% else %}
           {%
             set item_classes = [
             'list-item',
@@ -64,14 +67,22 @@
 
           {# set tag type #}
           {% if item.url|render == "<title>" %}
-            <h3>{{ item.title }}</h3>
+          <h3>{{ item.title }}</h3>
           {% else %}
-
+          {% if menu_level == 0 %}
+          <a
+            class="{{ item_classes|join(' ') }}"
+            {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="false"' : '' }}
+            href="#collapse12"
+          >
+            {% else %}
             <a
               class="{{ item_classes|join(' ') }}"
               {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="false"' : '' }}
               href="{{ item.url }}"
             >
+              {% endif %}
+
               <span>{{ item.title }}</span>
 
               {% if item.is_expanded %}
@@ -79,15 +90,15 @@
               {% endif %}
 
             </a>
-          {% endif %}
-        {% endif %} {# end if item.title == '<divider>' #}
+            {% endif %}
+            {% endif %} {# end if item.title == '<divider>' #}
 
-        {# Recursive link-list #}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% endif %}
-      </li>
-    {% endfor %}
+            {# Recursive link-list #}
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+        </li>
+      {% endfor %}
 
     </ul>
   {% endif %}
