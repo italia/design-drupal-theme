@@ -9,6 +9,16 @@
 #toolbar-administration.toolbar {
   position: static;
 }
+@media (min-width: 992px) {
+  body.toolbar-horizontal.toolbar-fixed .it-header-wrapper.it-header-sticky.is-sticky .it-header-navbar-wrapper {
+    top: 39px;
+  }
+
+  body.toolbar-horizontal.toolbar-fixed.toolbar-tray-open .it-header-wrapper.it-header-sticky.is-sticky .it-header-navbar-wrapper {
+    top: 79px;
+  }
+
+}
 
 // Fix autocomplete circle icon
 .form-control {
