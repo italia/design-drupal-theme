@@ -31,6 +31,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#description' => t('Impostazioni personalizzabili per l\'intestazione del sito. <a href="https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/" target="_blank">Docs://Header</a>'),
     '#open' => TRUE,
     '#group' => 'bootstrap',
+    '#weight' => 0,
   ];
 
   // Layout and theme variants
@@ -58,6 +59,12 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#type' => 'checkbox',
     '#title' => t('Attiva la variante small dell\'header centrale'),
     '#default_value' => theme_get_setting('header_center_small'),
+  ];
+  // Header sticky
+  $form['header_settings']['layout_and_variants']['header_sticky'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva la possibiltà che la testata rimanga parzialmente visibile anche allo scorrere della pagina'),
+    '#default_value' => theme_get_setting('header_sticky'),
   ];
 
   // Ente di appartenenza
@@ -105,7 +112,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#type' => 'details',
     '#title' => t('Social network'),
     '#description' => t('Impostazioni personalizzabili per i social network.'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'header_settings',
   ];
 
@@ -119,35 +126,14 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     ];
   }
 
-  // Avatar settings.
-  $form['avatar_settings'] = [
-    '#type' => 'details',
-    '#title' => t('Avatar'),
-    '#description' => t('Impostazioni personalizzabili per avatar utente.'),
-    '#open' => TRUE,
-    '#group' => 'bootstrap',
-  ];
-  $form['avatar_settings']['avatar_size'] = [
-    '#type' => 'select',
-    '#title' => t('Dimensione Avatar'),
-    '#description' => t('Seleziona la dimensione per l\'avatar (es: xs).'),
-    '#default_value' => theme_get_setting('avatar_size'),
-    '#options' => [
-      'xs' => 'xs',
-      'sm' => 'sm',
-      'md' => 'md',
-      'lg' => 'lg',
-      'xl' => 'xl',
-    ],
-  ];
-
   /* Tab Navigation settings ------------------------------------------------ */
   $form['navigation_settings'] = [
     '#type' => 'details',
     '#title' => t('Navigation'),
     '#description' => t('Impostazioni personalizzabili per i componenti di navigazione.'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'bootstrap',
+    '#weight' => 6,
   ];
 
   // Breadcrumbs settings.
@@ -186,7 +172,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#type' => 'details',
     '#title' => t('Back to top'),
     '#description' => t('Impostazioni personalizzabili per il pulsante Back to top.'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'navigation_settings',
   ];
   $form['navigation_settings']['back_to_top']['back_to_top_enable'] = [
@@ -210,4 +196,26 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
 
+  // Avatar settings.
+  $form['avatar_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Avatar'),
+    '#description' => t('Impostazioni personalizzabili per avatar utente.'),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 10,
+  ];
+  $form['avatar_settings']['avatar_size'] = [
+    '#type' => 'select',
+    '#title' => t('Dimensione Avatar'),
+    '#description' => t('Seleziona la dimensione per l\'avatar (es: xs).'),
+    '#default_value' => theme_get_setting('avatar_size'),
+    '#options' => [
+      'xs' => 'xs',
+      'sm' => 'sm',
+      'md' => 'md',
+      'lg' => 'lg',
+      'xl' => 'xl',
+    ],
+  ];
 }
