@@ -19,34 +19,77 @@
  */
 #}
 {% import _self as menus %}
-
 {#
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/1.x/tags/macro.html
 #}
-{{ menus.menu_links(items, attributes, 0) }}
+<div class="sidebar-linklist-wrapper">
+  <div class="link-list-wrapper">
+    {{ menus.menu_links(items, attributes, 0) }}
+  </div>
+</div>
 
 {% macro menu_links(items, attributes, menu_level) %}
-{% import _self as menus %}
-{%
-  set root_classes = [
-    'link-list'
-  ]
-%}
-{% if items %}
-{% if menu_level == 0 %}
-<ul{{ attributes.addClass(root_classes) }}>
-  {% else %}
-  <ul>
-    {% endif %}
+  {% import _self as menus %}
+
+  {% if items %}
+    <ul{{
+      menu_level == 0 ?
+      attributes.addClass(['link-list']) :
+      attributes.addClass(['link-sublist'])
+    }}>
+
     {% for item in items %}
-    <li{{ item.attributes }}>
-      {{ link(item.title, item.url) }}
-      {% if item.below %}
-      {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-      {% endif %}
+      {%
+        set list_classes = [
+        item.is_expanded ? 'expanded',
+        item.is_collapsed ? 'collapsed',
+        item.in_active_trail ? 'active',
+        item.below ? 'dropdown',
+        'menu-level-'~menu_level
+      ]
+      %}
+      <li{{ item.attributes.addClass(list_classes) }}>
+        {% if item.title == '<divider>' %}
+          <span class="divider"></span>
+        {% else %}
+          {%
+            set item_classes = [
+            'list-item',
+            item.is_expanded ? 'dropdown-toggle',
+            item.is_collapsed ? 'collapsed',
+            item.in_active_trail ? 'active',
+          ]
+          %}
+
+          {# set tag type #}
+          {% if item.url|render == "<title>" %}
+            <h3>{{ item.title }}</h3>
+          {% else %}
+
+            <a
+              class="{{ item_classes|join(' ') }}"
+              {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="false"' : '' }}
+              href="{{ item.url }}"
+            >
+              <span>{{ item.title }}</span>
+
+              {% if item.is_expanded %}
+                {% include '@bootstrap_italia_components/icon/icon.twig' with {name: 'it-expand'} %}
+              {% endif %}
+
+            </a>
+          {% endif %}
+        {% endif %} {# end if item.title == '<divider>' #}
+
+        {# Recursive link-list #}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
       </li>
-      {% endfor %}
-  </ul>
+    {% endfor %}
+
+    </ul>
   {% endif %}
-  {% endmacro %}
+
+{% endmacro %}
