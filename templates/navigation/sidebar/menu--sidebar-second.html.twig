@@ -18,58 +18,12 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-{% import _self as menus %}
-{#
-  We call a macro which calls itself to render the full tree.
-  @see https://twig.symfony.com/doc/1.x/tags/macro.html
-#}
 <div class="sidebar-wrapper it-line-left-side">
   <div class="sidebar-linklist-wrapper">
-    <div class="link-list-wrapper">
-      <ul class="link-list">
-        {{ menus.menu_links(items, attributes, 0) }}
-      </ul>
-    </div>
+    {% include '@bootstrap_italia_components/link-list/menu-recursive.twig' with {
+      menu_name: menu_name,
+      items: items,
+      attributes: attributes
+    } %}
   </div>
 </div>
-
-{% macro menu_links(items, attributes, menu_level) %}
-  {% import _self as menus %}
-  {% if items %}
-    {% for uuid, item in items %}
-      <li{{ item.attributes }}>
-
-        {% if item.title == '<divider>' %}
-          <span class="divider"></span>
-
-        {% elseif item.url|render == "<title>" %}
-          <h3>{{ item.title }}</h3>
-
-        {% else %}
-          {% set item_classes = [
-            'list-item',
-            item.in_active_trail ? 'active',
-          ] %}
-          <a
-            class="{{ item_classes|join(' ') }}"
-            {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="true"' : '' }}
-            href="{{ item.below ? '#'~uuid|clean_id : item.url }}"
-          >
-            <span>{{ item.title }}</span>
-            {% if item.is_expanded %}
-              {% include '@bootstrap_italia_components/icon/icon.twig' with {name: 'it-expand'} %}
-            {% endif %}
-          </a>
-        {% endif %}
-
-        {# Recursive link-list #}
-        {% if item.below %}
-          <ul id="{{ uuid|clean_id }}" class="link-sublist collapse {{ item.in_active_trail ? 'show' }}">
-            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-          </ul>
-        {% endif %}
-
-      </li>
-    {% endfor %}
-  {% endif %}
-{% endmacro %}
