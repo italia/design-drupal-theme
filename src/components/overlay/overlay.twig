@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Template for Overlay component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/overlay
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - overlay_caption: string
+ * - overlay_img: link img
+ * - overlay_img_alt: string | false
+ * - overlay_fulllheight: true | false
+ * - overlay_black: true | false
+ * - overlay_hover: true | false
+ * - overlay_icon: string
+ * - overlay_icon_sr_only: string
+ *
+#}
+{% set figure_classes = [
+  'overlay-wrapper',
+  overlay_hover ? 'overlay-hover'
+] %}
+{% set caption_classes = [
+  'overlay-panel',
+  overlay_fulllheight ? 'overlay-panel-fullheight',
+  overlay_black ? 'overlay-black',
+  overlay_icon ? 'overlay-icon'
+] %}
+<figure {{ attributes.addClass(figure_classes) }}>
+  <img src="{{ overlay_img }}" alt="{{ overlay_img_alt }}" class="img-fluid">
+  <figcaption {{ attributes.addClass(caption_classes) }}><span>{{ overlay_caption }}</span>
+    {% if overlay_icon %}
+      <span class="sr-only">{{ overlay_icon_sr_only }}</span>
+      {% include '@bootstrap_italia_components/icon/icon.twig' with { 
+        name: overlay_icon
+      } 
+    %}
+    {% endif %}
+  </figcaption>
+</figure>
