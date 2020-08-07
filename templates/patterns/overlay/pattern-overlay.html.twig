@@ -1,0 +1,11 @@
+{# Render output #}
+{% include '@bootstrap_italia_components/overlay/overlay.twig' with {
+  overlay_caption: overlay_caption,
+  overlay_img: overlay_img,
+  overlay_img_alt: overlay_img_alt,
+  overlay_fulllheight: (variant == 'fullheight') ? true : false,
+  overlay_black: (variant == 'black') ? true : false,
+  overlay_hover: (variant == 'hover') ? true : false,
+  overlay_icon: (variant == 'icon') ? overlay_icon : false,
+  overlay_icon_sr_only: (variant == 'icon') ? overlay_icon_sr_only : false
+} %}
