@@ -1,14 +1,12 @@
 <?php
 
-use Drupal\bootstrap_italia\Helper;
+// use Drupal\Core\Pager\PagerManagerInterface;
 
 /**
  * Implements hook_preprocess_pager()
  */
 function bootstrap_italia_preprocess_pager(&$variables)
 {
-  if (isset($variables['items']['last']['href'])) {
-    $pieces = explode('=', $variables['items']['last']['href']);
-    $variables['total_pages'] = $pieces[1] + 1;
-  }
+  $pager = \Drupal::service('pager.manager')->getPager();
+  $variables['total_pages'] = $pager ? $pager->getTotalPages() : NULL;
 }
