@@ -38,31 +38,29 @@
   {% if items %}
     {% for uuid, item in items %}
       <li{{ item.attributes }}>
+
         {% if item.title == '<divider>' %}
           <span class="divider"></span>
+
+        {% elseif item.url|render == "<title>" %}
+          <h3>{{ item.title }}</h3>
+
         {% else %}
-          {# Set tag type #}
-          {% if item.url|render == "<title>" %}
-            <h3>{{ item.title }}</h3>
-          {% else %}
-            {%
-              set item_classes = [
-                'list-item',
-                item.in_active_trail ? 'active',
-            ]
-            %}
-            <a
-              class="{{ item_classes|join(' ') }}"
-              {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="true"' : '' }}
-              href="{{ item.below ? '#'~uuid|clean_id : item.url }}"
-            >
-              <span>{{ item.title }}</span>
-              {% if item.is_expanded %}
-                {% include '@bootstrap_italia_components/icon/icon.twig' with {name: 'it-expand'} %}
-              {% endif %}
-            </a>
-          {% endif %}
-        {% endif %} {# end if item.title == '<divider>' #}
+          {% set item_classes = [
+            'list-item',
+            item.in_active_trail ? 'active',
+          ] %}
+          <a
+            class="{{ item_classes|join(' ') }}"
+            {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="true"' : '' }}
+            href="{{ item.below ? '#'~uuid|clean_id : item.url }}"
+          >
+            <span>{{ item.title }}</span>
+            {% if item.is_expanded %}
+              {% include '@bootstrap_italia_components/icon/icon.twig' with {name: 'it-expand'} %}
+            {% endif %}
+          </a>
+        {% endif %}
 
         {# Recursive link-list #}
         {% if item.below %}
@@ -70,6 +68,7 @@
             {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
           </ul>
         {% endif %}
+
       </li>
     {% endfor %}
   {% endif %}
