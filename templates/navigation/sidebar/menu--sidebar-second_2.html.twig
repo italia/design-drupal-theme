@@ -11,7 +11,7 @@
  *   - title: The menu link title.
  *   - url: The menu link url, instance of \Drupal\Core\Url
  *   - localized_options: Menu link localized options.
- *   - is_expanded: TRUE if the link has visible children within the current
+ *   - is_expanded:  TRUE if the link has visible children within the current
  *     menu tree.
  *   - is_collapsed: TRUE if the link has children within the current menu tree
  *     that are not currently visible.
@@ -41,20 +41,21 @@
       {% set id = id + 1 %}
       {% set children = item.below ? '1': '0' %}
       <li>
-      <a {{
+      <a data-toggle="collapse"{{
       children ?
       attributes.addClass(['list-item large medium right-icon']).setAttribute('href', '#collapse-' ~ id) :
-      attributes.addClass(['list-item']).setAttribute('href', '{{ item.url }}')
+      attributes.addClass(['list-item']).setAttribute('href', 'item.url')
       }}>
         <span>{{ item.title }}</span>
-        {% if children %}
-          <ul class="link-sublist collapse" id="collapse-{{ id }}">
-            {% if item.below %}
-              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-            {% endif %}
-          </ul>
-        {% endif %}
       </a>
+      {% if children %}
+        <ul class="link-sublist collapse" id="collapse-{{ id }}">
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        </ul>
+      {% endif %}
+
     {% endfor %}
     </li>
   {% endif %}
