@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Template for link-list component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link/
+ * Last review: 1.4.1
+ *
+ * Available config:
+ */
+#}
+<div class="link-list-wrapper">
+  <ul class="link-list">
+    {% for pattern_name, pattern in patterns %}
+      <li>
+        <a class="list-item"  href="#{{ pattern_name }}">{{ pattern.label }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
