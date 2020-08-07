@@ -23,7 +23,15 @@
     {% include '@bootstrap_italia_components/link-list/menu-recursive.twig' with {
       menu_name: menu_name,
       items: items,
-      attributes: attributes
+      attributes: attributes,
+      view_link_description: false,
+      large: true,
+      bold: false,
+      icon_position: 'right',
+      icon_type: 'it-expand',
+      icon_color: 'primary',
+      active_items_large: false,
+      active_items_bold: true,
     } %}
   </div>
 </div>
