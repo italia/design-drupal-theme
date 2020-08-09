@@ -218,4 +218,52 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       'xl' => 'xl',
     ],
   ];
+
+  /* Table settings ------------------------------------------------ */
+  $form['table_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Tabelle'),
+    '#description' => t('Impostazioni personalizzabili per le tabelle.'),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 11,
+  ];
+  $form['table_settings']['table_bg'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Seleziona per abilitare lo sfondo scuro nelle tabelle'),
+    '#default_value' => theme_get_setting('table_bg'),
+  ];
+  $form['table_settings']['table_thead'] = [
+    '#type' => 'select',
+    '#title' => t('Sfondo Intestazione tabelle'),
+    '#description' => t('Scegli il colore di sfondo per le intestazioni delle tabelle'),
+    '#default_value' => theme_get_setting('table_thead'),
+    '#options' => [
+      'nessuno' => 'nessuno',
+      'chiaro' => 'chiaro',
+      'scuro' => 'scuro',
+    ],
+  ];
+  $form['table_settings']['table_striped'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Seleziona per abilitare lo zebrato ad ogni riga della tabella'),
+    '#default_value' => theme_get_setting('table_striped'),
+  ];
+  $form['table_settings']['table_bordered'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Seleziona per avere i bordi a tutti i lati della tabella e su tutte le celle'),
+    '#default_value' => theme_get_setting('table_bordered'),
+  ];
+  $form['table_settings']['table_hover'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Seleziona per abilitare lo stato hover sulle righe della tabella'),
+    '#default_value' => theme_get_setting('table_hover'),
+  ];
+  $form['table_settings']['table_sm'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Seleziona per rendere le tabelle più compatte dimezzando il cell padding'),
+    '#default_value' => theme_get_setting('table_sm'),
+  ];
+
+
 }
