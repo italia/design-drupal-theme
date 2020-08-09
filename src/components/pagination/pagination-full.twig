@@ -35,11 +35,11 @@
 #}
 {% if items %}
 <nav class="pagination-wrapper justify-content-center" aria-label="{{ 'Paginazione risultati'|t }}">
-  <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center js-pager__items">
     {# Print previous item if we are not on the first page. #}
-    {% if items.previous %}
-    <li class="page-item">
-      <a class="page-link text" href="{{ items.previous.href }}">
+    <li class="page-item{% if not items.previous %} disabled{% endif %}">
+      <a class="page-link text" href="{{ items.previous.href }}"{% if not items.previous %} tabindex="-1"
+        aria-hidden="true" {% endif %}>
         {% if items.previous.text %}
         <span class="sr-only">{{ 'Pagina'|t }}</span>{{ 'Precedente'|t }}
         {% else %}
@@ -51,7 +51,6 @@
         {% endif %}
       </a>
     </li>
-    {% endif %}
     {% if items.first and ellipses.previous  %}
     <li class="page-item d-none d-sm-flex"><a class="page-link" href="{{ items.first.href }}">1</a></li>
     {% endif %}
@@ -82,8 +81,9 @@
     <li class="page-item d-none d-sm-flex"><a class="page-link" href="{{ items.last.href }}">{{ total_pages }}</a></li>
     {% endif %}
     {% if items.next %}
-    <li class="page-item">
-      <a class="page-link text" href="{{ items.next.href }}">
+    <li class="page-item{% if not items.next %}" disabled{% endif %}">
+      <a class="page-link text" href="{{ items.next.href }}{% if not items.next %} tabindex=" -1" aria-hidden="true"
+        {% endif %}">
         {% if items.previous.text %}
         <span class="sr-only">{{ 'Pagina'|t }}</span>{{ 'Successiva'|t }}
         {% else %}
