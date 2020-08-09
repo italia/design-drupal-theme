@@ -34,8 +34,8 @@
  */
 #}
 {% if items %}
-<nav class="pagination-wrapper" aria-label="{{ 'Paginazione risultati'|t }}">
-  <ul class="pagination">
+<nav class="pagination-wrapper justify-content-center" aria-label="{{ 'Paginazione risultati'|t }}">
+  <ul class="pagination justify-content-center">
     {# Print previous item if we are not on the first page. #}
     {% if items.previous %}
     <li class="page-item">
@@ -53,14 +53,14 @@
     </li>
     {% endif %}
     {% if items.first and ellipses.previous  %}
-    <li class="page-item"><a class="page-link" href="{{ items.first.href }}">1</a></li>
+    <li class="page-item d-none d-sm-flex"><a class="page-link" href="{{ items.first.href }}">1</a></li>
     {% endif %}
     {% if ellipses.previous %}
-    <li class="page-item"><span class="page-link">...</span></li>
+    <li class="page-item d-none d-sm-flex"><span class="page-link">...</span></li>
     {% endif %}
     {# Now generate the actual pager piece. #}
     {% for key, item in items.pages %}
-    <li class="page-item{{ current == key ? ' active' : '' }}">
+    <li class="page-item{{ current == key ? ' active' : ' d-none d-sm-flex' }}">
       {% if current == key %}
       {% set title = 'Current page'|t %}
       {% else %}
@@ -76,10 +76,10 @@
     </li>
     {% endfor %}
     {% if ellipses.next %}
-    <li class="page-item"><span class="page-link">...</span></li>
+    <li class="page-item d-none d-sm-flex"><span class="page-link">...</span></li>
     {% endif %}
     {% if items.last and ellipses.next %}
-    <li class="page-item"><a class="page-link" href="{{ items.last.href }}">{{ total_pages }}</a></li>
+    <li class="page-item d-none d-sm-flex"><a class="page-link" href="{{ items.last.href }}">{{ total_pages }}</a></li>
     {% endif %}
     {% if items.next %}
     <li class="page-item">
