@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override for a views mini-pager.
+ *
+ * Available variables:
+ * - heading_id: Pagination heading ID.
+ * - items: List of pager items.
+ *
+ * @see template_preprocess_views_mini_pager()
+ */
+#}
+{% if items.previous or items.next %}
+  <nav class="pagination-wrapper justify-content-center" aria-label="Navigazione semplificata">
+    <ul class="pagination js-pager__items" aria-label="Pagina {{ items.current }}"> 
+      <li class="page-item{% if not items.previous %} disabled{% endif %}">
+        <a class="page-link" href="{{ items.previous.href }}"{% if not items.previous %} tabindex="-1"
+          aria-hidden="true"{% endif %}>
+          {% include '@bootstrap_italia_components/icon/icon.twig' with { 
+            name: 'it-chevron-left',
+            classes: ['icon-primary'] }
+          %}
+          <span class="sr-only">Pagina precedente</span>
+        </a>
+      </li>
+      {% if items.current %}
+      <li class="page-item">{{ items.current }}</li>
+      {% endif %}
+      <!-- li class="page-item sr-only">
+        <a class="page-link" href="#" aria-current="page">Pagina 1 di {{ total_pages }}</a>
+      </li -->
+      <li class="page-item{% if not items.next %}" disabled{% endif %}">
+        <a class="page-link" href="{{ items.next.href }}"{% if not items.next %} tabindex="-1" aria-hidden="true"
+          {% endif %}>
+          <span class="sr-only">Pagina successiva</span>
+          {% include '@bootstrap_italia_components/icon/icon.twig' with { 
+            name: 'it-chevron-right',
+            classes: ['icon-primary'] }
+          %}
+        </a>
+      </li>
+    </ul>
+  </nav>
+{% endif %}
