@@ -1,0 +1,90 @@
+{#
+/**
+ * @file
+ * Template for link-list component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link
+ * Last review: <bootsrap_italia_version> (La versione di bootstrap_italia di quanto è stato implementato questo componente)
+ *
+ * Available config:
+ * - attributes: drupal field attributes
+ * - label_hidden: druapl field label_hidden variable
+ * - title_attributes: drupal field title_attributes variable
+ * - label: the label
+ * - multiple: drupal field multiple variable,ì
+ * - items: the items
+ * - entity_type: druapl entity_type variable
+ * - field_name: drupal field_name variable
+ * - field_type: drupal field_type variable
+ * - label_display: drupal label_display variable
+ * - navbar_style: bool - set true to display component with navbar style
+ * - large: bool - increase items size
+ * - bold: bool - increase item font weight
+ * - icon_position: false | left | right
+ * - icon_type: string - es. 'it-link'
+ * - icon_color: primary | secondary | success | warning | danger | light | white
+ *
+ * Mandatory: attributes, label_hidden, title_attributes, label, multiple, items, entity_type
+ *            field_name, field_type, label_display
+ */
+#}
+{% set container_classes = [
+  'entity--' ~ entity_type,
+  'field-type--' ~ field_type,
+  'field-name--' ~ field_name,
+  navbar_style ? 'navbar it-navscroll-wrapper'
+]%}
+{% set wrapper_classes = [
+  'link-list-wrapper',
+  not(label_hidden) ? 'menu-link-list'
+] %}
+{% set title_classes = [
+  'not_toc',
+  label_display == 'visually_hidden' ? 'visually-hidden',
+] %}
+
+<div {{ not(label_hidden) ? attributes.addClass(container_classes) }}>
+  {% if multiple %}<div {{ label_hidden ? attributes.addClass(container_classes) }}>{% endif %}
+
+    <div class="{{ wrapper_classes|join(' ')|trim }}">
+      {% if not(label_hidden) %}
+        <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      {% endif %}
+
+      <ul class="link-list">
+        {% for item in items %}
+          <li{{ item.attributes }}>
+            {% if item.content['#title'] == '<divider>' %}
+              <span class="divider"></span>
+
+            {% else %}
+              {% set item_classes = [
+                'list-item',
+                large ? 'large',
+                bold ? 'bold',
+                icon_position == 'right' ? 'right-icon',
+                icon_position == 'left' ? 'icon-left'
+              ] %}
+              <a
+                class="{{ item_classes|join(' ')|trim }}"
+                href="{{ item.content['#url'] }}"
+                {{ item.content['#options']['external'] ? 'target="_blank" rel="nofollow"' }}
+                title="{{ item.content['#title'] }}"
+              >
+                <span>{{ item.content['#title'] }}</span>
+                {% if icon_position %}
+                  {% include '@bootstrap_italia_components/icon/icon.twig' with {
+                    name: icon_type,
+                    classes: ['icon-'~icon_color, 'icon-'~icon_position]
+                  } %}
+                {% endif %}
+              </a>
+            {% endif %}
+
+          </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+
+  {% if multiple %}</div>{% endif %}
+</div>

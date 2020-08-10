@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * Theme override for a field link list.
+ *
+ * To override output with link list component, copy "example--field--field-link-list.html.twig" to
+ * "<your theme's directory>/templates/field/field--field-machine-name", if you use paragraph
+ * copy to "<your theme's directory>/templates/paragraph/field/paragraph--field--field-machine-name" and customize it.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{% include '@bootstrap_italia_components/link-list/link-list.twig' with {
+  attributes: attributes,
+  label_hidden: label_hidden,
+  title_attributes: title_attributes,
+  label: label,
+  multiple: multiple,
+  items: items,
+  entity_type: entity_type,
+  field_name: field_name,
+  field_type: field_type,
+  label_display: label_display,
+  navbar_style: true,
+  large: true,
+  bold: false,
+  icon_position: 'left',
+  icon_type: 'it-link',
+  icon_color: 'primary',
+} %}
