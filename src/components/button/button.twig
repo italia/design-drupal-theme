@@ -9,18 +9,31 @@
  * - type: primary | secondary | success | danger | warning | info | light | dark
  * - outline: true | false
  * - tag: button, a, input
+ * - classes: array | false
  * - value: string
+ * - input_type: string
  * - attributes: Attributes array
+ * - data-attributes: array
+ * - size: xs | sm | lg
+ * - block: true | false
  * - icon: it-name
  */
 #}
-{% set classes = [
+{% set button_classes = [
   'btn',
-  type ? 'btn-' ~ type
+  type ? 'btn-' ~ type,
+  size ? 'btn-' ~ size,
+  outline ? 'btn-' ~ outline,
+  icon ? 'btn-' ~ icon,
+  block ? 'btn-block'
 ] %}
+{% if classes %}
+  {% set button_classes = button_classes|merge(classes) %}
+{% endif %}
 
 {% if tag == 'input' %}
-  <input{{ attributes.addClass(classes) }} />
+  <input{{ attributes.addClass(button_classes) type="{{ input_type }}" value="{{ value }}" }} />
 {% else %}
-  <{{ tag }}>{{ value }}</{{ tag }}>
+  <{{ tag }}{{ attributes.addClass(button_classes){% if tag == 'a' %} role="button"{% endif %}
+  >{{ value }}</{{ tag }}>
 {% endif %}
