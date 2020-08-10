@@ -31,6 +31,11 @@ button:
       label: Testo bottone
       description: Il testo che appare nel bottone.
       preview: 'Sono un bottone'
+    href:
+      type: text
+      label: href per la variante link.
+      description: Link per href nel caso della variante link.
+      preview: 'https://www.drupal.org'
 
   # Optional: Attached libraries.
   #

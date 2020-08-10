@@ -17,6 +17,7 @@
  * - size: xs | sm | lg
  * - block: true | false
  * - icon: it-name
+ * - href: URL
  */
 #}
 {% set button_classes = [
@@ -38,6 +39,6 @@
 {% if tag == 'input' %}
   <input{{ attributes.addClass(button_classes) }} type="{{ input_type }}" value="{{ value }}" />
 {% else %}
-  <{{ tag }}{{ attributes.addClass(button_classes) }} {{ dt|trim|raw }}{% if tag == 'a' %} role="button"{% endif %}
+  <{{ tag }}{{ attributes.addClass(button_classes) }} {{ dt|trim|raw }}{% if tag == 'a' %} href="{{ href }}" role="button"{% endif %}
   >{{ value }}</{{ tag }}>
 {% endif %}
