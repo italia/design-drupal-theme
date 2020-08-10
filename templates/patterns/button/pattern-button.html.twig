@@ -1,0 +1,14 @@
+{# Render output #}
+{% if variant == 'link' %}
+  {% set tag = 'a' %}
+{% elseif variant == 'input' %}
+  {% set tag = 'input' %}
+{% else %}
+  {% set tag = 'button' %}
+{% endif %}
+{% include '@bootstrap_italia_components/button/button.twig' with {
+  type: 'primary',
+  tag: tag,
+  value: value,
+  input_type: (variant == 'input') ? 'button' : false,
+} %}
