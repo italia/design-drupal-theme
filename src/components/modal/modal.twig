@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Template for Modal component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/modale
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - modal_id: string
+ * - modal_header: string
+ * - modal_close: true | false
+ * - modal_body: string
+ * - modal_dismiss_txt: string | false
+ *
+#}
+{% include '@bootstrap_italia_components/modal/modal-launch-button.twig' %}
+<div class="modal fade" tabindex="-1" role="dialog" id="{{ modal_id }}">
+  <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title">{{ modal_header }}
+           </h5>
+           {% if modal_close %}
+           {% include '@bootstrap_italia_components/modal/modal-close-button.twig' %}
+           {% endif %}
+        </div>
+        <div class="modal-body">
+           <p>{{ modal_body }}</p>
+        </div>
+        <div class="modal-footer">
+          {% if modal_dismiss_txt %}
+          <button class="btn btn-outline-primary btn-sm" type="button" data-dismiss="modal">{{ modal_dismiss_txt }}</button>
+          {% endif %}
+        </div>
+     </div>
+  </div>
+</div>
