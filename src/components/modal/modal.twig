@@ -11,9 +11,26 @@
  * - modal_close: true | false
  * - modal_body: string
  * - modal_dismiss_txt: string | false
+ * - modal_launch_button_type: string,
+ * - modal_launch_button_outline: true | false,
+ * - modal_launch_button_tag: button | a | input
+ * - modal_launch_button_size: xs | sm | lg | false
  *
 #}
-{% include '@bootstrap_italia_components/modal/modal-launch-button.twig' %}
+{% include '@bootstrap_italia_components/button/button.twig' with
+{
+   data_attributes: {
+      toggle: 'modal',
+      target: '#' ~ modal_id
+   },
+   type: modal_launch_button_type|default('primary'),
+   outline: modal_launch_button_outline,
+   tag: modal_launch_button_tag|default('button'),
+   value: modal_launch_button_value|default('Apri'),
+   input_type: modal_launch_button_input_type|default('button'),
+   size: modal_launch_button_size
+}
+%}
 <div class="modal fade" tabindex="-1" role="dialog" id="{{ modal_id }}">
   <div class="modal-dialog" role="document">
      <div class="modal-content">
