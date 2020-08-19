@@ -3,6 +3,11 @@ ente_appartenenza_nome: 'Developers Italia'
 ente_appartenenza_url: 'https://developers.italia.it'
 header_center_light: 0
 header_center_small: 0
+main_menu_link_size: 1
+main_menu_link_bolder_active: 1
+main_menu_dropdown_link_description: 0
+main_menu_megamenu_title_description: 0
+main_menu_megamenu_link_description: 0
 breadcrumb_dark_background: 0
 breadcrumb_image: 0
 breadcrumb_separator: /

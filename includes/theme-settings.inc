@@ -136,6 +136,40 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#weight' => 6,
   ];
 
+  // Main menu settings
+  $form['navigation_settings']['main_menu'] = [
+    '#type' => 'details',
+    '#title' => t('Menu principale'),
+    '#description' => t('Impostazioni personalizzabili per il menu principale'),
+    '#open' => TRUE,
+    '#group' => 'navigation_settings',
+  ];
+  $form['navigation_settings']['main_menu']['main_menu_link_size'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Usa la variante large delle voci di menu'),
+    '#default_value' => theme_get_setting('main_menu_link_size'),
+  ];
+  $form['navigation_settings']['main_menu']['main_menu_link_bolder_active'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Aumenta il peso del carattere per i link attivi'),
+    '#default_value' => theme_get_setting('main_menu_link_bolder_active'),
+  ];
+  $form['navigation_settings']['main_menu']['main_menu_dropdown_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza la descrizione sotto link dei dropdown'),
+    '#default_value' => theme_get_setting('main_menu_dropdown_link_description'),
+  ];
+  $form['navigation_settings']['main_menu']['main_menu_megamenu_title_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza la descrizione sotto i titoli dei megamenu'),
+    '#default_value' => theme_get_setting('main_menu_megamenu_title_description'),
+  ];
+  $form['navigation_settings']['main_menu']['main_menu_megamenu_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza la descrizione sotto i link dei megamenu'),
+    '#default_value' => theme_get_setting('main_menu_megamenu_link_description'),
+  ];
+
   // Breadcrumbs settings.
   $form['navigation_settings']['breadcrumbs_settings'] = [
     '#type' => 'details',
