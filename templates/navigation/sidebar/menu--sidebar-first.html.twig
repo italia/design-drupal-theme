@@ -27,7 +27,7 @@
  *   - sidebar_menu_background: FALSE | white | light | dark
  */
 #}
-<div class="sidebar-wrapper it-line-left-side{{ sidebar_menu_background ? ' bg-'~sidebar_menu_background }}" >
+<div class="sidebar-wrapper it-line-right-side{{ sidebar_menu_background ? ' bg-'~sidebar_menu_background }}">
   <div class="sidebar-linklist-wrapper">
     {% include '@bootstrap_italia_components/link-list/menu-recursive.twig' with {
       menu_name: menu_name,

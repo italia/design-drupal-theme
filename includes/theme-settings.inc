@@ -121,7 +121,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     $form['header_settings']['social_settings'][$low_social] = [
       '#type' => 'url',
       '#title' => t('URL profilo '. $social),
-      '#description' => t('Inserisci l\'URL del profilo '. $social .'. Inserisci indirizzo completo come: http://www.example.com.'),
+      '#description' => t('Inserisci l\'URL del profilo '. $social .'. Inserisci indirizzo completo come: https://www.example.com.'),
       '#default_value' => theme_get_setting($low_social),
     ];
   }
@@ -199,6 +199,81 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       '>' => '>',
       '/' => '/',
     ],
+  ];
+
+  // Sidebar menu settings
+  $form['navigation_settings']['sidebar_menu'] = [
+    '#type' => 'details',
+    '#title' => t('Sidebar Menu'),
+    '#description' => t('Impostazioni personalizzabili per i menu nelle sidebar'),
+    '#open' => TRUE,
+    '#group' => 'navigation_settings',
+  ];
+  $form['navigation_settings']['sidebar_menu']['sidebar_menu_background'] = [
+    '#type' => 'select',
+    '#title' => t('Varianti colore'),
+    '#default_value' => theme_get_setting('sidebar_menu_background'),
+    '#description' => t('Scegli le varianti colore'),
+    '#options' => [
+      'white' => 'White',
+      'light' => 'Light',
+      'dark' => 'Dark',
+      'custom' => 'Nessuno (potrai personalizzarlo attraverso i CSS)'
+    ],
+  ];
+  $form['navigation_settings']['sidebar_menu']['sidebar_menu_link_size'] = [
+    '#type' => 'select',
+    '#title' => t('Dimensione voci'),
+    '#default_value' => theme_get_setting('sidebar_menu_link_size'),
+    '#description' => t('Questa impostazione gestisce la dimensione e l\'altezza del contenitore della voce di menu'),
+    '#options' => [
+      'default' => 'Dimensione predefinita',
+      'all' => 'Variante large per tutte le voci',
+      'active' => 'Variante large solo per le voci attive'
+    ],
+  ];
+  $form['navigation_settings']['sidebar_menu']['sidebar_menu_link_weight'] = [
+    '#type' => 'select',
+    '#title' => t('Peso del carattere'),
+    '#default_value' => theme_get_setting('sidebar_menu_link_weight'),
+    '#description' => t('Questa impostazione gestisce il peso del carattere della voce di menu'),
+    '#options' => [
+      'default' => 'Dimensione predefinita',
+      'all' => 'Grassetto per tutte le voci',
+      'active' => 'Grassetto solo per le voci attive'
+    ],
+  ];
+  $form['navigation_settings']['sidebar_menu']['sidebar_menu_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza la descrizione sotto tutte le voci di menu'),
+    '#default_value' => theme_get_setting('sidebar_menu_link_description'),
+  ];
+  $form['navigation_settings']['sidebar_menu']['sidebar_menu_icon_type'] = [
+    '#type' => 'select',
+    '#title' => t('Icona delle voci espandibili'),
+    '#default_value' => theme_get_setting('sidebar_menu_icon_position'),
+    '#description' => t('Scegli quale icona utilizzare per espandere i livelli annidati'),
+    '#options' => [
+      'it-expand' => 'Parentesi angolare verso il basso',
+      'it-chevron-right' => 'Parentesi angolare verso destra'
+    ],
+  ];
+  $form['navigation_settings']['sidebar_menu']['sidebar_menu_icon_position'] = [
+    '#type' => 'select',
+    '#title' => t('Posizione icona delle voci espandibili'),
+    '#default_value' => theme_get_setting('sidebar_menu_icon_position'),
+    '#description' => t('Scegli la posizione dell\'icona utilizzata per espandere i livelli annidati'),
+    '#options' => [
+      'left' => 'Sinistra',
+      'right' => 'Destra'
+    ],
+  ];
+  $form['navigation_settings']['sidebar_menu']['sidebar_menu_icon_color'] = [
+    '#type' => 'select',
+    '#title' => t('Colore icona delle voci espandibili'),
+    '#default_value' => theme_get_setting('sidebar_menu_icon_color'),
+    '#description' => t('Scegli il colore dell\'icona utilizzata per espandere i livelli annidati'),
+    '#options' => Helper::getColorsName(true),
   ];
 
   // Back to top settings

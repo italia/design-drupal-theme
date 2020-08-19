@@ -11,6 +11,13 @@ main_menu_megamenu_link_description: 0
 breadcrumb_dark_background: 0
 breadcrumb_image: 0
 breadcrumb_separator: /
+sidebar_menu_link_size: all
+sidebar_menu_link_weight: active
+sidebar_menu_link_description: 0
+sidebar_menu_icon_type: it-expand
+sidebar_menu_icon_position: right
+sidebar_menu_icon_color: primary
+sidebar_menu_background: white
 avatar_size: xs
 right_action_size: 'normal'
 twitter: false
