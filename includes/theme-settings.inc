@@ -213,7 +213,7 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#type' => 'select',
     '#title' => t('Varianti colore'),
     '#default_value' => theme_get_setting('sidebar_menu_background'),
-    '#description' => t('Scegli le varianti colore'),
+    '#description' => t('Scegli le varianti colore. Se scegli il tema dark, imposta uno dei colori chiari all\'icona delle voci espandibili.'),
     '#options' => [
       'white' => 'White',
       'light' => 'Light',
