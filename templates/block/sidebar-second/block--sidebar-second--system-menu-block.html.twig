@@ -25,17 +25,13 @@
  * @see template_preprocess_block()
  */
 #}
-<div class="sidebar-wrapper">
-  <div class="sidebar-linklist-wrapper">
-    <div{{ attributes.setAttribute('id','it-'~attributes.id).addClass('link-list-wrapper') }}>
-      {{ title_prefix }}
-      {% if label %}
-      <h4{{ title_attributes }}>{{ label }}</h4>
-        {% endif %}
-        {{ title_suffix }}
-        {% block content %}
-        {{ content }}
-        {% endblock %}
-    </div>
-  </div>
+<div{{ attributes.setAttribute('id','it-'~attributes.id)}}>
+  {{ title_prefix }}
+  {% if label %}
+    <h3{{ title_attributes }}>{{ label }}</h3>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
 </div>
