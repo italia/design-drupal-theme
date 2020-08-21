@@ -144,6 +144,13 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#open' => TRUE,
     '#group' => 'navigation_settings',
   ];
+  $form['navigation_settings']['main_menu']['main_menu_breackpoint_expand'] = [
+    '#type' => 'select',
+    '#title' => t('Visualizza il menu dal breackpoint'),
+    '#description' => t('Seleziona il breackpoint (dimensione schermo) dal quale desideri visualizzare l\'intero menu'),
+    '#default_value' => theme_get_setting('main_menu_breackpoint_expand'),
+    '#options' => Helper::getBreackpoints(true),
+  ];
   $form['navigation_settings']['main_menu']['main_menu_link_size'] = [
     '#type' => 'checkbox',
     '#title' => t('Usa la variante large delle voci di menu'),

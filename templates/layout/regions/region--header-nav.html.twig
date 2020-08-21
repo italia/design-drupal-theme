@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ * - main_menu_breackpoint_expand: view menu at breackpoint sm | md | lg | xl
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{% if content %}
+  <div{{ attributes
+    .setAttribute('id','it-region-'~region|clean_id)
+    .setAttribute('class','region '~region)
+  }}>
+    {% set heading_id = 'main-menu' %}
+    <nav
+      role="navigation"
+      aria-labelledby="{{ heading_id }}"
+      class="navbar navbar-expand-{{ main_menu_breackpoint_expand }} has-megamenu"
+    >
+      <button class="custom-navbar-toggler" type="button" aria-controls="{{ heading_id }}" aria-expanded="false" aria-label="Toggle navigation" data-target="#{{ heading_id }}">
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-burger' } %}
+      </button>
+      <div class="navbar-collapsable" id="{{ heading_id }}" style="display: none;">
+        <div class="overlay" style="display: none;"></div>
+        <div class="close-div sr-only">
+          <button class="btn close-menu" type="button"><span class="it-close"></span>{{ 'Close'|trans }}</button>
+        </div>
+        <div class="menu-wrapper">
+          {# Label. If not displayed, we still provide it for screen readers. #}
+          <h2 id="{{ heading_id~'-title' }}" class="visually-hidden">{{ 'Main Menu'|t }}</h2>
+            {{ content }}
+        </div>
+      </div>
+    </nav>
+
+  </div>
+{% endif %}

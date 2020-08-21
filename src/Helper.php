@@ -40,4 +40,21 @@ class Helper {
 
     return  [ 'primary ', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'white', 'dark' ];
   }
+
+  // https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni
+  public static function getBreackpoints($withKeys=false): array
+  {
+    if ($withKeys) {
+      return [
+        '' => t('Extra small (auto, nessuno o <576px)'),
+        'sm' => t('Small (>= 576px)'),
+        'md' => t('Medium (>= 768px)'),
+        'lg' => t('Large (>= 992px)'),
+        'xl' => t('Extra Large (>= 1200px)')
+      ];
+    }
+
+    return ['', 'sm', 'md', 'lg', 'xl'];
+  }
+
 }
