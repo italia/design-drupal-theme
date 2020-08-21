@@ -25,10 +25,12 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes.setAttribute('id','it-'~attributes.id)}}>
+{% set id_block = 'it-'~attributes.id %}
+<div{{ attributes.setAttribute('id', id_block) }}>
   {{ title_prefix }}
   {% if label %}
-    <h3{{ title_attributes }}>{{ label }}</h3>
+    <h4{{ title_attributes.addClass('sidebar__title') }}>{{ label }}</h4>
+    <div class="sidebar__title_separator"><div class="bg-primary"></div></div>
   {% endif %}
   {{ title_suffix }}
   {% block content %}

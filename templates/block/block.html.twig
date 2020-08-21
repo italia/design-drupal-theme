@@ -25,7 +25,8 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes.setAttribute('id','it-'~attributes.id) }}>
+{% set id_block = 'it-'~attributes.id %}
+<div{{ attributes.setAttribute('id', id_block) }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>
