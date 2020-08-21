@@ -22,9 +22,9 @@ class Helper {
     ];
   }
 
-  public static function getColorsName($withKeys=false): array
+  public static function getColorsName($withLabel=false): array
   {
-    if ($withKeys) {
+    if ($withLabel) {
       return [
         'primary' => 'Primary ',
         'secondary' => 'Secondary',
@@ -42,9 +42,9 @@ class Helper {
   }
 
   // https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni
-  public static function getBreackpoints($withKeys=false): array
+  public static function getBreackpoints($withLabel=false): array
   {
-    if ($withKeys) {
+    if ($withLabel) {
       return [
         '' => t('Extra small (auto, nessuno o <576px)'),
         'sm' => t('Small (>= 576px)'),
