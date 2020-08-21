@@ -32,10 +32,10 @@
         <div class="close-div sr-only">
           <button class="btn close-menu" type="button"><span class="it-close"></span>{{ 'Close'|trans }}</button>
         </div>
+        {# Label. If not displayed, we still provide it for screen readers. #}
+        <h2 id="{{ heading_id~'-title' }}" class="visually-hidden">{{ 'Main Menu'|t }}</h2>
         <div class="menu-wrapper">
-          {# Label. If not displayed, we still provide it for screen readers. #}
-          <h2 id="{{ heading_id~'-title' }}" class="visually-hidden">{{ 'Main Menu'|t }}</h2>
-            {{ content }}
+          {{ content }}
         </div>
       </div>
     </nav>

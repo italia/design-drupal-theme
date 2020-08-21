@@ -1,0 +1,7 @@
+.it-header-wrapper.it-header-sticky.is-sticky {
+  #it-region-header-nav {
+    .menu-wrapper > ul:nth-child(3) {
+      display: none;
+    }
+  }
+}
