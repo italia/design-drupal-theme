@@ -1,4 +1,25 @@
 # Summary 8.x.0.11
+## Release note
+Update your sub-theme file with:
+- var/starter_kits/italiagov/config/install/italiagov.settings.yml
+- var/starter_kits/italiagov/src/js/custom/component-library-initialization.js
+- var/starter_kits/italiagov/src/js/custom/isIe.js
+- var/starter_kits/italiagov/src/js/index.js
+- var/starter_kits/italiagov/src/scss/_fix.scss
+- var/starter_kits/italiagov/src/scss/_variables.scss
+- var/starter_kits/italiagov/src/scss/layout/_layout.scss
+- rename: var/starter_kits/italiagov/src/scss/layout/page--user--login.scss → var/starter_kits/italiagov/src/scss/layout/_page--user--login.scss
+- var/starter_kits/italiagov/src/scss/layout/_sidebar.scss
+- var/starter_kits/italiagov/src/scss/misc/_patterns-overview.scss
+- delete: var/starter_kits/italiagov/src/scss/misc/patterns-overview.scss
+- var/starter_kits/italiagov/src/scss/navigation/_header-nav.scss
+- var/starter_kits/italiagov/src/scss/navigation/_navigation.scss
+- var/starter_kits/italiagov/src/scss/variables/_palette-red.scss
+
+## Important Note
+**In the next release will be removed scss, js, webpack.config.js and package.json from main theme, please switch to sub-theme if you use main theme as a default theme.**
+
+## All changes
 - Callout component and UI
 - Add icon component, **macro.icon is deprecated**
 - Theme for "https://<site>/patterns"
