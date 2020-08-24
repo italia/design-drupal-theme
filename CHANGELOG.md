@@ -1,6 +1,25 @@
 # Summary 8.x.0.11
 - Callout component and UI
 - Add icon component, **macro.icon is deprecated**
+- Theme for "https://<site>/patterns"
+- Update avatar component
+- Add tooltip component
+- Fix drupal toolbar
+- Fix "isIe() is not a function"
+- Add chips component
+- Add stiky header feature
+- Add overlay component
+- Add link-list component
+- Add menu link-list recursive component
+- Add pagination components
+- Theming tables
+- Add palette
+- Add modal component
+- New version for Main menu
+- Add theme options for main menu and sidebar menu
+- New Feature: two menus in main navbar and any menu can be inserted into the navbar.
+- Theme for menu title block in sidebar
+- Add current page to breadcrumb
 
 # Summary 8.x.0.10
 ## Release note
