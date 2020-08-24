@@ -96,7 +96,7 @@ Make a backup before upgrading to version 0.9.
 - Update README.md
 - Add comments in var/bin/start-dev-test.sh
 - Auto-configure default block during sub-theme installation
-- Add reggions:
+- Add regions:
   - Before content: full width, first, second, third a fourth
   - After content: full width, first, second, third a fourth
  - Add home template
