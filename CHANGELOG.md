@@ -28,7 +28,7 @@ Update your sub-theme file with:
 - Fix drupal toolbar
 - Fix "isIe() is not a function"
 - Add chips component
-- Add stiky header feature
+- Add sticky header feature
 - Add overlay component
 - Add link-list component
 - Add menu link-list recursive component
