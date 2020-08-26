@@ -17,7 +17,7 @@ Update/add file in your sub-theme with:
 In your sub-theme
 - rename: italiagov/src/scss/layout/page--user--login.scss → italiagov/src/scss/layout/_page--user--login.scss
 - delete: italiagov/src/scss/misc/patterns-overview.scss
-- If the file "italiagov / theme-settings.php" is present in your sub-theme and you have not modified it, you can delete it and save the settings from appearance -> your sub-theme
+- If the file "italiagov/theme-settings.php" is present in your sub-theme and you have not modified it, you can delete it and save the settings from appearance -> your sub-theme
 ## Important Note
 **In the next release will be removed scss, js, webpack.config.js and package.json from main theme, please switch to sub-theme if you use main theme as a default theme.**
 
