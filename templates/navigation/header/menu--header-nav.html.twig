@@ -121,23 +121,29 @@
                       ]
                       %}
 
-                      {# Il secondo livello diventa il titolo del terzo eccessto se title != '<hide>' #}
+                      {# Il secondo livello diventa il titolo del terzo eccetto se title != '<hide>' #}
                       {% if m_items.title != '<hide>' %}
                         <li>
                           <h3 class="no_toc">
-                            <a
-                              class="{{ link_classes_second_level|join(' ') }} pl-0"
-                              {{ m_items.attributes }}
-                              href="{{ m_items.url }}"
-                              {% if m_items.original_link.pluginDefinition.description %}
-                                title="{{ m_items.original_link.pluginDefinition.description }}"
-                              {% endif %}
-                            >
+                            {% if m_items.url is empty %}
+                              <a
+                                class="{{ link_classes_second_level|join(' ') }} pl-0"
+                                {{ m_items.attributes }}
+                                href="{{ m_items.url }}"
+                                {% if m_items.original_link.pluginDefinition.description %}
+                                  title="{{ m_items.original_link.pluginDefinition.description }}"
+                                {% endif %}
+                              >
+                            {% endif %}
+
                               <span>{{ m_items.title }}</span>
                               {% if m_items.original_link.pluginDefinition.description and main_menu_megamenu_title_description %}
                                 <p>{{ m_items.original_link.pluginDefinition.description }}</p>
                               {% endif %}
-                            </a>
+
+                            {% if m_items.url is empty %}
+                              </a>
+                            {% endif %}
                           </h3>
                         </li>
                       {% endif %} {# end title #}
