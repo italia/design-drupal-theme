@@ -1,3 +1,14 @@
+# Summary 8.x-0.12
+## Release note
+- Add and enable 'focal_point' and 'responsive_image' modules
+
+        $ composer require drupal/focal_point
+        $ drush en responsive_image focal_point
+
+## All Changes
+- Add image style configurations
+- Add theme breakpoints
+
 # Summary 8.x.0.11
 ## Release note
 Update/add file in your sub-theme with:

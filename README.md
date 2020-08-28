@@ -23,9 +23,9 @@ Install npm: https://www.npmjs.com/get-npm
     $ cd <drupal-root>
 
     /* 1. Install end Enable dependencies */
-    $ drush pm:enable inline_form_errors
-    $ composer require drupal/components drupal/ui_patterns
-    $ drush pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
+    $ drush pm:enable inline_form_errors responsive_image
+    $ composer require drupal/components drupal/ui_patterns drupal/focal_point
+    $ drush pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views focal_point
     $ composer require drupal/bootstrap_italia
 
     /* 2. Copy sub-theme to destination folder */

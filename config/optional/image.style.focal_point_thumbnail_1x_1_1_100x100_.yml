@@ -1,0 +1,16 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_thumbnail_1x_1_1_100x100_
+label: 'Focal point Thumbnail 1X 1:1 (100x100)'
+effects:
+  be53a306-996d-4f8c-8339-0c57df241e6b:
+    uuid: be53a306-996d-4f8c-8339-0c57df241e6b
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 100
+      height: 100
+      crop_type: focal_point

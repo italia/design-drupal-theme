@@ -1,0 +1,16 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_thumbnail_2x_1_1_200x200_
+label: 'Focal point Thumbnail 2X 1:1 (200x200)'
+effects:
+  66c5b382-7006-4d55-8660-040d8a960ba0:
+    uuid: 66c5b382-7006-4d55-8660-040d8a960ba0
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 200
+      crop_type: focal_point

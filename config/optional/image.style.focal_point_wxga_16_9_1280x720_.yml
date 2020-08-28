@@ -1,0 +1,16 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_wxga_16_9_1280x720_
+label: 'Focal point WXGA 16:9 (1280x720)'
+effects:
+  4f1614e7-c763-48ad-92f0-84a6048d8e40:
+    uuid: 4f1614e7-c763-48ad-92f0-84a6048d8e40
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 720
+      crop_type: focal_point

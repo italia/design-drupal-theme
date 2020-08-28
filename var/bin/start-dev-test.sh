@@ -21,9 +21,9 @@ ddev composer require drush/drush
 ddev exec drush -y site:install --locale=it
 
 # Install end Enable dependencies
-ddev exec drush -y pm:enable inline_form_errors
-ddev composer require drupal/components drupal/ui_patterns
-ddev exec drush -y pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
+ddev exec drush -y pm:enable inline_form_errors responsive_image
+ddev composer require drupal/components drupal/ui_patterns drupal/focal_point
+ddev exec drush -y pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views focal_point
 
 # Language settings
 ddev exec drush -y en locale

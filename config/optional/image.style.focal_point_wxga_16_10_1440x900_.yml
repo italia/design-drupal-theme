@@ -1,0 +1,16 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_wxga_16_10_1440x900_
+label: 'Focal point WXGA+ 16:10 (1440x900)'
+effects:
+  399b5ee2-f2a8-4a81-964b-7a9103cb4c3e:
+    uuid: 399b5ee2-f2a8-4a81-964b-7a9103cb4c3e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 900
+      crop_type: focal_point

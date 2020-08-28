@@ -101,8 +101,13 @@ regions:
 # see https://www.drupal.org/project/drupal/issues/474684
 dependencies:
   - drupal:inline_form_errors
+  - drupal:responsive_image
   - drupal:components
   - drupal:ui_patterns
+  - drupal:ui_patterns_layouts
+  - drupal:ui_patterns_library
+  - drupal:ui_patterns_views
+  - drupal:focal_point
 
 # features:
 stylesheets-remove:

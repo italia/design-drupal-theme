@@ -1,0 +1,16 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_qwxga_16_9_2048x1152_
+label: 'Focal point QWXGA 16:9 (2048x1152)'
+effects:
+  65c15820-2716-4435-9086-266996c8056d:
+    uuid: 65c15820-2716-4435-9086-266996c8056d
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2048
+      height: 1152
+      crop_type: focal_point

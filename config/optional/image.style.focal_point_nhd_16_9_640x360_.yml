@@ -1,0 +1,16 @@
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_nhd_16_9_640x360_
+label: 'Focal point nHD 16:9 (640x360)'
+effects:
+  e2f63b7d-777b-49e9-9f8a-2d34bbab2f21:
+    uuid: e2f63b7d-777b-49e9-9f8a-2d34bbab2f21
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 360
+      crop_type: focal_point
