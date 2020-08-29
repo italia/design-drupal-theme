@@ -8,6 +8,8 @@
 ## All Changes
 - Add image style configurations
 - Add theme breakpoints
+- Fix Megamenu title
+- Fix sidebar options: font weight
 
 # Summary 8.x.0.11
 ## Release note
