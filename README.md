@@ -22,10 +22,10 @@ Install npm: https://www.npmjs.com/get-npm
 # Install theme
     $ cd <drupal-root>
 
-    /* 1. Install end Enable dependencies */
+    /* 1. Install end enable dependencies */
     $ drush pm:enable inline_form_errors responsive_image
-    $ composer require drupal/components drupal/ui_patterns drupal/focal_point
-    $ drush pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views focal_point
+    $ composer require drupal/components drupal/ui_patterns
+    $ drush pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
     $ composer require drupal/bootstrap_italia
 
     /* 2. Copy sub-theme to destination folder */
@@ -52,7 +52,17 @@ or
 
     $ npm run build:dev
 
-# Webform integration (optional)
+# Optional
+If you want to install optional plugins.
+
+## Image styles
+This is a plugin included with the theme and installs/uninstalls image styles.
+The plugin depends on focal_point.
+
+    $ composer require drupal/focal_point
+    $ drush pm:enable focal_point bootstrap_italia_image_styles
+
+## Webform
     $ composer require drupal/webform
     $ drush pm:enable webform webform_ui webform_attachment webform_image_select
 

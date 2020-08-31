@@ -107,7 +107,6 @@ dependencies:
   - drupal:ui_patterns_layouts
   - drupal:ui_patterns_library
   - drupal:ui_patterns_views
-  - drupal:focal_point
 
 # features:
 stylesheets-remove:
