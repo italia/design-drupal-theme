@@ -56,7 +56,7 @@ or
 If you want to install optional plugins.
 
 ## Image styles
-This is a plugin included with the theme and installs/uninstalls image styles.
+This is a plugin included with the theme that installs/uninstalls image styles.
 The plugin depends on focal_point.
 
     $ composer require drupal/focal_point
