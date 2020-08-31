@@ -1,0 +1,37 @@
+<?php
+/**
+ * @file
+ * The Bootstrap Italia Image Styles installation, Update and Uninstallation file.
+ */
+
+declare(strict_types = 1);
+
+/**
+ * Implements hook_install().
+ */
+function bootstrap_italia_image_styles_install($is_syncing)
+{
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function bootstrap_italia_image_styles_uninstall($is_syncing)
+{
+  $image_style_installed = \Drupal::service('file_system')
+    ->scanDirectory(__DIR__ . '/config/install/', ' /.+(yml)/', ['key' => 'name']);
+
+  foreach ($image_style_installed as $key_image_style => $proprieties) {
+    // image.style.image_style_machine_name_000x000
+    Drupal::configFactory()->getEditable($key_image_style)->delete();
+  }
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function bootstrap_italia_image_styles_update_8001(&$sandbox)
+{
+
+}
