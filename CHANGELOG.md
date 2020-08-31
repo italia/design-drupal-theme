@@ -6,7 +6,7 @@
         $ drush en responsive_image focal_point
 
 ## All Changes
-- Add image style configurations
+- Add image style configurations from optional module
 - Add theme breakpoints
 - Fix Megamenu title
 - Fix sidebar options: font weight
