@@ -1,0 +1,22 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_width
+    - paragraphs.paragraphs_type.impostazioni
+id: paragraph.impostazioni.field_full_width
+field_name: field_full_width
+entity_type: paragraph
+bundle: impostazioni
+label: 'Espandi in larghezza'
+description: 'Attivando questa impostazione la riga occuperà tutta la larghezza dello schermo. Questo è utile quando si vuole impostare un colore di sfondo o un''immagine di sfondo per dare più risalto al contenuto. <strong>Non attivare questa opzione nel caso in cui nel tipo di contenuto sono previste delle sidebar</strong>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

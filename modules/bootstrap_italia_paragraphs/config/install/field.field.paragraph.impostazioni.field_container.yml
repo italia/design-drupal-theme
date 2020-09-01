@@ -1,0 +1,22 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_container
+    - paragraphs.paragraphs_type.impostazioni
+id: paragraph.impostazioni.field_container
+field_name: field_container
+entity_type: paragraph
+bundle: impostazioni
+label: 'Usa contenitore'
+description: "Se attivo inserisce un div con la classe \"container\". Serve a gestire in automatico gli spazi vuoti a destra e a sinistra del contenuto in base al dispositivo che visualizza il sito web.\r\nSe disattivato il paragrafo occuperà sempre tutto lo spazio in orizzontale.\r\n<strong>N.B. Questa opzione si attiva solo se \"Espandi in larghezza\" è spuntato.</strong>"
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

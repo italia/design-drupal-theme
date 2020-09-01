@@ -1,0 +1,70 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.impostazioni.field_classe
+    - field.field.paragraph.impostazioni.field_container
+    - field.field.paragraph.impostazioni.field_full_width
+    - field.field.paragraph.impostazioni.field_immagine_di_sfondo
+    - field.field.paragraph.impostazioni.field_parallasse
+    - field.field.paragraph.impostazioni.field_stile_in_linea
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.impostazioni
+  module:
+    - image
+    - imce
+id: paragraph.impostazioni.default
+targetEntityType: paragraph
+bundle: impostazioni
+mode: default
+content:
+  field_classe:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_container:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_full_width:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_immagine_di_sfondo:
+    weight: 2
+    settings:
+      preview_image_style: thumbnail
+      progress_indicator: throbber
+    third_party_settings:
+      imce:
+        enabled: true
+    type: image_image
+    region: content
+  field_parallasse:
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_stile_in_linea:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

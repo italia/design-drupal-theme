@@ -1,0 +1,20 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_testo
+    - paragraphs.paragraphs_type.contenuto
+  module:
+    - text
+id: paragraph.contenuto.field_testo
+field_name: field_testo
+entity_type: paragraph
+bundle: contenuto
+label: Testo
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

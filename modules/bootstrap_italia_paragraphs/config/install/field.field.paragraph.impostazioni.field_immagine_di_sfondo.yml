@@ -1,0 +1,37 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_immagine_di_sfondo
+    - paragraphs.paragraphs_type.impostazioni
+  module:
+    - image
+id: paragraph.impostazioni.field_immagine_di_sfondo
+field_name: field_immagine_di_sfondo
+entity_type: paragraph
+bundle: impostazioni
+label: 'Immagine di sfondo'
+description: 'Immagine di sfondo del contenuto. <strong>N.B Se usi il file browser posizionati nella cartella "public://sfondi"</strong>, la cartella verrà creata dopo aver caricato il primo file'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: sfondi
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: 1920x1080
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

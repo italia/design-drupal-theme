@@ -1,15 +1,17 @@
 # Summary 8.x-0.12
 ## Release note
-- Add and enable 'focal_point' and 'responsive_image' modules
+See README for enable optional features
 
-        $ composer require drupal/focal_point
-        $ drush en responsive_image focal_point
+Update in your sub-theme:
+- src/scss/theme.scss
+- src/scss/paragraphs folder
 
 ## All Changes
 - Add image style configurations from optional module
 - Add theme breakpoints
 - Fix Megamenu title
 - Fix sidebar options: font weight
+- Add paragraphs base module
 
 # Summary 8.x.0.11
 ## Release note

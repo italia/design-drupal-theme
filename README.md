@@ -1,9 +1,9 @@
 # Description
-bootstrap_italia is a base theme for Drupal that implements [the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
-This theme uses webpack as a module bundler and includes the https://github.com/italia/bootstrap-italia/ library as a dependency.
+`bootstrap_italia` is a base theme for Drupal that implements [the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
+This theme uses `webpack` as a module bundler and includes the https://github.com/italia/bootstrap-italia/ library as a dependency.
 
 # Drupal configuration
-Install drupal 8.9 and drush 10 with composer (https://getcomposer.org/)
+Install `drupal 8.9` and `drush 10` with `composer` (https://getcomposer.org/)
 
     $ composer create "drupal/recommended-project:^8.9.0 < 9.0" my_site_name_dir
     $ composer require drush/drush:10
@@ -17,7 +17,7 @@ After installation, if you wish, also install the English language
     $ drush en locale
     $ drush language-add en
 
-Install npm: https://www.npmjs.com/get-npm
+Install `npm`: https://www.npmjs.com/get-npm
 
 # Install theme
     $ cd <drupal-root>
@@ -56,13 +56,22 @@ or
 If you want to install optional plugins.
 
 ## Image styles
-This is a plugin included with the theme that installs/uninstalls image styles.
-The plugin depends on focal_point.
+This is a module that installs/uninstalls the image styles.
+This module is dependent on `focal_point`.
 
     $ composer require drupal/focal_point
     $ drush pm:enable focal_point bootstrap_italia_image_styles
 
+## Paragraphs
+This is the base module for `paragraphs` integration and adds paragraph `content` and paragraph `configuration`.
+This module is dependent on `paragraphs`, `field_group` and `imce`.
+
+    $ composer require drupal/paragraphs drupal/field_group drupal/imce
+    $ drush pm:enable paragraphs field_group imce bootstrap_italia_paragraphs
+
 ## Webform
+Enables the creation of webforms and questionnaires.
+
     $ composer require drupal/webform
     $ drush pm:enable webform webform_ui webform_attachment webform_image_select
 

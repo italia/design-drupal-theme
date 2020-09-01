@@ -1,0 +1,22 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_parallasse
+    - paragraphs.paragraphs_type.impostazioni
+id: paragraph.impostazioni.field_parallasse
+field_name: field_parallasse
+entity_type: paragraph
+bundle: impostazioni
+label: 'Attiva effetto parallasse'
+description: 'Attiva l''effetto parallasse sull''immagine di sfondo impostata'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Acceso
+  off_label: Spento
+field_type: boolean

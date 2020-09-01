@@ -1,0 +1,9 @@
+langcode: it
+status: true
+dependencies: {  }
+id: contenuto
+label: Contenuto
+icon_uuid: null
+icon_default: null
+description: 'Questo tipo di paragrafo serve per inserire un contenuto testuale.'
+behavior_plugins: {  }

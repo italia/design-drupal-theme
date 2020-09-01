@@ -1,0 +1,74 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.impostazioni.field_classe
+    - field.field.paragraph.impostazioni.field_container
+    - field.field.paragraph.impostazioni.field_full_width
+    - field.field.paragraph.impostazioni.field_immagine_di_sfondo
+    - field.field.paragraph.impostazioni.field_parallasse
+    - field.field.paragraph.impostazioni.field_stile_in_linea
+    - paragraphs.paragraphs_type.impostazioni
+  module:
+    - image
+id: paragraph.impostazioni.default
+targetEntityType: paragraph
+bundle: impostazioni
+mode: default
+content:
+  field_classe:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_container:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_full_width:
+    weight: 0
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_immagine_di_sfondo:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_parallasse:
+    weight: 3
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_stile_in_linea:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,82 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contenuto.field_impostazioni
+    - field.field.paragraph.contenuto.field_testo
+    - paragraphs.paragraphs_type.contenuto
+  module:
+    - field_group
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - group_contenuto
+        - group_impostazioni
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      region: content
+      format_settings:
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Container
+    group_contenuto:
+      children:
+        - field_testo
+      parent_name: group_container
+      weight: 0
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: open
+        required_fields: true
+      label: Contenuto
+    group_impostazioni:
+      children:
+        - field_impostazioni
+      parent_name: group_container
+      weight: 1
+      format_type: tab
+      region: content
+      format_settings:
+        description: ''
+        formatter: closed
+        id: ''
+        classes: ''
+        required_fields: false
+      label: Impostazioni
+id: paragraph.contenuto.default
+targetEntityType: paragraph
+bundle: contenuto
+mode: default
+content:
+  field_impostazioni:
+    type: entity_reference_paragraphs
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_testo:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
