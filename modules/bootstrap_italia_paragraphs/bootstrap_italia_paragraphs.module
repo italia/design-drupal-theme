@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * The Bootstrap Italia Paragraphs, Update and Uninstallation file.
+ */
+
+declare(strict_types = 1);
+
+use Drupal\paragraphs\ParagraphInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_install().
+ */
+function bootstrap_italia_paragraphs_install($is_syncing)
+{
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function bootstrap_italia_paragraphs_uninstall($is_syncing)
+{
+  // Remove all paragraphs content
+  $ids = \Drupal::entityQuery('paragraph')->execute();
+  foreach ($ids as $id) {
+    $paragraph = Paragraph::load($id);
+    if ($paragraph instanceof ParagraphInterface) {
+      $paragraph->delete();
+    }
+  }
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function bootstrap_italia_paragraphs_update_8001(&$sandbox)
+{
+
+}

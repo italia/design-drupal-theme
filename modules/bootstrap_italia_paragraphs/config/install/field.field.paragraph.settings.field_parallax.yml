@@ -2,12 +2,12 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_parallasse
-    - paragraphs.paragraphs_type.impostazioni
-id: paragraph.impostazioni.field_parallasse
-field_name: field_parallasse
+    - field.storage.paragraph.field_parallax
+    - paragraphs.paragraphs_type.settings
+id: paragraph.settings.field_parallax
+field_name: field_parallax
 entity_type: paragraph
-bundle: impostazioni
+bundle: settings
 label: 'Attiva effetto parallasse'
 description: 'Attiva l''effetto parallasse sull''immagine di sfondo impostata'
 required: false

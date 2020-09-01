@@ -2,14 +2,14 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_testo
-    - paragraphs.paragraphs_type.contenuto
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.content
   module:
     - text
-id: paragraph.contenuto.field_testo
-field_name: field_testo
+id: paragraph.content.field_text
+field_name: field_text
 entity_type: paragraph
-bundle: contenuto
+bundle: content
 label: Testo
 description: ''
 required: true

@@ -2,18 +2,18 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.field.paragraph.contenuto.field_impostazioni
-    - field.field.paragraph.contenuto.field_testo
-    - paragraphs.paragraphs_type.contenuto
+    - field.field.paragraph.content.field_settings
+    - field.field.paragraph.content.field_text
+    - paragraphs.paragraphs_type.content
   module:
     - entity_reference_revisions
     - text
-id: paragraph.contenuto.default
+id: paragraph.content.default
 targetEntityType: paragraph
-bundle: contenuto
+bundle: content
 mode: default
 content:
-  field_impostazioni:
+  field_settings:
     type: entity_reference_revisions_entity_view
     weight: 1
     label: hidden
@@ -22,7 +22,7 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  field_testo:
+  field_text:
     weight: 0
     label: hidden
     settings: {  }

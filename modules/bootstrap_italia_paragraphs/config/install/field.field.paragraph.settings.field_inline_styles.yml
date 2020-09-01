@@ -2,12 +2,12 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_stile_in_linea
-    - paragraphs.paragraphs_type.impostazioni
-id: paragraph.impostazioni.field_stile_in_linea
-field_name: field_stile_in_linea
+    - field.storage.paragraph.field_inline_styles
+    - paragraphs.paragraphs_type.settings
+id: paragraph.settings.field_inline_styles
+field_name: field_inline_styles
 entity_type: paragraph
-bundle: impostazioni
+bundle: settings
 label: 'Stile in linea'
 description: 'Puoi inserire uno <em>style inline</em> al contenitore. Es: <em>padding: 20px; background-position: center; background-repeat: none;</em>.'
 required: false

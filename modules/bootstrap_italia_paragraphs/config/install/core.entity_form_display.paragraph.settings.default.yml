@@ -2,23 +2,23 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.field.paragraph.impostazioni.field_classe
-    - field.field.paragraph.impostazioni.field_container
-    - field.field.paragraph.impostazioni.field_full_width
-    - field.field.paragraph.impostazioni.field_immagine_di_sfondo
-    - field.field.paragraph.impostazioni.field_parallasse
-    - field.field.paragraph.impostazioni.field_stile_in_linea
+    - field.field.paragraph.settings.field_class
+    - field.field.paragraph.settings.field_container
+    - field.field.paragraph.settings.field_full_width
+    - field.field.paragraph.settings.field_background_image
+    - field.field.paragraph.settings.field_parallax
+    - field.field.paragraph.settings.field_inline_styles
     - image.style.thumbnail
-    - paragraphs.paragraphs_type.impostazioni
+    - paragraphs.paragraphs_type.settings
   module:
     - image
     - imce
-id: paragraph.impostazioni.default
+id: paragraph.settings.default
 targetEntityType: paragraph
-bundle: impostazioni
+bundle: settings
 mode: default
 content:
-  field_classe:
+  field_class:
     weight: 4
     settings:
       size: 60
@@ -40,7 +40,7 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_immagine_di_sfondo:
+  field_background_image:
     weight: 2
     settings:
       preview_image_style: thumbnail
@@ -50,14 +50,14 @@ content:
         enabled: true
     type: image_image
     region: content
-  field_parallasse:
+  field_parallax:
     weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_stile_in_linea:
+  field_inline_styles:
     weight: 5
     settings:
       size: 60

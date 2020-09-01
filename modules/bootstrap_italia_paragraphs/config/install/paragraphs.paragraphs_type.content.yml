@@ -1,7 +1,7 @@
 langcode: it
 status: true
 dependencies: {  }
-id: contenuto
+id: content
 label: Contenuto
 icon_uuid: null
 icon_default: null

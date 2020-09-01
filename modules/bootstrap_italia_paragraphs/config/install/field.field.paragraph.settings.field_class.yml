@@ -2,12 +2,12 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_classe
-    - paragraphs.paragraphs_type.impostazioni
-id: paragraph.impostazioni.field_classe
-field_name: field_classe
+    - field.storage.paragraph.field_class
+    - paragraphs.paragraphs_type.settings
+id: paragraph.settings.field_class
+field_name: field_class
 entity_type: paragraph
-bundle: impostazioni
+bundle: settings
 label: 'Stile preimpostato'
 description: "Aggiungi al contenitore del paragrafo una o più classi separate dallo spazio. Puoi usare diverse classi predefinite ad esempio per:\r\n<ul>\r\n<li><strong>gestire le spaziature</strong>, consulta la <a href=\"https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/spaziature/\" target=\"_blank\" title=\"Leggi la guida su Bootstrap Italia\">guida in italiano</a> oppure la <a href=\"https://getbootstrap.com/docs/4.5/utilities/spacing/\" target=\"_blank\" title=\"Leggi la guida su Bootstrap 4\">Spacing guide</a> (Inglese)</li>\r\n<li><strong>gestire gli sfondi</strong>, consulta la <a href=\"https://italia.github.io/bootstrap-italia/docs/utilities/colori/#colore-di-sfondo-con-gradiente\" target=\"_blank\" title=\"Leggi la guida su Bootstrap Italia\">guida in italiano</a>, oppure <a href=\"https://getbootstrap.com/docs/4.5/utilities/colors/#background-color\"  target=\"_blank\" title=\"Leggi la guida su Bootstrap 4\">background color and gradient</a> (Inglese)</li>\r\n<li><strong>gestire l'ombreggiatura</strong>, consulta la <a href=\"https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/ombreggiature/\" target=\"_blank\" title=\"Leggi la guida su Bootstrap Italia\">guida in italiano</a>, oppure <a href=\"https://getbootstrap.com/docs/4.5/utilities/shadows/\"  target=\"_blank\" title=\"Leggi la guida su Bootstrap 4\">Shadows docs</a> (Inglese)</li>\r\n<li>gestire i tuoi stili personalizzati (è necessario aggiungere la regola ai fogli di stile)</li>\r\n</ul>\r\n"
 required: false

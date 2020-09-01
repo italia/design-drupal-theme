@@ -2,9 +2,9 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.field.paragraph.contenuto.field_impostazioni
-    - field.field.paragraph.contenuto.field_testo
-    - paragraphs.paragraphs_type.contenuto
+    - field.field.paragraph.content.field_settings
+    - field.field.paragraph.content.field_text
+    - paragraphs.paragraphs_type.content
   module:
     - field_group
     - paragraphs
@@ -13,8 +13,8 @@ third_party_settings:
   field_group:
     group_container:
       children:
-        - group_contenuto
-        - group_impostazioni
+        - group_content
+        - group_settings
       parent_name: ''
       weight: 1
       format_type: tabs
@@ -24,9 +24,9 @@ third_party_settings:
         id: ''
         classes: ''
       label: Container
-    group_contenuto:
+    group_content:
       children:
-        - field_testo
+        - field_text
       parent_name: group_container
       weight: 0
       format_type: tab
@@ -38,9 +38,9 @@ third_party_settings:
         formatter: open
         required_fields: true
       label: Contenuto
-    group_impostazioni:
+    group_settings:
       children:
-        - field_impostazioni
+        - field_settings
       parent_name: group_container
       weight: 1
       format_type: tab
@@ -52,12 +52,12 @@ third_party_settings:
         classes: ''
         required_fields: false
       label: Impostazioni
-id: paragraph.contenuto.default
+id: paragraph.content.default
 targetEntityType: paragraph
-bundle: contenuto
+bundle: content
 mode: default
 content:
-  field_impostazioni:
+  field_settings:
     type: entity_reference_paragraphs
     weight: 2
     settings:
@@ -69,7 +69,7 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
     region: content
-  field_testo:
+  field_text:
     weight: 2
     settings:
       rows: 5

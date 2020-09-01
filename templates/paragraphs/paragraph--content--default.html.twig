@@ -44,20 +44,20 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
-  content.field_impostazioni[0]['#paragraph'].field_full_width.getString() ? 'paragraph--full-width',
-  content.field_impostazioni[0]['#paragraph'].field_parallasse.getString() ? 'paragraph--parallax',
-  content.field_impostazioni[0]['#paragraph'].field_classe.getString(),
+  content.field_settings[0]['#paragraph'].field_full_width.getString() ? 'paragraph--full-width',
+  content.field_settings[0]['#paragraph'].field_parallax.getString() ? 'paragraph--parallax',
+  content.field_settings[0]['#paragraph'].field_class.getString(),
 ]
 %}
 
 {% set background_image =
-  ( file_url( content.field_impostazioni[0]['#paragraph'].field_immagine_di_sfondo.entity.fileuri  ) != '/' )
-  ? 'background-image: url("' ~ file_url( content.field_impostazioni[0]['#paragraph'].field_immagine_di_sfondo.entity.fileuri ) ~ '");'
+  ( file_url( content.field_settings[0]['#paragraph'].field_background_image.entity.fileuri  ) != '/' )
+  ? 'background-image: url("' ~ file_url( content.field_settings[0]['#paragraph'].field_background_image.entity.fileuri ) ~ '");'
   : ''
 %}
 {% set style_attribute = [
   background_image,
-  content.field_impostazioni[0]['#paragraph'].field_stile_in_linea.getString()
+  content.field_settings[0]['#paragraph'].field_inline_styles.getString()
 ]
 %}
 
@@ -65,15 +65,15 @@
   <div id="{{ "paragraph-" ~ paragraph.bundle|clean_class ~ "-" ~paragraph.id() }}"{{ attributes.addClass(classes).setAttribute('style', style_attribute) }}>
     {% block content %}
 
-      {% if content.field_impostazioni[0]['#paragraph'].field_full_width.getString() == '1'
-        and content.field_impostazioni[0]['#paragraph'].field_container.getString() == '1'  %}
+      {% if content.field_settings[0]['#paragraph'].field_full_width.getString() == '1'
+        and content.field_settings[0]['#paragraph'].field_container.getString() == '1'  %}
         <div class="container">
       {% endif %}
 
-      {{ content|without('field_impostazioni') }}
+      {{ content|without('field_settings') }}
 
-      {% if content.field_impostazioni[0]['#paragraph'].field_full_width.getString() == '1'
-        and content.field_impostazioni[0]['#paragraph'].field_container.getString() == '1'  %}
+      {% if content.field_settings[0]['#paragraph'].field_full_width.getString() == '1'
+        and content.field_settings[0]['#paragraph'].field_container.getString() == '1'  %}
         </div>
       {% endif %}
 

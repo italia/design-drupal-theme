@@ -2,15 +2,15 @@ langcode: it
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_impostazioni
-    - paragraphs.paragraphs_type.contenuto
-    - paragraphs.paragraphs_type.impostazioni
+    - field.storage.paragraph.field_settings
+    - paragraphs.paragraphs_type.content
+    - paragraphs.paragraphs_type.settings
   module:
     - entity_reference_revisions
-id: paragraph.contenuto.field_impostazioni
-field_name: field_impostazioni
+id: paragraph.content.field_settings
+field_name: field_settings
 entity_type: paragraph
-bundle: contenuto
+bundle: content
 label: Impostazioni
 description: ''
 required: false
@@ -22,12 +22,12 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      impostazioni: impostazioni
+      settings: settings
     target_bundles_drag_drop:
-      contenuto:
+      content:
         weight: 3
         enabled: false
-      impostazioni:
+      settings:
         enabled: true
         weight: 4
 field_type: entity_reference_revisions
