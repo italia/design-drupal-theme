@@ -11,13 +11,13 @@ field_name: field_background_image
 entity_type: paragraph
 bundle: settings
 label: 'Immagine di sfondo'
-description: 'Immagine di sfondo del contenuto. <strong>N.B Se usi il file browser posizionati nella cartella "public://sfondi"</strong>, la cartella verrà creata dopo aver caricato il primo file'
+description: 'Immagine di sfondo del contenuto. <strong>N.B Se usi il file browser posizionati nella cartella "public://backgrounds"</strong>, la cartella verrà creata dopo aver caricato il primo file'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: sfondi
+  file_directory: backgrounds
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''
