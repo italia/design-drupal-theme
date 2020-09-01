@@ -12,6 +12,8 @@ Update file in your sub-theme:
 - Fix Megamenu title
 - Fix sidebar options: font weight
 - Add paragraphs base module
+- Switch to classy base theme
+- Add block configuration for: slim menu and small prints menu
 
 # Summary 8.x.0.11
 ## Release note
