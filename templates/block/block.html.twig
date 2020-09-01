@@ -26,7 +26,14 @@
  */
 #}
 {% set id_block = 'it-'~attributes.id %}
-<div{{ attributes.setAttribute('id', id_block) }}>
+{%
+  set classes = [
+  'block',
+  'block-' ~ configuration.provider|clean_class,
+  'block-' ~ plugin_id|clean_class,
+]
+%}
+<div{{ attributes.addClass(classes).setAttribute('id', id_block) }}>
   {{ title_prefix }}
   {% if label %}
     <h2{{ title_attributes }}>{{ label }}</h2>

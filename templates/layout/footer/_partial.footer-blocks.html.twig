@@ -1,24 +1,26 @@
-<section class="py-4 border-white border-top">
-  <div class="row">
-    {% if page.footer_first %}
-      <div class="col-lg-3 col-md-3 pb-2">
-        {{ page.footer_first }}
-      </div>
-    {% endif %}
-    {% if page.footer_second %}
-      <div class="col-lg-3 col-md-3 pb-2">
-        {{ page.footer_second }}
-      </div>
-    {% endif %}
-    {% if page.footer_third %}
-      <div class="col-lg-3 col-md-3 pb-2">
-        {{ page.footer_third }}
-      </div>
-    {% endif %}
-    {% if page.footer_fourth %}
-      <div class="col-lg-3 col-md-3 pb-2">
-        {{ page.footer_fourth }}
-      </div>
-    {% endif %}
-  </div>
-</section>
+{% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+  <section class="py-4 border-white border-top">
+    <div class="row">
+      {% if page.footer_first %}
+        <div class="col-md-3 col-lg-3 pb-2">
+          {{ page.footer_first }}
+        </div>
+      {% endif %}
+      {% if page.footer_second %}
+        <div class="col-md-3 col-lg-3 pb-2">
+          {{ page.footer_second }}
+        </div>
+      {% endif %}
+      {% if page.footer_third %}
+        <div class="col-md-3 col-lg-3 pb-2">
+          {{ page.footer_third }}
+        </div>
+      {% endif %}
+      {% if page.footer_fourth %}
+        <div class="col-md-3 col-lg-3 pb-2">
+          {{ page.footer_fourth }}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+{% endif %}
