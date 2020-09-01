@@ -6,9 +6,6 @@
 
 declare(strict_types = 1);
 
-use Drupal\paragraphs\ParagraphInterface;
-use Drupal\paragraphs\Entity\Paragraph;
-
 /**
  * Implements hook_install().
  */
