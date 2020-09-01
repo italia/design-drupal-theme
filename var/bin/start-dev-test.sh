@@ -51,12 +51,17 @@ ddev exec npm run build:prod --prefix themes/custom/italiagov/
 #ddev exec drush -y config:set system.site name \'Bootstrap Italia Test\'
 #dde#v exec drush -y config:set system.site slogan \'Bootstrap Italia Test v0.x-dev\'
 
-echo 'Enable optional modules'
+echo 'Enable optional module: Bootstrap Italia Image Styles'
 ddev composer require drupal/focal_point
 ddev exec drush -y pm:enable focal_point bootstrap_italia_image_styles
 
+echo 'Enable optional module: Bootstrap Italia Image Paragraphs'
 ddev composer require drupal/paragraphs drupal/field_group drupal/imce
 ddev exec drush -y pm:enable paragraphs field_group ui_patterns_field_group imce bootstrap_italia_paragraphs
+
+echo 'Enable optional module: Bootstrap Italia Overlay'
+ddev composer require drupal/ds
+ddev exec drush -y pm:enable ds ds_extras ds_switch_view_mode ui_patterns_ds ui_patterns_layouts bootstrap_italia_overlay
 
 echo 'Cache rebuild'
 ddev exec drush cr

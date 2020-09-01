@@ -1,0 +1,9 @@
+langcode: it
+status: true
+dependencies: {  }
+id: overlay
+label: Overlay
+icon_uuid: null
+icon_default: null
+description: 'Questo tipo di paragrafo fornisce l''interfaccia grafica per il componente <em>overlay</em>. <a href="https://italia.github.io/bootstrap-italia/docs/componenti/overlay/" target="_blank" title="Leggi la documentazione su Bootstrap Italia">Documentazione libreria Bootstrap Italia</a> - <a href="/patterns#overlay" target="_blank" title="Implementazione sul tema drupal">Implementazione sul tema drupal</a>'
+behavior_plugins: {  }

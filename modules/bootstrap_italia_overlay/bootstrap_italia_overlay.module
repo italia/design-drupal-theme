@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * The Bootstrap Italia Paragraphs, Update and Uninstallation file.
+ */
+
+declare(strict_types = 1);
+
+/**
+ * Implements hook_install().
+ */
+function bootstrap_italia_overlay_install($is_syncing)
+{
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function bootstrap_italia_overlay_uninstall($is_syncing)
+{
+
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function bootstrap_italia_overlay_update_8001(&$sandbox)
+{
+
+}

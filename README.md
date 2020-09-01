@@ -69,6 +69,16 @@ This module is dependent on `paragraphs`, `field_group` and `imce`.
     $ composer require drupal/paragraphs drupal/field_group drupal/imce
     $ drush pm:enable paragraphs field_group ui_patterns_field_group imce bootstrap_italia_paragraphs
 
+## Paragraphs overlay
+This module adds paragraph overlay component.
+This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`, `ds_switch_view_mode`, `ui_patterns_layouts`, `ui_patterns_ds`
+
+    $ composer require drupal/ds
+    $ drush pm:enable bootstrap_italia_paragraphs \
+        ds ds_extras ds_switch_view_mode \
+        ui_patterns_ds ui_patterns_layouts \
+        bootstrap_italia_overlay
+
 ## Webform
 Enables the creation of webforms and questionnaires.
 

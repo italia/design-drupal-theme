@@ -1,0 +1,18 @@
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_inline_text
+    - paragraphs.paragraphs_type.overlay
+id: paragraph.overlay.field_inline_text
+field_name: field_inline_text
+entity_type: paragraph
+bundle: overlay
+label: 'Testo da sovrapporre'
+description: 'Inserisci il testo che vuoi visualizzare sopra l''immagine'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

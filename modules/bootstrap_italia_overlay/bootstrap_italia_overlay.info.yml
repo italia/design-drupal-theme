@@ -1,0 +1,14 @@
+name: "Bootstrap Italia overlay"
+description: This module add a paragraph orverlay component
+package: Bootstrap Italia
+
+type: module
+core_version_requirement: ^8.9 || ^9
+dependencies:
+  - drupal:imce
+  - drupal:bootstrap_italia_paragraphs
+  - drupal:ds
+  - drupal:ds_extras
+  - drupal:ds_switch_view_mode
+  - drupal:ui_patterns_layouts
+  - drupal:ui_patterns_ds
