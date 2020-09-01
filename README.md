@@ -67,7 +67,7 @@ This is the base module for `paragraphs` integration and adds paragraph `content
 This module is dependent on `paragraphs`, `field_group` and `imce`.
 
     $ composer require drupal/paragraphs drupal/field_group drupal/imce
-    $ drush pm:enable paragraphs field_group imce bootstrap_italia_paragraphs
+    $ drush pm:enable paragraphs field_group ui_patterns_field_group imce bootstrap_italia_paragraphs
 
 ## Webform
 Enables the creation of webforms and questionnaires.

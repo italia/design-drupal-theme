@@ -2,9 +2,9 @@
 ## Release note
 See README for enable optional features
 
-Update in your sub-theme:
+Update file in your sub-theme:
 - src/scss/theme.scss
-- src/scss/paragraphs folder
+- src/scss/paragraphs/*
 
 ## All Changes
 - Add image style configurations from optional module
