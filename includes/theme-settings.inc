@@ -312,16 +312,25 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
 
-  // Avatar settings.
-  $form['avatar_settings'] = [
+  /* Content settings ------------------------------------------------ */
+  $form['content_settings'] = [
     '#type' => 'details',
-    '#title' => t('Avatar'),
-    '#description' => t('Impostazioni personalizzabili per avatar utente.'),
+    '#title' => t('Contenuto'),
+    '#description' => t('Impostazioni personalizzabili per gli elementi nel contenuto della pagina.'),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 10,
   ];
-  $form['avatar_settings']['avatar_size'] = [
+
+  // Avatar settings.
+  $form['content_settings']['avatar'] = [
+    '#type' => 'details',
+    '#title' => t('Avatar'),
+    '#description' => t('Impostazioni personalizzabili per avatar utente.'),
+    '#open' => TRUE,
+    '#group' => 'content_settings',
+  ];
+  $form['content_settings']['avatar']['avatar_size'] = [
     '#type' => 'select',
     '#title' => t('Dimensione Avatar'),
     '#description' => t('Seleziona la dimensione per l\'avatar (es: xs).'),
@@ -335,21 +344,34 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     ],
   ];
 
-  /* Table settings ------------------------------------------------ */
-  $form['table_settings'] = [
+  // Images settings.
+  $form['content_settings']['images'] = [
+    '#type' => 'details',
+    '#title' => t('Immagini'),
+    '#description' => t('Impostazioni personalizzabili per tutte le immagini.'),
+    '#open' => TRUE,
+    '#group' => 'content_settings',
+  ];
+  $form['content_settings']['images']['image_fluid'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Seleziona per abilitare il ridimensionamento automatico delle immagini.'),
+    '#default_value' => theme_get_setting('image_fluid'),
+  ];
+
+  // Table settings
+  $form['content_settings']['table'] = [
     '#type' => 'details',
     '#title' => t('Tabelle'),
     '#description' => t('Impostazioni personalizzabili per le tabelle.'),
-    '#open' => FALSE,
-    '#group' => 'bootstrap',
-    '#weight' => 11,
+    '#open' => TRUE,
+    '#group' => 'content_settings',
   ];
-  $form['table_settings']['table_bg'] = [
+  $form['content_settings']['table']['table_bg'] = [
     '#type' => 'checkbox',
     '#title' => t('Seleziona per abilitare lo sfondo scuro nelle tabelle'),
     '#default_value' => theme_get_setting('table_bg'),
   ];
-  $form['table_settings']['table_thead'] = [
+  $form['content_settings']['table']['table_thead'] = [
     '#type' => 'select',
     '#title' => t('Sfondo Intestazione tabelle'),
     '#description' => t('Scegli il colore di sfondo per le intestazioni delle tabelle'),
@@ -360,26 +382,25 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
       'scuro' => 'scuro',
     ],
   ];
-  $form['table_settings']['table_striped'] = [
+  $form['content_settings']['table']['table_striped'] = [
     '#type' => 'checkbox',
     '#title' => t('Seleziona per abilitare lo zebrato ad ogni riga della tabella'),
     '#default_value' => theme_get_setting('table_striped'),
   ];
-  $form['table_settings']['table_bordered'] = [
+  $form['content_settings']['table']['table_bordered'] = [
     '#type' => 'checkbox',
     '#title' => t('Seleziona per avere i bordi a tutti i lati della tabella e su tutte le celle'),
     '#default_value' => theme_get_setting('table_bordered'),
   ];
-  $form['table_settings']['table_hover'] = [
+  $form['content_settings']['table']['table_hover'] = [
     '#type' => 'checkbox',
     '#title' => t('Seleziona per abilitare lo stato hover sulle righe della tabella'),
     '#default_value' => theme_get_setting('table_hover'),
   ];
-  $form['table_settings']['table_sm'] = [
+  $form['content_settings']['table']['table_sm'] = [
     '#type' => 'checkbox',
     '#title' => t('Seleziona per rendere le tabelle più compatte dimezzando il cell padding'),
     '#default_value' => theme_get_setting('table_sm'),
   ];
-
 
 }

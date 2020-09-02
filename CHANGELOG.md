@@ -15,6 +15,7 @@ Update file in your sub-theme:
 - Switch to classy base theme
 - Add block configuration for: slim menu and small prints menu
 - Add paragraph overlay
+- Add image settings
 
 # Summary 8.x.0.11
 ## Release note
