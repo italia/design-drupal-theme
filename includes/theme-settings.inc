@@ -2,9 +2,10 @@
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\bootstrap_italia\Helper;
+
 /**
  * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $formState
+ * @param FormStateInterface $form_state
  * @param null $form_id
  */
 function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
