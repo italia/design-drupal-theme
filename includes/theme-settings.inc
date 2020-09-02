@@ -357,6 +357,11 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#title' => t('Seleziona per abilitare il ridimensionamento automatico delle immagini.'),
     '#default_value' => theme_get_setting('image_fluid'),
   ];
+  $form['content_settings']['images']['image_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Seleziona per arrotondare il bordo delle immagini.'),
+    '#default_value' => theme_get_setting('image_rounded'),
+  ];
 
   // Table settings
   $form['content_settings']['table'] = [

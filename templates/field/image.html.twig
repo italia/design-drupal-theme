@@ -14,6 +14,7 @@
 set classes = [
   style_name ? 'image-style-' ~ style_name|clean_class,
   image_fluid ? 'img-fluid',
+  image_rounded ? 'rounded',
 ]
 %}
 <img{{ attributes.addClass(classes) }} />
