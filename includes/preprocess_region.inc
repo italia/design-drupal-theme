@@ -3,8 +3,6 @@
 /**
  * Implements hook_preprocess_region().
  */
-
-
 function bootstrap_italia_preprocess_region(&$variables, $hook){
 
   // header-nav

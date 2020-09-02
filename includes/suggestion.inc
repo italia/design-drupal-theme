@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\block\Entity\Block;
+
 /**
  * Implements hook_theme_suggestions_page_alter().
  * https://www.drupal.org/node/2521876#comment-10684366
@@ -28,7 +30,7 @@ function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, arra
   $menu_name = isset($variables['menu_name']) ? $variables['menu_name'] : 'generic';
 
   if (isset($variables['attributes']['block'])) {
-    $block = \Drupal\block\Entity\Block::load($variables['attributes']['block']);
+    $block = Block::load($variables['attributes']['block']);
     $region = $block->getRegion();
     $suggestions[] = 'menu__' . $region;
     $suggestions[] = 'menu__' . $region . '__' . $menu_name;
@@ -49,9 +51,9 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $suggestions[] = 'block__' . $view_mode;
     $suggestions[] = 'block__' . $bundle . $view_mode;
   }
-  if (!empty($variables['elements']['#id'])) { 
+  if (!empty($variables['elements']['#id'])) {
     // if ($variables['elements']['#id'] == 'navigazioneprincipale') kpr($variables['elements']);
-    $block = \Drupal\block\Entity\Block::load($variables['elements']['#id']);
+    $block = Block::load($variables['elements']['#id']);
     $region = $block->getRegion();
     // adds suggestion with region and block id
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];

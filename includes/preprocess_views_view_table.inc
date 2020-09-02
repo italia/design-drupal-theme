@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\bootstrap_italia\Helper;
-
 /**
  * Implements hook_preprocess_page()
  */

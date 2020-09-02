@@ -1,7 +1,5 @@
 <?php
 
-// use Drupal\Core\Pager\PagerManagerInterface;
-
 /**
  * Implements hook_preprocess_pager()
  */

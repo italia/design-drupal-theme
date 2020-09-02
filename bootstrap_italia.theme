@@ -5,8 +5,6 @@
  * Theme hooks for Bootstrap Italia.
  */
 
-use \Drupal\block_content\BlockContentInterface;
-
 // Include all files from the includes directory.
 $includes_path = dirname(__FILE__) . '/includes/*.inc';
 foreach (glob($includes_path) as $filename) {
