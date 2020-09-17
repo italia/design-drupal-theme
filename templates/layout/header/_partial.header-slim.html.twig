@@ -29,11 +29,11 @@
               {% else %}
                 {% if right_action_size == 'normal' %}
                 <div class="it-access-top-wrapper">
-                  <a class="btn btn-primary btn-sm btn-icon" href="/user">
+                  <a class="btn btn-primary btn-sm btn-icon" href="{{ base_path }}user">
                     {{ 'Log in'|trans }}</a>
                 </div>
                 {% elseif right_action_size == 'full' %}
-                  <a href="/user" class="btn btn-primary btn-icon btn-full">
+                  <a href="{{ base_path }}user" class="btn btn-primary btn-icon btn-full">
                     <span class="rounded-icon">
                       {% include '@bootstrap_italia_components/icon/icon.twig' with {
                         name: 'it-user',

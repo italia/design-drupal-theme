@@ -16,6 +16,7 @@ Update file in your sub-theme:
 - Add block configuration for: slim menu and small prints menu
 - Add paragraph overlay
 - Add image settings
+- Issue #3171227 by gabrimonfa: Wrong href in header login link in multisite using subdirectories
 
 # Summary 8.x.0.11
 ## Release note
