@@ -5,6 +5,7 @@ See README for enable optional features
 Update file in your sub-theme:
 - src/scss/theme.scss
 - src/scss/paragraphs/*
+- src/scss/misc/_patterns-overview.scss
 
 ## All Changes
 - Add image style configurations from optional module
@@ -17,6 +18,7 @@ Update file in your sub-theme:
 - Add paragraph overlay
 - Add image settings
 - Issue #3171227 by gabrimonfa: Wrong href in header login link in multisite using subdirectories
+- Issue #3171528: Card width not 100% of container
 
 # Summary 8.x.0.11
 ## Release note
