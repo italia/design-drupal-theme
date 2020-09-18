@@ -1,5 +1,5 @@
 # Summary 8.x-0.12
-## Release note
+## Release notes
 See README for enable optional features
 
 Update file in your sub-theme:
@@ -21,7 +21,7 @@ Update file in your sub-theme:
 - Issue #3171528: Card width not 100% of container
 
 # Summary 8.x.0.11
-## Release note
+## Release notes
 Update/add file in your sub-theme with:
 - var/starter_kits/italiagov/config/install/italiagov.settings.yml
 - var/starter_kits/italiagov/src/js/custom/component-library-initialization.js
@@ -70,7 +70,7 @@ Build assets with 'npm run build:prod' and 'drush cr'
 - Add current page to breadcrumb
 
 # Summary 8.x.0.10
-## Release note
+## Release notes
 Update THEME.info.yml in your sub-theme with the new version placed in "/var/starter_kits/italiagov/italiagov.info.yml".
 Please update "<your-theme>/src/scss/_fix.scss" with the new version placed in "/var/starter_kits/src/scss/_fix.scss"
 
@@ -99,7 +99,7 @@ Please update "<your-theme>/src/scss/_fix.scss" with the new version placed in "
 - Expose card component through Drupal UI
 
 # Summary 8.x-0.9
-## Release note
+## Release notes
 This version implements child themes and we recommend that you set the child theme as the default theme. Setting the main theme as the default theme is obsolete, but for compatibility with previous versions it will be kept until version 1.0.
 Before updating make sure that:
 - the Italian language is set as "default language"
