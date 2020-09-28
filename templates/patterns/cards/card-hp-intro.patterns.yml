@@ -57,12 +57,12 @@ card_hp_intro:
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     card_hp_tag:
       type: text
-      label: Category
+      label: Tag Category
       description: Category term
       preview: 'Category'
     card_hp_tag_url:
       type: text
-      label: Link for term
+      label: Link URL for tag term
       description: Link for category term
       preview: '#'
     card_hp_readmore_link:
