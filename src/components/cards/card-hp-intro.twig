@@ -6,7 +6,8 @@
  * Last review: 1.4.1
  *
  * Available config:
- * - card_hp_img: img
+ * - card_hp_img: URL
+ * - card_hp_img_alt: string
  * - card_hp_category: string
  * - card_hp_category_url: URL
  * - card_hp_date: date
@@ -19,7 +20,7 @@
 #}
 <!--start card-->
 <div class="col-lg-6 offset-lg-1 order-lg-2">
-  {{ card_hp_img }}
+  <img src="{{ card_hp_img }}" alt="{{ card_hp_img_alt }}" class="img-fluid">
 </div>
 <div class="col-lg-5 order-lg-1">
   <div class="card">
