@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Template for Card component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - card_link_category: URL
+ * - card_category: string
+ * - card_date: date
+ * - card_title: string
+ * - card_text: string
+ * - card_signature: string
+ * - card_readmore_link: URL
+ * - card_type: simple, article_simple
+ */
+#}
+{% set title_classes = [
+  'card-title',
+  (card_type == 'article_simple') ? ' big-heading'
+] %}
+<!--start card-->
+<div class="card-wrapper">
+  <div class="card">
+    <div class="card-body">
+      <!-- articolo semplice -->
+      {% if card_category or card_date %}
+      <div class="category-top">
+        {% if card_category %}
+        <a class="category" href="{{ card_link_category }}">{{ card_category }}</a>
+        {% endif %}
+        {% if card_date %}
+        <span class="data">{{ card_date }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+      <!-- fine -->
+      <h5 class="card-title">{{ card_title }}</h5>
+      <p class="card-text">{{ card_text }}</p>
+    </div>
+  </div>
+</div>
+<!--end card-->
