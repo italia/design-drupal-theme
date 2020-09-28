@@ -6,29 +6,72 @@
  * Last review: 1.4.1
  *
  * Available config:
- * - card_link_category: URL
+ * - card_category_url: URL
  * - card_category: string
  * - card_date: date
  * - card_title: string
+ * - subtitle: string
  * - card_text: string
  * - card_signature: string
  * - card_readmore_link: URL
- * - card_type: simple, article_simple
+ * - card_type: simple, simple_article, with_icon
+ * - card_icon: string
+ * - card_simple_link: string
+ * - card_simple_link_url: URL
+ * - card_shadow: bool
+ * - card_big: bool
+ * - card_border_bottom: bool
+ * - card_flag_icon: bool
+ * - card_etichetta: string
+ * - card_no_bottom_space: bool
+ * - card_head_tags: bool
+ * - card_tags
  */
 #}
+{% set wrapper_classes = [
+  'card-wrapper',
+  (card_shadow) ? 'card-space'
+] %}
+
+{% set card_classes = [
+  'card',
+  (card_shadow) ? 'card-bg',
+  (card_big) ? 'card-big',
+  (card_border_bottom) ? 'border-bottom-card',
+  (card_no_bottom_space) ? 'no-after'
+] %}
+
 {% set title_classes = [
   'card-title',
-  (card_type == 'article_simple') ? ' big-heading'
+  (card_type == 'article_simple') ? 'big-heading'
 ] %}
+
 <!--start card-->
-<div class="card-wrapper">
-  <div class="card">
+<div {{ attributes.addClass(wrapper_classes) }}>
+  <div {{ attributes.addClass(card_classes) }}>
+    {% if card_flag_icon %}
+    <div class="flag-icon"></div>
+    {% if card_head_tags %}
+    <div class="head-tags"> {# capire meglio tags in questo contesto #}
+      <a class="card-tag" href="#">TEMPLATE DA IMPLEMENTARE</a>
+      {% if card_date %}
+      <span class="data">{{ card_date }}</span>
+      {% endif %}
+    </div>
+    {% endif %}
+    {% if card_etichetta %}
+    <div class="etichetta">
+      {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+      <span>{{ card_etichetta }}</span>
+    </div>
+    {% endif %}
+    {% endif %}
     <div class="card-body">
       <!-- articolo semplice -->
-      {% if card_category or card_date %}
+      {% if card_type == 'simple_article' and not card_head_tags %}
       <div class="category-top">
         {% if card_category %}
-        <a class="category" href="{{ card_link_category }}">{{ card_category }}</a>
+        <a class="category" href="{{ card_category_url }}">{{ card_category }}</a>
         {% endif %}
         {% if card_date %}
         <span class="data">{{ card_date }}</span>
@@ -36,8 +79,37 @@
       </div>
       {% endif %}
       <!-- fine -->
-      <h5 class="card-title">{{ card_title }}</h5>
+      <!-- Card con icona -->
+      {% if card_type == 'with_icon' %}
+      <div class="categoryicon-top">
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+        <span class="text">{{ card_category }}</span>
+      </div>
+      {% endif %}
+      <!-- fine -->
+      <h5 {{ attributes.addClass(title_classes) }}>{{ card_title }}</h5>
+      {% if card_subtitle %}
+      <h6 class="card-subtitle">{{ card_subtitle }}</h6>
+      {% endif %}
       <p class="card-text">{{ card_text }}</p>
+      {% if card_simple_link %}
+      <a class="simple-link" href="{{ card_simple_link_url }}">{{ card_simple_link }}</a>
+      {% endif %}
+      {% if card_signature and not card_button %}
+      <span class="card-signature">{{ card_signature }}</span>
+      {% endif %}
+      {% if card_readmore_link %}
+      <a class="read-more" href="{{ card_readmore_link }}">
+        <span class="text">{{ 'Read more'|t }}</span>
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
+      </a>
+      {% endif %}
+      {% if card_button %} {# capire meglio button in questo contesto #}
+      <div class="it-card-footer">
+        <span class="card-signature">{{ card_signature }}</span>
+        <button class="btn btn-outline-primary btn-sm">TEMPLATE DA IMPLEMENTARE</button>
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>
