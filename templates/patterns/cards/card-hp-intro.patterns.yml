@@ -35,10 +35,10 @@ card_hp_intro:
       label: Category
       description: Category term
       preview: 'Category'
-    card_hp_link_category:
+    card_hp_category_url:
       type: text
-      label: Link for term
-      description: Link for category term
+      label: URL for term
+      description: Link URL for category term
       preview: '#'
     card_hp_date:
       type: text
