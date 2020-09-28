@@ -58,12 +58,12 @@ card_hp_intro:
     card_hp_tag:
       type: text
       label: Tag Category
-      description: Category term
-      preview: 'Category'
+      description: Tag Category term
+      preview: 'Tag'
     card_hp_tag_url:
       type: text
       label: Link URL for tag term
-      description: Link for category term
+      description: Link for tag category term
       preview: '#'
     card_hp_readmore_link:
       type: text
