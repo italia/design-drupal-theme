@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Template for Card component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - card_hp_img: img
+ * - card_hp_category: string
+ * - card_hp_category_url: URL
+ * - card_hp_date: date
+ * - card_hp_title: string
+ * - card_hp_text: string
+ * - card_hp_tag: string
+ * - card_hp_tag_url: URL
+ * - card_hp_readmore_link: URL
+ */
+#}
+<!--start card-->
+<div class="col-lg-6 offset-lg-1 order-lg-2">
+  {{ card_hp_img }}
+</div>
+<div class="col-lg-5 order-lg-1">
+  <div class="card">
+    <div class="card-body pb-5">
+      <div class="category-top">
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-calendar' } %}
+        <a class="category" href="{{ card_hp_category_url }}">{{ card_hp_category }}</a>
+        <span class="data">{{ card_hp_date }}</span>
+      </div>
+      <h1 class="h4 card-title">{{ card_hp_title }}</h1>
+      <p class="card-text">{{ card_hp_text }}</p>
+      <div class="chip chip-simple chip-primary">
+        <a href="{{ card_hp_tag_url }}" class="chip-label">{{ card_hp_tag }}</a>
+      </div>
+      <a class="read-more pb-3" href="{{ card_hp_readmore_link }}">
+        <span class="text">{{ 'All news' | t }}</span>
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
+      </a>
+    </div>
+  </div>
+</div>
+<!--end card-->
