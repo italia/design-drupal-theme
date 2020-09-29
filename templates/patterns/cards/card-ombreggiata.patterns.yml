@@ -11,7 +11,7 @@
 #
 card_ombreggiata:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: 'Card Ombreggiatura'
+  label: 'Card Ombreggiatura (deprecated)'
   description: Card che può essere utilizzata per la visualizzazione di contenuti.
   variants:
     default:

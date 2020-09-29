@@ -11,7 +11,7 @@
 #
 card_article_simple:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: 'Card Article Simple'
+  label: 'Card Article Simple (deprecated)'
   description: La card articolo semplice. https://italia.github.io/bootstrap-italia/docs/componenti/card/#articolo-semplice
   variants:
     default:

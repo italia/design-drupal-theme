@@ -11,7 +11,7 @@
 #
 card_simple:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: 'Card Simple'
+  label: 'Card Simple (deprecated)'
   description: La card più semplice. https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-semplice
   variants:
     default:
@@ -38,12 +38,12 @@ card_simple:
   # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
   # irrespective of whether a pattern of that type appears on the page.
   #   Example: ui_patterns/button.button
-  libraries:
-    -
-      card_simple:
-        css:
-          component:
-            css/card_simple.css: {}
+  # libraries:
+  #   -
+  #     card_simple:
+  #       css:
+  #         component:
+  #           css/card_simple.css: {}
 
   # Optional: Specify a TWIG template with 'use'.
   #
