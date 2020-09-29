@@ -14,11 +14,12 @@
  * - card_text: string
  * - card_signature: string
  * - card_readmore_link: URL
- * - card_type: simple, simple_article, with_icon
+ * - card_type: simple, simple_article, with_icon, teaser, with_img
  * - card_icon: string
  * - card_simple_link: string
  * - card_simple_link_url: URL
  * - card_shadow: bool
+ * - card_rounded: bool
  * - card_big: bool
  * - card_border_bottom: bool
  * - card_flag_icon: bool
@@ -26,11 +27,14 @@
  * - card_no_bottom_space: bool
  * - card_head_tags: bool
  * - card_tags
+ * - card_img_responsive: img tag
+ * - card_img_pan: bool
  */
 #}
 {% set wrapper_classes = [
   'card-wrapper',
-  (card_shadow) ? 'card-space'
+  (card_shadow) ? 'card-space',
+  (card_type == 'teaser') ? 'card-teaser-wrapper'
 ] %}
 
 {% set card_classes = [
@@ -38,12 +42,21 @@
   (card_shadow) ? 'card-bg',
   (card_big) ? 'card-big',
   (card_border_bottom) ? 'border-bottom-card',
-  (card_no_bottom_space) ? 'no-after'
+  (card_no_bottom_space) ? 'no-after',
+  (card_type == 'teaser') ? 'card-teaser',
+  (card_type == 'teaser' and card_shadow) ? 'shadow',
+  (card_type == 'teaser' and card_rounded) ? 'rounded',
+  (card_type == 'with_img') ? 'card-img no-after',
 ] %}
 
 {% set title_classes = [
   'card-title',
   (card_type == 'article_simple') ? 'big-heading'
+] %}
+
+{% set img_classes = [
+  'img-responsive',
+  (card_img_pan) ? 'img-responsive-panoramic'
 ] %}
 
 <!--start card-->
@@ -66,6 +79,24 @@
     </div>
     {% endif %}
     {% endif %}
+    <!-- con immagine responsive -->
+    {% if card_type == 'with_img' %}
+    <div class="img-responsive-wrapper">
+      <div {{ attributes.addClass(img_classes) }}>
+        <figure class="img-wrapper">
+          {{ card_img_responsive }}
+        </figure>
+        {% if card_date %}
+        {% set date_value = card_date | split(' ') %} {# la data deve essere 'dd mese' #}
+        <div class="card-calendar d-flex flex-column justify-content-center">
+          <span class="card-date">{{ date_value[0] }}</span>
+          <span class="card-day">{{ date_value[1] }}</span>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    <!-- fine -->
     <div class="card-body">
       <!-- articolo semplice -->
       {% if card_type == 'simple_article' and not card_head_tags %}
