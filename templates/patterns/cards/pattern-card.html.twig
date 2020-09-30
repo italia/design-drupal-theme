@@ -1,0 +1,14 @@
+{# Render output #}
+{% include '@bootstrap_italia_components/cards/card.twig' with {
+  card_type: variant,
+  card_title: card_title,
+  card_subtitle: card_subtitle,
+  card_text: card_text,
+  card_category: (variant == 'simple_article' or variant == 'with_icon') ? card_category : false,
+  card_category_url: (variant == 'simple_article') ? card_category_url : false,
+  card_date: (variant == 'simple_article') ? card_date : false,
+  card_readmore_url: card_readmore_url,
+  card_simple_link: (card_readmore_url) ? false : card_simple_link,
+  card_simple_link_url: (card_readmore_url) ? false : card_simple_link_url,
+} %}
+

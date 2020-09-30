@@ -23,6 +23,9 @@ card:
     with_icon:
       label: Card con icona
       description: Esempio di card contenente categorizzazione e icona.
+    with_shadow:
+      label: Card con ombra
+      description: Esempio di card con ombra.
     teaser:
       label: Card Teaser
       description: Per creare Card con contenuti brevi o di “anteprima”.
@@ -32,16 +35,61 @@ card:
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:
-    title:
+    card_title:
       type: text
       label: Title
       description: The title of the card.
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
-    text:
+    card_subtitle:
+      type: text
+      label: SubTitle
+      description: Sottotitolo
+      preview: 'Subtitle'
+    card_text:
       type: text
       label: Text
       description: Text of the card.
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    card_category:
+      type: text
+      label: Category
+      description: Top Category
+      preview: 'Category name'
+    card_category_url:
+      type: text
+      label: Category URL
+      description: Top Category URL
+      preview: '#'
+    card_date:
+      type: text
+      label: Date
+      description: Date format 'dd/mm/yyyy' or 'dd mmmmmm' with card with img.
+      preview: '26/05/2021'
+    card_signature:
+      type: text
+      label: Signature
+      description: Firma dell'articolo
+      preview: 'di Federico De Paolis'
+    card_readmore_url:
+      type: text
+      label: Read more
+      description: read more link
+      preview: '#'
+    card_icon:
+      type: text
+      label: Card icon
+      description: Icona sulla card
+      preview: 'it-file'
+    card_simple_link:
+      type: text
+      label: Simple link
+      description: Link semplice.
+      preview: 'Simple link'
+    card_simple_link_url:
+      type: text
+      label: Simple link URL
+      description: URL del Link semplice.
+      preview: '#'
   # Optional: Attached libraries.
   #
   # You can include libraries defined by other modules / themes with dependencies.
