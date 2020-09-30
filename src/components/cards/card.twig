@@ -63,11 +63,11 @@
 <!--start card-->
 <div {{ wrapper_attribute.addClass(wrapper_classes) }}>
   <div {{ card_attribute.addClass(card_classes) }}>
-    {% if card_flag_icon %}
+    {% if card_flag_icon and not card_etichetta %}
     <div class="flag-icon"></div>
-    {% if card_head_tags %}
+    {% if card_head_tags and card_big %}
     <div class="head-tags"> {# capire meglio tags in questo contesto #}
-      <a class="card-tag" href="#">TEMPLATE DA IMPLEMENTARE</a>
+      <a class="card-tag" href="#">TEMPLATE DA IMPLEMENTARE</a>  {# TODO #}
       {% if card_date %}
       <span class="data">{{ card_date }}</span>
       {% endif %}
@@ -138,10 +138,10 @@
         {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
       </a>
       {% endif %}
-      {% if card_button %} {# capire meglio button in questo contesto #}
+      {% if card_button and card_big %} {# capire meglio button in questo contesto #}
       <div class="it-card-footer">
         <span class="card-signature">{{ card_signature }}</span>
-        <button class="btn btn-outline-primary btn-sm">TEMPLATE DA IMPLEMENTARE</button>
+        <button class="btn btn-outline-primary btn-sm">TEMPLATE DA IMPLEMENTARE</button> {# TODO #}
       </div>
       {% endif %}
     </div>
