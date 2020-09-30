@@ -13,8 +13,8 @@
  * - subtitle: string
  * - card_text: string
  * - card_signature: string
- * - card_readmore_link: URL
- * - card_type: simple, simple_article, with_icon, teaser, with_img
+ * - card_readmore_url: URL
+ * - card_type: simple, simple_article, with_icon, with_shadow, teaser, with_img
  * - card_icon: string
  * - card_simple_link: string
  * - card_simple_link_url: URL
@@ -31,15 +31,16 @@
  * - card_img_pan: bool
  */
 #}
+{% set wrapper_attribute = create_attribute() %}
 {% set wrapper_classes = [
   'card-wrapper',
-  (card_shadow) ? 'card-space',
+  (card_type == 'with_shadow') ? 'card-space',
   (card_type == 'teaser') ? 'card-teaser-wrapper'
 ] %}
-
+{% set card_attribute = create_attribute() %}
 {% set card_classes = [
   'card',
-  (card_shadow) ? 'card-bg',
+  (card_type == 'with_shadow') ? 'card-bg',
   (card_big) ? 'card-big',
   (card_border_bottom) ? 'border-bottom-card',
   (card_no_bottom_space) ? 'no-after',
@@ -48,20 +49,20 @@
   (card_type == 'teaser' and card_rounded) ? 'rounded',
   (card_type == 'with_img') ? 'card-img no-after',
 ] %}
-
+{% set title_attribute = create_attribute() %}
 {% set title_classes = [
   'card-title',
-  (card_type == 'article_simple') ? 'big-heading'
+  (card_type == 'simple_article') ? 'big-heading'
 ] %}
-
+{% set img_attribute = create_attribute() %}
 {% set img_classes = [
   'img-responsive',
   (card_img_pan) ? 'img-responsive-panoramic'
 ] %}
 
 <!--start card-->
-<div {{ attributes.addClass(wrapper_classes) }}>
-  <div {{ attributes.addClass(card_classes) }}>
+<div {{ wrapper_attribute.addClass(wrapper_classes) }}>
+  <div {{ card_attribute.addClass(card_classes) }}>
     {% if card_flag_icon %}
     <div class="flag-icon"></div>
     {% if card_head_tags %}
@@ -82,7 +83,7 @@
     <!-- con immagine responsive -->
     {% if card_type == 'with_img' %}
     <div class="img-responsive-wrapper">
-      <div {{ attributes.addClass(img_classes) }}>
+      <div {{ img_attribute.addClass(img_classes) }}>
         <figure class="img-wrapper">
           {{ card_img_responsive }}
         </figure>
@@ -101,8 +102,8 @@
       <!-- articolo semplice -->
       {% if card_type == 'simple_article' and not card_head_tags %}
       <div class="category-top">
-        {% if card_category %}
-        <a class="category" href="{{ card_category_url }}">{{ card_category }}</a>
+        {% if card_category and not (card_type == 'with_icon') %}
+        <a class="category" href="{{ card_category_url|default('#') }}">{{ card_category }}</a>
         {% endif %}
         {% if card_date %}
         <span class="data">{{ card_date }}</span>
@@ -113,24 +114,26 @@
       <!-- Card con icona -->
       {% if card_type == 'with_icon' %}
       <div class="categoryicon-top">
+        {% if card_icon %}
         {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+        {% endif %}
         <span class="text">{{ card_category }}</span>
       </div>
       {% endif %}
       <!-- fine -->
-      <h5 {{ attributes.addClass(title_classes) }}>{{ card_title }}</h5>
-      {% if card_subtitle %}
+      <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title }}</h5>
+      {% if card_subtitle and card_type == 'with_icon' %}
       <h6 class="card-subtitle">{{ card_subtitle }}</h6>
       {% endif %}
       <p class="card-text">{{ card_text }}</p>
       {% if card_simple_link %}
-      <a class="simple-link" href="{{ card_simple_link_url }}">{{ card_simple_link }}</a>
+      <a class="simple-link" href="{{ card_simple_link_url|default('#') }}">{{ card_simple_link }}</a>
       {% endif %}
       {% if card_signature and not card_button %}
       <span class="card-signature">{{ card_signature }}</span>
       {% endif %}
-      {% if card_readmore_link %}
-      <a class="read-more" href="{{ card_readmore_link }}">
+      {% if card_readmore_url %}
+      <a class="read-more" href="{{ card_readmore_url|default('#') }}">
         <span class="text">{{ 'Read more'|t }}</span>
         {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
       </a>
