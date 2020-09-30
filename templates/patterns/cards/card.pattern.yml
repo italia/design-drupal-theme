@@ -90,6 +90,48 @@ card:
       label: Simple link URL
       description: URL del Link semplice.
       preview: '#'
+    card_border_bottom:
+      type: bool
+      label: Bordo inferiore
+      description: aggiunge un bordocolorato in basso
+      preview: true
+    card_big:
+      type: bool
+      label: Card grande
+      description: Card di dimensioni maggiori.
+      preview: false
+    card_flag_icon:
+      type: bool
+      label: Icona bandierina
+      description: Aggiunge una bandierina (flag) in all’articolo.
+      preview: true
+    card_etichetta:
+      type: string
+      label: Etichetta SX Categoria
+      description: Categoria posta a SX con icona quando presente la bandierina.
+    card_no_bottom_space:
+      type: bool
+      label: Togli spazio in basso.
+      description: Se si vuole ridurre lo spazio in fondo alla card.
+    card_shadow:
+      type: bool
+      label: Ombra su card teaser
+      description: Effetto ombra
+      preview: true
+    card_rounded:
+      type: bool
+      label: Bordi rotondi su card teaser
+      description: Card con spigoli arrotondati.
+      preview: true
+    card_img_responsive:
+      type: string
+      label: Immagine (tag HTML completo)
+      description: Immagine responsive
+      preview: '<img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=IMMAGINE%20DI%20ESEMPIO" title="img title" alt="imagealt">'
+    card_img_pan:
+      type: bool
+      label: Immagine panoramica
+      description: Immagine più bassa per effetto panorama.
   # Optional: Attached libraries.
   #
   # You can include libraries defined by other modules / themes with dependencies.
