@@ -33,9 +33,11 @@
         </div>
         <h1 class="h4 card-title">{{ card_hp_title }}</h1>
         <p class="card-text">{{ card_hp_text }}</p>
+        {% if card_hp_tag %}
         <div class="chip chip-simple chip-primary">
           <a href="{{ card_hp_tag_url }}" class="chip-label">{{ card_hp_tag }}</a>
         </div>
+        {% endif %}
         <a class="read-more pb-3" href="{{ card_hp_readmore_link }}">
           <span class="text">{{ 'All news' | t }}</span>
           {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
