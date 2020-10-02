@@ -19,6 +19,7 @@
  */
 #}
 <!--start card-->
+{% if card_type == 'first_row' %}
 <div class="row">
   <div class="col-lg-6 offset-lg-1 order-lg-2">
     <img src="{{ card_hp_img }}" alt="{{ card_hp_img_alt }}" class="img-fluid">
@@ -46,4 +47,37 @@
     </div>
   </div>
 </div>
+{% else %}
+{% set card_attribute = create_attribute() %}
+{% set card_classes = [
+  'card',
+  'card-teaser',
+  'no-after',
+  'rounded',
+  'shadow',
+  (card_hp_img) ? 'card-teaser-image card-flex'
+] %}
+<div {{ card_attribute.addClass(card_classes) }}>
+  <div class="card-image-wrapper with-read-more pb-5">
+    <div class="card-body p-4">
+      <div class="category-top">
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-calendar' } %}
+        <a class="category" href="{{ card_hp_category_url }}">{{ card_hp_category }}</a>
+      </div>
+      <p class="card-title font-weight-semibold">{{ card_hp_title }}</p>
+      <p class="card-text">{{ card_hp_text }}</p>
+    </div>
+    {% if card_hp_img %}
+    <div class="card-image card-image-rounded pb-5">
+      <img src="{{ card_hp_img }}" alt="{{ card_hp_img_alt }}" class="img-fluid">
+    </div>
+    {% endif %}
+  </div>
+
+  <a class="read-more pl-4" href="{{ card_hp_readmore_link }}">
+    <span class="text">Tutta l'amministrazione</span>
+    {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
+  </a>
+</div>
+{% endif %}
 <!--end card-->

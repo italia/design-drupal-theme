@@ -11,12 +11,15 @@
 #
 card_hp_intro:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: 'Card HP Intro'
-  description: La card per il primo blocco in HP.
+  label: 'Card HomePage Intro'
+  description: La card per il primo blocco in HomePage.
   variants:
-    default:
-      label: Default
-      description: Default intro card.
+    first_row:
+      label: In evidenza
+      description: Singola prima notizia.
+    second_row:
+      label: Seconda riga
+      description: Riga con 3 notizie.
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:
