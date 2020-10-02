@@ -18,7 +18,7 @@
   {% if site_logo %}
       {% set check = site_logo %}
       {% if not (check ends with '.svg') %}
-        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon" />
+        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon img-fluid" />
       {% else %}
         <svg class="icon" height="48" width="48" viewBox="0 0 100 82" xmlns="http://www.w3.org/2000/svg">
           <use href="{{ site_logo }}#logo" xlink:href="{{ site_logo }}#logo"></use>
