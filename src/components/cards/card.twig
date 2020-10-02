@@ -31,12 +31,7 @@
  * - card_img_pan: bool
  */
 #}
-{% set wrapper_attribute = create_attribute() %}
-{% set wrapper_classes = [
-  'card-wrapper',
-  (card_type == 'with_shadow') ? 'card-space',
-  (card_type == 'teaser') ? 'card-teaser-wrapper'
-] %}
+
 {% set card_attribute = create_attribute() %}
 {% set card_classes = [
   'card',
@@ -61,7 +56,6 @@
 ] %}
 
 <!--start card-->
-<div {{ wrapper_attribute.addClass(wrapper_classes) }}>
   <div {{ card_attribute.addClass(card_classes) }}>
     {% if card_flag_icon and not card_etichetta %}
     <div class="flag-icon"></div>
@@ -146,5 +140,4 @@
       {% endif %}
     </div>
   </div>
-</div>
 <!--end card-->

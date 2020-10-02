@@ -1,4 +1,5 @@
 {# Render output #}
+{% if variant == 'teaser' %}
 {% include '@bootstrap_italia_components/cards/card.twig' with {
   card_type: variant,
   card_title: card_title,
@@ -20,4 +21,26 @@
   card_img_responsive: (variant == 'with_img') ? card_img_responsive : false,
   card_img_pan: (variant == 'with_img') ? card_img_pan : false
 } %}
-
+{% else %}
+{% include '@bootstrap_italia_components/cards/card-wrapper.twig' with {
+  card_type: variant,
+  card_title: card_title,
+  card_subtitle: card_subtitle,
+  card_text: card_text,
+  card_icon: (card_flag_icon) ? false : card_icon,
+  card_category: (variant == 'simple_article' or variant == 'with_icon') ? card_category : false,
+  card_category_url: (variant == 'simple_article') ? card_category_url : false,
+  card_date: (variant == 'simple_article') ? card_date : false,
+  card_readmore_url: card_readmore_url,
+  card_simple_link: (card_readmore_url) ? false : card_simple_link,
+  card_simple_link_url: (card_readmore_url) ? false : card_simple_link_url,
+  card_border_bottom: card_border_bottom,
+  card_flag_icon: (card_icon) ? false : card_flag_icon,
+  card_etichetta: card_etichetta,
+  card_no_bottom_space: card_no_bottom_space,
+  card_shadow: (variant == 'teaser') ? card_shadow : false,
+  card_rounded: (variant == 'teaser') ? card_rounded : false,
+  card_img_responsive: (variant == 'with_img') ? card_img_responsive : false,
+  card_img_pan: (variant == 'with_img') ? card_img_pan : false
+} %}
+{% endif %}
