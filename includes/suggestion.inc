@@ -75,7 +75,8 @@ function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &
     $displayObj = $view->getDisplay();
     $view = $variables['view'];
     $displayObj = $view->getDisplay();
-    $suggestions[] = 'views_view_unformatted__' . $view->id();
-    $suggestions[] = 'views_view_unformatted__' . $view->id() . '__' . $displayObj->display['id'];
+    $variant = (isset($view->rowPlugin->options['pattern_variant'])) ? '__' . $view->rowPlugin->options['pattern_variant'] : '';
+    $suggestions[] = 'views_view_unformatted__' . $view->id() . $variant;
+    $suggestions[] = 'views_view_unformatted__' . $view->id() . '__' . $displayObj->display['id'] . $variant;
   }
 }
