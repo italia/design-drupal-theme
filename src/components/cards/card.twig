@@ -14,7 +14,7 @@
  * - card_text: string
  * - card_signature: string
  * - card_readmore_url: URL
- * - card_type: simple, simple_article, with_icon, with_shadow, teaser, with_img
+ * - card_type: simple, simple_article, with_icon, with_shadow, teaser, teser_plus, with_img
  * - card_icon: string
  * - card_simple_link: string
  * - card_simple_link_url: URL
@@ -39,9 +39,9 @@
   (card_big) ? 'card-big',
   (card_border_bottom) ? 'border-bottom-card',
   (card_no_bottom_space) ? 'no-after',
-  (card_type == 'teaser') ? 'card-teaser',
-  (card_type == 'teaser' and card_shadow) ? 'shadow',
-  (card_type == 'teaser' and card_rounded) ? 'rounded',
+  (card_type == 'teaser' or card_type == 'teaser_plus') ? 'card-teaser',
+  (card_type == 'teaser_plus') ? 'shadow',
+  (card_type == 'teaser_plus') ? 'rounded',
   (card_type == 'with_img') ? 'card-img no-after',
 ] %}
 {% set title_attribute = create_attribute() %}

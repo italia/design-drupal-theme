@@ -29,6 +29,9 @@ card:
     teaser:
       label: Card Teaser
       description: Per creare Card con contenuti brevi o di “anteprima”.
+    teaser_plus:
+      label: Card Teaser bordi tondi e ombra
+      description: Per creare Card con contenuti brevi o di “anteprima”.
     with_img:
       label: Card con immagine
       description: La card con immagine è contraddistinta dalla classe .card-img applicata al div .card.
