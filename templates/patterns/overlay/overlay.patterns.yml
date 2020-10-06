@@ -38,15 +38,15 @@ overlay:
       description: Testo caption dell'overlay.
       preview: 'Label immagine'
     overlay_img:
-      type: text
-      label: Url immagine
-      description: Immagine (URL).
-      preview: 'https://i.picsum.photos/id/1055/800/300.jpg?hmac=cIZVUUdDHCoJYVuVdP1aIcvvhVeZVPWjrDJVQSuZgYk'
-    overlay_img_alt:
-      type: text
-      label: Testo per screenreader o ALT immagine.
-      description: Testo per screenreader e/o ALT img ove previsto.
-      preview: 'desc Immagine'
+      type: render
+      label: Immagine
+      description: Field media image.
+      preview:
+        theme: image
+        uri: 'https://i.picsum.photos/id/1055/800/300.jpg?hmac=cIZVUUdDHCoJYVuVdP1aIcvvhVeZVPWjrDJVQSuZgYk'
+        width: 800
+        height: 300
+        attibutes: { alt: 'Immagine' }
     overlay_icon:
       type: text
       label: Icona
