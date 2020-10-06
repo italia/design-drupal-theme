@@ -19,6 +19,7 @@ Update file in your sub-theme:
 - Add image settings
 - Issue #3171227 by gabrimonfa: Wrong href in header login link in multisite using subdirectories
 - Issue #3171528: Card width not 100% of container
+- Fix 'Ente di appartenenza' collapsed
 
 # Summary 8.x.0.11
 ## Release notes
