@@ -3,7 +3,7 @@
 /**
  * Implements hook_preprocess_HOOK() for field--node--title.html.twig.
  */
-function bootstrap_italia_preprocess_page_title(&$variables)
+function italiagov_preprocess_page_title(&$variables)
 {
   // Load the current node.
   $node = \Drupal::routeMatch()->getParameter('node');
@@ -11,15 +11,16 @@ function bootstrap_italia_preprocess_page_title(&$variables)
     switch ($node->getType()) {
       case 'persona':
         foreach ($node->get('field_pe_ruolo')->referencedEntities() as $term) {
-          $variables['ruolo'] = $term->getName();
+          $variables['subTitle'] = $term->getName();
         }
         break;
       
-      default:
-        # code...
+      case 'evento':
+        $variables['subTitle'] = $node->get('field_ev_subtitle')->getString();
+        $variables['abstract'] = $node->get('field_abstract')->getString();
         break;
     }
-    
+    // dsm($node->get('field_abstract')->getString());
   }
 }
 
