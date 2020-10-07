@@ -1,4 +1,145 @@
 {# Render output #}
+{% set wrapper_attribute = create_attribute() %}
+{% set wrapper_classess = [
+  'card-wrapper',
+
+  variant == 'simple' and pattern_card_simple_shadow ? 'card-space',
+  variant == 'simple_article' and pattern_card_simple_article_shadow ? 'card-space',
+  variant == 'big1' and pattern_card_big1_shadow ? 'card-space',
+  variant == 'big2' and pattern_card_big2_shadow ? 'card-space',
+  variant == 'big3' and pattern_card_big3_shadow ? 'card-space',
+  variant == 'with_img' and pattern_card_with_img_shadow ? 'card-space',
+  variant == 'special' and pattern_card_special_shadow ? 'card-space',
+] %}
+
+{% set card_attribute = create_attribute() %}
+{% set card_classess = [
+  'card',
+
+  variant == 'simple' and pattern_card_simple_shadow ? 'card-bg',
+  variant == 'simple_article' and pattern_card_simple_article_shadow ? 'card-bg',
+  variant == 'big1' and pattern_card_big1_shadow ? 'card-bg',
+  variant == 'big2' and pattern_card_big2_shadow ? 'card-bg',
+  variant == 'big3' and pattern_card_big3_shadow ? 'card-bg',
+  variant == 'with_img' and pattern_card_with_img_shadow ? 'card-bg',
+  variant == 'special' and pattern_card_special_shadow ? 'card-bg',
+
+  variant == 'teaser' ? 'card-teaser',
+  variant == 'teaser' and pattern_card_teaser_shadow ? 'shadow',
+
+  variant == 'big1' or variant == 'big2' or variant == 'big3' ? 'card-big',
+
+  variant == 'simple' and pattern_card_simple_border_bottom ? 'border-bottom-card',
+  variant == 'simple_article' and pattern_card_simple_article_border_bottom ? 'border-bottom-card',
+  variant == 'big1' and pattern_card_big1_border_bottom ? 'border-bottom-card',
+  variant == 'big2' and pattern_card_big2_border_bottom ? 'border-bottom-card',
+  variant == 'big3' and pattern_card_big3_border_bottom ? 'border-bottom-card',
+  variant == 'with_img' and pattern_card_with_img_border_bottom ? 'border-bottom-card',
+  variant == 'special' and pattern_card_special_border_bottom ? 'border-bottom-card',
+  variant == 'teaser' and pattern_card_teaser_border_bottom ? 'border-bottom-card',
+
+  variant == 'simple' and pattern_card_simple_border_rounded ? 'rounded',
+  variant == 'simple_article' and pattern_card_simple_article_border_rounded ? 'rounded',
+  variant == 'big1' and pattern_card_big1_border_rounded ? 'rounded',
+  variant == 'big2' and pattern_card_big2_border_rounded ? 'rounded',
+  variant == 'big3' and pattern_card_big3_border_rounded ? 'rounded',
+  variant == 'with_img' and pattern_card_with_img_border_rounded ? 'rounded',
+  variant == 'special' and pattern_card_special_border_rounded ? 'rounded',
+  variant == 'teaser' and pattern_card_teaser_border_rounded ? 'rounded',
+
+] %}
+
+{% set title_attribute = create_attribute() %}
+{% set title_classes = [
+  'card-title',
+  variant == 'simple_article' ? 'big-heading'
+] %}
+
+<!--start card-->
+{% if variant != 'teaser' %}
+<div {{ wrapper_attribute.addClass(wrapper_classess) }}>
+{% endif %}
+
+  <div {{ card_attribute.addClass(card_classess) }}>
+
+    {# Top card if big2 variant #}
+    {% if variant == 'big2' %}
+      <div class="flag-icon"></div>
+      <div class="etichetta">
+        <span>{{ card_category }}</span>
+      </div>
+    {% endif %}
+
+    <div class="card-body">
+
+      {# Top card if simple_article #}
+      {% if variant == 'simple_article' %}
+        <div class="category-top">
+          <span class="category">{{ card_category }}</span>
+          <span class="data">{{ card_date }}</span>
+        </div>
+      {% endif %}
+
+      {# Top card if big1 variant #}
+      {% if variant == 'big1' and card_icon is not empty %}
+        <div class="top-icon">
+          {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+        </div>
+      {% endif %}
+
+      {# Top card if big3 variant #}
+      {% if variant == 'big3' %}
+        <div class="head-tags">
+          <a class="card-tag" href="#">{{ card_category }}</a>
+          <span class="data">{{ card_date }}</span>
+        </div>
+      {% endif %}
+
+      {# Card content #}
+      <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title|render|striptags }}</h5>
+      {% if card_subtitle and variant == 'with_icon' %}
+        <h6>{{ card_subtitle|render|striptags }}</h6>
+      {% endif %}
+      <p class="card-text">{{ card_text|render|striptags }}</p>
+
+      {# Bottom content #}
+      {% set footer_wrapper = variant == 'big3' ? true : false %}
+
+      {% if footer_wrapper %}
+        <div class="it-card-footer">
+      {% endif %}
+
+        {% if card_signature is not empty %}
+          <span class="card-signature">{{ card_signature }}</span>
+        {% endif %}
+
+        {% if card_readmore is not empty %}
+          {# TODO: per quanto riguarda la call to action della variante grande con tag e data
+            https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-grande-con-tag-data-e-call-to-action
+            ho aperto un issue su: https://github.com/italia/bootstrap-italia/issues/483 #}
+
+          {# TODO: bisogna estrarre l'URL dal campo #}
+  {#        {{ kint( card_readmore['node_link']['0'] ) }}#}
+          <a class="read-more" href="#" >
+            <span class="text">{{ card_readmore|render|striptags }}</span>
+            {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
+          </a>
+        {% endif %}
+
+      {% if footer_wrapper %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+{% if variant != 'teaser' %}
+</div>
+{% endif %}
+<!--end card-->
+
+{# TODO: rimane da completare: card con immagine, Card speciali e teaser #}
+
+{#
 {% if variant == 'teaser' or variant == 'teaser_plus' %}
 {% include '@bootstrap_italia_components/cards/card.twig' with {
   card_type: variant,
@@ -38,3 +179,4 @@
   card_img_pan: (variant == 'with_img') ? card_img_pan : false
 } %}
 {% endif %}
+ #}

@@ -20,21 +20,24 @@ card:
     simple_article:
       label: Articolo semplice
       description: Esempio di card contenente categorizzazione e data, firma dell’articolo e link all’articolo.
-    with_icon:
-      label: Card con icona
-      description: Esempio di card contenente categorizzazione e icona.
-    with_shadow:
-      label: Card con ombra
-      description: Esempio di card con ombra.
-    teaser:
-      label: Card Teaser
-      description: Per creare Card con contenuti brevi o di “anteprima”.
-    teaser_plus:
-      label: Card Teaser bordi tondi e ombra
-      description: Per creare Card con contenuti brevi o di “anteprima”.
+    big1:
+      label: Card grande di tipo 1
+      description: Card ombreggiata grande con icona
+    big2:
+      label: Card grande di tipo 2
+      description: Card ombreggiata grande con icona e tag
+    big3:
+      label: Card grande con tag, data e call to action
+      description: Card grande ombreggiata, con tag, data e call to action
     with_img:
       label: Card con immagine
       description: La card con immagine è contraddistinta dalla classe .card-img applicata al div .card.
+    special:
+      label: Card special
+      description: Tutta la card è un link al relativo contenuto. Le proporzioni ottimali dell’immagine per questa card sono 17:21.
+    teaser:
+      label: Card Teaser
+      description: Per creare Card con contenuti brevi o di “anteprima”. È necessario aggiungere un wrapper con le classi "card-wrapper card-teaser-wrapper" (con views o qualsiasi altro strumento).
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:
@@ -50,19 +53,14 @@ card:
       preview: 'Subtitle'
     card_text:
       type: text
-      label: Text
+      label: Text of the card
       description: Text of the card.
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     card_category:
       type: text
       label: Category
-      description: Top Category
+      description: Top Category, text or URL
       preview: 'Category name'
-    card_category_url:
-      type: text
-      label: Category URL
-      description: Top Category URL
-      preview: '#'
     card_date:
       type: text
       label: Date
@@ -73,11 +71,11 @@ card:
       label: Signature
       description: Firma dell'articolo
       preview: 'di Federico De Paolis'
-    card_readmore_url:
+    card_readmore:
       type: text
       label: Read more
       description: read more link
-      preview: '#'
+      preview: Leggi di più
     card_icon:
       type: text
       label: Card icon
@@ -88,44 +86,10 @@ card:
       label: Simple link
       description: Link semplice.
       preview: 'Simple link'
-    card_simple_link_url:
-      type: text
-      label: Simple link URL
-      description: URL del Link semplice.
-      preview: '#'
-    card_border_bottom:
-      type: bool
-      label: Bordo inferiore
-      description: aggiunge un bordocolorato in basso
-      preview: true
-    card_big:
-      type: bool
-      label: Card grande
-      description: Card di dimensioni maggiori.
-      preview: false
-    card_flag_icon:
-      type: bool
-      label: Icona bandierina
-      description: Aggiunge una bandierina (flag) in all’articolo.
-      preview: true
-    card_etichetta:
-      type: string
-      label: Etichetta SX Categoria
-      description: Categoria posta a SX con icona quando presente la bandierina.
     card_no_bottom_space:
       type: bool
       label: Togli spazio in basso.
       description: Se si vuole ridurre lo spazio in fondo alla card.
-    card_shadow:
-      type: bool
-      label: Ombra su card teaser
-      description: Effetto ombra
-      preview: true
-    card_rounded:
-      type: bool
-      label: Bordi rotondi su card teaser
-      description: Card con spigoli arrotondati.
-      preview: true
     card_img_responsive:
       type: string
       label: Immagine (tag HTML completo)
