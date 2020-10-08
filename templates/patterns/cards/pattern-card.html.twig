@@ -47,6 +47,9 @@
   variant == 'special' and pattern_card_special_border_rounded ? 'rounded',
   variant == 'teaser' and pattern_card_teaser_border_rounded ? 'rounded',
 
+  variant == 'with_img' ? 'card-img',
+  variant == 'with_img' ? 'no-after'
+
 ] %}
 
 {% set title_attribute = create_attribute() %}
@@ -70,6 +73,22 @@
       </div>
     {% endif %}
 
+    {# Top card if with image variant #}
+    {% if variant == 'with_img' %}
+      {% set image = card_img|first %}
+      {% if image['#formatter'] == 'responsive_image' %}
+        {{ image }}
+      {% else %}
+        <div class="img-responsive-wrapper">
+          <div class="img-responsive">
+            <figure class="img-wrapper">
+              {{ image }}
+            </figure>
+          </div>
+        </div>
+      {% endif %}
+    {% endif %}
+
     <div class="card-body">
 
       {# Top card if simple_article #}
@@ -90,7 +109,7 @@
       {# Top card if big3 variant #}
       {% if variant == 'big3' %}
         <div class="head-tags">
-          <a class="card-tag" href="#">{{ card_category }}</a>
+          {{ card_category }}
           <span class="data">{{ card_date }}</span>
         </div>
       {% endif %}
@@ -119,7 +138,7 @@
             ho aperto un issue su: https://github.com/italia/bootstrap-italia/issues/483 #}
 
           {# TODO: bisogna estrarre l'URL dal campo #}
-  {#        {{ kint( card_readmore['node_link']['0'] ) }}#}
+          {{ kint( card_readmore['node_link']['0'] ) }}
           <a class="read-more" href="#" >
             <span class="text">{{ card_readmore|render|striptags }}</span>
             {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
