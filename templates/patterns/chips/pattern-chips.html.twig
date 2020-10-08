@@ -1,11 +1,39 @@
 {# Render output #}
-{% include '@bootstrap_italia_components/chips/chip.twig' with {
-  chip_icon: chip_icon,
-  avatar_img: avatar_img,
-  sr_only_alt: sr_only_alt,
-  chip_label: chip_label,
-  chip_close: chip_close,
-  chip_lg: chip_lg,
-  chip_color: chip_color,
-  chip_disabled: chip_disabled
-} %}
+{% set chip_classes = [
+  'chip',
+  chip_lg ? ' chip-lg',
+  chip_color ? ' chip-' ~ chip_color,
+  (not chip_icon and not avatar_img and not chip_close) ? 'chip-simple',
+  chip_disabled ? 'chip-disabled'
+] %}
+<div {{ attributes.addClass(chip_classes) }}>
+  {% if chip_icon %}
+  {% include '@bootstrap_italia_components/icon/icon.twig' with 
+      { 
+        name: chip_icon,
+        size: 'xs'
+      } 
+    %}
+  {% endif %}
+  {% if avatar_image %}
+  {% include '@bootstrap_italia_components/avatar/avatar.twig' with 
+    { 
+      avatar_tag: 'div',
+      avatar_size: 'xs',
+      avatar_img: avatar_img,
+      sr_only_alt: sr_only_alt
+    } 
+  %}
+  {% endif %}
+  <span class="chip-label">{{ chip_label }}</span>
+  {% if chip_close %}
+  <button>
+    {% include '@bootstrap_italia_components/icon/icon.twig' with 
+      { 
+        name: 'it-close'
+      } 
+    %}
+    <span class="sr-only">{{ 'Elimina label'|t }}</span>
+  </button>
+  {% endif %}
+</div>
