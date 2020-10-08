@@ -24,7 +24,7 @@
   (not chip_icon and not avatar_img and not chip_close) ? 'chip-simple',
   chip_disabled ? 'chip-disabled'
 ] %}
-{% if condition %}
+{% if chip_url %}
 <a href="{{ chip_url }}"> 
 {% endif %}
   <div {{ attributes.addClass(chip_classes) }}>
@@ -58,6 +58,6 @@
     </button>
     {% endif %}
   </div>
-{% if condition %}
+{% if chip_url %}
 </a>
 {% endif %}
