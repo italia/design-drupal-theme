@@ -47,6 +47,7 @@ chips:
       type: text
       label: Url del link
       description: Eventuale url se esiste un link. 
+      preview: '#'
     chip_close:
       type: text
       label: Pulsante di chiusura
