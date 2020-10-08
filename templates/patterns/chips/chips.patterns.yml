@@ -43,6 +43,10 @@ chips:
       label: Label
       description: Testo della chip.
       preview: 'Label'
+    chip_url:
+      type: text
+      label: Url del link
+      description: Eventuale url se esiste un link. 
     chip_close:
       type: text
       label: Pulsante di chiusura

@@ -10,6 +10,7 @@
  * - avatar_img: link img | false
  * - sr_only_alt: string | false
  * - chip_label: string
+ * - chip_url: string
  * - chip_close: true | false
  * - chip_lg: true | false 
  * - chip_color: primary | secondary | success | danger | warning | false
@@ -23,34 +24,40 @@
   (not chip_icon and not avatar_img and not chip_close) ? 'chip-simple',
   chip_disabled ? 'chip-disabled'
 ] %}
-<div {{ attributes.addClass(chip_classes) }}>
-  {% if chip_icon %}
-  {% include '@bootstrap_italia_components/icon/icon.twig' with 
-      { 
-        name: chip_icon,
-        size: 'xs'
-      } 
-    %}
-  {% endif %}
-  {% if avatar_image %}
-  {% include '@bootstrap_italia_components/avatar/avatar.twig' with 
-    { 
-      avatar_tag: 'div',
-      avatar_size: 'xs',
-      avatar_img: avatar_img,
-      sr_only_alt: sr_only_alt
-    } 
-  %}
-  {% endif %}
-  <span class="chip-label">{{ chip_label }}</span>
-  {% if chip_close %}
-  <button>
+{% if condition %}
+<a href="chip_url"> 
+{% endif %}
+  <div {{ attributes.addClass(chip_classes) }}>
+    {% if chip_icon %}
     {% include '@bootstrap_italia_components/icon/icon.twig' with 
+        { 
+          name: chip_icon,
+          size: 'xs'
+        } 
+      %}
+    {% endif %}
+    {% if avatar_image %}
+    {% include '@bootstrap_italia_components/avatar/avatar.twig' with 
       { 
-        name: 'it-close'
+        avatar_tag: 'div',
+        avatar_size: 'xs',
+        avatar_img: avatar_img,
+        sr_only_alt: sr_only_alt
       } 
     %}
-    <span class="sr-only">{{ 'Elimina label'|t }}</span>
-  </button>
-  {% endif %}
-</div>
+    {% endif %}
+    <span class="chip-label">{{ chip_label }}</span>
+    {% if chip_close %}
+    <button>
+      {% include '@bootstrap_italia_components/icon/icon.twig' with 
+        { 
+          name: 'it-close'
+        } 
+      %}
+      <span class="sr-only">{{ 'Elimina label'|t }}</span>
+    </button>
+    {% endif %}
+  </div>
+{% if condition %}
+</a>
+{% endif %}
