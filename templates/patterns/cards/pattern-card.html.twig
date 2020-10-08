@@ -109,7 +109,7 @@
       {# Top card if big3 variant #}
       {% if variant == 'big3' %}
         <div class="head-tags">
-          {{ card_category }}
+          <span class="card-tag">{{ card_category }}</span>
           <span class="data">{{ card_date }}</span>
         </div>
       {% endif %}
@@ -156,7 +156,7 @@
 {% endif %}
 <!--end card-->
 
-{# TODO: rimane da completare: card con immagine, Card speciali e teaser #}
+{# TODO: rimane da completare: Card speciali e teaser #}
 
 {#
 {% if variant == 'teaser' or variant == 'teaser_plus' %}
