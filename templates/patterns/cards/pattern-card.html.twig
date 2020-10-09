@@ -28,6 +28,7 @@
   variant == 'teaser' and pattern_card_teaser_shadow ? 'shadow',
 
   variant == 'big1' or variant == 'big2' or variant == 'big3' ? 'card-big',
+  variant == 'big3' ? 'no-after',
 
   variant == 'simple' and pattern_card_simple_border_bottom ? 'border-bottom-card',
   variant == 'simple_article' and pattern_card_simple_article_border_bottom ? 'border-bottom-card',
@@ -82,7 +83,7 @@
         <div class="img-responsive-wrapper">
           <div class="img-responsive">
             <figure class="img-wrapper">
-              {{ image }}
+              {{ card_img }}
             </figure>
           </div>
         </div>
@@ -132,17 +133,19 @@
           <span class="card-signature">{{ card_signature }}</span>
         {% endif %}
 
+        {% set node_url = card_readmore['node_link']['0']['0']['#context']['entity_url']|render %}
         {% if card_readmore is not empty %}
-          {# TODO: per quanto riguarda la call to action della variante grande con tag e data
+          {% if variant == 'big3' %}
+            {# TODO: per quanto riguarda la call to action della variante grande con tag e data
             https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-grande-con-tag-data-e-call-to-action
             ho aperto un issue su: https://github.com/italia/bootstrap-italia/issues/483 #}
-
-          {# TODO: bisogna estrarre l'URL dal campo #}
-          {{ kint( card_readmore['node_link']['0'] ) }}
-          <a class="read-more" href="#" >
-            <span class="text">{{ card_readmore|render|striptags }}</span>
-            {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
-          </a>
+            <button class="btn btn-outline-primary btn-sm">{{ card_readmore|render|striptags }}</button>
+          {% else %}
+            <a class="read-more" href="{{ node_url }}">
+              <span class="text">{{ card_readmore|render|striptags }}</span>
+              {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
+            </a>
+          {% endif %}
         {% endif %}
 
       {% if footer_wrapper %}
@@ -157,45 +160,3 @@
 <!--end card-->
 
 {# TODO: rimane da completare: Card speciali e teaser #}
-
-{#
-{% if variant == 'teaser' or variant == 'teaser_plus' %}
-{% include '@bootstrap_italia_components/cards/card.twig' with {
-  card_type: variant,
-  card_title: card_title,
-  card_text: card_text,
-  card_icon: (card_flag_icon) ? false : card_icon,
-  card_readmore_url: card_readmore_url,
-  card_simple_link: (card_readmore_url) ? false : card_simple_link,
-  card_simple_link_url: (card_readmore_url) ? false : card_simple_link_url,
-  card_border_bottom: card_border_bottom,
-  card_flag_icon: (card_icon) ? false : card_flag_icon,
-  card_etichetta: card_etichetta,
-  card_no_bottom_space: card_no_bottom_space,
-  card_shadow: (variant == 'teaser_plus') ? card_shadow : false,
-  card_rounded: (variant == 'teaser_plus') ? card_rounded : false
-} %}
-{% else %}
-{% include '@bootstrap_italia_components/cards/card-wrapper.twig' with {
-  card_type: variant,
-  card_title: card_title,
-  card_subtitle: card_subtitle,
-  card_text: card_text,
-  card_icon: (card_flag_icon) ? false : card_icon,
-  card_category: (variant == 'simple_article' or variant == 'with_icon') ? card_category : false,
-  card_category_url: (variant == 'simple_article') ? card_category_url : false,
-  card_date: (variant == 'simple_article') ? card_date : false,
-  card_readmore_url: card_readmore_url,
-  card_simple_link: (card_readmore_url) ? false : card_simple_link,
-  card_simple_link_url: (card_readmore_url) ? false : card_simple_link_url,
-  card_border_bottom: card_border_bottom,
-  card_flag_icon: (card_icon) ? false : card_flag_icon,
-  card_etichetta: card_etichetta,
-  card_no_bottom_space: card_no_bottom_space,
-  card_shadow: card_shadow,
-  card_rounded: card_rounded,
-  card_img_responsive: (variant == 'with_img') ? card_img_responsive : false,
-  card_img_pan: (variant == 'with_img') ? card_img_pan : false
-} %}
-{% endif %}
- #}
