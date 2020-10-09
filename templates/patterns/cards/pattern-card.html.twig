@@ -136,10 +136,10 @@
         {% set node_url = card_readmore['node_link']['0']['0']['#context']['entity_url']|render %}
         {% if card_readmore is not empty %}
           {% if variant == 'big3' %}
-            {# TODO: per quanto riguarda la call to action della variante grande con tag e data
+            {# Per quanto riguarda la call to action della variante grande con tag e data ho usato il tag a al posto del button
             https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-grande-con-tag-data-e-call-to-action
             ho aperto un issue su: https://github.com/italia/bootstrap-italia/issues/483 #}
-            <button class="btn btn-outline-primary btn-sm">{{ card_readmore|render|striptags }}</button>
+            <a class="btn btn-outline-primary btn-sm" href="{{ node_url }}">{{ card_readmore|render|striptags }}</a>
           {% else %}
             <a class="read-more" href="{{ node_url }}">
               <span class="text">{{ card_readmore|render|striptags }}</span>
