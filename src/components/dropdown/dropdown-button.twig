@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Template for Dropdown component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/dropdown/
+ * Last review: 1.4.1
+ *
+ * Available config:
+ * - id: string
+ * - button_label: string
+ * - icon: string
+ * - icon_size: string
+ * - post_icon_text: string
+ * - more_classes: string
+ * - dropdown_menu: html
+ * - more_menu_classes: string
+ *
+#}
+{% set classes = [
+    'dropdown',
+    more_classes
+  ] %}
+{% set menu_classes = [
+    'dropdown-menu',
+    more_menu_classes
+  ] %}
+
+  <div class="{{ classes|join(' ')|trim }}">
+    <button class="btn btn-dropdown dropdown-toggle" type="button" id="{{ id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {% if button_label %}
+      {{ button_label|t }}
+      {% endif %}
+      {% if icon %}
+      {% include '@bootstrap_italia_components/icon/icon.twig' with 
+          { 
+            name: icon,
+            size: icon_size|default('xs')
+          } 
+        %}
+      {% endif %}
+      {% if post_icon_text|t %}
+      <small>{{ post_icon_text|t }}</small>
+      {% endif %}
+    </button>
+    <div class="{{ menu_classes|join(' ')|trim }}" aria-labelledby="{{ id }}">
+      {{ dropdown_menu|raw }}
+    </div>
+  </div>
