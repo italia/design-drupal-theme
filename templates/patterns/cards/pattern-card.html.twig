@@ -139,9 +139,9 @@
             {# Per quanto riguarda la call to action della variante grande con tag e data ho usato il tag a al posto del button
             https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-grande-con-tag-data-e-call-to-action
             ho aperto un issue su: https://github.com/italia/bootstrap-italia/issues/483 #}
-            <a class="btn btn-outline-primary btn-sm" href="{{ node_url }}">{{ card_readmore|render|striptags }}</a>
+            <a class="btn btn-outline-primary btn-sm" href="{{ node_url }}" title="{{ card_readmore|render|striptags }}">{{ card_readmore|render|striptags }}</a>
           {% else %}
-            <a class="read-more" href="{{ node_url }}">
+            <a class="read-more" href="{{ node_url }}" title="{{ card_readmore|render|striptags }}">
               <span class="text">{{ card_readmore|render|striptags }}</span>
               {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
             </a>
