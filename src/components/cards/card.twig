@@ -29,6 +29,7 @@
  * - card_tags
  * - card_img_responsive: img tag
  * - card_img_pan: bool
+ * - card_extra_classes: string
  */
 #}
 
@@ -43,6 +44,7 @@
   (card_type == 'teaser_plus') ? 'shadow',
   (card_type == 'teaser_plus') ? 'rounded',
   (card_type == 'with_img') ? 'card-img no-after',
+  (card_extra_classes) ? card_extra_classes
 ] %}
 {% set title_attribute = create_attribute() %}
 {% set title_classes = [
