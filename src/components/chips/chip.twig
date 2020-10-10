@@ -24,9 +24,7 @@
   (not chip_icon and not avatar_img and not chip_close) ? 'chip-simple',
   chip_disabled ? 'chip-disabled'
 ] %}
-{% if chip_url %}
-<a href="{{ chip_url }}"> 
-{% endif %}
+{% if chip_url %}<a href="{{ chip_url }}">{% endif %}
   <div {{ attributes.addClass(chip_classes) }}>
     {% if chip_icon %}
     {% include '@bootstrap_italia_components/icon/icon.twig' with 
@@ -57,7 +55,4 @@
       <span class="sr-only">{{ 'Elimina label'|t }}</span>
     </button>
     {% endif %}
-  </div>
-{% if chip_url %}
-</a>
-{% endif %}
+  </div>{% if chip_url %}</a>{% endif %}
