@@ -59,6 +59,10 @@
 
 <!--start card-->
   <div {{ card_attribute.addClass(card_classes) }}>
+    {% if card_type == 'teaser_plus' and card_icon %}
+    <!-- teaser con icona -->
+    {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+    {% endif %}
     {% if card_flag_icon and not card_etichetta %}
     <div class="flag-icon"></div>
     {% if card_head_tags and card_big %}
