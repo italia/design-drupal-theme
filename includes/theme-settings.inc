@@ -323,28 +323,6 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#weight' => 10,
   ];
 
-  // Avatar settings.
-  $form['content_settings']['avatar'] = [
-    '#type' => 'details',
-    '#title' => t('Avatar'),
-    '#description' => t('Impostazioni personalizzabili per avatar utente.'),
-    '#open' => TRUE,
-    '#group' => 'content_settings',
-  ];
-  $form['content_settings']['avatar']['avatar_size'] = [
-    '#type' => 'select',
-    '#title' => t('Dimensione Avatar'),
-    '#description' => t('Seleziona la dimensione per l\'avatar (es: xs).'),
-    '#default_value' => theme_get_setting('avatar_size'),
-    '#options' => [
-      'xs' => 'xs',
-      'sm' => 'sm',
-      'md' => 'md',
-      'lg' => 'lg',
-      'xl' => 'xl',
-    ],
-  ];
-
   // Images settings.
   $form['content_settings']['images'] = [
     '#type' => 'details',
@@ -409,4 +387,226 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#default_value' => theme_get_setting('table_sm'),
   ];
 
+  /* Component settings ------------------------------------------------ */
+  $form['component_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Componenti'),
+    '#description' => t('Impostazioni personalizzabili per i componenti.'),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 14,
+  ];
+
+  // Avatar settings.
+  $form['component_settings']['avatar'] = [
+    '#type' => 'details',
+    '#title' => t('Avatar'),
+    '#description' => t('Impostazioni personalizzabili per avatar utente.'),
+    '#open' => TRUE,
+    '#group' => 'component_settings',
+  ];
+  $form['component_settings']['avatar']['avatar_size'] = [
+    '#type' => 'select',
+    '#title' => t('Dimensione Avatar'),
+    '#description' => t('Seleziona la dimensione per l\'avatar (es: xs).'),
+    '#default_value' => theme_get_setting('avatar_size'),
+    '#options' => [
+      'xs' => 'xs',
+      'sm' => 'sm',
+      'md' => 'md',
+      'lg' => 'lg',
+      'xl' => 'xl',
+    ],
+  ];
+
+  // Card settings.
+  $form['component_settings']['card'] = [
+    '#type' => 'details',
+    '#title' => t('Card'),
+    '#description' => t('Impostazioni personalizzabili per il componente card.'),
+    '#open' => TRUE,
+    '#group' => 'component_settings',
+  ];
+  $form['component_settings']['card']['card_description'] = [
+    '#type' => 'markup',
+    '#markup' => t('<p>Se desideri informazioni sul componente <em>Card</em> e la sua terminologia puoi consultare due risorse: <a href="https://italia.github.io/bootstrap-italia/docs/componenti/card/" target="_blank">1) Componente Card su bootstrap Italia</a>; <a href="/patterns#card" target="_blank">2) libreria dei pattern presente in questa installazione.</a></p>'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_simple'] = [
+    '#type' => 'details',
+    '#title' => t('Card semplice'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_simple']['pattern_card_simple_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_simple_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_simple']['pattern_card_simple_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_simple_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_simple']['pattern_card_simple_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_simple_border_rounded'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_simple_article'] = [
+    '#type' => 'details',
+    '#title' => t('Card articolo semplice'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_simple_article']['pattern_card_simple_article_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_simple_article_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_simple_article']['pattern_card_simple_article_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_simple_article_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_simple_article']['pattern_card_simple_article_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_simple_article_border_rounded'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_big1'] = [
+    '#type' => 'details',
+    '#title' => t('Card grande con icona'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_big1']['pattern_card_big1_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_big1_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_big1']['pattern_card_big1_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_big1_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_big1']['pattern_card_big1_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_big1_border_rounded'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_big2'] = [
+    '#type' => 'details',
+    '#title' => t('Card grande con icona e tag o categoria'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_big2']['pattern_card_big2_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_big2_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_big2']['pattern_card_big2_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_big2_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_big2']['pattern_card_big2_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_big2_border_rounded'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_big3'] = [
+    '#type' => 'details',
+    '#title' => t('Card grande con tag, data e call to action'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_big3']['pattern_card_big3_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_big3_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_big3']['pattern_card_big3_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_big3_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_big3']['pattern_card_big3_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_big3_border_rounded'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_with_img'] = [
+    '#type' => 'details',
+    '#title' => t('Card con immagine'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_with_img']['pattern_card_with_img_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_with_img_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_with_img']['pattern_card_with_img_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_with_img_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_with_img']['pattern_card_with_img_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_with_img_border_rounded'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_special'] = [
+    '#type' => 'details',
+    '#title' => t('Card special'),
+    '#description' => t('Per una buona resa grafica non attivare queste impostazione se non strettamente necessarie.'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_special']['pattern_card_special_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_special_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_special']['pattern_card_special_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_special_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_special']['pattern_card_special_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_special_border_rounded'),
+  ];
+
+  $form['component_settings']['card']['pattern_card_teaser'] = [
+    '#type' => 'details',
+    '#title' => t('Card teaser'),
+    '#description' => t('Consulta la documentazione, per questo tipo di card va aggiunto il wrapper in base all\'uso.'),
+    '#open' => FALSE,
+    '#group' => 'card',
+  ];
+  $form['component_settings']['card']['pattern_card_teaser']['pattern_card_teaser_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Attiva ombreggiatura'),
+    '#default_value' => theme_get_setting('pattern_card_teaser_shadow'),
+  ];
+  $form['component_settings']['card']['pattern_card_teaser']['pattern_card_teaser_border_bottom'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Visualizza il bordo inferiore'),
+    '#default_value' => theme_get_setting('pattern_card_teaser_border_bottom'),
+  ];
+  $form['component_settings']['card']['pattern_card_teaser']['pattern_card_teaser_border_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Arrotonda gli angoli'),
+    '#default_value' => theme_get_setting('pattern_card_teaser_border_rounded'),
+  ];
 }
