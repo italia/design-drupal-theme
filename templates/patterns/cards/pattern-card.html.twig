@@ -59,103 +59,134 @@
   variant == 'simple_article' ? 'big-heading'
 ] %}
 
+{# node_url and node_title are used special variant and in the card footer #}
+{% set node_url = card_readmore['node_link']['0']['0']['#context']['entity_url']|render %}
+{% set node_title = card_readmore|render|striptags %}
+
 <!--start card-->
 {% if variant != 'teaser' %}
 <div {{ wrapper_attribute.addClass(wrapper_classess) }}>
 {% endif %}
 
-  <div {{ card_attribute.addClass(card_classess) }}>
+  {# div class="card" #}
+  {% if variant == 'special' %}
+    <a class="card card-img no-after special-card" href="{{ node_url|default('#') }}" title="{{ node_title }}">
+  {% else %}
+    <div {{ card_attribute.addClass(card_classess) }}>
+  {% endif %}
 
-    {# Top card if big2 variant #}
-    {% if variant == 'big2' %}
-      <div class="flag-icon"></div>
-      <div class="etichetta">
-        <span>{{ card_category }}</span>
-      </div>
-    {% endif %}
-
-    {# Top card if with image variant #}
-    {% if variant == 'with_img' %}
-      {% set image = card_img|first %}
-      {% if image['#formatter'] == 'responsive_image' %}
-        {{ image }}
-      {% else %}
-        <div class="img-responsive-wrapper">
-          <div class="img-responsive">
-            <figure class="img-wrapper">
-              {{ card_img }}
-            </figure>
-          </div>
-        </div>
-      {% endif %}
-    {% endif %}
-
-    <div class="card-body">
-
-      {# Top card if simple_article #}
-      {% if variant == 'simple_article' %}
-        <div class="category-top">
-          <span class="category">{{ card_category }}</span>
-          <span class="data">{{ card_date }}</span>
-        </div>
-      {% endif %}
-
-      {# Top card if big1 variant #}
-      {% if variant == 'big1' and card_icon is not empty %}
-        <div class="top-icon">
-          {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
-        </div>
-      {% endif %}
-
-      {# Top card if big3 variant #}
-      {% if variant == 'big3' %}
-        <div class="head-tags">
-          <span class="card-tag">{{ card_category }}</span>
-          <span class="data">{{ card_date }}</span>
-        </div>
-      {% endif %}
-
-      {# Card content #}
-      <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title|render|striptags }}</h5>
-      {% if card_subtitle and variant == 'with_icon' %}
-        <h6>{{ card_subtitle|render|striptags }}</h6>
-      {% endif %}
-      <p class="card-text">{{ card_text|render|striptags }}</p>
-
-      {# Bottom content #}
-      {% set footer_wrapper = variant == 'big3' ? true : false %}
-
-      {% if footer_wrapper %}
-        <div class="it-card-footer">
-      {% endif %}
-
-        {% if card_signature is not empty %}
-          <span class="card-signature">{{ card_signature }}</span>
-        {% endif %}
-
-        {% set node_url = card_readmore['node_link']['0']['0']['#context']['entity_url']|render %}
-        {% if card_readmore is not empty %}
-          {% if variant == 'big3' %}
-            {# Per quanto riguarda la call to action della variante grande con tag e data ho usato il tag a al posto del button
-            https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-grande-con-tag-data-e-call-to-action
-            ho aperto un issue su: https://github.com/italia/bootstrap-italia/issues/483 #}
-            <a class="btn btn-outline-primary btn-sm" href="{{ node_url }}" title="{{ card_readmore|render|striptags }}">{{ card_readmore|render|striptags }}</a>
-          {% else %}
-            <a class="read-more" href="{{ node_url }}" title="{{ card_readmore|render|striptags }}">
-              <span class="text">{{ card_readmore|render|striptags }}</span>
-              {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
-            </a>
+      {# Top card if big2 variant #}
+      {% if variant == 'big2' %}
+        <div class="flag-icon"></div>
+        <div class="etichetta">
+          {% if card_icon %}
+            {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
           {% endif %}
-        {% endif %}
-
-      {% if footer_wrapper %}
+          <span>{{ card_category }}</span>
         </div>
       {% endif %}
 
-    </div>
-  </div>
+      {# Top card if with image variant #}
+      {% if variant == 'with_img' or variant == 'special' %}
+        {% set image = card_img|first %}
+        {% if image['#formatter'] == 'responsive_image' %}
+          {{ image }}
+          {% if card_date and variant != 'special' %}
+            <div class="card-calendar d-flex flex-column justify-content-center">
+              {% if card_date.month %}<span class="card-time">{{ card_date.time }}</span>{% endif %}
+              {% if card_date.year %}<span class="card-year">{{ card_date.year }}</span>{% endif %}
+              {% if card_date.day %}<span class="card-date">{{ card_date.day }}</span>{% endif %}
+              {% if card_date.month %}<span class="card-day">{{ card_date.month }}</span>{% endif %}
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="img-responsive-wrapper">
+            <div class="img-responsive">
+              <figure class="img-wrapper">
+                {{ card_img }}
+              </figure>
+              {% if card_date and variant != 'special' %}
+                <div class="card-calendar d-flex flex-column justify-content-center">
+                  {% if card_date.month %}<span class="card-time">{{ card_date.time }}</span>{% endif %}
+                  {% if card_date.year %}<span class="card-year">{{ card_date.year }}</span>{% endif %}
+                  {% if card_date.day %}<span class="card-date">{{ card_date.day }}</span>{% endif %}
+                  {% if card_date.month %}<span class="card-day">{{ card_date.month }}</span>{% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      <div class="card-body">
+
+        {# Top card if simple_article #}
+        {% if variant == 'simple_article' %}
+          <div class="category-top">
+            {% if card_icon %}
+              {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+            {% endif %}
+            <span class="{{ card_icon ? 'text' : 'category' }}">{{ card_category }}</span>
+            <span class="data">{{ card_date }}</span>
+          </div>
+        {% endif %}
+
+        {# Top card if big1 variant #}
+        {% if variant == 'big1' and card_icon is not empty %}
+          <div class="top-icon">
+            {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+          </div>
+        {% endif %}
+
+        {# Top card if big3 variant #}
+        {% if variant == 'big3' or variant == 'special' %}
+          <div class="head-tags">
+            {% if card_category %}<span class="card-tag">{{ card_category }}</span>{% endif %}
+            {% if card_date %}<span class="data">{{ card_date }}</span>{% endif %}
+          </div>
+        {% endif %}
+
+        {# Card content #}
+        <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title|render|striptags }}</h5>
+        {% if card_subtitle and variant == 'with_icon' %}
+          <h6>{{ card_subtitle|render|striptags }}</h6>
+        {% endif %}
+        <p class="card-text">{{ card_text|render|striptags }}</p>
+
+        {# Bottom content #}
+        {% set footer_wrapper = variant == 'big3' ? true : false %}
+
+        {% if footer_wrapper %}
+          <div class="it-card-footer">
+        {% endif %}
+
+          {% if card_signature is not empty %}
+            <span class="card-signature">{{ card_signature }}</span>
+          {% endif %}
+
+          {% if card_readmore is not empty and variant != 'special' %}
+            {% if variant == 'big3' %}
+              <a class="btn btn-outline-primary btn-sm" href="{{ node_url|default('#') }}" title="{{ node_title }}">{{ node_title }}</a>
+            {% else %}
+              <a class="read-more" href="{{ node_url|default('#') }}" title="{{ node_title }}">
+                <span class="text">{{ card_readmore|render|striptags }}</span>
+                {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
+              </a>
+            {% endif %}
+          {% endif %}
+
+        {% if footer_wrapper %}
+          </div>
+        {% endif %}
+
+      </div> {# end class="card-body" #}
+  {% if variant == 'special' %}
+    </a> {# end class="card" if is special #}
+  {% else %}
+    </div> {# end class="card" if isn't special #}
+  {% endif %}
 {% if variant != 'teaser' %}
-</div>
+</div> {# end class="card-wrapper" #}
 {% endif %}
 <!--end card-->
 

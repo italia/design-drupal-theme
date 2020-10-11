@@ -12,79 +12,105 @@
 card:
   # The label and description are used in the Drupal UI and the pattern library.
   label: 'Card'
-  description: Un contenitore di contenuti con molte opzioni e varianti. https://italia.github.io/bootstrap-italia/docs/componenti/card/
+  description: |
+    Le card sono contenitori che vengono usati per la presentazione di contenuti brevi o l'antemprima di contenuti più corposi.
+    Di default le card si estendono completamente al 100% del loro elemento contenitore (https://italia.github.io/bootstrap-italia/docs/componenti/card/).
+    L'uso più comune è quello di utilizzare il view display di un content type per la singola card e views per costruire una vista con più card.
+    Dalle impostazioni del tema puoi scegliere se applicare l'ombreggiatura, i bordi arrotondati o colorare il bordo inferiore per ogni variante.
   variants:
     simple:
       label: Card semplice
-      description: Default simple card.
+      description: |
+        Card con titolo e contenuto. La fima e il "leggi tutto" sono opzionali, se inseriti verranno visualizzati nel footer della card.
     simple_article:
       label: Articolo semplice
-      description: Esempio di card contenente categorizzazione e data, firma dell’articolo e link all’articolo.
+      description: |
+        Card con testata, titolo, contenuto e footer. Nella testata è necessario inserire la categoria e la data.
+        L'icona è opzionale, ma se inserita, la card verrà visualizzata come descritto in questo paragrafo https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-con-icona , di seguito un esempio per la casistica appena descritta.
     big1:
-      label: Card grande di tipo 1
-      description: Card ombreggiata grande con icona
+      label: Card grande con icona
+      description: |
+        La card grande con icona, aggiunge al contenuto un padding maggiore rispetto alle card semplici e una icona nella testata.
+        L'icona e il footer della card sono opzionali.
+        Nel footer la firma e il 'leggi tutto' sono opzionali.
     big2:
-      label: Card grande di tipo 2
-      description: Card ombreggiata grande con icona e tag
+      label: Card grande con icona e tag o categoria
+      description: |
+        Questo tipo di card aggiunge al contenuto un padding maggiore rispetto alle card semplici, aggiunge a sinistra la 'flag-icon', a destra visualizza una categoria o un tag con icona opzionale.
+        Nel footer la firma e il 'leggi tutto' sono opzionali.
     big3:
       label: Card grande con tag, data e call to action
-      description: Card grande ombreggiata, con tag, data e call to action
+      description: |
+        Questo tipo di card aggiunge al contenuto un padding maggiore rispetto alle card semplici.
+        Nella testata viene visualizzato un link (può essere una categoria, un tag o simili) e la data.
+        Si consiglia di usare un formato data corto, es: 'd/m/Y'.
+        Nel footer il "leggi tutto" viene visualizzato come un pulsante.
     with_img:
       label: Card con immagine
-      description: La card con immagine è contraddistinta dalla classe .card-img applicata al div .card.
+      description: La card con immagine visualizza un'immagine nella testata della card. La data è opzionale. Il footer è opzionale.
     special:
       label: Card special
       description: Tutta la card è un link al relativo contenuto. Le proporzioni ottimali dell’immagine per questa card sono 17:21.
     teaser:
       label: Card Teaser
-      description: Per creare Card con contenuti brevi o di “anteprima”. È necessario aggiungere un wrapper con le classi "card-wrapper card-teaser-wrapper" (con views o qualsiasi altro strumento).
+      description: Per creare Card con contenuti brevi o di “anteprima”. Per inserire più card in un'unico blocco è necessario aggiungere un wrapper con le classi "card-wrapper card-teaser-wrapper" (con views o qualsiasi altro strumento).
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:
     card_title:
       type: text
-      label: Title
-      description: The title of the card.
+      label: Il titolo della card
+      description: Il titolo della card.
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
     card_subtitle:
       type: text
-      label: SubTitle
-      description: Sottotitolo
+      label: Eventuale sotto-titolo
+      description: L'eventuale sotto-titolo
       preview: 'Subtitle'
     card_text:
       type: text
-      label: Text of the card
-      description: Text of the card.
+      label: Contenuto testuale della card (es. body)
+      description: Il contenuto da far visualizzare in anteprima.
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     card_category:
       type: text
-      label: Category
-      description: Top Category, text or URL
-      preview: 'Category name'
+      label: Categoria, tag o link (max un elemento)
+      description: Link della categoria, del tag o termine di tassonomia da associare. Massimo un elemento.
+      preview: 'Category'
     card_date:
       type: text
-      label: Date
-      description: Date format 'dd/mm/yyyy' or 'dd mmmmmm' with card with img.
-      preview: '26/05/2021'
+      label: La data da visualizzare
+      description: |
+        I formati per la data utilizzabili sono: 'd/m/Y' (09/10/2020),  'd/F/Y' (09/Ottobre/2020).
+        L'anno è opzionale es: 'd/F' (09/Ottobre).
+        È possibile utilizzare solo il mese, solo l'anno o solo l'ora, es: 'F' (Ottobre), 'Y' (2020), 'H:i' (09:05).
+        È possibile utilizzare una data nel formato giorno, mese e orario, es: 'd/F - 09:05' (09/Ottobre - 09:05).
+        È possibile usare il formato tempo fa su un'unica riga, esempi: '3 giorni fa', 'un mese fa', '2 anni fa' (comunque viene sconsigliata questa pratica, un testo troppo lungo potrebbe creare problemi grafici).
+        Si sconsiglia l'uso della data completa più l'orario, il componente non è progettato per contenere 4 righe, ad esempio evitare 'd/m/Y - H:i' oppure 'd/F/Y - H:i'
+      preview: '09/Ottobre - 09:05'
     card_signature:
       type: text
-      label: Signature
-      description: Firma dell'articolo
+      label: Firma o autore
+      description: L'autore del contenuto o firma.
       preview: 'di Federico De Paolis'
     card_readmore:
       type: text
-      label: Read more
-      description: read more link
+      label: Link al contenuto (es. Leggi tutto)
+      description: Inserisci il campo 'Read more' fornito da Drupal.
       preview: Leggi di più
     card_icon:
       type: text
-      label: Card icon
-      description: Icona sulla card
+      label: Icona della card nel formato 'it-nome'
+      description: |
+        L'icona della card viene impostata tramire una stringa, consulta questa guida https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili .
+        Attualmente non esiste nessun campo backend o tool grafico che permetta la scelta, per ora ti devi inventare una soluzione. Nel caso sviluppi un campo o un tool grafico, inviacelo che lo aggiungiamo al progetto.
       preview: 'it-file'
     card_img:
       type: string
       label: Immagine della card
-      description: Immagine per card con immagine. Per un'ottimale visualizzazione le proporzioni dell’immagine devono essere pari a circa 31:19; per un'immagine panoramica l’ottimale rapporto è 31:9,5. Si consiglia in ogni caso un immagine orizzontale. Per un'ottima resa, usa focal_point per i ritagli associato alle immagini responsive del tema.
+      description: |
+        Immagine per card con immagine. Per un'ottimale visualizzazione le proporzioni dell’immagine devono essere pari a circa 31:19; per un'immagine panoramica l’ottimale rapporto è 31:9,5.
+        Si consiglia in ogni caso un'immagine orizzontale. Per un'ottima resa, usa focal_point per i ritagli associato alle immagini responsive del tema.
       preview: '<img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=IMMAGINE%20DI%20ESEMPIO" title="img title" alt="imagealt">'
   # Optional: Attached libraries.
   #
