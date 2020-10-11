@@ -11,7 +11,7 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
   $variables['pattern_card_big2_shadow'] = true;
   $variables['pattern_card_big3_shadow'] = true;
   $variables['pattern_card_with_img_shadow'] = true;
-  $variables['pattern_card_special_shadow'] = true;
+  $variables['pattern_card_special_shadow'] = false;
   $variables['pattern_card_teaser_shadow'] = true;
 
   $variables['pattern_card_simple_border_bottom'] = true;
@@ -20,7 +20,7 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
   $variables['pattern_card_big2_border_bottom'] = true;
   $variables['pattern_card_big3_border_bottom'] = true;
   $variables['pattern_card_with_img_border_bottom'] = true;
-  $variables['pattern_card_special_border_bottom'] = true;
+  $variables['pattern_card_special_border_bottom'] = false;
   $variables['pattern_card_teaser_border_bottom'] = true;
 
   $variables['pattern_card_simple_border_rounded'] = true;
@@ -29,7 +29,7 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
   $variables['pattern_card_big2_border_rounded'] = true;
   $variables['pattern_card_big3_border_rounded'] = true;
   $variables['pattern_card_with_img_border_rounded'] = true;
-  $variables['pattern_card_special_border_rounded'] = true;
+  $variables['pattern_card_special_border_rounded'] = false;
   $variables['pattern_card_teaser_border_rounded'] = true;
 
   if ( isset($variables['card_date']) && $variables['variant'] == 'with_img' ){

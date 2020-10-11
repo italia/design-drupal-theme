@@ -22,7 +22,6 @@
   variant == 'big2' and pattern_card_big2_shadow ? 'card-bg',
   variant == 'big3' and pattern_card_big3_shadow ? 'card-bg',
   variant == 'with_img' and pattern_card_with_img_shadow ? 'card-bg',
-  variant == 'special' and pattern_card_special_shadow ? 'card-bg',
 
   variant == 'teaser' ? 'card-teaser',
   variant == 'teaser' and pattern_card_teaser_shadow ? 'shadow',
@@ -36,7 +35,6 @@
   variant == 'big2' and pattern_card_big2_border_bottom ? 'border-bottom-card',
   variant == 'big3' and pattern_card_big3_border_bottom ? 'border-bottom-card',
   variant == 'with_img' and pattern_card_with_img_border_bottom ? 'border-bottom-card',
-  variant == 'special' and pattern_card_special_border_bottom ? 'border-bottom-card',
   variant == 'teaser' and pattern_card_teaser_border_bottom ? 'border-bottom-card',
 
   variant == 'simple' and pattern_card_simple_border_rounded ? 'rounded',
@@ -45,11 +43,22 @@
   variant == 'big2' and pattern_card_big2_border_rounded ? 'rounded',
   variant == 'big3' and pattern_card_big3_border_rounded ? 'rounded',
   variant == 'with_img' and pattern_card_with_img_border_rounded ? 'rounded',
-  variant == 'special' and pattern_card_special_border_rounded ? 'rounded',
   variant == 'teaser' and pattern_card_teaser_border_rounded ? 'rounded',
 
   variant == 'with_img' ? 'card-img',
   variant == 'with_img' ? 'no-after'
+
+] %}
+
+{% set card_special_attribute = create_attribute() %}
+{% set card_special_classess = [
+  'card',
+  'card-img',
+  'no-after',
+  'special-card',
+  pattern_card_special_shadow ? 'card-bg',
+  pattern_card_special_border_bottom ? 'border-bottom-card',
+  pattern_card_special_border_rounded ? 'rounded',
 
 ] %}
 
@@ -70,7 +79,10 @@
 
   {# div class="card" #}
   {% if variant == 'special' %}
-    <a class="card card-img no-after special-card" href="{{ node_url|default('#') }}" title="{{ node_title }}">
+    <a {{ card_special_attribute.addClass(card_special_classess) }}
+      href="{{ node_url|default('#') }}"
+      title="{{ node_title }}"
+    >
   {% else %}
     <div {{ card_attribute.addClass(card_classess) }}>
   {% endif %}

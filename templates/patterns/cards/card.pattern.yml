@@ -50,7 +50,10 @@ card:
       description: La card con immagine visualizza un'immagine nella testata della card. La data è opzionale. Il footer è opzionale.
     special:
       label: Card special
-      description: Tutta la card è un link al relativo contenuto. Le proporzioni ottimali dell’immagine per questa card sono 17:21.
+      description: |
+        Tutta la card è un link al relativo contenuto.
+        Le proporzioni ottimali dell’immagine per questa card sono 17:21.
+        Per questa variante si consiglia di non attivare l'ombreggiatura, i bordi arrotondati e il bordo coloranto in basso.
     teaser:
       label: Card Teaser
       description: Per creare Card con contenuti brevi o di “anteprima”. Per inserire più card in un'unico blocco è necessario aggiungere un wrapper con le classi "card-wrapper card-teaser-wrapper" (con views o qualsiasi altro strumento).
