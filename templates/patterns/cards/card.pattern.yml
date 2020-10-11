@@ -21,7 +21,7 @@ card:
     simple:
       label: Card semplice
       description: |
-        Card con titolo e contenuto. La fima e il "leggi tutto" sono opzionali, se inseriti verranno visualizzati nel footer della card.
+        Card con titolo e contenuto. La firma e il "leggi tutto" sono opzionali, se inseriti verranno visualizzati nel footer della card.
     simple_article:
       label: Articolo semplice
       description: |
