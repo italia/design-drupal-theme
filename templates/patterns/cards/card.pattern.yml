@@ -115,6 +115,11 @@ card:
         Immagine per card con immagine. Per un'ottimale visualizzazione le proporzioni dell’immagine devono essere pari a circa 31:19; per un'immagine panoramica l’ottimale rapporto è 31:9,5.
         Si consiglia in ogni caso un'immagine orizzontale. Per un'ottima resa, usa focal_point per i ritagli associato alle immagini responsive del tema.
       preview: '<img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=IMMAGINE%20DI%20ESEMPIO" title="img title" alt="imagealt">'
+    card_flag_icon:
+      type: string
+      label: Bandierina evidenziato
+      description: |
+        Bandierina che mette in risalto un contenuto.
   # Optional: Attached libraries.
   #
   # You can include libraries defined by other modules / themes with dependencies.

@@ -89,7 +89,7 @@
 
       {# Top card if big2 variant #}
       {% if variant == 'big2' %}
-        <div class="flag-icon"></div>
+        <div class="flag-icon{% if not card_flag_icon %} invisible{% endif %}"></div>
         <div class="etichetta">
           {% if card_icon %}
             {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
