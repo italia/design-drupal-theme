@@ -159,7 +159,7 @@
         {% endif %}
 
         {# Card content #}
-        <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title|render|striptags }}</h5>
+        <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title|render }}</h5>
         {% if card_subtitle and variant == 'big2' %}
           <h6>{{ card_subtitle|render|striptags }}</h6>
         {% endif %}
