@@ -81,8 +81,8 @@
     <li class="page-item d-none d-sm-flex"><a class="page-link" href="{{ items.last.href }}">{{ total_pages }}</a></li>
     {% endif %}
     {% if items.next %}
-    <li class="page-item{% if not items.next %}" disabled{% endif %}">
-      <a class="page-link text" href="{{ items.next.href }}{% if not items.next %} tabindex=" -1" aria-hidden="true"
+    <li class="page-item{% if not items.next %} disabled{% endif %}">
+      <a class="page-link text" href="{{ items.next.href }}"{% if not items.next %} tabindex=" -1" aria-hidden="true"
         {% endif %}">
         {% if items.previous.text %}
         <span class="sr-only">{{ 'Pagina'|t }}</span>{{ 'Successiva'|t }}
