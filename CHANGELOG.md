@@ -3,12 +3,31 @@
 See README for enable optional features
 
 Update file in your sub-theme:
+- config/optional/block.block.smallprints.yml
+- config/optional/block.block.slim.yml
+- config/install/italiagov.settings.yml
 - src/scss/theme.scss
 - src/scss/paragraphs/*
 - src/scss/misc/_patterns-overview.scss
+- src/components/cards/card-hp-intro.twig 0
+- templates/layout/regions/region--home-first-row-full-width.html.twig
+- templates/layout/regions/region--home-second-row-full-width.html.twig
+- templates/patterns/cards/card-hp-intro.patterns.yml
+- templates/patterns/cards/pattern-card-hp-intro.html.twig
+- templates/views/views-view-unformatted--govitalia-hp-intro--second-row.html.twig
+
+Build assets and drush cr
+
+## known issues
+- When your views use AJAX, exposed filter and UI Patterns you receive "Pattern Views row plugin does not support preview.". This is the [Issue](https://github.com/nuvoleweb/ui_patterns/issues/239) and this is the [patch](https://github.com/nuvoleweb/ui_patterns/pull/269)
+- You don't see Views Theme Suggestions: [issue](https://drupal.stackexchange.com/questions/249854/i-dont-see-views-theme-suggestions) and [patch](https://www.drupal.org/files/issues/2020-05-16/2118743-183-twig-debug-info.patch)
 
 ## All Changes
-- Add image style configurations from optional module
+- Issue #3139480: Add image style configurations from optional module
+- Issue #3099905: Image looks broken on all devices
+- Remove wrong configuration: image quality 100%
+- Fix megamenu <nolink> option
+- Fix bold all items on menu-recursive.twig
 - Add theme breakpoints
 - Fix Megamenu title
 - Fix sidebar options: font weight
@@ -16,10 +35,21 @@ Update file in your sub-theme:
 - Switch to classy base theme
 - Add block configuration for: slim menu and small prints menu
 - Add paragraph overlay
-- Add image settings
+- Add module to manage image styles with focal_point and add setting for quality image
 - Issue #3171227 by gabrimonfa: Wrong href in header login link in multisite using subdirectories
 - Issue #3171528: Card width not 100% of container
 - Fix 'Ente di appartenenza' collapsed
+- Rearrange e sync settings, Fix annotations in theme-settings.inc
+- Review hook and suggestions
+- Refactoring card Pattern
+- Add Card Home Page in sub-theme
+- Theming title and subtitle in sub-theme with "Comune template" and various specific component
+- Fix logo image responsive if it's a raster image
+- Fix navbar tag
+- Add link to chips component
+- Add dropdown component
+- Add views-view.html.twig without row content wrapper
+- Fix Suggestions with context module
 
 # Summary 8.x.0.11
 ## Release notes
