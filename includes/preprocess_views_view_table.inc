@@ -2,6 +2,7 @@
 
 /**
  * Implements hook_preprocess_page()
+ * @param $variables
  */
 function bootstrap_italia_preprocess_views_view_table(&$variables) {
   $variables['table_bg'] = theme_get_setting('table_bg');

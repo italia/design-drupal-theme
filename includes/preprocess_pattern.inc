@@ -2,6 +2,8 @@
 
 /**
  * Implements hook_preprocess().
+ * @param $variables
+ * @param $hook
  */
 function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
 {

@@ -8,6 +8,7 @@ declare(strict_types = 1);
 
 /**
  * Implements hook_install().
+ * @param $is_syncing
  */
 function bootstrap_italia_paragraphs_install($is_syncing)
 {
@@ -16,6 +17,7 @@ function bootstrap_italia_paragraphs_install($is_syncing)
 
 /**
  * Implements hook_uninstall().
+ * @param $is_syncing
  */
 function bootstrap_italia_paragraphs_uninstall($is_syncing)
 {
@@ -24,6 +26,7 @@ function bootstrap_italia_paragraphs_uninstall($is_syncing)
 
 /**
  * Implements hook_update_N().
+ * @param $sandbox
  */
 function bootstrap_italia_paragraphs_update_8001(&$sandbox)
 {

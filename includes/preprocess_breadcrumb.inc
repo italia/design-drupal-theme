@@ -4,6 +4,7 @@ use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
+ * @param $variables
  */
 function bootstrap_italia_preprocess_breadcrumb(&$variables)
 {
