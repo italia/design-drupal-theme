@@ -1,6 +1,7 @@
-name: "Bootstrap Italia Overlay"
+name: "Bootstrap Italia Overlay [EXPERIMENTAL]"
 description: This module add a paragraph orverlay component
-package: Bootstrap Italia
+package: "Bootstrap Italia [EXPERIMENTAL]"
+experimental: true
 
 type: module
 core_version_requirement: ^8.9 || ^9
