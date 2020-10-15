@@ -1,6 +1,7 @@
-name: "Bootstrap Italia Paragraphs"
+name: "Bootstrap Italia Paragraphs [EXPERIMENTAL]"
 description: This is the base module for paragraphs integration
-package: Bootstrap Italia
+package: "Bootstrap Italia [EXPERIMENTAL]"
+experimental: true
 
 type: module
 core_version_requirement: ^8.9 || ^9
