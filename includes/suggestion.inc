@@ -56,6 +56,10 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $block = Block::load($variables['elements']['#id']);
     if ($block) {
       $region = $block->getRegion();
+    } 
+    else {
+      $region = (isset($variables['elements']['#configuration']['region'])) ? $variables['elements']['#configuration']['region']: '';
+    }
     // adds suggestion with region and block id
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
     // adds suggestion with region id
@@ -63,8 +67,7 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     // adds suggestions with base and derivative plugin id
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#derivative_plugin_id'];
-    }
-  }
+  } 
 }
 
 /**
