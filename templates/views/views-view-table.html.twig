@@ -60,6 +60,7 @@
       {% endif %}
     </caption>
   {% endif %}
+
   {% if header %}
     {% if table_thead == 'nessuno' %}
       {% set thead_class = [''] %}
@@ -86,14 +87,26 @@
         {%- if column.wrapper_element -%}
           <{{ column.wrapper_element }}>
           {%- if column.url -%}
-            <a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }}{{ column.sort_indicator }}</a>
+            <a
+              href="{{ column.url }}"
+              title="{{ column.title }}"
+              rel="nofollow"
+            >
+              {{ column.content }}{{ column.sort_indicator }}
+            </a>
           {%- else -%}
             {{ column.content }}{{ column.sort_indicator }}
           {%- endif -%}
           </{{ column.wrapper_element }}>
         {%- else -%}
           {%- if column.url -%}
-            <a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }}{{ column.sort_indicator }}</a>
+            <a
+              href="{{ column.url }}"
+              title="{{ column.title }}"
+              rel="nofollow"
+            >
+              {{ column.content }}{{ column.sort_indicator }}
+            </a>
           {%- else -%}
             {{- column.content }}{{ column.sort_indicator }}
           {%- endif -%}
@@ -103,6 +116,7 @@
     </tr>
     </thead>
   {% endif %}
+
   <tbody>
   {% for row in rows %}
     <tr{{ row.attributes }}>
@@ -117,18 +131,18 @@
             {% set column_classes = column_classes|merge(['views-field-' ~ field]) %}
           {% endfor %}
         {% endif %}
-      <td{{ column.attributes.addClass(column_classes) }}>
-        {%- if column.wrapper_element -%}
-          <{{ column.wrapper_element }}>
-          {% for content in column.content %}
-            {{ content.separator }}{{ content.field_output }}
-          {% endfor %}
-          </{{ column.wrapper_element }}>
-        {%- else -%}
-          {% for content in column.content %}
-            {{- content.separator }}{{ content.field_output -}}
-          {% endfor %}
-        {%- endif %}
+        <td{{ column.attributes.addClass(column_classes) }}>
+          {%- if column.wrapper_element -%}
+            <{{ column.wrapper_element }}>
+            {% for content in column.content %}
+              {{ content.separator }}{{ content.field_output }}
+            {% endfor %}
+            </{{ column.wrapper_element }}>
+          {%- else -%}
+            {% for content in column.content %}
+              {{- content.separator }}{{ content.field_output -}}
+            {% endfor %}
+          {%- endif %}
         </td>
       {% endfor %}
     </tr>
