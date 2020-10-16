@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\block\Entity\Block;
+use Drupal\block_content\BlockContentInterface;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
