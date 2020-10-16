@@ -5,6 +5,8 @@ use Drupal\block\Entity\Block;
 /**
  * Implements hook_theme_suggestions_page_alter().
  * https://www.drupal.org/node/2521876#comment-10684366
+ * @param array $suggestions
+ * @param array $variables
  */
 function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $variables)
 {
@@ -17,6 +19,8 @@ function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $var
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ * @param array $suggestions
+ * @param array $variables
  * @todo da sistemare, bug drupal? bug mio?
  * FILE NAME SUGGESTIONS:
  * x menu--slim.html.twig <=================
@@ -40,6 +44,8 @@ function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_block_alter().
+ * @param array $suggestions
+ * @param array $variables
  */
 function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables)
 {
@@ -56,7 +62,7 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $block = Block::load($variables['elements']['#id']);
     if ($block) {
       $region = $block->getRegion();
-    } 
+    }
     else {
       $region = (isset($variables['elements']['#configuration']['region'])) ? $variables['elements']['#configuration']['region']: '';
     }
@@ -67,17 +73,17 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     // adds suggestions with base and derivative plugin id
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#derivative_plugin_id'];
-  } 
+  }
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ * @param array $suggestions
+ * @param array $variables
  */
 function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables)
 {
   if (isset($variables['view'])) {
-    $view = $variables['view'];
-    $displayObj = $view->getDisplay();
     $view = $variables['view'];
     $displayObj = $view->getDisplay();
     $variant = (isset($view->rowPlugin->options['pattern_variant'])) ? '__' . $view->rowPlugin->options['pattern_variant'] : '';

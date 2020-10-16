@@ -2,6 +2,7 @@
 
 /**
  * Implements hook_preprocess_pager()
+ * @param $variables
  */
 function bootstrap_italia_preprocess_pager(&$variables)
 {

@@ -35,7 +35,7 @@ Build assets and drush cr
 - Switch to classy base theme
 - Add block configuration for: slim menu and small prints menu
 - Add paragraph overlay
-- Add module to manage image styles with focal_point and add setting for quality image
+- Add a module to manage image styles with focal_point and add setting for quality image
 - Issue #3171227 by gabrimonfa: Wrong href in header login link in multisite using subdirectories
 - Issue #3171528: Card width not 100% of container
 - Fix 'Ente di appartenenza' collapsed
@@ -46,7 +46,7 @@ Build assets and drush cr
 - Theming title and subtitle in sub-theme with "Comune template" and various specific component
 - Fix logo image responsive if it's a raster image
 - Fix navbar tag
-- Add link to chips component
+- Add a link to chips component
 - Add dropdown component
 - Add views-view.html.twig without row content wrapper
 - Fix Suggestions with context module
@@ -70,12 +70,12 @@ Update/add file in your sub-theme with:
 In your sub-theme
 - rename: italiagov/src/scss/layout/page--user--login.scss → italiagov/src/scss/layout/_page--user--login.scss
 - delete: italiagov/src/scss/misc/patterns-overview.scss
-- If the file "italiagov/theme-settings.php" is present in your sub-theme and you have not modified it, you can delete it and save the settings from appearance -> your sub-theme
+- If the file "italiagov/theme-settings.php" is present in your sub-theme, and you have not modified it, you can delete it and save the settings from appearance -> your sub-theme
 
 Build assets with 'npm run build:prod' and 'drush cr'
 
 ## Important Note
-**In the next release will be removed scss, js, webpack.config.js and package.json from main theme, please switch to sub-theme if you use main theme as a default theme.**
+**In the next release will be removed scss, js, webpack.config.js and package.json from the main theme, please switch to sub-theme if you use the main theme as a default theme.**
 
 ## All changes
 - Callout component and UI
@@ -95,15 +95,15 @@ Build assets with 'npm run build:prod' and 'drush cr'
 - Add palette
 - Add modal component
 - New version for Main menu
-- Add theme options for main menu and sidebar menu
+- Add theme options for the main menu and sidebar menu
 - New Feature: two menus in main navbar and any menu can be inserted into the navbar.
 - Theme for menu title block in sidebar
-- Add current page to breadcrumb
+- Add the current page to breadcrumb
 
 # Summary 8.x.0.10
 ## Release notes
 Update THEME.info.yml in your sub-theme with the new version placed in "/var/starter_kits/italiagov/italiagov.info.yml".
-Please update "<your-theme>/src/scss/_fix.scss" with the new version placed in "/var/starter_kits/src/scss/_fix.scss"
+Please update "<your-theme>/src/scss/_fix.scss" with the new version placed in "/var/starter_kits/src/scss/_fix.scss".
 
 **This is the last release that support the use main theme as default theme. Please switch to sub-theme.**
 
@@ -131,7 +131,7 @@ Please update "<your-theme>/src/scss/_fix.scss" with the new version placed in "
 
 # Summary 8.x-0.9
 ## Release notes
-This version implements child themes and we recommend that you set the child theme as the default theme. Setting the main theme as the default theme is obsolete, but for compatibility with previous versions it will be kept until version 1.0.
+This version implements child themes, and we recommend that you set the child theme as the default theme. Setting the main theme as the default theme is obsolete, but for compatibility with previous versions it will be kept until version 1.0.
 Before updating make sure that:
 - the Italian language is set as "default language"
 - the English language is installed
@@ -166,7 +166,7 @@ Make a backup before upgrading to version 0.9.
    - Last row: full width
 - Fix drupal version on start-dev-test.sh
 - Add description ddev container
-- Fix drupal version on README.md
+- Fix drupal version on the README.md
 - Add sidebars regions to template
 - Remove "compilato" form feedback
 - CSS Style for block demo view
@@ -179,7 +179,7 @@ Make a backup before upgrading to version 0.9.
 
 - Update dependencies: bootstrap_italia 1.3.9 -> 1.3.10
 - Sub-theme skeleton
-- I have moved the components folder from templates to src
+- I have moved the components' folder from templates to src
 - Fix mistake in info.yml line 12
 - Issue #3143842 by karishmaamin: Property 'base theme' needs to be set
 - webpack.config.js fix double slash

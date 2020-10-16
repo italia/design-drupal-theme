@@ -2,40 +2,42 @@
 
 /**
  * Implements hook_preprocess().
+ * @param $variables
+ * @param $hook
  */
 function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
 {
-  $variables['pattern_card_simple_shadow'] = (bool) theme_get_setting('pattern_card_simple_shadow');;
-  $variables['pattern_card_simple_border_bottom'] = (bool) theme_get_setting('pattern_card_simple_border_bottom');;
-  $variables['pattern_card_simple_border_rounded'] = (bool) theme_get_setting('pattern_card_simple_border_rounded');;
+  $variables['pattern_card_simple_shadow'] = (bool) theme_get_setting('pattern_card_simple_shadow');
+  $variables['pattern_card_simple_border_bottom'] = (bool) theme_get_setting('pattern_card_simple_border_bottom');
+  $variables['pattern_card_simple_border_rounded'] = (bool) theme_get_setting('pattern_card_simple_border_rounded');
 
-  $variables['pattern_card_simple_article_shadow'] = (bool) theme_get_setting('pattern_card_simple_article_shadow');;
-  $variables['pattern_card_simple_article_border_bottom'] = (bool) theme_get_setting('pattern_card_simple_article_border_bottom');;
-  $variables['pattern_card_simple_article_border_rounded'] = (bool) theme_get_setting('pattern_card_simple_article_border_rounded');;
+  $variables['pattern_card_simple_article_shadow'] = (bool) theme_get_setting('pattern_card_simple_article_shadow');
+  $variables['pattern_card_simple_article_border_bottom'] = (bool) theme_get_setting('pattern_card_simple_article_border_bottom');
+  $variables['pattern_card_simple_article_border_rounded'] = (bool) theme_get_setting('pattern_card_simple_article_border_rounded');
 
-  $variables['pattern_card_big1_shadow'] = (bool) theme_get_setting('pattern_card_big1_shadow');;
-  $variables['pattern_card_big1_border_bottom'] = (bool) theme_get_setting('pattern_card_big1_border_bottom');;
-  $variables['pattern_card_big1_border_rounded'] = (bool) theme_get_setting('pattern_card_big1_border_rounded');;
+  $variables['pattern_card_big1_shadow'] = (bool) theme_get_setting('pattern_card_big1_shadow');
+  $variables['pattern_card_big1_border_bottom'] = (bool) theme_get_setting('pattern_card_big1_border_bottom');
+  $variables['pattern_card_big1_border_rounded'] = (bool) theme_get_setting('pattern_card_big1_border_rounded');
 
-  $variables['pattern_card_big2_shadow'] = (bool) theme_get_setting('pattern_card_big2_shadow');;
-  $variables['pattern_card_big2_border_bottom'] = (bool) theme_get_setting('pattern_card_big2_border_bottom');;
-  $variables['pattern_card_big2_border_rounded'] = (bool) theme_get_setting('pattern_card_big2_border_rounded');;
+  $variables['pattern_card_big2_shadow'] = (bool) theme_get_setting('pattern_card_big2_shadow');
+  $variables['pattern_card_big2_border_bottom'] = (bool) theme_get_setting('pattern_card_big2_border_bottom');
+  $variables['pattern_card_big2_border_rounded'] = (bool) theme_get_setting('pattern_card_big2_border_rounded');
 
-  $variables['pattern_card_big3_shadow'] = (bool) theme_get_setting('pattern_card_big3_shadow');;
-  $variables['pattern_card_big3_border_bottom'] = (bool) theme_get_setting('pattern_card_big3_border_bottom');;
-  $variables['pattern_card_big3_border_rounded'] = (bool) theme_get_setting('pattern_card_big3_border_rounded');;
+  $variables['pattern_card_big3_shadow'] = (bool) theme_get_setting('pattern_card_big3_shadow');
+  $variables['pattern_card_big3_border_bottom'] = (bool) theme_get_setting('pattern_card_big3_border_bottom');
+  $variables['pattern_card_big3_border_rounded'] = (bool) theme_get_setting('pattern_card_big3_border_rounded');
 
-  $variables['pattern_card_with_img_shadow'] = (bool) theme_get_setting('pattern_card_with_img_shadow');;
-  $variables['pattern_card_with_img_border_bottom'] = (bool) theme_get_setting('pattern_card_with_img_border_bottom');;
-  $variables['pattern_card_with_img_border_rounded'] = (bool) theme_get_setting('pattern_card_with_img_border_rounded');;
+  $variables['pattern_card_with_img_shadow'] = (bool) theme_get_setting('pattern_card_with_img_shadow');
+  $variables['pattern_card_with_img_border_bottom'] = (bool) theme_get_setting('pattern_card_with_img_border_bottom');
+  $variables['pattern_card_with_img_border_rounded'] = (bool) theme_get_setting('pattern_card_with_img_border_rounded');
 
-  $variables['pattern_card_special_shadow'] = (bool) theme_get_setting('pattern_card_special_shadow');;
-  $variables['pattern_card_special_border_bottom'] = (bool) theme_get_setting('pattern_card_special_border_bottom');;
-  $variables['pattern_card_special_border_rounded'] = (bool) theme_get_setting('pattern_card_special_border_rounded');;
+  $variables['pattern_card_special_shadow'] = (bool) theme_get_setting('pattern_card_special_shadow');
+  $variables['pattern_card_special_border_bottom'] = (bool) theme_get_setting('pattern_card_special_border_bottom');
+  $variables['pattern_card_special_border_rounded'] = (bool) theme_get_setting('pattern_card_special_border_rounded');
 
-  $variables['pattern_card_teaser_shadow'] = (bool) theme_get_setting('pattern_card_teaser_shadow');;
-  $variables['pattern_card_teaser_border_bottom'] = (bool) theme_get_setting('pattern_card_teaser_border_bottom');;
-  $variables['pattern_card_teaser_border_rounded'] = (bool) theme_get_setting('pattern_card_teaser_border_rounded');;
+  $variables['pattern_card_teaser_shadow'] = (bool) theme_get_setting('pattern_card_teaser_shadow');
+  $variables['pattern_card_teaser_border_bottom'] = (bool) theme_get_setting('pattern_card_teaser_border_bottom');
+  $variables['pattern_card_teaser_border_rounded'] = (bool) theme_get_setting('pattern_card_teaser_border_rounded');
 
   if ( isset($variables['card_date']) && $variables['variant'] == 'with_img' ){
     $current_path = \Drupal::service('path.current')->getPath();
