@@ -42,7 +42,7 @@ class Helper {
   }
 
   // https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni
-  public static function getBreackpoints($withLabel=false): array
+  public static function getBreakpoints($withLabel=false): array
   {
     if ($withLabel) {
       return [

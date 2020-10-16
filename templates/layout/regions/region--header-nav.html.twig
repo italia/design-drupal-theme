@@ -8,7 +8,7 @@
  * - attributes: HTML attributes for the region div.
  * - region: The name of the region variable as defined in the theme's
  *   .info.yml file.
- * - main_menu_breackpoint_expand: view menu at breackpoint sm | md | lg | xl
+ * - main_menu_breakpoint_expand: view menu at breackpoint sm | md | lg | xl
  *
  * @see template_preprocess_region()
  */
@@ -22,7 +22,7 @@
     <nav
       role="navigation"
       aria-labelledby="{{ heading_id }}"
-      class="navbar navbar-expand-{{ main_menu_breackpoint_expand }} has-megamenu"
+      class="navbar navbar-expand-{{ main_menu_breakpoint_expand }} has-megamenu"
     >
       <button class="custom-navbar-toggler" type="button" aria-controls="{{ heading_id }}" aria-expanded="false" aria-label="Toggle navigation" data-target="#{{ heading_id }}">
         {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-burger' } %}

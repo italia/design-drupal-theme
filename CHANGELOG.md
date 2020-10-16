@@ -19,6 +19,7 @@ Update file in your sub-theme:
 Build assets and drush cr
 
 ## known issues
+- After upgrade to 0.12, if main menu not work fine, go to "Admin -> Appearance -> Your sub-theme Settings -> Navigazione -> Menu principale" then choice "Large (>= 992px)" option and save.
 - When your views use AJAX, exposed filter and UI Patterns you receive "Pattern Views row plugin does not support preview.". This is the [Issue](https://github.com/nuvoleweb/ui_patterns/issues/239) and this is the [patch](https://github.com/nuvoleweb/ui_patterns/pull/269)
 - You don't see Views Theme Suggestions: [issue](https://drupal.stackexchange.com/questions/249854/i-dont-see-views-theme-suggestions) and [patch](https://www.drupal.org/files/issues/2020-05-16/2118743-183-twig-debug-info.patch)
 
