@@ -132,14 +132,14 @@
 
       <div class="card-body">
 
-        {# Top card if simple_article #}
-        {% if variant == 'simple_article' %}
+        {# Top card  #}
+        {% if card_category %}
           <div class="category-top">
             {% if card_icon %}
               {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
             {% endif %}
             <span class="{{ card_icon ? 'text' : 'category' }}">{{ card_category }}</span>
-            <span class="data">{{ card_date }}</span>
+            {% if card_date %}<span class="data">{{ card_date }}</span>{% endif %}
           </div>
         {% endif %}
 
