@@ -51,6 +51,7 @@ Build assets and drush cr
 - Add dropdown component
 - Add views-view.html.twig without row content wrapper
 - Fix Suggestions with context module
+- Removed wrong class `mt-5` in `footer.it-footer`
 
 # Summary 8.x.0.11
 ## Release notes
