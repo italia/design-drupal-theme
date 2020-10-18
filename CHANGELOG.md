@@ -4,6 +4,7 @@
 ## All changes
 - New feature: upload logo in svg format
 - Drupal 9 compatibility
+- Fix card_category bug: restore 4019c2c720c670fcc2b0ce3a72f66922cfa49f1c version
 
 # Summary 8.x-0.13
 ## Release notes
