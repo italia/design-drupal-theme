@@ -1,3 +1,13 @@
+# Summary 8.x-0.14
+## Release notes
+
+## All changes
+-
+
+# Summary 8.x-0.13
+## Release notes
+Saltata per scaramanzia e per questioni di stato quantistico quando si sviluppa una v13.
+
 # Summary 8.x-0.12
 ## Release notes
 See README for enable optional features
