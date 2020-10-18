@@ -2,7 +2,7 @@ name: Bootstrap Italia Gov - Child Theme
 type: theme
 description: Bootstrap Italia è un tema Bootstrap 4 conforme alle linee guida di design per i servizi web della PA
 package: Italia
-core: 8.x
+core_version_requirement: ^8 || ^9
 base theme: bootstrap_italia
 # php: 7.3
 

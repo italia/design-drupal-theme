@@ -2,7 +2,8 @@
 ## Release notes
 
 ## All changes
--
+- New feature: upload logo in svg format
+- Drupal 9 compatibility
 
 # Summary 8.x-0.13
 ## Release notes
