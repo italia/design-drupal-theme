@@ -55,21 +55,21 @@ or
 # Optional
 If you want to install optional plugins.
 
-## Image styles
+## Image styles [EXPERIMENTAL]
 This is a module that installs/uninstalls the image styles.
 This module is dependent on `focal_point`.
 
     $ composer require drupal/focal_point
     $ drush pm:enable focal_point bootstrap_italia_image_styles
 
-## Paragraphs
+## Paragraphs [EXPERIMENTAL]
 This is the base module for `paragraphs` integration and adds paragraph `content` and paragraph `configuration`.
 This module is dependent on `paragraphs`, `field_group` and `imce`.
 
     $ composer require drupal/paragraphs drupal/field_group drupal/imce
     $ drush pm:enable paragraphs field_group ui_patterns_field_group imce bootstrap_italia_paragraphs
 
-## Paragraphs overlay
+## Paragraphs overlay [EXPERIMENTAL]
 This module adds paragraph [overlay component](https://italia.github.io/bootstrap-italia/docs/componenti/overlay/).
 This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`, `ds_switch_view_mode`, `ui_patterns_layouts`, `ui_patterns_ds`
 
