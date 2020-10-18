@@ -99,14 +99,17 @@ regions:
   home_last_row_full_width: "Home page - Ultima regione full width"
 
 # see https://www.drupal.org/project/drupal/issues/474684
-dependencies:
-  - drupal:inline_form_errors
-  - drupal:responsive_image
-  - drupal:components
-  - drupal:ui_patterns
-  - drupal:ui_patterns_layouts
-  - drupal:ui_patterns_library
-  - drupal:ui_patterns_views
+# see https://www.drupal.org/docs/8/theming-drupal-8/defining-a-theme-with-an-infoyml-file#dependencies
+# see https://www.drupal.org/node/2937955#comment-13793976
+# see https://www.drupal.org/project/bootstrap_italia/issues/3169891
+#dependencies:
+#  - drupal:inline_form_errors
+#  - drupal:responsive_image
+#  - drupal:components
+#  - drupal:ui_patterns
+#  - drupal:ui_patterns_layouts
+#  - drupal:ui_patterns_library
+#  - drupal:ui_patterns_views
 
 # features:
 stylesheets-remove:

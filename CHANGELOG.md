@@ -9,7 +9,7 @@ Update file in your sub-theme:
 - src/scss/theme.scss
 - src/scss/paragraphs/*
 - src/scss/misc/_patterns-overview.scss
-- src/components/cards/card-hp-intro.twig 0
+- src/components/cards/card-hp-intro.twig
 - templates/layout/regions/region--home-first-row-full-width.html.twig
 - templates/layout/regions/region--home-second-row-full-width.html.twig
 - templates/patterns/cards/card-hp-intro.patterns.yml
@@ -52,6 +52,7 @@ Build assets and drush cr
 - Add views-view.html.twig without row content wrapper
 - Fix Suggestions with context module
 - Removed wrong class `mt-5` in `footer.it-footer`
+- Issue #3169891 by robertom: Theme dependencies break config install or config import
 
 # Summary 8.x.0.11
 ## Release notes
