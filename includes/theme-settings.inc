@@ -8,7 +8,7 @@ use Drupal\bootstrap_italia\Helper;
  * @param FormStateInterface $form_state
  * @param null $form_id
  */
-function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id = NULL) {
+function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, $form_id = NULL) {
 
   // General "alters" use a form id. Settings should not be set here. The only
   // thing useful about this is if you need to alter the form for the running
@@ -609,4 +609,30 @@ function bootstrap_italia_form_system_theme_settings_alter(&$form, FormStateInte
     '#title' => t('Arrotonda gli angoli'),
     '#default_value' => theme_get_setting('pattern_card_teaser_border_rounded'),
   ];
+
+  $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';
+}
+
+function bootstrap_italia_form_system_theme_settings_validate(array &$form, FormStateInterface $form_state) {
+  if (function_exists('file_save_upload')) {
+    // Handle file uploads.
+    $image_factory = \Drupal::service('image.factory');
+    $supported_extensions = $image_factory->getSupportedExtensions();
+    $supported_extensions[] = 'svg';
+    $validators = ['file_validate_extensions' => [implode(' ', $supported_extensions)]];
+
+    // Check for a new uploaded logo.
+    $file = file_save_upload('logo_upload', $validators, FALSE, 0);
+    if (isset($file)) {
+      // File upload was attempted.
+      if ($file) {
+        // Put the temporary file in form_values so we can save it on submit.
+        $form_state->setValue('logo_upload', $file);
+      }
+      else {
+        // File upload failed.
+        $form_state->setErrorByName('logo_upload', t('The logo could not be uploaded.'));
+      }
+    }
+  }
 }
