@@ -3,6 +3,7 @@
 
 ## All changes
 - views-view.html.twig: fixed pager wrapper
+- Removed old files from base theme: `src/js`, `src/scss`, `src/fonts` and `src/images`; `webpack.config.js` and `package.json`
 
 # Summary 8.x-0.14
 ## Release notes
