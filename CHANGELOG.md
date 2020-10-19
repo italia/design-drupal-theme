@@ -1,3 +1,9 @@
+# Summary 8.x-0.15
+## Release notes
+
+## All changes
+- views-view.html.twig: fixed pager wrapper
+
 # Summary 8.x-0.14
 ## Release notes
 If you update from 0.11 see 0.12 release notes and update your sub-theme files.
