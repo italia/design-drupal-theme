@@ -163,7 +163,14 @@
         {% if card_subtitle and variant == 'big2' %}
           <h6>{{ card_subtitle|render|striptags }}</h6>
         {% endif %}
-        <p class="card-text">{{ card_text|render|striptags }}</p>
+        
+        {% set text_tag = variant ? 'p' : 'div' %}
+        {% if variant %}
+        {% set card_text = card_text|render|striptags %}
+        {% endif %}
+        {% autoescape false %}
+        <{{ text_tag }} class="card-text">{{ card_text }}</{{ text_tag }}>
+        {% endautoescape %}
 
         {# Bottom content #}
         {% set footer_wrapper = variant == 'big3' ? true : false %}

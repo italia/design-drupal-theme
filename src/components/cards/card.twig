@@ -119,11 +119,22 @@
         <span class="text">{{ card_category }}</span>
       </div>
       {% endif %}
+
+      {% if card_title %}
       <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title }}</h5>
+      {% endif %}
       {% if card_subtitle and card_type == 'with_icon' %}
       <h6 class="card-subtitle">{{ card_subtitle }}</h6>
       {% endif %}
-      <p class="card-text">{{ card_text }}</p>
+      
+      {% set text_tag = (card_type == 'custom') ? 'div' : 'p' %}
+      {% if variant %}
+        {% set card_text = card_text|render|striptags %}
+      {% endif %}
+      {% autoescape false %}
+      <{{ text_tag }} class="card-text">{{ card_text }}</{{ text_tag }}>
+      {% endautoescape %}
+
       {% if card_simple_link %}
       <a class="simple-link" href="{{ card_simple_link_url|default('#') }}">{{ card_simple_link }}</a>
       {% endif %}
