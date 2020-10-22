@@ -127,7 +127,7 @@
       <h6 class="card-subtitle">{{ card_subtitle }}</h6>
       {% endif %}
       
-      {% set text_tag = variant ? 'p' : 'div' %}
+      {% set text_tag = (card_type == 'custom') ? 'div' : 'p' %}
       {% if variant %}
         {% set card_text = card_text|render|striptags %}
       {% endif %}
