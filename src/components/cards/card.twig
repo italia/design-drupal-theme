@@ -119,7 +119,10 @@
         <span class="text">{{ card_category }}</span>
       </div>
       {% endif %}
+
+      {% if card_title %}
       <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title }}</h5>
+      {% endif %}
       {% if card_subtitle and card_type == 'with_icon' %}
       <h6 class="card-subtitle">{{ card_subtitle }}</h6>
       {% endif %}
