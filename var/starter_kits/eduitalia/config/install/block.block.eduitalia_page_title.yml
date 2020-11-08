@@ -1,0 +1,17 @@
+langcode: it
+status: true
+dependencies:
+  theme:
+    - eduitalia
+id: eduitalia_page_title
+theme: eduitalia
+region: title
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Titolo della pagina'
+  provider: core
+  label_display: '0'
+visibility: {  }

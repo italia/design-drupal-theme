@@ -1,0 +1,60 @@
+/**
+ * Drupal Fix
+ */
+// Fix drupal toolbar
+#toolbar-administration.toolbar,
+#toolbar-administration.toolbar::before {
+  height: 0;
+}
+#toolbar-administration.toolbar {
+  position: static;
+}
+@media (min-width: 992px) {
+  body.toolbar-horizontal.toolbar-fixed .it-header-wrapper.it-header-sticky.is-sticky .it-header-navbar-wrapper {
+    top: 39px;
+  }
+
+  body.toolbar-horizontal.toolbar-fixed.toolbar-tray-open .it-header-wrapper.it-header-sticky.is-sticky .it-header-navbar-wrapper {
+    top: 79px;
+  }
+
+}
+
+// Fix autocomplete circle icon
+.form-control {
+  background-size: 18px 30% !important;
+}
+
+/*
+ * Bootstrap 4 Fix
+ */
+.form-text {
+  margin-top: 0;
+}
+
+/*
+ * Bootstrap Italia Fix
+ */
+// Fix header logo
+.it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .icon {
+  width: 100px;
+}
+
+// Fix form description
+.form-group small.form-text {
+  position: relative;
+}
+
+/*
+ * Fix input-number spinner up and down. See templates/form/input--number.html.twig
+ */
+// Chrome, Safari, Edge, Opera
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Firefox
+input[type=number] {
+  -moz-appearance: textfield;
+}
