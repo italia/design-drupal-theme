@@ -1,0 +1,52 @@
+{# Render output #}
+{% set wrapper_attribute = create_attribute() %}
+{% set wrapper_classess = [
+    'it-hero-wrapper',
+
+    variant == 'small' ? 'it-hero-small-size',
+    variant == 'small_overlay' ? 'it-hero-small-size it-dark it-overlay',
+    variant == 'small_overlay_primario' ? 'it-hero-small-size it-primary it-overlay',
+    variant == 'small_overlay_filter' ? 'it-hero-small-size it-filter it-overlay',
+    variant == 'small_text_center' ? 'it-hero-small-size it-text-centered',
+    variant == 'small_negative_margin' ? 'it-hero-small-size it-dark it-overlay it-bottom-overlapping-content',
+
+    variant == 'default_overlay' ? 'it-dark it-overlay',
+    variant == 'default_overlay_primario' ? 'it-primary it-overlay',
+    variant == 'default_overlay_filter' ? 'it-filter it-overlay',
+    variant == 'default_text_center' ? 'it-text-centered',
+    variant == 'default_negative_margin' ? 'it-dark it-overlay it-bottom-overlapping-content',
+] %}
+
+{# node_url and node_title are used special variant and in the card footer #}
+{#{% set node_url = call_to_action['node_link']['0']['0']['#context']['entity_url']|render %}#}
+{% set node_url = call_to_action|render|striptags %}
+
+<div {{ wrapper_attribute.addClass(wrapper_classess) }}>
+    {% if image %}
+    <div class="img-responsive-wrapper">
+        <div class="img-responsive">
+            <div class="img-wrapper">
+                {{ image }}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="it-hero-text-wrapper bg-dark">
+                    <span class="it-category">{{ subhead }}</span>
+                    <h1 class="no_toc">{{ titolo }}</h1>
+                    <p class="d-none d-lg-block">{{ paragrafo }}</p>
+                    {% if call_to_action %}
+                    <div class="it-btn-container">
+                        <a class="btn btn-sm btn-secondary" href="{{ node_url }}"
+                           title="{{ titolo }}">CLICCA e LEGGI
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
