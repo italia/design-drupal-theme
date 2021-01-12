@@ -21,7 +21,7 @@
 %}
 {% set icon_class = dark ? 'icon-secondary' : 'icon-light' %}
 
-<a href="#" aria-hidden="true" data-attribute="back-to-top" class="{{ container_classes|join(' ') }}">
+<a href="#" aria-hidden="true" title="Back To Top" data-attribute="back-to-top" class="{{ container_classes|join(' ') }}">
   {% include '@bootstrap_italia_components/icon/icon.twig' with {
     name: 'it-arrow-up',
     classes: [icon_class]
