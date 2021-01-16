@@ -68,6 +68,10 @@ module.exports = {
           from: './node_modules/bootstrap-italia/src/fonts/',
           to: 'fonts/'
         },
+        {
+          from: './src/images/',
+          to: 'images/'
+        }
       ]
     }),
     new webpack.ProvidePlugin({
