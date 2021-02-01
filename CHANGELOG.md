@@ -1,8 +1,8 @@
-# Summary 8.x-0-16.1
+# Summary 8.x-0.17
 ## Release notes
 Fix social icons on theme settings
 
-# Summary 8.x-0-16
+# Summary 8.x-0.16
 ## Release notes
 1) In your sub-theme
 
