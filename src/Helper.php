@@ -14,11 +14,11 @@ class Helper {
       'Instagram',
       'Linkedin',
       'Medium',
+      'RSS',
       'Twitter',
-      // 'Telegram', //manca icona
+      'Telegram',
       'WhatsApp',
       'YouTube',
-      // 'RSS', //manca icona
     ];
   }
 

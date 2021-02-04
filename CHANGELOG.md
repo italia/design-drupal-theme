@@ -1,3 +1,39 @@
+# Summary 8.x-0.17
+## Release notes
+Fix social icons on theme settings
+
+# Summary 8.x-0.16
+## Release notes
+1) In your sub-theme
+
+
+    $ npm update
+
+2) If you use `italiagov` starter kit, update your sub-theme with the files inside in `/thmes/contrib/bootstrap_italia/var/starter_kits/italiagov`:
+    - `/themes/custom/<your-sub-theme>/webpack.config.js` from line  67 to 70
+    - delete `/themes/custom/<your-sub-theme>/src/js/custom/isIE.js`
+    - `/themes/custom/<your-sub-theme>/src/js/index.js` uncomment line 21 and remove line 22, like:
+
+
+    20 import '../../node_modules/bootstrap-italia/src/js/plugins/sticky-wrapper'
+    21 import '../../node_modules/bootstrap-italia/src/js/plugins/ie'
+    22 import '../../node_modules/bootstrap-italia/src/js/plugins/fonts-loader'
+
+3) Run in your sub-theme
+
+
+    $ npm run build:prod
+    $ drush cr
+
+## All Changes
+- Fix image folder
+- Update bootstrap-library to 1.4.3 https://github.com/italia/bootstrap-italia/releases
+- Removed from starter kit old cards and templates.
+    - card-hp-intro
+    - region-home-first-row-full-width
+    - region-home-second-row-full-width
+    - views-view-unformatted-govitalia-hp-intro-second-row
+
 # Summary 8.x-0.15
 ## Release notes
 If you update from 0.11 see 0.12 release notes and update your sub-theme files.

@@ -9,70 +9,37 @@
 #   - button
 #   - button_with_icon
 #
-card_hp_intro:
+avatar_extra_text:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: 'Card HomePage Intro'
-  description: La card per il primo blocco in HomePage.
+  label: 'Avatar with extra Text'
+  description: La visualizzazione deglu avatar con testo aggiuntivo.
   variants:
-    first_row:
-      label: In evidenza
-      description: Singola prima notizia.
-    second_row:
-      label: Seconda riga
-      description: Riga con 3 notizie.
+    default:
+      label: Default
+      description: Variante Avatar.
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:
-    card_hp_img:
+    image:
+      type: string
+      label: Immagine dell'utente
+      description: Immagine utente
+    nome:
       type: text
-      label: Url immagine
-      description: Immagine (URL).
-      preview: 'https://picsum.photos/800/600'
-    card_hp_img_alt:
+      label: Nome Utente
+      description: Il nome dell'utente del campo "nome" nel profilo utente
+      preview: 'Luciano'
+    cognome:
       type: text
-      label: Testo per screenreader o ALT immagine.
-      description: Testo per screenreader e/o ALT img ove previsto.
-      preview: 'desc Immagine'
-    card_hp_category:
+      label: Cognome Utente
+      description: Il cognnome dell'utente del campo "cognome" nel profilo utente
+      preview: 'De Crescenzo'
+    ruolo:
       type: text
-      label: Category
-      description: Category term
-      preview: 'Category'
-    card_hp_category_url:
-      type: text
-      label: URL for term
-      description: Link URL for category term
-      preview: '#'
-    card_hp_date:
-      type: text
-      label: Date
-      description: The article's date
-      preview: '10/12/2018'
-    card_hp_title:
-      type: text
-      label: Title
-      description: The title of the card.
-      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
-    card_hp_text:
-      type: text
-      label: Text
-      description: Text of the card.
-      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-    card_hp_tag:
-      type: text
-      label: Tag Category
-      description: Tag Category term
-      preview: 'Tag'
-    card_hp_tag_url:
-      type: text
-      label: Link URL for tag term
-      description: Link for tag category term
-      preview: '#'
-    card_hp_readmore_link:
-      type: text
-      label: read more link
-      description: Link to article.
-      preview: '#'
+      label: Ruolo
+      description: Il ruolo assegnato all'utente nel sito.
+      preview: 'Docente, Referente plesso, ...'
+
   # Optional: Attached libraries.
   #
   # You can include libraries defined by other modules / themes with dependencies.
