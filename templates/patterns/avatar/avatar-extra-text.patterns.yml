@@ -12,7 +12,7 @@
 avatar_extra_text:
   # The label and description are used in the Drupal UI and the pattern library.
   label: 'Avatar with extra Text'
-  description: La visualizzazione deglu avatar con testo aggiuntivo.
+  description: Versione più completa dell’Avatar con nome esteso ed eventuale testo accessorio.
   variants:
     default:
       label: Default

@@ -40,7 +40,7 @@ avatar:
     a_tooltip:
       type: text
       label: Parametri link
-      description: E’ possibile associare un Tooltip con maggiori informazioni relative all’utente o all’azione associata utilizzando i Tooltip di Bootstrap.
+      description: È possibile associare un Tooltip con maggiori informazioni relative all’utente o all’azione associata utilizzando i Tooltip di Bootstrap.
       preview: ''
     avatar_size:
       type: text
@@ -67,7 +67,7 @@ avatar:
       label: Testo per screenreader o ALT immagine.
       description: Testo per screenreader ove previsto.
       preview: 'Mario Rossi'
-    
+
   # Optional: Attached libraries.
   #
   # You can include libraries defined by other modules / themes with dependencies.
