@@ -1,3 +1,10 @@
+# Summary 8.x-0.18
+## Release notes
+
+## All Changes
+- Added Hero component https://italia.github.io/bootstrap-italia/docs/componenti/hero/
+- Fix the accessibility issue for Back to top component, we added attribute `title` to `a` tag
+
 # Summary 8.x-0.17
 ## Release notes
 Fix social icons on theme settings
