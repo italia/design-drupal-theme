@@ -3,7 +3,9 @@
 
 ## All Changes
 - Added Hero component https://italia.github.io/bootstrap-italia/docs/componenti/hero/
+- Added Avatar with text component https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-testo-aggiuntivo
 - Fix the accessibility issue for Back to top component, we added attribute `title` to `a` tag
+
 
 # Summary 8.x-0.17
 ## Release notes
