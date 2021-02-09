@@ -51,6 +51,22 @@
     </a>
     {{ page_top }}
     {{ page }}
+    <!-- Search Modal -->
+    <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content perfect-scrollbar">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ 'Search'|trans }}</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-close' } %}
+            </button>
+          </div>
+          <div class="modal-body">
+            {{ page.header_center_search }}
+          </div>
+        </div>
+      </div>
+    </div>
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
