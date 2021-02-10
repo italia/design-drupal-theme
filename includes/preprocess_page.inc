@@ -34,13 +34,3 @@ function bootstrap_italia_preprocess_page(&$variables)
   $variables['back_to_top_dark'] = (bool) theme_get_setting('back_to_top_dark');
   $variables['back_to_top_shadow'] = (bool) theme_get_setting('back_to_top_shadow');
 }
-
-/**
- * Implements hook_preprocess_page()
- * @param $variables
- */
-function bootstrap_italia_preprocess_html(&$variables)
-{
-  // search modal
-  $variables['modal_size'] = theme_get_setting('modal_size');
-}
