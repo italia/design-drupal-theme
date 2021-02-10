@@ -395,7 +395,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#open' => TRUE,
     '#group' => 'content_settings',
   ];
-  $form['component_settings']['modal']['modal_size'] = [
+  $form['content_settings']['modal']['modal_size'] = [
     '#type' => 'select',
     '#title' => t('Dimensione Modal'),
     '#description' => t('Seleziona la dimensione per il modal (xl corrisponde a fullscreen).'),

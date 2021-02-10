@@ -19,8 +19,6 @@ function bootstrap_italia_preprocess_page(&$variables)
   $variables['header_center_small'] = theme_get_setting('header_center_small');
   $variables['header_sticky'] = theme_get_setting('header_sticky');
   $variables['avatar_size'] = theme_get_setting('avatar_size');
-  // search modal
-  $variables['modal_size'] = theme_get_setting('modal_size');
   // social
   foreach (Helper::getSocialItems() as $social) {
     $low_social = strtolower($social);
@@ -35,4 +33,14 @@ function bootstrap_italia_preprocess_page(&$variables)
   $variables['back_to_top_small'] = (bool) theme_get_setting('back_to_top_small');
   $variables['back_to_top_dark'] = (bool) theme_get_setting('back_to_top_dark');
   $variables['back_to_top_shadow'] = (bool) theme_get_setting('back_to_top_shadow');
+}
+
+/**
+ * Implements hook_preprocess_page()
+ * @param $variables
+ */
+function bootstrap_italia_preprocess_html(&$variables)
+{
+  // search modal
+  $variables['modal_size'] = theme_get_setting('modal_size');
 }
