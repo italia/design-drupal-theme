@@ -387,6 +387,28 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('table_sm'),
   ];
 
+  // Modal settings.
+  $form['content_settings']['modal'] = [
+    '#type' => 'details',
+    '#title' => t('Search Modal'),
+    '#description' => t('Seleziona la grandezza del modal di ricerca.'),
+    '#open' => TRUE,
+    '#group' => 'content_settings',
+  ];
+  $form['component_settings']['modal']['modal_size'] = [
+    '#type' => 'select',
+    '#title' => t('Dimensione Modal'),
+    '#description' => t('Seleziona la dimensione per il modal (xl corrisponde a fullscreen).'),
+    '#default_value' => theme_get_setting('modal_size'),
+    '#options' => [
+      'xs' => 'xs',
+      'sm' => 'sm',
+      'md' => 'md',
+      'lg' => 'lg',
+      'xl' => 'xl',
+    ],
+  ];
+
   /* Component settings ------------------------------------------------ */
   $form['component_settings'] = [
     '#type' => 'details',
