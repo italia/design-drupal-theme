@@ -19,6 +19,8 @@ function bootstrap_italia_preprocess_page(&$variables)
   $variables['header_center_small'] = theme_get_setting('header_center_small');
   $variables['header_sticky'] = theme_get_setting('header_sticky');
   $variables['avatar_size'] = theme_get_setting('avatar_size');
+  // search modal
+  $variables['modal_size'] = theme_get_setting('modal_size');
   // social
   foreach (Helper::getSocialItems() as $social) {
     $low_social = strtolower($social);
