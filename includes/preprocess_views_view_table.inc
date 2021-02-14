@@ -1,7 +1,12 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_preprocess_page()
+ *
  * @param $variables
  */
 function bootstrap_italia_preprocess_views_view_table(&$variables) {

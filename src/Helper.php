@@ -2,10 +2,15 @@
 
 namespace Drupal\bootstrap_italia;
 
+/**
+ *
+ */
 class Helper {
 
-  public static function getSocialItems(): array
-  {
+  /**
+   *
+   */
+  public static function getSocialItems(): array {
     return [
       'Behance',
       'Facebook',
@@ -22,8 +27,10 @@ class Helper {
     ];
   }
 
-  public static function getColorsName($withLabel=false): array
-  {
+  /**
+   *
+   */
+  public static function getColorsName($withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'primary' => 'Primary ',
@@ -38,19 +45,20 @@ class Helper {
       ];
     }
 
-    return  [ 'primary ', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'white', 'dark' ];
+    return ['primary ', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'white', 'dark'];
   }
 
-  // https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni
-  public static function getBreakpoints($withLabel=false): array
-  {
+  /**
+   * Https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni.
+   */
+  public static function getBreakpoints($withLabel = FALSE): array {
     if ($withLabel) {
       return [
         '' => t('Extra small (auto, nessuno o <576px)'),
         'sm' => t('Small (>= 576px)'),
         'md' => t('Medium (>= 768px)'),
         'lg' => t('Large (>= 992px)'),
-        'xl' => t('Extra Large (>= 1200px)')
+        'xl' => t('Extra Large (>= 1200px)'),
       ];
     }
 

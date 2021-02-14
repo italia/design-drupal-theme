@@ -1,12 +1,16 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_preprocess().
+ *
  * @param $variables
  * @param $hook
  */
-function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
-{
+function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
   $variables['pattern_card_simple_shadow'] = (bool) theme_get_setting('pattern_card_simple_shadow');
   $variables['pattern_card_simple_border_bottom'] = (bool) theme_get_setting('pattern_card_simple_border_bottom');
   $variables['pattern_card_simple_border_rounded'] = (bool) theme_get_setting('pattern_card_simple_border_rounded');
@@ -39,7 +43,7 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
   $variables['pattern_card_teaser_border_bottom'] = (bool) theme_get_setting('pattern_card_teaser_border_bottom');
   $variables['pattern_card_teaser_border_rounded'] = (bool) theme_get_setting('pattern_card_teaser_border_rounded');
 
-  if ( isset($variables['card_date']) && $variables['variant'] == 'with_img' ){
+  if (isset($variables['card_date']) && $variables['variant'] == 'with_img') {
     $current_path = \Drupal::service('path.current')->getPath();
     $date_time = $current_path == '/patterns' ?
       $variables['card_date'] :
@@ -49,10 +53,10 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook)
     $date = explode('/', $date_time_elements[0]);
 
     $variables['card_date'] = [
-      'year' => isset($date[2]) ? $date[2] : false,
-      'month' => isset($date[1]) ? $date[1] : false,
-      'day' => isset($date[0]) ? $date[0] : false,
-      'time' => isset($date_time_elements[1]) ? $date_time_elements[1] : false
+      'year' => isset($date[2]) ? $date[2] : FALSE,
+      'month' => isset($date[1]) ? $date[1] : FALSE,
+      'day' => isset($date[0]) ? $date[0] : FALSE,
+      'time' => isset($date_time_elements[1]) ? $date_time_elements[1] : FALSE,
     ];
   }
 }

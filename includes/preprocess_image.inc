@@ -1,7 +1,12 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_preprocess_image()
+ *
  * @param $variables
  */
 function bootstrap_italia_preprocess_image(&$variables) {

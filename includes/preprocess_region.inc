@@ -1,12 +1,17 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_preprocess_region().
+ *
  * @param $variables
  * @param $hook
  */
-function bootstrap_italia_preprocess_region(&$variables, $hook){
+function bootstrap_italia_preprocess_region(&$variables, $hook) {
 
-  // header-nav
+  // header-nav.
   $variables['main_menu_breakpoint_expand'] = (string) theme_get_setting('main_menu_breakpoint_expand');
 }

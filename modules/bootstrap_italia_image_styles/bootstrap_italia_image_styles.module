@@ -1,51 +1,55 @@
 <?php
+
 /**
  * @file
- * The Bootstrap Italia Image Styles installation, Update and Uninstallation file.
+ * The Bootstrap Italia Image Styles module file.
  */
 
 declare(strict_types = 1);
 
 /**
  * Implements hook_install().
- * @param $is_syncing
+ *
+ * @param bool $is_syncing
+ *   TRUE if the module is being installed as part of a configuration import.
  */
-function bootstrap_italia_image_styles_install($is_syncing)
-{
-  // Set quality image
+function bootstrap_italia_image_styles_install($is_syncing) {
+  // Set quality image.
   Drupal::configFactory()
     ->getEditable('system.image.gd')
-    ->set('jpeg_quality','100')
+    ->set('jpeg_quality', '100')
     ->save(TRUE);
 }
 
 /**
  * Implements hook_uninstall().
- * @param $is_syncing
+ *
+ * @param bool $is_syncing
+ *   TRUE if the module is being uninstalled as part of a configuration import.
  */
-function bootstrap_italia_image_styles_uninstall($is_syncing)
-{
-  // Remove image styles configuration
+function bootstrap_italia_image_styles_uninstall($is_syncing) {
+  // Remove image styles configuration.
   $image_style_installed = \Drupal::service('file_system')
     ->scanDirectory(__DIR__ . '/config/install/', ' /.+(yml)/', ['key' => 'name']);
 
   foreach ($image_style_installed as $key_image_style => $proprieties) {
-    // image.style.image_style_machine_name_000x000
+    // image.style.image_style_machine_name_000x000.
     Drupal::configFactory()->getEditable($key_image_style)->delete();
   }
 
-  // Restore quality image to default value
+  // Restore quality image to default value.
   Drupal::configFactory()
     ->getEditable('system.image.gd')
-    ->set('jpeg_quality','75')
+    ->set('jpeg_quality', '75')
     ->save(TRUE);
 }
 
 /**
  * Implements hook_update_N().
- * @param $sandbox
+ *
+ * @param array $sandbox
+ *   Stores information for batch updates.
  */
-function bootstrap_italia_image_styles_update_8001(&$sandbox)
-{
+function bootstrap_italia_image_styles_update_8001(&$sandbox) {
 
 }

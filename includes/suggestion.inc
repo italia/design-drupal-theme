@@ -1,18 +1,22 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\block\Entity\Block;
 use Drupal\block_content\BlockContentInterface;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
  * https://www.drupal.org/node/2521876#comment-10684366
+ *
  * @param array $suggestions
  * @param array $variables
  */
-function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $variables)
-{
+function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $variables) {
   // Add content type suggestions.
-  if (($node = \Drupal::request()->attributes->get('node')) && (strpos($_SERVER['REQUEST_URI'], "revisions") == false)) {
+  if (($node = \Drupal::request()->attributes->get('node')) && (strpos($_SERVER['REQUEST_URI'], "revisions") == FALSE)) {
     array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
     $variables['content_type_name'] = $node->getType();
   }
@@ -20,8 +24,10 @@ function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $var
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
  * @param array $suggestions
  * @param array $variables
+ *
  * @todo da sistemare, bug drupal? bug mio?
  * FILE NAME SUGGESTIONS:
  * x menu--slim.html.twig <=================
@@ -30,8 +36,7 @@ function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $var
  * x menu--slim.html.twig <=================
  * menu.html.twig
  */
-function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables)
-{
+function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
   $menu_name = isset($variables['menu_name']) ? $variables['menu_name'] : 'generic';
 
   if (isset($variables['attributes']['block'])) {
@@ -45,11 +50,11 @@ function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_block_alter().
+ *
  * @param array $suggestions
  * @param array $variables
  */
-function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables)
-{
+function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {
   $content = $variables['elements']['content'];
   if (isset($content['#block_content']) and $content['#block_content'] instanceof BlockContentInterface) {
     $bundle = $content['#block_content']->bundle();
@@ -59,19 +64,19 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $suggestions[] = 'block__' . $bundle . $view_mode;
   }
   if (!empty($variables['elements']['#id'])) {
-    // if ($variables['elements']['#id'] == 'navigazioneprincipale') kpr($variables['elements']);
+    // If ($variables['elements']['#id'] == 'navigazioneprincipale') kpr($variables['elements']);.
     $block = Block::load($variables['elements']['#id']);
     if ($block) {
       $region = $block->getRegion();
     }
     else {
-      $region = (isset($variables['elements']['#configuration']['region'])) ? $variables['elements']['#configuration']['region']: '';
+      $region = (isset($variables['elements']['#configuration']['region'])) ? $variables['elements']['#configuration']['region'] : '';
     }
-    // adds suggestion with region and block id
+    // Adds suggestion with region and block id.
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
-    // adds suggestion with region id
+    // Adds suggestion with region id.
     $suggestions[] = 'block__' . $region;
-    // adds suggestions with base and derivative plugin id
+    // Adds suggestions with base and derivative plugin id.
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
     $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#derivative_plugin_id'];
   }
@@ -79,11 +84,11 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
  * @param array $suggestions
  * @param array $variables
  */
-function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables)
-{
+function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
   if (isset($variables['view'])) {
     $view = $variables['view'];
     $displayObj = $view->getDisplay();

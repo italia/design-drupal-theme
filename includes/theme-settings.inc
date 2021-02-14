@@ -1,11 +1,15 @@
 <?php
 
+/**
+ * @file
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\bootstrap_italia\Helper;
 
 /**
  * @param $form
- * @param FormStateInterface $form_state
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param null $form_id
  */
 function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, $form_id = NULL) {
@@ -35,7 +39,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#weight' => 0,
   ];
 
-  // Layout and theme variants
+  // Layout and theme variants.
   $form['header_settings']['layout_and_variants'] = [
     '#type' => 'details',
     '#title' => t('Layout e varianti colore'),
@@ -43,32 +47,32 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#open' => TRUE,
     '#group' => 'header_settings',
   ];
-  // Slim header light
+  // Slim header light.
   $form['header_settings']['layout_and_variants']['slim_header_light'] = [
     '#type' => 'checkbox',
     '#title' => t('Attiva la variante chiara dello slim header'),
     '#default_value' => theme_get_setting('slim_header_light'),
   ];
-  // Header center light
+  // Header center light.
   $form['header_settings']['layout_and_variants']['header_center_light'] = [
     '#type' => 'checkbox',
     '#title' => t('Attiva la variante chiara dell\'header centrale'),
     '#default_value' => theme_get_setting('header_center_light'),
   ];
-  // Header center small
+  // Header center small.
   $form['header_settings']['layout_and_variants']['header_center_small'] = [
     '#type' => 'checkbox',
     '#title' => t('Attiva la variante small dell\'header centrale'),
     '#default_value' => theme_get_setting('header_center_small'),
   ];
-  // Header sticky
+  // Header sticky.
   $form['header_settings']['layout_and_variants']['header_sticky'] = [
     '#type' => 'checkbox',
     '#title' => t('Attiva la possibiltà che la testata rimanga parzialmente visibile anche allo scorrere della pagina'),
     '#default_value' => theme_get_setting('header_sticky'),
   ];
 
-  // Ente di appartenenza
+  // Ente di appartenenza.
   $form['header_settings']['ente_appartenenza'] = [
     '#type' => 'details',
     '#title' => t('Ente di appartenenza'),
@@ -89,7 +93,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('ente_appartenenza_url'),
   ];
 
-  // Right Action
+  // Right Action.
   $form['header_settings']['right_action_settings'] = [
     '#type' => 'details',
     '#title' => t('Tipo di pulsante login'),
@@ -108,7 +112,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     ],
   ];
 
-  // Social network
+  // Social network.
   $form['header_settings']['social_settings'] = [
     '#type' => 'details',
     '#title' => t('Social network'),
@@ -121,8 +125,8 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     $low_social = strtolower($social);
     $form['header_settings']['social_settings'][$low_social] = [
       '#type' => 'url',
-      '#title' => t('URL profilo '. $social),
-      '#description' => t('Inserisci l\'URL del profilo '. $social .'. Inserisci indirizzo completo come: https://www.example.com.'),
+      '#title' => t('URL profilo ' . $social),
+      '#description' => t('Inserisci l\'URL del profilo ' . $social . '. Inserisci indirizzo completo come: https://www.example.com.'),
       '#default_value' => theme_get_setting($low_social),
     ];
   }
@@ -137,7 +141,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#weight' => 6,
   ];
 
-  // Main menu settings
+  // Main menu settings.
   $form['navigation_settings']['main_menu'] = [
     '#type' => 'details',
     '#title' => t('Menu principale'),
@@ -150,7 +154,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('Visualizza il menu dal breakpoint'),
     '#description' => t('Seleziona il breakpoint (dimensione schermo) dal quale desideri visualizzare l\'intero menu'),
     '#default_value' => theme_get_setting('main_menu_breakpoint_expand'),
-    '#options' => Helper::getBreakpoints(true),
+    '#options' => Helper::getBreakpoints(TRUE),
   ];
   $form['navigation_settings']['main_menu']['main_menu_link_size'] = [
     '#type' => 'checkbox',
@@ -209,7 +213,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     ],
   ];
 
-  // Sidebar menu settings
+  // Sidebar menu settings.
   $form['navigation_settings']['sidebar_menu'] = [
     '#type' => 'details',
     '#title' => t('Sidebar Menu'),
@@ -226,7 +230,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'white' => 'White',
       'light' => 'Light',
       'dark' => 'Dark',
-      'custom' => 'Nessuno (potrai personalizzarlo attraverso i CSS)'
+      'custom' => 'Nessuno (potrai personalizzarlo attraverso i CSS)',
     ],
   ];
   $form['navigation_settings']['sidebar_menu']['sidebar_menu_link_size'] = [
@@ -237,7 +241,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#options' => [
       'default' => 'Dimensione predefinita',
       'all' => 'Variante large per tutte le voci',
-      'active' => 'Variante large solo per le voci attive'
+      'active' => 'Variante large solo per le voci attive',
     ],
   ];
   $form['navigation_settings']['sidebar_menu']['sidebar_menu_link_weight'] = [
@@ -248,7 +252,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#options' => [
       'default' => 'Dimensione predefinita',
       'all' => 'Grassetto per tutte le voci',
-      'active' => 'Grassetto solo per le voci attive'
+      'active' => 'Grassetto solo per le voci attive',
     ],
   ];
   $form['navigation_settings']['sidebar_menu']['sidebar_menu_link_description'] = [
@@ -263,7 +267,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Scegli quale icona utilizzare per espandere i livelli annidati'),
     '#options' => [
       'it-expand' => 'Parentesi angolare verso il basso',
-      'it-chevron-right' => 'Parentesi angolare verso destra'
+      'it-chevron-right' => 'Parentesi angolare verso destra',
     ],
   ];
   $form['navigation_settings']['sidebar_menu']['sidebar_menu_icon_position'] = [
@@ -273,7 +277,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Scegli la posizione dell\'icona utilizzata per espandere i livelli annidati'),
     '#options' => [
       'left' => 'Sinistra',
-      'right' => 'Destra'
+      'right' => 'Destra',
     ],
   ];
   $form['navigation_settings']['sidebar_menu']['sidebar_menu_icon_color'] = [
@@ -281,10 +285,10 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('Colore icona delle voci espandibili'),
     '#default_value' => theme_get_setting('sidebar_menu_icon_color'),
     '#description' => t('Scegli il colore dell\'icona utilizzata per espandere i livelli annidati'),
-    '#options' => Helper::getColorsName(true),
+    '#options' => Helper::getColorsName(TRUE),
   ];
 
-  // Back to top settings
+  // Back to top settings.
   $form['navigation_settings']['back_to_top'] = [
     '#type' => 'details',
     '#title' => t('Back to top'),
@@ -342,7 +346,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('image_rounded'),
   ];
 
-  // Table settings
+  // Table settings.
   $form['content_settings']['table'] = [
     '#type' => 'details',
     '#title' => t('Tabelle'),
@@ -635,6 +639,9 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';
 }
 
+/**
+ *
+ */
 function bootstrap_italia_form_system_theme_settings_validate(array &$form, FormStateInterface $form_state) {
   if (function_exists('file_save_upload')) {
     // Handle file uploads.
