@@ -2,14 +2,13 @@
 
 /**
  * @file
+ * Preprocess page.
  */
 
 use Drupal\bootstrap_italia\Helper;
 
 /**
- * Implements hook_preprocess_page()
- *
- * @param $variables
+ * Implements hook_preprocess_page().
  */
 function bootstrap_italia_preprocess_page(&$variables) {
   // Slim header.

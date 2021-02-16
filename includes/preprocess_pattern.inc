@@ -2,13 +2,11 @@
 
 /**
  * @file
+ * Preprocess pattern.
  */
 
 /**
  * Implements hook_preprocess().
- *
- * @param $variables
- * @param $hook
  */
 function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
   $variables['pattern_card_simple_shadow'] = (bool) theme_get_setting('pattern_card_simple_shadow');

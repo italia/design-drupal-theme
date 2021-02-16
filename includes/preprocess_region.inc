@@ -2,13 +2,11 @@
 
 /**
  * @file
+ * Preprocess region.
  */
 
 /**
  * Implements hook_preprocess_region().
- *
- * @param $variables
- * @param $hook
  */
 function bootstrap_italia_preprocess_region(&$variables, $hook) {
 
