@@ -3,12 +3,12 @@
 namespace Drupal\bootstrap_italia;
 
 /**
- *
+ * Helper class for bootstrap_italia theme.
  */
 class Helper {
 
   /**
-   *
+   * Return social name.
    */
   public static function getSocialItems(): array {
     return [
@@ -28,7 +28,7 @@ class Helper {
   }
 
   /**
-   *
+   * Return colors name.
    */
   public static function getColorsName($withLabel = FALSE): array {
     if ($withLabel) {
@@ -45,7 +45,17 @@ class Helper {
       ];
     }
 
-    return ['primary ', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'white', 'dark'];
+    return [
+      'primary ',
+      'secondary',
+      'success',
+      'info',
+      'warning',
+      'danger',
+      'light',
+      'white',
+      'dark',
+    ];
   }
 
   /**

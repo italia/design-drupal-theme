@@ -3,7 +3,7 @@
  * @file
  * Template for NAME component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/COMPONENT/NAME
- * Last review: <bootsrap_italia_version> (La versione di bootstrap_italia di quanto è stato implementato questo componente)
+ * Last review: <bootstrap-italia_version>
  *
  * Available config:
  * - list: option1 | option2 | option3 | option4
