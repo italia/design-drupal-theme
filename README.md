@@ -77,13 +77,8 @@ This module is dependent on `paragraphs`, `field_group` and `imce`.
 
 ## Paragraphs overlay [EXPERIMENTAL]
 This module adds paragraph [overlay component](https://italia.github.io/bootstrap-italia/docs/componenti/overlay/).
-This module is dependent on
-- `bootstrap_italia_paragraphs`
-- `ds_extras`
-- `ds_switch_view_mode`
-- `ui_patterns_layouts`
-- `ui_patterns_ds`
-
+This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`,
+`ds_switch_view_mode`, `ui_patterns_layouts`, `ui_patterns_ds`.
 
     $ composer require drupal/ds
     $ drush pm:enable bootstrap_italia_paragraphs \
