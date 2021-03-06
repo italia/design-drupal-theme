@@ -130,6 +130,13 @@
         {% endif %}
       {% endif %}
 
+      {# Top card if teaser variant #}
+      {% if variant == 'teaser' %}
+        {% if card_icon|render %}
+          {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+        {% endif %}
+      {% endif %}
+
       <div class="card-body">
 
         {# Top card if simple_article #}
@@ -163,7 +170,7 @@
         {% if card_subtitle and variant == 'big2' %}
           <h6>{{ card_subtitle|render|striptags }}</h6>
         {% endif %}
-        
+
         {% set text_tag = variant ? 'p' : 'div' %}
         {% if variant %}
         {% set card_text = card_text|render|striptags %}
