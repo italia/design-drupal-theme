@@ -2,14 +2,13 @@
 
 /**
  * @file
+ * Preprocess breadcrumb.
  */
 
 use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
- *
- * @param $variables
  */
 function bootstrap_italia_preprocess_breadcrumb(&$variables) {
   $variables['breadcrumb_dark_background'] = (bool) theme_get_setting('breadcrumb_dark_background');

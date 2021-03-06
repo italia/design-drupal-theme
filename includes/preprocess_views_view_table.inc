@@ -2,12 +2,13 @@
 
 /**
  * @file
+ * Preprocess views.
+ *
+ * @todo: rename this file?
  */
 
 /**
- * Implements hook_preprocess_page()
- *
- * @param $variables
+ * Implements hook_preprocess_views().
  */
 function bootstrap_italia_preprocess_views_view_table(&$variables) {
   $variables['table_bg'] = theme_get_setting('table_bg');

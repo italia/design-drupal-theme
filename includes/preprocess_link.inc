@@ -2,12 +2,11 @@
 
 /**
  * @file
+ * Preprocess link.
  */
 
 /**
  * Implements hook_preprocess_links().
- *
- * @param $variables
  */
 function bootstrap_italia_preprocess_links(&$variables) {
   // Add current language to block.

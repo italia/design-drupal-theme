@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Theme suggestions.
  */
 
 use Drupal\block\Entity\Block;
@@ -9,10 +10,6 @@ use Drupal\block_content\BlockContentInterface;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
- * https://www.drupal.org/node/2521876#comment-10684366
- *
- * @param array $suggestions
- * @param array $variables
  */
 function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $variables) {
   // Add content type suggestions.
@@ -24,9 +21,6 @@ function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $var
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
- *
- * @param array $suggestions
- * @param array $variables
  *
  * @todo da sistemare, bug drupal? bug mio?
  * FILE NAME SUGGESTIONS:
@@ -50,9 +44,6 @@ function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_block_alter().
- *
- * @param array $suggestions
- * @param array $variables
  */
 function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {
   $content = $variables['elements']['content'];
@@ -64,7 +55,6 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $suggestions[] = 'block__' . $bundle . $view_mode;
   }
   if (!empty($variables['elements']['#id'])) {
-    // If ($variables['elements']['#id'] == 'navigazioneprincipale') kpr($variables['elements']);.
     $block = Block::load($variables['elements']['#id']);
     if ($block) {
       $region = $block->getRegion();
@@ -84,9 +74,6 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
- *
- * @param array $suggestions
- * @param array $variables
  */
 function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
   if (isset($variables['view'])) {

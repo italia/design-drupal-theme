@@ -2,12 +2,11 @@
 
 /**
  * @file
+ * Preprocess pager.
  */
 
 /**
- * Implements hook_preprocess_pager()
- *
- * @param $variables
+ * Implements hook_preprocess_pager().
  */
 function bootstrap_italia_preprocess_pager(&$variables) {
   $pager = \Drupal::service('pager.manager')->getPager();

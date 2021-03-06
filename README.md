@@ -1,6 +1,6 @@
 # Description
 `bootstrap_italia` is a base theme for Drupal that implements [the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
-This theme uses `webpack` as a module bundler and includes the https://github.com/italia/bootstrap-italia/ library as a dependency.
+This theme uses `webpack` as a module bundler and includes the [bootstrap-italia](https://github.com/italia/bootstrap-italia/) library as a dependency.
 
 # Drupal configuration
 Install `drupal 8.9` and `drush 10` with `composer` (https://getcomposer.org/)
@@ -25,7 +25,8 @@ Install `npm`: https://www.npmjs.com/get-npm
     /* 1. Install end enable dependencies */
     $ drush pm:enable inline_form_errors responsive_image
     $ composer require drupal/components drupal/ui_patterns
-    $ drush pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
+    $ drush pm:enable components \
+        ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
     $ composer require drupal/bootstrap_italia
 
     /* 2. Copy sub-theme to destination folder */
@@ -63,15 +64,21 @@ This module is dependent on `focal_point`.
     $ drush pm:enable focal_point bootstrap_italia_image_styles
 
 ## Paragraphs [EXPERIMENTAL]
-This is the base module for `paragraphs` integration and adds paragraph `content` and paragraph `configuration`.
+This is the base module for `paragraphs` integration.
+This module adds paragraph `content` and paragraph `configuration`.
 This module is dependent on `paragraphs`, `field_group` and `imce`.
 
     $ composer require drupal/paragraphs drupal/field_group drupal/imce
-    $ drush pm:enable paragraphs field_group ui_patterns_field_group imce bootstrap_italia_paragraphs
+    $ drush pm:enable paragraphs \
+        field_group \
+        ui_patterns_field_group \
+        imce \
+        bootstrap_italia_paragraphs
 
 ## Paragraphs overlay [EXPERIMENTAL]
 This module adds paragraph [overlay component](https://italia.github.io/bootstrap-italia/docs/componenti/overlay/).
-This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`, `ds_switch_view_mode`, `ui_patterns_layouts`, `ui_patterns_ds`
+This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`,
+`ds_switch_view_mode`, `ui_patterns_layouts`, `ui_patterns_ds`.
 
     $ composer require drupal/ds
     $ drush pm:enable bootstrap_italia_paragraphs \

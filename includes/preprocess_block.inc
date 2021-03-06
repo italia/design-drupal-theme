@@ -2,12 +2,11 @@
 
 /**
  * @file
+ * Preprocess block.
  */
 
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.
- *
- * @param $variables
  */
 function bootstrap_italia_preprocess_block(&$variables) {
   // Add the block ID as custom attribute to block content, this will be used

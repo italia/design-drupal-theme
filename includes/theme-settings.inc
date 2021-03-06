@@ -2,15 +2,14 @@
 
 /**
  * @file
+ * Theme settings.
  */
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\bootstrap_italia\Helper;
 
 /**
- * @param $form
- * @param \Drupal\Core\Form\FormStateInterface $form_state
- * @param null $form_id
+ * Implements hook_form_system_theme_settings_alter().
  */
 function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, $form_id = NULL) {
 
@@ -33,7 +32,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['header_settings'] = [
     '#type' => 'details',
     '#title' => t('Header'),
-    '#description' => t('Impostazioni personalizzabili per l\'intestazione del sito. <a href="https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/" target="_blank">Docs://Header</a>'),
+    '#description' => t("Impostazioni personalizzabili per l'intestazione del sito.") . ' <a href="https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/" target="_blank">Docs://Header</a>',
     '#open' => TRUE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -56,13 +55,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   // Header center light.
   $form['header_settings']['layout_and_variants']['header_center_light'] = [
     '#type' => 'checkbox',
-    '#title' => t('Attiva la variante chiara dell\'header centrale'),
+    '#title' => t("Attiva la variante chiara dell'header centrale."),
     '#default_value' => theme_get_setting('header_center_light'),
   ];
   // Header center small.
   $form['header_settings']['layout_and_variants']['header_center_small'] = [
     '#type' => 'checkbox',
-    '#title' => t('Attiva la variante small dell\'header centrale'),
+    '#title' => t("Attiva la variante small dell'header centrale"),
     '#default_value' => theme_get_setting('header_center_small'),
   ];
   // Header sticky.
@@ -76,20 +75,20 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['header_settings']['ente_appartenenza'] = [
     '#type' => 'details',
     '#title' => t('Ente di appartenenza'),
-    '#description' => t('Impostazioni personalizzabili l\'ente di appartenenza.'),
+    '#description' => t("Impostazioni personalizzabili l'ente di appartenenza."),
     '#open' => TRUE,
     '#group' => 'header_settings',
   ];
   $form['header_settings']['ente_appartenenza']['ente_appartenenza_nome'] = [
     '#type' => 'textfield',
     '#title' => t('Nome Ente di Appartenenza'),
-    '#description' => t('Qui puoi personalizzare il nome dell\'Ente di Appartenenza.'),
+    '#description' => t("Qui puoi personalizzare il nome dell'Ente di Appartenenza."),
     '#default_value' => theme_get_setting('ente_appartenenza_nome'),
   ];
   $form['header_settings']['ente_appartenenza']['ente_appartenenza_url'] = [
     '#type' => 'url',
     '#title' => t('URL Ente di Appartenenza'),
-    '#description' => t('Inserisci l\'URL per l\'Ente di Appartenenza. Inserisci indirizzo completo come: https://www.example.com.'),
+    '#description' => t("Inserisci l'URL dell'Ente di Appartenenza. Es: https://www.example.com"),
     '#default_value' => theme_get_setting('ente_appartenenza_url'),
   ];
 
@@ -125,8 +124,8 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     $low_social = strtolower($social);
     $form['header_settings']['social_settings'][$low_social] = [
       '#type' => 'url',
-      '#title' => t('URL profilo ' . $social),
-      '#description' => t('Inserisci l\'URL del profilo ' . $social . '. Inserisci indirizzo completo come: https://www.example.com.'),
+      '#title' => t('URL profilo @social', ['@social' => $social]),
+      '#description' => t("Inserisci l'URL del profilo @social. Es: https://www.example.com", ['@social' => $social]),
       '#default_value' => theme_get_setting($low_social),
     ];
   }
@@ -152,7 +151,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['navigation_settings']['main_menu']['main_menu_breakpoint_expand'] = [
     '#type' => 'select',
     '#title' => t('Visualizza il menu dal breakpoint'),
-    '#description' => t('Seleziona il breakpoint (dimensione schermo) dal quale desideri visualizzare l\'intero menu'),
+    '#description' => t("Seleziona il breakpoint (dimensione schermo) dal quale desideri visualizzare l'intero menu."),
     '#default_value' => theme_get_setting('main_menu_breakpoint_expand'),
     '#options' => Helper::getBreakpoints(TRUE),
   ];
@@ -225,7 +224,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'select',
     '#title' => t('Varianti colore'),
     '#default_value' => theme_get_setting('sidebar_menu_background'),
-    '#description' => t('Scegli le varianti colore. Se scegli il tema dark, imposta uno dei colori chiari all\'icona delle voci espandibili.'),
+    '#description' => t("Scegli le varianti colore. Se scegli il tema dark, imposta uno dei colori chiari all'icona delle voci espandibili."),
     '#options' => [
       'white' => 'White',
       'light' => 'Light',
@@ -237,7 +236,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'select',
     '#title' => t('Dimensione voci'),
     '#default_value' => theme_get_setting('sidebar_menu_link_size'),
-    '#description' => t('Questa impostazione gestisce la dimensione e l\'altezza del contenitore della voce di menu'),
+    '#description' => t("Questa impostazione gestisce la dimensione e l'altezza del contenitore della voce di menu."),
     '#options' => [
       'default' => 'Dimensione predefinita',
       'all' => 'Variante large per tutte le voci',
@@ -274,7 +273,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'select',
     '#title' => t('Posizione icona delle voci espandibili'),
     '#default_value' => theme_get_setting('sidebar_menu_icon_position'),
-    '#description' => t('Scegli la posizione dell\'icona utilizzata per espandere i livelli annidati'),
+    '#description' => t("Scegli la posizione dell'icona utilizzata per espandere i livelli annidati."),
     '#options' => [
       'left' => 'Sinistra',
       'right' => 'Destra',
@@ -284,7 +283,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'select',
     '#title' => t('Colore icona delle voci espandibili'),
     '#default_value' => theme_get_setting('sidebar_menu_icon_color'),
-    '#description' => t('Scegli il colore dell\'icona utilizzata per espandere i livelli annidati'),
+    '#description' => t("Scegli il colore dell'icona utilizzata per espandere i livelli annidati."),
     '#options' => Helper::getColorsName(TRUE),
   ];
 
@@ -313,7 +312,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
   $form['navigation_settings']['back_to_top']['back_to_top_shadow'] = [
     '#type' => 'checkbox',
-    '#title' => t('Usa l\'ombreggiatura del pulsante'),
+    '#title' => t("Usa l'ombreggiatura del pulsante."),
     '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
 
@@ -434,7 +433,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['component_settings']['avatar']['avatar_size'] = [
     '#type' => 'select',
     '#title' => t('Dimensione Avatar'),
-    '#description' => t('Seleziona la dimensione per l\'avatar (es: xs).'),
+    '#description' => t("Seleziona la dimensione per l'avatar (es: xs)."),
     '#default_value' => theme_get_setting('avatar_size'),
     '#options' => [
       'xs' => 'xs',
@@ -616,7 +615,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['component_settings']['card']['pattern_card_teaser'] = [
     '#type' => 'details',
     '#title' => t('Card teaser'),
-    '#description' => t('Consulta la documentazione, per questo tipo di card va aggiunto il wrapper in base all\'uso.'),
+    '#description' => t("Consulta la documentazione, per questo tipo di card va aggiunto il wrapper in base all'uso."),
     '#open' => FALSE,
     '#group' => 'card',
   ];
@@ -640,7 +639,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
 }
 
 /**
- *
+ * Implements hook_form_system_theme_settings_validate().
  */
 function bootstrap_italia_form_system_theme_settings_validate(array &$form, FormStateInterface $form_state) {
   if (function_exists('file_save_upload')) {
