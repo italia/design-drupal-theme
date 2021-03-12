@@ -22,7 +22,6 @@ function bootstrap_italia_preprocess_breadcrumb(&$variables) {
     $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
 
     if (!empty($page_title)) {
-      $variables['#cache']['contexts'][] = 'url';
       $variables['breadcrumb'][] = [
         'text' => $page_title,
         'attributes' => new Attribute(['class' => ['active']]),
