@@ -3,10 +3,10 @@
 This theme uses `webpack` as a module bundler and includes the [bootstrap-italia](https://github.com/italia/bootstrap-italia/) library as a dependency.
 
 # Drupal configuration
-Install `drupal 8.9` and `drush 10` with `composer` (https://getcomposer.org/)
+Install `drupal` and `drush` with `composer` (https://getcomposer.org/)
 
-    $ composer create "drupal/recommended-project:^8.9.0 < 9.0" my_site_name_dir
-    $ composer require drush/drush:10
+    $ composer create drupal/recommended-project my_site_name_dir
+    $ composer require drush/drush
 
 Install drupal with the Italian language, you can use drush or your browser
 
