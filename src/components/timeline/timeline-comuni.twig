@@ -1,0 +1,17 @@
+<div class="point-list-wrapper my-4">
+  <div class="point-list">
+    <div class="point-list-aside point-list-warning">
+      <div class="point-date text-monospace">{{ data_fase|render.__toString()|date('U')|format_date('custom','d') }}</div>
+      <div class="point-month text-monospace">{{ data_fase|render.__toString()|date('U')|format_date('custom','M') }}</div>
+    </div>
+    <div class="point-list-content">
+      <div class="card card-teaser shadow rounded">
+        <div class="card-body">
+          <h5 class="card-title">
+            dalle ore: {{ data_fase|render.__toString()|date('U')|format_date('custom','H:i') }} - {{ testo|raw }}
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
