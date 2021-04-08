@@ -35,6 +35,7 @@ back_to_top_enable: 1
 back_to_top_small: 0
 back_to_top_dark: 0
 back_to_top_shadow: 0
+modal_size: xl
 avatar_size: xs
 image_fluid: 1
 image_rounded: 0

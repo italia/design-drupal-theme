@@ -3,10 +3,10 @@
 This theme uses `webpack` as a module bundler and includes the [bootstrap-italia](https://github.com/italia/bootstrap-italia/) library as a dependency.
 
 # Drupal configuration
-Install `drupal 8.9` and `drush 10` with `composer` (https://getcomposer.org/)
+Install `drupal` and `drush` with `composer` (https://getcomposer.org/)
 
-    $ composer create "drupal/recommended-project:^8.9.0 < 9.0" my_site_name_dir
-    $ composer require drush/drush:10
+    $ composer create drupal/recommended-project my_site_name_dir
+    $ composer require drush/drush
 
 Install drupal with the Italian language, you can use drush or your browser
 
@@ -78,7 +78,7 @@ This module is dependent on `paragraphs`, `field_group` and `imce`.
 ## Paragraphs overlay [EXPERIMENTAL]
 This module adds paragraph [overlay component](https://italia.github.io/bootstrap-italia/docs/componenti/overlay/).
 This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`,
-`ds_switch_view_mode`, `ui_patterns_layouts`, `ui_patterns_ds`.
+`ds_switch_view_mode`, `ui_patterns_layouts` and `ui_patterns_ds`.
 
     $ composer require drupal/ds
     $ drush pm:enable bootstrap_italia_paragraphs \
