@@ -46,13 +46,13 @@ callout:
   # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
   # irrespective of whether a pattern of that type appears on the page.
   #   Example: ui_patterns/button.button
-  libraries:
-    -
-      callout:
-        css:
-          component:
-            css/callout.css: {}
-
+#  libraries:
+#    -
+#      callout:
+#        css:
+#          component:
+#            css/callout.css: {}
+#
   # Optional: Specify a TWIG template with 'use'.
   #
   #   Example:
