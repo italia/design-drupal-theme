@@ -19,6 +19,7 @@ Run in your sub-theme
 - Drupal coding standard.
 - Cards pattern: added the icon to teaser variant.
 - Issue #3198903 by braintec: breadcrumb cache issue.
+- Added timeline component.
 
 
 # Summary 8.x-0.17
