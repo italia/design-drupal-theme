@@ -15,6 +15,7 @@ function bootstrap_italia_form_search_block_form_alter(&$form, FormStateInterfac
   $form['keys']['#size'] = 20;
   $form['keys']['#placeholder'] = t('Search');
 }
+
 /**
  * Implements hook_preprocess_form_element().
  */
@@ -25,4 +26,14 @@ function bootstrap_italia_preprocess_form_element(&$variables) {
   if (in_array($element['#type'], ['checkbox', 'radio'])) {
     $variables['label']['#attributes']['class'][] = 'form-check-label';
   }
+}
+
+/**
+ * Implements hook_preprocess_input().
+ */
+function bootstrap_italia_preprocess_input(&$variables) {
+  $element = $variables['element'];
+
+  // Add the element type to the theme.
+  $variables['type'] = $element['#type'];
 }
