@@ -18,15 +18,19 @@
  * - sr_only_alt: string
  *
 #}
-
-<div class="d-flex align-items-start justify-content-start justify-content-md-around flex-wrap flex-sm-nowrap">
+{# QUESTA RIGA SOTTO è STATA COMMENTATA PERCHè SE DEVE ESSERE AGGIUNTA VA INSERITA NEL TEMPLATE DEL CAMPO, VISTA O ALTRO #}
+{#<div class="d-flex align-items-start justify-content-start justify-content-md-around flex-wrap flex-sm-nowrap">#}
   <div class="avatar-wrapper avatar-extra-text">
     <div class="avatar size-lg">
-      {{ image }}
+      {% if image|render %}
+        {{ image }}
+      {% else %}
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-user' } %}
+      {% endif %}
     </div>
     <div class="extra-text">
       <h4><a href="#">{{ nome }} {{ cognome }}</a></h4>
       <small>{{ ruolo }}</small>
     </div>
   </div>
-</div>
+{#</div>#}

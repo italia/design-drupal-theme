@@ -9,35 +9,43 @@
 #   - button
 #   - button_with_icon
 #
-callout:
+timeline_comuni:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: 'Callout'
-  description: Componente per evidenziare contenuti testuali. https://italia.github.io/bootstrap-italia/docs/componenti/callout/
+  label: 'TimeLine Comuni'
+  description: TimeLine di varie fasi di un evento come da template CT:Evento dei comuni.
   variants:
     default:
       label: Default
-      description: Callout basico.
-    highlight:
-      label: Highlight
-      description: Callout versione con solo bordo sinistro.
+      description: Versione default
+
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:
-    message_type:
+    #    giorno:
+    #      type: text
+    #      label: Data
+    #      description: Data inizio fase evento
+    #      preview: '02'
+    #    mese:
+    #      type: text
+    #      label: Mese
+    #      description: Mese inizio fase evento
+    #      preview: 'MAG - GEN - FEB...'
+    #    ora:
+    #      type: text
+    #      label: Ora
+    #      description: Mese inizio fase evento
+    #      preview: '09:00'
+    data_fase:
+      type: date
+      label: Data e Ora
+      description: Data e Ora del programma
+      preview: '23 Gen 2021 - 09:00'
+    testo:
       type: text
-      label: Message Type
-      description: Tipologia di colore legato alla caratteristica del messaggio.
-      preview: 'warning'
-    title:
-      type: text
-      label: Title
-      description: The title of the card.
-      preview: 'Attenzione'
-    text:
-      type: text
-      label: Text
-      description: Text of the card.
-      preview: 'Quisque ex eros, pellentesque vitae enim sed, pharetra tempus dolor. Donec eu nibh ac lacus luctus pellentesque. Duis interdum scelerisque magna nec malesuada.'
+      label: Descrizioone
+      description: Descrizionde della fase dell'evento.
+      preview: 'Saluti del Dirigente'
   # Optional: Attached libraries.
   #
   # You can include libraries defined by other modules / themes with dependencies.
@@ -46,13 +54,13 @@ callout:
   # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
   # irrespective of whether a pattern of that type appears on the page.
   #   Example: ui_patterns/button.button
-#  libraries:
-#    -
-#      callout:
-#        css:
-#          component:
-#            css/callout.css: {}
-#
+  # libraries:
+  #   -
+  #     card_simple:
+  #       css:
+  #         component:
+  #           css/card_simple.css: {}
+
   # Optional: Specify a TWIG template with 'use'.
   #
   #   Example:
