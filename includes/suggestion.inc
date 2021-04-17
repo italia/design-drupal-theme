@@ -84,3 +84,26 @@ function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &
     $suggestions[] = 'views_view_unformatted__' . $view->id() . '__' . $displayObj->display['id'] . $variant;
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, array &$variables) {
+  $element = $variables['element'];
+
+  // Add a suggestion based on the form id name.
+  if (isset($element['#form_id'])) {
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $element['#form_id'];
+  }
+}
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_suggestions_form_element_alter(array &$suggestions, array &$variables) {
+  $element = $variables['element'];
+
+  // Add a suggestion based on the element type.
+  if (isset($element['#type'])) {
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $element['#type'];
+  }
+}
