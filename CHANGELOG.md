@@ -2,8 +2,24 @@
 ## Release notes
 
 If you use `italiagov` starter kit, update you sub-theme with the file inside in `/thmes/contrib/bootstrap_italia/var/starter_kits/italiagov`:
-- add `<your-sub-theme>/src/scss/mixin/_modal-fullscreen.scss`
+- add `<your-sub-theme>/src/scss/mixin/_modal-fullscreen.scss` file
 - add `@import "mixin/modal-fullscreen";` in `<your-sub-theme>/src/scss/theme.scss`
+
+**It is very important to update the syntax for declaring twig namespaces**.
+At the end of the file `/themes/custom/<sub-theme>/<sub-theme>.info.yml`, you need to replace this code
+
+      component-libraries:
+        italiagov_components:
+          paths:
+            ./src/components
+
+with this code
+
+      components:
+        namespaces:
+          italiagov_components: ./src/components
+
+If you don't make the change, when you upgrade to `components:^3` the theme will be broken (https://www.drupal.org/project/components).
 
 Run in your sub-theme
 
@@ -20,6 +36,7 @@ Run in your sub-theme
 - Cards pattern: added the icon to teaser variant.
 - Issue #3198903 by braintec: breadcrumb cache issue.
 - Added timeline component.
+- Updated the syntax for declaring twig namespaces.
 
 
 # Summary 8.x-0.17

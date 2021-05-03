@@ -115,7 +115,6 @@ stylesheets-remove:
 ckeditor_stylesheets:
   - assets/css/main.css
 
-component-libraries:
-  italiagov_components:
-    paths:
-      ./src/components
+components:
+  namespaces:
+    italiagov_components: ./src/components

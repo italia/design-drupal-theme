@@ -2,7 +2,7 @@ name: Bootstrap Italia
 type: theme
 description: Bootstrap Italia è un tema Bootstrap 4 conforme alle linee guida di design per i servizi web della PA
 package: Italia
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8.7.7 || ^9
 base theme: classy
 # php: 7.3
 
@@ -120,7 +120,6 @@ stylesheets-remove:
 ckeditor_stylesheets:
   - assets/css/main.css
 
-component-libraries:
-  bootstrap_italia_components:
-    paths:
-      ./src/components
+components:
+  namespaces:
+    bootstrap_italia_components: ./src/components
