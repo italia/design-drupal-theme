@@ -37,6 +37,7 @@ Run in your sub-theme
 - Issue #3198903 by braintec: breadcrumb cache issue.
 - Added timeline component.
 - Updated the syntax for declaring twig namespaces.
+- Updated ddev script (`var/bin/start-ddev-test`): you can choose which versions to test
 
 
 # Summary 8.x-0.17
