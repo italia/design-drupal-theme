@@ -4,31 +4,33 @@
 
 echo "==[ Settings ]=="
 
-read -p "Project machine name [a-zA-Z0-9] (new-project): " project_name
-if [ -z "$project_name" ]; then
-  project_name='new-project'
-fi
+read -r -p "Project machine name [a-zA-Z0-9] (new-project): " project_name
+project_name=${project_name:-new-project}
+
 if [ -d "$project_name" ]; then
   echo "${project_name} already exists! Exit..."
   exit
 fi
 
-read -p "Drupal version [8|9] (9): " drupal_version
+# Search project in ddev
+ddev_search=$(ddev list | grep -w "$project_name" | awk '{name = $1}; END {print name}')
+if [ "$project_name" == "$ddev_search" ]; then
+  echo "Error! The project name ${ddev_search} already exists! Exit..."
+  exit
+fi
+
+read -r -p "Drupal version [8|9] (9): " drupal_version
 if [ -z "$drupal_version" ] || [ "$drupal_version" == "9" ]; then
   drupal_version="9"
 else
   drupal_version="8"
 fi
 
-read -p "Bootstrap Italia version [0.1...x|0.x-dev|latest] (0.x-dev): " bootstrap_italia_version
-if [ -z "$bootstrap_italia_version" ]; then
-  bootstrap_italia_version='0.x-dev'
-fi
+read -r -p "Bootstrap Italia version [0.1...x|0.x-dev|latest] (0.x-dev): " bootstrap_italia_version
+bootstrap_italia_version=${bootstrap_italia_version:-0.x-dev}
 
-read -p "Do you want to activate the experimental modules? [y|n] (n): " enable_experimental_modules
-if [ -z "$enable_experimental_modules" ]; then
-  enable_experimental_modules='n'
-fi
+read -r -p "Do you want to activate the experimental modules? [y|n] (n): " enable_experimental_modules
+enable_experimental_modules=${enable_experimental_modules:-n}
 
 
 echo "==[ Configuration ]=="
