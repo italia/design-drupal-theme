@@ -1,9 +1,10 @@
 # Summary 8.x-0.18
 ## Release notes
 
-If you use `italiagov` starter kit, update you sub-theme with the file inside in `/thmes/contrib/bootstrap_italia/var/starter_kits/italiagov`:
+If you use `italiagov` starter kit, update your sub-theme using the files in `/themes/contrib/bootstrap_italia/var/starter_kits/italiagov` as a reference :
 - add `<your-sub-theme>/src/scss/mixin/_modal-fullscreen.scss` file
-- add `@import "mixin/modal-fullscreen";` in `<your-sub-theme>/src/scss/theme.scss`
+- add one line that contains `@import "mixin/modal-fullscreen";` in `<your-sub-theme>/src/scss/theme.scss`
+- update `<your-sub-theme>/src/scss/_fix.scss` , we added 2 rules (from line 49 to 56).
 
 **It is very important to update the syntax for declaring twig namespaces**.
 At the end of the file `/themes/custom/<sub-theme>/<sub-theme>.info.yml`, you need to replace this code
@@ -31,6 +32,7 @@ Run in your sub-theme
 - Added Avatar with text component https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-testo-aggiuntivo
 - Fixed the accessibility issue for Back to top component, we added attribute `title` to `a` tag
 - Fixed modal search. When the navbar is sticky, the modal disappears.
+- Fixed forms label width, the size of the label in some cases was zero.
 - Fixed callout component. The message was not displayed.
 - Drupal coding standard.
 - Cards pattern: added the icon to teaser variant.

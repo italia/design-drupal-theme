@@ -17,7 +17,7 @@ $(function() {
     const labelsForInput = $("label[for='" + $input.attr('id') + "']:not(.active)")
     if (labelsForInput && labelsForInput.length) {
       let labelWidth =
-        labelsForInput[0].offsetWidth > $input[0].offsetWidth - 20
+        labelsForInput[0].offsetWidth > $input[0].offsetWidth - 20 && $input[0].offsetWidth > 0
           ? $input[0].offsetWidth
           : 'auto'
       $(labelsForInput[0]).css('width', labelWidth)

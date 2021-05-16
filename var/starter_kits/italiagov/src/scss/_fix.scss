@@ -1,5 +1,6 @@
 /**
  * Drupal Fix
+ *
  */
 // Fix drupal toolbar
 #toolbar-administration.toolbar,
@@ -43,6 +44,14 @@
 // Fix form description
 .form-group small.form-text {
   position: relative;
+}
+
+// Fix label width
+.form-group label {
+  overflow: unset;
+}
+.was-validated .form-control:valid, .form-control.is-valid {
+  padding-right: unset;
 }
 
 /*
