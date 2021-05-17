@@ -41,6 +41,7 @@ Run in your sub-theme
 - Added timeline component.
 - Updated the syntax for declaring twig namespaces.
 - Updated ddev script (`var/bin/start-ddev-test`): you can choose which versions to test
+- Added new image style for image styles module.
 
 
 # Summary 8.x-0.17
