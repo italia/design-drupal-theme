@@ -7,7 +7,7 @@ If you use `italiagov` starter kit, update your sub-theme using the files in `/t
 - update `<your-sub-theme>/src/scss/_fix.scss` , we added 2 rules (from line 49 to 56).
 - update `<your-sub-theme>/src/js/custom/form.js`
 
-**It is very important to update the syntax for declaring twig namespaces**.
+**If you use `components:^2`, it is very important to update the syntax for declaring twig namespaces**.
 At the end of the file `/themes/custom/<sub-theme>/<sub-theme>.info.yml`, you need to replace this code
 
       component-libraries:
