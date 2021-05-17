@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_sxga_5_4_1280x1024_
-label: 'Focal point SXGA 5:4 (1280x1024)'
+label: 'Focal point SXGA 5:4 (1280x1024) Wide'
 effects:
   249b3b4c-757a-4e4b-a5ec-8088a23330f8:
     uuid: 249b3b4c-757a-4e4b-a5ec-8088a23330f8

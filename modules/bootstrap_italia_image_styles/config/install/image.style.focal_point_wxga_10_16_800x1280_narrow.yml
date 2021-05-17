@@ -1,0 +1,17 @@
+uuid: 959de827-3a1e-4a48-b4ef-89d85c405ef7
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_wxga_10_16_800x1280_narrow
+label: 'Focal point WXGA 10:16 (800x1280) Narrow'
+effects:
+  066a2aae-dd6b-4353-b217-175e47c1ec39:
+    uuid: 066a2aae-dd6b-4353-b217-175e47c1ec39
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 1280
+      crop_type: focal_point

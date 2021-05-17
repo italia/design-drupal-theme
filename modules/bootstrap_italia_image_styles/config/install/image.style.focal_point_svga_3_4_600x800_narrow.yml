@@ -1,0 +1,17 @@
+uuid: d4254e3c-5a4e-4e95-b83d-68abdd3db973
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_svga_3_4_600x800_narrow
+label: 'Focal point SVGA 3:4 (600x800) Narrow'
+effects:
+  0073bbd6-5738-4129-a166-0dff252c8bb8:
+    uuid: 0073bbd6-5738-4129-a166-0dff252c8bb8
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 800
+      crop_type: focal_point

@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_wqhd_16_9_2560x1440_
-label: 'Focal point WQHD 16:9 (2560x1440)'
+label: 'Focal point WQHD 16:9 (2560x1440) Wide'
 effects:
   467669dd-2678-4bdf-b06f-c5d6f7df4c02:
     uuid: 467669dd-2678-4bdf-b06f-c5d6f7df4c02

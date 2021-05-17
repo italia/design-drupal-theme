@@ -1,0 +1,17 @@
+uuid: 1e4fe1fd-1ca4-4914-8482-71ef680cd990
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_hvga_3_2_480x320_narrow
+label: 'Focal point HVGA 3:2 (480x320) Narrow'
+effects:
+  9660dda9-2155-4dfc-a668-48f8bbb0971c:
+    uuid: 9660dda9-2155-4dfc-a668-48f8bbb0971c
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 320
+      crop_type: focal_point

@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_hda_16_9_1360x768_
-label: 'Focal point HDA ~16:9 (1360x768)'
+label: 'Focal point HDA ~16:9 (1360x768) Wide'
 effects:
   50c5f29a-47de-47cf-9608-4d5c2dc82fe3:
     uuid: 50c5f29a-47de-47cf-9608-4d5c2dc82fe3

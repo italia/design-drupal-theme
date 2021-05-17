@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_svga_4_3_800x600_
-label: 'Focal point SVGA 4:3 (800x600)'
+label: 'Focal point SVGA 4:3 (800x600) Wide'
 effects:
   05c20a04-0345-4357-96c1-9f118f3c6020:
     uuid: 05c20a04-0345-4357-96c1-9f118f3c6020

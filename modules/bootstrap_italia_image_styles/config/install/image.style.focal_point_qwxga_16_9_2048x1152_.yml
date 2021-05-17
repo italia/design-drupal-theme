@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_qwxga_16_9_2048x1152_
-label: 'Focal point QWXGA 16:9 (2048x1152)'
+label: 'Focal point QWXGA 16:9 (2048x1152) Wide'
 effects:
   65c15820-2716-4435-9086-266996c8056d:
     uuid: 65c15820-2716-4435-9086-266996c8056d

@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_qhd_16_9_2560x1440_
-label: 'Focal point QHD 16:9 (2560x1440)'
+label: 'Focal point QHD 16:9 (2560x1440) Wide'
 effects:
   db7627a6-3c4b-42cd-84d1-b499cace2b39:
     uuid: db7627a6-3c4b-42cd-84d1-b499cace2b39

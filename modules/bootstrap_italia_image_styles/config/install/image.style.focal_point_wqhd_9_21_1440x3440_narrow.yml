@@ -1,0 +1,17 @@
+uuid: 0d5c480e-a352-47af-bc8b-fa5190de6a11
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_wqhd_9_21_1440x3440_narrow
+label: 'Focal point WQHD ~9:21 (1440x3440) Narrow'
+effects:
+  dc6aadb2-a6b9-414e-ad53-aef938d382f4:
+    uuid: dc6aadb2-a6b9-414e-ad53-aef938d382f4
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 3440
+      crop_type: focal_point

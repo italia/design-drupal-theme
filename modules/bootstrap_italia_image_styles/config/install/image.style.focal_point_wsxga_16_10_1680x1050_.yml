@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_wsxga_16_10_1680x1050_
-label: 'Focal point WSXGA+ 16:10 (1680x1050)'
+label: 'Focal point WSXGA+ 16:10 (1680x1050) Wide'
 effects:
   d5d4eea4-6cb3-4949-83ad-609d6a68116d:
     uuid: d5d4eea4-6cb3-4949-83ad-609d6a68116d

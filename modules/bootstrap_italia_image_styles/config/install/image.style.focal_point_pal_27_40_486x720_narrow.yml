@@ -1,0 +1,17 @@
+uuid: 1d80f25a-bfc3-4728-a565-4a10010d04c2
+langcode: it
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_pal_27_40_486x720_narrow
+label: 'Focal point PAL 27:40 (486x720) Narrow'
+effects:
+  95f0c2c7-0977-4d9d-8441-9de30039d306:
+    uuid: 95f0c2c7-0977-4d9d-8441-9de30039d306
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 486
+      height: 720
+      crop_type: focal_point

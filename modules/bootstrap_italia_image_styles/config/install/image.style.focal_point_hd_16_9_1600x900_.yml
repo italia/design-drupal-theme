@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_hd_16_9_1600x900_
-label: 'Focal point HD+ 16:9 (1600x900)'
+label: 'Focal point HD+ 16:9 (1600x900) Wide'
 effects:
   209e698b-6044-4858-81e4-53995d729d77:
     uuid: 209e698b-6044-4858-81e4-53995d729d77

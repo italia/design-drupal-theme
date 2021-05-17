@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_hvga_2_3_320x480_
-label: 'Focal point HVGA 2:3 (320x480)'
+label: 'Focal point HVGA 2:3 (320x480) Wide'
 effects:
   8fbef023-8358-4c0c-a3ef-2e559ac1066f:
     uuid: 8fbef023-8358-4c0c-a3ef-2e559ac1066f

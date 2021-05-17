@@ -1,0 +1,7 @@
+uuid: c817d4b5-8b99-493c-8969-e7746b2b3e5c
+langcode: it
+status: true
+dependencies: {  }
+name: focal_point_xga_3_4_768x1024_narrow
+label: 'Focal point XGA 3:4 (768x1024) Narrow'
+effects: {  }

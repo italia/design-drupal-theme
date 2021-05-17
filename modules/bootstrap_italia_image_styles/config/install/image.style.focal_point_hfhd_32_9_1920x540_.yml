@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_hfhd_32_9_1920x540_
-label: 'Focal point HFHD 32:9 (1920x540)'
+label: 'Focal point HFHD 32:9 (1920x540) Wide'
 effects:
   f676d314-5688-4b62-9cbb-f78bc930e654:
     uuid: f676d314-5688-4b62-9cbb-f78bc930e654

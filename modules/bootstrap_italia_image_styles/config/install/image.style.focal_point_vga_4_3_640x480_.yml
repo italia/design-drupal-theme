@@ -4,7 +4,7 @@ dependencies:
   module:
     - focal_point
 name: focal_point_vga_4_3_640x480_
-label: 'Focal point VGA 4:3 (640x480)'
+label: 'Focal point VGA 4:3 (640x480) Wide'
 effects:
   8cebe6e7-0fcd-445c-a4e7-3afdadd126e7:
     uuid: 8cebe6e7-0fcd-445c-a4e7-3afdadd126e7
