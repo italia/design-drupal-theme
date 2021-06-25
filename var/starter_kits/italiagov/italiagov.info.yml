@@ -117,4 +117,5 @@ ckeditor_stylesheets:
 
 components:
   namespaces:
-    italiagov_components: ./src/components
+    italiagov_components:
+      - ./src/components

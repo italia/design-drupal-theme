@@ -19,7 +19,8 @@ with this code
 
       components:
         namespaces:
-          italiagov_components: ./src/components
+          italiagov_components:
+            - ./src/components
 
 If you don't make the change, when you upgrade to `components:^3` the theme will be broken (https://www.drupal.org/project/components).
 
