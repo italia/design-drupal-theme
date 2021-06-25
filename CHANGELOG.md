@@ -43,6 +43,7 @@ Run in your sub-theme
 - Updated the syntax for declaring twig namespaces.
 - Updated ddev script (`var/bin/start-ddev-test`): you can choose which versions to test
 - Added new image style for image styles module.
+- Generic names can be used in the footer menus
 
 
 # Summary 8.x-0.17
