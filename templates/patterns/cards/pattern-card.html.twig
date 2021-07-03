@@ -105,7 +105,7 @@
           {{ image }}
           {% if card_date and variant != 'special' %}
             <div class="card-calendar d-flex flex-column justify-content-center">
-              {% if card_date.month %}<span class="card-time">{{ card_date.time }}</span>{% endif %}
+              {% if card_date.time %}<span class="card-time">{{ card_date.time }}</span>{% endif %}
               {% if card_date.year %}<span class="card-year">{{ card_date.year }}</span>{% endif %}
               {% if card_date.day %}<span class="card-date">{{ card_date.day }}</span>{% endif %}
               {% if card_date.month %}<span class="card-day">{{ card_date.month }}</span>{% endif %}
@@ -119,7 +119,7 @@
               </figure>
               {% if card_date and variant != 'special' %}
                 <div class="card-calendar d-flex flex-column justify-content-center">
-                  {% if card_date.month %}<span class="card-time">{{ card_date.time }}</span>{% endif %}
+                  {% if card_date.time %}<span class="card-time">{{ card_date.time }}</span>{% endif %}
                   {% if card_date.year %}<span class="card-year">{{ card_date.year }}</span>{% endif %}
                   {% if card_date.day %}<span class="card-date">{{ card_date.day }}</span>{% endif %}
                   {% if card_date.month %}<span class="card-day">{{ card_date.month }}</span>{% endif %}
