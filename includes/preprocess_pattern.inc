@@ -5,6 +5,8 @@
  * Preprocess pattern.
  */
 
+use Drupal\Component\Datetime\DateTimePlus;
+
 /**
  * Implements hook_preprocess().
  */
