@@ -11,7 +11,7 @@ use Drupal\block_content\BlockContentInterface;
 /**
  * Implements hook_theme_suggestions_page_alter().
  */
-function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   // Add content type suggestions.
   if (($node = \Drupal::request()->attributes->get('node')) && (strpos($_SERVER['REQUEST_URI'], "revisions") == FALSE)) {
     array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
