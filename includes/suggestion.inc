@@ -7,6 +7,7 @@
 
 use Drupal\block\Entity\Block;
 use Drupal\block_content\BlockContentInterface;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
