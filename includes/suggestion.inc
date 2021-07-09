@@ -7,15 +7,30 @@
 
 use Drupal\block\Entity\Block;
 use Drupal\block_content\BlockContentInterface;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
  */
-function bootstrap_italia_suggestions_page_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   // Add content type suggestions.
-  if (($node = \Drupal::request()->attributes->get('node')) && (strpos($_SERVER['REQUEST_URI'], "revisions") == FALSE)) {
+  if (($node = \Drupal::request()->attributes->get('node')) &&
+   (strpos($_SERVER['REQUEST_URI'], "revisions") == FALSE)) {
     array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
     $variables['content_type_name'] = $node->getType();
+  }
+  // Add taxonomy suggestions.
+  if (($term = \Drupal::request()->attributes->get('taxonomy_term')) &&
+   (strpos($_SERVER['REQUEST_URI'], "revisions") == false)) {
+    if ($term->parent->target_id == 0) {
+      $suggestions[] = 'page__taxonomy__term__firstlevel';
+    }
+    else {
+      $suggestions[] = 'page__taxonomy__term__secondlevel';
+    }
+    $term_name = Html::getUniqueId(strtolower($term->getName()));
+    $suggestions[] = 'page__taxonomy__term__' . $term_name;
+    $suggestions[] = 'page__taxonomy__term__' . $term->bundle();
   }
 }
 
