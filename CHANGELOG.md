@@ -44,6 +44,8 @@ Run in your sub-theme
 - Updated ddev script (`var/bin/start-ddev-test`): you can choose which versions to test
 - Added new image style for image styles module.
 - Generic names can be used in the footer menus
+- Fixed mismatch variable in `templates/patterns/cards/pattern-card.html.twig`
+- Added compatibility for `changed date` field and `date_recur` module
 
 
 # Summary 8.x-0.17
