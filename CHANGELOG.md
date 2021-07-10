@@ -46,6 +46,8 @@ Run in your sub-theme
 - Generic names can be used in the footer menus
 - Fixed mismatch variable in `templates/patterns/cards/pattern-card.html.twig`
 - Added compatibility for `changed date` field and `date_recur` module
+- Fixed hook name `hook_theme_suggestions_page_alter()`
+- Added taxonomy suggestions
 
 
 # Summary 8.x-0.17
