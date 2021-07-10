@@ -24,6 +24,8 @@ with this code
 
 If you don't make the change, when you upgrade to `components:^3` the theme will be broken (https://www.drupal.org/project/components).
 
+Go to the sub-theme settings (`/admin/appearance/settings/italiagov`), then click on `Content` -> `Search modal` and choose the size you prefer, then click on "Save configuration"
+
 Run in your sub-theme
 
     $ npm run build:prod
