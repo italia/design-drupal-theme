@@ -50,6 +50,7 @@ Run in your sub-theme
 - Added compatibility for `changed date` field and `date_recur` module
 - Fixed hook name `hook_theme_suggestions_page_alter()`
 - Added taxonomy suggestions
+- Fixed bug that didn't show the card date with the image on the `/patterns` page.
 
 
 # Summary 8.x-0.17
