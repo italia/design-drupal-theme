@@ -64,10 +64,10 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
           break;
       }
       $variables['card_date'] = [
-        'year' => isset($date[2]) ? $date[2] : FALSE,
-        'month' => isset($date[1]) ? $date[1] : FALSE,
-        'day' => isset($date[0]) ? $date[0] : FALSE,
-        'time' => isset($date_time_elements[1]) ? $date_time_elements[1] : FALSE,
+        'year' => $date[2] ?? FALSE,
+        'month' => $date[1] ?? FALSE,
+        'day' => $date[0] ?? FALSE,
+        'time' => $date_time_elements[1] ?? FALSE,
       ];
     }
   }
