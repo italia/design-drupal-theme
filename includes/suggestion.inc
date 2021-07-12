@@ -50,10 +50,11 @@ function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, arra
 
   if (isset($variables['attributes']['block'])) {
     $block = Block::load($variables['attributes']['block']);
-    $region = $block->getRegion();
-    $suggestions[] = 'menu__' . $region;
-    $suggestions[] = 'menu__' . $region . '__' . $menu_name;
-    $suggestions[] = 'menu__' . $menu_name . '__' . $region;
+    if ($block = Block::load($variables['attributes']['block']) && $region = $block->getRegion()) {
+      $suggestions[] = 'menu__' . $region;
+      $suggestions[] = 'menu__' . $region . '__' . $menu_name;
+      $suggestions[] = 'menu__' . $menu_name . '__' . $region;
+    }
   }
 }
 
