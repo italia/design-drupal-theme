@@ -24,6 +24,8 @@ with this code
 
 If you don't make the change, when you upgrade to `components:^3` the theme will be broken (https://www.drupal.org/project/components).
 
+Go to the sub-theme settings (`/admin/appearance/settings/italiagov`), then click on `Content` -> `Search modal` and choose the size you prefer, then click on "Save configuration"
+
 Run in your sub-theme
 
     $ npm run build:prod
@@ -44,6 +46,11 @@ Run in your sub-theme
 - Updated ddev script (`var/bin/start-ddev-test`): you can choose which versions to test
 - Added new image style for image styles module.
 - Generic names can be used in the footer menus
+- Fixed mismatch variable in `templates/patterns/cards/pattern-card.html.twig`
+- Added compatibility for `changed date` field and `date_recur` module
+- Fixed hook name `hook_theme_suggestions_page_alter()`
+- Added taxonomy suggestions
+- Fixed bug that didn't show the card date with the image on the `/patterns` page.
 
 
 # Summary 8.x-0.17

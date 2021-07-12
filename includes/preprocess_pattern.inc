@@ -45,10 +45,7 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
 
   if (isset($variables['card_date']) && $variables['variant'] == 'with_img') {
     $current_path = \Drupal::service('path.current')->getPath();
-    if ($current_path == '/patterns') {
-      $variables['card_date'];
-    }
-    else {
+    if ($current_path != '/patterns') {
       $date_field = $variables['card_date'];
       // controlliamo campi non standard come date recur
       $date_field_type = key($date_field);
@@ -59,20 +56,19 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
           $date_time_elements = explode(' - ', $date_time);
           $date = explode('/', $date_time_elements[0]);
           break;
-        
+
         case 'field_date_recur':
           $date = DateTimePlus::createFromTimestamp((int)$variables['card_date']['field_date_recur'][0]['#value']);
           $date_time = $date->format('d/M/Y');
           $date = explode('/', $date_time);
           break;
       }
+      $variables['card_date'] = [
+        'year' => $date[2] ?? FALSE,
+        'month' => $date[1] ?? FALSE,
+        'day' => $date[0] ?? FALSE,
+        'time' => $date_time_elements[1] ?? FALSE,
+      ];
     }
-
-    $variables['card_date'] = [
-      'year' => isset($date[2]) ? $date[2] : FALSE,
-      'month' => isset($date[1]) ? $date[1] : FALSE,
-      'day' => isset($date[0]) ? $date[0] : FALSE,
-      'time' => isset($date_time_elements[1]) ? $date_time_elements[1] : FALSE,
-    ];
   }
 }

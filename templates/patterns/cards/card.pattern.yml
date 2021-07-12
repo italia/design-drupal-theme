@@ -90,7 +90,10 @@ card:
         È possibile utilizzare una data nel formato giorno, mese e orario, es: 'd/F - 09:05' (09/Ottobre - 09:05).
         È possibile usare il formato tempo fa su un'unica riga, esempi: '3 giorni fa', 'un mese fa', '2 anni fa' (comunque viene sconsigliata questa pratica, un testo troppo lungo potrebbe creare problemi grafici).
         Si sconsiglia l'uso della data completa più l'orario, il componente non è progettato per contenere 4 righe, ad esempio evitare 'd/m/Y - H:i' oppure 'd/F/Y - H:i'
-      preview: '09/Ottobre - 09:05'
+      preview:
+        day: "09"
+        month: "Ottobre"
+        time: "09:05"
     card_signature:
       type: text
       label: Firma o autore
