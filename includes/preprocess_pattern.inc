@@ -57,11 +57,11 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
           $date = explode('/', $date_time_elements[0]);
           break;
 
-        case 'field_date_recur':
-          $date = DateTimePlus::createFromTimestamp((int)$variables['card_date']['field_date_recur'][0]['#value']);
-          $date_time = $date->format('d/M/Y');
-          $date = explode('/', $date_time);
-          break;
+        // case 'field_date_recur':
+        //   $date = DateTimePlus::createFromTimestamp((int)$variables['card_date']['field_date_recur'][0]['#value']);
+        //   $date_time = $date->format('d/M/Y');
+        //   $date = explode('/', $date_time);
+        //   break;
       }
       $variables['card_date'] = [
         'year' => $date[2] ?? FALSE,
