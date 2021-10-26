@@ -64,8 +64,8 @@
         class="{{ container_link_classes|join(' ') }}"
         {{ item.is_expanded ? 'data-toggle="dropdown" aria-expandend="false"' : '' }}
         href="{{ item.url }}"
-        {% if item.original_link.pluginDefinition.description %}
-          title="{{ item.original_link.pluginDefinition.description }}"
+        {% if item.original_link.getDescription() %}
+          title="{{ item.original_link.getDescription() }}"
         {% endif %}
       >
         <span>{{ item.title }}</span>
@@ -130,15 +130,15 @@
                                 class="{{ link_classes_second_level|join(' ') }} pl-0"
                                 {{ m_items.attributes }}
                                 href="{{ m_items.url }}"
-                                {% if m_items.original_link.pluginDefinition.description %}
-                                  title="{{ m_items.original_link.pluginDefinition.description }}"
+                                {% if m_items.original_link.getDescription() %}
+                                  title="{{ m_items.original_link.getDescription() }}"
                                 {% endif %}
                               >
                             {% endif %}
 
                               <span>{{ m_items.title }}</span>
-                              {% if m_items.original_link.pluginDefinition.description and main_menu_megamenu_title_description %}
-                                <p>{{ m_items.original_link.pluginDefinition.description }}</p>
+                              {% if m_items.original_link.getDescription() and main_menu_megamenu_title_description %}
+                                <p>{{ m_items.original_link.getDescription() }}</p>
                               {% endif %}
 
                             {% if m_items.url is empty %}

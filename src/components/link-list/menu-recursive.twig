@@ -76,8 +76,8 @@ We call a macro which calls itself to render the full tree.
             class="{{ item_classes|join(' ')|trim }}"
             {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="true"' : '' }}
             href="{{ item.below ? '#'~uuid|clean_id : item.url }}"
-            {% if item.original_link.pluginDefinition.description %}
-              title="{{ item.original_link.pluginDefinition.description }}"
+            {% if item.original_link.getDescription() %}
+              title="{{ item.original_link.getDescription() }}"
             {% endif %}
           >
             <span>{{ item.title }}</span>
@@ -87,8 +87,8 @@ We call a macro which calls itself to render the full tree.
                 classes: ['icon-'~icon_color, 'icon-'~icon_position]
               } %}
             {% endif %}
-          {% if item.original_link.pluginDefinition.description and view_link_description %}
-            <p>{{ item.original_link.pluginDefinition.description }}</p>
+          {% if item.original_link.getDescription() and view_link_description %}
+            <p>{{ item.original_link.getDescription() }}</p>
           {% endif %}
           </a>
         {% endif %}
