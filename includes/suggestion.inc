@@ -8,6 +8,8 @@
 use Drupal\block\Entity\Block;
 use Drupal\block_content\BlockContentInterface;
 use Drupal\Component\Utility\Html;
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
@@ -16,7 +18,7 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
   // Add content type suggestions.
   if (($node = \Drupal::request()->attributes->get('node')) &&
    (strpos($_SERVER['REQUEST_URI'], "revisions") == FALSE)) {
-    if ($node instanceof \Drupal\node\NodeInterface) {
+    if ($node instanceof NodeInterface) {
       array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
       $variables['content_type_name'] = $node->getType();
     }
@@ -24,7 +26,7 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
   // Add taxonomy suggestions.
   if (($term = \Drupal::request()->attributes->get('taxonomy_term')) &&
    (strpos($_SERVER['REQUEST_URI'], "revisions") == false)) {
-    if ($term instanceof \Drupal\taxonomy\TermInterface) {
+    if ($term instanceof TermInterface) {
       if ($term->parent->target_id == 0) {
         $suggestions[] = 'page__taxonomy__term__firstlevel';
       }
