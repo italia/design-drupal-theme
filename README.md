@@ -46,12 +46,25 @@ Install `npm`: https://www.npmjs.com/get-npm
     $ npm install
 
 # Manage and generate assets
-    $ npm run build:prod
-    $ drush cr
+### Developement mode:
+Run watcher:
 
-or
+    $ npm run watch:dev
+
+Build assets:
 
     $ npm run build:dev
+    $ drush cr
+
+### Production mode:
+Run watcher:
+
+    $ npm run watch:prod
+
+Build assets:
+
+    $ npm run build:prod
+    $ drush cr
 
 # Optional
 If you want to install optional plugins.

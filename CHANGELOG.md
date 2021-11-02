@@ -2,9 +2,10 @@
 ## Release notes
 
 ## All Changes
-- Fixed condition in suggestion
-- Removed support for field_data_recur
+- Fixed condition in suggestion.
+- Removed support for field_data_recur.
 - Fixed link description. Improved compatibility with language and other modules.
+- Issue #3232091 by nessunluogo: Child theme dev webpack script doesn't work.
 
 # Summary 8.x-0.18
 ## Release notes
