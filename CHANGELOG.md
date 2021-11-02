@@ -1,3 +1,11 @@
+# Summary 8.x-0.19
+## Release notes
+
+## All Changes
+- Fixed condition in suggestion
+- Removed support for field_data_recur
+- Fixed link description. Improved compatibility with language and other modules.
+
 # Summary 8.x-0.18
 ## Release notes
 
