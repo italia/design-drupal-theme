@@ -9,6 +9,7 @@ If you use `italiagov` starter kit, update your sub-theme using the files in `/t
 - Removed support for field_data_recur.
 - Fixed link description. Improved compatibility with language and other modules.
 - Issue #3232091 by nessunluogo: Child theme dev webpack script doesn't work.
+- Issue #3240864 by scalas89: Check class on hook_theme_suggestions_page_alter.
 
 # Summary 8.x-0.18
 ## Release notes
