@@ -1,6 +1,9 @@
 # Summary 8.x-0.19
 ## Release notes
 
+If you use `italiagov` starter kit, update your sub-theme using the files in `/themes/contrib/bootstrap_italia/var/starter_kits/italiagov` as a reference :
+- update `"scripts":` statement in `<your-sub-theme>/package.json`
+
 ## All Changes
 - Fixed condition in suggestion.
 - Removed support for field_data_recur.
