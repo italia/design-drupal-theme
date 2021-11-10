@@ -1,5 +1,6 @@
 # Summary 8.x-0.19
 ## Release notes
+In this version some bugs have been fixed, the development mode of the theme has been corrected and new settings have been added to the theme (container sections).
 
 If you use `italiagov` starter kit, update your sub-theme using the files in `/themes/contrib/bootstrap_italia/var/starter_kits/italiagov` as a reference :
 - update `"scripts":` statement in `<your-sub-theme>/package.json`
@@ -10,6 +11,7 @@ If you use `italiagov` starter kit, update your sub-theme using the files in `/t
 - Fixed link description. Improved compatibility with language and other modules.
 - Issue #3232091 by nessunluogo: Child theme dev webpack script doesn't work.
 - Issue #3240864 by scalas89: Check class on hook_theme_suggestions_page_alter.
+- Issue #3248290: Contenuti del blocco contenuti non vengono visualizzati e layout non si adatta a larghezze superiori a 1200px
 
 # Summary 8.x-0.18
 ## Release notes
