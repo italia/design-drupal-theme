@@ -8,7 +8,7 @@
 
 {% if page.home_fourth_row_first or page.home_fourth_row_second or page.home_fourth_row_third or page.home_fourth_row_fourth %}
   <div class="{{ row_name }}__wrapper">
-    <div class="{{ row_name }} container">
+    <div class="{{ row_name }} {{ home_content_container_type ? home_content_container_type : 'container' }}">
       <div class="row">
 
         {% if page.home_fourth_row_first %}

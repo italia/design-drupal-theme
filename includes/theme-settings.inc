@@ -635,6 +635,58 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('pattern_card_teaser_border_rounded'),
   ];
 
+  /* Container settings ------------------------------------------------ */
+  $form['container_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Tipo di Container'),
+    '#description' => t("Scegli il tipo di container da applicare alle diverse sezioni della pagina.") . ' <a href="https://getbootstrap.com/docs/4.5/layout/overview/#containers" target="_blank">Docs://Container</a>',
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 18,
+  ];
+  $form['container_settings']['slim_header_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container dell'intestazione"),
+    '#description' => t('Seleziona il tipo di container.'),
+    '#default_value' => theme_get_setting('slim_header_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['container_settings']['header_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container della testata"),
+    '#description' => t('Seleziona il tipo di container.'),
+    '#default_value' => theme_get_setting('header_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['container_settings']['navigation_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container del menu di navigazione"),
+    '#description' => t('Seleziona il tipo di container.'),
+    '#default_value' => theme_get_setting('navigation_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['container_settings']['content_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container del contenuto"),
+    '#description' => t('Seleziona il tipo di container.'),
+    '#default_value' => theme_get_setting('content_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['container_settings']['home_content_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container del contenuto in home"),
+    '#description' => t('Seleziona il tipo di container.'),
+    '#default_value' => theme_get_setting('home_content_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['container_settings']['footer_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container del footer"),
+    '#description' => t('Seleziona il tipo di container.'),
+    '#default_value' => theme_get_setting('footer_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+
   $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';
 }
 

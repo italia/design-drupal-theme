@@ -11,6 +11,14 @@ use Drupal\bootstrap_italia\Helper;
  * Implements hook_preprocess_page().
  */
 function bootstrap_italia_preprocess_page(&$variables) {
+  // Containers
+  $variables['slim_header_container_type'] = theme_get_setting('slim_header_container_type');
+  $variables['header_container_type'] = theme_get_setting('header_container_type');
+  $variables['navigation_container_type'] = theme_get_setting('navigation_container_type');
+  $variables['content_container_type'] = theme_get_setting('content_container_type');
+  $variables['home_content_container_type'] = theme_get_setting('home_content_container_type');
+  $variables['footer_container_type'] = theme_get_setting('footer_container_type');
+
   // Slim header.
   $variables['slim_header_light'] = theme_get_setting('slim_header_light');
   $variables['ente_appartenenza_nome'] = theme_get_setting('ente_appartenenza_nome');

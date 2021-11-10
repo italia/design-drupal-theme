@@ -1,14 +1,14 @@
 {% block footer %}
   <footer class="it-footer">
     <div class="it-footer-main">
-      <div class="container">
+      <div class="{{ footer_container_type ? footer_container_type : 'container' }}">
         {% include '@bootstrap_italia/layout/footer/_partial.footer-brand.html.twig' %}
         {% include '@bootstrap_italia/layout/footer/_partial.footer-menu.html.twig' %}
         {% include '@bootstrap_italia/layout/footer/_partial.footer-blocks.html.twig' %}
       </div>
     </div>
     <div class="it-footer-small-prints clearfix">
-      <div class="container">
+      <div class="{{ footer_container_type ? footer_container_type : 'container' }}">
         {% include '@bootstrap_italia/layout/footer/_partial.footer-small-prints.html.twig' %}
       </div>
     </div>

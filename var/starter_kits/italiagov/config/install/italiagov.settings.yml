@@ -69,3 +69,9 @@ pattern_card_special_border_rounded: 0
 pattern_card_teaser_shadow: 1
 pattern_card_teaser_border_bottom: 0
 pattern_card_teaser_border_rounded: 1
+slim_header_container_type: container
+header_container_type: container
+navigation_container_type: container
+content_container_type: container
+home_content_container_type: container
+footer_container_type: container

@@ -2,7 +2,7 @@
 
 {% if page.after_content_first or page.after_content_second or page.after_content_third or page.after_content_fourth %}
   <div class="{{ row_name }}__wrapper">
-    <div class="{{ row_name }} container">
+    <div class="{{ row_name }} {{ content_container_type ? content_container_type : 'container' }}">
       <div class="row">
 
         {% if page.after_content_first %}

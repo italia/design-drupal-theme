@@ -1,6 +1,6 @@
  {% block main %}
   <main>
-    <div role="main" class="container main-container js-quickedit-main-content">
+    <div role="main" class="{{ content_container_type ? content_container_type : 'container' }} main-container js-quickedit-main-content">
       {% if page.breadcrumb or page.title or page.local_tasks or page.help or page.notification %}
         <div class="row">
           <div class="col">

@@ -75,4 +75,21 @@ class Helper {
     return ['', 'sm', 'md', 'lg', 'xl'];
   }
 
+  /**
+   * Return bootstrap container type
+   */
+  public static function getBootstrapContainerType($withLabel = FALSE): array {
+    if ($withLabel) {
+      return [
+        'container' => t('Container fixed'),
+        'container-fluid' => t('Container fluid'),
+        'container-sm' => t('Container sm'),
+        'container-md' => t('Container md'),
+        'container-lg' => t('Container lg'),
+        'container-xl' => t('Container xl'),
+      ];
+    }
+    return ['container', 'container-fluid'];
+  }
+
 }
