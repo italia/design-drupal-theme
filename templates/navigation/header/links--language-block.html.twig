@@ -32,6 +32,8 @@
  */
 #}
 {% if links -%}
+  <div style="position: fixed;z-index: -1;left: 0;">
+    {{ kint(links) }}</div>
 <div class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
     <span>{{ current_language }}</span>
@@ -43,9 +45,11 @@
         <div class="link-list-wrapper">
           <ul{{ attributes.addClass('link-list') }}>
             {%- for item in links -%}
-              <li{{ item.attributes }}>
+              <li>
                 {%- if item.link -%}
-                  <a{{ item.attributes.addClass('list-item') }} href="{{ item.link.url }}">
+                  {# TODO: develop a better patch #}
+                  <!-- {{ item.link }} -->
+                  <a{{ item.attributes.addClass('list-item') }} href="{{ item.link['#url'] }}">
                     <span>{{ item.link['#title'] }}</span>
                   </a>
                 {%- elseif item.text_attributes -%}
