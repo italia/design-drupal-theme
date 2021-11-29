@@ -13,6 +13,7 @@ If you use `italiagov` starter kit, update your sub-theme using the files in `/t
 - Issue #3240864 by scalas89: Check class on hook_theme_suggestions_page_alter.
 - Issue #3248290: Contenuti del blocco contenuti non vengono visualizzati e layout non si adatta a larghezze superiori a 1200px
 - Issue #3251536: I link del blocco cambio lingua non funzionano.
+- Fixed breadcrumb separator on last item
 
 # Summary 8.x-0.18
 ## Release notes
