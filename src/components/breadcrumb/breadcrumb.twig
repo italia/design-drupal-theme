@@ -38,7 +38,11 @@
           {% endspaceless %}
         </li>
       {% else %}
-        <li class="breadcrumb-item active" aria-current="page">{{ item.text }}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ item.text }}
+          {% if breadcrumb_separator and loop.index < breadcrumb | length %}
+            <span class="separator">{{ breadcrumb_separator }}</span>
+          {% endif %}
+        </li>
       {% endif %}
     {% endfor %}
   </ol>
