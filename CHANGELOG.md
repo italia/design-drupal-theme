@@ -1,3 +1,9 @@
+# Summary 8.x-0.20
+## Release notes
+
+
+## All changes
+
 # Summary 8.x-0.19
 ## Release notes
 In this version some bugs have been fixed, the development mode of the theme has been corrected and new settings have been added to the theme (container sections).
@@ -5,7 +11,7 @@ In this version some bugs have been fixed, the development mode of the theme has
 If you use `italiagov` starter kit, update your sub-theme using the files in `/themes/contrib/bootstrap_italia/var/starter_kits/italiagov` as a reference :
 - update `"scripts":` statement in `<your-sub-theme>/package.json`
 
-## All Changes
+## All changes
 - Fixed condition in suggestion.
 - Removed support for field_data_recur.
 - Fixed link description. Improved compatibility with language and other modules.
@@ -48,7 +54,7 @@ Run in your sub-theme
     $ npm run build:prod
     $ drush cr
 
-## All Changes
+## All changes
 - Added Hero component https://italia.github.io/bootstrap-italia/docs/componenti/hero/
 - Added Avatar with text component https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-testo-aggiuntivo
 - Fixed the accessibility issue for Back to top component, we added attribute `title` to `a` tag
@@ -97,7 +103,7 @@ Fix social icons on theme settings
     $ npm run build:prod
     $ drush cr
 
-## All Changes
+## All changes
 - Fix image folder
 - Update bootstrap-library to 1.4.3 https://github.com/italia/bootstrap-italia/releases
 - Removed from starter kit old cards and templates.
@@ -156,7 +162,7 @@ Build assets and drush cr
 - You don't see Views Theme Suggestions: [issue](https://drupal.stackexchange.com/questions/249854/i-dont-see-views-theme-suggestions) and [patch](https://www.drupal.org/files/issues/2020-05-16/2118743-183-twig-debug-info.patch)
 - Dependencies https://www.drupal.org/project/bootstrap_italia/issues/3169891
 
-## All Changes
+## All changes
 - Issue #3139480: Add image style configurations from optional module
 - Issue #3099905: Image looks broken on all devices
 - Remove wrong configuration: image quality 100%
