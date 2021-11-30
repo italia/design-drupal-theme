@@ -53,7 +53,7 @@ else
 fi
 
 ddev composer require drush/drush
-#ddev composer require 'drupal/console:>=1.9'
+#ddev composer require 'drupal/console'
 
 echo "==[ Installing Drupal ${drupal_version} ]=="
 ddev exec drush -y site:install --locale=it
@@ -86,12 +86,12 @@ echo 'Set default theme'
 ddev exec drush -y config:set system.theme default italiagov
 
 echo 'Install assets'
-ddev exec npm install --prefix themes/custom/italiagov/
-ddev exec npm run build:prod --prefix themes/custom/italiagov/
+ddev exec npm install --prefix web/themes/custom/italiagov/
+ddev exec npm run build:prod --prefix web/themes/custom/italiagov/
 
 # Set site
 #ddev exec drush -y config:set system.site name \'Bootstrap Italia Test\'
-#dde#v exec drush -y config:set system.site slogan \'Bootstrap Italia Test v0.x-dev\'
+#ddev exec drush -y config:set system.site slogan \'Bootstrap Italia Test v0.x-dev\'
 
 if [ "$enable_experimental_modules" == "y" ]; then
   echo "==[ I am going to activate the experimental modules ]=="
