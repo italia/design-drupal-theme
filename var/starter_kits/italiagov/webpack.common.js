@@ -17,8 +17,6 @@ module.exports = {
     publicPath: "/",
   },
 
-  devtool: "source-map",
-
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
