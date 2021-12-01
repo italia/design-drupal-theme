@@ -69,13 +69,15 @@ Build assets:
 ### Hot mode
 To properly activate hot mode, do this:
 
-- In the file `<sub-theme>/webpack.hot.js` customize the variables` allowedHosts` and `port`.
+- In the file `<sub-theme>/webpack.hot.js` customize the variables `allowedHosts` and `port`.
 - In the file `<sub-theme>/<sub-theme>.libraries.yml` load the css and js as in the example commented.
+
 
 
     $ drush cr && npm run build:dev && npm run hot
 
-***Note*** that you need to run `drush cr` then `build: dev` and finally `hot`, otherwise it won't work.
+
+***Note*** that you need to run `drush cr` then `build:dev` and finally `hot`, otherwise it won't work.
 
 # Optional
 If you want to install optional plugins.
