@@ -3,6 +3,10 @@
   "version": "1.4.3",
   "description": "'A Drupal theme which implements the Italia Design System'",
   "main": "src/js/index.js",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=v12.0.0"
+  },
   "scripts": {
     "test": "npm run test-htmlprofiler",
     "build:dev": "cross-env NODE_ENV=development webpack --progress --config ./webpack.dev.js",
@@ -35,6 +39,7 @@
     "node-sass": "^6.0.1",
     "postcss-loader": "^6.2.1",
     "sass-loader": "^12.3.0",
+    "semver": "^7.3.5",
     "style-loader": "^3.3.1",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
