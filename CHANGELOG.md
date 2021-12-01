@@ -3,6 +3,7 @@
 
 
 ## All changes
+- The webpack configuration has been updated to version 5. [https://webpack.js.org/guides/production/](Guide)
 
 # Summary 8.x-0.19
 ## Release notes
