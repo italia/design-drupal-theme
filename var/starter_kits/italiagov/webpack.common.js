@@ -1,5 +1,4 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const check = require('./webpack.check')
@@ -14,13 +13,9 @@ module.exports = {
   output: {
     path: paths.build,
     filename: "js/bundle.js",
-    publicPath: "/",
   },
 
   plugins: [
-    // Removes/cleans build folders and unused assets when rebuilding
-    new CleanWebpackPlugin(),
-
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css'

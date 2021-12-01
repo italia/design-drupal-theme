@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { merge } = require('webpack-merge')
 
 const common = require('./webpack.common')
@@ -8,6 +9,10 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: false,
 
+  plugins: [
+    // Removes/cleans build folders and unused assets when rebuilding
+    new CleanWebpackPlugin(),
+  ],
   module: {
     rules: [
       {

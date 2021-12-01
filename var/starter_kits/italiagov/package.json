@@ -5,14 +5,15 @@
   "main": "src/js/index.js",
   "engineStrict": true,
   "engines": {
-    "node": ">=v12.0.0"
+    "node": ">=v14.0.0"
   },
   "scripts": {
     "test": "npm run test-htmlprofiler",
     "build:dev": "cross-env NODE_ENV=development webpack --progress --config ./webpack.dev.js",
     "build:prod": "cross-env NODE_ENV=production webpack --progress --config ./webpack.prod.js",
     "watch:dev": "cross-env NODE_ENV=development webpack --watch --progress --config ./webpack.dev.js",
-    "watch:prod": "cross-env NODE_ENV=production webpack --watch  --progress --config ./webpack.prod.js"
+    "watch:prod": "cross-env NODE_ENV=production webpack --watch  --progress --config ./webpack.prod.js",
+    "hot": "cross-env NODE_ENV=development webpack serve --config ./webpack.hot.js"
   },
   "repository": {
     "type": "git",
