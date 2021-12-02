@@ -5,6 +5,7 @@
 ## All changes
 - The webpack configuration has been updated to version 5. [https://webpack.js.org/guides/production/](Guide)
 - Added webpack hot mode
+- Issue #3252337: Path mismatch of icons and resources
 
 # Summary 8.x-0.19
 ## Release notes
