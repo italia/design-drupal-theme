@@ -23,20 +23,20 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns:[
         {
-          from: paths.modules + '/bootstrap-italia/dist/svg/sprite.svg',
-          to: paths.build + '/icons/',
-        },
-        {
           from: paths.modules + '/bootstrap-italia/src/assets/resizer-3x2.svg',
-          to: paths.build + '/icons/'
+          to: paths.build + '/assets/'
         },
         {
           from: paths.modules + '/bootstrap-italia/src/assets/upload-drag-drop-icon.svg',
-          to: paths.build + '/icons/'
+          to: paths.build + '/assets/'
         },
         {
           from: paths.modules + '/bootstrap-italia/src/fonts/',
           to: paths.build + '/fonts/'
+        },
+        {
+          from: paths.modules + '/bootstrap-italia/dist/svg/sprite.svg',
+          to: paths.build + '/svg/',
         },
         {
           from: './src/images/',
