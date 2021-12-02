@@ -35,4 +35,7 @@ var/starter_kits/italiagov/package-lock.json
 nbproject
 Thumbs.db
 .vscode
+
+# Subtheme ignore
 /var/starter_kits/italiagov/assets/
+/var/starter_kits/italiagov/webpack.settings.js

@@ -1,18 +1,16 @@
 const { merge } = require('webpack-merge')
 
+const fs = require('fs')
+const customSettingsFile = './webpack.settings.js'
+const settings = fs.existsSync(customSettingsFile)
+  ? require('./webpack.settings')
+  : require('./webpack.settings.dist')
+
 const dev = require('./webpack.dev')
 
 module.exports = merge(dev, {
   output: {
-    // if change this, remember to change relative path in "theme.libraries.yml"
-    publicPath: '/',
+    publicPath: settings.hotPublicPath,
   },
-  devServer: {
-    allowedHosts: '127.0.0.1', // or project-name.ddev.site
-    historyApiFallback: true,
-    compress: true,
-    https: false,
-    hot: true,
-    port: 8080,
-  },
+  devServer: settings.devServer,
 })

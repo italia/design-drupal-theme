@@ -69,15 +69,33 @@ Build assets:
 ### Hot mode
 To properly activate hot mode, do this:
 
-- In the file `<sub-theme>/webpack.hot.js` customize the variables `allowedHosts` and `port`.
+- Make sure your host port 8080 is not filtered, or exposed if you are using a container.
 - In the file `<sub-theme>/<sub-theme>.libraries.yml` load the css and js as in the example commented.
 
 ```
 $ drush cr && npm run build:dev && npm run hot
 ```
 
-
 ***Note*** that you need to run `drush cr` then `build:dev` and finally `hot`, otherwise it won't work.
+
+If you need customize `host` and `port`,
+copy `<sub-theme>/webpack.settings.dist.js` in `<sub-theme>/webpack.settings.js` and edit
+`devServer.allowedHosts` and `devServer.port`.
+
+If you use ddev use this tip to expose 8080 port
+
+```
+<project-name>/.ddev/docker-compose.ports.yaml
+
+version: '3.6'
+
+services:
+  web:
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+```
 
 # Optional
 If you want to install optional plugins.
