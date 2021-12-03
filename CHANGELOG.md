@@ -1,11 +1,37 @@
 # Summary 8.x-0.20
 ## Release notes
+This is a major update of the sub-theme development tools. If you use `italiagov` starter kit do this to update correctly:
 
+- Delete in your sub-theme:
+  - /assets
+  - /node_modules
+  - /package.json
+  - /package-lock.json
+  - /webpack.config.js
+- Copy the following files from `/themes/contrib/bootstrap_italia/var/starter_kits/italiagov/` into your sub-theme:
+  - /.nvmrc
+  - /package.json
+  - /webpack.*.js
+- Run `npm install`
+- Reinstall your dependencies, eg: `npm install swiper --save-dev` if you previously had swiper installed.
+- Run `run build:prod && drush cr`
+
+That's all.
+
+**Note**
+
+If you don't use `italiagov` as your sub-theme, note that `sprite.svg` has changed path, the correct path is `/assets/svg`.
+
+In writing these update instructions I assumed that:
+- you have a backup of the sub-theme;
+- you have tried this upgrade in a test/dev environment;
+- you have never edited the files built in `/asset`.
 
 ## All changes
 - The webpack configuration has been updated to version 5. [https://webpack.js.org/guides/production/](Guide)
 - Added webpack hot mode
 - Issue #3252337: Path mismatch of icons and resources
+
 
 # Summary 8.x-0.19
 ## Release notes
