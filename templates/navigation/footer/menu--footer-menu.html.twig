@@ -27,9 +27,13 @@
         {% if item.below %}
         <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
           {% for item_second in item.below %}
-            <li{{ item_second.attributes }}>
-              {{ link(item_second.title, item_second.url) }}
-            </li>
+            {% if item_second.title == '<divider>' %}
+              <span class="divider"></span>
+            {% else %}
+              <li{{ item_second.attributes }}>
+                {{ link(item_second.title, item_second.url) }}
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
         {% endif %}

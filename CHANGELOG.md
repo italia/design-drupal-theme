@@ -31,6 +31,7 @@ In writing these update instructions I assumed that:
 - The webpack configuration has been updated to version 5. [https://webpack.js.org/guides/production/](Guide)
 - Added webpack hot mode
 - Issue #3252337: Path mismatch of icons and resources
+- Issue #3215311: Il footer non prende correttamente il template twig
 
 
 # Summary 8.x-0.19
