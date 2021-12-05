@@ -32,14 +32,14 @@
               } %}
             {% endif %}
             <a href="{{ item.url }}">{{ item.text }}</a>
-            {% if breadcrumb_separator %}
+            {% if breadcrumb_separator and loop.last == false %}
               <span class="separator">{{ breadcrumb_separator }}</span>
             {% endif %}
           {% endspaceless %}
         </li>
       {% else %}
         <li class="breadcrumb-item active" aria-current="page">{{ item.text }}
-          {% if breadcrumb_separator and loop.index < breadcrumb | length %}
+          {% if breadcrumb_separator and loop.last == false %}
             <span class="separator">{{ breadcrumb_separator }}</span>
           {% endif %}
         </li>
