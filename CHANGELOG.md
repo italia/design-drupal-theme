@@ -32,6 +32,7 @@ In writing these update instructions I assumed that:
 - Added webpack hot mode
 - Issue #3252337: Path mismatch of icons and resources
 - Issue #3215311: Il footer non prende correttamente il template twig
+- Issue #3215313: icona it-expand su ente_appartenenza in modalità responsive
 
 
 # Summary 8.x-0.19
