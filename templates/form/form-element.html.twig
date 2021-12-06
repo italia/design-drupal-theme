@@ -85,7 +85,7 @@
   {% endif %}
   {{ children }}
   {% if type == 'password' %}
-    {{ macros.password_icon(base_path ~ '/' ~ directory) }}
+    {% include '@bootstrap_italia_components/icon/password_icon.twig' %}
   {% endif %}
   {% if suffix is not empty %}
     <div class="input-group-append">

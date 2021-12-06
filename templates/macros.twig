@@ -1,6 +1,6 @@
 {% macro icon(icon_name,active_theme_path,classes) %}
   <svg class="{{ classes|join(' ')|default('icon') }}">
-    <use xlink:href="{{ active_theme_path }}/assets/icons/sprite.svg#{{ icon_name }}"></use>
+    <use xlink:href="{{ active_theme_path }}/assets/svg/sprite.svg#{{ icon_name }}"></use>
   </svg>
   <script>
     console.error('macro.icon is deprecated, use icon component! See: bootstrap_italia/src/components/icon');
@@ -10,10 +10,13 @@
 {% macro password_icon(active_theme_path) %}
   <span class="password-icon" aria-hidden="true">
     <svg class="password-icon-visible icon icon-sm">
-      <use xlink:href="{{ active_theme_path }}/assets/icons/sprite.svg#it-password-visible"></use>
+      <use xlink:href="{{ active_theme_path }}/assets/svg/sprite.svg#it-password-visible"></use>
     </svg>
     <svg class="password-icon-invisible icon icon-sm d-none">
-      <use xlink:href="{{ active_theme_path }}/assets/icons/sprite.svg#it-password-invisible"></use>
+      <use xlink:href="{{ active_theme_path }}/assets/svg/sprite.svg#it-password-invisible"></use>
     </svg>
   </span>
+  <script>
+    console.error('macro.password_icon is deprecated, use password_icon component! See: bootstrap_italia/src/components/password_icon');
+  </script>
 {% endmacro %}

@@ -37,6 +37,9 @@ In writing these update instructions I assumed that:
 - In the `header-slim-menu` region it is possible to insert a menu with a generic name.
 - [Bug Fix] Icon component - Switch merge order (classes + icon_classes). In some cases js scripts only work correctly if the custom class is before the icon characteristics.
 
+## Deprecated function
+- `macro.icon` (this feature has been deprecated in version 0.11).
+- `macro.password_icon` is now deprecated, if you use this feature switch to `components/icon/password_icon`
 
 # Summary 8.x-0.19
 ## Release notes
