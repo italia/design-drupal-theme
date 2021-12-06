@@ -20,12 +20,12 @@ That's all.
 
 **Note**
 
-If you don't use `italiagov` as your sub-theme, note that `sprite.svg` has changed path, the correct path is `/assets/svg`.
+If you don't use `italiagov` as your sub-theme, note that `sprite.svg` has changed path, the correct path is `<sub-theme>/assets/svg/sprite.svg` (Issue #3252337)
 
 In writing these update instructions I assumed that:
 - you have a backup of the sub-theme;
 - you have tried this upgrade in a test/dev environment;
-- you have never edited the files built in `/asset`.
+- you have never edited the files built in `<sub-theme>/asset`.
 
 ## All changes
 - The webpack configuration has been updated to version 5. [https://webpack.js.org/guides/production/](Guide)
