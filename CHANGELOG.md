@@ -65,27 +65,28 @@ If you use `italiagov` starter kit, update your sub-theme using the files in `/t
 
 **If you use `components:^2`, it is very important to update the syntax for declaring twig namespaces**.
 At the end of the file `/themes/custom/<sub-theme>/<sub-theme>.info.yml`, you need to replace this code
-
-      component-libraries:
-        italiagov_components:
-          paths:
-            ./src/components
-
+```
+component-libraries:
+  italiagov_components:
+    paths:
+      ./src/components
+```
 with this code
-
-      components:
-        namespaces:
-          italiagov_components:
-            - ./src/components
-
+```
+components:
+  namespaces:
+    italiagov_components:
+      - ./src/components
+```
 If you don't make the change, when you upgrade to `components:^3` the theme will be broken (https://www.drupal.org/project/components).
 
 Go to the sub-theme settings (`/admin/appearance/settings/italiagov`), then click on `Content` -> `Search modal` and choose the size you prefer, then click on "Save configuration"
 
 Run in your sub-theme
-
-    $ npm run build:prod
-    $ drush cr
+```
+$ npm run build:prod
+$ drush cr
+```
 
 ## All changes
 - Added Hero component https://italia.github.io/bootstrap-italia/docs/componenti/hero/
@@ -116,25 +117,26 @@ Fix social icons on theme settings
 # Summary 8.x-0.16
 ## Release notes
 1) In your sub-theme
-
-
-    $ npm update
+```
+$ npm update
+```
 
 2) If you use `italiagov` starter kit, update your sub-theme with the files inside in `/thmes/contrib/bootstrap_italia/var/starter_kits/italiagov`:
     - `/themes/custom/<your-sub-theme>/webpack.config.js` from line  67 to 70
     - delete `/themes/custom/<your-sub-theme>/src/js/custom/isIE.js`
     - `/themes/custom/<your-sub-theme>/src/js/index.js` uncomment line 21 and remove line 22, like:
 
-
-    20 import '../../node_modules/bootstrap-italia/src/js/plugins/sticky-wrapper'
-    21 import '../../node_modules/bootstrap-italia/src/js/plugins/ie'
-    22 import '../../node_modules/bootstrap-italia/src/js/plugins/fonts-loader'
+```
+20 import '../../node_modules/bootstrap-italia/src/js/plugins/sticky-wrapper'
+21 import '../../node_modules/bootstrap-italia/src/js/plugins/ie'
+22 import '../../node_modules/bootstrap-italia/src/js/plugins/fonts-loader'
+```
 
 3) Run in your sub-theme
-
-
-    $ npm run build:prod
-    $ drush cr
+```
+$ npm run build:prod
+$ drush cr
+```
 
 ## All changes
 - Fix image folder
@@ -247,7 +249,7 @@ In your sub-theme
 - delete: italiagov/src/scss/misc/patterns-overview.scss
 - If the file "italiagov/theme-settings.php" is present in your sub-theme, and you have not modified it, you can delete it and save the settings from appearance -> your sub-theme
 
-Build assets with 'npm run build:prod' and 'drush cr'
+Build assets with `npm run build:prod` and `drush cr`
 
 ## Important Note
 **In the next release will be removed scss, js, webpack.config.js and package.json from the main theme, please switch to sub-theme if you use the main theme as a default theme.**
@@ -319,9 +321,9 @@ Make a backup before upgrading to version 0.9.
 - Added theme dependency declaration
 - Review configuration: webpack.config.js, package.json and composer.json
 - Add drush command skeleton
-
-      $ drush --include="web/themes/contrib/bootstrap_italia" bootstrap_italia:new-sub-theme theme_name
-
+```
+  $ drush --include="web/themes/contrib/bootstrap_italia" bootstrap_italia:new-sub-theme theme_name
+```
 - Drush commands, compatibility with drush 10
 - Remove Drush commands
 - Add sub-theme in /var/starter_kits/italiagov
