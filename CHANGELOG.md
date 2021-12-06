@@ -35,6 +35,7 @@ In writing these update instructions I assumed that:
 - Issue #3215313: icona it-expand su ente_appartenenza in modalità responsive
 - Issue #3215315 by braintec: Breadcrumb su cerca
 - In the `header-slim-menu` region it is possible to insert a menu with a generic name.
+- [Bug Fix] Icon component - Switch merge order (classes + icon_classes). In some cases js scripts only work correctly if the custom class is before the icon characteristics.
 
 
 # Summary 8.x-0.19

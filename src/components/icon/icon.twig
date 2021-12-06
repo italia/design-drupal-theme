@@ -24,6 +24,7 @@
  *     [ name: 'it-x', classess: ['customClass', 'icon-xs', 'icon-primary', 'bg-light', 'icon-padded', 'align-middle'] ]
  */
 #}
+{% spaceless %}
 {% set icon_classes = [
     'icon',
     size ? 'icon-'~size,
@@ -36,7 +37,7 @@
 %}
 
 {% if classes is defined %}
-  {% set icon_classes = icon_classes|merge(classes) %}
+  {% set icon_classes = classes|merge(icon_classes) %}
 {% endif %}
 
 {% set library = library ? library : 'sprite.svg' %}
@@ -44,3 +45,4 @@
 <svg class="{{ icon_classes|join(' ')|trim }}">
   <use xlink:href="/{{ active_theme_path() }}/assets/svg/{{ library }}#{{ name }}"></use>
 </svg>
+{% endspaceless %}
