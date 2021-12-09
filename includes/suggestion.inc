@@ -54,8 +54,8 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
 function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
   $menu_name = isset($variables['menu_name']) ? $variables['menu_name'] : 'generic';
 
-  if (isset($variables['attributes']['block'])) {
-    $block = Block::load($variables['attributes']['block']);
+  if (isset($variables['attributes']['data-block'])) {
+    $block = Block::load($variables['attributes']['data-block']);
     if ($block && $region = $block->getRegion()) {
       $suggestions[] = 'menu__' . $region;
       $suggestions[] = 'menu__' . $region . '__' . $menu_name;
