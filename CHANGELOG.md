@@ -37,6 +37,7 @@ In writing these update instructions I assumed that:
 - In the `header-slim-menu` region it is possible to insert a menu with a generic name.
 - [Bug Fix] Icon component - Switch merge order (classes + icon_classes). In some cases js scripts only work correctly if the custom class is before the icon characteristics.
 - Fix accessibility attribute in all block container (`data-block`).
+- Added maintenance page
 
 ## Deprecated function
 - `macro.icon` (this feature has been deprecated in version 0.11).
