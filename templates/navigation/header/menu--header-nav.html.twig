@@ -62,7 +62,7 @@
     <li{{ item.attributes.addClass(container_list_classes) }}>
       <a
         class="{{ container_link_classes|join(' ') }}"
-        {{ item.is_expanded ? 'data-toggle="dropdown" aria-expandend="false"' : '' }}
+        {{ item.is_expanded ? 'data-toggle="dropdown" aria-expanded="false"' : '' }}
         href="{{ item.url }}"
         {% if item.original_link.getDescription() %}
           title="{{ item.original_link.getDescription() }}"
