@@ -19,11 +19,11 @@ if [ "$project_name" == "$ddev_search" ]; then
   exit
 fi
 
-read -r -p "Drupal version [8|9] (9): " drupal_version
+read -r -p "Drupal version [9|10] (9): " drupal_version
 if [ -z "$drupal_version" ] || [ "$drupal_version" == "9" ]; then
   drupal_version="9"
 else
-  drupal_version="8"
+  drupal_version="10"
 fi
 
 read -r -p "Bootstrap Italia version [0.1...x|0.x-dev|latest] (0.x-dev): " bootstrap_italia_version
