@@ -37,7 +37,13 @@
 {% endfor %}
 
 {% if tag == 'input' %}
-  <input{{ attributes.addClass(button_classes) }} type="{{ input_type }}" value="{{ value }}" />
+  <input{{ attributes.addClass(button_classes) }}
+  {% if input_type %}
+  type="{{ input_type }}"
+  {% endif %}
+  {% if value %}
+  value="{{ value }}"
+  {% endif %} />
 {% else %}
   <{{ tag }}{{ attributes.addClass(button_classes) }} {{ dt|trim|raw }}{% if tag == 'a' %} href="{{ href }}" role="button"{% endif %}
   >{{ value }}</{{ tag }}>
