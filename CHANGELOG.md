@@ -4,7 +4,7 @@
 ## All changes
 - Fix for empty values in button component
 - ddev script updated, added Drupal 10 option.
-- Added LICENSE
+- Added LICENSE, CONTRIBUTING.md and various things for synchronization with the github repository.
 
 # Summary 8.x-0.20
 ## Release notes

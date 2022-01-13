@@ -8,7 +8,22 @@
         {
             "name": "Pietro Arturo Panetta",
             "email": "arturu@arturu.it",
+            "homepage": "https://www.drupal.org/u/arturopanetta",
             "role": "Maintainer"
+        },
+        {
+            "name": "Maurizio Cavalletti",
+            "homepage": "https://www.drupal.org/u/maurizio_akabit",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Crescenzo Velleca",
+            "homepage": "https://www.drupal.org/u/kris77",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Contributor",
+            "homepage": "https://www.drupal.org/node/3094960/committers"
         }
     ],
     "require": {
@@ -18,7 +33,7 @@
         "drush/drush": "^10"
     },
     "support": {
-        "issues": "http://drupal.org/project/issues/bootstrap_italia",
+        "issues": "https://drupal.org/project/issues/bootstrap_italia",
         "source": "https://git.drupalcode.org/project/bootstrap_italia"
     }
 }
