@@ -2,6 +2,9 @@
 ## Release notes
 
 ## All changes
+- Fix for empty values in button component
+- ddev script updated, added Drupal 10 option.
+- Added LICENSE
 
 # Summary 8.x-0.20
 ## Release notes
