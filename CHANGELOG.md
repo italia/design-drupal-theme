@@ -5,7 +5,7 @@
 - Fix for empty values in button component
 - ddev script updated, added Drupal 10 option.
 - Added LICENSE, CONTRIBUTING.md and various things for synchronization with the github repository.
-- Change the minimum version of drush to allow the installation of drush 11.
+- Issue #3258460 by desix75: Support drush 11.
 
 # Summary 8.x-0.20
 ## Release notes
