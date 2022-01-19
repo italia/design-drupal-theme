@@ -2,14 +2,14 @@ global:
   css:
     theme:
       # Example Webpack hot mode
-      # http://127.0.0.1:8080/css/main.css : { type: external }
-      # http://project-name.ddev.site:8080/css/main.css : { type: external }
+      # http://127.0.0.1:8080/css/main.css: { type: external }
+      # http://project-name.ddev.site:8080/css/main.css: { type: external }
 
       assets/css/main.css: {} # Comment this line if you use webpack hot mode
   js:
     # Example Webpack hot mode
-    # http://127.0.0.1:8080/js/bundle.js : { type: external }
-    # http://project-name.ddev.site:8080/js/bundle.js : { type: external }
+    # http://127.0.0.1:8080/js/bundle.js: { type: external }
+    # http://project-name.ddev.site:8080/js/bundle.js: { type: external }
 
     assets/js/bundle.js: {} # Comment this line if you use webpack hot mode
 

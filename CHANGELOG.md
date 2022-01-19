@@ -6,7 +6,8 @@
 - ddev script updated, added Drupal 10 option.
 - Added LICENSE, CONTRIBUTING.md and various things for synchronization with the github repository.
 - Issue #3258460 by desix75: Support drush 11.
-- Fix: empty value passed to file_url
+- Fix: empty value passed to file_url.
+- Fix: example hot mode in libraries.
 
 # Summary 8.x-0.20
 ## Release notes
