@@ -51,7 +51,7 @@
 %}
 
 {% set background_image =
-  ( file_url( content.field_settings[0]['#paragraph'].field_background_image.entity.fileuri  ) != '/' )
+  content.field_settings[0]['#paragraph'].field_background_image.entity.fileuri
   ? 'background-image: url("' ~ file_url( content.field_settings[0]['#paragraph'].field_background_image.entity.fileuri ) ~ '");'
   : ''
 %}
