@@ -8,6 +8,7 @@
 - Issue #3258460 by desix75: Support drush 11.
 - Fix: empty value passed to file_url.
 - Fix: example hot mode in libraries.
+- Added user theme suggestions
 
 # Summary 8.x-0.20
 ## Release notes

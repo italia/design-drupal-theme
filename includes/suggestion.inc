@@ -129,3 +129,26 @@ function bootstrap_italia_suggestions_form_element_alter(array &$suggestions, ar
     $suggestions[] = $variables['theme_hook_original'] . '__' . $element['#type'];
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+
+  // Define the view mode.
+  $mode = $variables['elements']['#view_mode'];
+
+  // Create a theme hook suggestion which has the view mode name in it.
+  $suggestions[] = 'user__' . $mode;
+
+  // Get current user.
+  $current_user = $variables['elements']['#user'];
+
+  // Get current user's roles.
+  $roles = $current_user->getRoles();
+
+  // Add suggestion per role.
+  foreach ($roles as $role) {
+    $suggestions[] = 'user__' . $mode . '__' . $role;
+  }
+}
