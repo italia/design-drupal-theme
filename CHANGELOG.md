@@ -9,6 +9,7 @@
 - Fix: empty value passed to file_url.
 - Fix: example hot mode in libraries.
 - Added user theme suggestions
+- Issue #3259930: xlink:href deprecated
 
 # Summary 8.x-0.20
 ## Release notes
