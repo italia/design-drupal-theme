@@ -10,6 +10,7 @@
 - Fix: example hot mode in libraries.
 - Added user theme suggestions
 - Issue #3259930: xlink:href deprecated
+- Issue #3260099: Drupal 10 compatibility for Bootstrap Italia. QuickEdit is deprecated in Drupal Core 9.3 and removed in Drupal Core 10
 
 # Summary 8.x-0.20
 ## Release notes
