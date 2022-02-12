@@ -27,10 +27,8 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
         "drupal/components": ">=2.4",
-        "drupal/ui_patterns": ">=1.2",
-        "drush/drush": "^10 || ^11"
+        "drupal/ui_patterns": ">=1.2"
     },
     "support": {
         "issues": "https://drupal.org/project/issues/bootstrap_italia",
