@@ -2,8 +2,10 @@
 ## Release notes
 
 ## All changes
-# Issue #3263341 by braintec: New release for Bootstrap-italia library
-# Issue #3258871: TypeError: MiniCssExtractPlugin is not a constructor
+- Issue #3263341: New release for Bootstrap-italia library
+- Issue #3258871: TypeError: MiniCssExtractPlugin is not a constructor
+- Fix: removing unnecessary dependencies ([aef4f7c3](https://git.drupalcode.org/project/bootstrap_italia/-/commit/aef4f7c332a4becb45c3f1dce828cc16f9a6643c))
+- Fix: Removal of non-existent style sheets, they are loaded from the sub-theme ([49a0aa3f](https://git.drupalcode.org/project/bootstrap_italia/-/commit/49a0aa3f2c9e380dfd1bcfd9a62da9e4f8a94814))
 
 # Summary 8.x-0.21
 ## Release notes
