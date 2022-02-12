@@ -3,6 +3,7 @@
 
 ## All changes
 # Issue #3263341 by braintec: New release for Bootstrap-italia library
+# Issue #3258871: TypeError: MiniCssExtractPlugin is not a constructor
 
 # Summary 8.x-0.21
 ## Release notes
