@@ -117,9 +117,6 @@ stylesheets-remove:
   - system.menus.css
   - system.admin.css
 
-ckeditor_stylesheets:
-  - assets/css/main.css
-
 components:
   namespaces:
     bootstrap_italia_components: ./src/components
