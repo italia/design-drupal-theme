@@ -2,7 +2,7 @@
 ## Release notes
 
 ## All changes
-
+# Issue #3263341 by braintec: New release for Bootstrap-italia library
 
 # Summary 8.x-0.21
 ## Release notes

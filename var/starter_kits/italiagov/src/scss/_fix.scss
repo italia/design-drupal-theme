@@ -51,7 +51,7 @@
   overflow: unset;
 }
 .was-validated .form-control:valid, .form-control.is-valid {
-  padding-right: unset;
+  padding-right: unset !important;
 }
 
 /*
