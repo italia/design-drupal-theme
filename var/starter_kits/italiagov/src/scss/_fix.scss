@@ -46,6 +46,12 @@
   position: relative;
 }
 
+// Fix exposed filter
+// https://www.drupal.org/project/bootstrap_italia/issues/3263808
+.views-exposed-form .form--inline .form-group {
+  margin-top: 1em;
+}
+
 // Fix label width
 .form-group label {
   overflow: unset;
