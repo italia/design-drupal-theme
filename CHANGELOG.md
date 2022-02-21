@@ -7,6 +7,7 @@
 - Fix: removing unnecessary dependencies ([aef4f7c3](https://git.drupalcode.org/project/bootstrap_italia/-/commit/aef4f7c332a4becb45c3f1dce828cc16f9a6643c))
 - Fix: Removal of non-existent style sheets, they are loaded from the sub-theme ([49a0aa3f](https://git.drupalcode.org/project/bootstrap_italia/-/commit/49a0aa3f2c9e380dfd1bcfd9a62da9e4f8a94814))
 - Issue #3263808 by Luca Pagani: Filter two columns layout
+- Issue #3260877: Block brandingdelsito quick edit contextual-links inherit logo a colour class
 
 # Summary 8.x-0.21
 ## Release notes

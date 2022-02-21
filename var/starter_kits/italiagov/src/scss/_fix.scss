@@ -21,9 +21,15 @@
 
 }
 
-// Fix autocomplete circle icon
+// Fix autocomplete circle icon.
 .form-control {
   background-size: 18px 30% !important;
+}
+
+// Block brandingdelsito quick edit contextual-links inherit logo a colour class.
+// https://www.drupal.org/project/bootstrap_italia/issues/3260877
+.contextual ul.contextual-links li a{
+  color: initial !important;
 }
 
 /*
