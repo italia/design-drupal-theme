@@ -32,14 +32,14 @@
   color: initial !important;
 }
 
-/*
+/**
  * Bootstrap 4 Fix
  */
 .form-text {
   margin-top: 0;
 }
 
-/*
+/**
  * Bootstrap Italia Fix
  */
 // Fix header logo
@@ -66,7 +66,7 @@
   padding-right: unset !important;
 }
 
-/*
+/**
  * Fix input-number spinner up and down. See templates/form/input--number.html.twig
  */
 // Chrome, Safari, Edge, Opera
@@ -78,4 +78,14 @@ input::-webkit-inner-spin-button {
 // Firefox
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+/**
+ * Fixes for bootstrap_italia when is used as admin theme.
+ */
+// Table-drag
+a.tabledrag-handle .handle {
+  width: 23px;
+  height: 23px;
+  margin: 0 0.5em 0;
 }
