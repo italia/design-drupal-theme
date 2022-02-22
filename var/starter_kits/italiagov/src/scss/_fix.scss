@@ -57,6 +57,9 @@
 .views-exposed-form .form--inline .form-group {
   margin-top: 1em;
 }
+.bootstrap-select-wrapper .dropdown.bootstrap-select .dropdown-menu li a {
+  padding: 8px 16px;
+}
 
 // Fix label width
 .form-group label {
