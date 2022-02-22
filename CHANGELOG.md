@@ -10,6 +10,7 @@
 - Issue #3263332 by arturopanetta: Views: Exposed filters not aligned
 - Issue #3260877: Block brandingdelsito quick edit contextual-links inherit logo a colour class
 - Fixed tabledrag when bootstrap-italia is set as admin theme
+- Issue #3222822 by maurizio_akabit: Change the main view template
 
 # Summary 8.x-0.21
 ## Release notes

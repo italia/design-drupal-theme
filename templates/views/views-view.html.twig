@@ -39,7 +39,7 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes).removeClass(css_class|split(' ')) }}>
   {{ title_prefix }}
   {% if title %}
     {{ title }}
@@ -62,9 +62,14 @@
   {% endif %}
 
   {% if rows %}
-    <!-- div class="view-content" -->
+    {# Using if for retrocompatibility with bootstrap_italia < 8.x-0.21 #}
+    {% if css_class %}
+      <div class="view-content {{ css_class }}">
+        {{ rows }}
+      </div>
+    {% else %}
       {{ rows }}
-    <!-- /div -->
+    {% endif %}
   {% elseif empty %}
     <div class="view-empty">
       {{ empty }}
