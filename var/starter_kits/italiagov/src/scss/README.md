@@ -1,24 +1,27 @@
 # Modifica dei file in questa cartella
-Non modificare il file "theme.scss"
+Il file `theme.scss` non viene modificato spesso.
 
-Per sovrascrivere le variabili di bootstrap italia modifica il file "_varibales.scss"
+Per sovrascrivere le variabili di bootstrap italia modifica il file
+"_varibales.scss". Tutte le variabili le puoi trovare nel file:
+`node_modules/bootstrap-italia/src/scss/_variables.scss`
 
 Per aggiungere funzioni custom modifica il file "_functions.scss"
 
-Per fix, drupal o bootstrap, modifica il file "_fix.scss"
+Il file "_fix.scss" viene modificato spesso, è consigliato non
+aggiungere modifiche custom.
 
-# Aggiungere stile custom
-Ad esempio, per aggiungere lo stile di una vista si procede nel seguente modo:
+# Aggiungere uno stile custom
+Per aggiungere lo stile di una vista puoi procede nel seguente modo:
 
-1. aggiungere dentro la cartella "views" un file denominato "_id-vista.scss" con il seguente codice
+1. aggiungi dentro la cartella "views" un file denominato
+  `_id-vista.scss` con il seguente codice
+```
+#id-vista { ... }
+```
+2. aggiungi il seguente codice dentro "views/_views.scss"
+```
+@import "id-vista"
+```
 
-
-        #id-vista { ... }
-
-2. aggiungere il seguente codice dentro "views/_views.scss"
-
-
-        @import "id-vista"
-
-Procedere in maniera analoga per tutto il resto.
+Procedi in maniera analoga per tutto il resto.
 Le cartelle rispecchiano la struttura del tema base di Drupal 8.

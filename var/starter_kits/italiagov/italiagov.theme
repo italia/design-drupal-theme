@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Theme file for Bootstrap Italia.
@@ -8,31 +9,30 @@
  * Implements theme_library_info_build().
  */
 function italiagov_library_info_build() {
-  // Get default theme
+  // Get default theme.
   $theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
-  // Get config default theme
-  $config = \Drupal::config($theme.'.settings');
-  // Get theme_variant default theme
+  // Get config default theme.
+  $config = \Drupal::config($theme . '.settings');
+  // Get theme_variant default theme.
   $theme_variant = $config->getOriginal('theme_variant');
 
   $libraries = [];
-  if ( !empty($theme_variant) && $theme_variant != '' ) {
+  if (!empty($theme_variant) && $theme_variant != '') {
     $libraries['global'] = [
       'css' => [
         'theme' => [
-          'assets/css/'.$theme_variant.'.css' => []
-        ]
+          'assets/css/' . $theme_variant . '.css' => [],
+        ],
       ],
       'js' => [
-        'assets/js/'.$theme_variant.'.js' => []
+        'assets/js/' . $theme_variant . '.js' => [],
       ],
       'dependencies' => [
         'core/jquery',
-        'core/drupal'
-      ]
+        'core/drupal',
+      ],
     ];
   }
 
   return $libraries;
 }
-

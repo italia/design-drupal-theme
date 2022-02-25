@@ -22,8 +22,8 @@ function bootstrap_italia_preprocess_breadcrumb(&$variables) {
     $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
     $route_name = \Drupal::routeMatch()->getRouteName();
 
-    if (!empty($page_title && $route_name!='search.view_node_search')) {
-      // fix cache
+    if (!empty($page_title && $route_name != 'search.view_node_search')) {
+      // Fix cache.
       $variables['#cache']['contexts'][] = 'url';
       $variables['breadcrumb'][] = [
         'text' => $page_title,

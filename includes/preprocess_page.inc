@@ -11,7 +11,7 @@ use Drupal\bootstrap_italia\Helper;
  * Implements hook_preprocess_page().
  */
 function bootstrap_italia_preprocess_page(&$variables) {
-  // Containers
+  // Containers.
   $variables['slim_header_container_type'] = theme_get_setting('slim_header_container_type');
   $variables['header_container_type'] = theme_get_setting('header_container_type');
   $variables['navigation_container_type'] = theme_get_setting('navigation_container_type');

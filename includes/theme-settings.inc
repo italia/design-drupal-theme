@@ -32,7 +32,9 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['header_settings'] = [
     '#type' => 'details',
     '#title' => t('Header'),
-    '#description' => t("Impostazioni personalizzabili per l'intestazione del sito.") . ' <a href="https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/" target="_blank">Docs://Header</a>',
+    '#description' => t("Impostazioni personalizzabili per l'intestazione del sito. @link", [
+      '@link' => '<a href="https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/" target="_blank">Docs://Header</a>',
+    ]),
     '#open' => TRUE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -639,7 +641,9 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['container_settings'] = [
     '#type' => 'details',
     '#title' => t('Tipo di Container'),
-    '#description' => t("Scegli il tipo di container da applicare alle diverse sezioni della pagina.") . ' <a href="https://getbootstrap.com/docs/4.5/layout/overview/#containers" target="_blank">Docs://Container</a>',
+    '#description' => t("Scegli il tipo di container da applicare alle diverse sezioni della pagina. @link", [
+      '@link' => '<a href="https://getbootstrap.com/docs/4.5/layout/overview/#containers" target="_blank">Docs://Container</a>',
+    ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 18,

@@ -5,8 +5,6 @@
  * Preprocess pattern.
  */
 
-use Drupal\Component\Datetime\DateTimePlus;
-
 /**
  * Implements hook_preprocess().
  */
@@ -47,7 +45,7 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
     $current_path = \Drupal::service('path.current')->getPath();
     if ($current_path != '/patterns') {
       $date_field = $variables['card_date'];
-      // controlliamo campi non standard come date recur
+      // Controlliamo campi non standard come date recur.
       $date_field_type = key($date_field);
       switch ($date_field_type) {
         case 'node_post_date':
@@ -57,11 +55,11 @@ function bootstrap_italia_preprocess_pattern_card(&$variables, $hook) {
           $date = explode('/', $date_time_elements[0]);
           break;
 
-        // case 'field_date_recur':
-        //   $date = DateTimePlus::createFromTimestamp((int)$variables['card_date']['field_date_recur'][0]['#value']);
-        //   $date_time = $date->format('d/M/Y');
-        //   $date = explode('/', $date_time);
-        //   break;
+        // Case 'field_date_recur':
+        // $date = DateTimePlus::createFromTimestamp((int)$variables['card_date']['field_date_recur'][0]['#value']);
+        // $date_time = $date->format('d/M/Y');
+        // $date = explode('/', $date_time);
+        // break;.
       }
       $variables['card_date'] = [
         'year' => $date[2] ?? FALSE,

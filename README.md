@@ -1,6 +1,9 @@
 # Description
-`bootstrap_italia` is a base theme for Drupal that implements [the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
-This theme uses `webpack` as a module bundler and includes the [bootstrap-italia](https://github.com/italia/bootstrap-italia/) library as a dependency.
+`bootstrap_italia` is a base theme for Drupal that implements
+[the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
+This theme uses `webpack` as a module bundler and includes the
+[bootstrap-italia](https://github.com/italia/bootstrap-italia/)
+library as a dependency.
 
 # Drupal configuration
 Install `drupal` and `drush` with `composer` (https://getcomposer.org/)
@@ -76,19 +79,24 @@ $ drush cr
 ### Hot mode:
 To properly activate hot mode, do this:
 
-- Make sure your host port 8080 is not filtered, or exposed if you are using a container.
-- In the file `<sub-theme>/<sub-theme>.libraries.yml` load the css and js as in the example commented.
+- Make sure your host port 8080 is not filtered,
+or exposed if you are using a container.
+- In the file `<sub-theme>/<sub-theme>.libraries.yml` load the css and js
+as in the example commented.
 ```
 $ drush cr && npm run build:dev && npm run hot
 ```
 
-***Note*** that you need to run `drush cr` then `build:dev` and finally `hot`, otherwise it won't work.
+***Note*** that you need to run `drush cr` then `build:dev`
+and finally `hot`, otherwise it won't work.
 
-If you need customize `host` and `port`, copy `<sub-theme>/webpack.settings.dist.js`
+If you need customize `host` and `port`,
+copy `<sub-theme>/webpack.settings.dist.js`
 in `<sub-theme>/webpack.settings.js` and edit
 `devServer.allowedHosts` and `devServer.port`.
 
-If you use ddev use this tip to expose 8080 port and view the site with the URL `http://127.0.0.1:<ddev-port>`
+If you use ddev use this tip to expose 8080 port and view the site with
+the URL `http://127.0.0.1:<ddev-port>`
 ```
 <project-name>/.ddev/docker-compose.ports.yaml
 
@@ -127,7 +135,8 @@ $ drush pm:enable paragraphs \
 ```
 
 ## Paragraphs overlay [EXPERIMENTAL]
-This module adds paragraph [overlay component](https://italia.github.io/bootstrap-italia/docs/componenti/overlay/).
+This module adds paragraph
+[overlay component](https://italia.github.io/bootstrap-italia/docs/componenti/overlay/).
 This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`,
 `ds_switch_view_mode`, `ui_patterns_layouts` and `ui_patterns_ds`.
 ```
@@ -146,4 +155,6 @@ $ drush pm:enable webform webform_ui webform_attachment webform_image_select
 ```
 
 # How to start a ddev container
-If you want an automated script that works for you, run script located at [var/bin/start-dev-test.sh](https://git.drupalcode.org/project/bootstrap_italia/-/tree/8.x-0.x/var/bin/start-dev-test.sh) and enjoy it
+If you want an automated script that works for you, run script located at
+[var/bin/start-dev-test.sh](https://git.drupalcode.org/project/bootstrap_italia/-/tree/8.x-0.x/var/bin/start-dev-test.sh)
+and enjoy it

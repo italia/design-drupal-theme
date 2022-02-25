@@ -4,7 +4,7 @@
  * @file
  * Preprocess views.
  *
- * @todo: rename this file?
+ * @todo rename this file?
  */
 
 /**

@@ -76,7 +76,7 @@ class Helper {
   }
 
   /**
-   * Return bootstrap container type
+   * Return bootstrap container type.
    */
   public static function getBootstrapContainerType($withLabel = FALSE): array {
     if ($withLabel) {
@@ -104,33 +104,33 @@ class Helper {
     $assets_js_path = $theme->getPath() . '/assets/js';
 
     $default_option = [
-      '' => t('Usa @theme.libraries.yml (raccomandato)', ['@theme' => $theme->getName()])
+      '' => t('Usa @theme.libraries.yml (raccomandato)', ['@theme' => $theme->getName()]),
     ];
 
     // Check if directories css and js exists.
-    if (!is_dir($assets_css_path) || !is_dir($assets_js_path) ) {
+    if (!is_dir($assets_css_path) || !is_dir($assets_js_path)) {
       return $default_option;
     }
 
-    // Config extensions parameters
+    // Config extensions parameters.
     $extensions = ['css', 'js'];
     $extensions = array_map('preg_quote', $extensions);
     $extensions = implode('|', $extensions);
 
-    // Search css e js file in theme/assets
+    // Search css e js file in theme/assets.
     $css = \Drupal::service('file_system')->scanDirectory($assets_css_path, "/{$extensions}$/");
     $js = \Drupal::service('file_system')->scanDirectory($assets_js_path, "/{$extensions}$/");
 
-    // Make a variants return array
+    // Make a variants return array.
     $variants = [];
     $variants += $default_option;
 
-    // Loop for css file
+    // Loop for css file.
     foreach ($css as $fileC) {
       foreach ($js as $fileJ) {
-        // If name css and js match
+        // If name css and js match.
         if ($fileC->name == $fileJ->name) {
-          // Add variant
+          // Add variant.
           $variants[$fileC->name] = $fileC->name . '.[css/js]';
         }
       }

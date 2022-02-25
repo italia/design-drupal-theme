@@ -25,7 +25,7 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
   }
   // Add taxonomy suggestions.
   if (($term = \Drupal::request()->attributes->get('taxonomy_term')) &&
-   (strpos($_SERVER['REQUEST_URI'], "revisions") == false)) {
+   (strpos($_SERVER['REQUEST_URI'], "revisions") == FALSE)) {
     if ($term instanceof TermInterface) {
       if ($term->parent->target_id == 0) {
         $suggestions[] = 'page__taxonomy__term__firstlevel';
@@ -118,6 +118,7 @@ function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, arra
     $suggestions[] = $variables['theme_hook_original'] . '__' . $element['#form_id'];
   }
 }
+
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
