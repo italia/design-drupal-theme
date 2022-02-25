@@ -2,7 +2,7 @@
 ## Release notes
 Big news in this release:
 
-- update of the bootstrap-italia library to version 1.52;
+- update of the bootstrap-italia library to version 1.5.2;
 - variants of themes for multisite sub-themes (sponsored by https://www.drupal.org/akabit);
 - various closed issues (look at All changes);
 - some templates are now deprecated.
