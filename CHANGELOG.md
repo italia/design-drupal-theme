@@ -1,5 +1,51 @@
 # Summary 8.x-0.22
 ## Release notes
+Big news in this release:
+
+- update of the bootstrap-italia library to version 1.52;
+- variants of themes for multisite sub-themes (sponsored by https://www.drupal.org/akabit);
+- various closed issues (look at All changes);
+- some templates are now deprecated.
+
+Below are the changes to the sub-theme.
+
+1. `/italiagov.libraries.yml`: whole file.
+2. `/italiagov.theme`: whole file.
+3. `/src/js/index.js`:
+   - removed line 1 (`import '../scss/theme.scss';`)
+   - For compliance with [#590](https://github.com/italia/bootstrap-italia/pull/590)
+     - uncommented line 28 (`import '../../node_modules/bootstrap-italia/src/js/plugins/forms'`)
+     - removed line 29 (`import './custom/forms'`)
+     - deleted `/src/js/custom/forms.js`
+   - Added new components after line 46
+     - `import '../../node_modules/bootstrap-italia/src/js/plugins/datepicker-validation.js'`
+     - `import '../../node_modules/bootstrap-italia/src/js/bootstrap-italia'`
+     - `import '../../node_modules/bootstrap-italia/src/js/plugins/version'`
+4. `/src/scss/_fix.scss`: replace the whole file if you haven't edited it, otherwise use diff
+5. `/webpack.common.js`: replace entry and output with:
+```
+  // Entry
+  entry: {
+    "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss']
+  },
+
+  // Output
+  output: {
+    path: paths.build,
+    filename: "js/[name].js",
+  },
+```
+6. `/package.json`: replaced `node-sass` with `sass` and updated all dependencies
+  ```
+    $ npm remove node-sass
+    $ npm install sass --save-dev
+    $ npm update
+  ```
+Finally run
+```
+$ npm run build:prod
+$ drush cr
+```
 
 ## All changes
 - Issue #3263341: New release for Bootstrap-italia library
@@ -12,6 +58,13 @@
 - Fixed tabledrag when bootstrap-italia is set as admin theme
 - Issue #3222822 by maurizio_akabit: Change the main view template
 - Issue #3266502: Develop a feature that allows you to reuse scss and js with variations in multisite sub-themes
+
+## Deprecated feature
+- `macro.icon` (deprecated in 0.11)
+- `macro.password_icon` is now deprecated, if you use this feature switch to `components/icon/password_icon` (deprecated in 0.21)
+- `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-evidenza.html.twig`
+- `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-home.html.twig`
+- `italiagov/src/components/card/card-hp-intro.twig`
 
 # Summary 8.x-0.21
 ## Release notes
