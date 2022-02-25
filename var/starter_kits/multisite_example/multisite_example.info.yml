@@ -1,0 +1,98 @@
+name: Multisite Example - Sub Italia Gov
+type: theme
+description: This is an example italiagov sub-theme (remember to remove hidden:true at 18th line)
+package: Italia
+core_version_requirement: ^8 || ^9 || ^10
+base theme: italiagov # <---- Check if name is correct
+
+libraries:
+  - multisite_example/global
+
+libraries-override:
+  seven/global-styling: false
+  bootstrap_italia/global: false
+  italiagov/global: false # <---- Check if name is correct
+
+hidden: true # <---- Remember to set false, or comment or delete line
+
+engine: twig
+logo: logo.svg
+screenshot: screenshot.png
+
+regions:
+  page_top: "Page top" # Don't remove
+  disabled_blocks: "Blocchi disattivati" # Don't remove, edit or move in another position
+
+  # Header
+  header_slim_menu: "Slim header - Menu"
+  header_slim_lingua: "Slim header - Lingua"
+  header_slim_action: "Slim header - Accesso e menu utente"
+  brand: "Header centrale - Logo e intestazione"
+  header_center_social: "Header centrale - Social network"
+  header_center_search: "Header centrale - Motore di ricerca"
+  header_nav: "Header Nav - Menu principale e barra di navigazione"
+
+  # Before content
+  before_content_full_width: "Prima del contenuto - Regione full width"
+  before_content_first: "Prima del contenuto- Prima regione"
+  before_content_second: "Prima del contenuto - Seconda regione"
+  before_content_third: "Prima del contenuto- Terza regione"
+  before_content_fourth: "Prima del contenuto - Quarta regione"
+
+  # Content
+  title: "Titolo della pagina"
+  breadcrumb: "Breadcrumb"
+  local_tasks: "Schede e menu di amministrazione"
+  help: "Help"
+  notification: "Area notifiche"
+  content: Content
+
+  # Sidebar
+  sidebar_first: "Sidebar prima"
+  sidebar_second: "Sidebar seconda"
+
+  # After content
+  after_content_first: "Dopo del contenuto - Prima regione"
+  after_content_second: "Dopo del contenuto - Seconda regione"
+  after_content_third: "Dopo del contenuto- Terza regione"
+  after_content_fourth: "Dopo del contenuto - Quarta regione"
+  after_content_full_width: "Dopo del contenuto - Regione full width"
+
+  # Footer
+  footer_menu: "Footer menu"
+  footer_first: "Footer - Prima regione"
+  footer_second: "Footer - Seconda regione"
+  footer_third: "Footer - Terza regione"
+  footer_fourth: "Footer - Quarta regione"
+
+  footer_small_prints: "Footer - Menu small prints: info legali, privacy, ecc."
+  footer_credits: "Footer - Crediti"
+
+  page_bottom: "Page bottom" # Don't remove
+
+  # Home page
+  home_first_row_full_width: "Home page - Prima regione full width"
+  home_first_row_first: "Home page - Prima riga - Prima regione"
+  home_first_row_second: "Home page - Prima riga - Seconda regione"
+  home_first_row_third: "Home page - Prima riga - Terza regione"
+  home_first_row_fourth: "Home page - Prima riga - Quarta regione"
+
+  home_second_row_full_width: "Home page - Seconda regione full width"
+  home_second_row_first: "Home page - Seconda riga - Prima regione"
+  home_second_row_second: "Home page - Seconda riga - Seconda regione"
+  home_second_row_third: "Home page - Seconda riga - Terza regione"
+  home_second_row_fourth: "Home page - Seconda riga - Quarta regione"
+
+  home_third_row_full_width: "Home page - Terza regione full width"
+  home_third_row_first: "Home page - Terza riga - Prima regione"
+  home_third_row_second: "Home page - Terza riga - Seconda regione"
+  home_third_row_third: "Home page - Terza riga - Terza regione"
+  home_third_row_fourth: "Home page - Terza riga - Quarta regione"
+
+  home_fourth_row_full_width: "Home page - Quarta regione full width"
+  home_fourth_row_first: "Home page - Quarta riga - Prima regione"
+  home_fourth_row_second: "Home page - Quarta riga - Seconda regione"
+  home_fourth_row_third: "Home page - Quarta riga - Terza regione"
+  home_fourth_row_fourth: "Home page - Quarta riga - Quarta regione"
+
+  home_last_row_full_width: "Home page - Ultima regione full width"

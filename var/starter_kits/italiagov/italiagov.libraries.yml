@@ -1,17 +1,34 @@
 global:
   css:
     theme:
-      # Example Webpack hot mode
-      # http://127.0.0.1:8080/css/main.css: { type: external }
-      # http://project-name.ddev.site:8080/css/main.css: { type: external }
+      # Comment the following line if you use webpack hot mode or other mode
+      assets/css/bootstrap-italia.css: {}
 
-      assets/css/main.css: {} # Comment this line if you use webpack hot mode
+      # Example if you use a vanilla release
+      # assets/css/bootstrap-italia.min.css: { minified: true }
+
+      # Examples from CDN
+      # https://cdn.jsdelivr.net/npm/bootstrap-italia@1.5.2/dist/css/bootstrap-italia.min.css: { type: external, minified: true }
+
+      # Examples Webpack hot mode
+      # http://127.0.0.1:8080/css/bootstrap-italia.css: { type: external }
+      # http://project-name.ddev.site:8080/css/bootstrap-italia.css: { type: external }
+
   js:
-    # Example Webpack hot mode
-    # http://127.0.0.1:8080/js/bundle.js: { type: external }
-    # http://project-name.ddev.site:8080/js/bundle.js: { type: external }
+    # Comment the following line if you use webpack hot mode or other mode
+    assets/js/bootstrap-italia.js: {}
 
-    assets/js/bundle.js: {} # Comment this line if you use webpack hot mode
+    # Examples if you use a vanilla release
+    # assets/js/bootstrap-italia.min.js: { minified: true }
+    # assets/js/bootstrap-italia.bundle.min.js: { minified: true }
+
+    # Examples from CDN
+    # https://cdn.jsdelivr.net/npm/bootstrap-italia@1.5.2/dist/js/bootstrap-italia.bundle.min.js: { type: external, minified: true }
+    # https://cdn.jsdelivr.net/npm/bootstrap-italia@1.5.2/dist/js/bootstrap-italia.min.js: { type: external, minified: true }
+
+    # Examples Webpack hot mode
+    # http://127.0.0.1:8080/js/bootstrap-italia.js: { type: external }
+    # http://project-name.ddev.site:8080/js/bootstrap-italia.js: { type: external }
 
   dependencies:
     - core/jquery

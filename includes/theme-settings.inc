@@ -687,6 +687,87 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
 
+  /* Libraries Settings ------------------------------------------------ */
+  $form['libraries_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Varianti del tema'),
+    '#description' => t("Queste impostazioni ti permettono di scegliere quale variante del tema usare."),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 20,
+  ];
+  $form['libraries_settings']['theme_variant'] = [
+    '#type' => 'select',
+    '#title' => t("Scegli la variante del tema"),
+    '#description' => t('Ogni volta che cambi questa impostazione devi cancellare la cache per visualizzare i cambiamenti.'),
+    '#default_value' => theme_get_setting('theme_variant'),
+    '#options' => Helper::getThemeVariants(),
+  ];
+  $form['libraries_settings']['theme_variant_docs'] = [
+    '#type' => 'markup',
+    '#markup' => t('
+      <style>
+        code {background-color: #eeeeee;color: #333333;padding: 0 2px;}
+        pre {background-color: #333333;color: #ffffff;padding: 10px;}
+      </style>
+      <h6>Impostazione consigliata</h6>
+      <p>Scegli <code>*.libraries.yml (raccomandato)</code>
+         se intendi compilare una sola variante del tema.
+         Questa è la scelta migliore se non stai usando il multisite.
+      </p>
+      <h6>Multisite</h6>
+      <p>Se hai un\'installazione multisite e non vuoi duplicare gli assets
+         in ogni sub-theme (magari solo per cambiare il colore),
+         usa come canovaccio i seguenti passi:</p>
+      <ol>
+        <li>Duplica il contenuto di <code>/src/scss/theme.scss</code> in <code>/src/scss/theme-red.scss</code></li>
+        <li>
+          Edita il file che hai appena duplicato aggiungendo dopo la prima riga
+          <code>@import "variables/palette-red";</code> (riusi tutto variando solo il colore),
+          dovresti avere la seguente situazione
+<pre>
+ 1 @import "variables";
+ 2 @import "variables/palette-red";
+ 3 @import "node_modules/bootstrap-italia/src/scss/bootstrap-italia.scss";
+</pre>
+        </li>
+        <li>Edita <code>webpack.common.js</code> e aggiungi una riga nella sezione entry
+<pre>
+ 10 entry: {
+ 11  "bootstrap-italia": [paths.src + \'/js/index.js\', paths.src + \'/scss/theme.scss\'],
+ 12  "bootstrap-italia-red": [paths.src + \'/js/index.js\', paths.src + \'/scss/theme-red.scss\']
+ 13 },
+</pre>
+        Hai riutilizzato integralmente <code>index.js</code> con la variante <code>theme-red.scss</code>
+        </li>
+        <li>Compila gli assets con <code>npm</code> e poi <code>drush cr</code></li>
+        <li>Se non hai un sub-sub-theme, in <code>var/starter_kits/multisite_example</code> ne trovi uno.
+            I file che fanno funzionare tutto sono: <code>multisite_example.info.yml</code> e
+            <code>multisite_example.theme</code>.<br />
+            È fondamentale costruire un collegamento simbolico con gli asset del tema genitore:
+<pre>
+$ cd path/to/nome_del_sub_sub_theme
+$ ln -s ../italiagov/assets assets
+</pre>
+        </li>
+        <li>Nelle impostazioni del sub-sub-theme, la select delle varianti avrà tra
+            le opzioni il nome macchina che hai scelto al punto 3.
+            Se hai seguito questo esempio, dovresti visualizzare: <code>bootstrap-italia-red</code>
+        </li>
+      </ol>
+      <h6>Release Vanilla</h6>
+      <p>Per usare la release vanilla (è quella rilasciata sul repo github),
+          scarica la release corretta da <a href="https://github.com/italia/bootstrap-italia/releases">GitHub</a>
+          e decomprimi il file .zip dentro <code>/themes/custom/sub-theme/assets/</code>.
+          Successivamente, modifica il file <code>sub-theme.libraries.yml</code> in modo da caricare i file corretti,
+          oppure scegli la variante dalla select sopra.</p>
+      <p>Se non hai molta esperienza ti sconsiglio questa modalità in quanto:
+          1) devi scaricare la versione supportata da questo tema (non è detto che sia sempre l\'ultima);
+          2) devi applicare un po\' di fix css e js per far funzionare il tutto correttamente.
+      </p>
+     '),
+  ];
+
   $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';
 }
 

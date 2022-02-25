@@ -7,12 +7,14 @@ const paths = require('./webpack.paths')
 
 module.exports = {
   // Entry
-  entry: [paths.src + '/js/index.js'],
+  entry: {
+    "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss']
+  },
 
   // Output
   output: {
     path: paths.build,
-    filename: "js/bundle.js",
+    filename: "js/[name].js",
   },
 
   plugins: [

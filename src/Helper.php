@@ -92,4 +92,50 @@ class Helper {
     return ['container', 'container-fluid'];
   }
 
+  /**
+   * Returns available themes variants.
+   *
+   * @return array
+   *   Array with theme variants options.
+   */
+  public static function getThemeVariants(): array {
+    $theme = \Drupal::service('theme.manager')->getActiveTheme();
+    $assets_css_path = $theme->getPath() . '/assets/css';
+    $assets_js_path = $theme->getPath() . '/assets/js';
+
+    $default_option = [
+      '' => t('Usa @theme.libraries.yml (raccomandato)', ['@theme' => $theme->getName()])
+    ];
+
+    // Check if directories css and js exists.
+    if (!is_dir($assets_css_path) || !is_dir($assets_js_path) ) {
+      return $default_option;
+    }
+
+    // Config extensions parameters
+    $extensions = ['css', 'js'];
+    $extensions = array_map('preg_quote', $extensions);
+    $extensions = implode('|', $extensions);
+
+    // Search css e js file in theme/assets
+    $css = \Drupal::service('file_system')->scanDirectory($assets_css_path, "/{$extensions}$/");
+    $js = \Drupal::service('file_system')->scanDirectory($assets_js_path, "/{$extensions}$/");
+
+    // Make a variants return array
+    $variants = [];
+    $variants += $default_option;
+
+    // Loop for css file
+    foreach ($css as $fileC) {
+      foreach ($js as $fileJ) {
+        // If name css and js match
+        if ($fileC->name == $fileJ->name) {
+          // Add variant
+          $variants[$fileC->name] = $fileC->name . '.[css/js]';
+        }
+      }
+    }
+    return $variants;
+  }
+
 }

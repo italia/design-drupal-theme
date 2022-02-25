@@ -1,6 +1,4 @@
-import '../scss/theme.scss';
-
-// For jquery: see 'bootstrap_italia.libraries.yml'
+// For jquery: see 'italiagov.libraries.yml'
 //import '../../node_modules/jquery/dist/jquery.js';
 import '../../node_modules/popper.js/dist/umd/popper'
 import '../../node_modules/owl.carousel/dist/owl.carousel'
