@@ -9,9 +9,22 @@ Big news in this release:
 
 Below are the changes to the sub-theme.
 
-1. `/italiagov.libraries.yml`: whole file.
-2. `/italiagov.theme`: whole file.
-3. `/src/js/index.js`:
+1. `/italiagov.info.yml`
+  - Add `core/normalize: false` at `libraries-override` (line ~12)
+  ```
+  libraries-override:
+    core/normalize: false
+    seven/global-styling: false
+    bootstrap_italia/global: false
+  ```
+  - change ckeditor styles (line ~116)
+  ```
+  ckeditor_stylesheets:
+    - assets/css/bootstrap-italia.css
+  ```
+2. `/italiagov.libraries.yml`: whole file.
+3. `/italiagov.theme`: whole file.
+4. `/src/js/index.js`:
    - removed line 1 (`import '../scss/theme.scss';`)
    - For compliance with [#590](https://github.com/italia/bootstrap-italia/pull/590)
      - uncommented line 28 (`import '../../node_modules/bootstrap-italia/src/js/plugins/forms'`)
@@ -21,8 +34,8 @@ Below are the changes to the sub-theme.
      - `import '../../node_modules/bootstrap-italia/src/js/plugins/datepicker-validation.js'`
      - `import '../../node_modules/bootstrap-italia/src/js/bootstrap-italia'`
      - `import '../../node_modules/bootstrap-italia/src/js/plugins/version'`
-4. `/src/scss/_fix.scss`: replace the whole file if you haven't edited it, otherwise use diff
-5. `/webpack.common.js`: replace entry and output with:
+5. `/src/scss/_fix.scss`: replace the whole file if you haven't edited it, otherwise use diff
+6. `/webpack.common.js`: replace entry and output with:
 ```
   // Entry
   entry: {
@@ -35,7 +48,7 @@ Below are the changes to the sub-theme.
     filename: "js/[name].js",
   },
 ```
-6. `/package.json`: replaced `node-sass` with `sass` and updated all dependencies
+7. `/package.json`: replaced `node-sass` with `sass` and updated all dependencies
   ```
     $ npm remove node-sass
     $ npm install sass --save-dev
