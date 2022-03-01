@@ -8,6 +8,8 @@ base theme: classy
 libraries-override:
   core/normalize: false
   seven/global-styling: false
+  classy/base: false
+  classy/messages: false
 
 # libraries-extend
 # hidden: true

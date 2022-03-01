@@ -10,11 +10,9 @@ Big news in this release:
 Below are the changes to the sub-theme.
 
 1. `/italiagov.info.yml`
-  - Add `core/normalize: false` at `libraries-override` (line ~12)
+  - Remove `seven/global-styling: false` at `libraries-override` (line ~12), like:
   ```
   libraries-override:
-    core/normalize: false
-    seven/global-styling: false
     bootstrap_italia/global: false
   ```
   - change ckeditor styles (line ~116)
@@ -78,6 +76,7 @@ $ drush cr
 - `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-evidenza.html.twig`
 - `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-home.html.twig`
 - `italiagov/src/components/card/card-hp-intro.twig`
+- `bootstrap_italia.libraries.yml`
 
 # Summary 8.x-0.21
 ## Release notes

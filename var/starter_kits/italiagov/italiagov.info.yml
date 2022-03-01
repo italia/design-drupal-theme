@@ -10,8 +10,6 @@ libraries:
   - italiagov/global
 
 libraries-override:
-  core/normalize: false
-  seven/global-styling: false
   bootstrap_italia/global: false
 
 # libraries-extend
