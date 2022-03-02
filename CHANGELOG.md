@@ -50,6 +50,7 @@ Below are the changes to the sub-theme.
   ```
     $ npm remove node-sass
     $ npm install sass --save-dev
+    $ npm install bootstrap-italia@^1.5
     $ npm update
   ```
 Finally run
@@ -73,7 +74,7 @@ $ drush cr
 
 ## Deprecated feature
 - `macro.icon` (deprecated in 0.11)
-- `macro.password_icon` is now deprecated, if you use this feature switch to `components/icon/password_icon` (deprecated in 0.21)
+- `macro.password_icon`, if you use this feature switch to `components/icon/password_icon` (deprecated in 0.21)
 - `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-evidenza.html.twig`
 - `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-home.html.twig`
 - `italiagov/src/components/card/card-hp-intro.twig`
