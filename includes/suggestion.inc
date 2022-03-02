@@ -110,7 +110,7 @@ function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
 
   // Add a suggestion based on the form id name.
@@ -122,7 +122,7 @@ function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, arra
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_suggestions_form_element_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_suggestions_form_element_alter(array &$suggestions, array $variables) {
   $element = $variables['element'];
 
   // Add a suggestion based on the element type.
@@ -157,7 +157,7 @@ function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, arra
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables) {
   $entity = $variables['item']->getEntity();
   $field_name = $variables['item']->getParent()->getName();
   $suggestions[] =
