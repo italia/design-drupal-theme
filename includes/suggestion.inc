@@ -153,3 +153,16 @@ function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, arra
     $suggestions[] = 'user__' . $mode . '__' . $role;
   }
 }
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array &$variables) {
+  $entity = $variables['item']->getEntity();
+  $field_name = $variables['item']->getParent()->getName();
+  $suggestions[] =
+    $variables['theme_hook_original']
+    . '__' . $entity->getEntityTypeId()
+    . '__' . $entity->bundle()
+    . '__' . $field_name;
+}

@@ -69,6 +69,7 @@ $ drush cr
 - Fixed tabledrag when bootstrap-italia is set as admin theme
 - Issue #3222822 by maurizio_akabit: Change the main view template
 - Issue #3266502: Develop a feature that allows you to reuse scss and js with variations in multisite sub-themes (sponsored by https://www.drupal.org/akabit)
+- Added suggestions for image formatter
 
 ## Deprecated feature
 - `macro.icon` (deprecated in 0.11)
