@@ -2,6 +2,7 @@
 ## Release notes
 
 ## All changes
+- Fix: some card parameter not work correctly and card code style
 
 ## Deprecated feature
 - `macro.icon` (deprecated in 0.11)

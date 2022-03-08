@@ -44,7 +44,9 @@
   (card_type == 'teaser_plus') ? 'shadow',
   (card_type == 'teaser_plus') ? 'rounded',
   (card_type == 'with_img') ? 'card-img no-after',
-  (card_extra_classes) ? card_extra_classes
+  (card_extra_classes) ? card_extra_classes,
+  card_shadow ? 'card-bg',
+  card_rounded ? 'rounded'
 ] %}
 {% set title_attribute = create_attribute() %}
 {% set title_classes = [
@@ -58,30 +60,34 @@
 ] %}
 
 <!--start card-->
-  <div {{ card_attribute.addClass(card_classes) }}>
-    {% if card_type == 'teaser_plus' and card_icon %}
+<div {{ card_attribute.addClass(card_classes) }}>
+  {% if card_type == 'teaser_plus' and card_icon %}
     <!-- teaser con icona -->
     {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
-    {% endif %}
-    {% if card_flag_icon and not card_etichetta %}
+  {% endif %}
+
+  {% if card_flag_icon and not card_etichetta %}
     <div class="flag-icon"></div>
+
     {% if card_head_tags and card_big %}
-    <div class="head-tags"> {# capire meglio tags in questo contesto #}
-      <a class="card-tag" href="#">TEMPLATE DA IMPLEMENTARE</a>  {# TODO #}
-      {% if card_date %}
-      <span class="data">{{ card_date }}</span>
-      {% endif %}
-    </div>
+      <div class="head-tags"> {# capire meglio tags in questo contesto #}
+        <a class="card-tag" href="#">TEMPLATE DA IMPLEMENTARE</a>  {# TODO #}
+        {% if card_date %}
+          <span class="data">{{ card_date }}</span>
+        {% endif %}
+      </div>
     {% endif %}
+
     {% if card_etichetta %}
-    <!-- con etichetta -->
-    <div class="etichetta">
-      {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
-      <span>{{ card_etichetta }}</span>
-    </div>
+      <!-- con etichetta -->
+      <div class="etichetta">
+        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+        <span>{{ card_etichetta }}</span>
+      </div>
     {% endif %}
-    {% endif %}
-    {% if card_type == 'with_img' %}
+  {% endif %}
+
+  {% if card_type == 'with_img' %}
     <!-- con immagine responsive -->
     <div class="img-responsive-wrapper">
       <div {{ img_attribute.addClass(img_classes) }}>
@@ -89,70 +95,77 @@
           {{ card_img_responsive }}
         </figure>
         {% if card_date %}
-        {% set date_value = card_date | split(' ') %} {# la data deve essere 'dd mese' #}
-        <div class="card-calendar d-flex flex-column justify-content-center">
-          <span class="card-date">{{ date_value[0] }}</span>
-          <span class="card-day">{{ date_value[1] }}</span>
-        </div>
+          {% set date_value = card_date | split(' ') %} {# la data deve essere 'dd mese' #}
+          <div class="card-calendar d-flex flex-column justify-content-center">
+            <span class="card-date">{{ date_value[0] }}</span>
+            <span class="card-day">{{ date_value[1] }}</span>
+          </div>
         {% endif %}
       </div>
     </div>
-    {% endif %}
-    <div class="card-body">
-      {% if card_type == 'simple_article' and not card_head_tags %}
+  {% endif %}
+
+  <div class="card-body">
+    {% if card_type == 'simple_article' and not card_head_tags %}
       <!-- articolo semplice -->
       <div class="category-top">
         {% if card_category and not (card_type == 'with_icon') %}
-        <a class="category" href="{{ card_category_url|default('#') }}">{{ card_category }}</a>
+          <a class="category" href="{{ card_category_url|default('#') }}">{{ card_category }}</a>
         {% endif %}
+
         {% if card_date %}
-        <span class="data">{{ card_date }}</span>
+          <span class="data">{{ card_date }}</span>
         {% endif %}
       </div>
-      {% endif %}
-      {% if card_type == 'with_icon' %}
+    {% endif %}
+
+    {% if card_type == 'with_icon' %}
       <!-- Card con icona -->
       <div class="categoryicon-top">
         {% if card_icon %}
-        {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
+          {% include '@bootstrap_italia_components/icon/icon.twig' with { name: card_icon } %}
         {% endif %}
         <span class="text">{{ card_category }}</span>
       </div>
-      {% endif %}
+    {% endif %}
 
-      {% if card_title %}
+    {% if card_title %}
       <h5 {{ title_attribute.addClass(title_classes) }}>{{ card_title }}</h5>
-      {% endif %}
-      {% if card_subtitle and card_type == 'with_icon' %}
-      <h6 class="card-subtitle">{{ card_subtitle }}</h6>
-      {% endif %}
-      
-      {% set text_tag = (card_type == 'custom') ? 'div' : 'p' %}
-      {% if variant %}
-        {% set card_text = card_text|render|striptags %}
-      {% endif %}
-      {% autoescape false %}
-      <{{ text_tag }} class="card-text">{{ card_text }}</{{ text_tag }}>
-      {% endautoescape %}
+    {% endif %}
 
-      {% if card_simple_link %}
+    {% if card_subtitle and card_type == 'with_icon' %}
+      <h6 class="card-subtitle">{{ card_subtitle }}</h6>
+    {% endif %}
+
+    {% set text_tag = (card_type == 'custom') ? 'div' : 'p' %}
+    {% if variant %}
+      {% set card_text = card_text|render|striptags %}
+    {% endif %}
+    {% autoescape false %}
+    <{{ text_tag }} class="card-text">{{ card_text }}</{{ text_tag }}>
+    {% endautoescape %}
+
+    {% if card_simple_link %}
       <a class="simple-link" href="{{ card_simple_link_url|default('#') }}">{{ card_simple_link }}</a>
-      {% endif %}
-      {% if card_signature and not card_button %}
+    {% endif %}
+
+    {% if card_signature and not card_button %}
       <span class="card-signature">{{ card_signature }}</span>
-      {% endif %}
-      {% if card_readmore_url %}
+    {% endif %}
+
+    {% if card_readmore_url %}
       <a class="read-more" href="{{ card_readmore_url|default('#') }}">
         <span class="text">{{ 'Read more'|t }}</span>
         {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-arrow-right' } %}
       </a>
-      {% endif %}
-      {% if card_button and card_big %} {# capire meglio button in questo contesto #}
+    {% endif %}
+
+    {% if card_button and card_big %} {# capire meglio button in questo contesto #}
       <div class="it-card-footer">
         <span class="card-signature">{{ card_signature }}</span>
         <button class="btn btn-outline-primary btn-sm">TEMPLATE DA IMPLEMENTARE</button> {# TODO #}
       </div>
-      {% endif %}
-    </div>
+    {% endif %}
   </div>
+</div>
 <!--end card-->
