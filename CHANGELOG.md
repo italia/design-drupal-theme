@@ -2,7 +2,8 @@
 ## Release notes
 
 ## All changes
-- Fix: some card parameter not work correctly and card code style
+- Fix(component/card): some card parameter not work correctly and card code style
+- Fix(component/card): check if card data value is set
 
 ## Deprecated feature
 - `macro.icon` (deprecated in 0.11)

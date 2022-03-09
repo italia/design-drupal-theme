@@ -8,7 +8,7 @@
  * Available config:
  * - card_category_url: URL
  * - card_category: string
- * - card_date: date
+ * - card_date: date, 'd F Y' -> 09 Marzo 2022
  * - card_title: string
  * - subtitle: string
  * - card_text: string
@@ -95,10 +95,17 @@
           {{ card_img_responsive }}
         </figure>
         {% if card_date %}
-          {% set date_value = card_date | split(' ') %} {# la data deve essere 'dd mese' #}
+          {% set date_value = card_date | split(' ') %} {# la data deve essere 'dd mese y' #}
           <div class="card-calendar d-flex flex-column justify-content-center">
-            <span class="card-date">{{ date_value[0] }}</span>
-            <span class="card-day">{{ date_value[1] }}</span>
+            {% if date_value[2] %}
+              <span class="card-year">{{ date_value[2] }}</span>
+            {% endif %}
+            {% if date_value[0] %}
+              <span class="card-date">{{ date_value[0] }}</span>
+            {% endif %}
+            {% if date_value[1] %}
+              <span class="card-day">{{ date_value[1] }}</span>
+            {% endif %}
           </div>
         {% endif %}
       </div>
