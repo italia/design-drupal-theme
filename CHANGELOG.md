@@ -4,6 +4,7 @@
 ## All changes
 - Fix(component/card): some card parameter not work correctly and card code style
 - Fix(component/card): check if card data value is set
+- Fix(component/details): spacing elements
 
 ## Deprecated feature
 - `macro.icon` (deprecated in 0.11)
