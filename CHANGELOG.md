@@ -1,10 +1,53 @@
 # Summary 8.x-0.23
 ## Release notes
 
+This release updates the sub-theme to bootstrap-italia version 1.6.2.
+If you want to align your sub-theme with the latest version, do the following.
+
+```
+$ npm update
+$ npm install bootstrap-italia@1.6.2
+```
+
+- Edit `<sub-theme>/src/js/index.js`:
+
+  1. Add after line 3
+```
+import '../../node_modules/just-validate/dist/just-validate.production.min'
+import '../../node_modules/just-validate-plugin-date/dist/just-validate-plugin-date.production.min'
+import '../../node_modules/accessible-autocomplete/dist/accessible-autocomplete.min'
+```
+
+  2. Add after line 41
+```
+import '../../node_modules/bootstrap-italia/src/js/plugins/carousel-legacy'
+```
+
+  3. Add after line 50
+```
+import '../../node_modules/bootstrap-italia/src/js/plugins/justvalidate-it'
+import '../../node_modules/bootstrap-italia/src/js/plugins/content-watcher'
+import '../../node_modules/bootstrap-italia/src/js/plugins/class-watcher'
+import '../../node_modules/bootstrap-italia/src/js/plugins/side-menu'
+import '../../node_modules/bootstrap-italia/src/js/plugins/collapse'
+```
+
+- Edit `<sub-theme>/src/scss/theme.scss` and overwrite line 2 with:
+```
+@import 'node_modules/bootstrap-italia/src/scss/bootstrap-italia';
+```
+
+
+
+```
+$ npm run build:prod
+$ drush cr
+```
+
 ## All changes
-- Fix(component/card): some card parameter not work correctly and card code style
-- Fix(component/card): check if card data value is set
-- Fix(component/details): spacing elements
+- Fix(component/card): some card parameter not work correctly and card code style.
+- Fix(component/card): check if card data value is set.
+- Fix(component/details): spacing elements.
 
 ## Deprecated feature
 - `macro.icon` (deprecated in 0.11)
