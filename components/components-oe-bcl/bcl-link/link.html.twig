@@ -1,0 +1,87 @@
+{% spaceless %}
+
+{# Parameters:
+  - label (string) (default: '')
+  - path (string) (default: '#')
+  - variant (string) (default: '')
+    - options ["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]
+  - id (string) (default: '')
+  - disabled (boolean) (default: false)
+  - remove_icon_spacers (boolean) (default: false)
+  - standalone (boolean) (default: false)
+  - icon (icon object) (default: {}): predefined structure for Icon component
+  - icon_position (string) (default: after)
+    - options ["after", "before"]
+#}
+
+{% set _label = label|default('') %}
+{% set _path = path|default('#') %}
+{% set _variant = variant|default('') %}
+{% set _id = id|default('') %}
+{% set _disabled = disabled|default(false) %}
+{% set _standalone = standalone|default(false) %}
+{% set _icon = icon|default({}) %}
+{% set _icon_position = icon_position|default('after') %}
+{% set _remove_icon_spacers = remove_icon_spacers|default(false) %}
+{% set _classes = [] %}
+
+{% if _icon is not empty %}
+  {% if _label is not empty and not _remove_icon_spacers %}
+    {% if _icon.attributes is empty %}
+      {% set _icon = _icon|merge({
+          attributes: create_attribute()
+        })
+      %}
+    {% endif %}
+    {% if _icon_position == 'before' %}
+      {% set _icon = _icon|merge({
+          attributes: _icon.attributes.addClass('me-2-5')
+        })
+      %}
+    {% else %}
+      {% set _icon = _icon|merge({
+          attributes: _icon.attributes.addClass('ms-2-5')
+        })
+      %}
+    {% endif %}
+  {% endif %}
+  {%- set _icon_markup -%}
+    {%- include '@oe-bcl/bcl-icon/icon.html.twig' with _icon only -%}
+  {%- endset -%}
+{% endif %}
+
+{% if attributes is empty %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+
+{% if _disabled %}
+  {% set _classes = _classes|merge(['disabled']) %}
+  {% set attributes = attributes.setAttribute('aria-disabled', 'true').setAttribute('tabindex', '-1') %}
+{% endif %}
+{% if _variant is not empty %}
+  {% set _classes = _classes|merge(['link-' ~ _variant]) %}
+{% endif %}
+{% if _id is not empty %}
+  {% set attributes = attributes.setAttribute('id', _id) %}
+{% endif %}
+{% if _standalone %}
+  {% set _classes = _classes|merge(['standalone']) %}
+{% endif %}
+{% if _classes is not empty %}
+  {% set attributes = attributes.addClass(_classes) %}
+{% endif %}
+{% set attributes = attributes.setAttribute('href', _path) %}
+
+<a
+  {{ attributes }}
+>
+  {%- if _icon_position == 'before' and _icon_markup is defined -%}
+    {{ _icon_markup|raw }}
+  {%- endif -%}
+  {{- _label -}}
+  {%- if _icon_position == 'after' and _icon_markup is defined -%}
+    {{ _icon_markup|raw }}
+  {%- endif -%}
+</a>
+
+{% endspaceless %}

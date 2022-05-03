@@ -1,0 +1,122 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "with_wrapper" (boolean) (default: false)
+  - "wrapper_classes" (string) (default: '')
+  - "wrapper_aria_live" (string) (default: '')
+  - "with_container" (boolean) (default: false)
+  - "container_classes" (string) (default: '')
+  - "toasts" (array of objects) format: [
+    {
+      - "body" (string) (default: '')
+      - "role" (string) (default: 'alert')
+      - "with_close" (boolean) (default: true)
+      - "autohide" (boolean) (default: false)
+      - "with_body_wrapper" (boolean) (default: false)
+      - "body_wrapper_classes" (string) (default: '')
+      - "attributes" (drupal object) (default: undefined)
+    },
+    ...
+  ]
+#}
+
+{% set _toasts = toasts|default([]) %}
+{% set _with_wrapper = with_wrapper|default(false) %}
+{% set _wrapper_classes = wrapper_classes|default('') %}
+{% set _wrapper_aria_live = wrapper_aria_live|default('') %}
+{% set _with_container = with_container|default(false) %}
+{% set _container_classes = 'toast-container' %}
+
+{% if container_classes %}
+  {% set _container_classes = _container_classes ~ ' ' ~ container_classes %}
+{% endif %}
+
+{% if attributes is empty %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+
+{# wrapper #}
+{% if _with_wrapper %}
+  {% set attributes = attributes.setAttribute('aria-atomic', "true") %}
+  {% if _wrapper_aria_live %}
+    {% set attributes = attributes.setAttribute('aria-live', _wrapper_aria_live) %}
+  {% endif %}
+  {% if _wrapper_classes %}
+    {% set attributes = attributes.addClass(_wrapper_classes|split(' ')) %}
+  {% endif %}
+
+<div {{ attributes }}>
+
+{% endif %}
+{# container #}
+{% if _with_container %}
+  <div class="{{ _container_classes }}">
+{% endif %}
+{# toasts #}
+{% if _toasts is not empty %}
+  {% for _toast in _toasts %}
+    {% set _classes = ['toast'] %}
+    {% set _body = _toast.body|default('') %}
+    {% set _role = _toast.role|default('') %}
+    {% set _with_close = _toast.with_close ?? true %}
+    {% set _aria_live = _toast.aria_live|default('') %}
+    {% set _autohide = _toast.autohide ?? true %}
+    {% set _with_body_wrapper = _toast.with_body_wrapper|default(false) %}
+    {% set _body_wrapper_classes = _toast.body_wrapper_classes|default('') %}
+    {% set _toast_attributes = _toast.attributes ?: create_attribute() %}
+    {% set _toast_attributes =  _toast_attributes.addClass(_classes).setAttribute('aria-atomic', 'true') %}
+    {% if _aria_live is not empty %}
+      {% set _toast_attributes = _toast_attributes.setAttribute('aria-live', _aria_live) %}
+    {% endif %}
+    {% if _role is not empty %}
+      {% set _toast_attributes = _toast_attributes.setAttribute('role', _role) %}
+    {% endif %}
+    {% if not _autohide %}
+      {% set _toast_attributes = _toast_attributes.setAttribute('data-bs-autohide', 'false') %}
+    {% endif %}
+    <div
+      {{ _toast_attributes }}
+    >
+    {% if _with_close or
+      (_toast.header is defined and _toast.header is not empty)
+    %}
+    <div class="toast-header">
+    {{- _toast.header|default('') -}}
+    {% if _with_close %}
+      {% set button_attributes = create_attribute()
+                                .addClass(['btn-close'])
+                                .setAttribute('aria-label', 'close')
+                                .setAttribute('data-bs-dismiss', 'toast')
+      %}
+      {%- include '@oe-bcl/bcl-button/button.html.twig' with {
+        attributes: button_attributes,
+        clean_class: true
+      } only -%}
+    {% endif %}
+    </div>
+  {% endif %}
+  {% if _with_body_wrapper %}
+    <div
+    {% if _body_wrapper_classes %}
+      class="{{ _body_wrapper_classes }}"
+    {% endif %}
+    >
+  {% endif %}
+    <div class="toast-body">
+      {{- _body -}}
+    </div>
+  {% if _with_body_wrapper %}
+    </div>
+  {% endif %}
+  </div>
+  {% endfor %}
+{% endif %}
+{% if _with_container %}
+  </div>
+{% endif %}
+{% if _with_wrapper %}
+</div>
+{% endif %}
+
+{% endspaceless %}

@@ -1,0 +1,169 @@
+{% spaceless %}
+
+{#
+  Parameters:
+  - "id" (string) (default: '')
+  - "label" (string) (default: '')
+  - "label_extra_classes" (string) (default: '')
+  - "hidden_label" (boolean) (default: false)
+  - "helper_text" (string) (default: '')
+  - "helper_text_id" (string) (default: '')
+  - "disabled" (boolean) (default: false)
+  - "invalid" (boolean) (default: false)
+  - "valid" (boolean) (default: false)
+  - "invalid_feedback" (string) (default: '')
+  - "valid_feedback" (string) (default: '')
+  - "required" (boolean) (default: false)
+  - "multiple" (boolean) (default: false)
+  - "options": (array of objects with value and label keys) (default: [])
+  - "aria_label": (string) (default: '')
+  - "clean_class": (boolean) (default: false) - removes 'form-select' class
+#}
+
+{% set _classes = ['form-select'] %}
+{% set _id = id|default('') %}
+{% set _disabled = disabled|default(false) %}
+{% set _options = options|default([]) %}
+{% set _aria_label = aria_label|default('') %}
+{% set _required = required|default(false) %}
+{% set _multiple = multiple|default(false) %}
+{% set _invalid = invalid|default(false) %}
+{% set _valid = valid|default(false) %}
+{% set _invalid_feedback = invalid_feedback|default('') %}
+{% set _valid_feedback = valid_feedback|default('') %}
+{% set _helper_text = helper_text|default('') %}
+{% set _helper_text_id = helper_text_id|default('') %}
+{% set _label = label|default('') %}
+{% set _label_extra_classes = label_extra_classes|default('') %}
+{% set _clean_class = clean_class|default(false) %}
+{% set _hidden_label = hidden_label|default(false) %}
+
+{% set _label_class = 'form-label' %}
+
+{% if _clean_class %}
+  {% set _classes = [] %}
+{% endif %}
+
+{% if _invalid %}
+  {% set _classes = _classes|merge(['is-invalid']) %}
+{% endif %}
+
+{% if _valid %}
+  {% set _classes = _classes|merge(['is-valid']) %}
+{% endif %}
+
+{% if attributes is empty %}
+  {% set attributes = create_attribute() %}
+{% endif %}
+
+{% if _label_extra_classes is not empty %}
+  {% set _label_class = _label_class ~ ' ' ~ _label_extra_classes %}
+{% endif %}
+
+{% if _aria_label is not empty %}
+  {% set attributes = attributes.setAttribute('aria-label', _aria_label) %}
+{% endif %}
+
+{% if _id is not empty %}
+  {% set attributes = attributes.setAttribute('id', _id) %}
+{% endif %}
+
+{% if _disabled %}
+  {% set attributes = attributes.setAttribute('disabled', true) %}
+{% endif %}
+
+{% if _multiple %}
+  {% set attributes = attributes.setAttribute('multiple', true) %}
+{% endif %}
+
+{% if _required %}
+  {% set attributes = attributes.setAttribute('required', true) %}
+{% endif %}
+
+{% if _hidden_label %}
+  {% set _label_class = _label_class ~ ' visually-hidden' %}
+{% endif %}
+
+{% if _classes is not empty %}
+  {% set attributes = attributes.addClass(_classes) %}
+{% endif %}
+
+{% if _label is not empty %}
+  {% set _label_block %}
+    <label
+    {% if _id %}
+      for="{{ _id }}"
+    {% endif %}
+      class="{{ _label_class }}"
+    >
+      {{- label -}}
+    </label>
+  {% endset %}
+{% endif %}
+
+{% if _label_block is defined %}
+  {{ _label_block|raw }}
+{% endif %}
+<select
+  {{ attributes }}
+>
+{% if _options is not empty and _options is iterable %}
+  {% for _option in _options %}
+    {% if _option.optgroup is defined %}
+      <optgroup label="{{ _option.label }}">
+      {% if _option.options is not empty  and _option.options is iterable %}
+        {% for _optGroupOption in _option.options %}
+        <option
+          value="{{ _optGroupOption.value }}"
+        {% if _optGroupOption.selected is defined %}
+          selected
+        {% endif %}
+        {% if _optGroupOption.disabled %}
+          disabled
+        {% endif %}
+        >
+          {{- _optGroupOption.label -}}
+        </option>
+        {% endfor %}
+      {% endif %}
+      </optgroup>
+    {% else %}
+      <option
+        value="{{ _option.value }}"
+      {% if _option.selected is defined %}
+        selected
+      {% endif %}
+      {% if _option.disabled %}
+        disabled
+      {% endif %}
+      {% if _option.hidden %}
+        hidden
+      {% endif %}
+      >
+        {{- _option.label -}}
+      </option>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+</select>
+{% if _invalid_feedback is not empty %}
+  <div class="invalid-feedback">
+    {{- _invalid_feedback -}}
+  </div>
+{% endif %}
+{% if _valid_feedback is not empty %}
+  <div class="valid-feedback">
+    {{- _valid_feedback -}}
+  </div>
+{% endif %}
+{% if _helper_text is not empty %}
+<div
+  class="form-text"
+{% if _helper_text_id is not empty %}
+  id="{{ _helper_text_id }}"
+{% endif %}>
+  {{- _helper_text -}}
+</div>
+{% endif %}
+
+{% endspaceless %}
