@@ -1,9 +1,4 @@
-global:
+fix:
   css:
     theme:
-      assets/css/main.css: {}
-  js:
-    assets/js/bundle.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
+      src/css/bootstrap-italia-drupal-fix.css: {}

@@ -29,6 +29,7 @@ class Helper {
 
   /**
    * Return colors name.
+   * https://getbootstrap.com/docs/5.1/utilities/colors/#variables
    */
   public static function getColorsName($withLabel = FALSE): array {
     if ($withLabel) {
@@ -36,12 +37,34 @@ class Helper {
         'primary' => 'Primary ',
         'secondary' => 'Secondary',
         'success' => 'Success',
-        'info' => 'Info',
-        'warning' => 'Warning',
         'danger' => 'Danger',
+        'warning' => 'Warning',
+        'info' => 'Info',
         'light' => 'Light',
-        'white' => 'White',
         'dark' => 'Dark',
+        'body' => 'Body',
+        'muted' => 'Muted',
+        'black' => 'Black',
+        'white' => 'White',
+        'blue' => 'Blue',
+        'indigo' => 'Indigo',
+        'purple' => 'Purple',
+        'pink' => 'Pink',
+        'red' => 'Red',
+        'orange' => 'Orange',
+        'yellow' => 'Yellow',
+        'green' => 'Green',
+        'teal' => 'Teal',
+        'cyan' => 'Cyan',
+        'gray-100' => 'Gray 100',
+        'gray-200' => 'Gray 200',
+        'gray-300' => 'Gray 300',
+        'gray-400' => 'Gray 400',
+        'gray-500' => 'Gray 500',
+        'gray-600' => 'Gray 600',
+        'gray-700' => 'Gray 700',
+        'gray-800' => 'Gray 800',
+        'gray-900' => 'Gray 900',
       ];
     }
 
@@ -49,12 +72,34 @@ class Helper {
       'primary ',
       'secondary',
       'success',
-      'info',
-      'warning',
       'danger',
+      'warning',
+      'info',
       'light',
-      'white',
       'dark',
+      'body',
+      'muted',
+      'black',
+      'white',
+      'blue',
+      'indigo',
+      'purple',
+      'pink',
+      'red',
+      'orange',
+      'yellow',
+      'green',
+      'teal',
+      'cyan',
+      'gray-100',
+      'gray-200',
+      'gray-300',
+      'gray-400',
+      'gray-500',
+      'gray-600',
+      'gray-700',
+      'gray-800',
+      'gray-900',
     ];
   }
 
@@ -69,10 +114,11 @@ class Helper {
         'md' => t('Medium (>= 768px)'),
         'lg' => t('Large (>= 992px)'),
         'xl' => t('Extra Large (>= 1200px)'),
+        'xxl' => t('Extra Large (>= 1400px)'),
       ];
     }
 
-    return ['', 'sm', 'md', 'lg', 'xl'];
+    return ['', 'sm', 'md', 'lg', 'xl','xxl'];
   }
 
   /**
@@ -87,9 +133,18 @@ class Helper {
         'container-md' => t('Container md'),
         'container-lg' => t('Container lg'),
         'container-xl' => t('Container xl'),
+        'container-xxl' => t('Container xxl'),
       ];
     }
-    return ['container', 'container-fluid'];
+    return [
+      'container',
+      'container-fluid',
+      'container-sm',
+      'container-md',
+      'container-lg',
+      'container-xl',
+      'container-xxl',
+    ];
   }
 
   /**
@@ -104,7 +159,7 @@ class Helper {
     $assets_js_path = $theme->getPath() . '/assets/js';
 
     $default_option = [
-      '' => t('Usa @theme.libraries.yml (raccomandato)', ['@theme' => $theme->getName()]),
+      '' => t('Use @theme.libraries.yml (recommended)', ['@theme' => $theme->getName()]),
     ];
 
     // Check if directories css and js exists.
@@ -136,6 +191,39 @@ class Helper {
       }
     }
     return $variants;
+  }
+
+  /**
+   * Set themes variants.
+   *
+   * @return array
+   *   Libraries array.
+   */
+  public static function setThemeVariants(): array {
+    // Get default theme.
+    $theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+    // Get config default theme.
+    $config = \Drupal::config($theme . '.settings');
+    // Get theme_variant default theme.
+    $theme_variant = $config->getOriginal('theme_variant');
+
+    $libraries = [];
+    if (!empty($theme_variant) && $theme_variant != '') {
+      $libraries['global'] = [
+        'css' => [
+          'theme' => [
+            'assets/css/' . $theme_variant . '.css' => [],
+          ],
+        ],
+        'js' => [
+          'assets/js/' . $theme_variant . '.js' => [],
+        ],
+        'dependencies' => [
+          'core/drupal',
+        ],
+      ];
+    }
+    return $libraries;
   }
 
 }

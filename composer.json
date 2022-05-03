@@ -27,7 +27,7 @@
         }
     ],
     "require": {
-        "drupal/components": ">=2.4",
+        "drupal/components": ">=3.0.0",
         "drupal/ui_patterns": ">=1.2"
     },
     "support": {

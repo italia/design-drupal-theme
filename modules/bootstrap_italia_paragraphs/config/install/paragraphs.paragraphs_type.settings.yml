@@ -1,9 +1,0 @@
-langcode: it
-status: true
-dependencies: {  }
-id: settings
-label: Impostazioni
-icon_uuid: null
-icon_default: null
-description: 'Questo tipo di paragrafo viene riutilizzato da tutti gli altri paragrafi e serve per gestire le impostazioni. Non dovresti aggiungerlo ad un tipo di contenuto e/o ad un blocco.'
-behavior_plugins: {  }

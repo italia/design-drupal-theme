@@ -1,0 +1,7 @@
+/* Theme fix */
+.block-region.demo-block {
+  background-color: #aaa;
+  padding: 1em;
+  color: #000 !important;
+  font-weight: bold;
+}

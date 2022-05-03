@@ -8,10 +8,7 @@
   Drupal.behaviors.componentLibraryInitialization = {
     attach: function (context, settings) {
 
-      // Initialize tooltip
-      jQuery('[data-toggle="tooltip"]').tooltip()
-
     }
   };
 
-})(jQuery, Drupal);
+})(Drupal);

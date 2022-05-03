@@ -1,115 +1,101 @@
-name: Bootstrap Italia Gov - Child Theme
+name: "Bootstrap Italia Gov - Child Theme"
 type: theme
-description: Bootstrap Italia è un tema Bootstrap 4 conforme alle linee guida di design per i servizi web della PA
+description: "Bootstrap Italia is a Bootstrap 5 theme compliant with the design guidelines for the PA web services"
 package: Italia
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^9 || ^10
 base theme: bootstrap_italia
-# php: 7.3
 
+# Choose libraries to use
 libraries:
-  - italiagov/global
+  - italiagov/vanilla
+#  - italiagov/custom
+#  - italiagov/cdn
+#  - italiagov/hot
+#  - italiagov/ddev
+  - bootstrap_italia/fix
 
-libraries-override:
-  bootstrap_italia/global: false
-
-# libraries-extend
-# hidden: true
-
-engine: twig
+hidden: true # <---- Remember to set false, comment or delete line
 
 logo: logo.svg
 screenshot: screenshot.png
 
 regions:
   page_top: "Page top" # Don't remove
-  disabled_blocks: "Blocchi disattivati" # Don't remove, edit or move in another position
+  disabled_blocks: "Blocks disabled" # Don't remove, edit or move in another position
 
   # Header
   header_slim_menu: "Slim header - Menu"
-  header_slim_lingua: "Slim header - Lingua"
-  header_slim_action: "Slim header - Accesso e menu utente"
-  brand: "Header centrale - Logo e intestazione"
-  header_center_social: "Header centrale - Social network"
-  header_center_search: "Header centrale - Motore di ricerca"
-  header_nav: "Header Nav - Menu principale e barra di navigazione"
+  header_slim_language: "Slim header - Language"
+  header_slim_action: "Slim header - Login and user menu"
+  brand: "Central Header - Logo"
+  header_center_social: "Central Header - Social network"
+  header_center_search: "Central Header - Search area"
+  header_nav: "Header Nav - Main menu"
 
   # Before content
-  before_content_full_width: "Prima del contenuto - Regione full width"
-  before_content_first: "Prima del contenuto- Prima regione"
-  before_content_second: "Prima del contenuto - Seconda regione"
-  before_content_third: "Prima del contenuto- Terza regione"
-  before_content_fourth: "Prima del contenuto - Quarta regione"
+  before_content_full_width: "Before content - Full width region"
+  before_content_first: "Before content- First region"
+  before_content_second: "Before content - Second region"
+  before_content_third: "Before content - Third region"
+  before_content_fourth: "Before content - Fourth region"
 
   # Content
-  title: "Titolo della pagina"
+  title: "Page title"
   breadcrumb: "Breadcrumb"
-  local_tasks: "Schede e menu di amministrazione"
+  local_tasks: "Administration tabs"
   help: "Help"
-  notification: "Area notifiche"
-  content: Content
+  notification: "Notification area"
+  content: "Main Content"
 
   # Sidebar
-  sidebar_first: "Sidebar prima"
-  sidebar_second: "Sidebar seconda"
+  sidebar_first: "Sidebar first"
+  sidebar_second: "Sidebar second"
 
   # After content
-  after_content_first: "Dopo del contenuto - Prima regione"
-  after_content_second: "Dopo del contenuto - Seconda regione"
-  after_content_third: "Dopo del contenuto- Terza regione"
-  after_content_fourth: "Dopo del contenuto - Quarta regione"
-  after_content_full_width: "Dopo del contenuto - Regione full width"
+  after_content_first: "After content - First region"
+  after_content_second: "After content - Second region"
+  after_content_third: "After content - Third region"
+  after_content_fourth: "After content - Fourth region"
+  after_content_full_width: "After content - Full width region"
 
   # Footer
   footer_menu: "Footer menu"
-  footer_first: "Footer - Prima regione"
-  footer_second: "Footer - Seconda regione"
-  footer_third: "Footer - Terza regione"
-  footer_fourth: "Footer - Quarta regione"
+  footer_first: "Footer - First region"
+  footer_second: "Footer - Second region"
+  footer_third: "Footer - Third region"
+  footer_fourth: "Footer - Fourth region"
 
-  footer_small_prints: "Footer - Menu small prints: info legali, privacy, ecc."
-  footer_credits: "Footer - Crediti"
+  footer_small_prints: "Footer - Small menu  prints: legal, privacy, etc."
+  footer_credits: "Footer - Credits"
 
   page_bottom: "Page bottom" # Don't remove
 
   # Home page
-  home_first_row_full_width: "Home page - Prima regione full width"
-  home_first_row_first: "Home page - Prima riga - Prima regione"
-  home_first_row_second: "Home page - Prima riga - Seconda regione"
-  home_first_row_third: "Home page - Prima riga - Terza regione"
-  home_first_row_fourth: "Home page - Prima riga - Quarta regione"
+  home_first_row_full_width: "Home page - First row full width"
+  home_first_row_first: "Home page - First row - First region"
+  home_first_row_second: "Home page - First row - Second region"
+  home_first_row_third: "Home page - First row - Third region"
+  home_first_row_fourth: "Home page - First row - Fourth region"
 
-  home_second_row_full_width: "Home page - Seconda regione full width"
-  home_second_row_first: "Home page - Seconda riga - Prima regione"
-  home_second_row_second: "Home page - Seconda riga - Seconda regione"
-  home_second_row_third: "Home page - Seconda riga - Terza regione"
-  home_second_row_fourth: "Home page - Seconda riga - Quarta regione"
+  home_second_row_full_width: "Home page - Second row full width"
+  home_second_row_first: "Home page - Second row - First region"
+  home_second_row_second: "Home page - Second row - Second region"
+  home_second_row_third: "Home page - Second row - Third region"
+  home_second_row_fourth: "Home page - Second row - Fourth region"
 
-  home_third_row_full_width: "Home page - Terza regione full width"
-  home_third_row_first: "Home page - Terza riga - Prima regione"
-  home_third_row_second: "Home page - Terza riga - Seconda regione"
-  home_third_row_third: "Home page - Terza riga - Terza regione"
-  home_third_row_fourth: "Home page - Terza riga - Quarta regione"
+  home_third_row_full_width: "Home page - Third row full width"
+  home_third_row_first: "Home page - Third row - First region"
+  home_third_row_second: "Home page - Third row - Second region"
+  home_third_row_third: "Home page - Third row - Third region"
+  home_third_row_fourth: "Home page - Third row - Fourth region"
 
-  home_fourth_row_full_width: "Home page - Quarta regione full width"
-  home_fourth_row_first: "Home page - Quarta riga - Prima regione"
-  home_fourth_row_second: "Home page - Quarta riga - Seconda regione"
-  home_fourth_row_third: "Home page - Quarta riga - Terza regione"
-  home_fourth_row_fourth: "Home page - Quarta riga - Quarta regione"
+  home_fourth_row_full_width: "Home page - Fourth ror full width"
+  home_fourth_row_first: "Home page - Fourth ror- First region"
+  home_fourth_row_second: "Home page - Fourth ror - Second region"
+  home_fourth_row_third: "Home page - Fourth ror - Third region"
+  home_fourth_row_fourth: "Home page - Fourth ror - Fourth region"
 
-  home_last_row_full_width: "Home page - Ultima regione full width"
-
-# see https://www.drupal.org/project/drupal/issues/474684
-# see https://www.drupal.org/docs/8/theming-drupal-8/defining-a-theme-with-an-infoyml-file#dependencies
-# see https://www.drupal.org/node/2937955#comment-13793976
-# see https://www.drupal.org/project/bootstrap_italia/issues/3169891
-#dependencies:
-#  - drupal:bootstrap_italia
-
-# features:
-stylesheets-remove:
-  - system.theme.css
-  - system.menus.css
-  - system.admin.css
+  home_last_row_full_width: "Home page - Last full width region"
 
 ckeditor_stylesheets:
   - assets/css/bootstrap-italia.css

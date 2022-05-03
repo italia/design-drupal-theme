@@ -1,12 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
-.gitignore
 assets
 node_modules
 package-lock.json
-
-var/starter_kits/italiagov/assets/
-var/starter_kits/italiagov/node_modules
-var/starter_kits/italiagov/package-lock.json
 
 # Numerous always-ignore extensions
 *.diff
@@ -37,5 +32,7 @@ Thumbs.db
 .vscode
 
 # Subtheme ignore
-/var/starter_kits/italiagov/assets/
+var/starter_kits/italiagov/assets/
+var/starter_kits/italiagov/node_modules
+var/starter_kits/italiagov/package-lock.json
 /var/starter_kits/italiagov/webpack.settings.js

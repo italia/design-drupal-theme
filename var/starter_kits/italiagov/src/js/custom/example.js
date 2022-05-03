@@ -12,6 +12,6 @@
     }
   };
 
-})(jQuery, Drupal);
+})(Drupal);
 
  */

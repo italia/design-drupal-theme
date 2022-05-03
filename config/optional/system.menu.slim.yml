@@ -1,7 +1,0 @@
-langcode: it
-status: true
-dependencies: {  }
-id: slim
-label: Slim
-description: 'Slim menu in Header'
-locked: false

@@ -5,34 +5,11 @@
  * Theme file for Bootstrap Italia.
  */
 
+use Drupal\bootstrap_italia\Helper;
+
 /**
  * Implements theme_library_info_build().
  */
 function multisite_example_library_info_build() {
-  // Get default theme.
-  $theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
-  // Get config default theme.
-  $config = \Drupal::config($theme . '.settings');
-  // Get theme_variant default theme.
-  $theme_variant = $config->getOriginal('theme_variant');
-
-  $libraries = [];
-  if (!empty($theme_variant) && $theme_variant != '') {
-    $libraries['global'] = [
-      'css' => [
-        'theme' => [
-          'assets/css/' . $theme_variant . '.css' => [],
-        ],
-      ],
-      'js' => [
-        'assets/js/' . $theme_variant . '.js' => [],
-      ],
-      'dependencies' => [
-        'core/jquery',
-        'core/drupal',
-      ],
-    ];
-  }
-
-  return $libraries;
+  return Helper::setThemeVariants();
 }

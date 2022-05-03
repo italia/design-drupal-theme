@@ -26,22 +26,12 @@
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <head-placeholder token="{{ placeholder_token|raw }}">
+    <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
-    <css-placeholder token="{{ placeholder_token|raw }}">
-    <js-placeholder token="{{ placeholder_token|raw }}">
-    <script>window.__PUBLIC_PATH__ = '{{ base_path ~ "/" ~directory }}/assets/fonts'</script>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
   </head>
-  {%
-    set classes = [
-      logged_in ? 'user-logged-in' : 'user-anonymous',
-      not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
-      node_type ? 'page-node-type' ~ node_type|clean_class,
-      db_offline ? 'db-offline'
-    ]
-  %}
-  <body{{ attributes.addClass(classes) }}>
+  <body{{ attributes }}>
     {#
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.
@@ -51,23 +41,8 @@
     </a>
     {{ page_top }}
     {{ page }}
-    <!-- Search Modal -->
-    <div class="modal modal-fullscreen-{{ modal_size }} fade" id="search-modal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content perfect-scrollbar">
-          <div class="modal-header">
-            <h5 class="modal-title">{{ 'Search'|trans }}</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-close' } %}
-            </button>
-          </div>
-          <div class="modal-body">
-            {{ page.header_center_search }}
-          </div>
-        </div>
-      </div>
-    </div>
     {{ page_bottom }}
-    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+    <script>window.__PUBLIC_PATH__ = '{{ base_path ~ "/" ~ directory }}/assets/fonts'</script>
+    <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>

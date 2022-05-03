@@ -1,4 +1,6 @@
-# For reference see: https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni
+# For reference see:
+#  https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni
+#  https://getbootstrap.com/docs/5.1/layout/grid/#grid-options
 
 bootstrap_italia.extra_small:
   label: Extra small
@@ -37,15 +39,22 @@ bootstrap_italia.extra_large:
     - 2x
 bootstrap_italia.extra_extra_large:
   label: 'Extra extra large'
-  mediaQuery: 'all and (min-width: 1600px)'
+  mediaQuery: 'all and (min-width: 1400px)'
   weight: 4
+  multipliers:
+    - 1x
+    - 2x
+bootstrap_italia.full_hd:
+  label: 'Full HD'
+  mediaQuery: 'all and (min-width: 1600px)'
+  weight: 5
   multipliers:
     - 1x
     - 2x
 bootstrap_italia.4k:
   label: '4k'
   mediaQuery: 'all and (min-width: 1921px)'
-  weight: 5
+  weight: 6
   multipliers:
     - 1x
     - 2x

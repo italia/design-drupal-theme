@@ -1,9 +1,0 @@
-name: "Bootstrap Italia Image Styles [EXPERIMENTAL]"
-description: Add image styles to Admin -> Configurations -> Media -> Image Styles
-package: "Bootstrap Italia [EXPERIMENTAL]"
-experimental: true
-
-type: module
-core_version_requirement: ^8.9 || ^9
-dependencies:
-  - drupal:focal_point
