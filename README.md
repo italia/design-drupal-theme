@@ -12,15 +12,9 @@ $ composer create drupal/recommended-project my_site_name_dir
 $ composer require drush/drush
 ```
 
-Install drupal with the Italian language, you can use drush or your browser
+Install drupal, you can use drush or your browser
 ```
-$ drush site:install --locale=it
-```
-
-After installation, if you wish, also install the English language
-```
-$ drush en locale
-$ drush language-add en
+$ drush site:install
 ```
 
 Install `npm`: https://www.npmjs.com/get-npm
@@ -30,10 +24,8 @@ Install `npm`: https://www.npmjs.com/get-npm
 $ cd <drupal-root>
 
 /* 1. Install end enable dependencies */
-$ drush pm:enable inline_form_errors responsive_image
-$ composer require drupal/components drupal/ui_patterns
-$ drush pm:enable components \
-    ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
+$ composer require drupal/components
+$ drush pm:enable components
 $ composer require drupal/bootstrap_italia
 
 /* 2. Copy sub-theme to destination folder */
@@ -47,14 +39,22 @@ $ drush -y theme:enable italiagov
 
 /* 4. Set default theme */
 $ drush config-set system.theme default italiagov
+```
 
-/* 5. Install assets */
+# Manage and generate assets
+## Bootstrap-italia vanilla
+
+Download https://github.com/italia/bootstrap-italia-next/releases/download/v2.0.0-rc4/bootstrap-italia.zip
+and unzip in `<your-subtheme>/assets`
+
+## For developer and expert user:
+
+Install assets
+```
 $ cd custom/italiagov
 $ npm install
 ```
 
-# Manage and generate assets
-### Developement mode:
 Run watcher:
 ```
 $ npm run watch:dev
