@@ -31,7 +31,5 @@ components:
       - ./components/components-0x
 
     # Components library 2.0
-    oe-bcl:
-      - ./components/components-oe-bcl
     bi-bcl:
-      - ./components/components2
+      - ./components/components
