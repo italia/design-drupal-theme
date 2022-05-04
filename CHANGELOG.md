@@ -14,14 +14,16 @@
 
 ## Breaking changes
 - Removed experimental modules.
-If you want to continue using the experimental modules (Bootstrap Italia Image Styles,
+If you want to continue using the old experimental modules (Bootstrap Italia Image Styles,
 Bootstrap Italia overlays and Bootstrap Italia Paragraphs), before performing
 the version upgrade, move all modules to the `/modules` folder
 in your `<sub-theme>/modules/`,
-move `/templates/paragraphs/paragraph--content--default.html.twig` in your sub-theme
-and run `drush cr`.
+move `/templates/paragraphs/paragraph--content--default.html.twig` in your sub-theme and
+clear cache (`drush cr`).
 
 - Regions change:
   - `header_slim_lingua` to `header_slim_language`. After the update,
     you will find the blocks of the "Search" region in the "Disabled" position,
     place the blocks in the right region.
+
+- Refactoring `theme_library_info_build()`, update `<sub-theme>/<sub-theme>.theme`.
