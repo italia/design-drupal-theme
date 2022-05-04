@@ -28,10 +28,10 @@ components:
   namespaces:
     # Components library 0.x for retro-compatibility
     bootstrap_italia_components:
-      - ./src/components-0x
+      - ./components/components-0x
 
     # Components library 2.0
     oe-bcl:
-      - ./src/components-oe-bcl
+      - ./components/components-oe-bcl
     bi-bcl:
-      - ./src/components2
+      - ./components/components2
