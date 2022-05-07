@@ -16,6 +16,21 @@ module.exports = {
     path: paths.build,
     filename: "js/[name].js",
   },
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
+    ],
+  },
 
   plugins: [
     new MiniCssExtractPlugin({
@@ -25,11 +40,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns:[
         {
-          from: paths.modules + '/bootstrap-italia/src/assets/resizer-3x2.svg',
-          to: paths.build + '/assets/'
-        },
-        {
-          from: paths.modules + '/bootstrap-italia/src/assets/upload-drag-drop-icon.svg',
+          from: paths.modules + '/bootstrap-italia/src/assets/',
           to: paths.build + '/assets/'
         },
         {
@@ -37,7 +48,7 @@ module.exports = {
           to: paths.build + '/fonts/'
         },
         {
-          from: paths.modules + '/bootstrap-italia/dist/svg/sprite.svg',
+          from: paths.modules + '/bootstrap-italia/src/svg/',
           to: paths.build + '/svg/',
         },
         {
@@ -45,10 +56,6 @@ module.exports = {
           to: paths.build + '/images/'
         }
       ]
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
     }),
   ],
 };
