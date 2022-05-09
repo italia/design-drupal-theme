@@ -5,8 +5,8 @@
  * Theme settings.
  */
 
+use Drupal\bootstrap_italia\Helper\Libraries;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\bootstrap_italia\Helper;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
@@ -41,7 +41,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'select',
     '#title' => t("Choose libraries type"),
     '#default_value' => theme_get_setting('libraries_type'),
-    '#options' => Helper::getThemeLibraries(),
+    '#options' => Libraries::getLibraries(),
   ];
 
   // Vanilla Settings
