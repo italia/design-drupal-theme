@@ -245,7 +245,6 @@ class Helper {
     else {
       $libraries = [];
     }
-//    dump($libraries);
     return $libraries;
   }
 
