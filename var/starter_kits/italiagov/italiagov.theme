@@ -11,5 +11,5 @@ use Drupal\bootstrap_italia\Helper;
  * Implements theme_library_info_build().
  */
 function italiagov_library_info_build() {
-  return Helper::setThemeVariants();
+  return Helper::setThemeLibraries();
 }

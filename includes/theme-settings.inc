@@ -32,18 +32,57 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings'] = [
     '#type' => 'details',
     '#title' => t('Theme libraries'),
-    '#description' => t("Library to use."),
+    '#description' => t("Library to use. You need to clear the cache if you change these settings."),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 20,
   ];
-  $form['libraries_settings']['theme_variant'] = [
+  $form['libraries_settings']['libraries_type'] = [
     '#type' => 'select',
-    '#title' => t("Choose the theme library"),
-    '#description' => t('Whenever you change this setting you have to clear the cache to see the changes.'),
-    '#default_value' => theme_get_setting('theme_variant'),
-    '#options' => Helper::getThemeVariants(),
+    '#title' => t("Choose libraries type"),
+    '#default_value' => theme_get_setting('libraries_type'),
+    '#options' => Helper::getThemeLibraries(),
   ];
+
+  // Vanilla Settings
+  $form['libraries_settings']['vanilla'] = [
+    '#type' => 'details',
+    '#title' => t('Vanilla Settings'),
+    '#open' => TRUE,
+    '#group' => 'libraries_settings',
+  ];
+  $form['libraries_settings']['vanilla']['libraries_bundle'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Use the bundle version (only for vanilla option)."),
+    '#default_value' => theme_get_setting('libraries_bundle'),
+  ];
+
+  // CDN Settings
+  $form['libraries_settings']['cdn'] = [
+    '#type' => 'details',
+    '#title' => t('CDN Settings'),
+    '#description' => t("If you use a third-party CDN, check that you are compliant with the GDPR."),
+    '#open' => TRUE,
+    '#group' => 'libraries_settings',
+  ];
+  $form['libraries_settings']['cdn']['libraries_cdn_css'] = [
+    '#type' => 'url',
+    '#title' => t('CSS from CDN'),
+    '#description' => t("Put resource URI."),
+    '#default_value' => theme_get_setting('libraries_cdn_css'),
+  ];
+  $form['libraries_settings']['cdn']['libraries_cdn_js'] = [
+    '#type' => 'url',
+    '#title' => t('JS from CDN'),
+    '#description' => t("Put resource URI."),
+    '#default_value' => theme_get_setting('libraries_cdn_js'),
+  ];
+  $form['libraries_settings']['cdn']['libraries_cdn_minified'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Check if you are using minified libraries.'),
+    '#default_value' => theme_get_setting('libraries_cdn_minified'),
+  ];
+
 
   $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';
 }

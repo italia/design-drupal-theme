@@ -1,4 +1,7 @@
-# Assets if you use a bootstrap-italia vanilla release
+# Bootstrap-italia library managed from theme setting UI
+libraries-ui:
+
+# Bootstrap-italia library if you use a vanilla release
 vanilla:
   css:
     theme:
@@ -9,7 +12,7 @@ vanilla:
   dependencies:
     - core/drupal
 
-# Assets if you use a custom compiled bootstrap-italia library
+# Bootstrap-italia library if you use a custom compiled library
 custom:
   css:
     theme:
@@ -19,18 +22,21 @@ custom:
   dependencies:
     - core/drupal
 
-# Assets if you use a CDN
+# Bootstrap-italia library if you use a CDN
 cdn:
   css:
     theme:
       https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc4/dist/css/bootstrap-italia.min.css: { type: external, minified: true }
   js:
     https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc4/dist/js/bootstrap-italia.bundle.min.js: { type: external, minified: true }
-    # https://cdn.jsdelivr.net/npm/bootstrap-italia@1.5.2/dist/js/bootstrap-italia.min.js: { type: external, minified: true }
+    # https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc4/dist/js/bootstrap-italia.min.js: { type: external, minified: true }
   dependencies:
     - core/drupal
 
-# Assets if you use a webpack hot mode
+# Bootstrap-italia library if you use a webpack hot mode.
+# If you need customize host and port, copy `<sub-theme>/webpack.settings.dist.js`
+# in `<sub-theme>/webpack.settings.js` and edit `devServer.allowedHosts`
+# and `devServer.port`.
 hot:
   css:
     theme:
@@ -40,7 +46,18 @@ hot:
   dependencies:
     - core/drupal
 
-# Assets if you use a webpack hot mode with ddev
+# Bootstrap-italia library if you use a webpack hot mode with ddev
+# For example, use this tip to expose 8080 port
+# ---
+# <project-name>/.ddev/docker-compose.ports.yaml
+#
+#   version: '3.6'
+#   services:
+#     web:
+#       expose:
+#         - 8080
+#       ports:
+#         - 8080:8080
 ddev:
   css:
     theme:

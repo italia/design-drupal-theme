@@ -1,0 +1,14 @@
+favicon:
+  use_default: true
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  use_default: true
+libraries_type: vanilla
+libraries_bundle: 1
+libraries_cdn_css: 'https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc4/dist/css/bootstrap-italia.min.css'
+libraries_cdn_js: 'https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc4/dist/js/bootstrap-italia.bundle.min.js'
+libraries_cdn_minified: 1

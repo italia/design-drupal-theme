@@ -1,12 +1,12 @@
-name: Multisite Example - Sub Italia Gov
+name: Multisite Example - Sub ItaliaGov
 type: theme
 description: This is an example italiagov sub-theme
 package: Italia
 core_version_requirement: ^9 || ^10
-base theme: italiagov # <---- Check if name is correct
+base theme: italiagov # <---- Check if theme name is correct
 
 libraries-override:
-  italiagov/global: false # <---- Check if name is correct
+  italiagov/global: false # <---- Check if theme name is correct
 
 hidden: true # <---- Remember to set false, comment or delete line
 

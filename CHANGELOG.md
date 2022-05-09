@@ -21,11 +21,12 @@ in your `<sub-theme>/modules/`,
 move `/templates/paragraphs/paragraph--content--default.html.twig` in your sub-theme and
 clear cache (`drush cr`).
 
-- Regions change:
+- Regions changes:
   - `header_slim_lingua` to `header_slim_language`. After the update,
     you will find the blocks of the "Search" region in the "Disabled" position,
     place the blocks in the right region.
 
 - Refactoring `theme_library_info_build()`, update `<sub-theme>/<sub-theme>.theme`.
 
--
+- Theme Settings changes:
+  - `theme_variants` to `libraries_source`

@@ -5,9 +5,10 @@ package: Italia
 core_version_requirement: ^9 || ^10
 base theme: bootstrap_italia
 
-# Choose libraries to use
+# Choose libraries to use. Global is managed with theme settings UI.
 libraries:
-  - italiagov/vanilla
+  - italiagov/libraries-ui
+#  - italiagov/vanilla
 #  - italiagov/custom
 #  - italiagov/cdn
 #  - italiagov/hot
