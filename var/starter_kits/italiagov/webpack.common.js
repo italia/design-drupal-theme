@@ -20,17 +20,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: paths.src + /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
-      },
-      {
         test: /\.svg$/,
         include: paths.modules + '/bootstrap-italia/src/svg',
         use: [
@@ -64,10 +53,6 @@ module.exports = {
           from: paths.modules + '/bootstrap-italia/src/fonts/',
           to: paths.build + '/fonts/'
         },
-        // {
-        //   from: paths.modules + '/bootstrap-italia/src/svg/',
-        //   to: paths.build + '/svg/',
-        // },
         {
           from: './src/images/',
           to: paths.build + '/images/'
