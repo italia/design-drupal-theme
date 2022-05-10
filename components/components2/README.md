@@ -1,1 +1,1 @@
-New Components here
+New Components here. Please use `component_template`

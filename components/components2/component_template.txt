@@ -21,3 +21,10 @@
  *
  */
 #}
+{% apply spaceless %}
+  {# Set defaults #}
+
+  {# Set options #}
+
+  {# Component #}
+{% endapply %}
