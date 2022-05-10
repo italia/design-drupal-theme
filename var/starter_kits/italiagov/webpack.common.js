@@ -1,7 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const webpack = require('webpack')
 const check = require('./webpack.check')
 
 const paths = require('./webpack.paths')
