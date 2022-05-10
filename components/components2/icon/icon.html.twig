@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Template for a icon component
+ * Docs: https://italia.github.io/bootstrap-italia/docs/utilities/icone/
+ * Last review: 2.0.0-rc4
+ *
+ * Available config:
+ * - name: icon name - see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
+ * - classes: array
+ * - size: xs | sm | lg | xl
+ * - color: primary | secondary | success | warning | danger | light | white
+ * - dark: bool
+ * - light: bool
+ * - padded: bool
+ * - alignment: bottom | middle | top
+ * - library: string - your custom library
+ *
+ * Note: only first parameter is mandatory.
+ * You can set this component in two main ways:
+ *   - Set all parameters
+ *     [ name: 'it-x', classes: ['customClass'], size: 'xs', color: 'primary', dark: false, light: false, padded: true, alignment: 'middle' ]
+ *   - Set parameters in classes array, however you must use class names correctly
+ *     [ name: 'it-x', classes: ['customClass', 'icon-xs', 'icon-primary', 'bg-light', 'icon-padded', 'align-middle'] ]
+ *
+ * Examples:
+ *
+ *  {% include '@bi-bcl/icon/icon.html.twig' with {
+ *    name: 'it-tool',
+ *    size: 'lg',
+ *    color: 'primary',
+ *  } %}
+ *
+ *  {% include '@bi-bcl/icon/icon.html.twig' with {
+ *    name: 'it-tool',
+ *    classes: ['icon-lg', 'icon-primary'],
+ *  } %}
+ */
+#}
+{% apply spaceless %}
+{% set icon_classes = [
+    'icon',
+    size ? 'icon-'~size,
+    color ? 'icon-'~color,
+    dark ? 'bg-dark',
+    light ? 'bg-light',
+    padded ? 'icon-padded',
+    alignment ? 'align-'~alignment
+  ]
+%}
+
+{% if classes is defined %}
+  {% set icon_classes = classes|merge(icon_classes) %}
+{% endif %}
+
+{% set library = library ? library : 'sprites.svg' %}
+
+<svg class="{{ icon_classes|join(' ')|trim }}">
+  <use
+    href="/{{ active_theme_path() }}/assets/svg/{{ library }}#{{ name }}"
+    xlink:href="/{{ active_theme_path() }}/assets/svg/{{ library }}#{{ name }}"
+  ></use>
+</svg>
+{% endapply %}

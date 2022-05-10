@@ -10,5 +10,8 @@
  * - string: string
  * - boolean: true | false
  * - array: An array of...
+ *
+ * Examples:
+ *
  */
 #}
