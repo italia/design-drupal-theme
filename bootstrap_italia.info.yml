@@ -32,4 +32,4 @@ components:
 
     # Components library 2.0
     bi-bcl:
-      - ./components/components2
+      - ./components/components-2
