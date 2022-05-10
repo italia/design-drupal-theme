@@ -62,11 +62,10 @@
     {% set icon_classes = classes|merge(icon_classes) %}
   {% endif %}
 
+  {% set _path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ name %}
+
   {# Component #}
   <svg class="{{ icon_classes|join(' ')|trim }}">
-    <use
-      href="/{{ active_theme_path() }}/assets/svg/{{ _library }}#{{ name }}"
-      xlink:href="/{{ active_theme_path() }}/assets/svg/{{ _library }}#{{ name }}"
-    ></use>
+    <use href="{{ _path }}" xlink:href="{{ _path }}"></use>
   </svg>
 {% endapply %}
