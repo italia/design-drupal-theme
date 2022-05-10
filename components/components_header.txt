@@ -5,13 +5,19 @@
  * Docs: https://italia.github.io/bootstrap-italia/docs/COMPONENT/NAME
  * Last review: <bootstrap-italia_version>
  *
- * Available config:
- * - list: option1 | option2 | option3 | option4
- * - string: string
- * - boolean: true | false
- * - array: An array of...
+ * Parameters:
+ * - list (string) (default: 'default-value')
+ *   - options ["option1", "option2", "option3", "option4"]
+ * - string (string) mandatory
+ *   - Description
+ * - string (string) (default: '')
+ * - boolean (boolean) (default: true)
+ * - array (array) (default: [...])
  *
  * Examples:
+   {% include '@bi-bcl/*/*.html.twig' with {
+      variables: value,
+   } %}
  *
  */
 #}
