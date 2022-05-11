@@ -3,6 +3,7 @@
  */
 
 /*
+
 (function () {
   'use strict';
 
@@ -14,4 +15,4 @@
 
 })(Drupal);
 
- */
+*/

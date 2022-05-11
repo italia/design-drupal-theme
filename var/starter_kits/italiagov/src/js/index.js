@@ -1,7 +1,16 @@
-// Import Bootstrap-italia
+/**
+ * Main entry
+ * This file will be updated periodically by the maintainers,
+ * please do not make any changes.
+ *
+ * For your custom scripts use the 'custom' folder,
+ * import your scripts using './custom/custom.js'.
+ */
 
+// Import Bootstrap 5.
 import { Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover, ScrollSpy, Tab, Toast, Tooltip } from 'bootstrap' //importing bootstrap.bundle throws a rollup compiling warning/error
 
+// Import Bootstrap Italia.
 import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin'
 import * as fontsLoader from 'bootstrap-italia/src/js/plugins/fonts-loader'
 import * as icons from 'bootstrap-italia/src/js/icons.js'
@@ -77,8 +86,8 @@ window.bootstrap = {
   ValidatorSelectAutocomplete,
 }
 
-// example js
-//import './custom/example'
+// Component library initialization.
+import './component-library-initialization'
 
-// Custom theme script
-import './custom/component-library-initialization'
+// Import custom JS.
+import './custom/custom'

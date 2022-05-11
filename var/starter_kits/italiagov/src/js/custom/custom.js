@@ -1,6 +1,7 @@
 /**
- * Main custom SCSS
+ * Main custom JS
  * Use this folder and file to manage your custom styles.
  */
 
-@import "example";
+// Example JS
+//import 'example'
