@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Template for alert component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/alert/
+ * Last review: 2.0.0-rc4
+ *
+ * Parameters:
+ * - heading (string) (default: '')
+ *   - Optional heading
+ * - message (string) (default: '')
+ *   - Alert message
+ * - type (string) (default: 'info')
+ *   - options ["info", "success", "warning", "danger"]
+ * - dismissible (boolean) (default: true)
+ *   - Enable dismissible feature
+ * - animated_dismiss (boolean) (default: true)
+ *   - options ["fade"]
+ *
+ * Examples:
+   {% include '@bi-bcl/alert/alert.html.twig' with {
+      message: drupal_field_name,
+      type: 'info',
+      dismissible: true
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _heading = heading ?? false %}
+  {% set _message = message|default('') %}
+  {% set _type = type|default('info') %}
+  {% set _dismissible = dismissible ?? true %}
+  {% set _animated_dismiss = animated_dismiss ?? true %}
+
+  {# Set options #}
+  {% set classes = [
+    'alert',
+    _type ? 'alert-' ~ _type,
+    _dismissible ? 'alert-dismissible',
+    _animated_dismiss ? 'fade',
+    _animated_dismiss ? 'show',
+  ]
+  %}
+
+  {# Component #}
+  <div class="{{ classes|join(' ')|trim }}" role="alert">
+    {% if _heading %}
+      <h4 class="alert-heading">{{ _heading }}</h4>
+    {% endif %}
+
+    {{ _message|raw }}
+
+    {% if _dismissible %}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="{{ 'Close alert'|trans }}"
+      >
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-close'
+        } %}
+      </button>
+    {% endif %}
+  </div>
+{% endapply %}

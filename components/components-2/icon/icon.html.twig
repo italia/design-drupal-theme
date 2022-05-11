@@ -50,25 +50,25 @@
   {% set _library = library|default('sprites.svg') %}
 
   {# Set options #}
-  {% set icon_classes = [
+  {% set classes = [
       'icon',
-      size ? 'icon-'~size,
-      color ? 'icon-'~color,
+      size ? 'icon-' ~ size,
+      color ? 'icon-' ~ color,
       dark ? 'bg-dark',
       light ? 'bg-light',
       padded ? 'icon-padded',
-      alignment ? 'align-'~alignment
+      alignment ? 'align-' ~ alignment
     ]
   %}
 
   {% if classes is defined %}
-    {% set icon_classes = classes|merge(icon_classes) %}
+    {% set classes = classes|merge(classes) %}
   {% endif %}
 
   {% set _path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ name %}
 
   {# Component #}
-  <svg class="{{ icon_classes|join(' ')|trim }}">
+  <svg class="{{ classes|join(' ')|trim }}">
     <use href="{{ _path }}" xlink:href="{{ _path }}"></use>
   </svg>
 {% endapply %}
