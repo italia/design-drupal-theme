@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Badge demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/badge/badge-demo.html.twig' %}
+ */
+#}
+
+{% apply spaceless %}
+
+  {% for i in 1..6 %}
+    <h{{ i }}>Example title
+      {% include '@bi-bcl/badge/badge.html.twig' with {
+        label: 'New',
+        background: 'secondary',
+      } %}
+    </h{{ i }}>
+  {% endfor %}
+
+{% endapply %}

@@ -1,0 +1,105 @@
+{#
+/**
+ * @file
+ * Template for badge component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/alert/
+ * Last review: 2.0.0-rc4
+ *
+ * Parameters:
+ * - label (string) (default: '')
+ *   - Badge text
+ * - background: (string) (default: 'primary')
+ *   - Background color
+ * - url (string) (default: '')
+ *   - Optional url for linked badge
+ * - title (string) (default: label)
+ *   - Optional text for url title param
+ * - dismissible (boolean) (default: true)
+ *   - Enable dismissible feature
+ * - assistive_text (string) (default: '')
+ *   - Optional assistive text for badge label
+ * - rounded_pill (boolean) (default: false)
+ *   - Rounded effect
+ * - outline (boolean) (default: false)
+ *   - Outline effect
+ * - icon_path (string) (default: '')
+ *   - Icon name
+ * - icon_size
+ *   - Icon size
+ * - icon_color
+ *   - Icon color
+ *
+ * Examples:
+   {% include "@bi-bcl/badge/badge.html.twig"
+      with {
+        title: 'url title',
+        label: field_label,
+        dismissible: true,
+        icon_path: 'pa',
+        assistive_text: 'unreaded mails'
+      }
+    %}
+ *
+ */
+#}
+
+{% set _rounded_pill = rounded_pill|default(false) %}
+{% set _outline = outline|default(false) %}
+{% set _background = background|default('primary') %}
+{% set _label = label|default('') %}
+{% set _classes = ['badge'] %}
+{% set _url = url|default('') %}
+{% set _icon_path = icon_path|default('it-close') %}
+{% set _icon_size = icon_size|default('xs') %}
+{% set _icon_color = icon_size|default('white') %}
+{% set _title = title|default(_label) %}
+{% set _dismissible = dismissible|default(false) %}
+{% set _assistive_text = assistive_text|default('') %}
+
+{% apply spaceless %}
+{% if _rounded_pill %}
+  {% set _classes = _classes|merge(['rounded-pill']) %}
+{% endif %}
+
+{% if _outline %}
+  {% set _classes = _classes|merge([ 'badge-outline-' ~ _background]) %}
+{% else %}
+  {% set _classes = _classes|merge([ 'bg-' ~ _background]) %}
+{% endif %}
+
+{% if _background in ['light', 'warning'] %}
+  {% set _classes = _classes|merge(['text-dark']) %}
+{% endif %}
+
+{# {% if attributes is empty %} #}
+  {% set attributes = create_attribute() %}
+{# {% endif %} #}
+
+{% set attributes = attributes.addClass(_classes) %}
+
+{%- if _url is not empty -%}
+<a href="{{ _url }}" title="{{ _title }}">
+{%- endif -%}
+  <span
+    {{ attributes }}
+  >
+  {{- _label -}}
+  {%- if _assistive_text is not empty -%}
+    <span class="visually-hidden">
+      {{- _assistive_text -}}
+    </span>
+  {%- endif -%}
+  {%- if _dismissible -%}
+    <span class="icon--close" aria-hidden="true">
+      {% include '@bi-bcl/icon/icon.html.twig' with {
+        name: _icon_path,
+        size: _icon_size,
+        color: _icon_color,
+      } only %}
+    </span>
+  {%- endif -%}
+  </span>
+{%- if _url is not empty -%}
+</a>
+{%- endif -%}
+{% endapply %}
