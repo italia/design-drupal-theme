@@ -44,7 +44,7 @@ WIP     page.html.twig
         radios.html.twig
         region.html.twig
         select.html.twig
-WIP     status-messages.html.twig
+OK      status-messages.html.twig
         status-report-counter.html.twig
         status-report-general-info.html.twig
         status-report-grouped.html.twig
