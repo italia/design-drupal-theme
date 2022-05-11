@@ -28,7 +28,7 @@ regions:
   header_slim_menu: "Slim header - Menu"
   header_slim_language: "Slim header - Language"
   header_slim_action: "Slim header - Login and user menu"
-  brand: "Central Header - Logo"
+  brand: "Central Header - Logo and site branding"
   header_center_social: "Central Header - Social network"
   header_center_search: "Central Header - Search area"
   header_nav: "Header Nav - Main menu"
