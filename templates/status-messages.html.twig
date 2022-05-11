@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Default theme implementation for status messages.
+ *
+ * Displays status, error, and warning messages, grouped by type.
+ *
+ * An invisible heading identifies the messages for assistive technology.
+ * Sighted users see a colored box. See http://www.w3.org/TR/WCAG-TECHS/H69.html
+ * for info.
+ *
+ * Add an ARIA label to the contentinfo area so that assistive technology
+ * user agents will better describe this landmark.
+ *
+ * Available variables:
+ * - message_list: List of messages to be displayed, grouped by type.
+ * - status_headings: List of all status types.
+ * - attributes: HTML attributes for the element, including:
+ *   - class: HTML classes.
+ *
+ * @ingroup themeable
+ */
+#}
+{% set types = {
+  info: 'info',
+  status: 'success',
+  warning: 'warning',
+  error: 'danger',
+} %}
+{% apply spaceless %}
+  <div data-drupal-messages>
+  {% for type, messages in message_list %}
+    <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+
+      {% if status_headings[type] %}
+        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+      {% endif %}
+
+      {% for message in messages %}
+        {% include '@bi-bcl/alert/alert.html.twig' with {
+          message: message,
+          type: types[type]
+        } %}
+      {% endfor %}
+
+    </div>
+  {% endfor %}
+  </div>
+{% endapply %}
