@@ -27,14 +27,14 @@
 #}
 {% apply spaceless %}
   {# Set defaults #}
-  {% set _heading = heading ?? false %}
+  {% set _heading = heading|default('') %}
   {% set _message = message|default('') %}
   {% set _type = type|default('info') %}
   {% set _dismissible = dismissible ?? true %}
   {% set _animated_dismiss = animated_dismiss ?? true %}
 
   {# Set options #}
-  {% set classes = [
+  {% set _classes = [
     'alert',
     _type ? 'alert-' ~ _type,
     _dismissible ? 'alert-dismissible',
@@ -44,24 +44,26 @@
   %}
 
   {# Component #}
-  <div class="{{ classes|join(' ')|trim }}" role="alert">
-    {% if _heading %}
+  <div class="{{ _classes|join(' ')|trim }}" role="alert">
+    {%- if _heading is not empty -%}
       <h4 class="alert-heading">{{ _heading }}</h4>
-    {% endif %}
+    {%- endif -%}
 
-    {{ _message|raw }}
+    {%- if _message is not empty -%}
+      {{- _message -}}
+    {%- endif -%}
 
-    {% if _dismissible %}
+    {%- if _dismissible -%}
       <button
+        aria-label="{{ 'Close alert'|trans }}"
         type="button"
         class="btn-close"
         data-bs-dismiss="alert"
-        aria-label="{{ 'Close alert'|trans }}"
       >
         {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: 'it-close'
+          name: 'it-close',
         } %}
       </button>
-    {% endif %}
+    {%- endif -%}
   </div>
 {% endapply %}

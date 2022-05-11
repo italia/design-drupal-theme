@@ -6,7 +6,7 @@
  * Last review: 2.0.0-rc4
  *
  * Parameters:
- * - name (string) mandatory
+ * - name (string) (default: 'it-warning-circle')
  *   - see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
  * - classes (array) (default: '')
  * - size (string) (default: '')
@@ -47,28 +47,35 @@
 #}
 {% apply spaceless %}
   {# Set defaults #}
+  {% set _name = name|default('it-warning-circle') %}
+  {% set _size = size|default('') %}
+  {% set _color = color|default('') %}
+  {% set _dark = dark ?? false %}
+  {% set _light = light ?? false %}
+  {% set _padded = padded ?? false %}
+  {% set _alignment = alignment|default('') %}
   {% set _library = library|default('sprites.svg') %}
 
   {# Set options #}
-  {% set classes = [
+  {% set _classes = [
       'icon',
-      size ? 'icon-' ~ size,
-      color ? 'icon-' ~ color,
-      dark ? 'bg-dark',
-      light ? 'bg-light',
-      padded ? 'icon-padded',
-      alignment ? 'align-' ~ alignment
+      _size ? 'icon-' ~ _size,
+      _color ? 'icon-' ~ _color,
+      _dark ? 'bg-dark',
+      _light ? 'bg-light',
+      _padded ? 'icon-padded',
+      _alignment ? 'align-' ~ alignment,
     ]
   %}
 
   {% if classes is defined %}
-    {% set classes = classes|merge(classes) %}
+    {% set _classes = _classes|merge(classes) %}
   {% endif %}
 
-  {% set _path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ name %}
+  {% set _path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ _name %}
 
   {# Component #}
-  <svg class="{{ classes|join(' ')|trim }}">
+  <svg class="{{ _classes|join(' ')|trim }}">
     <use href="{{ _path }}" xlink:href="{{ _path }}"></use>
   </svg>
 {% endapply %}
