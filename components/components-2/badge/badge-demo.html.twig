@@ -14,10 +14,70 @@
   {% for i in 1..6 %}
     <h{{ i }}>Example title
       {% include '@bi-bcl/badge/badge.html.twig' with {
-        label: 'New',
+        label: 'New'|trans,
         background: 'secondary',
       } %}
     </h{{ i }}>
   {% endfor %}
 
+  <div class="my-5">
+    <h4>{{ 'With button'|trans }}</h4>
+    {# Button component not exists yet. #}
+    <button type="button" class="btn btn-primary m-2">
+      {{ 'Notification'|trans }}
+      {% include '@bi-bcl/badge/badge.html.twig' with {
+        label: '4',
+        text_color: 'secondary',
+        assistive_text: 'Unread Messages'|trans,
+        utility_classes: ['neutral-2-bg']
+      } %}
+    </button>
+    <button type="button" class="btn btn-primary position-relative m-3">
+      {{ 'Inbox'|trans }}
+      {% include '@bi-bcl/badge/badge.html.twig' with {
+        label: '99+',
+        background: 'danger',
+        assistive_text: 'Unread Messages'|trans,
+        rounded_pill: true,
+        utility_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle']
+      } %}
+    </button>
+    <button type="button" class="btn btn-primary position-relative m-3">
+      {{ 'Profile'|trans }}
+      {% include '@bi-bcl/badge/badge.html.twig' with {
+        background: 'danger',
+        assistive_text: 'New alerts'|trans,
+        rounded_pill: true,
+        utility_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle', 'p-2', 'border', 'border-light', 'rounded-circle']
+      } %}
+    </button>
+  </div>
+
+  {% set colors = [
+    "primary", "secondary", "success", "danger", "warning", "white", "dark", "light"
+  ] %}
+  <div class="my-5">
+    <h4>{{ 'Contestual Variants'|trans }}</h4>
+    <p>
+      {% for color in colors %}
+        {% include '@bi-bcl/badge/badge.html.twig' with {
+          label: color,
+          background: color,
+          assistive_text: 'Variants'|trans
+        } %}
+        &nbsp;
+      {% endfor %}
+    </p>
+    <p>
+      {% for color in colors %}
+        {% include '@bi-bcl/badge/badge.html.twig' with {
+          label: color,
+          background: color,
+          rounded_pill: true,
+          assistive_text: 'Variants'|trans
+        } %}
+        &nbsp;
+      {% endfor %}
+    </p>
+  </div>
 {% endapply %}
