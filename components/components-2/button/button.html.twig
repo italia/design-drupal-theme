@@ -85,6 +85,10 @@
     {% set attributes = attributes.setAttribute('title', _assistive_text) %}
   {% endif %}
 
+  {% if _tag == 'a' and _url is not empty %}
+    {% set attributes = attributes.setAttribute('href', _url) %}
+  {% endif %}
+
   {% if _tag == 'a' and _url_target is not empty %}
     {% set attributes = attributes.setAttribute('target', _url_target) %}
   {% endif %}
