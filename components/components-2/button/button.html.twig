@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * Template for button component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/bottoni/
+ * Last review: 2.0.0-rc4
+ *
+ * Parameters:
+ * - label (string) (default: '')
+ * - tag (string) (default: 'button')
+ *   - options ["button", "a", "input", "span"]
+ * - url (string) (default: '')
+ *   - Url is ammissible only in "a" tag
+ * - outline (boolean) (default: false)
+ *   - Enable outline
+ * - color (string) (default: '')
+ *   - options ["primary", "secondary", "success", "danger", "warning", "white", "dark" ]
+ * - size (string) (default: '')
+ *   - options ["xs", "sm", "lg"]
+ * - disabled (boolean) (default: false)
+ *   - Enable disabled feature
+ * - utility_classes (array) (default: '')
+ * - icon_name (string) (default: '')
+ *   - see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
+ * - icon_position (string) (default: 'after')
+ *   - options ["before", "before"]
+ * - icon_rounded (boolean) (default: '')
+ *   - Enable rounded icon
+ *
+ * Examples:
+   {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Submit',
+      color: 'primary',
+      tag:
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _label = label|default('') %}
+  {% set _tag = tag|default('button') %}
+  {% set _url = _tag == 'a' and url is defined and url is not empty ? url : '' %}
+  {% set _outline = outline ? 'outline-' : '' %}
+  {% set _color = color is defined and color is not empty ? 'btn-' ~ _outline ~ color : '' %}
+  {% set _size = size is defined and size is not empty ? 'btn-' ~ size : '' %}
+  {% set _disabled = disabled ?? false %}
+  {% set _icon_name = icon_name|default('') %}
+  {% set _icon_position = icon_position|default('') %}
+  {% set _icon_rounded = icon_rounded ?? false %}
+
+  {# Set options #}
+
+
+  {# Component #}
+{% endapply %}
