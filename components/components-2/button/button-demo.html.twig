@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Button demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/button/button-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  <div class="mb-3">
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Button'|trans,
+      utility_classes: ['mr-3']
+    } %}
+
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Link'|trans,
+      tag: 'a',
+      href: '#',
+      utility_classes: ['mr-3']
+    } %}
+
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Input'|trans,
+      tag: 'input',
+      utility_classes: ['mr-3']
+    } %}
+
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Submit'|trans,
+      tag: 'input',
+      type: 'submit',
+      utility_classes: ['mr-3']
+    } %}
+
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Reset'|trans,
+      tag: 'input',
+      type: 'reset',
+      utility_classes: ['mr-3']
+    } %}
+  </div>
+
+{% endapply %}

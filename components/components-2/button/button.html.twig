@@ -8,17 +8,22 @@
  * Parameters:
  * - label (string) (default: '')
  * - tag (string) (default: 'button')
- *   - options ["button", "a", "input", "span"]
+ *   - options ["button", "a", "span"]
  * - url (string) (default: '')
  *   - Url is ammissible only in "a" tag
+ * - url_target (string) (default: '')
+ *   - options ["_blank", "_self", "_parent", "_top"]
+ * - type (string) (default: 'button')
+ *   - options ["button", "submit", "reset"]
  * - outline (boolean) (default: false)
  *   - Enable outline
- * - color (string) (default: '')
+ * - variant (string) (default: '')
  *   - options ["primary", "secondary", "success", "danger", "warning", "white", "dark" ]
  * - size (string) (default: '')
  *   - options ["xs", "sm", "lg"]
  * - disabled (boolean) (default: false)
  *   - Enable disabled feature
+ * - assistive_text (string) (default: '')
  * - utility_classes (array) (default: '')
  * - icon_name (string) (default: '')
  *   - see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
@@ -30,7 +35,7 @@
  * Examples:
    {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Submit',
-      color: 'primary',
+      variant: 'primary',
       tag:
    } %}
  *
@@ -41,16 +46,71 @@
   {% set _label = label|default('') %}
   {% set _tag = tag|default('button') %}
   {% set _url = _tag == 'a' and url is defined and url is not empty ? url : '' %}
-  {% set _outline = outline ? 'outline-' : '' %}
-  {% set _color = color is defined and color is not empty ? 'btn-' ~ _outline ~ color : '' %}
-  {% set _size = size is defined and size is not empty ? 'btn-' ~ size : '' %}
+  {% set _url_target = url_target|default('') %}
+  {% set _type = type|default('button') %}
+  {% set _outline = outline ?? false %}
+  {% set _variant = variant|default('') %}
+  {% set _size = size|default('') %}
   {% set _disabled = disabled ?? false %}
+  {% set _assistive_text = assistive_text|default('') %}
   {% set _icon_name = icon_name|default('') %}
   {% set _icon_position = icon_position|default('') %}
   {% set _icon_rounded = icon_rounded ?? false %}
 
   {# Set options #}
+  {% set _classes = [
+    'btn',
+    _outline and _variant is not empty ? 'btn-outline-' ~ _variant,
+    not _outline and _variant is not empty ? 'btn-' ~ _variant,
+    _size is not empty ? 'btn-' ~ _size
+  ] %}
 
+  {% if utility_classes is defined %}
+    {% set _classes = _classes|merge(utility_classes) %}
+  {% endif %}
+
+  {% set attributes = create_attribute() %}
+  {% set attributes = attributes.addClass(_classes) %}
+
+  {# Settings tag a #}
+  {% if _tag == 'a' or _tag == 'span' %}
+    {% set attributes = attributes.setAttribute('role', 'button') %}
+  {% endif %}
+
+  {% if _tag == 'a' and _assistive_text is empty %}
+    {% set _assistive_text = _label %}
+  {% endif %}
+
+  {% if _tag == 'a' %}
+    {% set attributes = attributes.setAttribute('title', _assistive_text) %}
+  {% endif %}
+
+  {% if _tag == 'a' and _url_target is not empty %}
+    {% set attributes = attributes.setAttribute('target', _url_target) %}
+  {% endif %}
+
+  {# Settings other tags #}
+  {% if _tag != 'a' %}
+    {% set attributes = attributes.setAttribute('type', _type) %}
+  {% endif %}
 
   {# Component #}
+  {% if _tag == 'a' or _tag == 'button' or tag == 'span' %}
+    <{{- _tag -}}
+      {{ attributes }}
+    >
+
+    {% if _label is not empty %}
+      {{- _label -}}
+    {% endif %}
+
+    </{{- _tag -}}>
+  {% endif %}
+
+  {% if _tag == 'input' %}
+    {% set attributes = attributes.setAttribute('value', _label) %}
+
+    <input {{- attributes -}}/>
+  {% endif %}
+
 {% endapply %}
