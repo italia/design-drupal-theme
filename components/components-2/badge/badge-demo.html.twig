@@ -73,7 +73,30 @@
         {% include '@bi-bcl/badge/badge.html.twig' with {
           label: color,
           background: color,
+          outline: true,
+          assistive_text: 'Variants'|trans
+        } %}
+        &nbsp;
+      {% endfor %}
+    </p>
+    <p>
+      {% for color in colors %}
+        {% include '@bi-bcl/badge/badge.html.twig' with {
+          label: color,
+          background: color,
           rounded_pill: true,
+          assistive_text: 'Variants'|trans
+        } %}
+        &nbsp;
+      {% endfor %}
+    </p>
+    <p>
+      {% for color in colors %}
+        {% include '@bi-bcl/badge/badge.html.twig' with {
+          label: color,
+          background: color,
+          rounded_pill: true,
+          outline: true,
           assistive_text: 'Variants'|trans
         } %}
         &nbsp;

@@ -49,7 +49,7 @@
   {% set _classes = [
     _label is not empty ? 'badge',
     _outline and _background is not empty ? 'badge-outline-' ~ _background,
-    _background and not _outline ? 'bg-' ~ _background,
+    not _outline and _background is not empty ? 'bg-' ~ _background,
     _text_color ? 'text-' ~ _text_color,
     _rounded_pill ? 'rounded-pill',
     _background in ['light', 'white'] and _text_color is empty ? 'text-dark'
