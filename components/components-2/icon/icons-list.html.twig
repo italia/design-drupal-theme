@@ -58,38 +58,44 @@
 ] %}
 {% apply spaceless %}
   <h4 class="mt-4">{{ 'Icons list'|trans }}</h4>
-  <div class="row">
-    {% for icon in icons %}
-      <div class="col-12 col-md-6 col-lg-4">
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: icon
-        } %}
-        {{ icon }}
-      </div>
-    {% endfor %}
+  <div class="border shadow mb-5 p-4">
+    <div class="row">
+      {% for icon in icons %}
+        <div class="col-12 col-md-6 col-lg-4">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: icon
+          } %}
+          {{ icon }}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 
   <h4 class="mt-4">{{ 'Social icons'|trans }}</h4>
-  <div class="row">
-    {% for icon in icons_social %}
-      <div class="col-12 col-md-6 col-lg-4">
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: icon
-        } %}
-        {{ icon }}
-      </div>
-    {% endfor %}
+  <div class="border shadow mb-5 p-4">
+    <div class="row">
+      {% for icon in icons_social %}
+        <div class="col-12 col-md-6 col-lg-4">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: icon
+          } %}
+          {{ icon }}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 
   <h4 class="mt-4">{{ 'Extra icons'|trans }}</h4>
-  <div class="row">
-    {% for icon in icons_extra %}
-      <div class="col-12 col-md-6 col-lg-4">
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: icon
-        } %}
-        {{ icon }}
-      </div>
-    {% endfor %}
+  <div class="border shadow mb-5 p-4">
+    <div class="row">
+      {% for icon in icons_extra %}
+        <div class="col-12 col-md-6 col-lg-4">
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: icon
+          } %}
+          {{ icon }}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 {% endapply %}

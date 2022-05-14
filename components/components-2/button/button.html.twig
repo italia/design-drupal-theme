@@ -13,6 +13,8 @@
  *   - Url is ammissible only in "a" tag
  * - url_target (string) (default: '')
  *   - options ["_blank", "_self", "_parent", "_top"]
+ * - id (string) (default: '')
+ *   - Optional id
  * - type (string) (default: 'button')
  *   - options ["button", "submit", "reset"]
  * - outline (boolean) (default: false)
@@ -47,6 +49,7 @@
   {% set _tag = tag|default('button') %}
   {% set _url = _tag == 'a' and url is defined and url is not empty ? url : '' %}
   {% set _url_target = url_target|default('') %}
+  {% set _id = id|default('') %}
   {% set _type = type|default('button') %}
   {% set _outline = outline ?? false %}
   {% set _variant = variant|default('') %}
@@ -62,7 +65,9 @@
     'btn',
     _outline and _variant is not empty ? 'btn-outline-' ~ _variant,
     not _outline and _variant is not empty ? 'btn-' ~ _variant,
-    _size is not empty ? 'btn-' ~ _size
+    _size is not empty ? 'btn-' ~ _size,
+    _variant == 'white' and _outline and utility_classes is null ? 'text-secondary',
+    _variant == 'light' and _outline and utility_classes is null ? 'text-secondary',
   ] %}
 
   {% if utility_classes is defined %}
@@ -72,9 +77,19 @@
   {% set attributes = create_attribute() %}
   {% set attributes = attributes.addClass(_classes) %}
 
+  {% if _id is not empty %}
+    {% set attributes = attributes.setAttribute('id', _id) %}
+  {% endif %}
+
   {# Settings tag a #}
   {% if _tag == 'a' or _tag == 'span' %}
     {% set attributes = attributes.setAttribute('role', 'button') %}
+    {% if _disabled %}
+      {% set attributes = attributes
+        .addClass(['disabled'])
+        .setAttibute('tabindex', '-1')
+      %}
+    {% endif %}
   {% endif %}
 
   {% if _tag == 'a' and _assistive_text is empty %}
@@ -93,9 +108,17 @@
     {% set attributes = attributes.setAttribute('target', _url_target) %}
   {% endif %}
 
-  {# Settings other tags #}
-  {% if _tag != 'a' %}
+  {# Settings type attribute for button or input #}
+  {% if _tag == 'button' or _tag == 'input' %}
     {% set attributes = attributes.setAttribute('type', _type) %}
+  {% endif %}
+
+  {# Settings for button disabled #}
+  {% if _tag == 'button' and _disabled %}
+    {% set attributes = attributes
+      .setAttribute('aria-disabled', true)
+      .setAttribute('disabled', true)
+    %}
   {% endif %}
 
   {# Component #}
@@ -108,13 +131,18 @@
       {{- _label -}}
     {% endif %}
 
+    {%- if _assistive_text is not empty -%}
+        <span class="visually-hidden">{{- _assistive_text -}}</span>
+    {%- endif -%}
+
     </{{- _tag -}}>
-  {% endif %}
+  {% endif %}{# End tag a, button or span. #}
 
   {% if _tag == 'input' %}
     {% set attributes = attributes.setAttribute('value', _label) %}
-
-    <input {{- attributes -}}/>
+    <input {{- attributes -}} />
+    {%- if _assistive_text is not empty -%}
+      <span class="visually-hidden">{{- _assistive_text -}}</span>
+    {%- endif -%}
   {% endif %}
-
 {% endapply %}

@@ -8,22 +8,26 @@
    {% include '@bi-bcl/alert/alert-demo.html.twig' %}
  */
 #}
-{% set types = [
-  "info", "success", "warning", "danger"
-] %}
 {% apply spaceless %}
 
-  {% set message = 'You are reading this important message.
+  <h4 class="mt-4">{{ 'Alert demo'|trans }}</h4>
+  <div class="border shadow mb-5 p-4">
+
+    {% set message = 'You are reading this important message.
     This sample text will be longer so you can see how spacing works within an alert
     with this type of content.' %}
 
-  <h4 class="mt-4">{{ 'Alert demo'|trans }}</h4>
-  {% for type in types %}
-    {% include '@bi-bcl/alert/alert.html.twig' with {
-      heading: 'Heading ' ~ type,
-      message: message,
-      type: type,
-    } %}
-  {% endfor %}
+    {% set types = [
+      "info", "success", "warning", "danger"
+    ] %}
+
+    {% for type in types %}
+      {% include '@bi-bcl/alert/alert.html.twig' with {
+        heading: 'Heading ' ~ type,
+        message: message,
+        type: type,
+      } %}
+    {% endfor %}
+  </div>
 
 {% endapply %}
