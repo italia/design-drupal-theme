@@ -66,8 +66,6 @@
     _outline and _variant is not empty ? 'btn-outline-' ~ _variant,
     not _outline and _variant is not empty ? 'btn-' ~ _variant,
     _size is not empty ? 'btn-' ~ _size,
-    _variant == 'white' and _outline ? 'text-secondary',
-    _variant == 'light' and _outline ? 'text-secondary',
   ] %}
 
   {% if utility_classes is defined %}
@@ -100,6 +98,7 @@
     {% set attributes = attributes.setAttribute('title', _assistive_text) %}
   {% endif %}
 
+  {# href attribute only in 'a' tag #}
   {% if _tag == 'a' and _url is not empty %}
     {% set attributes = attributes.setAttribute('href', _url) %}
   {% endif %}

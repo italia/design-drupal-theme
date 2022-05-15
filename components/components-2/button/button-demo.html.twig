@@ -63,7 +63,10 @@
         label: color,
         variant: color,
         outline: true,
-        utility_classes: ['mr-3']
+        utility_classes: [
+          'mr-3',
+          color == 'white' or color == 'light' ? 'text-secondary'
+        ]
       } %}
       &nbsp;
     {% endfor %}
@@ -79,7 +82,10 @@
         label: color,
         variant: color,
         disabled: true,
-        utility_classes: ['mr-3']
+        utility_classes: [
+          'mr-3',
+          color == 'primary' ? 'text-dark'
+        ]
       } %}
       &nbsp;
     {% endfor %}
@@ -93,7 +99,10 @@
         variant: color,
         outline: true,
         disabled: true,
-        utility_classes: ['mr-3']
+        utility_classes: [
+          'mr-3',
+          color == 'white' or color == 'light' ? 'text-secondary'
+        ]
       } %}
       &nbsp;
     {% endfor %}
