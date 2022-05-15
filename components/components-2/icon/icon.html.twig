@@ -8,7 +8,7 @@
  * Parameters:
  * - name (string) (default: 'it-warning-circle')
  *   - see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
- * - classes (array) (default: '')
+ * - utility_classes (array) (default: '')
  * - size (string) (default: '')
  *   - options ["xs", "sm", "lg", "xl"]
  * - color (string) (default: '')
@@ -27,9 +27,9 @@
  * Note: only first parameter is mandatory.
  * You can set this component in two main ways:
  *   - Set all parameters
- *     [ name: 'it-x', classes: ['customClass'], size: 'xs', color: 'primary', dark: false, light: false, padded: true, alignment: 'middle' ]
- *   - Set parameters in classes array, however you must use class names correctly
- *     [ name: 'it-x', classes: ['customClass', 'icon-xs', 'icon-primary', 'bg-light', 'icon-padded', 'align-middle'] ]
+ *     [ name: 'it-x', utility_classes: ['customClass'], size: 'xs', color: 'primary', dark: false, light: false, padded: true, alignment: 'middle' ]
+ *   - Set parameters in utility_classes array, however you must use class names correctly
+ *     [ name: 'it-x', utility_classes: ['customClass', 'icon-xs', 'icon-primary', 'bg-light', 'icon-padded', 'align-middle'] ]
  *
  * Examples:
  *
@@ -41,7 +41,7 @@
  *
    {% include '@bi-bcl/icon/icon.html.twig' with {
      name: 'it-tool',
-     classes: ['icon-lg', 'icon-primary'],
+     utility_classes: ['icon-lg', 'icon-primary'],
    } %}
  */
 #}
@@ -68,14 +68,17 @@
     ]
   %}
 
-  {% if classes is defined %}
-    {% set _classes = _classes|merge(classes) %}
+  {% if utility_classes is defined %}
+    {% set _classes = _classes|merge(utility_classes) %}
   {% endif %}
+
+  {% set attributes = create_attribute() %}
+  {% set attributes = attributes.addClass(_classes) %}
 
   {% set _path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ _name %}
 
   {# Component #}
-  <svg class="{{ _classes|join(' ')|trim }}">
+  <svg {{ attributes }}>
     <use href="{{ _path }}" xlink:href="{{ _path }}"></use>
   </svg>
 {% endapply %}
