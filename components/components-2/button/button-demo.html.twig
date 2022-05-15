@@ -41,7 +41,7 @@
     } %}
   </div>
 
-  <h4>{{ 'Button varinats'|trans }}</h4>
+  <h4>{{ 'Button variants'|trans }}</h4>
   {% set colors = [
     "primary", "secondary", "success", "danger", "warning", "white", "dark", "light", "black"
   ] %}
@@ -56,7 +56,7 @@
     {% endfor %}
   </div>
 
-  <h4>{{ 'Button outline varinats'|trans }}</h4>
+  <h4>{{ 'Button outline variants'|trans }}</h4>
   <div class="border shadow mb-5 p-4">
     {% for color in colors %}
       {% include '@bi-bcl/button/button.html.twig' with {
@@ -119,13 +119,48 @@
       &nbsp;
     {% endfor %}
   </div>
+
+  <h4>{{ 'Button outline with dark background '|trans }}</h4>
   <div class="border shadow mb-5 p-4 bg-dark">
     {% for color in colors %}
       {% include '@bi-bcl/button/button.html.twig' with {
         label: color,
         variant: color,
         outline: true,
-        utility_classes: ['mr-3', 'text-white']
+        utility_classes: [
+          'mr-3',
+          color == 'dark' or color == 'black' ? 'text-white'
+        ]
+      } %}
+      &nbsp;
+    {% endfor %}
+  </div>
+
+  <h4>{{ 'Button disabled with dark background '|trans }}</h4>
+  <div class="border shadow mb-5 p-4 bg-dark">
+    {% for color in colors %}
+      {% include '@bi-bcl/button/button.html.twig' with {
+        label: color,
+        variant: color,
+        disabled: true,
+        utility_classes: ['mr-3']
+      } %}
+      &nbsp;
+    {% endfor %}
+  </div>
+
+  <h4>{{ 'Button outline disabled with dark background '|trans }}</h4>
+  <div class="border shadow mb-5 p-4 bg-dark">
+    {% for color in colors %}
+      {% include '@bi-bcl/button/button.html.twig' with {
+        label: color,
+        variant: color,
+        disabled: true,
+        outline: true,
+        utility_classes: [
+          'mr-3',
+          color == 'dark' or color == 'black' ? 'text-white'
+        ]
       } %}
       &nbsp;
     {% endfor %}
