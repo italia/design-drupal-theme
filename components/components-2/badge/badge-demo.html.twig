@@ -25,35 +25,52 @@
 
   <h4>{{ 'Badge with button'|trans }}</h4>
   <div class="border shadow mb-5 p-4">
-    {# Button component not exists yet. #}
-    <button type="button" class="btn btn-primary m-2">
-      {{ 'Notification'|trans }}
-      {% include '@bi-bcl/badge/badge.html.twig' with {
-        label: '4',
-        text_color: 'secondary',
-        assistive_text: 'Unread Messages'|trans,
-        utility_classes: ['neutral-2-bg']
-      } %}
-    </button>
-    <button type="button" class="btn btn-primary position-relative m-3">
-      {{ 'Inbox'|trans }}
-      {% include '@bi-bcl/badge/badge.html.twig' with {
-        label: '99+',
-        background: 'danger',
-        assistive_text: 'Unread Messages'|trans,
-        rounded_pill: true,
-        utility_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle']
-      } %}
-    </button>
-    <button type="button" class="btn btn-primary position-relative m-3">
-      {{ 'Profile'|trans }}
-      {% include '@bi-bcl/badge/badge.html.twig' with {
-        background: 'danger',
-        assistive_text: 'New alerts'|trans,
-        rounded_pill: true,
-        utility_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle', 'p-2', 'border', 'border-light', 'rounded-circle']
-      } %}
-    </button>
+    {% embed '@bi-bcl/button/button.html.twig' with {
+      label: 'Notification'|trans,
+      variant: 'primary',
+      utility_classes: ['m-2'],
+    } %}
+      {% block after %}
+        {% include '@bi-bcl/badge/badge.html.twig' with {
+          label: '4',
+          text_color: 'secondary',
+          assistive_text: 'Unread Messages'|trans,
+          utility_classes: ['neutral-2-bg']
+        } %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed '@bi-bcl/button/button.html.twig' with {
+      label: 'Inbox'|trans,
+      variant: 'primary',
+      utility_classes: ['m-3', 'position-relative'],
+    } %}
+      {% block after %}
+        {% include '@bi-bcl/badge/badge.html.twig' with {
+          label: '99+',
+          background: 'danger',
+          assistive_text: 'Unread Messages'|trans,
+          rounded_pill: true,
+          utility_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle']
+        } %}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed '@bi-bcl/button/button.html.twig' with {
+      label: 'Profile'|trans,
+      variant: 'primary',
+      utility_classes: ['m-3', 'position-relative'],
+    } %}
+      {% block after %}
+        {% include '@bi-bcl/badge/badge.html.twig' with {
+          label: null,
+          background: 'danger',
+          assistive_text: 'New alerts'|trans,
+          rounded_pill: true,
+          utility_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle', 'p-2', 'border', 'border-light', 'rounded-circle']
+        } %}
+      {% endblock %}
+    {% endembed %}
   </div>
 
   <h4>{{ 'Badge contestual variants'|trans }}</h4>
