@@ -11,33 +11,33 @@
 {% apply spaceless %}
 
   <h4>{{ 'Button base'|trans }}</h4>
-  <div class="border shadow mb-5 p-4">
+  <div class="border shadow mb-5">
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Button'|trans,
-      utility_classes: ['mr-3']
+      utility_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Link'|trans,
       tag: 'a',
       url: '#',
-      utility_classes: ['mr-3']
+      utility_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Input'|trans,
       tag: 'input',
-      utility_classes: ['mr-3']
+      utility_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Submit'|trans,
       tag: 'input',
       type: 'submit',
-      utility_classes: ['mr-3']
+      utility_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Reset'|trans,
       tag: 'input',
       type: 'reset',
-      utility_classes: ['mr-3']
+      utility_classes: ['m-1']
     } %}
   </div>
 
@@ -50,9 +50,8 @@
       {% include '@bi-bcl/button/button.html.twig' with {
         label: color,
         variant: color,
-        utility_classes: ['mr-3']
+        utility_classes: ['m-1']
       } %}
-      &nbsp;
     {% endfor %}
   </div>
 
@@ -64,17 +63,16 @@
         variant: color,
         outline: true,
         utility_classes: [
-          'mr-3',
+          'm-1',
           color == 'white' or color == 'light' ? 'text-secondary'
         ]
       } %}
-      &nbsp;
     {% endfor %}
   </div>
 
   <h4>{{ 'Button disabled'|trans }}</h4>
   {% set colors = [
-    "primary", "secondary", "success", "danger", "warning", "white", "dark", "light", "black"
+    "primary", "secondary", "info", "success", "danger", "warning", "white", "dark", "light", "black"
   ] %}
   <div class="border shadow mb-5 p-4">
     {% for color in colors %}
@@ -83,11 +81,10 @@
         variant: color,
         disabled: true,
         utility_classes: [
-          'mr-3',
+          'm-1',
           color == 'primary' ? 'text-dark'
         ]
       } %}
-      &nbsp;
     {% endfor %}
   </div>
 
@@ -100,11 +97,10 @@
         outline: true,
         disabled: true,
         utility_classes: [
-          'mr-3',
+          'm-1',
           color == 'white' or color == 'light' ? 'text-secondary'
         ]
       } %}
-      &nbsp;
     {% endfor %}
   </div>
 
@@ -114,9 +110,8 @@
       {% include '@bi-bcl/button/button.html.twig' with {
         label: color,
         variant: color,
-        utility_classes: ['mr-3']
+        utility_classes: ['m-1']
       } %}
-      &nbsp;
     {% endfor %}
   </div>
 
@@ -128,11 +123,10 @@
         variant: color,
         outline: true,
         utility_classes: [
-          'mr-3',
+          'm-1',
           color == 'dark' or color == 'black' ? 'text-white'
         ]
       } %}
-      &nbsp;
     {% endfor %}
   </div>
 
@@ -143,9 +137,8 @@
         label: color,
         variant: color,
         disabled: true,
-        utility_classes: ['mr-3']
+        utility_classes: ['m-1']
       } %}
-      &nbsp;
     {% endfor %}
   </div>
 
@@ -158,12 +151,125 @@
         disabled: true,
         outline: true,
         utility_classes: [
-          'mr-3',
+          'm-1',
           color == 'dark' or color == 'black' ? 'text-white'
         ]
       } %}
-      &nbsp;
     {% endfor %}
+  </div>
+
+  <h4>{{ 'Button with icon'|trans }}</h4>
+  <div class="border shadow mb-5 p-4">
+    {% for color in colors %}
+      {% embed '@bi-bcl/button/button.html.twig' with {
+        label: color,
+        variant: color,
+        utility_classes: ['m-1', 'btn-icon'],
+      } %}
+        {% block after %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-star-full',
+            size: 'sm',
+            color: color == 'light' or color == 'white' ? 'primary' : 'white',
+            utility_classes: ['ms-1'],
+          } %}
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}
+  </div>
+
+  <h4>{{ 'Button with rounded icon'|trans }}</h4>
+  <div class="border shadow mb-5 p-4">
+    {% for color in colors %}
+      {% embed '@bi-bcl/button/button.html.twig' with {
+        label: color,
+        variant: color,
+        utility_classes: ['m-1', 'btn-icon'],
+      } %}
+        {% block before %}
+          <span class="rounded-icon">
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'it-user',
+              size: 'sm',
+              color: color == 'light' or color == 'white' ? 'primary' : color,
+              utility_classes: ['mr-1'],
+            } %}
+          </span>&nbsp;
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}
+  </div>
+
+  <h4>{{ 'Button various size'|trans }}</h4>
+  <div class="border shadow mb-5 p-4">
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Primary Large'|trans,
+      variant: 'primary',
+      size: 'lg',
+      utility_classes: ['m-1'],
+    } %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Secondary Large'|trans,
+      variant: 'secondary',
+      size: 'lg',
+      utility_classes: ['m-1'],
+    } %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Primary Small'|trans,
+      variant: 'primary',
+      size: 'sm',
+      utility_classes: ['m-1'],
+    } %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Secondary Small'|trans,
+      variant: 'secondary',
+      size: 'sm',
+      utility_classes: ['m-1'],
+    } %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Primary mini'|trans,
+      variant: 'primary',
+      size: 'xs',
+      utility_classes: ['m-1'],
+    } %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Secondary mini'|trans,
+      variant: 'secondary',
+      size: 'xs',
+      utility_classes: ['m-1'],
+    } %}
+  </div>
+
+  <h4>{{ 'Button full width'|trans }}</h4>
+  <div class="border shadow mb-5 p-4 d-grid gap-2">
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Primary Large'|trans,
+      variant: 'primary',
+      size: 'lg',
+      utility_classes: ['m-1'],
+    } %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Secondary Large'|trans,
+      variant: 'secondary',
+      size: 'lg',
+      utility_classes: ['m-1'],
+    } %}
+  </div>
+
+  <h4>{{ 'Button full width responsive md'|trans }}</h4>
+  <div class="border shadow mb-5 p-4 d-grid gap-2 d-md-block">
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Primary Large'|trans,
+      variant: 'primary',
+      size: 'lg',
+      utility_classes: ['m-1'],
+    } %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Secondary Large'|trans,
+      variant: 'secondary',
+      size: 'lg',
+      utility_classes: ['m-1'],
+    } %}
   </div>
 
 {% endapply %}

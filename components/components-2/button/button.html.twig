@@ -27,12 +27,11 @@
  *   - Enable disabled feature
  * - assistive_text (string) (default: '')
  * - utility_classes (array) (default: '')
- * - icon_name (string) (default: '')
- *   - see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
- * - icon_position (string) (default: 'after')
- *   - options ["before", "before"]
- * - icon_rounded (boolean) (default: '')
- *   - Enable rounded icon
+ *
+ * - before (block) (default: empty)
+ *   - block positioned after label
+ * - after (block) (default: empty)
+ *   - block positioned before label
  *
  * Examples:
    {% include '@bi-bcl/button/button.html.twig' with {
@@ -41,6 +40,36 @@
       tag:
    } %}
  *
+   {% embed '@bi-bcl/button/button.html.twig' with {
+      label: color,
+      variant: color,
+      utility_classes: ['m-3', 'btn-icon'],
+   } %}
+    {% block after %}
+      {% include '@bi-bcl/icon/icon.html.twig' with {
+        name: 'it-star-full',
+        color: 'white',
+        utility_classes: ['ms-1'],
+      } %}
+    {% endblock %}
+   {% endembed %}
+ *
+  {% embed '@bi-bcl/button/button.html.twig' with {
+      label: color,
+      variant: color,
+      utility_classes: ['m-1', 'btn-icon'],
+  } %}
+    {% block before %}
+      <span class="rounded-icon">
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-user',
+          size: 'sm',
+          color: 'primary',
+          utility_classes: ['mr-1'],
+        } %}
+      </span>&nbsp;
+    {% endblock %}
+  {% endembed %}
  */
 #}
 {% apply spaceless %}
@@ -56,9 +85,6 @@
   {% set _size = size|default('') %}
   {% set _disabled = disabled ?? false %}
   {% set _assistive_text = assistive_text|default('') %}
-  {% set _icon_name = icon_name|default('') %}
-  {% set _icon_position = icon_position|default('') %}
-  {% set _icon_rounded = icon_rounded ?? false %}
 
   {# Set options #}
   {% set _classes = [
@@ -126,6 +152,8 @@
       {{ attributes }}
     >
 
+    {% block before %}{% endblock %}
+
     {% if _label is not empty %}
       {{- _label -}}
     {% endif %}
@@ -133,6 +161,8 @@
     {%- if _assistive_text is not empty -%}
         <span class="visually-hidden">{{- _assistive_text -}}</span>
     {%- endif -%}
+
+    {% block after %}{% endblock %}
 
     </{{- _tag -}}>
   {% endif %}{# End tag a, button or span. #}
