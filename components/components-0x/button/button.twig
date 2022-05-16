@@ -3,48 +3,70 @@
  * @file
  * Template for a button pattern
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/bottoni/
- * Last review: 1.3
+ * Last review: 2.0.0-rc4
  *
  * Available config:
- * - type: primary | secondary | success | danger | warning | info | light | dark
- * - outline: true | false
- * - tag: button, a, input
- * - classes: array | false
- * - value: string
- * - input_type: button | submit | reset
- * - attributes: Attributes array
- * - data_attributes: array
- * - size: xs | sm | lg
+ * -- type: primary | secondary | success | danger | warning | info | light | dark
+ * -- outline: true | false
+ * -- tag: button, a, input
+ * -- classes: array | false
+ * -- value: string
+ * -- input_type: button | submit | reset
+ * -- attributes: Attributes array
+ * -- data_attributes: array
+ * -- size: xs | sm | lg
  * - block: true | false
  * - icon: it-name
- * - href: URL
+ * -- href: URL
  */
 #}
-{% set button_classes = [
-  'btn',
-  type ? 'btn-' ~ type,
-  size ? 'btn-' ~ size,
-  outline ? 'btn-' ~ outline,
-  icon ? 'btn-' ~ icon,
-  block ? 'btn-block'
-] %}
-{% if classes %}
-  {% set button_classes = button_classes|merge(classes) %}
-{% endif %}
-{% set dt = '' %}
-{% for data, attribute in data_attributes %}
-  {% set dt = dt ~ 'data-' ~ data ~ '="' ~ attribute ~ '" ' %}
-{% endfor %}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/button/button.twig',
+    new: 'bi-bcl/button/button.html.twig',
+  } %}
 
-{% if tag == 'input' %}
-  <input{{ attributes.addClass(button_classes) }}
-  {% if input_type %}
-  type="{{ input_type }}"
+  {# Redirect to new component #}
+  {% if attributes is not defined %}
+    {% set attributes = create_attribute() %}
   {% endif %}
-  {% if value %}
-  value="{{ value }}"
-  {% endif %} />
-{% else %}
-  <{{ tag }}{{ attributes.addClass(button_classes) }} {{ dt|trim|raw }}{% if tag == 'a' %} href="{{ href }}" role="button"{% endif %}
-  >{{ value }}</{{ tag }}>
-{% endif %}
+  {% for data, attribute in data_attributes %}
+    {% set attributes = attributes.setAttribute('data-' ~ data, attribute) %}
+  {% endfor %}
+
+  {% if icon is defined and icon is not empty %}
+    {% embed '@bi-bcl/button/button.html.twig' with {
+      label: value ?? null,
+      tag: tag ?? null,
+      url: href ?? null,
+      variant: type,
+      type: input_type ?? null,
+      outline: outline ?? null,
+      type: variant ?? null,
+      size: size ?? null,
+      utility_classes: classes ?? null,
+      btn_attibutes: attributes,
+    } %}
+      {% block after %}
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: icon,
+          color: 'white',
+          utility_classes: ['ms-1'],
+        } %}
+      {% endblock %}
+    {% endembed %}
+  {% else %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: value ?? null,
+      tag: tag ?? null,
+      url: href ?? null,
+      variant: type,
+      type: input_type ?? null,
+      outline: outline ?? null,
+      type: variant ?? null,
+      size: size ?? null,
+      utility_classes: classes ?? null,
+      btn_attibutes: attributes,
+    } %}
+  {% endif %}
+{% endapply %}

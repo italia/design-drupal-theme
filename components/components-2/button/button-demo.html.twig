@@ -9,6 +9,13 @@
  */
 #}
 {% apply spaceless %}
+{#
+  {% include '@bootstrap_italia_components/button/button.twig' with {
+    value: 'Button'|trans,
+    type: 'primary',
+    tag: 'button',
+  } %}
+#}
 
   <h4>{{ 'Button base'|trans }}</h4>
   <div class="border shadow mb-5">
@@ -42,47 +49,47 @@
   </div>
 
   <h4>{{ 'Button variants'|trans }}</h4>
-  {% set colors = [
-    "primary", "secondary", "success", "danger", "warning", "white", "dark", "light", "black"
+  {% set variants = [
+    "primary", "secondary", "info", "success", "danger", "warning", "white", "dark", "light", "black", "link"
   ] %}
   <div class="border shadow mb-5 p-4">
-    {% for color in colors %}
+    {% for variant in variants %}
+      {% set attributes = create_attribute() %}
+      {% set attributes = attributes.setAttribute('data-attribute', 'value') %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
-        utility_classes: ['m-1']
+        label: variant,
+        variant: variant,
+        utility_classes: ['m-1'],
+        btn_attributes: attributes
       } %}
     {% endfor %}
   </div>
 
   <h4>{{ 'Button outline variants'|trans }}</h4>
   <div class="border shadow mb-5 p-4">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         outline: true,
         utility_classes: [
           'm-1',
-          color == 'white' or color == 'light' ? 'text-secondary'
+          variant == 'white' or variant == 'light' ? 'text-secondary'
         ]
       } %}
     {% endfor %}
   </div>
 
   <h4>{{ 'Button disabled'|trans }}</h4>
-  {% set colors = [
-    "primary", "secondary", "info", "success", "danger", "warning", "white", "dark", "light", "black"
-  ] %}
   <div class="border shadow mb-5 p-4">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         disabled: true,
         utility_classes: [
           'm-1',
-          color == 'primary' ? 'text-dark'
+          variant == 'primary' ? 'text-dark'
         ]
       } %}
     {% endfor %}
@@ -90,15 +97,15 @@
 
   <h4>{{ 'Button outline disabled'|trans }}</h4>
   <div class="border shadow mb-5 p-4">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         outline: true,
         disabled: true,
         utility_classes: [
           'm-1',
-          color == 'white' or color == 'light' ? 'text-secondary'
+          variant == 'white' or variant == 'light' ? 'text-secondary'
         ]
       } %}
     {% endfor %}
@@ -106,10 +113,10 @@
 
   <h4>{{ 'Button with dark background '|trans }}</h4>
   <div class="border shadow mb-5 p-4 bg-dark">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         utility_classes: ['m-1']
       } %}
     {% endfor %}
@@ -117,14 +124,14 @@
 
   <h4>{{ 'Button outline with dark background '|trans }}</h4>
   <div class="border shadow mb-5 p-4 bg-dark">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         outline: true,
         utility_classes: [
           'm-1',
-          color == 'dark' or color == 'black' ? 'text-white'
+          variant == 'dark' or variant == 'black' or variant == 'link' ? 'text-white'
         ]
       } %}
     {% endfor %}
@@ -132,10 +139,10 @@
 
   <h4>{{ 'Button disabled with dark background '|trans }}</h4>
   <div class="border shadow mb-5 p-4 bg-dark">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         disabled: true,
         utility_classes: ['m-1']
       } %}
@@ -144,15 +151,15 @@
 
   <h4>{{ 'Button outline disabled with dark background '|trans }}</h4>
   <div class="border shadow mb-5 p-4 bg-dark">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% include '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         disabled: true,
         outline: true,
         utility_classes: [
           'm-1',
-          color == 'dark' or color == 'black' ? 'text-white'
+          variant == 'dark' or variant == 'black' or variant == 'link' ? 'text-white'
         ]
       } %}
     {% endfor %}
@@ -160,17 +167,17 @@
 
   <h4>{{ 'Button with icon'|trans }}</h4>
   <div class="border shadow mb-5 p-4">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% embed '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         utility_classes: ['m-1', 'btn-icon'],
       } %}
         {% block after %}
           {% include '@bi-bcl/icon/icon.html.twig' with {
             name: 'it-star-full',
             size: 'sm',
-            color: color == 'light' or color == 'white' ? 'primary' : 'white',
+            color: variant == 'light' or variant == 'white' ? 'primary' : 'white',
             utility_classes: ['ms-1'],
           } %}
         {% endblock %}
@@ -180,10 +187,10 @@
 
   <h4>{{ 'Button with rounded icon'|trans }}</h4>
   <div class="border shadow mb-5 p-4">
-    {% for color in colors %}
+    {% for variant in variants %}
       {% embed '@bi-bcl/button/button.html.twig' with {
-        label: color,
-        variant: color,
+        label: variant,
+        variant: variant,
         utility_classes: ['m-1', 'btn-icon'],
       } %}
         {% block before %}
@@ -191,7 +198,7 @@
             {% include '@bi-bcl/icon/icon.html.twig' with {
               name: 'it-user',
               size: 'sm',
-              color: color == 'light' or color == 'white' ? 'primary' : color,
+              color: variant == 'light' or variant == 'white' ? 'primary' : variant,
               utility_classes: ['mr-1'],
             } %}
           </span>&nbsp;

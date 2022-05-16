@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Template for NAME component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/COMPONENT/NAME
+ * Last review: <bootstrap-italia_version>
+ *
+ * Parameters:
+ * - old (string) (default: '')
+ *   - Old component name
+ * - new (string) (default: '')
+ *   - New component name
+ *
+ * Examples:
+   {% include '@bi-bcl/deprecated.html.twig' with {
+      old: 'bootstrap_italia_components/*/*.twig',
+      new: 'bi-bcl/*/*.html.twig'
+   } %}
+ *
+ */
+#}
+{% set show_error = true %}
+{% if show_error %}
+  {% set message = 'The @' ~ old ~ ' template is deprecated, use @' ~ new ~ ' instead.' %}
+  {% deprecated message %}
+  <script>
+    console.warn('{{ message }}');
+  </script>
+{% endif %}

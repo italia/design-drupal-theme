@@ -74,25 +74,25 @@
   </div>
 
   <h4>{{ 'Badge contestual variants'|trans }}</h4>
-  {% set colors = [
+  {% set variants = [
     "primary", "secondary", "success", "danger", "warning", "white", "dark", "light", "black"
   ] %}
   <div class="border shadow mb-5 p-4">
     <p>
-      {% for color in colors %}
+      {% for variant in variants %}
         {% include '@bi-bcl/badge/badge.html.twig' with {
-          label: color,
-          background: color,
+          label: variant,
+          background: variant,
           assistive_text: 'Variants'|trans
         } %}
         &nbsp;
       {% endfor %}
     </p>
     <p>
-      {% for color in colors %}
+      {% for variant in variants %}
         {% include '@bi-bcl/badge/badge.html.twig' with {
-          label: color,
-          background: color,
+          label: variant,
+          background: variant,
           outline: true,
           assistive_text: 'Variants'|trans
         } %}
@@ -100,10 +100,10 @@
       {% endfor %}
     </p>
     <p>
-      {% for color in colors %}
+      {% for variant in variants %}
         {% include '@bi-bcl/badge/badge.html.twig' with {
-          label: color,
-          background: color,
+          label: variant,
+          background: variant,
           rounded_pill: true,
           assistive_text: 'Variants'|trans
         } %}
@@ -111,10 +111,10 @@
       {% endfor %}
     </p>
     <p>
-      {% for color in colors %}
+      {% for variant in variants %}
         {% include '@bi-bcl/badge/badge.html.twig' with {
-          label: color,
-          background: color,
+          label: variant,
+          background: variant,
           rounded_pill: true,
           outline: true,
           assistive_text: 'Variants'|trans
