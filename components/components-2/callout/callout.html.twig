@@ -1,0 +1,128 @@
+{#
+/**
+ * @file
+ * Template for Callout component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/callout/
+ * Last review: 2.0.0-rc4
+ *
+ * Parameters:
+ * - variant (string) (default: 'base')
+ *   - options ["success", "waring", "danger", "important", "note", "base"]
+ * - display (boolean) (default: '')
+ *   - options ["highlight", "more"]
+ * - icon_name (string) (default: '')
+ * - title (string) (default: '')
+ * - assistive_text (string) (default: '')
+ * - utility_classes (array) (default: '')
+ * - callout_attributes (obj attribute) (default: '')
+ *   - Object with extra attributes
+ * - text (string) (default: '')
+ *
+ * - content (block) (default: empty)
+ *   - block with complex content
+ *
+ * Examples:
+   {% include '@bi-bcl/callout/callout.html.twig' with {
+      variant: 'success',
+      title: 'success',
+      text: 'Lorem ipsum',
+   } %}
+ *
+  {% embed '@bi-bcl/callout/callout.html.twig' with {
+      title: 'More note',
+      display: more,
+  } %}
+    {% block content %}
+      Your complex content
+    {% endblock %}
+  {% endembed %}
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _variant = variant|default('base') %}
+  {% set _display = display|default('') %}
+  {% set _icon_name = icon_name|default('') %}
+  {% set _title = title|default('') %}
+  {% set _assistive_text = assistive_text|default('') %}
+  {% set _callout_attributes = callout_attributes|default('') %}
+  {% set _text = text|default('') %}
+
+  {# Set options #}
+  {% if _display == 'more' %}
+    {% set _variant = 'note' %}
+  {% endif %}
+
+  {% set _classes = [
+    'callout',
+    _display is not empty ? 'callout-' ~ _display,
+    _display == 'more' ? 'note',
+    _variant != 'base' ? _variant,
+  ] %}
+
+  {% if utility_classes is not empty %}
+    {% set _classes = _classes|merge(utility_classes) %}
+  {% endif %}
+
+  {% if _callout_attributes is empty %}
+    {% set callout_attributes = create_attribute() %}
+  {% endif %}
+  {% set callout_attributes = callout_attributes.addClass(_classes) %}
+
+  {% set icons = {
+    success:   'it-check-circle',
+    warning:   'it-help-circle',
+    danger:    'it-close-circle',
+    important: 'it-info-circle',
+    note:      'it-info-circle',
+    base:      'it-info-circle',
+  } %}
+
+  {% if _icon_name is empty %}
+    {% if _display == 'more' %}
+      {% set _icon_name = 'it-zoom-in' %}
+    {% else %}
+      {% set _icon_name = icons[_variant] %}
+    {% endif %}
+  {% endif %}
+
+  {% set default_assistive_text = {
+    success:   'Success'|trans,
+    warning:   'Warning'|trans,
+    danger:    'Danger'|trans,
+    important: 'Important'|trans,
+    note:      'Note'|trans,
+    base:      'Info'|trans,
+  } %}
+  {% if _assistive_text is empty %}
+    {% set _assistive_text = default_assistive_text[_variant] %}
+  {% endif %}
+
+  {% set icon_attributes = create_attribute() %}
+  {% set icon_attributes = icon_attributes.setAttribute('aria-hidden', true) %}
+
+  {# Component #}
+  <div {{ callout_attributes }}>
+
+    <div class="callout-title">
+      {% include '@bi-bcl/icon/icon.html.twig' with {
+        name: _icon_name,
+        icon_attributes: icon_attributes
+      } %}
+      <span class="visually-hidden">{{ _assistive_text }}</span>
+
+      {% if _title is not empty %}
+        {{- _title -}}
+      {% endif %}
+    </div>
+
+    {# Text for simple content #}
+    {% if _text is not empty %}
+      <p>{{ _text }}</p>
+    {% endif %}
+
+    {# Block for complex content #}
+    {% block content %}{% endblock %}
+
+  </div>
+{% endapply %}

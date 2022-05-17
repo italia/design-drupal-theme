@@ -1,52 +1,32 @@
 {#
 /**
  * @file
- * Template for a callout pattern
+ * Template for a callout componet
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/callout/
- * Last review: 1.4.1
+ * Last review: 2.0.0-rc4
  *
  * Available config:
- * - variant: "default" | "highlight"
- * - message_type: "success" | "warning" | "danger" | "important" | "note" | null
- * - title: string
- * - text: string
+ * + variant: "default" | "highlight"
+ * + message_type: "success" | "warning" | "danger" | "important" | "note" | null
+ * + title: string
+ * + text: string
  */
 #}
-{% import '@bootstrap_italia/macros.twig' as macros %}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/callout/callout.twig',
+    new: 'bi-bcl/callout/callout.html.twig',
+  } %}
 
-{% set div_classes = [
-  'callout',
-  variant != 'default' ? 'callout-highlight' : null,
-  message_type ? message_type|render : null
-] %}
-{% set type_sronly = {
-  success:   'Confermato'|t,
-  warning:   'Attenzione'|t,
-  danger:    'Pericolo'|t,
-  important: 'Importante'|t,
-  note:      'Nota'|t
- } %}
- {% set type_icons = {
-  success:   'it-check-circle',
-  warning:   'it-help-circle',
-  danger:    'it-close-circle',
-  important: 'it-info-circle',
-  note:      'it-info-circle'
- } %}
- {% set icon = message_type ? attribute(type_icons, message_type|render.__toString()) : 'it-info-circle' %}
+  {% if variant == 'default' %}
+    {% set variant = false %}
+  {% endif %}
 
-<div{{ attributes.addClass(div_classes) }}>
-  <div class="callout-title">
-    {% if not (variant is not null and message_type is null) %}
-      {% include '@bootstrap_italia_components/icon/icon.twig' with {
-          name: icon
-        }
-      %}
-    {% endif %}
-    {% if message_type %}
-      <span class="sr-only">{{ attribute(type_sronly, message_type|render.__toString()) }}</span>
-    {% endif %}
-    {{ title }}
-  </div>
-  <p>{{ text }}</p>
-</div>
+  {% include '@bi-bcl/callout/callout.html.twig' with {
+    variant: message_type ?? null,
+    display: variant ?? null,
+    title: title ?? null,
+    text: text ?? null,
+  } %}
+
+{% endapply %}

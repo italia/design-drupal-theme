@@ -23,6 +23,8 @@
  *   - options ["bottom", "middle", "top"]
  * - library (string) (default: 'sprites.svg')
  *   - "Your custom library"
+ * - icon_attributes (obj attribute) (default: '')
+ *   - Object with extra attributes
  *
  * Note: only first parameter is mandatory.
  * You can set this component in two main ways:
@@ -55,6 +57,7 @@
   {% set _padded = padded ?? false %}
   {% set _alignment = alignment|default('') %}
   {% set _library = library|default('sprites.svg') %}
+  {% set _icon_attributes = icon_attributes|default('') %}
 
   {# Set options #}
   {% set _classes = [
@@ -72,13 +75,15 @@
     {% set _classes = _classes|merge(utility_classes) %}
   {% endif %}
 
-  {% set attributes = create_attribute() %}
-  {% set attributes = attributes.addClass(_classes) %}
+  {% if _icon_attributes is empty %}
+    {% set icon_attributes = create_attribute() %}
+  {% endif %}
+  {% set icon_attributes = icon_attributes.addClass(_classes) %}
 
   {% set _path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ _name %}
 
   {# Component #}
-  <svg {{ attributes }}>
+  <svg {{ icon_attributes }}>
     <use href="{{ _path }}" xlink:href="{{ _path }}"></use>
   </svg>
 {% endapply %}
