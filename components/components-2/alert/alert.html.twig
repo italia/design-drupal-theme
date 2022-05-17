@@ -17,6 +17,8 @@
  * - animated_dismiss (boolean) (default: true)
  *   - Enable animation
  * - utility_classes (array) (default: [])
+ * - alert_attributes (obj attribute) (default: '')
+ *   - Object with extra attributes
  *
  * Examples:
    {% include '@bi-bcl/alert/alert.html.twig' with {
@@ -33,6 +35,7 @@
   {% set _type = type|default('info') %}
   {% set _dismissible = dismissible ?? true %}
   {% set _animated_dismiss = animated_dismiss ?? true %}
+  {% set _alert_attributes = alert_attributes|default('') %}
 
   {# Set options #}
   {% set _classes = [
@@ -41,10 +44,22 @@
     _dismissible ? 'alert-dismissible',
     _animated_dismiss ? 'fade',
     _animated_dismiss ? 'show',
-  ]|merge(utility_classes ? utility_classes : []) %}
+  ] %}
+
+  {% if utility_classes is not empty %}
+    {% set _classes = _classes|merge(utility_classes) %}
+  {% endif %}
+
+  {% if _alert_attributes is empty %}
+    {% set alert_attributes = create_attribute() %}
+  {% endif %}
+  {% set alert_attributes = alert_attributes
+    .addClass(_classes)
+    .setAttribute('role', 'alert')
+  %}
 
   {# Component #}
-  <div class="{{ _classes|join(' ')|trim }}" role="alert">
+  <div {{ alert_attributes }}>
     {%- if _heading is not empty -%}
       <h4 class="alert-heading">{{ _heading }}</h4>
     {%- endif -%}

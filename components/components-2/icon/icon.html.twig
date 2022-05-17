@@ -71,7 +71,7 @@
     ]
   %}
 
-  {% if utility_classes is defined %}
+  {% if utility_classes is not empty %}
     {% set _classes = _classes|merge(utility_classes) %}
   {% endif %}
 

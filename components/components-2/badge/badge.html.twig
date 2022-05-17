@@ -21,6 +21,8 @@
  *   - Enable outiline background color
  * - utility_classes (array) (default: '')
  *   - options ["position-absolute top-0 start-100 translate-middle", "neutral-2-bg"]
+ * - badge_attributes (obj attribute) (default: '')
+ *   - Object with extra attributes
  *
  * Note: https://italia.github.io/bootstrap-italia/docs/componenti/badge/#link
  *  is implemented in link component
@@ -44,6 +46,7 @@
   {% set _assistive_text = assistive_text|default('') %}
   {% set _rounded_pill = rounded_pill ?? false %}
   {% set _outline = outline ?? false %}
+  {% set _badge_attributes = badge_attributes|default('') %}
 
   {# Set options #}
   {% set _classes = [
@@ -55,15 +58,17 @@
     _background in ['light', 'white'] and _text_color is empty ? 'text-dark'
   ] %}
 
-  {% if utility_classes is defined %}
+  {% if utility_classes is not empty %}
     {% set _classes = _classes|merge(utility_classes) %}
   {% endif %}
 
-  {% set attributes = create_attribute() %}
-  {% set attributes = attributes.addClass(_classes) %}
+  {% if _badge_attributes is empty %}
+    {% set badge_attributes = create_attribute() %}
+  {% endif %}
+  {% set badge_attributes = badge_attributes.addClass(_classes) %}
 
   {# Component #}
-  <span {{ attributes }}>
+  <span {{ badge_attributes }}>
     {%- if _label is not empty -%}
       {{- _label -}}
     {%- endif -%}
