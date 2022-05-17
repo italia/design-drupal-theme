@@ -6,8 +6,8 @@
  * Last review: 2.0.0-rc4
  *
  * Parameters:
- * - variant (string) (default: 'base')
- *   - options ["success", "warning", "danger", "important", "note", "base"]
+ * - variant (string) (default: 'default')
+ *   - options ["success", "warning", "danger", "important", "note", "default"]
  * - display (boolean) (default: '')
  *   - options ["highlight", "more"]
  * - icon_name (string) (default: '')
@@ -40,7 +40,7 @@
 #}
 {% apply spaceless %}
   {# Set defaults #}
-  {% set _variant = variant|default('base') %}
+  {% set _variant = variant|default('default') %}
   {% set _display = display|default('') %}
   {% set _icon_name = icon_name|default('') %}
   {% set _title = title|default('') %}
@@ -57,7 +57,7 @@
     'callout',
     _display is not empty ? 'callout-' ~ _display,
     _display == 'more' ? 'note',
-    _variant != 'base' ? _variant,
+    _variant != 'default' ? _variant,
   ] %}
 
   {% if utility_classes is not empty %}
@@ -75,7 +75,7 @@
     danger:    'it-close-circle',
     important: 'it-info-circle',
     note:      'it-info-circle',
-    base:      'it-info-circle',
+    default:   'it-info-circle',
   } %}
 
   {% if _icon_name is empty %}
@@ -92,7 +92,7 @@
     danger:    'Danger'|trans,
     important: 'Important'|trans,
     note:      'Note'|trans,
-    base:      'Info'|trans,
+    default:   'Info'|trans,
   } %}
   {% if _assistive_text is empty %}
     {% set _assistive_text = default_assistive_text[_variant] %}
