@@ -1,20 +1,20 @@
 {#
 /**
  * @file
- * Template for a icon component
+ * Template for icon component
  * Docs: https://italia.github.io/bootstrap-italia/docs/utilities/icone/
- * Last review: 1.4.1
+ * Last review: 2.0.0-rc4
  *
  * Available config:
- * - name: icon name, see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
- * - classes: array
- * - size: xs | sm | lg | xl
- * - color: primary | secondary | success | warning | danger | light | white
- * - dark: bool
- * - light: bool
- * - padded: bool
- * - alignment: bottom | middle | top
- * - library; string - your custom library
+ * + name: icon name, see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
+ * + classes: array
+ * + size: xs | sm | lg | xl
+ * + color: primary | secondary | success | warning | danger | light | white
+ * + dark: bool
+ * + light: bool
+ * + padded: bool
+ * + alignment: bottom | middle | top
+ * + library: string - your custom library
  *
  * Note: only first parameter is mandatory.
  * You can set this component in two main ways:
@@ -24,28 +24,22 @@
  *     [ name: 'it-x', classess: ['customClass', 'icon-xs', 'icon-primary', 'bg-light', 'icon-padded', 'align-middle'] ]
  */
 #}
-{% spaceless %}
-{% set icon_classes = [
-    'icon',
-    size ? 'icon-'~size,
-    color ? 'icon-'~color,
-    dark ? 'bg-dark',
-    light ? 'bg-light',
-    padded ? 'icon-padded',
-    alignment ? 'align-'~alignment
-  ]
-%}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/icon/icon.twig',
+    new: 'bi-bcl/icon/icon.html.twig',
+  } %}
 
-{% if classes is defined %}
-  {% set icon_classes = classes|merge(icon_classes) %}
-{% endif %}
-
-{% set library = library ? library : 'sprite.svg' %}
-
-<svg class="{{ icon_classes|join(' ')|trim }}">
-  <use
-    href="/{{ active_theme_path() }}/assets/svg/{{ library }}#{{ name }}"
-    xlink:href="/{{ active_theme_path() }}/assets/svg/{{ library }}#{{ name }}"
-  ></use>
-</svg>
-{% endspaceless %}
+  {# Redirect to new component #}
+  {% include '@bi-bcl/icon/icon.html.twig' with {
+    name: name ?? null,
+    utility_classes: classes ?? null,
+    size: size ?? null,
+    color: color ?? null,
+    dark: dark ?? null,
+    light: light ?? null,
+    padded: padded ?? null,
+    alignment: alignment ?? null,
+    library: library ?? null
+  } %}
+{% endapply %}

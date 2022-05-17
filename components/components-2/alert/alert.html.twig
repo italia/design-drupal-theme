@@ -16,6 +16,7 @@
  *   - Enable dismissible feature
  * - animated_dismiss (boolean) (default: true)
  *   - Enable animation
+ * - utility_classes (array) (default: [])
  *
  * Examples:
    {% include '@bi-bcl/alert/alert.html.twig' with {
@@ -40,8 +41,7 @@
     _dismissible ? 'alert-dismissible',
     _animated_dismiss ? 'fade',
     _animated_dismiss ? 'show',
-  ]
-  %}
+  ]|merge(utility_classes ? utility_classes : []) %}
 
   {# Component #}
   <div class="{{ _classes|join(' ')|trim }}" role="alert">

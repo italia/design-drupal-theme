@@ -3,34 +3,26 @@
  * @file
  * Template for Alert component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/alert/
- * Last review: 1.4.1
+ * Last review: 2.0.0-rc4
  *
  * Available config:
- * - type: info | success | warning | danger
- * - heading: string,
- * - dimissible: true | false
- * - utility_classes: An array of utility classes.
+ * + type: info | success | warning | danger
+ * + heading: string,
+ * + dimissible: true | false
+ * + utility_classes: An array of utility classes.
  */
 #}
-{% set dismissible = dismissible ?? true %}
-{% set classes = [
-  'alert',
-  type ? 'alert-' ~ type,
-  dismissible ? 'alert-dismissible fade show',
-]|merge(utility_classes ? utility_classes : []) %}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/alert/alert.twig',
+    new: 'bi-bcl/alert/alert.html.twig',
+  } %}
 
-<div class="{{ classes|join(' ') }}" role="alert">
-  {% if heading %}
-    <h4 class="alert-heading">{{ heading }}</h4>
-  {% endif %}
-
-  {% block content %}
-    {{ content }}
-  {% endblock %}
-
-  {% if dismissible %}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  {% endif %}
-</div>
+  {# Redirect to new component #}
+  {% include '@bi-bcl/alert/alert.html.twig' with {
+    type: type ?? null,
+    message: heading ?? null,
+    dimissible: dimissible ?? null,
+    utility_classes: utility_classes ?? null,
+   } %}
+{% endapply %}
