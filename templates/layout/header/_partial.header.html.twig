@@ -1,0 +1,22 @@
+<header
+  class="it-header-wrapper it-header-sticky"
+  data-bs-toggle="sticky"
+  data-bs-position-type="fixed"
+  data-bs-sticky-class-name="is-sticky"
+  data-bs-target="#header-nav-wrapper"
+>
+
+  {% block headerSlim %}
+    {% include '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}
+  {% endblock %}
+
+  <div class="it-nav-wrapper">
+    {% block headerCenter %}
+      {% include '@bootstrap_italia/layout/header/_partial.header-center.html.twig' %}
+    {% endblock %}
+
+    {% block headerNavbar %}
+      {% include '@bootstrap_italia/layout/header/_partial.header-navbar.html.twig' %}
+    {% endblock %}
+  </div>
+</header>

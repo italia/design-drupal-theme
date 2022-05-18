@@ -45,11 +45,8 @@
  * @ingroup themeable
  */
 #}
-<div class="layout-container">
-
-  <header role="banner">
-    {{ page.header }}
-  </header>
+<div class="page-default">
+  {% include '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
 
   {{ page.primary_menu }}
   {{ page.secondary_menu }}
