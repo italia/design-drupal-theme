@@ -5,6 +5,7 @@
  * Theme settings.
  */
 
+use Drupal\bootstrap_italia\Helper\Helper;
 use Drupal\bootstrap_italia\Helper\Libraries;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -21,11 +22,63 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     return;
   }
 
-  // Vertical tabs.
+  // Main vertical tabs.
   $form['bootstrap'] = [
     '#type' => 'vertical_tabs',
-    '#prefix' => '<h2><small>' . t('Bootstrap Italia settings') . '</small></h2>',
+    '#title' => t('Bootstrap Italia settings'),
     '#weight' => -10,
+  ];
+
+  // Header slim --------------------------------------------------------------.
+  $form['header_slim'] = [
+    '#type' => 'details',
+    '#title' => t('Slim Header'),
+    '#description' => t("Slim header settings"),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+  // Government entity.
+  $form['header_slim']['government_entity'] = [
+    '#type' => 'details',
+    '#title' => t('Government entity'),
+    '#description' => t("Settings related to the superior government entity."),
+    '#open' => TRUE,
+    '#group' => 'header_slim',
+  ];
+  $form['header_slim']['government_entity']['government_entity_name'] = [
+    '#type' => 'textfield',
+    '#title' => t('Name'),
+    '#description' => t("Government entity name."),
+    '#placeholder' => t('Italian government'),
+    '#default_value' => theme_get_setting('government_entity_name'),
+  ];
+  $form['header_slim']['government_entity']['government_entity_url'] = [
+    '#type' => 'url',
+    '#title' => t('Government entity web site'),
+    '#placeholder' => t('https://www.governo.it/'),
+    '#description' => t("Government entity URL. Example: https://example.gov.it."),
+    '#default_value' => theme_get_setting('government_entity_url'),
+  ];
+
+  // Slim header appearance.
+  $form['header_slim']['header_slim_appearance'] = [
+    '#type' => 'details',
+    '#title' => t('Header slim appearance'),
+    '#open' => TRUE,
+    '#group' => 'header_slim',
+  ];
+  $form['header_slim']['header_slim_appearance']['slim_header_light'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable light variant'),
+    '#default_value' => theme_get_setting('slim_header_light'),
+  ];
+  $form['header_slim']['header_slim_appearance']['slim_header_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Header slim container"),
+    '#description' => t('Select container type.'),
+    '#default_value' => theme_get_setting('slim_header_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
 
   /* Libraries Settings ------------------------------------------------ */

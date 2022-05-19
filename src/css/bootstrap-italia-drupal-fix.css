@@ -5,3 +5,10 @@
   color: #000 !important;
   font-weight: bold;
 }
+
+#toolbar-administration.toolbar {
+  height: auto;
+}
+#header-nav-wrapper.it-header-navbar-wrapper .navbar .navbar-collapsable {
+  z-index: 600;
+}
