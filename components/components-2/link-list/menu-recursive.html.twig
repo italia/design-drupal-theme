@@ -37,9 +37,9 @@
  *   - Increment text weight on only active items (not enable both with bold)
  * - icon_position (string) (default: '')
  *   - options ["left", "right"]
- * - icon_name (string) (default: '')
+ * - icon_name (string) (default: 'it-chevron-right')
  *   - options ["it-icon-name"]
- * - icon_color (string) (default: '')
+ * - icon_color (string) (default: 'primary')
  *   - options ["primary", "secondary", "success", "warning", "danger", "light", "white"]
  * - wrapper_utility_classes (array) (default: '')
  * - wrapper_attributes (obj attribute) (default: '')
@@ -78,8 +78,8 @@
   {% set _active_items_large = active_items_large ?? false %}
   {% set _active_items_bold = active_items_bold ?? false %}
   {% set _icon_position = icon_position|default('') %}
-  {% set _icon_name = icon_name|default('') %}
-  {% set _icon_color = icon_color|default('') %}
+  {% set _icon_name = icon_name|default('it-expand') %}
+  {% set _icon_color = icon_color|default('primary') %}
   {% set _wrapper_utility_classes = wrapper_utility_classes|default('') %}
   {% set _wrapper_attributes = wrapper_attributes|default('') %}
   {% set _list_utility_classes = list_utility_classes|default('') %}
@@ -120,10 +120,6 @@
   {% endif %}
   {% set list_attributes = list_attributes.addClass(_classes_list) %}
 
-  {% set icon_position = icon_position ? icon_position : 'right' %}
-  {% set icon_name = icon_name ? icon_name : 'it-expand' %}
-  {% set icon_color = icon_color ? icon_color : 'primary' %}
-
   {# Component #}
   <div {{ wrapper_attributes }}>
     <ul {{ list_attributes }}>
@@ -155,46 +151,78 @@
           <span class="divider"></span>
 
         {% elseif item.url|render == "<title>" %}
-          <h3>{{ item.title }}</h3>
+          <div class="link-list-heading">{{ item.title }}</div>
 
         {% else %}
           {% set item_classes = [
             'list-item',
             item.in_active_trail ? 'active',
-            item.in_active_trail and active_items_large ? 'large',
-            item.in_active_trail and active_items_bold ? 'medium',
+            item.in_active_trail and active_items_large and not large ? 'large',
+            item.in_active_trail and active_items_bold and not bold ? 'medium',
             large ? 'large',
             bold ? 'medium',
-            item.is_expanded and icon_position == 'right' ? 'right-icon',
-            item.is_expanded and icon_position == 'left' ? 'icon-left'
+            item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
           ] %}
-          <a
-            class="{{ item_classes|join(' ')|trim }}"
-            {{ item.is_expanded ? 'data-bs-toggle="collapse" aria-expandend="true"' : '' }}
-            href="{{ item.below ? '#'~uuid|clean_id : item.url }}"
-            {% if item.original_link.getDescription() %}
-              title="{{ item.original_link.getDescription() }}"
-            {% endif %}
-          >
-            {% if link_label_wrapper %}
-              <{{ link_label_wrapper_tag }}>{{ item.title }}</{{ link_label_wrapper_tag }}>
-            {% else %}
-              {{ item.title }}
-            {% endif %}
 
-            {% if item.in_active_trail %}
-              <span class="visually-hidden">{{ active_assistive_text }}</span>
-            {% endif %}
+          {% set item_attributes = item.attributes %}
 
-            {% if item.is_expanded %}
-              {% include '@bootstrap_italia_components/icon/icon.twig' with {
-                name: icon_name,
-                classes: ['icon-'~icon_color, 'icon-'~icon_position]
-              } %}
-            {% endif %}
-          {% if item.original_link.getDescription() and show_link_description %}
-            <p>{{ item.original_link.getDescription() }}</p>
+          {% set item_attributes = item_attributes.addClass(item_classes) %}
+
+          {% if item.original_link.getDescription() %}
+            {% set item_attributes = item_attributes.setAttribute('title', item.original_link.getDescription()) %}
           {% endif %}
+
+          {% if item.is_expanded %}
+            {% set item_attributes = item_attributes
+              .setAttribute('href', '#'~uuid|clean_id)
+              .setAttribute('data-bs-toggle', 'collapse')
+              .setAttribute('aria-expandend', 'false')
+              .setAttribute('aria-controls', uuid|clean_id)
+            %}
+          {% else %}
+            {% set item_attributes = item_attributes.setAttribute('href', item.url|render()) %}
+          {% endif %}
+
+          <a{{ item_attributes }}>
+            {% if icon_position is not empty or item.is_expanded %}
+              <span class="list-item-title-icon-wrapper">
+            {% endif %}
+
+              {% set _item_icon_name = item.is_expanded ? 'it-expand' : icon_name %}
+              {% set _item_icon_position = icon_position is empty and item.is_expanded ? 'right' : icon_position %}
+
+              {% if _item_icon_position == 'left' %}
+                {% include '@bi-bcl/icon/icon.html.twig' with {
+                  name: _item_icon_name,
+                  color: icon_color
+                } %}
+              {% endif %}
+
+              {% if link_label_wrapper %}
+                <{{ link_label_wrapper_tag }}>{{ item.title }}</{{ link_label_wrapper_tag }}>
+              {% else %}
+                {{ item.title }}
+              {% endif %}
+
+              {% if item.in_active_trail %}
+                <span class="visually-hidden">{{ active_assistive_text }}</span>
+              {% endif %}
+
+              {% if _item_icon_position == 'right' %}
+                {% include '@bi-bcl/icon/icon.html.twig' with {
+                  name: _item_icon_name,
+                  color: icon_color
+                } %}
+              {% endif %}
+
+            {% if icon_position is not empty or item.is_expanded %}
+              </span>
+            {% endif %}
+
+            {% if item.original_link.getDescription() and show_link_description %}
+              <p>{{ item.original_link.getDescription() }}</p>
+            {% endif %}
+
           </a>
         {% endif %}
 
