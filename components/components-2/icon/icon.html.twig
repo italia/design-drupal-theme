@@ -8,7 +8,6 @@
  * Parameters:
  * - name (string) (default: 'it-warning-circle')
  *   - see: https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili
- * - utility_classes (array) (default: '')
  * - size (string) (default: '')
  *   - options ["xs", "sm", "lg", "xl"]
  * - color (string) (default: '')
@@ -23,6 +22,7 @@
  *   - options ["bottom", "middle", "top"]
  * - library (string) (default: 'sprites.svg')
  *   - "Your custom library"
+ * - utility_classes (array) (default: '')
  * - icon_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
  *
@@ -57,6 +57,7 @@
   {% set _padded = padded ?? false %}
   {% set _alignment = alignment|default('') %}
   {% set _library = library|default('sprites.svg') %}
+  {% set _utility_classes = utility_classes|default('') %}
   {% set _icon_attributes = icon_attributes|default('') %}
 
   {# Set options #}
@@ -71,7 +72,7 @@
     ]
   %}
 
-  {% if utility_classes is not empty %}
+  {% if _utility_classes is not empty %}
     {% set _classes = _classes|merge(utility_classes) %}
   {% endif %}
 

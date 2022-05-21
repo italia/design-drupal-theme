@@ -45,6 +45,7 @@
   {% set _icon_name = icon_name|default('') %}
   {% set _title = title|default('') %}
   {% set _assistive_text = assistive_text|default('') %}
+  {% set _utility_classes = utility_classes|default('') %}
   {% set _callout_attributes = callout_attributes|default('') %}
   {% set _text = text|default('') %}
 
@@ -60,7 +61,7 @@
     _variant != 'default' ? _variant,
   ] %}
 
-  {% if utility_classes is not empty %}
+  {% if _utility_classes is not empty %}
     {% set _classes = _classes|merge(utility_classes) %}
   {% endif %}
 

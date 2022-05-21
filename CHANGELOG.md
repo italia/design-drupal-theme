@@ -30,3 +30,11 @@ clear cache (`drush cr`).
 
 - Theme Settings changes:
   - `theme_variants` to `libraries_source`
+  - `ente_appartenenza_nome` to `government_entity_name`
+  - `ente_appartenenza_url` to `government_entity_url`
+
+- Suggestions change (check in your sub-theme if `template-name.html.twig` work correctly)
+  - menu new formats:
+    - `theme_hook_original`;
+    - `theme_hook_original + region_name`
+    - `menu__ + region_name`

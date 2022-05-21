@@ -1,0 +1,208 @@
+{#
+/**
+ * @file
+ * Template for link-list recursive component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link/#liste-annidate
+ * Last review: 2.0.0-rc4
+ *
+ * Parameters:
+ * - menu_name (string) (default: '')
+ *   - The machine name of the menu.
+ * - items:
+ *   - A nested list of menu items. Each menu item contains:
+ *     - attributes: HTML attributes for the menu item.
+ *     - below: The menu item child items.
+ *     - title: The menu link title.
+ *     - url: The menu link url, instance of \Drupal\Core\Url
+ *     - localized_options: Menu link localized options.
+ *     - is_expanded: TRUE if the link has visible children within the current
+ *       menu tree.
+ *     - is_collapsed: TRUE if the link has children within the current menu tree
+ *       that are not currently visible.
+ *     - in_active_trail: TRUE if the link is in the active trail.
+ * - attributes (obj attributes)
+ *   - Drupal attributes
+ * - show_link_description (boolean) (default: false)
+ * - link_label_wrapper (boolean) (default: true)
+ *   - Round label in wrapper
+ * - link_label_wrapper_tag (string) (default: 'span')
+ *   - Tag to wrap label
+ * - large (boolean) (default: false)
+ *   - Increment text size on all items
+ * - bold (boolean) (default: false)
+ *   - Increment text weight on all active items
+ * - active_items_large (boolean) (default: false)
+ *   - Increment text size on only active items (not enable both with large)
+ * - active_items_bold (boolean) (default: false)
+ *   - Increment text weight on only active items (not enable both with bold)
+ * - icon_position (string) (default: '')
+ *   - options ["left", "right"]
+ * - icon_name (string) (default: '')
+ *   - options ["it-icon-name"]
+ * - icon_color (string) (default: '')
+ *   - options ["primary", "secondary", "success", "warning", "danger", "light", "white"]
+ * - wrapper_utility_classes (array) (default: '')
+ * - wrapper_attributes (obj attribute) (default: '')
+ * - list_utility_classes (array) (default: '')
+ * - list_attributes (obj attribute) (default: '')
+ * - id (string) (default: '')
+ *
+ * Note: items and attributes are mandatory
+ *
+  * Examples:
+   {% include '@bi-bcl/link-list/menu-recursive.html.twig' with {
+      menu_name: menu_name,
+      items: items,
+      attributes: attributes,
+      show_link_description: false,
+      large: false,
+      bold: false,
+      active_items_large: false,
+      active_items_bold: false,
+      icon_position: '',
+      icon_type: '',
+      icon_color: '',
+   } %}
+ */
+#}
+{% import _self as menus %}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _menu_name = menu_name|default('') %}
+  {% set _show_link_description = show_link_description ?? false %}
+  {% set _link_label_wrapper = link_label_wrapper ?? true %}
+  {% set _link_label_wrapper_tag = link_label_wrapper_tag|default('span') %}
+  {% set _large = large ?? false %}
+  {% set _bold = bold ?? false %}
+  {% set _active_items_large = active_items_large ?? false %}
+  {% set _active_items_bold = active_items_bold ?? false %}
+  {% set _icon_position = icon_position|default('') %}
+  {% set _icon_name = icon_name|default('') %}
+  {% set _icon_color = icon_color|default('') %}
+  {% set _wrapper_utility_classes = wrapper_utility_classes|default('') %}
+  {% set _wrapper_attributes = wrapper_attributes|default('') %}
+  {% set _list_utility_classes = list_utility_classes|default('') %}
+  {% set _list_attributes = list_attributes|default('') %}
+  {% set _id = id|default('') %}
+
+  {# Set options wrapper #}
+  {% set _classes_wrapper = [
+    'link-list-wrapper',
+    _menu_name
+  ] %}
+
+  {% if _wrapper_utility_classes is not empty %}
+    {% set _classes_wrapper = _classes_wrapper|merge(wrapper_utility_classes) %}
+  {% endif %}
+
+  {% if _wrapper_attributes is empty %}
+    {% set wrapper_attributes = create_attribute() %}
+  {% endif %}
+  {% set wrapper_attributes = wrapper_attributes.addClass(_classes_wrapper) %}
+
+  {% if _id is not empty %}
+    {% set wrapper_attributes = wrapper_attributes.setAttribute('id', _id) %}
+  {% endif %}
+
+  {# Set options link-list #}
+  {% set _classes_list = [
+    'link-list',
+  ] %}
+
+  {% if _list_utility_classes is not empty %}
+    {% set _classes_list = _classes_list|merge(list_utility_classes) %}
+  {% endif %}
+
+  {% if _list_attributes is empty %}
+    {% set list_attributes = create_attribute() %}
+  {% endif %}
+  {% set list_attributes = list_attributes.addClass(_classes_list) %}
+
+  {% set icon_position = icon_position ? icon_position : 'right' %}
+  {% set icon_name = icon_name ? icon_name : 'it-expand' %}
+  {% set icon_color = icon_color ? icon_color : 'primary' %}
+
+  {# Component #}
+  <div {{ wrapper_attributes }}>
+    <ul {{ list_attributes }}>
+      {{ menus.menu_links(
+        items, attributes, 0,
+        _show_link_description, _link_label_wrapper, _link_label_wrapper_tag,
+        _large, _bold, _active_items_large, _active_items_bold,
+        _icon_position, _icon_name, _icon_color
+      ) }}
+    </ul>
+  </div>
+{% endapply %}
+
+{% macro menu_links(
+  items, attributes, menu_level,
+  show_link_description, link_label_wrapper, link_label_wrapper_tag,
+  large, bold, active_items_large, active_items_bold,
+  icon_position, icon_name, icon_color
+  ) %}
+  {% import _self as menus %}
+
+  {% if items %}
+    {% for uuid, item in items %}
+      <li{{ item.attributes }}>
+
+        {% if item.title == '<divider>' %}
+          <span class="divider"></span>
+
+        {% elseif item.url|render == "<title>" %}
+          <h3>{{ item.title }}</h3>
+
+        {% else %}
+          {% set item_classes = [
+            'list-item',
+            item.in_active_trail ? 'active',
+            item.in_active_trail and active_items_large ? 'large',
+            item.in_active_trail and active_items_bold ? 'medium',
+            large ? 'large',
+            bold ? 'medium',
+            item.is_expanded and icon_position == 'right' ? 'right-icon',
+            item.is_expanded and icon_position == 'left' ? 'icon-left'
+          ] %}
+          <a
+            class="{{ item_classes|join(' ')|trim }}"
+            {{ item.is_expanded ? 'data-bs-toggle="collapse" aria-expandend="true"' : '' }}
+            href="{{ item.below ? '#'~uuid|clean_id : item.url }}"
+            {% if item.original_link.getDescription() %}
+              title="{{ item.original_link.getDescription() }}"
+            {% endif %}
+          >
+            {% if link_label_wrapper %}
+              <{{ link_label_wrapper_tag }}>{{ item.title }}</{{ link_label_wrapper_tag }}>
+            {% else %}
+              {{ item.title }}
+            {% endif %}
+
+            {% if item.is_expanded %}
+              {% include '@bootstrap_italia_components/icon/icon.twig' with {
+                name: icon_name,
+                classes: ['icon-'~icon_color, 'icon-'~icon_position]
+              } %}
+            {% endif %}
+          {% if item.original_link.getDescription() and show_link_description %}
+            <p>{{ item.original_link.getDescription() }}</p>
+          {% endif %}
+          </a>
+        {% endif %}
+
+        {# Recursive link-list #}
+        {% if item.below %}
+          <ul id="{{ uuid|clean_id }}" class="link-sublist collapse {{ item.in_active_trail ? 'show' }}">
+            {{ menus.menu_links(
+              item.below, attributes, menu_level + 1,
+              show_link_description, link_label_wrapper, link_label_wrapper,
+              large, bold, active_items_large, active_items_bold,
+              icon_position, icon_name, icon_color
+            ) }}
+          </ul>
+        {% endif %}
+
+      </li>
+    {% endfor %}
+  {% endif %}
+{% endmacro %}

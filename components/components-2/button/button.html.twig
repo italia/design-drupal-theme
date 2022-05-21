@@ -87,6 +87,7 @@
   {% set _size = size|default('') %}
   {% set _disabled = disabled ?? false %}
   {% set _assistive_text = assistive_text|default('') %}
+  {% set _utility_classes = utility_classes|default('') %}
   {% set _btn_attributes = btn_attributes|default('') %}
 
   {# Set options #}
@@ -97,7 +98,7 @@
     _size is not empty ? 'btn-' ~ _size,
   ] %}
 
-  {% if utility_classes is not empty %}
+  {% if _utility_classes is not empty %}
     {% set _classes = _classes|merge(utility_classes) %}
   {% endif %}
 

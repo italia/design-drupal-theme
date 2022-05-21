@@ -3,23 +3,12 @@
     <div class="row">
       <div class="col-12">
         <div class="it-header-slim-wrapper-content">
-          <a class="d-none d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">{{ government_entity_name }}</a>
-          <div class="nav-mobile">
-            <nav aria-label="Navigazione accessoria">
-              <a class="it-opener d-lg-none" data-bs-toggle="collapse" href="#headerSlimMenu" role="button" aria-expanded="false" aria-controls="headerSlimMenu">
-                <span>{{ government_entity_name }}</span>
-                {% include '@bi-bcl/icon/icon.html.twig' with {
-                  name: 'it-expand'
-                } %}
-              </a>
-              <div class="link-list-wrapper collapse" id="headerSlimMenu">
-                <ul class="link-list">
-                  <li><a class="dropdown-item list-item" href="#">Link 1</a></li>
-                  <li><a class="list-item active" href="#" aria-current="page">Link 2 (Attivo)</a></li>
-                </ul>
-              </div>
-            </nav>
-          </div>
+          {% if page.header_slim_menu %}
+            <a class="d-none d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">{{ government_entity_name }}</a>
+            {{ page.header_slim_menu }}
+          {% else %}
+            <a class="d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">{{ government_entity_name }}</a>
+          {% endif %}
           <div class="it-header-slim-right-zone">
             <div class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
