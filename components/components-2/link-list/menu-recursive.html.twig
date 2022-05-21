@@ -46,6 +46,7 @@
  * - list_utility_classes (array) (default: '')
  * - list_attributes (obj attribute) (default: '')
  * - id (string) (default: '')
+ * - active_assistive_text (string) (default: 'Active')
  *
  * Note: items and attributes are mandatory
  *
@@ -84,6 +85,7 @@
   {% set _list_utility_classes = list_utility_classes|default('') %}
   {% set _list_attributes = list_attributes|default('') %}
   {% set _id = id|default('') %}
+  {% set _active_assistive_text = active_assistive_text|default('Active'|trans) %}
 
   {# Set options wrapper #}
   {% set _classes_wrapper = [
@@ -129,7 +131,8 @@
         items, attributes, 0,
         _show_link_description, _link_label_wrapper, _link_label_wrapper_tag,
         _large, _bold, _active_items_large, _active_items_bold,
-        _icon_position, _icon_name, _icon_color
+        _icon_position, _icon_name, _icon_color,
+        _active_assistive_text
       ) }}
     </ul>
   </div>
@@ -139,7 +142,8 @@
   items, attributes, menu_level,
   show_link_description, link_label_wrapper, link_label_wrapper_tag,
   large, bold, active_items_large, active_items_bold,
-  icon_position, icon_name, icon_color
+  icon_position, icon_name, icon_color,
+  active_assistive_text
   ) %}
   {% import _self as menus %}
 
@@ -178,6 +182,10 @@
               {{ item.title }}
             {% endif %}
 
+            {% if item.in_active_trail %}
+              <span class="visually-hidden">{{ active_assistive_text }}</span>
+            {% endif %}
+
             {% if item.is_expanded %}
               {% include '@bootstrap_italia_components/icon/icon.twig' with {
                 name: icon_name,
@@ -197,7 +205,8 @@
               item.below, attributes, menu_level + 1,
               show_link_description, link_label_wrapper, link_label_wrapper,
               large, bold, active_items_large, active_items_bold,
-              icon_position, icon_name, icon_color
+              icon_position, icon_name, icon_color,
+              active_assistive_text
             ) }}
           </ul>
         {% endif %}
