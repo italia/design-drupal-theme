@@ -162,6 +162,8 @@
             large ? 'large',
             bold ? 'medium',
             item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
+            item.is_expanded and icon_position is empty ? 'icon-right',
+            not item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
           ] %}
 
           {% set item_attributes = item.attributes %}
