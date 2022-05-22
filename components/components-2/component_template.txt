@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Template for NAME component.
+ * Template for COMPONENT-NAME component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/COMPONENT/NAME
  * Last review: <bootstrap-italia_version>
  *
@@ -13,6 +13,8 @@
  * - string (string) (default: '')
  * - boolean (boolean) (default: true)
  * - array (array) (default: [...])
+ * - utility_classes (array) (default: '')
+ * - COMPONENT-NAME_attributes (obj attribute) (default: '')
  *
  * Examples:
    {% include '@bi-bcl/*/*.html.twig' with {
@@ -23,8 +25,27 @@
 #}
 {% apply spaceless %}
   {# Set defaults #}
+  {% set _option = option|default('') %}
+  {% set _utility_classes = utility_classes|default('') %}
+  {% set _COMPONENT-NAME_attributes = COMPONENT-NAME_attributes|default('') %}
 
   {# Set options #}
+    {% set _classes = [
+      ''
+    ] %}
+
+  {% if _utility_classes is not empty %}
+    {% set _classes = _classes|merge(utility_classes) %}
+  {% endif %}
+
+  {% if _COMPONENT-NAME_attributes is empty %}
+    {% set COMPONENT-NAME_attributes = create_attribute() %}
+  {% endif %}
+  {% set COMPONENT-NAME_attributes = COMPONENT-NAME_attributes
+    .addClass(_classes)
+    .setAttribute('attr', 'value')
+  %}
 
   {# Component #}
+
 {% endapply %}

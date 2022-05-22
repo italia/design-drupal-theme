@@ -14,36 +14,118 @@
             <div class="close-div">
               <button class="btn close-menu" type="button">
                 <span class="visually-hidden">Nascondi la navigazione</span>
-                <svg class="icon">
-                  <use href="/dist/svg/sprites.svg#it-close-big"></use>
-                </svg>
+                {% include '@bi-bcl/icon/icon.html.twig' with {
+                  name: 'it-close-big'
+                } %}
               </button>
             </div>
             <div class="menu-wrapper">
               <ul class="navbar-nav">
-                <li class="nav-item ">
-                  <a class="nav-link " href="/docs/esempi/comuni/template-amministrazione/">
-                    <span>Amministrazione</span>
-
-                  </a>
+                <li class="nav-item active">
+                  <a class="nav-link active" href="#" aria-current="page"><span>Link 1</span></a>
                 </li>
-                <li class="nav-item ">
-                  <a class="nav-link " href="/docs/esempi/comuni/template-novita/">
-                    <span>Novità</span>
-
-                  </a>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" aria-disabled="true"><span>Link 2</span></a>
                 </li>
-                <li class="nav-item ">
-                  <a class="nav-link " href="/docs/esempi/comuni/template-servizi/">
-                    <span>Servizi</span>
-
-                  </a>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><span>Link 3</span></a>
                 </li>
-                <li class="nav-item ">
-                  <a class="nav-link " href="/docs/esempi/comuni/template-documenti/">
-                    <span>Documenti e Dati</span>
-
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><span>Link 4</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavDropdownC1">
+                    <span>Dropdown</span>
+                    {% include '@bi-bcl/icon/icon.html.twig' with {
+                      name: 'it-expand',
+                      size: 'xs'
+                    } %}
                   </a>
+                  <div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdownC1">
+                    <div class="link-list-wrapper">
+                      <div class="link-list-heading">Sezione</div>
+                      <ul class="link-list">
+                        <li>
+                          <a class="dropdown-item list-item" href="#"><span>Link lista 1</span></a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item list-item" href="#"><span>Link lista 2</span></a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item list-item" href="#"><span>Link lista 3</span></a>
+                        </li>
+                        <li><span class="divider"></span></li>
+                        <li>
+                          <a class="dropdown-item list-item" href="#"><span>Link lista 4</span></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown megamenu">
+                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavMegamenuC1">
+                    <span>Megamenu</span>
+                    {% include '@bi-bcl/icon/icon.html.twig' with {
+                      name: 'it-expand',
+                      size: 'xs'
+                    } %}
+                  </a>
+                  <div class="dropdown-menu" role="region" aria-labelledby="mainNavMegamenuC1">
+                    <div class="row">
+                      <div class="col-12 col-lg-4">
+                        <div class="link-list-wrapper">
+                          <div class="link-list-heading">Sezione 1</div>
+                          <ul class="link-list">
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 1</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 2</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 3</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-4">
+                        <div class="link-list-wrapper">
+                          <ul class="link-list">
+                            <li>
+                              <div class="link-list-heading">Sezione 2</div>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 4</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 5</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 6</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-12 col-lg-4">
+                        <div class="link-list-wrapper">
+                          <ul class="link-list">
+                            <li>
+                              <div class="link-list-heading">Sezione 3</div>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 7</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 8</span></a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item list-item" href="#"><span>Link lista 9</span></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
               </ul>
               <ul class="navbar-nav navbar-secondary">
@@ -56,7 +138,6 @@
                 <li class="nav-item ">
                   <a class="nav-link " href="/docs/esempi/comuni/template-argomenti">
                     <span class="fw-bold">Tutti gli argomenti...</span>
-
                   </a>
                 </li>
               </ul>

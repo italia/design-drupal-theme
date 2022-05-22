@@ -10,7 +10,8 @@
             <a class="d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">{{ government_entity_name }}</a>
           {% endif %}
           <div class="it-header-slim-right-zone">
-            <div class="nav-item dropdown">
+            {{ page.header_slim_language }}
+            {#<div class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="visually-hidden">Selezione lingua: lingua selezionata</span>
                 <span>ITA</span>
@@ -30,7 +31,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>#}
             <a class="btn btn-primary btn-icon btn-full" href="#" title="Accedi all'area personale" aria-label="Accedi all'area personale">
               <span class="rounded-icon">
                 {% include '@bi-bcl/icon/icon.html.twig' with {
