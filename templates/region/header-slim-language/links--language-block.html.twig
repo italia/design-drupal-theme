@@ -33,7 +33,7 @@
  * @ingroup themeable
  */
 #}
-
+{{ devel_breakpoint() }}
 {% if links -%}
   {%- if heading -%}
     {%- if heading.level -%}
@@ -56,16 +56,16 @@
         <div class="col-12">
           <div class="link-list-wrapper">
             <ul{{ attributes.addClass('link-list') }}>
-              {%- for item in links -%}
+              {%- for key, item in links -%}
                 <li>
-{#                  {% set _current = item.attributes.hasClass('.is-active') ? true : false %}#}
+                  {% set _current = key == current_language ? true : false %}
                   {%- if item.link -%}
-                    <a{{ item.attributes.addClass('list-item').addClass('dropdown-item') }} href="{{ item.link['#url'] }}">
+                    <a{{ item.attributes.addClass('dropdown-item').addClass('list-item') }} href="{{ item.link['#url'] }}">
                       <span>
                         {{ item.link['#title'] }}
-{#                        {% if _current %}#}
-{#                          <span class="visually-hidden">{{ 'Selected'|trans }}</span>#}
-{#                        {% enif %}#}
+                        {% if _current %}
+                          <span class="visually-hidden">{{ 'Selected'|trans }}</span>
+                        {% endif %}
                       </span>
                     </a>
                   {%- elseif item.text_attributes -%}
