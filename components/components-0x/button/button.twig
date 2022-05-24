@@ -30,10 +30,10 @@
 
   {# Redirect to new component #}
   {% if attributes is not defined %}
-    {% set attributes = create_attribute() %}
+    {% set old_button_attributes = create_attribute() %}
   {% endif %}
   {% for data, attribute in data_attributes %}
-    {% set attributes = attributes.setAttribute('data-' ~ data, attribute) %}
+    {% set old_button_attributes = old_button_attributes.setAttribute('data-' ~ data, attribute) %}
   {% endfor %}
 
   {% if icon is defined and icon is not empty %}
@@ -46,7 +46,7 @@
       outline: outline ?? null,
       size: size ?? null,
       button_classes: classes ?? null,
-      button_attibutes: attributes,
+      button_attibutes: old_button_attributes,
     } %}
       {% block after %}
         {% include '@bi-bcl/icon/icon.html.twig' with {
@@ -66,7 +66,7 @@
       outline: outline ?? null,
       size: size ?? null,
       button_classes: classes ?? null,
-      button_attibutes: attributes,
+      button_attibutes: old_button_attributes,
     } %}
   {% endif %}
 {% endapply %}
