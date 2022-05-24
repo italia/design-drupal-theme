@@ -29,11 +29,12 @@
  * - utility_classes (array) (default: '')
  * - btn_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
+ * - label_classes (array) (default: '')
  *
  * - before (block) (default: empty)
- *   - block positioned after label
- * - after (block) (default: empty)
  *   - block positioned before label
+ * - after (block) (default: empty)
+ *   - block positioned after label
  *
  * Examples:
    {% include '@bi-bcl/button/button.html.twig' with {
@@ -89,6 +90,7 @@
   {% set _assistive_text = assistive_text|default('') %}
   {% set _utility_classes = utility_classes|default('') %}
   {% set _btn_attributes = btn_attributes|default('') %}
+  {% set _label_classes = label_classes|default('') %}
 
   {# Set options #}
   {% set _classes = [
@@ -152,6 +154,19 @@
     %}
   {% endif %}
 
+  {# Add aria-label text #}
+  {% if _tag == 'a' or _tag == 'button' or tag == 'span' %}
+    {% if _assistive_text is not empty %}
+      {% set btn_attributes = btn_attributes.setAttribute('aria-label', _assistive_text) %}
+    {% endif %}
+  {% endif %}
+
+  {# Setting label classes #}
+  {% set label_attributes = create_attribute() %}
+  {% if _label_classes is not empty %}
+    {% set label_attributes = label_attributes.addClass(_label_classes) %}
+  {% endif %}
+
   {# Component #}
   {% if _tag == 'a' or _tag == 'button' or tag == 'span' %}
     <{{- _tag -}}
@@ -161,7 +176,7 @@
     {% block before %}{% endblock %}
 
     {% if _label is not empty %}
-      {{- _label -}}
+      <span{{ label_attributes }}>{{- _label -}}</span>
     {% endif %}
 
     {%- if _assistive_text is not empty -%}

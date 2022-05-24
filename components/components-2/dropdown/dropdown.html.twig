@@ -1,0 +1,136 @@
+{#
+/**
+ * @file
+ * Template for dropdown component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/dropdown/
+ * Last review: 2.0.0-rc4
+ *
+ * Parameters:
+ * - label (string) (default: '')
+ * - tag (string) (default: 'button')
+ *   - options ["button", "a", "span"]
+ * - id (string) (default: 'dropdown-random')
+ *   - Mandatory id
+ * - outline (boolean) (default: false)
+ *   - Enable outline
+ * - variant (string) (default: 'dropdown')
+ *   - options ["primary", "secondary", "success", "danger", "warning", "white", "dark" ]
+ * - size (string) (default: '')
+ *   - options ["xs", "sm", "lg"]
+ * - disabled (boolean) (default: false)
+ *   - Enable disabled feature
+ * - assistive_text (string) (default: '')
+ * - direction (string) (default: 'down')
+ *   - options ["up", "end", "down", "start"]
+ * - icon_before (string) (default: '')
+ *   - options ["it-icon-name"]
+ * - utility_classes (array) (default: '')
+ * - dropdown_attributes (obj attribute) (default: '')
+ *   - Object with extra attributes
+ * - label_classes (array) (default: '')
+ *
+ * Examples:
+    {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+      variables: value,
+    } %}
+      {% block dropdown_content %}
+        {% include '@bi-bcl/link-list/menu-recursive.html.twig' with {
+          menu_name: menu_name,
+          items: items,
+          attributes: attributes,
+        } %}
+      {% endblock %}
+    {% endembed %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _label = label|default('') %}
+  {% set _tag = tag|default('button') %}
+  {% set _id = id|default(random()) %}
+  {% set _outline = outline ?? false %}
+  {% set _variant = variant|default('dropdown') %}
+  {% set _size = size|default('') %}
+  {% set _disabled = disabled ?? false %}
+  {% set _assistive_text = assistive_text|default('') %}
+  {% set _direction = direction|default('down') %}
+  {% set _icon_before = icon_before|default('') %}
+  {% set _utility_classes = utility_classes|default('') %}
+  {% set _dropdown_attributes = dropdown_attributes|default('') %}
+  {% set _label_classes = label_classes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      ''
+    ] %}
+
+  {% if _utility_classes is not empty %}
+    {% set _classes = _classes|merge(utility_classes) %}
+  {% endif %}
+
+  {% if _dropdown_attributes is empty %}
+    {% set dropdown_attributes = create_attribute() %}
+  {% endif %}
+  {% set dropdown_attributes = dropdown_attributes.addClass(_classes) %}
+  {% set dropdown_attributes = dropdown_attributes
+    .setAttribute('data-bs-toggle', 'dropdown')
+    .setAttribute('aria-haspopup', 'true')
+    .setAttribute('aria-expanded', 'false')
+  %}
+
+  {% set _icon_color = _variant == 'dropdown' ? 'primary' : 'light' %}
+
+  {% set _id = 'dropdown-'~_id %}
+
+  {# Component #}
+  {% if _direction != 'down' %}
+    <span class="dropdown drop{{ _direction }}">
+  {% endif %}
+
+    {% embed '@bi-bcl/button/button.html.twig' with {
+      label: _label,
+      tag: _tag,
+      url: '#',
+      id: _id,
+      type: 'button',
+      outline: _outline,
+      variant: _variant,
+      size: _size,
+      disabled: _disabled,
+      assistive_text: _assistive_text,
+      utility_classes: ['dropdown-toggle', 'btn-icon'],
+      btn_attributes: dropdown_attributes,
+      _label_classes: _label_classes
+    } %}
+
+      {% block before %}
+        {% if _icon_before is not empty %}
+          <span class="rounded-icon">
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: _icon_before,
+              size: _size,
+              color: _variant == 'light' or _variant == 'white' or _variant == 'dropdown' ? 'primary' : _variant,
+              utility_classes: ['mr-1'],
+            } %}
+          </span>&nbsp;
+        {% endif %}
+      {% endblock %}
+
+      {% block after %}
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-expand',
+          size: _size,
+          color: _icon_color,
+        } %}
+      {% endblock %}
+    {% endembed %}
+
+    <div class="dropdown-menu" aria-labelledby="{{ _id }}">
+      {% block dropdown_content %}{% endblock %}
+    </div>
+
+  {% if _direction != 'down' %}
+    </span>
+  {% endif %}
+{% endapply %}

@@ -10,37 +10,33 @@
             <a class="d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">{{ government_entity_name }}</a>
           {% endif %}
           <div class="it-header-slim-right-zone">
-            {{ page.header_slim_language }}
-            {#<div class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="visually-hidden">Selezione lingua: lingua selezionata</span>
-                <span>ITA</span>
-                {% include '@bi-bcl/icon/icon.html.twig' with {
-                  name: 'it-expand'
-                } %}
-              </a>
-              <div class="dropdown-menu">
-                <div class="row">
-                  <div class="col-12">
-                    <div class="link-list-wrapper">
-                      <ul class="link-list">
-                        <li><a class="dropdown-item list-item" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
-                        <li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>#}
-            <a class="btn btn-primary btn-icon btn-full" href="#" title="Accedi all'area personale" aria-label="Accedi all'area personale">
-              <span class="rounded-icon">
-                {% include '@bi-bcl/icon/icon.html.twig' with {
-                  name: 'it-user',
-                  color: 'primary'
-                } %}
-              </span>
-              <span class="d-none d-lg-block">Accedi all'area personale</span>
-            </a>
+            {% if page.header_slim_language %}
+              {{ page.header_slim_language }}
+            {% endif %}
+
+            {% if logged_in %}
+              {% if page.header_slim_action %}
+                {{ page.header_slim_action }}
+              {% endif %}
+            {% else %}
+              {% embed '@bi-bcl/button/button.html.twig' with {
+                label: 'Login to your personal area'|trans,
+                variant: 'primary',
+                tag: 'a',
+                url: '/user/login',
+                utility_classes: ['btn-icon','btn-full'],
+                label_classes: ['d-none', 'd-lg-block']
+              } %}
+                {% block before %}
+                  <span class="rounded-icon">
+                    {% include '@bi-bcl/icon/icon.html.twig' with {
+                      name: 'it-user',
+                      color: 'primary',
+                    } %}
+                  </span>&nbsp;
+                {% endblock %}
+              {% endembed %}
+            {% endif %}
           </div>
         </div>
       </div>

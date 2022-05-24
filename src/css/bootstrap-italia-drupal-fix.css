@@ -10,5 +10,5 @@
   height: auto;
 }
 #header-nav-wrapper.it-header-navbar-wrapper .navbar .navbar-collapsable {
-  z-index: 600;
+  /*z-index: 600;*/
 }

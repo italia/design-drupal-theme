@@ -10,16 +10,84 @@ engine: twig
 logo: logo.svg
 screenshot: screenshot.png
 
+# https://www.drupal.org/docs/theming-drupal/creating-sub-themes#s-inheriting-theme-regions
 regions:
   page_top: "Page top" # Don't remove
   disabled_blocks: "Blocks disabled" # Don't remove, edit or move in another position
+
+  # Header
+  header_slim_menu: "Slim header - Menu"
+  header_slim_language: "Slim header - Language"
+  header_slim_action: "Slim header - Login and user menu"
+  brand: "Central Header - Logo and site branding"
+  header_center_social: "Central Header - Social network"
+  header_center_search: "Central Header - Search area"
+  header_nav: "Header Nav - Main menu"
+
+  # Before content
+  before_content_full_width: "Before content - Full width region"
+  before_content_first: "Before content- First region"
+  before_content_second: "Before content - Second region"
+  before_content_third: "Before content - Third region"
+  before_content_fourth: "Before content - Fourth region"
+
+  # Content
   title: "Page title"
   breadcrumb: "Breadcrumb"
   local_tasks: "Administration tabs"
   help: "Help"
   notification: "Notification area"
   content: "Main Content"
+
+  # Sidebar
+  sidebar_first: "Sidebar first"
+  sidebar_second: "Sidebar second"
+
+  # After content
+  after_content_first: "After content - First region"
+  after_content_second: "After content - Second region"
+  after_content_third: "After content - Third region"
+  after_content_fourth: "After content - Fourth region"
+  after_content_full_width: "After content - Full width region"
+
+  # Footer
+  footer_menu: "Footer menu"
+  footer_first: "Footer - First region"
+  footer_second: "Footer - Second region"
+  footer_third: "Footer - Third region"
+  footer_fourth: "Footer - Fourth region"
+
+  footer_small_prints: "Footer - Small menu  prints: legal, privacy, etc."
+  footer_credits: "Footer - Credits"
+
   page_bottom: "Page bottom" # Don't remove
+
+  # Home page
+  home_first_row_full_width: "Home page - First row full width"
+  home_first_row_first: "Home page - First row - First region"
+  home_first_row_second: "Home page - First row - Second region"
+  home_first_row_third: "Home page - First row - Third region"
+  home_first_row_fourth: "Home page - First row - Fourth region"
+
+  home_second_row_full_width: "Home page - Second row full width"
+  home_second_row_first: "Home page - Second row - First region"
+  home_second_row_second: "Home page - Second row - Second region"
+  home_second_row_third: "Home page - Second row - Third region"
+  home_second_row_fourth: "Home page - Second row - Fourth region"
+
+  home_third_row_full_width: "Home page - Third row full width"
+  home_third_row_first: "Home page - Third row - First region"
+  home_third_row_second: "Home page - Third row - Second region"
+  home_third_row_third: "Home page - Third row - Third region"
+  home_third_row_fourth: "Home page - Third row - Fourth region"
+
+  home_fourth_row_full_width: "Home page - Fourth ror full width"
+  home_fourth_row_first: "Home page - Fourth ror- First region"
+  home_fourth_row_second: "Home page - Fourth ror - Second region"
+  home_fourth_row_third: "Home page - Fourth ror - Third region"
+  home_fourth_row_fourth: "Home page - Fourth ror - Fourth region"
+
+  home_last_row_full_width: "Home page - Last full width region"
 
 dependencies:
   - drupal:components
