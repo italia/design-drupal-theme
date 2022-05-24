@@ -26,8 +26,8 @@
  * - disabled (boolean) (default: false)
  *   - Enable disabled feature
  * - assistive_text (string) (default: '')
- * - utility_classes (array) (default: '')
- * - btn_attributes (obj attribute) (default: '')
+ * - button_classes (array) (default: '')
+ * - button_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
  * - label_classes (array) (default: '')
  *
@@ -46,7 +46,7 @@
    {% embed '@bi-bcl/button/button.html.twig' with {
       label: color,
       variant: color,
-      utility_classes: ['m-3', 'btn-icon'],
+      button_classes: ['m-3', 'btn-icon'],
    } %}
     {% block after %}
       {% include '@bi-bcl/icon/icon.html.twig' with {
@@ -60,7 +60,7 @@
   {% embed '@bi-bcl/button/button.html.twig' with {
       label: color,
       variant: color,
-      utility_classes: ['m-1', 'btn-icon'],
+      button_classes: ['m-1', 'btn-icon'],
   } %}
     {% block before %}
       <span class="rounded-icon">
@@ -88,8 +88,8 @@
   {% set _size = size|default('') %}
   {% set _disabled = disabled ?? false %}
   {% set _assistive_text = assistive_text|default('') %}
-  {% set _utility_classes = utility_classes|default('') %}
-  {% set _btn_attributes = btn_attributes|default('') %}
+  {% set _button_classes = button_classes|default('') %}
+  {% set _button_attributes = button_attributes|default('') %}
   {% set _label_classes = label_classes|default('') %}
 
   {# Set options #}
@@ -100,24 +100,24 @@
     _size is not empty ? 'btn-' ~ _size,
   ] %}
 
-  {% if _utility_classes is not empty %}
-    {% set _classes = _classes|merge(utility_classes) %}
+  {% if _button_classes is not empty %}
+    {% set _classes = _classes|merge(button_classes) %}
   {% endif %}
 
-  {% if _btn_attributes is empty %}
-    {% set btn_attributes = create_attribute() %}
+  {% if _button_attributes is empty %}
+    {% set button_attributes = create_attribute() %}
   {% endif %}
-  {% set btn_attributes = btn_attributes.addClass(_classes) %}
+  {% set button_attributes = button_attributes.addClass(_classes) %}
 
   {% if _id is not empty %}
-    {% set btn_attributes = btn_attributes.setAttribute('id', _id) %}
+    {% set button_attributes = button_attributes.setAttribute('id', _id) %}
   {% endif %}
 
   {# Settings tag a #}
   {% if _tag == 'a' or _tag == 'span' %}
-    {% set btn_attributes = btn_attributes.setAttribute('role', 'button') %}
+    {% set button_attributes = button_attributes.setAttribute('role', 'button') %}
     {% if _disabled %}
-      {% set btn_attributes = btn_attributes
+      {% set button_attributes = button_attributes
         .addClass(['disabled'])
         .setAttibute('tabindex', '-1')
       %}
@@ -129,26 +129,26 @@
   {% endif %}
 
   {% if _tag == 'a' %}
-    {% set btn_attributes = btn_attributes.setAttribute('title', _assistive_text) %}
+    {% set button_attributes = button_attributes.setAttribute('title', _assistive_text) %}
   {% endif %}
 
   {# href attribute only in 'a' tag #}
   {% if _tag == 'a' and _url is not empty %}
-    {% set btn_attributes = btn_attributes.setAttribute('href', _url) %}
+    {% set button_attributes = button_attributes.setAttribute('href', _url) %}
   {% endif %}
 
   {% if _tag == 'a' and _url_target is not empty %}
-    {% set btn_attributes = btn_attributes.setAttribute('target', _url_target) %}
+    {% set button_attributes = button_attributes.setAttribute('target', _url_target) %}
   {% endif %}
 
   {# Settings type attribute for button or input #}
   {% if _tag == 'button' or _tag == 'input' %}
-    {% set btn_attributes = btn_attributes.setAttribute('type', _type) %}
+    {% set button_attributes = button_attributes.setAttribute('type', _type) %}
   {% endif %}
 
   {# Settings for button disabled #}
   {% if _tag == 'button' and _disabled %}
-    {% set btn_attributes = btn_attributes
+    {% set button_attributes = button_attributes
       .setAttribute('aria-disabled', true)
       .setAttribute('disabled', true)
     %}
@@ -157,7 +157,7 @@
   {# Add aria-label text #}
   {% if _tag == 'a' or _tag == 'button' or tag == 'span' %}
     {% if _assistive_text is not empty %}
-      {% set btn_attributes = btn_attributes.setAttribute('aria-label', _assistive_text) %}
+      {% set button_attributes = button_attributes.setAttribute('aria-label', _assistive_text) %}
     {% endif %}
   {% endif %}
 
@@ -170,7 +170,7 @@
   {# Component #}
   {% if _tag == 'a' or _tag == 'button' or tag == 'span' %}
     <{{- _tag -}}
-      {{ btn_attributes }}
+      {{ button_attributes }}
     >
 
     {% block before %}{% endblock %}
@@ -189,8 +189,8 @@
   {% endif %}{# End tag a, button or span. #}
 
   {% if _tag == 'input' %}
-    {% set btn_attributes = btn_attributes.setAttribute('value', _label) %}
-    <input {{- btn_attributes -}} />
+    {% set button_attributes = button_attributes.setAttribute('value', _label) %}
+    <input {{- button_attributes -}} />
     {%- if _assistive_text is not empty -%}
       <span class="visually-hidden">{{- _assistive_text -}}</span>
     {%- endif -%}

@@ -14,30 +14,30 @@
   <div class="border shadow mb-5">
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Button'|trans,
-      utility_classes: ['m-1']
+      button_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Link'|trans,
       tag: 'a',
       url: '#',
-      utility_classes: ['m-1']
+      button_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Input'|trans,
       tag: 'input',
-      utility_classes: ['m-1']
+      button_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Submit'|trans,
       tag: 'input',
       type: 'submit',
-      utility_classes: ['m-1']
+      button_classes: ['m-1']
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Reset'|trans,
       tag: 'input',
       type: 'reset',
-      utility_classes: ['m-1']
+      button_classes: ['m-1']
     } %}
   </div>
 
@@ -52,7 +52,7 @@
       {% include '@bi-bcl/button/button.html.twig' with {
         label: variant,
         variant: variant,
-        utility_classes: ['m-1'],
+        button_classes: ['m-1'],
         btn_attributes: attributes
       } %}
     {% endfor %}
@@ -65,7 +65,7 @@
         label: variant,
         variant: variant,
         outline: true,
-        utility_classes: [
+        button_classes: [
           'm-1',
           variant == 'white' or variant == 'light' ? 'text-secondary'
         ]
@@ -80,7 +80,7 @@
         label: variant,
         variant: variant,
         disabled: true,
-        utility_classes: [
+        button_classes: [
           'm-1',
           variant == 'primary' ? 'text-dark'
         ]
@@ -96,7 +96,7 @@
         variant: variant,
         outline: true,
         disabled: true,
-        utility_classes: [
+        button_classes: [
           'm-1',
           variant == 'white' or variant == 'light' ? 'text-secondary'
         ]
@@ -110,7 +110,7 @@
       {% include '@bi-bcl/button/button.html.twig' with {
         label: variant,
         variant: variant,
-        utility_classes: ['m-1']
+        button_classes: ['m-1']
       } %}
     {% endfor %}
   </div>
@@ -122,7 +122,7 @@
         label: variant,
         variant: variant,
         outline: true,
-        utility_classes: [
+        button_classes: [
           'm-1',
           variant == 'dark' or variant == 'black' or variant == 'link' ? 'text-white'
         ]
@@ -137,7 +137,7 @@
         label: variant,
         variant: variant,
         disabled: true,
-        utility_classes: ['m-1']
+        button_classes: ['m-1']
       } %}
     {% endfor %}
   </div>
@@ -150,7 +150,7 @@
         variant: variant,
         disabled: true,
         outline: true,
-        utility_classes: [
+        button_classes: [
           'm-1',
           variant == 'dark' or variant == 'black' or variant == 'link' ? 'text-white'
         ]
@@ -164,7 +164,7 @@
       {% embed '@bi-bcl/button/button.html.twig' with {
         label: variant,
         variant: variant,
-        utility_classes: ['m-1', 'btn-icon'],
+        button_classes: ['m-1', 'btn-icon'],
       } %}
         {% block after %}
           {% include '@bi-bcl/icon/icon.html.twig' with {
@@ -184,7 +184,7 @@
       {% embed '@bi-bcl/button/button.html.twig' with {
         label: variant,
         variant: variant,
-        utility_classes: ['m-1', 'btn-icon'],
+        button_classes: ['m-1', 'btn-icon'],
       } %}
         {% block before %}
           <span class="rounded-icon">
@@ -206,37 +206,37 @@
       label: 'Primary Large'|trans,
       variant: 'primary',
       size: 'lg',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Secondary Large'|trans,
       variant: 'secondary',
       size: 'lg',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Primary Small'|trans,
       variant: 'primary',
       size: 'sm',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Secondary Small'|trans,
       variant: 'secondary',
       size: 'sm',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Primary mini'|trans,
       variant: 'primary',
       size: 'xs',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Secondary mini'|trans,
       variant: 'secondary',
       size: 'xs',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
   </div>
 
@@ -246,13 +246,13 @@
       label: 'Primary Large'|trans,
       variant: 'primary',
       size: 'lg',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Secondary Large'|trans,
       variant: 'secondary',
       size: 'lg',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
   </div>
 
@@ -262,13 +262,13 @@
       label: 'Primary Large'|trans,
       variant: 'primary',
       size: 'lg',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
     {% include '@bi-bcl/button/button.html.twig' with {
       label: 'Secondary Large'|trans,
       variant: 'secondary',
       size: 'lg',
-      utility_classes: ['m-1'],
+      button_classes: ['m-1'],
     } %}
   </div>
 

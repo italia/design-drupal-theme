@@ -28,7 +28,7 @@
     {% embed '@bi-bcl/button/button.html.twig' with {
       label: 'Notification'|trans,
       variant: 'primary',
-      utility_classes: ['m-2'],
+      button_classes: ['m-2'],
     } %}
       {% block after %}
         &nbsp;
@@ -44,7 +44,7 @@
     {% embed '@bi-bcl/button/button.html.twig' with {
       label: 'Inbox'|trans,
       variant: 'primary',
-      utility_classes: ['m-3', 'position-relative'],
+      button_classes: ['m-3', 'position-relative'],
     } %}
       {% block after %}
         {% include '@bi-bcl/badge/badge.html.twig' with {
@@ -60,7 +60,7 @@
     {% embed '@bi-bcl/button/button.html.twig' with {
       label: 'Profile'|trans,
       variant: 'primary',
-      utility_classes: ['m-3', 'position-relative'],
+      button_classes: ['m-3', 'position-relative'],
     } %}
       {% block after %}
         {% include '@bi-bcl/badge/badge.html.twig' with {
