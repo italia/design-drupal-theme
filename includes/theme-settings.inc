@@ -81,6 +81,46 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
 
+  // Slim header Action.
+  $form['header_slim']['header_slim_action'] = [
+    '#type' => 'details',
+    '#title' => t('Login button and user menu'),
+    '#open' => TRUE,
+    '#group' => 'header_slim',
+  ];
+  $form['header_slim']['header_slim_action']['slim_header_action_type'] = [
+    '#type' => 'select',
+    '#title' => t('Login button type'),
+    '#description' => t('Choose login button variant.'),
+    '#default_value' => theme_get_setting('slim_header_action_type'),
+    '#options' => [
+      'default' => 'Default',
+      'full' => 'Full responsive',
+    ],
+  ];
+  $form['header_slim']['header_slim_action']['slim_header_action_url'] = [
+    '#type' => 'textfield',
+    '#title' => t('Login page URL'),
+    '#description' => t("Fill if you use a custom login page."),
+    '#placeholder' => t('/user/login'),
+    '#default_value' => theme_get_setting('slim_header_action_url'),
+  ];
+  $form['header_slim']['header_slim_action']['slim_header_action_icon'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show icon'),
+    '#default_value' => theme_get_setting('slim_header_action_icon'),
+  ];
+  $form['header_slim']['header_slim_action']['slim_header_action_username'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show username'),
+    '#default_value' => theme_get_setting('slim_header_action_username'),
+  ];
+  $form['header_slim']['header_slim_action']['slim_header_action_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable dark mode to user logged menu'),
+    '#default_value' => theme_get_setting('slim_header_action_dark'),
+  ];
+
   /* Libraries Settings ------------------------------------------------ */
   $form['libraries_settings'] = [
     '#type' => 'details',

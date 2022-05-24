@@ -29,4 +29,7 @@ function bootstrap_italia_preprocess_page(&$variables) {
   $variables['slim_header_container_type'] = theme_get_setting('slim_header_container_type');
   $variables['government_entity_name'] = theme_get_setting('government_entity_name');
   $variables['government_entity_url'] = theme_get_setting('government_entity_url');
+  $variables['slim_header_action_type'] = theme_get_setting('slim_header_action_type');
+  $variables['slim_header_action_url'] = theme_get_setting('slim_header_action_url');
+  $variables['slim_header_action_icon'] = theme_get_setting('slim_header_action_icon');
 }

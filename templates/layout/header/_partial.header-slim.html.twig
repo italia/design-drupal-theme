@@ -14,29 +14,44 @@
               {{ page.header_slim_language }}
             {% endif %}
 
-            {% if logged_in %}
-              {% if page.header_slim_action %}
-                {{ page.header_slim_action }}
-              {% endif %}
-            {% else %}
-              {% embed '@bi-bcl/button/button.html.twig' with {
-                label: 'Login to your personal area'|trans,
-                variant: 'primary',
-                tag: 'a',
-                url: '/user/login',
-                button_classes: ['btn-icon','btn-full'],
-                label_classes: ['d-none', 'd-lg-block'],
-              } %}
-                {% block before %}
-                  <span class="rounded-icon">
-                    {% include '@bi-bcl/icon/icon.html.twig' with {
-                      name: 'it-user',
-                      color: 'primary',
-                    } %}
-                  </span>&nbsp;
-                {% endblock %}
-              {% endembed %}
+            {% if slim_header_action_type != 'full' %}
+              <div class="it-access-top-wrapper">
             {% endif %}
+
+              {% if logged_in %}
+                {% if page.header_slim_action %}
+                  {{ page.header_slim_action }}
+                {% endif %}
+              {% else %}
+                {% embed '@bi-bcl/button/button.html.twig' with {
+                  label: 'Login to your personal area'|trans,
+                  variant: 'primary',
+                  tag: 'a',
+                  size: 'sm',
+                  url: slim_header_action_url ?: '/user/login',
+                  button_classes: [
+                    'btn-icon',
+                    slim_header_action_type == 'full' ? 'btn-full'
+                  ],
+                  label_classes: ['d-none', 'd-lg-block'],
+                } %}
+                  {% block before %}
+                    {% if slim_header_action_type == 'full' and slim_header_action_icon %}
+                      <span class="rounded-icon">
+                        {% include '@bi-bcl/icon/icon.html.twig' with {
+                          name: 'it-user',
+                          color: 'primary',
+                        } %}
+                      </span>&nbsp;
+                    {% endif %}
+                  {% endblock %}
+                {% endembed %}
+              {% endif %}{# End login button for anonymous user. #}
+
+            {% if slim_header_action_type != 'full' %}
+              </div>{# End it-access-top-wrapper. #}
+            {% endif %}
+
           </div>
         </div>
       </div>

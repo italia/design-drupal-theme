@@ -16,18 +16,25 @@
  *   - is_collapsed: TRUE if the link has children within the current menu tree
  *     that are not currently visible.
  *   - in_active_trail: TRUE if the link is in the active trail.
+ * - slim_header_action_dark: Enable dark mode to user logged menu
+ * - slim_header_action_icon: Show icon at right of button
+ * - slim_header_action_type: Show button type (default, full)
  *
  * @ingroup themeable
  */
 #}
 {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-  label: 'User'|trans,
+  label: slim_header_action_username ?: 'User'|trans,
   tag: 'button',
   id: menu_name,
   variant: 'primary',
+  dropdown_dark: slim_header_action_dark,
   assistive_text: 'User actions'|trans,
-  icon_before: 'it-user',
-  button_classes: ['btn-full']
+  icon_before: slim_header_action_icon ? 'it-user',
+  button_classes: [
+    slim_header_action_type == 'full' ? 'btn-full'
+  ],
+  label_classes: ['d-none', 'd-lg-block'],
 } %}
   {% block dropdown_content %}
     <div class="row">
