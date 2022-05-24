@@ -15,6 +15,8 @@
  *   - Enable outline
  * - variant (string) (default: 'dropdown')
  *   - options ["primary", "secondary", "success", "danger", "warning", "white", "dark" ]
+ * - dropdown_dark (boolean) (default: false)
+ *   - Enable dark mode
  * - size (string) (default: '')
  *   - options ["xs", "sm", "lg"]
  * - disabled (boolean) (default: false)
@@ -24,6 +26,9 @@
  *   - options ["up", "end", "down", "start"]
  * - icon_before (string) (default: '')
  *   - options ["it-icon-name"]
+ * - button_classes (array) (default: '')
+ * - button_attributes (obj attribute) (default: '')
+ *   - Object with extra attributes
  * - dropdown_classes (array) (default: '')
  * - dropdown_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
@@ -51,37 +56,55 @@
   {% set _id = id|default(random()) %}
   {% set _outline = outline ?? false %}
   {% set _variant = variant|default('dropdown') %}
+  {% set _dropdown_dark = dropdown_dark ?? false %}
   {% set _size = size|default('') %}
   {% set _disabled = disabled ?? false %}
   {% set _assistive_text = assistive_text|default('') %}
   {% set _direction = direction|default('down') %}
   {% set _icon_before = icon_before|default('') %}
+  {% set _button_classes = button_classes|default('') %}
+  {% set _button_attributes = button_attributes|default('') %}
   {% set _dropdown_classes = dropdown_classes|default('') %}
   {% set _dropdown_attributes = dropdown_attributes|default('') %}
   {% set _label_classes = label_classes|default('') %}
 
   {# Set options #}
-    {% set _classes = [
-      ''
-    ] %}
+  {% set _classes = [
+    'dropdown-toggle',
+    'btn-icon'
+  ] %}
 
-  {% if _dropdown_classes is not empty %}
-    {% set _classes = _classes|merge(dropdown_classes) %}
+  {% if _button_classes is not empty %}
+    {% set _classes = _classes|merge(button_classes) %}
   {% endif %}
 
-  {% if _dropdown_attributes is empty %}
-    {% set dropdown_attributes = create_attribute() %}
+  {% if _button_attributes is empty %}
+    {% set button_attributes = create_attribute() %}
   {% endif %}
-  {% set dropdown_attributes = dropdown_attributes.addClass(_classes) %}
-  {% set dropdown_attributes = dropdown_attributes
+  {% set button_attributes = button_attributes
     .setAttribute('data-bs-toggle', 'dropdown')
     .setAttribute('aria-haspopup', 'true')
     .setAttribute('aria-expanded', 'false')
   %}
 
+  {# Dropdown tooltip settings #}
   {% set _icon_color = _variant == 'dropdown' ? 'primary' : 'light' %}
-
   {% set _id = 'dropdown-'~_id %}
+
+  {% if _dropdown_attributes is empty %}
+    {% set dropdown_attributes = create_attribute() %}
+  {% endif %}
+  {% if _dropdown_classes is empty %}
+    {% set dropdown_attributes = dropdown_attributes.addClass('dropdown-menu') %}
+  {% else %}
+    {% set dropdown_attributes = dropdown_attributes.addClass(_dropdown_classes) %}
+  {% endif %}
+
+  {% if _dropdown_dark %}
+    {% set dropdown_attributes = dropdown_attributes.addClass('dark') %}
+  {% endif %}
+
+  {% set dropdown_attributes = dropdown_attributes.setAttribute('aria-labelledby', _id) %}
 
   {# Component #}
   {% if _direction != 'down' %}
@@ -99,9 +122,9 @@
       size: _size,
       disabled: _disabled,
       assistive_text: _assistive_text,
-      button_classes: ['dropdown-toggle', 'btn-icon'],
-      button_attributes: dropdown_attributes,
-      _label_classes: _label_classes
+      button_classes: _classes,
+      button_attributes: button_attributes,
+      label_classes: _label_classes
     } %}
 
       {% block before %}
@@ -126,7 +149,7 @@
       {% endblock %}
     {% endembed %}
 
-    <div class="dropdown-menu" aria-labelledby="{{ _id }}">
+    <div{{ dropdown_attributes }}>
       {% block dropdown_content %}{% endblock %}
     </div>
 
