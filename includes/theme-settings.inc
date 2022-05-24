@@ -25,7 +25,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   // Main vertical tabs.
   $form['bootstrap'] = [
     '#type' => 'vertical_tabs',
-    '#title' => t('Bootstrap Italia settings'),
     '#weight' => -10,
   ];
 
@@ -121,11 +120,31 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('slim_header_action_dark'),
   ];
 
-  /* Libraries Settings ------------------------------------------------ */
+  // Header center ------------------------------------------------------------.
+  $form['header_center'] = [
+    '#type' => 'details',
+    '#title' => t('Center header'),
+    '#description' => t("Center header settings"),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+
+  // Header navigation --------------------------------------------------------.
+  $form['header_navigation'] = [
+    '#type' => 'details',
+    '#title' => t('Main navigation'),
+    '#description' => t("Main navigation settings"),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+
+  // Libraries Settings -------------------------------------------------------.
   $form['libraries_settings'] = [
     '#type' => 'details',
-    '#title' => t('Theme libraries'),
-    '#description' => t("Library to use. You need to clear the cache if you change these settings."),
+    '#title' => t('Libraries'),
+    '#description' => t("Customize library source. You need to clear the cache if you change these settings."),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 20,
