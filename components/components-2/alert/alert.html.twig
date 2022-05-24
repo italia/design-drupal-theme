@@ -16,7 +16,7 @@
  *   - Enable dismissible feature
  * - animated_dismiss (boolean) (default: true)
  *   - Enable animation
- * - utility_classes (array) (default: [])
+ * - alert_classes (array) (default: [])
  * - alert_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
  *
@@ -35,7 +35,7 @@
   {% set _type = type|default('info') %}
   {% set _dismissible = dismissible ?? true %}
   {% set _animated_dismiss = animated_dismiss ?? true %}
-  {% set _utility_classes = utility_classes|default('') %}
+  {% set _alert_classes = alert_classes|default('') %}
   {% set _alert_attributes = alert_attributes|default('') %}
 
   {# Set options #}
@@ -47,8 +47,8 @@
     _animated_dismiss ? 'show',
   ] %}
 
-  {% if _utility_classes is not empty %}
-    {% set _classes = _classes|merge(utility_classes) %}
+  {% if _alert_classes is not empty %}
+    {% set _classes = _classes|merge(alert_classes) %}
   {% endif %}
 
   {% if _alert_attributes is empty %}

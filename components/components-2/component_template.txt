@@ -26,7 +26,7 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _option = option|default('') %}
-  {% set _utility_classes = utility_classes|default('') %}
+  {% set _COMPONENT-NAME_classes = utility_classes|default('') %}
   {% set _COMPONENT-NAME_attributes = COMPONENT-NAME_attributes|default('') %}
 
   {# Set options #}
@@ -35,7 +35,7 @@
     ] %}
 
   {% if _utility_classes is not empty %}
-    {% set _classes = _classes|merge(utility_classes) %}
+    {% set _classes = _classes|merge(COMPOONENT-NAME_classes) %}
   {% endif %}
 
   {% if _COMPONENT-NAME_attributes is empty %}
