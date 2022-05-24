@@ -19,7 +19,7 @@
  *   - Rounded effect
  * - outline (boolean) (default: false)
  *   - Enable outiline background color
- * - utility_classes (array) (default: '')
+ * - badge_classes (array) (default: '')
  *   - options ["position-absolute top-0 start-100 translate-middle", "neutral-2-bg"]
  * - badge_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
@@ -46,7 +46,7 @@
   {% set _assistive_text = assistive_text|default('') %}
   {% set _rounded_pill = rounded_pill ?? false %}
   {% set _outline = outline ?? false %}
-  {% set _utility_classes = utility_classes|default('') %}
+  {% set _badge_classes = badge_classes|default('') %}
   {% set _badge_attributes = badge_attributes|default('') %}
 
   {# Set options #}
@@ -59,8 +59,8 @@
     _background in ['light', 'white'] and _text_color is empty ? 'text-dark'
   ] %}
 
-  {% if _utility_classes is not empty %}
-    {% set _classes = _classes|merge(utility_classes) %}
+  {% if _badge_classes is not empty %}
+    {% set _classes = _classes|merge(badge_classes) %}
   {% endif %}
 
   {% if _badge_attributes is empty %}
