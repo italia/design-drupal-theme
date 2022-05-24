@@ -2,105 +2,53 @@
 /**
  * @file
  * Template for link-list recursive component.
- * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link/#liste-innestate
- * Last review: 1.4.1
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link/#liste-annidate
+ * Last review: 2.0.0-rc4
  *
  * Available config:
- * - menu_name: The machine name of the menu.
- * - items: A nested list of menu items. Each menu item contains:
- *   - attributes: HTML attributes for the menu item.
- *   - below: The menu item child items.
- *   - title: The menu link title.
- *   - url: The menu link url, instance of \Drupal\Core\Url
- *   - localized_options: Menu link localized options.
- *   - is_expanded: TRUE if the link has visible children within the current
+ * + menu_name: The machine name of the menu.
+ * + items: A nested list of menu items. Each menu item contains:
+ *   + attributes: HTML attributes for the menu item.
+ *   + below: The menu item child items.
+ *   + title: The menu link title.
+ *   + url: The menu link url, instance of \Drupal\Core\Url
+ *   + localized_options: Menu link localized options.
+ *   + is_expanded: TRUE if the link has visible children within the current
  *     menu tree.
- *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *   + is_collapsed: TRUE if the link has children within the current menu tree
  *     that are not currently visible.
- *   - in_active_trail: TRUE if the link is in the active trail.
- * - attributes: drupal attributes
- * - view_link_description: bool
- * - large: bool - increment text size on all items
- * - bold: bool - increment text weight on all active items
- * - icon_position: left | right
- * - icon_type: string - es: 'it-icon-name'
- * - icon_color: primary | secondary | success | warning | danger | light | white
- * - active_items_large: bool - increment text size on only active items (not enable both with large)
- * - active_items_bold: bool - increment text weight on only active items (not enable both with bold)
+ *   + in_active_trail: TRUE if the link is in the active trail.
+ * + attributes: drupal attributes
+ * + view_link_description: bool
+ * + large: bool - increment text size on all items
+ * + bold: bool - increment text weight on all active items
+ * + icon_position: left | right
+ * + icon_type: string - es: 'it-icon-name'
+ * + icon_color: primary | secondary | success | warning | danger | light | white
+ * + active_items_large: bool - increment text size on only active items (not enable both with large)
+ * + active_items_bold: bool - increment text weight on only active items (not enable both with bold)
  *
  * items and attributes are mandatory
  */
 #}
-{% import _self as menus %}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/link-list/menu-recursive.twig',
+    new: 'bi-bcl/link-list/menu-recursive.html.twig',
+  } %}
 
-{#
-We call a macro which calls itself to render the full tree.
-@see https://twig.symfony.com/doc/1.x/tags/macro.html
-#}
-
-{% set icon_position = icon_position ? icon_position : 'right' %}
-{% set icon_type = icon_type ? icon_type : 'it-expand' %}
-{% set icon_color = icon_color ? icon_color : 'primary' %}
-
-<div class="link-list-wrapper">
-  <ul class="link-list">
-    {{ menus.menu_links(items, attributes, 0, view_link_description, large, bold, icon_position, icon_type, icon_color, active_items_large, active_items_bold) }}
-  </ul>
-</div>
-
-{% macro menu_links(items, attributes, menu_level, view_link_description, large, bold, icon_position, icon_type, icon_color, active_items_large, active_items_bold) %}
-  {% import _self as menus %}
-
-  {% if items %}
-    {% for uuid, item in items %}
-      <li{{ item.attributes }}>
-
-        {% if item.title == '<divider>' %}
-          <span class="divider"></span>
-
-        {% elseif item.url|render == "<title>" %}
-          <h3>{{ item.title }}</h3>
-
-        {% else %}
-          {% set item_classes = [
-            'list-item',
-            item.in_active_trail ? 'active',
-            item.in_active_trail and active_items_large ? 'large',
-            item.in_active_trail and active_items_bold ? 'medium',
-            large ? 'large',
-            bold ? 'medium',
-            item.is_expanded and icon_position == 'right' ? 'right-icon',
-            item.is_expanded and icon_position == 'left' ? 'icon-left'
-          ] %}
-          <a
-            class="{{ item_classes|join(' ')|trim }}"
-            {{ item.is_expanded ? 'data-toggle="collapse" aria-expandend="true"' : '' }}
-            href="{{ item.below ? '#'~uuid|clean_id : item.url }}"
-            {% if item.original_link.getDescription() %}
-              title="{{ item.original_link.getDescription() }}"
-            {% endif %}
-          >
-            <span>{{ item.title }}</span>
-            {% if item.is_expanded %}
-              {% include '@bootstrap_italia_components/icon/icon.twig' with {
-                name: icon_type,
-                classes: ['icon-'~icon_color, 'icon-'~icon_position]
-              } %}
-            {% endif %}
-          {% if item.original_link.getDescription() and view_link_description %}
-            <p>{{ item.original_link.getDescription() }}</p>
-          {% endif %}
-          </a>
-        {% endif %}
-
-        {# Recursive link-list #}
-        {% if item.below %}
-          <ul id="{{ uuid|clean_id }}" class="link-sublist collapse {{ item.in_active_trail ? 'show' }}">
-            {{ menus.menu_links(item.below, attributes, menu_level + 1, view_link_description, large, bold, icon_position, icon_type, icon_color, active_items_large, active_items_bold) }}
-          </ul>
-        {% endif %}
-
-      </li>
-    {% endfor %}
-  {% endif %}
-{% endmacro %}
+  {# Redirect to new component #}
+  {% include '@bi-bcl/link-list/menu-recursive.html.twig' with {
+    menu_name: menu_name,
+    items: items,
+    attributes: attributes,
+    show_link_description: view_link_description,
+    large: large,
+    bold: bold,
+    active_items_large: active_items_large,
+    active_items_bold: active_items_bold,
+    icon_position: icon_position,
+    icon_type: icon_type,
+    icon_color: icon_color,
+  } %}
+{% endapply %}
