@@ -22,16 +22,16 @@
  *   - options ["bottom", "middle", "top"]
  * - library (string) (default: 'sprites.svg')
  *   - "Your custom library"
- * - utility_classes (array) (default: '')
+ * - icon_classes (array) (default: '')
  * - icon_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
  *
  * Note: only first parameter is mandatory.
  * You can set this component in two main ways:
  *   - Set all parameters
- *     [ name: 'it-x', utility_classes: ['customClass'], size: 'xs', color: 'primary', dark: false, light: false, padded: true, alignment: 'middle' ]
- *   - Set parameters in utility_classes array, however you must use class names correctly
- *     [ name: 'it-x', utility_classes: ['customClass', 'icon-xs', 'icon-primary', 'bg-light', 'icon-padded', 'align-middle'] ]
+ *     [ name: 'it-x', icon_classes: ['customClass'], size: 'xs', color: 'primary', dark: false, light: false, padded: true, alignment: 'middle' ]
+ *   - Set parameters in icon_classes array, however you must use class names correctly
+ *     [ name: 'it-x', icon_classes: ['customClass', 'icon-xs', 'icon-primary', 'bg-light', 'icon-padded', 'align-middle'] ]
  *
  * Examples:
  *
@@ -43,7 +43,7 @@
  *
    {% include '@bi-bcl/icon/icon.html.twig' with {
      name: 'it-tool',
-     utility_classes: ['icon-lg', 'icon-primary'],
+     icon_classes: ['icon-lg', 'icon-primary'],
    } %}
  */
 #}
@@ -57,7 +57,7 @@
   {% set _padded = padded ?? false %}
   {% set _alignment = alignment|default('') %}
   {% set _library = library|default('sprites.svg') %}
-  {% set _utility_classes = utility_classes|default('') %}
+  {% set _icon_classes = icon_classes|default('') %}
   {% set _icon_attributes = icon_attributes|default('') %}
 
   {# Set options #}
@@ -72,8 +72,8 @@
     ]
   %}
 
-  {% if _utility_classes is not empty %}
-    {% set _classes = _classes|merge(utility_classes) %}
+  {% if _icon_classes is not empty %}
+    {% set _classes = _classes|merge(icon_classes) %}
   {% endif %}
 
   {% if _icon_attributes is empty %}
