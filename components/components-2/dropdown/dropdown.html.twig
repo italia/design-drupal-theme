@@ -24,7 +24,7 @@
  *   - options ["up", "end", "down", "start"]
  * - icon_before (string) (default: '')
  *   - options ["it-icon-name"]
- * - utility_classes (array) (default: '')
+ * - dropdown_classes (array) (default: '')
  * - dropdown_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
  * - label_classes (array) (default: '')
@@ -56,7 +56,7 @@
   {% set _assistive_text = assistive_text|default('') %}
   {% set _direction = direction|default('down') %}
   {% set _icon_before = icon_before|default('') %}
-  {% set _utility_classes = utility_classes|default('') %}
+  {% set _dropdown_classes = dropdown_classes|default('') %}
   {% set _dropdown_attributes = dropdown_attributes|default('') %}
   {% set _label_classes = label_classes|default('') %}
 
@@ -65,8 +65,8 @@
       ''
     ] %}
 
-  {% if _utility_classes is not empty %}
-    {% set _classes = _classes|merge(utility_classes) %}
+  {% if _dropdown_classes is not empty %}
+    {% set _classes = _classes|merge(dropdown_classes) %}
   {% endif %}
 
   {% if _dropdown_attributes is empty %}

@@ -20,7 +20,7 @@
           {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
             label: 'Dropdown '~variant|trans,
             variant: variant,
-            utility_classes: ['m-1'],
+            dropdown_classes: ['m-1'],
           } %}
             {% block dropdown_content %}
               <div class="link-list-wrapper">
@@ -43,7 +43,7 @@
         {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
           label: 'Dropdown '~direction|trans,
           direction: direction,
-          utility_classes: ['m-1'],
+          dropdown_classes: ['m-1'],
         } %}
           {% block dropdown_content %}
             <div class="link-list-wrapper">
