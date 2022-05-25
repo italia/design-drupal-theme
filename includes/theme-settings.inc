@@ -55,7 +55,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['header_slim']['government_entity']['government_entity_url'] = [
     '#type' => 'url',
     '#title' => t('Government entity web site'),
-    '#placeholder' => t('https://www.governo.it/'),
+    '#placeholder' => t('https://example.gov.it'),
     '#description' => t("Government entity URL. Example: https://example.gov.it."),
     '#default_value' => theme_get_setting('government_entity_url'),
   ];
