@@ -47,6 +47,7 @@ function bootstrap_italia_preprocess_page(&$variables) {
   // If the navbar uses the "light" variant, the "center header" light is set.
   // Otherwise, 'it-burger' will have the same background color
   // and will not be visible.
+  // https://github.com/italia/bootstrap-italia-next/issues/35
 /*  if ($variables['navigation_header_light_desktop']) {
     $variables['center_header_light'] = TRUE;
   }*/
