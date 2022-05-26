@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Preprocess link.
+ * Hook THEME_preprocess_links_*.
  */
 
 /**

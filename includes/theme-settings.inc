@@ -29,7 +29,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
 
   // Header slim --------------------------------------------------------------.
-  $form['header_slim'] = [
+  $form['slim_header'] = [
     '#type' => 'details',
     '#title' => t('Slim Header'),
     '#description' => t("Slim header settings"),
@@ -37,91 +37,89 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
+  // Slim header appearance.
+  $form['slim_header']['slim_header_appearance'] = [
+    '#type' => 'details',
+    '#title' => t('Appearance'),
+    '#open' => TRUE,
+    '#group' => 'slim_header',
+  ];
+  $form['slim_header']['slim_header_appearance']['slim_header_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container"),
+    '#description' => t('Choose container type.'),
+    '#default_value' => theme_get_setting('slim_header_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['slim_header']['slim_header_appearance']['slim_header_light'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable light variant'),
+    '#default_value' => theme_get_setting('slim_header_light'),
+  ];
   // Government entity.
-  $form['header_slim']['government_entity'] = [
+  $form['slim_header']['government_entity'] = [
     '#type' => 'details',
     '#title' => t('Government entity'),
     '#description' => t("Settings related to the superior government entity."),
     '#open' => TRUE,
-    '#group' => 'header_slim',
+    '#group' => 'slim_header',
   ];
-  $form['header_slim']['government_entity']['government_entity_name'] = [
+  $form['slim_header']['government_entity']['government_entity_name'] = [
     '#type' => 'textfield',
     '#title' => t('Name'),
     '#description' => t("Government entity name."),
     '#placeholder' => t('Italian government'),
     '#default_value' => theme_get_setting('government_entity_name'),
   ];
-  $form['header_slim']['government_entity']['government_entity_url'] = [
+  $form['slim_header']['government_entity']['government_entity_url'] = [
     '#type' => 'url',
     '#title' => t('Government entity web site'),
     '#placeholder' => t('https://example.gov.it'),
     '#description' => t("Government entity URL. Example: https://example.gov.it."),
     '#default_value' => theme_get_setting('government_entity_url'),
   ];
-
-  // Slim header appearance.
-  $form['header_slim']['header_slim_appearance'] = [
-    '#type' => 'details',
-    '#title' => t('Header slim appearance'),
-    '#open' => TRUE,
-    '#group' => 'header_slim',
-  ];
-  $form['header_slim']['header_slim_appearance']['slim_header_light'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable light variant'),
-    '#default_value' => theme_get_setting('slim_header_light'),
-  ];
-  $form['header_slim']['header_slim_appearance']['slim_header_container_type'] = [
-    '#type' => 'select',
-    '#title' => t("Header slim container"),
-    '#description' => t('Select container type.'),
-    '#default_value' => theme_get_setting('slim_header_container_type'),
-    '#options' => Helper::getBootstrapContainerType(TRUE),
-  ];
-
   // Slim header Action.
-  $form['header_slim']['header_slim_action'] = [
+  $form['slim_header']['slim_header_action'] = [
     '#type' => 'details',
     '#title' => t('Login button and user menu'),
     '#open' => TRUE,
-    '#group' => 'header_slim',
+    '#group' => 'slim_header',
   ];
-  $form['header_slim']['header_slim_action']['slim_header_action_type'] = [
+  $form['slim_header']['slim_header_action']['slim_header_action_type'] = [
     '#type' => 'select',
     '#title' => t('Login button type'),
     '#description' => t('Choose login button variant.'),
     '#default_value' => theme_get_setting('slim_header_action_type'),
     '#options' => [
-      'default' => 'Default',
-      'full' => 'Full responsive',
+      'default' => t('Default'),
+      'full' => t('Full responsive'),
     ],
   ];
-  $form['header_slim']['header_slim_action']['slim_header_action_url'] = [
+  $form['slim_header']['slim_header_action']['slim_header_action_url'] = [
     '#type' => 'textfield',
     '#title' => t('Login page URL'),
     '#description' => t("Fill if you use a custom login page."),
     '#placeholder' => t('/user/login'),
     '#default_value' => theme_get_setting('slim_header_action_url'),
   ];
-  $form['header_slim']['header_slim_action']['slim_header_action_icon'] = [
+  $form['slim_header']['slim_header_action']['slim_header_action_icon'] = [
     '#type' => 'checkbox',
     '#title' => t('Show icon'),
     '#default_value' => theme_get_setting('slim_header_action_icon'),
   ];
-  $form['header_slim']['header_slim_action']['slim_header_action_username'] = [
+  $form['slim_header']['slim_header_action']['slim_header_action_username'] = [
     '#type' => 'checkbox',
     '#title' => t('Show username'),
     '#default_value' => theme_get_setting('slim_header_action_username'),
   ];
-  $form['header_slim']['header_slim_action']['slim_header_action_dark'] = [
+  $form['slim_header']['slim_header_action']['slim_header_action_dark'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable dark mode to user logged menu'),
     '#default_value' => theme_get_setting('slim_header_action_dark'),
   ];
 
-  // Header center ------------------------------------------------------------.
-  $form['header_center'] = [
+  // Center header ------------------------------------------------------------.
+  $form['center_header'] = [
     '#type' => 'details',
     '#title' => t('Center header'),
     '#description' => t("Center header settings"),
@@ -129,15 +127,102 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
+  // Center header appearance.
+  $form['center_header']['center_header_appearance'] = [
+    '#type' => 'details',
+    '#title' => t('Appearance'),
+    '#open' => TRUE,
+    '#group' => 'center_header',
+  ];
+  $form['center_header']['center_header_appearance']['center_header_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container"),
+    '#description' => t('Choose container type.'),
+    '#default_value' => theme_get_setting('center_header_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['center_header']['center_header_appearance']['center_header_light'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable light variant'),
+    '#default_value' => theme_get_setting('center_header_light'),
+  ];
+  $form['center_header']['center_header_appearance']['center_header_small'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable small variant'),
+    '#default_value' => theme_get_setting('center_header_small'),
+  ];
+  // Center header branding.
+  $form['center_header']['center_header_branding'] = [
+    '#type' => 'details',
+    '#title' => t('Branding block'),
+    '#open' => TRUE,
+    '#group' => 'center_header',
+  ];
+  $form['center_header']['center_header_branding']['svg_logo_id'] = [
+    '#type' => 'textfield',
+    '#title' => t('Svg logo: group id'),
+    '#description' => t("Choose your custom id ('symbol' tag of svg file). Default: 'logo'."),
+    '#placeholder' => t('logo'),
+    '#default_value' => theme_get_setting('svg_logo_id'),
+  ];
+  $form['center_header']['center_header_branding']['svg_logo_box'] = [
+    '#type' => 'textfield',
+    '#title' => t('Svg logo: view box'),
+    '#description' => t("Choose your custom viewBox."),
+    '#placeholder' => t('0 0 82 82'),
+    '#default_value' => theme_get_setting('svg_logo_box'),
+  ];
+  $form['center_header']['center_header_branding']['svg_logo_box_sticky'] = [
+    '#type' => 'textfield',
+    '#title' => t('Svg logo: view box when header is sticky'),
+    '#description' => t("Choose your custom viewBox."),
+    '#placeholder' => t('0 0 82 82'),
+    '#default_value' => theme_get_setting('svg_logo_box_sticky'),
+  ];
+  $form['center_header']['center_header_branding']['image_logo_fluid'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable responsive feature'),
+    '#description' => t("If checked and you have loaded a raster image, enable the 'img-fluid' feature."),
+    '#default_value' => theme_get_setting('image_logo_fluid'),
+  ];
 
-  // Header navigation --------------------------------------------------------.
-  $form['header_navigation'] = [
+  // Navigation header --------------------------------------------------------.
+  $form['navigation_header'] = [
     '#type' => 'details',
     '#title' => t('Main navigation'),
     '#description' => t("Main navigation settings"),
     '#open' => TRUE,
     '#group' => 'bootstrap',
     '#weight' => 0,
+  ];
+  // Navigation header appearance.
+  $form['navigation_header']['navigation_header_appearance'] = [
+    '#type' => 'details',
+    '#title' => t('Appearance'),
+    '#open' => TRUE,
+    '#group' => 'navigation_header',
+  ];
+  $form['navigation_header']['navigation_header_appearance']['navigation_header_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container"),
+    '#description' => t('Choose container type.'),
+    '#default_value' => theme_get_setting('navigation_header_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['navigation_header']['navigation_header_appearance']['navigation_header_light_desktop'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable light variant to desktop'),
+    '#default_value' => theme_get_setting('navigation_header_light_desktop'),
+  ];
+  $form['navigation_header']['navigation_header_appearance']['navigation_header_dark_mobile'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable dark variant to mobile'),
+    '#default_value' => theme_get_setting('navigation_header_dark_mobile'),
+  ];
+  $form['navigation_header']['navigation_header_appearance']['navigation_header_sticky'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable sticky on top'),
+    '#default_value' => theme_get_setting('navigation_header_sticky'),
   ];
 
   // Libraries Settings -------------------------------------------------------.

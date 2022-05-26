@@ -13,15 +13,17 @@
  * - color (string) (default: '')
  *   - options ["primary", "secondary", "success", "warning", "danger", "light", "white"]
  * - dark (boolean) (default: false)
- *   - "Enable dark background"
+ *   - Enable dark background
  * - light (boolean) (default: false)
- *   - "Enable light background"
+ *   - Enable light background
  * - padded (boolean) (default: false)
- *   - "Enable padded feature"
+ *   - Enable padded feature
  * - alignment (string) (default: '')
  *   - options ["bottom", "middle", "top"]
  * - library (string) (default: 'sprites.svg')
- *   - "Your custom library"
+ *   - Your custom library
+ * - icon_path (string) (default: '')
+ *   - Your custom path icons library
  * - icon_classes (array) (default: '')
  * - icon_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
@@ -57,6 +59,7 @@
   {% set _padded = padded ?? false %}
   {% set _alignment = alignment|default('') %}
   {% set _library = library|default('sprites.svg') %}
+  {% set _icon_path = icon_path|default('') %}
   {% set _icon_classes = icon_classes|default('') %}
   {% set _icon_attributes = icon_attributes|default('') %}
 
@@ -81,10 +84,14 @@
   {% endif %}
   {% set icon_attributes = icon_attributes.addClass(_classes) %}
 
-  {% set _path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ _name %}
+  {% if _icon_path is empty %}
+    {% set _icon_path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ _name %}
+  {% else %}
+    {% set _icon_path = _icon_path ~ "#" ~ _name %}
+  {% endif %}
 
   {# Component #}
   <svg {{ icon_attributes }}>
-    <use href="{{ _path }}" xlink:href="{{ _path }}"></use>
+    <use href="{{ _icon_path }}" xlink:href="{{ _icon_path }}"></use>
   </svg>
 {% endapply %}

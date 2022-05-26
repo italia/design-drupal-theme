@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Preprocess menu.
+ * Hook THEME_preprocess_menu_*.
  */
 
 use Drupal\user\Entity\User;

@@ -2,3 +2,5 @@ fix:
   css:
     theme:
       src/css/bootstrap-italia-drupal-fix.css: {weight: 50}
+  js:
+    src/js/bootstrap-italia-drupal-logo-fix.js: {}

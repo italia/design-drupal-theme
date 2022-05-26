@@ -1,10 +1,17 @@
-<header
-  class="it-header-wrapper it-header-sticky"
-  data-bs-toggle="sticky"
-  data-bs-position-type="fixed"
-  data-bs-sticky-class-name="is-sticky"
-  data-bs-target="#header-nav-wrapper"
->
+{% set it_header_wrapper_attributes = create_attribute() %}
+{% set it_header_wrapper_attributes = it_header_wrapper_attributes.addClass('it-header-wrapper') %}
+
+{% if navigation_header_sticky %}
+  {% set it_header_wrapper_attributes = it_header_wrapper_attributes
+    .addClass('it-header-sticky')
+    .setAttribute('data-bs-toggle', 'sticky')
+    .setAttribute('data-bs-position-type', 'fixed')
+    .setAttribute('data-bs-sticky-class-name', 'is-sticky')
+    .setAttribute('data-bs-target', '#header-nav-wrapper')
+  %}
+{% endif %}
+
+<header{{ it_header_wrapper_attributes }}>
 
   {% block headerSlim %}
     {% include '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}

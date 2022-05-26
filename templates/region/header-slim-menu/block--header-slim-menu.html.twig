@@ -41,7 +41,7 @@
       {% set title_attributes = title_attributes.addClass('visually-hidden') %}
       <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
 
-      {# The #deaderSlimMenu are used in menu--header-slim-menu.html.twig #}
+      {# The #headerSlimMenu are used in menu--header-slim-menu.html.twig #}
       <a class="it-opener d-lg-none" data-bs-toggle="collapse" href="#headerSlimMenu" role="button" aria-expanded="false" aria-controls="headerSlimMenu">
         <span>{{ configuration.government_entity_name }}</span>
         {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-expand'} %}

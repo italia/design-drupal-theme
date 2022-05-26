@@ -1,22 +1,21 @@
-<div class="it-header-center-wrapper">
-  <div class="container">
+{%
+  set it_center_header_wrapper_classes = [
+  'it-header-center-wrapper',
+  center_header_light ? ' theme-light',
+  center_header_small ? ' it-small-header'
+]
+%}
+<div class="{{ it_center_header_wrapper_classes|join }}">
+  <div class="{{ center_header_container_type ?: 'container' }}">
     <div class="row">
       <div class="col-12">
         <div class="it-header-center-content-wrapper">
 
-
-          <div class="it-brand-wrapper">
-            <a href="/docs/esempi/comuni/template-homepage/">
-              {% include '@bi-bcl/icon/icon.html.twig' with {
-                name: 'it-pa'
-              } %}
-              <div class="it-brand-text">
-                <div class="it-brand-title">Nome del Comune</div>
-                <div class="it-brand-tagline d-none d-md-block">Uno dei tanti Comuni d'Italia</div>
-              </div>
-            </a>
-          </div>
-
+          {% block headerCenterBrand %}
+            {% if page.brand %}
+              {{ page.brand }}
+            {% endif %}
+          {% endblock %}
 
           <div class="it-right-zone">
             <div class="it-socials d-none d-md-flex">

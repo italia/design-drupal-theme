@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Theme suggestions block.
+ * Hook THEME_suggestions_block_*.
  */
 
 use Drupal\block\Entity\Block;
