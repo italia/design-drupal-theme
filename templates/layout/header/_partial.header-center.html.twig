@@ -18,32 +18,18 @@
           {% endblock %}
 
           <div class="it-right-zone">
-            <div class="it-socials d-none d-md-flex">
-              <span>Seguici su</span>
-              <ul>
-                <li>
-                  <a href="#" aria-label="Facebook" target="_blank">
-                    {% include '@bi-bcl/icon/icon.html.twig' with {
-                      name: 'it-facebook'
-                    } %}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" aria-label="Github" target="_blank">
-                    {% include '@bi-bcl/icon/icon.html.twig' with {
-                      name: 'it-github'
-                    } %}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" aria-label="Twitter" target="_blank">
-                    {% include '@bi-bcl/icon/icon.html.twig' with {
-                      name: 'it-twitter',
-                    } %}
-                  </a>
-                </li>
-              </ul>
-            </div>
+            {% if socials %}
+              {% include '@bi-bcl/share/follow-us.html.twig' with {
+                socials: socials,
+                label: 'Follow us on'|trans,
+                blank: social_new_window,
+                followus_classes: ["it-socials", "d-none", "d-md-flex"]
+              } %}
+            {% endif %}
+            {% if page.header_center_social and not socials %}
+              {{ page.header_center_social }}
+            {% endif %}
+
             <div class="it-search-wrapper">
               <span class="d-none d-md-block">Cerca</span>
               <a class="search-link rounded-icon" aria-label="Cerca nel sito" href="#">

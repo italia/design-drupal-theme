@@ -185,6 +185,29 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("If checked and you have loaded a raster image, enable the 'img-fluid' feature."),
     '#default_value' => theme_get_setting('image_logo_fluid'),
   ];
+  // Center header social network.
+  $form['center_header']['social_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Social networks'),
+    '#open' => TRUE,
+    '#group' => 'center_header',
+  ];
+  $form['center_header']['social_settings']['social_new_window'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Open in new window'),
+    '#description' => t("Open social in new window"),
+    '#default_value' => theme_get_setting('social_new_window'),
+  ];
+  foreach (Helper::getSocialItems() as $social) {
+    $low_social = strtolower($social);
+    $form['center_header']['social_settings'][$low_social] = [
+      '#type' => 'url',
+      '#title' => t('URL @social', ['@social' => $social]),
+      '#description' => t("Fill with @social URL.", ['@social' => $social]),
+      '#default_value' => theme_get_setting($low_social),
+    ];
+  }
+
 
   // Navigation header --------------------------------------------------------.
   $form['navigation_header'] = [

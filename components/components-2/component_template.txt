@@ -13,7 +13,7 @@
  * - string (string) (default: '')
  * - boolean (boolean) (default: true)
  * - array (array) (default: [...])
- * - utility_classes (array) (default: '')
+ * - COMPONENT-NAME_classes (array) (default: '')
  * - COMPONENT-NAME_attributes (obj attribute) (default: '')
  *
  * Examples:
@@ -26,7 +26,7 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _option = option|default('') %}
-  {% set _COMPONENT-NAME_classes = utility_classes|default('') %}
+  {% set _COMPONENT-NAME_classes = COMPONENT-NAME_classes|default('') %}
   {% set _COMPONENT-NAME_attributes = COMPONENT-NAME_attributes|default('') %}
 
   {# Set options #}
@@ -34,7 +34,7 @@
       ''
     ] %}
 
-  {% if _utility_classes is not empty %}
+  {% if _COMPONENT-NAME_classes is not empty %}
     {% set _classes = _classes|merge(COMPOONENT-NAME_classes) %}
   {% endif %}
 

@@ -13,9 +13,10 @@ use Drupal\user\Entity\User;
 function bootstrap_italia_preprocess_menu(&$variables) {
   // User menu.
   if ($variables['menu_name'] == 'account') {
+    // Login button settings for logged user.
     $variables['slim_header_action_type'] = theme_get_setting('slim_header_action_type');
-    $variables['slim_header_action_icon'] = theme_get_setting('slim_header_action_icon');
-    $variables['slim_header_action_dark'] = theme_get_setting('slim_header_action_dark');
+    $variables['slim_header_action_icon'] = (bool) theme_get_setting('slim_header_action_icon');
+    $variables['slim_header_action_dark'] = (bool) theme_get_setting('slim_header_action_dark');
 
     if (theme_get_setting('slim_header_action_username')) {
       $current_user = \Drupal::currentUser();

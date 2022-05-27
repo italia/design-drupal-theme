@@ -33,6 +33,6 @@ function bootstrap_italia_preprocess_block(&$variables) {
     $variables['svg_logo_id'] = theme_get_setting('svg_logo_id');
     $variables['svg_logo_box'] = theme_get_setting('svg_logo_box');
     $variables['svg_logo_box_sticky'] = theme_get_setting('svg_logo_box_sticky');
-    $variables['image_logo_fluid'] = theme_get_setting('image_logo_fluid');
+    $variables['image_logo_fluid'] = (bool) theme_get_setting('image_logo_fluid');
   }
 }
