@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Template for COMPONENT-NAME component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/COMPONENT/NAME
+ * Last review: <bootstrap-italia_version>
+ *
+ * Parameters:
+ * - list (string) (default: 'default-value')
+ *   - options ["option1", "option2", "option3", "option4"]
+ * - string (string) mandatory
+ *   - Description
+ * - string (string) (default: '')
+ * - boolean (boolean) (default: true)
+ * - array (array) (default: [...])
+ * - COMPONENT-NAME_classes (array) (default: '')
+ * - COMPONENT-NAME_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/*/*.html.twig' with {
+      variables: value,
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _option = option|default('') %}
+  {% set _COMPONENT-NAME_classes = COMPONENT-NAME_classes|default('') %}
+  {% set _COMPONENT-NAME_attributes = COMPONENT-NAME_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      ''
+    ] %}
+
+  {% if _COMPONENT-NAME_classes is not empty %}
+    {% set _classes = _classes|merge(COMPONENT-NAME_classes) %}
+  {% endif %}
+
+  {% if _COMPONENT-NAME_attributes is empty %}
+    {% set COMPONENT-NAME_attributes = create_attribute() %}
+  {% endif %}
+  {% set COMPONENT-NAME_attributes = COMPONENT-NAME_attributes
+    .addClass(_classes)
+    .setAttribute('attr', 'value')
+  %}
+
+  {# Component #}
+
+{% endapply %}

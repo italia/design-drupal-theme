@@ -18,29 +18,37 @@
           {% endblock %}
 
           <div class="it-right-zone">
-            {% if socials %}
-              {% include '@bi-bcl/share/follow-us.html.twig' with {
-                socials: socials,
-                label: 'Follow us on'|trans,
-                blank: social_new_window,
-                followus_classes: ["it-socials", "d-none", "d-md-flex"]
-              } %}
-            {% endif %}
-            {% if page.header_center_social and not socials %}
-              {{ page.header_center_social }}
-            {% endif %}
 
-            <div class="it-search-wrapper">
-              <span class="d-none d-md-block">Cerca</span>
-              <a class="search-link rounded-icon" aria-label="Cerca nel sito" href="#">
-                {% include '@bi-bcl/icon/icon.html.twig' with {
-                  name: 'it-search',
+            {% block headerCenterSocials %}
+              {% if socials %}
+                {% include '@bi-bcl/share/follow-us.html.twig' with {
+                  socials: socials,
+                  label: 'Follow us on'|trans,
+                  blank: social_new_window,
+                  followus_classes: ["it-socials", "d-none", "d-md-flex"]
                 } %}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+              {% endif %}
+              {% if page.header_center_social and not socials %}
+                {{ page.header_center_social }}
+              {% endif %}
+            {% endblock %}
+
+            {% block headerCenterSearch %}
+              {% if page.header_center_search %}
+                <div class="it-search-wrapper">
+                  <span class="d-none d-md-block">Cerca</span>
+                  <a class="search-link rounded-icon" aria-label="{{ 'Search in the site'|trans }}" href="#">
+                    {% include '@bi-bcl/icon/icon.html.twig' with {
+                      name: 'it-search',
+                    } %}
+                  </a>
+                </div>
+              {% endif %}
+            {% endblock %}
+
+          </div>{# End it-right-zone. #}
+        </div>{# End it-header-center-content-wrapper. #}
+      </div>{# End col. #}
+    </div>{# End row. #}
+  </div>{# End container. #}
+</div>{# End wrapper. #}

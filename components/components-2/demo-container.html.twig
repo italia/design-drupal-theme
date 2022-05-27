@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Demo container.
+ *
+ * Example:
+ *
+    {% embed '@bi-bcl/demo-container.html.twig' with {
+      title: 'Title'|trans,
+    } %}
+      {% block content %}
+        Your content
+      {% endblock %}
+    {% endembed %}
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _title = title|default('') %}
+  {% set _demo_classes = demo_classes|default('') %}
+  {% set _demo_attributes = demo_attributes|default('') %}
+
+  {# Set options #}
+  {% set _classes = [
+    'border',
+    'shadow',
+    'mb-5',
+    'p-4',
+  ] %}
+
+  {% if _demo_classes is not empty %}
+    {% set _classes = _classes|merge(demo_classes) %}
+  {% endif %}
+
+  {% if _demo_attributes is empty %}
+    {% set demo_attributes = create_attribute() %}
+  {% endif %}
+  {% set demo_attributes = demo_attributes.addClass(_classes) %}
+
+  {# Component #}
+  {% if title is not empty %}
+    <h4 class="mt-4">{{ _title }}</h4>
+  {% endif %}
+
+  <div{{ demo_attributes }}>
+    {% block content %}
+      Your content
+    {% endblock %}
+  </div>
+{% endapply %}
