@@ -20,6 +20,8 @@
  * - alert_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
  *
+ * - alertContent (block) (default: message)
+ *
  * Examples:
    {% include '@bi-bcl/alert/alert.html.twig' with {
       message: drupal_field_name,
@@ -65,9 +67,12 @@
       <h4 class="alert-heading">{{ _heading }}</h4>
     {%- endif -%}
 
-    {%- if _message is not empty -%}
-      {{- _message -}}
-    {%- endif -%}
+
+    {% block alertContent %}
+      {%- if _message is not empty -%}
+        {{- _message -}}
+      {%- endif -%}
+    {% endblock %}
 
     {%- if _dismissible -%}
       <button

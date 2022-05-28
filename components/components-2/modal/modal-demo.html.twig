@@ -1,0 +1,211 @@
+{#
+/**
+ * @file
+ * Alert demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/modal/modal-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set message_xs = 'Font Titillium 14px. Leading 21px.' %}
+
+  {% set message_sm = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' %}
+
+  {% set message_md = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.' %}
+
+  {% set message_lg = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.' %}
+
+  {% set message_xl = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.' %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Modal demo'|trans,
+    demo_classes: ['it-example-modal']
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/modal/modal.html.twig' with {
+        modal_title: title,
+        modal_body: message_xs,
+        button_label: 'Launch demo modal'|trans
+      } %}
+        {% block modalFooter %}
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
+            {{ 'Action 2'|trans }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Modal demo icon'|trans,
+    demo_classes: ['it-example-modal']
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/modal/modal.html.twig' with {
+        modal_title: title,
+        modal_body: message_xs,
+        modal_icon: 'it-info-circle',
+        button_label: 'Launch demo modal'|trans
+      } %}
+        {% block modalFooter %}
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
+            {{ 'Ok'|trans }}</button>
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Modal demo link-list centered'|trans,
+    demo_classes: ['it-example-modal']
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/modal/modal.html.twig' with {
+        modal_title: true,
+        dismissible: false,
+        modal_position: 'centered',
+        modal_label: 'Link list modal'|trans,
+        button_label: 'Launch demo modal'|trans,
+        modal_classes: ['it-dialog-link-list'],
+      } %}
+
+        {% block modalTitle %}
+          <span>1.</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+        {% endblock %}
+
+        {% block modalBody %}
+          <div class="link-list-wrapper">
+            <ul class="link-list">
+              <li>
+                <a class="list-item icon-left" href="#">
+                  {% include '@bi-bcl/icon/icon.html.twig' with {
+                    name: 'it-chevron-right',
+                    color: 'primary',
+                  } %}
+                  <span>Link lista 1</span>
+                </a>
+              </li>
+              <li>
+                <a class="list-item icon-left" href="#">
+                  {% include '@bi-bcl/icon/icon.html.twig' with {
+                    name: 'it-chevron-right',
+                    color: 'primary',
+                  } %}
+                  <span>Link lista 2</span>
+                </a>
+              </li>
+              <li>
+                <a class="list-item icon-left" href="#">
+                  {% include '@bi-bcl/icon/icon.html.twig' with {
+                    name: 'it-chevron-right',
+                    color: 'primary',
+                  } %}
+                  <span>Link lista 3</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        {% endblock %}
+
+        {% block modalFooter %}{% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Modal demo long text'|trans,
+    demo_classes: ['it-example-modal']
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/modal/modal.html.twig' with {
+        modal_title: title,
+        modal_body: message_xl,
+        scrollable: true,
+        button_label: 'Launch demo modal'|trans
+      } %}
+        {% block modalFooter %}
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
+            {{ 'Action 2'|trans }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Modal demo long text fullscreen'|trans,
+    demo_classes: ['it-example-modal']
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/modal/modal.html.twig' with {
+        modal_title: title,
+        modal_body: message_xl~message_xl~message_xl~message_xl~message_xl~message_xl,
+        scrollable: true,
+        modal_size: 'fullscreen',
+        button_label: 'Launch demo modal'|trans
+      } %}
+        {% block modalFooter %}
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
+            {{ 'Action 2'|trans }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+
+{% endapply %}

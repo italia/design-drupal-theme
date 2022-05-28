@@ -1,51 +1,214 @@
 {#
 /**
  * @file
- * Template for COMPONENT-NAME component.
- * Docs: https://italia.github.io/bootstrap-italia/docs/COMPONENT/NAME
- * Last review: <bootstrap-italia_version>
+ * Template for Modal component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/modale/
+ * Last review: 2.0.0-rc4
  *
  * Parameters:
- * - list (string) (default: 'default-value')
- *   - options ["option1", "option2", "option3", "option4"]
- * - string (string) mandatory
- *   - Description
- * - string (string) (default: '')
- * - boolean (boolean) (default: true)
- * - array (array) (default: [...])
- * - COMPONENT-NAME_classes (array) (default: '')
- * - COMPONENT-NAME_attributes (obj attribute) (default: '')
+ * - modal_title (string) (default: '')
+ *   - Modal title
+ * - modal_body (string) (default: '')
+ *   - Modal message
+ * - modal_label (string) (default: '')
+ *   - Modal label assistive text
+ * - modal_description (string) (default: '')
+ *   - Modal description assistive text
+ * - id (string) (default: modal-random)
+ * - scrollable (boolean) (default: false)
+ *   - Enable modal scrollbar for long content
+ * - animation (string) (default: 'fade')
+ * - popconfirm (boolean) (dafault: false)
+ *   - Enable popconfirm feature
+ * - dismissible (boolean) (default: true)
+ *   - Enable dismissible feature
+ * - footer_shadow (boolean) (default: false)
+ *   - Enable shadow footer. Note: 'scrollable' enables 'footer_shadow' automatically
+ * - modal_icon (string) (default: '')
+ *   - options 'it-icon-name'
+ * - modal_position (string) (default: '')
+ *   - options ["centered", "left", "right"]
+ * - modal_size (string) (default: '')
+ *   - options ["sm", "lg", "xl", "fullscreen", "fullscreen-<col>-down"]
+ * - modal_classes (array) (default: '')
+ * - modal_attributes (obj attribute) (default: '')
+ * - modal_dialog_classes (array) (default: '')
+ * - modal_dialog_attributes (obj attribute) (default: '')
+ * - button_label (string) (default: '')
+ *   - If set show laucher button
+ *
+ * - modalTitle (block) (default: modal_title)
+ *   - block for custom title
+ * - modalBody (block) (default: modal_body)
+ *   - block for custom body
+ * - modalFooter (block) (default: empty)
+ *   - block for custom footer
+ * - modalButton (block) (default: button)
+ *   - block for custom button
+ *
+ * Note: if not set modal_title, modal_label are mandatory.
  *
  * Examples:
-   {% include '@bi-bcl/*/*.html.twig' with {
+   {% embed '@bi-bcl/modal/modal.html.twig' with {
       variables: value,
    } %}
+     {% block modalTitle %}
+     {% endblock %}
+
+     {% block modalBody %}
+     {% endblock %}
+
+     {% block modalFooter %}
+     {% endblock %}
+   {% endembed %}
  *
  */
 #}
 {% apply spaceless %}
   {# Set defaults #}
-  {% set _option = option|default('') %}
-  {% set _COMPONENT-NAME_classes = COMPONENT-NAME_classes|default('') %}
-  {% set _COMPONENT-NAME_attributes = COMPONENT-NAME_attributes|default('') %}
+  {% set _modal_title = modal_title|default('') %}
+  {% set _modal_body = modal_body|default('') %}
+  {% set _modal_label = modal_label|default('') %}
+  {% set _modal_description = modal_label|default('') %}
 
-  {# Set options #}
-    {% set _classes = [
-      ''
-    ] %}
+  {% set _id = id|default('modal-'~random()) %}
+  {% set _scrollable = scrollable ?? false %}
+  {% set _animation = animation|default('fade') %}
+  {% set _popconfirm = popconfirm ?? false %}
+  {% set _dismissible = dismissible ?? true %}
 
-  {% if _COMPONENT-NAME_classes is not empty %}
-    {% set _classes = _classes|merge(COMPONENT-NAME_classes) %}
+  {% set _modal_icon = modal_icon|default('') %}
+  {% set _modal_position = modal_position|default('') %}
+  {% set _modal_size = modal_size|default('') %}
+  {% set _footer_shadow = footer_shadow ?? false %}
+
+  {% set _modal_classes = modal_classes|default('') %}
+  {% set _modal_attributes = modal_attributes|default('') %}
+  {% set _modal_dialog_classes = modal_dialog_classes|default('') %}
+  {% set _modal_dialog_attributes = modal_dialog_attributes|default('') %}
+
+  {% set _button_label = button_label|default('') %}
+
+  {# Set modal options #}
+  {% set _classes = [
+    'modal ',
+    _scrollable ? 'it-dialog-scrollable',
+    _popconfirm ? 'popconfirm-modal',
+    _animation,
+    _modal_icon ? 'alert-modal',
+  ] %}
+
+  {% if _modal_classes is not empty %}
+    {% set _classes = _classes|merge(modal_classes) %}
   {% endif %}
 
-  {% if _COMPONENT-NAME_attributes is empty %}
-    {% set COMPONENT-NAME_attributes = create_attribute() %}
+  {% if _modal_attributes is empty %}
+    {% set modal_attributes = create_attribute() %}
   {% endif %}
-  {% set COMPONENT-NAME_attributes = COMPONENT-NAME_attributes
+  {% set modal_attributes = modal_attributes
     .addClass(_classes)
-    .setAttribute('attr', 'value')
+    .setAttribute('id', _id)
+    .setAttribute('tabindex', '-1')
+    .setAttribute('role', 'dialog')
   %}
 
-  {# Component #}
+  {# Settings for accesibility #}
+  {% if _modal_title is empty and _modal_label is empty %}
+    {% set _modal_label = 'This is a message in modal dialog'|trans %}
+  {% endif %}
 
+  {% if _modal_title is empty %}
+    {% set modal_attributes = modal_attributes.setAttribute('aria-label', _modal_label) %}
+  {% else %}
+    {% set modal_attributes = modal_attributes.setAttribute('aria-labelledby', _id~'-title') %}
+  {% endif %}
+
+  {% if _modal_description is not empty %}
+    {% set modal_attributes = modal_attributes.setAttribute('aria-describedby', _id~'-description') %}
+  {% endif %}
+
+  {# Set modal dialog options #}
+  {% set _dialog_classes = [
+    'modal-dialog',
+    _modal_position ? 'modal-dialog-'~_modal_position,
+    _modal_size ? 'modal-'~_modal_size
+  ] %}
+
+  {% if _modal_dialog_classes is not empty %}
+    {% set _dialog_classes = _dialog_classes|merge(modal_dialog_classes) %}
+  {% endif %}
+
+  {% if _modal_dialog_attributes is empty %}
+    {% set modal_dialog_attributes = create_attribute() %}
+  {% endif %}
+  {% set modal_dialog_attributes = modal_dialog_attributes
+    .addClass(_dialog_classes)
+    .setAttribute('role', 'document')
+  %}
+
+
+  {# Component #}
+  <div{{ modal_attributes }}>
+    <div{{ modal_dialog_attributes }}>
+      <div class="modal-content">
+
+        {% if _modal_icon or _modal_title or _dismissible %}
+          <div class="modal-header">
+            {% if _modal_icon %}
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: _modal_icon,
+                color: 'primary',
+              } %}
+            {% endif %}
+
+            {% if _modal_title %}
+              <h2 class="modal-title h5" id="{{ _id~'-title' }}">
+                {% block modalTitle %}
+                  {{ _modal_title }}
+                {% endblock %}
+              </h2>
+            {% endif %}
+
+            {% if _dismissible %}
+              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="{{ 'Close modal dialog'|trans }}">
+                {% include '@bi-bcl/icon/icon.html.twig' with { name: 'it-close' } %}
+              </button>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <div class="modal-body">
+
+          {% if _modal_description %}
+            <p id="{{ _id~'-description' }}">{{ _modal_description }}</p>
+          {% endif %}
+
+          {% block modalBody %}
+            <p>{{ _modal_body }}</p>
+          {% endblock %}
+        </div>
+
+        <div class="modal-footer{{ _scrollable or _footer_shadow ? '  modal-footer-shadow' }}">
+          {% block modalFooter %}{% endblock %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {% block modalButton %}
+    {% if _button_label %}
+      {% set button_modal_attributes = create_attribute() %}
+      {% set button_modal_attributes = button_modal_attributes
+        .setAttribute('data-bs-toggle', 'modal')
+        .setAttribute('data-bs-target', '#'~_id)
+      %}
+      {% include '@bi-bcl/button/button.html.twig' with {
+        label: _button_label,
+        variant: 'primary',
+        tag: 'button',
+        button_attributes: button_modal_attributes
+      } %}
+    {% endif %}
+  {% endblock %}
 {% endapply %}
