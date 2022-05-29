@@ -3,4 +3,4 @@ fix:
     theme:
       src/css/bootstrap-italia-drupal-fix.css: {weight: 50}
   js:
-    src/js/bootstrap-italia-drupal-logo-fix.js: {}
+    src/js/bootstrap-italia-drupal-sticky-fix.js: {}
