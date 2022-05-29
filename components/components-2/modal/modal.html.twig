@@ -69,7 +69,7 @@
   {% set _modal_title = modal_title|default('') %}
   {% set _modal_body = modal_body|default('') %}
   {% set _modal_label = modal_label|default('') %}
-  {% set _modal_description = modal_label|default('') %}
+  {% set _modal_description = modal_description|default('') %}
 
   {% set _id = id|default('modal-'~random()) %}
   {% set _scrollable = scrollable ?? false %}
@@ -131,7 +131,8 @@
   {% set _dialog_classes = [
     'modal-dialog',
     _modal_position ? 'modal-dialog-'~_modal_position,
-    _modal_size ? 'modal-'~_modal_size
+    _modal_size ? 'modal-'~_modal_size,
+    _modal_size == 'fullscreen' ? 'm-0'
   ] %}
 
   {% if _modal_dialog_classes is not empty %}
@@ -146,11 +147,15 @@
     .setAttribute('role', 'document')
   %}
 
+  {# Set dismiss=true if modal_size is fullscreen #}
+  {% if _modal_size == 'fullscreen' %}
+    {% set _dismissible = true %}
+  {% endif %}
 
   {# Component #}
   <div{{ modal_attributes }}>
     <div{{ modal_dialog_attributes }}>
-      <div class="modal-content">
+      <div class="modal-content{{ _modal_size == 'fullscreen' ? ' h-100' }}">
 
         {% if _modal_icon or _modal_title or _dismissible %}
           <div class="modal-header">

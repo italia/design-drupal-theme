@@ -62,7 +62,6 @@
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Modal demo'|trans,
-    demo_classes: ['it-example-modal']
   } %}
     {% block content %}
 
@@ -84,7 +83,6 @@
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Modal demo icon'|trans,
-    demo_classes: ['it-example-modal']
   } %}
     {% block content %}
 
@@ -105,7 +103,6 @@
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Modal demo link-list centered'|trans,
-    demo_classes: ['it-example-modal']
   } %}
     {% block content %}
 
@@ -163,8 +160,29 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Modal popconfirm centered'|trans,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/modal/modal.html.twig' with {
+        modal_title: title,
+        modal_body: message_xs,
+        popconfirm: true,
+        modal_position: 'centered',
+        button_label: 'Launch demo modal'|trans
+      } %}
+        {% block modalFooter %}
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
+            {{ 'Action 2'|trans }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Modal demo long text'|trans,
-    demo_classes: ['it-example-modal']
   } %}
     {% block content %}
 
@@ -186,7 +204,6 @@
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Modal demo long text fullscreen'|trans,
-    demo_classes: ['it-example-modal']
   } %}
     {% block content %}
 
@@ -207,5 +224,45 @@
     {% endblock %}
   {% endembed %}
 
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Modal demo long text fullscreen 2'|trans,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/modal/modal.html.twig' with {
+        modal_label: title,
+        modal_body: message_xl~message_xl~message_xl~message_xl~message_xl~message_xl,
+        scrollable: true,
+        modal_size: 'fullscreen',
+        dismissibile: false,
+        button_label: 'Launch demo modal'|trans
+      } %}
+        {% block modalBody %}
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h3 class="h2">{{ title }}</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                {{ message_xl~message_xl~message_xl~message_xl~message_xl~message_xl }}
+              </div>
+              <div class="col">
+                {{ message_xl~message_xl~message_xl~message_xl~message_xl~message_xl }}
+              </div>
+            </div>
+          </div>
+        {% endblock %}
+
+        {% block modalFooter %}
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
+            {{ 'Action 2'|trans }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
 
 {% endapply %}

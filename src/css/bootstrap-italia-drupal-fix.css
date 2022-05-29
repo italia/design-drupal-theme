@@ -12,3 +12,8 @@
 #header-nav-wrapper.it-header-navbar-wrapper .navbar .navbar-collapsable {
   /*z-index: 600;*/
 }
+
+/* Fix modal when navbar is-sticky */
+.modal {
+  z-index: 100000;
+}
