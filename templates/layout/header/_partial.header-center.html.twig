@@ -36,37 +36,56 @@
             {% block headerCenterSearch %}
               {% if page.header_center_search %}
                 <div class="it-search-wrapper">
-                  {% embed '@bi-bcl/modal/modal.html.twig' with {
-                    id: 'modal-header-center-search',
-                    modal_label: 'Search in the site'|trans,
-                    scrollable: true,
-                    modal_size: 'fullscreen',
-                    dismissibile: false,
-                    button_label: 'Launch demo modal'|trans
-                  } %}
-                    {% block modalBody %}
-                      <div class="container">
-                        {{ page.header_center_search }}
-                      </div>
-                    {% endblock %}
+                  {% if search_type == 'modal' %}
+                    {% embed '@bi-bcl/modal/modal.html.twig' with {
+                      id: 'modal-header-center-search',
+                      modal_label: 'Site search'|trans,
+                      scrollable: true,
+                      modal_size: search_modal_size ?: 'fullscreen',
+                      dismissibile: false,
+                    } %}
+                      {% block modalBody %}
+                        <div class="container">
+                          {{ page.header_center_search }}
+                        </div>
+                      {% endblock %}
 
-                    {% block modalButton %}
-                      <span class="d-none d-md-block">Cerca</span>
-                      <a class="search-link rounded-icon"
-                         aria-label="{{ 'Search in the site'|trans }}"
-                         data-bs-toggle="modal"
-                         data-bs-target="#modal-header-center-search"
-                         href="#"
-                      >
-                        {% include '@bi-bcl/icon/icon.html.twig' with {
-                          name: 'it-search',
-                        } %}
-                      </a>
-                    {% endblock %}
-                  {% endembed %}
-                </div>
+                      {% block modalButton %}
+                        <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
+                        <a class="search-link rounded-icon"
+                           aria-label="{{ 'Site search'|trans }}"
+                           data-bs-toggle="modal"
+                           data-bs-target="#modal-header-center-search"
+                           href="#"
+                        >
+                          {% include '@bi-bcl/icon/icon.html.twig' with {
+                            name: 'it-search',
+                          } %}
+                        </a>
+                      {% endblock %}
+                    {% endembed %}
+                  {% endif %}{# End search modal #}
+
+                  {% if search_type == 'page' %}
+                    <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
+                    <a class="search-link rounded-icon"
+                       aria-label="{{ 'Site search'|trans }}"
+                       title="{{ 'Site search'|trans }}"
+                       href="{{ search_page_url ?: '/search/node' }}"
+                    >
+                      {% include '@bi-bcl/icon/icon.html.twig' with {
+                        name: 'it-search',
+                      } %}
+                    </a>
+                  {% endif %}
+
+{#                  {% if search_type == 'inline' %}#}
+{#                    {{ page.header_center_search }}#}
+{#                  {% endif %}#}
+
+                </div>{# End it-search-wrapper. #}
               {% endif %}
-            {% endblock %}
+            {% endblock %}{# End headerCenterSearch block. #}
 
           </div>{# End it-right-zone. #}
         </div>{# End it-header-center-content-wrapper. #}

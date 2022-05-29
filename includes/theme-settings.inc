@@ -207,6 +207,48 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       '#default_value' => theme_get_setting($low_social),
     ];
   }
+  // Center header social network.
+  $form['center_header']['search_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Search settings'),
+    '#open' => TRUE,
+    '#group' => 'center_header',
+  ];
+  $form['center_header']['search_settings']['search_type'] = [
+    '#type' => 'select',
+    '#title' => t('Search type'),
+    '#description' => t('Choose search type.'),
+    '#default_value' => theme_get_setting('search_type'),
+    '#options' => [
+      'modal' => t('Search in modal window'),
+//      'inline' => t('Show inline search input'),
+      'page' => t('Redirect to search page'),
+    ],
+  ];
+  $form['center_header']['search_settings']['search_page_url'] = [
+    '#type' => 'textfield',
+    '#title' => t('Search URL page'),
+    '#description' => t("Fill if you choose 'Redirect to search page'. Default: 'search/node'"),
+    '#placeholder' => t('/search/node'),
+    '#default_value' => theme_get_setting('search_page_url'),
+  ];
+  $form['center_header']['search_settings']['search_modal_size'] = [
+    '#type' => 'select',
+    '#title' => t('Modal size'),
+    '#description' => t('Chose modal size. Default: fullscreen.'),
+    '#default_value' => theme_get_setting('search_modal_size'),
+    '#options' => [
+      'xs' => t('Small (xs)'),
+      'md' => t('Default (md)'),
+      'lg' => t('Large (lg)'),
+      'xl' => t('Extra-large (xl)'),
+      'fullscreen' => t('Fullscreen'),
+      'fullscreen-md-down' => t('Fullscreen md down'),
+      'fullscreen-lg-down' => t('Fullscreen lg down'),
+      'fullscreen-xl-down' => t('Fullscreen xl down'),
+      'fullscreen-xxl-down' => t('Fullscreen xxl down'),
+    ],
+  ];
 
 
   // Navigation header --------------------------------------------------------.

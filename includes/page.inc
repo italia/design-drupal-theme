@@ -49,6 +49,10 @@ function bootstrap_italia_preprocess_page(&$variables) {
       $variables['socials'][$low_social]['url'] = theme_get_setting($low_social);
     }
   }
+  // Search
+  $variables['search_type'] = theme_get_setting('search_type');
+  $variables['search_page_url'] = theme_get_setting('search_page_url');
+  $variables['search_modal_size'] = theme_get_setting('search_modal_size');
 
   // Navigation Settings.
   $variables['navigation_header_container_type'] = theme_get_setting('navigation_header_container_type');
