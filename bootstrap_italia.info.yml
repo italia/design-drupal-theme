@@ -10,6 +10,8 @@ engine: twig
 logo: logo.svg
 screenshot: screenshot.png
 
+hidden: true
+
 # https://www.drupal.org/docs/theming-drupal/creating-sub-themes#s-inheriting-theme-regions
 regions:
   page_top: "Page top" # Don't remove
