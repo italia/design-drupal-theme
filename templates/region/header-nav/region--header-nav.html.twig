@@ -1,0 +1,176 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  {% set _header_nav_id = region~'-main-navbar' %}
+
+  <nav class="navbar navbar-expand-{{ navigation_header_breakpoint_expand ?: 'lg' }} has-megamenu" aria-label="{{ 'Main navigation'|trans }}" role="navigation">
+    <button
+      class="custom-navbar-toggler"
+      type="button"
+      aria-controls="{{ _header_nav_id }}"
+      aria-expanded="false"
+      aria-label="{{ 'Show/hide navigation bar'|trans }}"
+      data-bs-target="#{{ _header_nav_id }}"
+      data-bs-toggle="navbarcollapsible"
+    >
+      {% include '@bi-bcl/icon/icon.html.twig' with {
+        name: 'it-burger'
+      } %}
+    </button>
+    <div class="navbar-collapsable" id="{{ _header_nav_id }}" style="display: none;">
+      <div class="overlay" style="display: none;"></div>
+      <div class="close-div">
+        <button class="btn close-menu" type="button">
+          <span class="visually-hidden">{{ 'Hide navigation'|trans }}</span>
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-close-big'
+          } %}
+        </button>
+      </div>
+      <div class="menu-wrapper">
+
+{#        {{ content }}#}
+
+        <!-- Main nav -->
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link active" href="#" aria-current="page"><span>Link 1</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" aria-disabled="true"><span>Link 2</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span>Link 3</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><span>Link 4</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavDropdownC1">
+              <span>Dropdown</span>
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-expand',
+                size: 'xs'
+              } %}
+            </a>
+            <div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdownC1">
+              <div class="link-list-wrapper">
+                <div class="link-list-heading">Sezione</div>
+                <ul class="link-list">
+                  <li>
+                    <a class="dropdown-item list-item" href="#"><span>Link lista 1</span></a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item list-item" href="#"><span>Link lista 2</span></a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item list-item" href="#"><span>Link lista 3</span></a>
+                  </li>
+                  <li><span class="divider"></span></li>
+                  <li>
+                    <a class="dropdown-item list-item" href="#"><span>Link lista 4</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown megamenu">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavMegamenuC1">
+              <span>Megamenu</span>
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-expand',
+                size: 'xs'
+              } %}
+            </a>
+            <div class="dropdown-menu" role="region" aria-labelledby="mainNavMegamenuC1">
+              <div class="row">
+                <div class="col-12 col-lg-4">
+                  <div class="link-list-wrapper">
+                    <div class="link-list-heading">Sezione 1</div>
+                    <ul class="link-list">
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 1</span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 2</span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 3</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="link-list-wrapper">
+                    <ul class="link-list">
+                      <li>
+                        <div class="link-list-heading">Sezione 2</div>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 4</span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 5</span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 6</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="link-list-wrapper">
+                    <ul class="link-list">
+                      <li>
+                        <div class="link-list-heading">Sezione 3</div>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 7</span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 8</span></a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item list-item" href="#"><span>Link lista 9</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Secondary nav -->
+        <ul class="navbar-nav navbar-secondary">
+          <li class="nav-item">
+            <a class="nav-link" href="/docs/esempi/comuni/template-argomenti-argomento/"> Argomento 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> Argomento 2</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " href="/docs/esempi/comuni/template-argomenti">
+              <span class="fw-bold">Tutti gli argomenti...</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+{% endif %}

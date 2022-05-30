@@ -134,7 +134,7 @@ class Helper {
   public static function getBreakpoints($withLabel = FALSE): array {
     if ($withLabel) {
       return [
-        '' => t('Extra small (auto, nessuno o <576px)'),
+        '' => t('Extra small (<576px)'),
         'sm' => t('Small (>= 576px)'),
         'md' => t('Medium (>= 768px)'),
         'lg' => t('Large (>= 992px)'),
