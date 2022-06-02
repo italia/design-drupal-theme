@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Template for link-list recursive component.
+ * Template for link-list recursive component, reccomended for multilevel vertical menu.
  * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link/#liste-annidate
  * Last review: 2.0.0-rc4
  *
@@ -35,7 +35,13 @@
  *   - Increment text size on only active items (not enable both with large)
  * - active_items_bold (boolean) (default: false)
  *   - Increment text weight on only active items (not enable both with bold)
+ * - first_level_large (boolean) (default: false)
+ *   - Increment text size on first level items (not enable both with large)
+ * - first_level_bold (boolean) (default: false)
+ *   - Increment text weight on first level items (not enable both with bold)
  * - active_assistive_text (string) (default: 'Active')
+ * - indent_sub_items (string) (default: '')
+ *   - indent link-sublist if contains other levels. Options ['1rem', '24px', '...']
  * - icon_position (string) (default: '')
  *   - options ["left", "right"]
  * - icon_name (string) (default: 'it-chevron-right')
@@ -77,7 +83,10 @@
   {% set _bold = bold ?? false %}
   {% set _active_items_large = active_items_large ?? false %}
   {% set _active_items_bold = active_items_bold ?? false %}
+  {% set _first_level_large = first_level_large ?? false %}
+  {% set _first_level_bold = first_level_bold ?? false %}
   {% set _active_assistive_text = active_assistive_text|default('Active'|trans) %}
+  {% set _indent_sub_items = indent_sub_items|default('') %}
   {% set _icon_position = icon_position|default('') %}
   {% set _icon_name = icon_name|default('it-expand') %}
   {% set _icon_color = icon_color|default('primary') %}
@@ -121,14 +130,14 @@
   {% set list_attributes = list_attributes.addClass(_classes_list) %}
 
   {# Component #}
-  <div {{ wrapper_attributes }}>
-    <ul {{ list_attributes }}>
+  <div{{ wrapper_attributes }}>
+    <ul{{ list_attributes }}>
       {{ menus.menu_links(
         items, attributes, 0,
         _show_link_description, _link_label_wrapper, _link_label_wrapper_tag,
-        _large, _bold, _active_items_large, _active_items_bold,
+        _large, _bold, _active_items_large, _active_items_bold, _first_level_large, _first_level_bold,
         _icon_position, _icon_name, _icon_color,
-        _active_assistive_text
+        _active_assistive_text, _indent_sub_items
       ) }}
     </ul>
   </div>
@@ -137,9 +146,9 @@
 {% macro menu_links(
   items, attributes, menu_level,
   show_link_description, link_label_wrapper, link_label_wrapper_tag,
-  large, bold, active_items_large, active_items_bold,
+  large, bold, active_items_large, active_items_bold, first_level_large, first_level_bold,
   icon_position, icon_name, icon_color,
-  active_assistive_text
+  active_assistive_text, indent_sub_items
   ) %}
   {% import _self as menus %}
 
@@ -161,8 +170,10 @@
             item.in_active_trail and active_items_bold and not bold ? 'medium',
             large ? 'large',
             bold ? 'medium',
+            first_level_large and menu_level == 0 ? 'large',
+            first_level_bold and menu_level == 0 ? 'medium',
             item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
-            item.is_expanded and icon_position is empty ? 'icon-right',
+            item.is_expanded and icon_position is empty ? '{#icon-right#}',
             not item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
           ] %}
 
@@ -186,9 +197,9 @@
           {% endif %}
 
           <a{{ item_attributes }}>
-            {% if icon_position is not empty or item.is_expanded %}
+{#            {% if icon_position is not empty or item.is_expanded %}
               <span class="list-item-title-icon-wrapper">
-            {% endif %}
+            {% endif %}#}
 
               {% set _item_icon_name = item.is_expanded ? 'it-expand' : icon_name %}
               {% set _item_icon_position = icon_position is empty and item.is_expanded ? 'right' : icon_position %}
@@ -217,9 +228,9 @@
                 } %}
               {% endif %}
 
-            {% if icon_position is not empty or item.is_expanded %}
+{#            {% if icon_position is not empty or item.is_expanded %}
               </span>
-            {% endif %}
+            {% endif %}#}
 
             {% if item.original_link.getDescription() and show_link_description %}
               <p>{{ item.original_link.getDescription() }}</p>
@@ -230,13 +241,16 @@
 
         {# Recursive link-list #}
         {% if item.below %}
-          <ul id="{{ uuid|clean_id }}" class="link-sublist collapse {{ item.in_active_trail ? 'show' }}">
+          <ul id="{{ uuid|clean_id }}"
+              class="link-sublist collapse{{ item.in_active_trail ? ' show' }}"
+              {% if indent_sub_items is not empty %}style="margin-left: {{ indent_sub_items }}"{% endif %}
+          >
             {{ menus.menu_links(
               item.below, attributes, menu_level + 1,
-              show_link_description, link_label_wrapper, link_label_wrapper,
-              large, bold, active_items_large, active_items_bold,
+              show_link_description, link_label_wrapper, link_label_wrapper_tag,
+              large, bold, active_items_large, active_items_bold, first_level_large, first_level_bold,
               icon_position, icon_name, icon_color,
-              active_assistive_text
+              active_assistive_text, indent_sub_items
             ) }}
           </ul>
         {% endif %}

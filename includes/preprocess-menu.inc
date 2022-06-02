@@ -25,4 +25,15 @@ function bootstrap_italia_preprocess_menu(&$variables) {
       $variables['slim_header_action_username'] = $account->getDisplayName();
     }
   }
+  // Menu in main navbar.
+  if (isset($variables['attributes']['data-block']['region']) &&
+    $variables['attributes']['data-block']['region'] == 'header_nav'
+  ) {
+    $variables['navigation_header_show_link_description'] = (bool) theme_get_setting('navigation_header_show_link_description');
+    $variables['navigation_header_active_items_large'] = (bool) theme_get_setting('navigation_header_active_items_large');
+    $variables['navigation_header_active_items_bold'] = (bool) theme_get_setting('navigation_header_active_items_bold');
+    $variables['navigation_header_megamenu_columns_lg'] = theme_get_setting('navigation_header_megamenu_columns_lg');
+    $variables['navigation_header_megamenu_columns_xl'] = theme_get_setting('navigation_header_megamenu_columns_xl');
+  }
+
 }

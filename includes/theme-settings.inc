@@ -38,20 +38,20 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#weight' => 0,
   ];
   // Slim header appearance.
-  $form['slim_header']['slim_header_appearance'] = [
+  $form['slim_header']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
     '#open' => TRUE,
     '#group' => 'slim_header',
   ];
-  $form['slim_header']['slim_header_appearance']['slim_header_container_type'] = [
+  $form['slim_header']['appearance']['slim_header_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
     '#description' => t('Choose container type. Default: Container fixed'),
     '#default_value' => theme_get_setting('slim_header_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
-  $form['slim_header']['slim_header_appearance']['slim_header_light'] = [
+  $form['slim_header']['appearance']['slim_header_light'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable light variant'),
     '#description' => t("Default: unchecked"),
@@ -80,13 +80,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('government_entity_url'),
   ];
   // Slim header Action.
-  $form['slim_header']['slim_header_action'] = [
+  $form['slim_header']['action'] = [
     '#type' => 'details',
     '#title' => t('Login button and user menu'),
     '#open' => TRUE,
     '#group' => 'slim_header',
   ];
-  $form['slim_header']['slim_header_action']['slim_header_action_type'] = [
+  $form['slim_header']['action']['slim_header_action_type'] = [
     '#type' => 'select',
     '#title' => t('Login button type'),
     '#description' => t('Choose login button variant. Default: Full responsive'),
@@ -96,26 +96,26 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'full' => t('Full responsive'),
     ],
   ];
-  $form['slim_header']['slim_header_action']['slim_header_action_url'] = [
+  $form['slim_header']['action']['slim_header_action_url'] = [
     '#type' => 'textfield',
     '#title' => t('Login page URL'),
     '#description' => t("Fill if you use a custom login page. Default: /user/login"),
     '#placeholder' => t('/user/login'),
     '#default_value' => theme_get_setting('slim_header_action_url'),
   ];
-  $form['slim_header']['slim_header_action']['slim_header_action_icon'] = [
+  $form['slim_header']['action']['slim_header_action_icon'] = [
     '#type' => 'checkbox',
     '#title' => t('Show icon'),
     '#description' => t("Default: checked"),
     '#default_value' => theme_get_setting('slim_header_action_icon'),
   ];
-  $form['slim_header']['slim_header_action']['slim_header_action_username'] = [
+  $form['slim_header']['action']['slim_header_action_username'] = [
     '#type' => 'checkbox',
     '#title' => t('Show username'),
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('slim_header_action_username'),
   ];
-  $form['slim_header']['slim_header_action']['slim_header_action_dark'] = [
+  $form['slim_header']['action']['slim_header_action_dark'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable dark mode to user logged menu'),
     '#description' => t("Default: checked"),
@@ -132,73 +132,73 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#weight' => 0,
   ];
   // Center header appearance.
-  $form['center_header']['center_header_appearance'] = [
+  $form['center_header']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
     '#open' => TRUE,
     '#group' => 'center_header',
   ];
-  $form['center_header']['center_header_appearance']['center_header_container_type'] = [
+  $form['center_header']['appearance']['center_header_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
     '#description' => t('Choose container type. Default: Container fixed'),
     '#default_value' => theme_get_setting('center_header_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
-  $form['center_header']['center_header_appearance']['center_header_light'] = [
+  $form['center_header']['appearance']['center_header_light'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable light variant'),
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('center_header_light'),
   ];
-  $form['center_header']['center_header_appearance']['center_header_small'] = [
+  $form['center_header']['appearance']['center_header_small'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable small variant'),
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('center_header_small'),
   ];
   // Center header branding.
-  $form['center_header']['center_header_branding'] = [
+  $form['center_header']['branding'] = [
     '#type' => 'details',
     '#title' => t('Branding block'),
     '#open' => TRUE,
     '#group' => 'center_header',
   ];
-  $form['center_header']['center_header_branding']['svg_logo_id'] = [
+  $form['center_header']['branding']['svg_logo_id'] = [
     '#type' => 'textfield',
     '#title' => t('Svg logo: group id'),
     '#description' => t("Choose your custom id ('symbol' tag of svg file). Default: 'logo'."),
     '#placeholder' => t('logo'),
     '#default_value' => theme_get_setting('svg_logo_id'),
   ];
-  $form['center_header']['center_header_branding']['svg_logo_box'] = [
+  $form['center_header']['branding']['svg_logo_box'] = [
     '#type' => 'textfield',
     '#title' => t('Svg logo: view box'),
     '#description' => t("Choose your custom viewBox. Example: 0 0 100 82. Default: empty"),
     '#placeholder' => t('0 0 82 82'),
     '#default_value' => theme_get_setting('svg_logo_box'),
   ];
-  $form['center_header']['center_header_branding']['svg_logo_box_sticky'] = [
+  $form['center_header']['branding']['svg_logo_box_sticky'] = [
     '#type' => 'textfield',
     '#title' => t('Svg logo: view box when header is sticky'),
     '#description' => t("Choose your custom viewBox. Example: 20 0 100 82. Default: empty"),
     '#placeholder' => t('0 0 82 82'),
     '#default_value' => theme_get_setting('svg_logo_box_sticky'),
   ];
-  $form['center_header']['center_header_branding']['image_logo_fluid'] = [
+  $form['center_header']['branding']['image_logo_fluid'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable responsive feature'),
     '#description' => t("If checked and you have loaded a raster image, enable the 'img-fluid' feature. Default: unchecked"),
     '#default_value' => theme_get_setting('image_logo_fluid'),
   ];
   // Center header social network.
-  $form['center_header']['social_settings'] = [
+  $form['center_header']['social'] = [
     '#type' => 'details',
     '#title' => t('Social networks'),
     '#open' => TRUE,
     '#group' => 'center_header',
   ];
-  $form['center_header']['social_settings']['social_new_window'] = [
+  $form['center_header']['social']['social_new_window'] = [
     '#type' => 'checkbox',
     '#title' => t('Open in new window'),
     '#description' => t("Open social in new window. Default: unchecked"),
@@ -206,7 +206,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
   foreach (Helper::getSocialItems() as $social) {
     $low_social = strtolower($social);
-    $form['center_header']['social_settings'][$low_social] = [
+    $form['center_header']['social'][$low_social] = [
       '#type' => 'url',
       '#title' => t('URL @social', ['@social' => $social]),
       '#description' => t("Fill with @social URL.", ['@social' => $social]),
@@ -214,13 +214,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     ];
   }
   // Center header search.
-  $form['center_header']['search_settings'] = [
+  $form['center_header']['search'] = [
     '#type' => 'details',
     '#title' => t('Search settings'),
     '#open' => TRUE,
     '#group' => 'center_header',
   ];
-  $form['center_header']['search_settings']['search_type'] = [
+  $form['center_header']['search']['search_type'] = [
     '#type' => 'select',
     '#title' => t('Search type'),
     '#description' => t('Choose search type.'),
@@ -231,14 +231,14 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'page' => t('Redirect to search page'),
     ],
   ];
-  $form['center_header']['search_settings']['search_page_url'] = [
+  $form['center_header']['search']['search_page_url'] = [
     '#type' => 'textfield',
     '#title' => t('Search URL page'),
     '#description' => t("Fill if you choose 'Redirect to search page'. Default: 'search/node'"),
     '#placeholder' => t('/search/node'),
     '#default_value' => theme_get_setting('search_page_url'),
   ];
-  $form['center_header']['search_settings']['search_modal_size'] = [
+  $form['center_header']['search']['search_modal_size'] = [
     '#type' => 'select',
     '#title' => t('Modal size'),
     '#description' => t('Chose modal size. Default: fullscreen.'),
@@ -267,43 +267,92 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#weight' => 0,
   ];
   // Navigation header appearance.
-  $form['navigation_header']['navigation_header_appearance'] = [
+  $form['navigation_header']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
     '#open' => TRUE,
     '#group' => 'navigation_header',
   ];
-  $form['navigation_header']['navigation_header_appearance']['navigation_header_container_type'] = [
+  $form['navigation_header']['appearance']['navigation_header_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
     '#description' => t('Choose container type. Default: Container fixed'),
     '#default_value' => theme_get_setting('navigation_header_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
-  $form['navigation_header']['navigation_header_appearance']['navigation_header_breakpoint_expand'] = [
+  $form['navigation_header']['appearance']['navigation_header_breakpoint_expand'] = [
     '#type' => 'select',
     '#title' => t('Responsive collapsing'),
     '#description' => t("Choose from which breakpoint to expand the navigation bar. Default: Large (>= 992px)"),
     '#default_value' => theme_get_setting('navigation_header_breakpoint_expand'),
     '#options' => Helper::getBreakpoints(TRUE),
   ];
-  $form['navigation_header']['navigation_header_appearance']['navigation_header_light_desktop'] = [
+  $form['navigation_header']['appearance']['navigation_header_light_desktop'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable light variant to desktop'),
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('navigation_header_light_desktop'),
   ];
-  $form['navigation_header']['navigation_header_appearance']['navigation_header_dark_mobile'] = [
+  $form['navigation_header']['appearance']['navigation_header_dark_mobile'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable dark variant to mobile'),
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('navigation_header_dark_mobile'),
   ];
-  $form['navigation_header']['navigation_header_appearance']['navigation_header_sticky'] = [
+  $form['navigation_header']['appearance']['navigation_header_sticky'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable sticky on top'),
     '#description' => t("Default: checked"),
     '#default_value' => theme_get_setting('navigation_header_sticky'),
+  ];
+  // Navigation header menu.
+  $form['navigation_header']['navbar'] = [
+    '#type' => 'details',
+    '#title' => t('Navbar settings'),
+    '#open' => TRUE,
+    '#group' => 'navigation_header',
+  ];
+  $form['navigation_header']['navbar']['navigation_header_show_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Show the description of the link"),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('navigation_header_show_link_description'),
+  ];
+  $form['navigation_header']['navbar']['navigation_header_active_items_large'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable the "large" variant for active links'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('navigation_header_active_items_large'),
+  ];
+  $form['navigation_header']['navbar']['navigation_header_active_items_bold'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Enable the bold variant for active links"),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('navigation_header_active_items_bold'),
+  ];
+  $form['navigation_header']['navbar']['navigation_header_megamenu_columns_lg'] = [
+    '#type' => 'select',
+    '#title' => t('Megamenu columns in large breakpoint'),
+    '#description' => t('Choose how many columns to place the megamenu on.  Default: 3 Columns.'),
+    '#default_value' => theme_get_setting('navigation_header_megamenu_columns_lg'),
+    '#options' => [
+      '' => t('Default'),
+      'col-lg' => t('All sub menus in one row'),
+      'col-lg-4' => t('3 Columns'),
+      'col-lg-3' => t('4 Columns'),
+    ],
+  ];
+  $form['navigation_header']['navbar']['navigation_header_megamenu_columns_xl'] = [
+    '#type' => 'select',
+    '#title' => t('Megamenu columns in extra-large breakpoint'),
+    '#description' => t('Choose how many columns to place the megamenu on.  Default: 3 Columns.'),
+    '#default_value' => theme_get_setting('navigation_header_megamenu_columns_xl'),
+    '#options' => [
+      '' => t('Default'),
+      'col-xl' => t('All sub menus in one row'),
+      'col-xl-3' => t('4 Columns'),
+      'col-xl-2' => t('6 Columns'),
+    ],
   ];
 
   // Libraries Settings -------------------------------------------------------.

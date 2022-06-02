@@ -57,10 +57,8 @@
 
   {{ page.help }}
 
-  <main role="main">
+  <main class="container" role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-
-    {% include '@bi-bcl/all-demo.html.twig' %}
 
     <div class="layout-content">
       {{ page.content }}
@@ -79,6 +77,8 @@
     {% endif %}
 
   </main>
+
+  {% include '@bi-bcl/all-demo.html.twig' %}
 
   {% if page.footer %}
     <footer role="contentinfo">

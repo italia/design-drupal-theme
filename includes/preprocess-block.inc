@@ -18,6 +18,7 @@ use Drupal\block\Entity\Block;
 function bootstrap_italia_preprocess_block(&$variables) {
   // All blocks.
   if (isset($variables['elements']['#id'])) {
+    // Add region and id to data-block
     $region = Block::load($variables['elements']['#id'])->getRegion();
     if (!empty($region)) {
       $variables['content']['#attributes']['data-block']['region'] = $region;
@@ -25,8 +26,8 @@ function bootstrap_italia_preprocess_block(&$variables) {
     if (!empty($region) and $region == 'header_slim_menu') {
       $variables['configuration']['government_entity_name'] = theme_get_setting('government_entity_name');
     }
+    $variables['content']['#attributes']['data-block']['id'] = $variables['elements']['#id'];
   }
-  $variables['content']['#attributes']['data-block']['id'] = $variables['elements']['#id'];
 
   // Block 'system_brandig_block'.
   if ($variables['base_plugin_id'] == 'system_branding_block') {

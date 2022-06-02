@@ -1,0 +1,191 @@
+{#
+/**
+ * @file
+ * Template for navbar-nav component, reccomended for multilevel horizontal megamenu.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/megamenu/
+ * Last review: 2.0.0-rc4
+ *
+ * Parameters:
+ * - menu_name (string) mandatory
+ *   - The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ * - attributes (object) (default: '')
+ *   - options ["option1", "option2", "option3", "option4"]
+ * - active_assistive_text (string) (default: 'Current page')
+ * - show_link_description (boolean) (default: false)
+ * - active_items_large (boolean) (default: false)
+ * - active_items_bold (boolean) (default: false)
+ * - megamenu_responsive_columns (string) (default: 'col-lg-4')
+ *
+ * Examples:
+   {% include '@bi-bcl/megamenu/navbar-nav.html.twig' with {
+      menu_name: menu_name,
+      items: items,
+      attributes: attributes
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _active_assistive_text = active_assistive_text|default('Current page'|trans) %}
+  {% set _show_link_description = show_link_description ?? false %}
+  {% set _active_items_large = active_items_large ?? false %}
+  {% set _active_items_bold = active_items_bold ?? false %}
+  {% set _megamenu_responsive_columns = megamenu_responsive_columns|default('col-lg-4') %}
+
+  {# Component #}
+  <ul{{ attributes.addClass('navbar-nav') }}>
+    {% if items %}
+      {% for item in items %}
+
+        {# Megamenu check - If menu tree contains megamenu #}
+        {% set megamenu = false %}
+        {% for i in item.below %}
+          {# If any of the second levels contain a third, the result will be "true". #}
+          {% if megamenu == false %}
+            {% set megamenu = i.is_expanded ? true %}
+          {% endif %}
+        {% endfor %}
+
+        {% if item.url.isRouted and item.url.routeName == '<nolink>' %}
+          {% set menu_item_type = 'nolink' %}
+        {% elseif item.url.isRouted and item.url.routeName == '<button>' %}
+          {% set menu_item_type = 'button' %}
+        {% else %}
+          {% set menu_item_type = 'link' %}
+        {% endif %}
+
+        {% set item_classes = [
+          'nav-item',
+          'nav-item__menu-' ~ menu_name|clean_class,
+          'nav-item__type-' ~ menu_item_type,
+          item.in_active_trail ? 'active',
+          item.below ? 'dropdown',
+          megamenu ? 'megamenu'
+        ]
+        %}
+
+        {% set link_classes = [
+          'nav-link',
+          'nav-link__menu-' ~ menu_name|clean_class,
+          'nav-link__type-' ~ menu_item_type,
+          item.in_active_trail ? 'active',
+          item.below ? 'dropdown-toggle',
+        ]
+        %}
+
+        <li{{ item.attributes.addClass(item_classes|merge(['nav-item__level-0'])) }}>
+          {% set link_title %}
+            <span>{{ item.title }}</span>
+          {% endset %}
+
+          {% if item.below %}
+            {% set aria_id = ('dropdown-' ~ random())|clean_id %}
+            {% set dropdown_toggle %}
+              {{ link_title }}
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-expand',
+                size: 'xs'
+              } %}
+            {% endset %}
+            {{ link(dropdown_toggle, item.url, {
+              'class': link_classes,
+              'data-bs-toggle': 'dropdown',
+              'aria-expanded': 'false',
+              'id': aria_id
+            }) }}
+          <div class="dropdown-menu" role="region" aria-labelledby="{{ aria_id }}">
+
+            {% set dropdown_classes = [
+              'dropdown-item',
+              'list-item'
+            ] %}
+
+            {% if megamenu %}
+              <div class="row">
+              {% for item in item.below %}
+                <div class="col-12 {{ _megamenu_responsive_columns }}">
+                  <div class="link-list-wrapper">
+                    <div class="link-list-heading">{{ item.title }}</div>
+                    <ul class="link-list">
+                      {% for item in item.below %}
+                        <li>
+                          {% set dropdown_title %}
+                            <span>{{ item.title }}</span>
+                            {% if item.original_link.getDescription() and _show_link_description %}
+                              <p>{{ item.original_link.getDescription() }}</p>
+                            {% endif %}
+                            {% if item.in_active_trail %}
+                              <span class="visually-hidden">{{ _active_assistive_text }}</span>
+                            {% endif %}
+                          {% endset %}
+                          {{ link(dropdown_title, item.url, {
+                            'class': dropdown_classes|merge([
+                              'nav-link__level-2',
+                              item.in_active_trail ? 'active',
+                              item.in_active_trail and _active_items_large ? 'large',
+                              item.in_active_trail and _active_items_bold ? 'medium',
+                            ])
+                          }) }}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              {% endfor %}
+              </div>{# End megamenu #}
+            {% else %}
+              <div class="link-list-wrapper">
+                <ul class="link-list">
+                  {% for item in item.below %}
+                    <li>
+                      {% set dropdown_title %}
+                        <span>{{ item.title }}</span>
+                        {% if item.original_link.getDescription() and _show_link_description %}
+                          <p>{{ item.original_link.getDescription() }}</p>
+                        {% endif %}
+                        {% if item.in_active_trail %}
+                          <span class="visually-hidden">{{ _active_assistive_text }}</span>
+                        {% endif %}
+                      {% endset %}
+                      {{ link(dropdown_title, item.url, {
+                        'class': dropdown_classes|merge([
+                          'nav-link__level-1',
+                          item.in_active_trail ? 'active',
+                          item.in_active_trail and _active_items_large ? 'large',
+                          item.in_active_trail and _active_items_bold ? 'medium',
+                        ])
+                      }) }}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+            </div>{# End Dropdown. #}
+
+          {% else %}
+            {{ link(link_title, item.url, {
+              'class': link_classes|merge([
+                'nav-link__level-0',
+                item.in_active_trail ? 'active',
+              ])
+            }) }}
+          {% endif %}
+
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+{% endapply %}
+
