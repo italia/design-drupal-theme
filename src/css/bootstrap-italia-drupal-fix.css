@@ -13,7 +13,12 @@
   /*z-index: 600;*/
 }
 
-/* Fix modal when navbar is-sticky */
-.modal {
-  z-index: 100000;
+/* Fix link-list */
+.link-list-wrapper ul li a span {
+  line-height: inherit;
 }
+
+/* Fix modal when navbar is-sticky */
+/*.modal {
+  z-index: 100000;
+}*/

@@ -10,10 +10,13 @@
 
             // fix for logo
             let logoElementSelector = '.it-brand-wrapper.cloned-element .icon'
-            let stickyViewboxData = document.querySelector(logoElementSelector).dataset.stickyViewbox
-            if (stickyViewboxData) {
-              document.querySelector(logoElementSelector)
-                .setAttribute('viewBox', stickyViewboxData);
+            let logoElement = document.querySelector(logoElementSelector)
+            if (logoElement) {
+              let stickyViewboxData = logoElement.dataset.stickyViewbox
+              if (stickyViewboxData) {
+                document.querySelector(logoElementSelector)
+                  .setAttribute('viewBox', stickyViewboxData);
+              }
             }
 
             // fix for search button
@@ -23,10 +26,11 @@
             let searchModalElement = document.querySelector(searchModalSelector)
 
             if (searchButtonElement && searchModalElement) {
+              let newID = 'modal-header-center-search-cloned'
               document.querySelector(searchModalSelector)
-                .setAttribute('id', 'modal-header-center-search-cloned');
+                .setAttribute('id', newID);
               document.querySelector(searchButtonSelector)
-                .setAttribute('data-bs-target', '#modal-header-center-search-cloned');
+                .setAttribute('data-bs-target', '#'+newID);
             }
           }
         }

@@ -20,7 +20,16 @@
  * @ingroup themeable
  */
 #}
+{# Set default settings. #}
 {% set navigation_header_megamenu_columns_lg = navigation_header_megamenu_columns_lg ?: 'col-lg-4' %}
+{% set navigation_header_main_menu_name = navigation_header_main_menu_name ?: 'main' %}
+
+{# Detect secondary menu. #}
+{% if navigation_header_main_menu_name != menu_name %}
+  {% set attributes = attributes.addClass('navbar-secondary') %}
+{% endif %}
+
+{# Component. #}
 {% include '@bi-bcl/megamenu/navbar-nav.html.twig' with {
   menu_name: menu_name,
   items: items,
@@ -29,5 +38,6 @@
   show_link_description: navigation_header_show_link_description,
   active_items_large: navigation_header_active_items_large,
   active_items_bold: navigation_header_active_items_bold,
-  megamenu_responsive_columns: (navigation_header_megamenu_columns_lg ~ ' ' ~ navigation_header_megamenu_columns_xl)|trim
+  megamenu_responsive_columns: (navigation_header_megamenu_columns_lg ~ ' ' ~ navigation_header_megamenu_columns_xl)|trim,
+  verbose_classes: navigation_header_verbose_classes,
 } %}

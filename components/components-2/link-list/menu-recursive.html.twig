@@ -133,7 +133,7 @@
   <div{{ wrapper_attributes }}>
     <ul{{ list_attributes }}>
       {{ menus.menu_links(
-        items, attributes, 0,
+        items, attributes, 0, _menu_name,
         _show_link_description, _link_label_wrapper, _link_label_wrapper_tag,
         _large, _bold, _active_items_large, _active_items_bold, _first_level_large, _first_level_bold,
         _icon_position, _icon_name, _icon_color,
@@ -144,7 +144,7 @@
 {% endapply %}
 
 {% macro menu_links(
-  items, attributes, menu_level,
+  items, attributes, menu_level, menu_name,
   show_link_description, link_label_wrapper, link_label_wrapper_tag,
   large, bold, active_items_large, active_items_bold, first_level_large, first_level_bold,
   icon_position, icon_name, icon_color,
@@ -173,9 +173,13 @@
             first_level_large and menu_level == 0 ? 'large',
             first_level_bold and menu_level == 0 ? 'medium',
             item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
-            item.is_expanded and icon_position is empty ? '{#icon-right#}',
-            not item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
+            item.is_expanded and icon_position is empty ? 'right-icon',
+            not item.is_expanded and icon_position == 'left' ? 'icon-left',
+            not item.is_expanded and icon_position == 'right' ? 'right-icon',
           ] %}
+          {# See doc for `right-icon` or `icon-right` and
+            this issue https://github.com/italia/bootstrap-italia-next/issues/41
+          #}
 
           {% set item_attributes = item.attributes %}
 
@@ -185,21 +189,26 @@
             {% set item_attributes = item_attributes.setAttribute('title', item.original_link.getDescription()) %}
           {% endif %}
 
+          {% set aria_id = menu_name ~ '--menu-recursive--' ~ uuid|clean_id %}
+
           {% if item.is_expanded %}
             {% set item_attributes = item_attributes
-              .setAttribute('href', '#'~uuid|clean_id)
               .setAttribute('data-bs-toggle', 'collapse')
+              .setAttribute('data-bs-target', '#'~aria_id)
               .setAttribute('aria-expandend', 'false')
-              .setAttribute('aria-controls', uuid|clean_id)
+              .setAttribute('aria-controls', aria_id)
+              .setAttribute('href', aria_id)
             %}
           {% else %}
             {% set item_attributes = item_attributes.setAttribute('href', item.url|render()) %}
           {% endif %}
 
+          {% set _enable_icon_wrapper = icon_position is not empty or item.is_expanded ? true : false %}
+
           <a{{ item_attributes }}>
-{#            {% if icon_position is not empty or item.is_expanded %}
+            {% if _enable_icon_wrapper %}
               <span class="list-item-title-icon-wrapper">
-            {% endif %}#}
+            {% endif %}
 
               {% set _item_icon_name = item.is_expanded ? 'it-expand' : icon_name %}
               {% set _item_icon_position = icon_position is empty and item.is_expanded ? 'right' : icon_position %}
@@ -207,12 +216,14 @@
               {% if _item_icon_position == 'left' %}
                 {% include '@bi-bcl/icon/icon.html.twig' with {
                   name: _item_icon_name,
-                  color: icon_color
+                  color: icon_color,
+                  size: 'sm',
+                  icon_classes: ['left']
                 } %}
               {% endif %}
 
               {% if link_label_wrapper %}
-                <{{ link_label_wrapper_tag }}>{{ item.title }}</{{ link_label_wrapper_tag }}>
+                <{{ link_label_wrapper_tag }} class="list-item-title">{{ item.title }}</{{ link_label_wrapper_tag }}>
               {% else %}
                 {{ item.title }}
               {% endif %}
@@ -224,13 +235,15 @@
               {% if _item_icon_position == 'right' %}
                 {% include '@bi-bcl/icon/icon.html.twig' with {
                   name: _item_icon_name,
-                  color: icon_color
+                  color: icon_color,
+                  size: 'sm',
+                  icon_classes: ['right']
                 } %}
               {% endif %}
 
-{#            {% if icon_position is not empty or item.is_expanded %}
+            {% if _enable_icon_wrapper %}
               </span>
-            {% endif %}#}
+            {% endif %}
 
             {% if item.original_link.getDescription() and show_link_description %}
               <p>{{ item.original_link.getDescription() }}</p>
@@ -241,12 +254,12 @@
 
         {# Recursive link-list #}
         {% if item.below %}
-          <ul id="{{ uuid|clean_id }}"
+          <ul id="{{ aria_id }}"
               class="link-sublist collapse{{ item.in_active_trail ? ' show' }}"
               {% if indent_sub_items is not empty %}style="margin-left: {{ indent_sub_items }}"{% endif %}
           >
             {{ menus.menu_links(
-              item.below, attributes, menu_level + 1,
+              item.below, attributes, menu_level + 1, menu_name,
               show_link_description, link_label_wrapper, link_label_wrapper_tag,
               large, bold, active_items_large, active_items_bold, first_level_large, first_level_bold,
               icon_position, icon_name, icon_color,

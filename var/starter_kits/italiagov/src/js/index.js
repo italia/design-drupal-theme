@@ -8,12 +8,12 @@
  */
 
 // Import Bootstrap 5.
-import { Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover, ScrollSpy, Tab, Toast, Tooltip } from 'bootstrap' //importing bootstrap.bundle throws a rollup compiling warning/error
+import { Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover, ScrollSpy, Tab, Toast, Tooltip } from 'bootstrap'
 
 // Import Bootstrap Italia.
 import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin'
 import * as fontsLoader from 'bootstrap-italia/src/js/plugins/fonts-loader'
-import * as icons from 'bootstrap-italia/src/js/icons.js'
+import * as icons from 'bootstrap-italia/src/js/icons'
 import * as headerSticky from 'bootstrap-italia/src/js/plugins/header-sticky'
 
 loadPlugin(icons)
@@ -45,7 +45,7 @@ import {
   Masonry,
   List,
   Transfer,
-} from 'bootstrap-italia/src/js/bootstrap-italia'
+} from 'bootstrap-italia/src/js/bootstrap-italia.esm'
 
 window.bootstrap = {
   Alert,

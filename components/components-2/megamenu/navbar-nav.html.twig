@@ -26,6 +26,8 @@
  * - active_items_large (boolean) (default: false)
  * - active_items_bold (boolean) (default: false)
  * - megamenu_responsive_columns (string) (default: 'col-lg-4')
+ * - verbose_classes (boolean) (default: false)
+ *   - Print more classes
  *
  * Examples:
    {% include '@bi-bcl/megamenu/navbar-nav.html.twig' with {
@@ -43,11 +45,12 @@
   {% set _active_items_large = active_items_large ?? false %}
   {% set _active_items_bold = active_items_bold ?? false %}
   {% set _megamenu_responsive_columns = megamenu_responsive_columns|default('col-lg-4') %}
+  {% set _verbose_classes = verbose_classes ?? false %}
 
   {# Component #}
   <ul{{ attributes.addClass('navbar-nav') }}>
     {% if items %}
-      {% for item in items %}
+      {% for uuid, item in items %}
 
         {# Megamenu check - If menu tree contains megamenu #}
         {% set megamenu = false %}
@@ -68,8 +71,8 @@
 
         {% set item_classes = [
           'nav-item',
-          'nav-item__menu-' ~ menu_name|clean_class,
-          'nav-item__type-' ~ menu_item_type,
+          _verbose_classes ? 'nav-item__menu-' ~ menu_name|clean_class,
+          _verbose_classes ? 'nav-item__type-' ~ menu_item_type,
           item.in_active_trail ? 'active',
           item.below ? 'dropdown',
           megamenu ? 'megamenu'
@@ -78,20 +81,20 @@
 
         {% set link_classes = [
           'nav-link',
-          'nav-link__menu-' ~ menu_name|clean_class,
-          'nav-link__type-' ~ menu_item_type,
+          _verbose_classes ? 'nav-link__menu-' ~ menu_name|clean_class,
+          _verbose_classes ? 'nav-link__type-' ~ menu_item_type,
           item.in_active_trail ? 'active',
           item.below ? 'dropdown-toggle',
         ]
         %}
 
-        <li{{ item.attributes.addClass(item_classes|merge(['nav-item__level-0'])) }}>
+        <li{{ item.attributes.addClass(item_classes|merge([_verbose_classes ? 'nav-item__level-0'])) }}>
           {% set link_title %}
             <span>{{ item.title }}</span>
           {% endset %}
 
           {% if item.below %}
-            {% set aria_id = ('dropdown-' ~ random())|clean_id %}
+            {% set aria_id = menu_name ~ '--navbar-nav--' ~ uuid|clean_id %}
             {% set dropdown_toggle %}
               {{ link_title }}
               {% include '@bi-bcl/icon/icon.html.twig' with {
@@ -132,7 +135,7 @@
                           {% endset %}
                           {{ link(dropdown_title, item.url, {
                             'class': dropdown_classes|merge([
-                              'nav-link__level-2',
+                              _verbose_classes ? 'nav-link__level-2',
                               item.in_active_trail ? 'active',
                               item.in_active_trail and _active_items_large ? 'large',
                               item.in_active_trail and _active_items_bold ? 'medium',
@@ -161,7 +164,7 @@
                       {% endset %}
                       {{ link(dropdown_title, item.url, {
                         'class': dropdown_classes|merge([
-                          'nav-link__level-1',
+                          _verbose_classes ? 'nav-link__level-1',
                           item.in_active_trail ? 'active',
                           item.in_active_trail and _active_items_large ? 'large',
                           item.in_active_trail and _active_items_bold ? 'medium',
@@ -177,7 +180,7 @@
           {% else %}
             {{ link(link_title, item.url, {
               'class': link_classes|merge([
-                'nav-link__level-0',
+                _verbose_classes ? 'nav-link__level-0',
                 item.in_active_trail ? 'active',
               ])
             }) }}

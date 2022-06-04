@@ -26,6 +26,8 @@ function bootstrap_italia_preprocess_block(&$variables) {
     if (!empty($region) and $region == 'header_slim_menu') {
       $variables['configuration']['government_entity_name'] = theme_get_setting('government_entity_name');
     }
+
+    // Add id to data-block for retro-compatibility
     $variables['content']['#attributes']['data-block']['id'] = $variables['elements']['#id'];
   }
 

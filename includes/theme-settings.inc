@@ -188,7 +188,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['branding']['image_logo_fluid'] = [
     '#type' => 'checkbox',
     '#title' => t('Enable responsive feature'),
-    '#description' => t("If checked and you have loaded a raster image, enable the 'img-fluid' feature. Default: unchecked"),
+    '#description' => t("If checked and you have loaded a raster image, enable the 'img-fluid' feature. Default: checked"),
     '#default_value' => theme_get_setting('image_logo_fluid'),
   ];
   // Center header social network.
@@ -234,14 +234,14 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['search']['search_page_url'] = [
     '#type' => 'textfield',
     '#title' => t('Search URL page'),
-    '#description' => t("Fill if you choose 'Redirect to search page'. Default: 'search/node'"),
+    '#description' => t('Fill if the "Redirect to search page" mode has been chosen. Default: search/node'),
     '#placeholder' => t('/search/node'),
     '#default_value' => theme_get_setting('search_page_url'),
   ];
   $form['center_header']['search']['search_modal_size'] = [
     '#type' => 'select',
     '#title' => t('Modal size'),
-    '#description' => t('Chose modal size. Default: fullscreen.'),
+    '#description' => t('Select an option if the "Search in modal window" mode has been chosen. Default: Fullscreen.'),
     '#default_value' => theme_get_setting('search_modal_size'),
     '#options' => [
       'xs' => t('Small (xs)'),
@@ -320,15 +320,21 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
   $form['navigation_header']['navbar']['navigation_header_active_items_large'] = [
     '#type' => 'checkbox',
-    '#title' => t('Enable the "large" variant for active links'),
+    '#title' => t('Enable "large" variant for active links'),
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('navigation_header_active_items_large'),
   ];
   $form['navigation_header']['navbar']['navigation_header_active_items_bold'] = [
     '#type' => 'checkbox',
-    '#title' => t("Enable the bold variant for active links"),
+    '#title' => t('Enable "bold" variant for active links'),
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('navigation_header_active_items_bold'),
+  ];
+  $form['navigation_header']['navbar']['navigation_header_verbose_classes'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Enable classy mode"),
+    '#description' => t("Print multiple classes for each list and each link. Default: unchecked"),
+    '#default_value' => theme_get_setting('navigation_header_verbose_classes'),
   ];
   $form['navigation_header']['navbar']['navigation_header_megamenu_columns_lg'] = [
     '#type' => 'select',
@@ -336,10 +342,9 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Choose how many columns to place the megamenu on.  Default: 3 Columns.'),
     '#default_value' => theme_get_setting('navigation_header_megamenu_columns_lg'),
     '#options' => [
-      '' => t('Default'),
-      'col-lg' => t('All sub menus in one row'),
-      'col-lg-4' => t('3 Columns'),
+      '' => t('3 Columns'),
       'col-lg-3' => t('4 Columns'),
+      'col-lg' => t('All sub menus in one row'),
     ],
   ];
   $form['navigation_header']['navbar']['navigation_header_megamenu_columns_xl'] = [
@@ -348,11 +353,18 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Choose how many columns to place the megamenu on.  Default: 3 Columns.'),
     '#default_value' => theme_get_setting('navigation_header_megamenu_columns_xl'),
     '#options' => [
-      '' => t('Default'),
-      'col-xl' => t('All sub menus in one row'),
+      '' => t('3 Columns'),
       'col-xl-3' => t('4 Columns'),
       'col-xl-2' => t('6 Columns'),
+      'col-xl' => t('All sub menus in one row'),
     ],
+  ];
+  $form['navigation_header']['navbar']['navigation_header_main_menu_name'] = [
+    '#type' => 'textfield',
+    '#title' => t('Main menu machine name'),
+    '#description' => t('If there are two menus in the "Header Nav - Main Menu" region, fill in this field with the machine name of the main menu. Default: main'),
+    '#placeholder' => t('menu_machine_name'),
+    '#default_value' => theme_get_setting('navigation_header_main_menu_name'),
   ];
 
   // Libraries Settings -------------------------------------------------------.
@@ -408,7 +420,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_minified'] = [
     '#type' => 'checkbox',
-    '#title' => t('Check if you are using minified libraries.'),
+    '#title' => t('Check if you use minified libraries.'),
     '#description' => t("Default: checked"),
     '#default_value' => theme_get_setting('libraries_cdn_minified'),
   ];

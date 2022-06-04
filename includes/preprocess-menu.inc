@@ -32,8 +32,10 @@ function bootstrap_italia_preprocess_menu(&$variables) {
     $variables['navigation_header_show_link_description'] = (bool) theme_get_setting('navigation_header_show_link_description');
     $variables['navigation_header_active_items_large'] = (bool) theme_get_setting('navigation_header_active_items_large');
     $variables['navigation_header_active_items_bold'] = (bool) theme_get_setting('navigation_header_active_items_bold');
+    $variables['navigation_header_verbose_classes'] = (bool) theme_get_setting('navigation_header_verbose_classes');
     $variables['navigation_header_megamenu_columns_lg'] = theme_get_setting('navigation_header_megamenu_columns_lg');
     $variables['navigation_header_megamenu_columns_xl'] = theme_get_setting('navigation_header_megamenu_columns_xl');
+    $variables['navigation_header_main_menu_name'] = theme_get_setting('navigation_header_main_menu_name');
   }
 
 }
