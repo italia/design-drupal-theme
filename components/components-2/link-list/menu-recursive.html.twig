@@ -159,7 +159,7 @@
         {% if item.title == '<divider>' %}
           <span class="divider"></span>
 
-        {% elseif item.url|render == "<title>" %}
+        {% elseif item.url.isRouted and item.url.routeName == '<nolink>' %}
           <div class="link-list-heading">{{ item.title }}</div>
 
         {% else %}

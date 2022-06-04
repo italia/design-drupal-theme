@@ -83,6 +83,7 @@
           'nav-link',
           _verbose_classes ? 'nav-link__menu-' ~ menu_name|clean_class,
           _verbose_classes ? 'nav-link__type-' ~ menu_item_type,
+          menu_item_type == 'nolink' ? 'disabled',
           item.in_active_trail ? 'active',
           item.below ? 'dropdown-toggle',
         ]
@@ -124,23 +125,29 @@
                     <ul class="link-list">
                       {% for item in item.below %}
                         <li>
-                          {% set dropdown_title %}
-                            <span>{{ item.title }}</span>
-                            {% if item.original_link.getDescription() and _show_link_description %}
-                              <p>{{ item.original_link.getDescription() }}</p>
-                            {% endif %}
-                            {% if item.in_active_trail %}
-                              <span class="visually-hidden">{{ _active_assistive_text }}</span>
-                            {% endif %}
-                          {% endset %}
-                          {{ link(dropdown_title, item.url, {
-                            'class': dropdown_classes|merge([
-                              _verbose_classes ? 'nav-link__level-2',
-                              item.in_active_trail ? 'active',
-                              item.in_active_trail and _active_items_large ? 'large',
-                              item.in_active_trail and _active_items_bold ? 'medium',
-                            ])
-                          }) }}
+                          {% if item.title == '<divider>' %}
+                            <span class="divider"></span>
+                          {% elseif item.url.isRouted and item.url.routeName == '<nolink>' %}
+                            <div class="link-list-heading">{{ item.title }}</div>
+                          {% else %}
+                            {% set dropdown_title %}
+                              <span>{{ item.title }}</span>
+                              {% if item.original_link.getDescription() and _show_link_description %}
+                                <p>{{ item.original_link.getDescription() }}</p>
+                              {% endif %}
+                              {% if item.in_active_trail %}
+                                <span class="visually-hidden">{{ _active_assistive_text }}</span>
+                              {% endif %}
+                            {% endset %}
+                            {{ link(dropdown_title, item.url, {
+                              'class': dropdown_classes|merge([
+                                _verbose_classes ? 'nav-link__level-2',
+                                item.in_active_trail ? 'active',
+                                item.in_active_trail and _active_items_large ? 'large',
+                                item.in_active_trail and _active_items_bold ? 'medium',
+                              ])
+                            }) }}
+                          {% endif %}
                         </li>
                       {% endfor %}
                     </ul>
@@ -153,23 +160,29 @@
                 <ul class="link-list">
                   {% for item in item.below %}
                     <li>
-                      {% set dropdown_title %}
-                        <span>{{ item.title }}</span>
-                        {% if item.original_link.getDescription() and _show_link_description %}
-                          <p>{{ item.original_link.getDescription() }}</p>
-                        {% endif %}
-                        {% if item.in_active_trail %}
-                          <span class="visually-hidden">{{ _active_assistive_text }}</span>
-                        {% endif %}
-                      {% endset %}
-                      {{ link(dropdown_title, item.url, {
-                        'class': dropdown_classes|merge([
-                          _verbose_classes ? 'nav-link__level-1',
-                          item.in_active_trail ? 'active',
-                          item.in_active_trail and _active_items_large ? 'large',
-                          item.in_active_trail and _active_items_bold ? 'medium',
-                        ])
-                      }) }}
+                      {% if item.title == '<divider>' %}
+                        <span class="divider"></span>
+                      {% elseif item.url.isRouted and item.url.routeName == '<nolink>' %}
+                        <div class="link-list-heading">{{ item.title }}</div>
+                      {% else %}
+                        {% set dropdown_title %}
+                          <span>{{ item.title }}</span>
+                          {% if item.original_link.getDescription() and _show_link_description %}
+                            <p>{{ item.original_link.getDescription() }}</p>
+                          {% endif %}
+                          {% if item.in_active_trail %}
+                            <span class="visually-hidden">{{ _active_assistive_text }}</span>
+                          {% endif %}
+                        {% endset %}
+                        {{ link(dropdown_title, item.url, {
+                          'class': dropdown_classes|merge([
+                            _verbose_classes ? 'nav-link__level-1',
+                            item.in_active_trail ? 'active',
+                            item.in_active_trail and _active_items_large ? 'large',
+                            item.in_active_trail and _active_items_bold ? 'medium',
+                          ])
+                        }) }}
+                      {% endif %}
                     </li>
                   {% endfor %}
                 </ul>
