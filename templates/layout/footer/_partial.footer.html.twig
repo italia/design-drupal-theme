@@ -94,15 +94,28 @@
       </section>
     </div>
   </div>
-  <div class="it-footer-small-prints clearfix">
-    <div class="container">
-      <h3 class="visually-hidden">Sezione Link Utili</h3>
-      <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
-        <li class="list-inline-item"><a href="#" title="Note Legali">Media policy</a></li>
-        <li class="list-inline-item"><a href="#" title="Note Legali">Note legali</a></li>
-        <li class="list-inline-item"><a href="#" title="Privacy-Cookies">Privacy policy</a></li>
-        <li class="list-inline-item"><a href="#" title="Mappa del sito">Mappa del sito</a></li>
-      </ul>
-    </div>
-  </div>
+
+  {% block footerSmallPrints %}
+    {% if page.footer_small_prints or page.footer_credits %}
+      {% set footer_small_prints_classes = page.footer_small_prints and page.footer_credits ? 'col-lg-9 col-md-7' : 'col' %}
+      {% set footer_credits_classes = page.footer_small_prints and page.footer_credits ? 'col-lg-3 col-md-5' : 'col' %}
+
+      <div class="it-footer-small-prints clearfix">
+        <div class="container">
+          {% if page.footer_small_prints %}
+            <div class="{{ footer_small_prints_classes }}">
+              {{ page.footer_small_prints }}
+            </div>
+          {% endif %}
+          {% if page.footer_credits %}
+            <div class="{{ footer_credits_classes }}">
+              {{ page.footer_credits }}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+
 </footer>
