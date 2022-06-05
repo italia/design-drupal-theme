@@ -29,13 +29,19 @@
         {% if item.below %}
           <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
             {% for item_second in item.below %}
-              {% if item_second.title == '<divider>' %}
-                <span class="divider"></span>
-              {% else %}
-                <li{{ item_second.attributes }}>
-                  {{ link(item_second.title, item_second.url) }}
-                </li>
-              {% endif %}
+              <li{{ item_second.attributes }}>
+                {% if item_second.title == '<divider>' %}
+                  <span class="divider bg-secondary"></span>
+                {% elseif item_second.url.isRouted and item_second.url.routeName == '<nolink>' %}
+                  <h4 class="text-uppercase mt-3 h6">{{ item_second.title }}</h4>
+                {% else %}
+                  {{ link(item_second.title, item_second.url, {
+                    'class': [
+                      item_second.in_active_trail ? 'active',
+                    ]
+                  }) }}
+                {% endif %}
+              </li>
             {% endfor %}
           </ul>
         {% endif %}
