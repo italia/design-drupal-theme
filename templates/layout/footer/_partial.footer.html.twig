@@ -22,97 +22,78 @@
         {% endif %}
       {% endblock %}
 
-      <section class="py-4 border-white border-top">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 pb-2">
-            <h4><a href="#" title="Vai alla pagina: Contatti">Contatti</a></h4>
-            <p>
-              <strong>Comune di Lorem Ipsum</strong><br />
-              Via Roma 0 - 00000 Lorem Ipsum Codice fiscale / P. IVA: 000000000
-            </p>
-            <div class="link-list-wrapper">
-              <ul class="footer-list link-list clearfix">
-                <li><a class="list-item" href="#" title="Vai alla pagina: Posta Elettronica Certificata">Posta Elettronica Certificata</a></li>
-                <li>
-                  <a class="list-item" href="#" title="Vai alla pagina: URP - Ufficio Relazioni con il Pubblico">URP - Ufficio Relazioni con il Pubblico</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 pb-2">
-            <h4><a href="#" title="Vai alla pagina: Lorem Ipsum">Lorem Ipsum</a></h4>
-          </div>
-          <div class="col-lg-4 col-md-4 pb-2">
-            <div class="pb-2">
-              <h4><a href="#" title="Vai alla pagina: Seguici su">Seguici su</a></h4>
-              <ul class="list-inline text-left social">
-                <li class="list-inline-item">
-                  <a class="p-2 text-white" href="#" target="_blank"
-                  ><svg class="icon icon-sm icon-white align-top"><use xlink:href="/dist/svg/sprites.svg#it-designers-italia"></use></svg
-                    ><span class="visually-hidden">Designers Italia</span></a
-                  >
-                </li>
-                <li class="list-inline-item">
-                  <a class="p-2 text-white" href="#" target="_blank"
-                  ><svg class="icon icon-sm icon-white align-top"><use xlink:href="/dist/svg/sprites.svg#it-twitter"></use></svg
-                    ><span class="visually-hidden">Twitter</span></a
-                  >
-                </li>
-                <li class="list-inline-item">
-                  <a class="p-2 text-white" href="#" target="_blank"
-                  ><svg class="icon icon-sm icon-white align-top"><use xlink:href="/dist/svg/sprites.svg#it-medium"></use></svg
-                    ><span class="visually-hidden">Medium</span></a
-                  >
-                </li>
-                <li class="list-inline-item">
-                  <a class="p-2 text-white" href="#" target="_blank"
-                  ><svg class="icon icon-sm icon-white align-top"><use xlink:href="/dist/svg/sprites.svg#it-behance"></use></svg
-                    ><span class="visually-hidden">Behance</span></a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="pb-2">
-              <h4><a href="#" title="Vai alla pagina: Newsletter">Newsletter</a></h4>
-              <p>Form Newsletter</p>
-              <!--<form action="#" method="post">
-                <label for="input-newsletter" class="active">Iscriviti per riceverla</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">@</div>
-                  </div>
-                  <input type="text" class="form-control" id="input-newsletter" name="input-newsletter" placeholder="Scrivi il tuo indirizzo email" >
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-                  </div>
+      {% block footerBlocks %}
+        {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+          {% set count_footer_blocks = 0 %}
+          {% if page.footer_first %}
+            {% set count_footer_blocks = count_footer_blocks + 1 %}
+          {% endif %}
+          {% if page.footer_second %}
+            {% set count_footer_blocks = count_footer_blocks + 1 %}
+          {% endif %}
+          {% if page.footer_third %}
+            {% set count_footer_blocks = count_footer_blocks + 1 %}
+          {% endif %}
+          {% if page.footer_fourth %}
+            {% set count_footer_blocks = count_footer_blocks + 1 %}
+          {% endif %}
+
+          {% set footer_blocks_classes = [
+            count_footer_blocks == 4 ? 'col-md-6 col-lg-3',
+            count_footer_blocks == 3 ? 'col-md-4',
+            count_footer_blocks == 2 ? 'col-md-6',
+            count_footer_blocks == 1 ? 'col',
+            'pb-2'
+          ] %}
+          <section class="py-4{{ page.footer_menu ? ' border-white border-top' }}">
+            <div class="row">
+              {% if page.footer_first %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_first }}
                 </div>
-                <button class="btn btn-default pull-right" type="submit">Iscriviti</button>
-              </form>-->
+              {% endif %}
+              {% if page.footer_second %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_second }}
+                </div>
+              {% endif %}
+              {% if page.footer_third %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_third }}
+                </div>
+              {% endif %}
+              {% if page.footer_fourth %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_fourth }}
+                </div>
+              {% endif %}
             </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
+          </section>
+        {% endif %}
+      {% endblock %}
+
+    </div>{# End container. #}
+  </div>{# End it-footer-main. #}
 
   {% block footerSmallPrints %}
     {% if page.footer_small_prints or page.footer_credits %}
-      {% set footer_small_prints_classes = page.footer_small_prints and page.footer_credits ? 'col-lg-9 col-md-7' : 'col' %}
-      {% set footer_credits_classes = page.footer_small_prints and page.footer_credits ? 'col-lg-3 col-md-5' : 'col' %}
+      {% set footer_small_prints_classes = page.footer_small_prints and page.footer_credits ? 'col-md-7 col-lg-9' : 'col' %}
+      {% set footer_credits_classes = page.footer_small_prints and page.footer_credits ? 'col-md-5 col-lg-3' : 'col' %}
 
       <div class="it-footer-small-prints clearfix">
         <div class="container">
-          {% if page.footer_small_prints %}
-            <div class="{{ footer_small_prints_classes }}">
-              {{ page.footer_small_prints }}
-            </div>
-          {% endif %}
-          {% if page.footer_credits %}
-            <div class="{{ footer_credits_classes }}">
-              {{ page.footer_credits }}
-            </div>
-          {% endif %}
-
+          <div class="row">
+            {% if page.footer_small_prints %}
+              <div class="{{ footer_small_prints_classes }}">
+                {{ page.footer_small_prints }}
+              </div>
+            {% endif %}
+            {% if page.footer_credits %}
+              <div class="{{ footer_credits_classes }}">
+                {{ page.footer_credits }}
+              </div>
+            {% endif %}
+          </div>
         </div>
       </div>
     {% endif %}

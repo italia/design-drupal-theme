@@ -23,7 +23,7 @@
 <div class="row">
   {% set col = items|length > 4 ? 3 : 12 / items|length %}
   {% for item in items %}
-    <div class="col-lg-{{ col }} col-md-{{ col }} col-sm-6 pb-2">
+    <div class="col-sm-6 col-md-{{ col }} col-lg-{{ col }} pb-2">
       <h4>{{ link(item.title, item.url) }}</h4>
       <div class="link-list-wrapper">
         {% if item.below %}
