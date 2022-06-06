@@ -1,102 +1,103 @@
-<footer class="it-footer">
-  <div class="it-footer-main">
-    <div class="container">
+{% apply spaceless %}
+  <footer class="it-footer">
+    <div class="it-footer-main">
+      <div class="{{ footer_container_type ?: 'container' }}">
 
-      {% block footerBrand %}
-        {% if page.brand %}
-          <section>
-            <div class="row clearfix">
-              <div class="col-sm-12">
-                {{ page.brand }}
+        {% block footerBrand %}
+          {% if page.brand %}
+            <section>
+              <div class="row clearfix">
+                <div class="col-sm-12">
+                  {{ page.brand }}
+                </div>
               </div>
-            </div>
-          </section>
-        {% endif %}
-      {% endblock %}
+            </section>
+          {% endif %}
+        {% endblock %}
 
-      {% block footerMenu %}
-        {% if page.footer_menu %}
-          <section>
-            {{ page.footer_menu }}
-          </section>
-        {% endif %}
-      {% endblock %}
+        {% block footerMenu %}
+          {% if page.footer_menu %}
+            <section>
+              {{ page.footer_menu }}
+            </section>
+          {% endif %}
+        {% endblock %}
 
-      {% block footerBlocks %}
-        {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
-          {% set count_footer_blocks = 0 %}
-          {% if page.footer_first %}
-            {% set count_footer_blocks = count_footer_blocks + 1 %}
-          {% endif %}
-          {% if page.footer_second %}
-            {% set count_footer_blocks = count_footer_blocks + 1 %}
-          {% endif %}
-          {% if page.footer_third %}
-            {% set count_footer_blocks = count_footer_blocks + 1 %}
-          {% endif %}
-          {% if page.footer_fourth %}
-            {% set count_footer_blocks = count_footer_blocks + 1 %}
-          {% endif %}
+        {% block footerBlocks %}
+          {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+            {% set count_footer_blocks = 0 %}
+            {% if page.footer_first %}
+              {% set count_footer_blocks = count_footer_blocks + 1 %}
+            {% endif %}
+            {% if page.footer_second %}
+              {% set count_footer_blocks = count_footer_blocks + 1 %}
+            {% endif %}
+            {% if page.footer_third %}
+              {% set count_footer_blocks = count_footer_blocks + 1 %}
+            {% endif %}
+            {% if page.footer_fourth %}
+              {% set count_footer_blocks = count_footer_blocks + 1 %}
+            {% endif %}
 
-          {% set footer_blocks_classes = [
-            count_footer_blocks == 4 ? 'col-md-6 col-lg-3',
-            count_footer_blocks == 3 ? 'col-md-4',
-            count_footer_blocks == 2 ? 'col-md-6',
-            count_footer_blocks == 1 ? 'col',
-            'pb-2'
-          ] %}
-          <section class="py-4{{ page.footer_menu ? ' border-white border-top' }}">
+            {% set footer_blocks_classes = [
+              count_footer_blocks == 4 ? 'col-md-6 col-lg-3',
+              count_footer_blocks == 3 ? 'col-md-4',
+              count_footer_blocks == 2 ? 'col-md-6',
+              count_footer_blocks == 1 ? 'col',
+              'pb-2'
+            ] %}
+            <section class="py-4{{ page.footer_menu ? ' border-white border-top' }}">
+              <div class="row">
+                {% if page.footer_first %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_first }}
+                  </div>
+                {% endif %}
+                {% if page.footer_second %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_second }}
+                  </div>
+                {% endif %}
+                {% if page.footer_third %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_third }}
+                  </div>
+                {% endif %}
+                {% if page.footer_fourth %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_fourth }}
+                  </div>
+                {% endif %}
+              </div>
+            </section>
+          {% endif %}
+        {% endblock %}
+      </div>{# End container. #}
+    </div>{# End it-footer-main. #}
+
+    {% block footerSmallPrints %}
+      {% if page.footer_small_prints or page.footer_credits %}
+        {% set footer_small_prints_classes = page.footer_small_prints and page.footer_credits ? 'col-md-7 col-lg-9' : 'col' %}
+        {% set footer_credits_classes = page.footer_small_prints and page.footer_credits ? 'col-md-5 col-lg-3 pt-4 text-align-right' : 'col pt-4 text-align-right' %}
+
+        <div class="it-footer-small-prints clearfix">
+          <div class="{{ footer_container_type ?: 'container' }}">
             <div class="row">
-              {% if page.footer_first %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_first }}
+              {% if page.footer_small_prints %}
+                <div class="{{ footer_small_prints_classes }}">
+                  {{ page.footer_small_prints }}
                 </div>
               {% endif %}
-              {% if page.footer_second %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_second }}
-                </div>
-              {% endif %}
-              {% if page.footer_third %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_third }}
-                </div>
-              {% endif %}
-              {% if page.footer_fourth %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_fourth }}
+              {% if page.footer_credits %}
+                <div class="{{ footer_credits_classes }}">
+                  {{ page.footer_credits }}
                 </div>
               {% endif %}
             </div>
-          </section>
-        {% endif %}
-      {% endblock %}
-
-    </div>{# End container. #}
-  </div>{# End it-footer-main. #}
-
-  {% block footerSmallPrints %}
-    {% if page.footer_small_prints or page.footer_credits %}
-      {% set footer_small_prints_classes = page.footer_small_prints and page.footer_credits ? 'col-md-7 col-lg-9' : 'col' %}
-      {% set footer_credits_classes = page.footer_small_prints and page.footer_credits ? 'col-md-5 col-lg-3' : 'col' %}
-
-      <div class="it-footer-small-prints clearfix">
-        <div class="container">
-          <div class="row">
-            {% if page.footer_small_prints %}
-              <div class="{{ footer_small_prints_classes }}">
-                {{ page.footer_small_prints }}
-              </div>
-            {% endif %}
-            {% if page.footer_credits %}
-              <div class="{{ footer_credits_classes }}">
-                {{ page.footer_credits }}
-              </div>
-            {% endif %}
           </div>
         </div>
-      </div>
-    {% endif %}
-  {% endblock %}
+      {% endif %}
+    {% endblock %}
 
-</footer>
+  </footer>
+{% endapply %}

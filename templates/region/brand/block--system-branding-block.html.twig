@@ -14,45 +14,47 @@
  * @ingroup themeable
  */
 #}
-<div class="it-brand-wrapper">
-  <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-    {% if site_logo %}
-      {% set check = site_logo %}
-      {% if not (check ends with '.svg') %}
-        <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon{{ image_logo_fluid ? ' img-fluid' }}" />
-      {% else %}
-        {% set svg_attributes = create_attribute() %}
+{% apply spaceless %}
+  <div class="it-brand-wrapper">
+    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+      {% if site_logo %}
+        {% set check = site_logo %}
+        {% if not (check ends with '.svg') %}
+          <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon{{ image_logo_fluid ? ' img-fluid' }}" />
+        {% else %}
+          {% set svg_attributes = create_attribute() %}
 
-        {% if svg_logo_box %}
-          {% set svg_attributes = svg_attributes
-            .setAttribute('viewBox', svg_logo_box)
-          %}
+          {% if svg_logo_box %}
+            {% set svg_attributes = svg_attributes
+              .setAttribute('viewBox', svg_logo_box)
+            %}
+          {% endif %}
+
+          {% if svg_logo_box_sticky %}
+            {% set svg_attributes = svg_attributes
+              .setAttribute('data-sticky-viewBox', svg_logo_box_sticky)
+            %}
+          {% endif %}
+
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: svg_logo_id ?: 'logo',
+            icon_path: site_logo,
+            icon_attributes: svg_attributes
+          } %}
         {% endif %}
-
-        {% if svg_logo_box_sticky %}
-          {% set svg_attributes = svg_attributes
-            .setAttribute('data-sticky-viewBox', svg_logo_box_sticky)
-          %}
-        {% endif %}
-
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: svg_logo_id ?: 'logo',
-          icon_path: site_logo,
-          icon_attributes: svg_attributes
-        } %}
       {% endif %}
-    {% endif %}
 
-    {% if site_name or site_slogan %}
-      <div class="it-brand-text">
-        {% if site_name %}
-          <div class="it-brand-title">{{ site_name }}</div>
-        {% endif %}
+      {% if site_name or site_slogan %}
+        <div class="it-brand-text">
+          {% if site_name %}
+            <div class="it-brand-title">{{ site_name }}</div>
+          {% endif %}
 
-        {% if site_slogan %}
-          <div class="it-brand-tagline d-none d-md-block">{{ site_slogan }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
-  </a>
-</div>
+          {% if site_slogan %}
+            <div class="it-brand-tagline d-none d-md-block">{{ site_slogan }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </a>
+  </div>
+{% endapply %}

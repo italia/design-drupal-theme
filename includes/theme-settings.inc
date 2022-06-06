@@ -384,6 +384,30 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#options' => Libraries::getLibraries(),
   ];
 
+  // Footer -------------------------------------------------------------------.
+  $form['footer'] = [
+    '#type' => 'details',
+    '#title' => t('Footer'),
+    '#description' => t("Footer settings"),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+  // Footer appearance.
+  $form['footer']['appearance'] = [
+    '#type' => 'details',
+    '#title' => t('Appearance'),
+    '#open' => TRUE,
+    '#group' => 'footer',
+  ];
+  $form['footer']['appearance']['footer_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container"),
+    '#description' => t('Choose container type. Default: Container fixed'),
+    '#default_value' => theme_get_setting('footer_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+
   // Vanilla Settings
   $form['libraries_settings']['vanilla'] = [
     '#type' => 'details',

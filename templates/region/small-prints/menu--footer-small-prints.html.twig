@@ -18,13 +18,15 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
-<h3 class="visually-hidden">{{ 'Useful links section'|trans }}</h3>
-<ul{{ attributes.addClass(
-  ['it-footer-small-prints-list','list-inline','mb-0','d-flex','flex-column','flex-md-row']
-) }}>
-  {% for item in items %}
-    <li{{ item.attributes.addClass(['list-inline-item']) }}>
-      {{ link(item.title, item.url) }}
-    </li>
-  {% endfor %}
-</ul>
+{% apply spaceless %}
+  <h3 class="visually-hidden">{{ 'Useful links section'|trans }}</h3>
+  <ul{{ attributes.addClass(
+    ['it-footer-small-prints-list','list-inline','mb-0','d-flex','flex-column','flex-md-row']
+  ) }}>
+    {% for item in items %}
+      <li{{ item.attributes.addClass(['list-inline-item']) }}>
+        {{ link(item.title, item.url) }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endapply %}

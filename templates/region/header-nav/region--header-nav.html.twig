@@ -14,36 +14,38 @@
  * @ingroup themeable
  */
 #}
-{% if content %}
-  {% set _header_nav_id = region~'-main-navbar' %}
+{% apply spaceless %}
+  {% if content %}
+    {% set _header_nav_id = region~'-main-navbar' %}
 
-  <nav class="navbar navbar-expand-{{ navigation_header_breakpoint_expand ?: 'lg' }} has-megamenu" aria-label="{{ 'Main navigation'|trans }}" role="navigation">
-    <button
-      class="custom-navbar-toggler"
-      type="button"
-      aria-controls="{{ _header_nav_id }}"
-      aria-expanded="false"
-      aria-label="{{ 'Show/hide navigation bar'|trans }}"
-      data-bs-toggle="navbarcollapsible"
-      data-bs-target="#{{ _header_nav_id }}"
-    >
-      {% include '@bi-bcl/icon/icon.html.twig' with {
-        name: 'it-burger'
-      } %}
-    </button>
-    <div class="navbar-collapsable" id="{{ _header_nav_id }}">
-      <div class="overlay"></div>
-      <div class="close-div">
-        <button class="btn close-menu" type="button">
-          <span class="visually-hidden">{{ 'Hide navigation'|trans }}</span>
-          {% include '@bi-bcl/icon/icon.html.twig' with {
-            name: 'it-close-big'
-          } %}
-        </button>
+    <nav class="navbar navbar-expand-{{ navigation_header_breakpoint_expand ?: 'lg' }} has-megamenu" aria-label="{{ 'Main navigation'|trans }}" role="navigation">
+      <button
+        class="custom-navbar-toggler"
+        type="button"
+        aria-controls="{{ _header_nav_id }}"
+        aria-expanded="false"
+        aria-label="{{ 'Show/hide navigation bar'|trans }}"
+        data-bs-toggle="navbarcollapsible"
+        data-bs-target="#{{ _header_nav_id }}"
+      >
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-burger'
+        } %}
+      </button>
+      <div class="navbar-collapsable" id="{{ _header_nav_id }}">
+        <div class="overlay"></div>
+        <div class="close-div">
+          <button class="btn close-menu" type="button">
+            <span class="visually-hidden">{{ 'Hide navigation'|trans }}</span>
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'it-close-big'
+            } %}
+          </button>
+        </div>
+        <div class="menu-wrapper">
+          {{ content }}
+        </div>
       </div>
-      <div class="menu-wrapper">
-        {{ content }}
-      </div>
-    </div>
-  </nav>
-{% endif %}
+    </nav>
+  {% endif %}
+{% endapply %}

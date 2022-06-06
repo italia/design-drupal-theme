@@ -152,17 +152,17 @@
   ) %}
   {% import _self as menus %}
 
-  {% if items %}
-    {% for uuid, item in items %}
+  {%- if items -%}
+    {%- for uuid, item in items -%}
       <li{{ item.attributes }}>
 
-        {% if item.title == '<divider>' %}
+        {%- if item.title == '<divider>' -%}
           <span class="divider"></span>
 
-        {% elseif item.url.isRouted and item.url.routeName == '<nolink>' %}
+        {%- elseif item.url.isRouted and item.url.routeName == '<nolink>' -%}
           <div class="link-list-heading">{{ item.title }}</div>
 
-        {% else %}
+        {%- else -%}
           {% set item_classes = [
             'list-item',
             item.in_active_trail ? 'active',
@@ -205,8 +205,8 @@
 
           {% set _enable_icon_wrapper = icon_position is not empty or item.is_expanded ? true : false %}
 
-          <a{{ item_attributes }}>
-            {% if _enable_icon_wrapper %}
+          <a{{- item_attributes -}}>
+            {%- if _enable_icon_wrapper -%}
               <span class="list-item-title-icon-wrapper">
             {% endif %}
 
@@ -222,17 +222,17 @@
                 } %}
               {% endif %}
 
-              {% if link_label_wrapper %}
-                <{{ link_label_wrapper_tag }} class="list-item-title">{{ item.title }}</{{ link_label_wrapper_tag }}>
-              {% else %}
-                {{ item.title }}
+              {%- if link_label_wrapper -%}
+                <{{ link_label_wrapper_tag }} class="list-item-title">{{- item.title -}}</{{ link_label_wrapper_tag }}>
+              {%- else -%}
+                {{- item.title -}}
               {% endif %}
 
-              {% if item.in_active_trail %}
+              {%- if item.in_active_trail -%}
                 <span class="visually-hidden">{{ active_assistive_text }}</span>
               {% endif %}
 
-              {% if _item_icon_position == 'right' %}
+              {%- if _item_icon_position == 'right' -%}
                 {% include '@bi-bcl/icon/icon.html.twig' with {
                   name: _item_icon_name,
                   color: icon_color,
@@ -241,30 +241,29 @@
                 } %}
               {% endif %}
 
-            {% if _enable_icon_wrapper %}
+            {%- if _enable_icon_wrapper -%}
               </span>
             {% endif %}
 
-            {% if item.original_link.getDescription() and show_link_description %}
+            {%- if item.original_link.getDescription() and show_link_description -%}
               <p>{{ item.original_link.getDescription() }}</p>
             {% endif %}
-
           </a>
         {% endif %}
 
         {# Recursive link-list #}
-        {% if item.below %}
+        {%- if item.below -%}
           <ul id="{{ aria_id }}"
               class="link-sublist collapse{{ item.in_active_trail ? ' show' }}"
               {% if indent_sub_items is not empty %}style="margin-left: {{ indent_sub_items }}"{% endif %}
           >
-            {{ menus.menu_links(
+            {{- menus.menu_links(
               item.below, attributes, menu_level + 1, menu_name,
               show_link_description, link_label_wrapper, link_label_wrapper_tag,
               large, bold, active_items_large, active_items_bold, first_level_large, first_level_bold,
               icon_position, icon_name, icon_color,
               active_assistive_text, indent_sub_items
-            ) }}
+            ) -}}
           </ul>
         {% endif %}
 

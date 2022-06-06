@@ -22,3 +22,8 @@
 /*.modal {
   z-index: 100000;
 }*/
+
+/* Fix footer active link */
+.it-footer-main .link-list-wrapper ul li a.active {
+  text-decoration: underline;
+}

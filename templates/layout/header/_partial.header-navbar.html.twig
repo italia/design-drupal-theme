@@ -1,16 +1,18 @@
-{% set it_header_navbar_classes = [
-  'it-header-navbar-wrapper',
-  navigation_header_light_desktop ? ' theme-light-desk',
-  navigation_header_dark_mobile ? ' theme-dark-mobile'
-] %}
-<div class="{{ it_header_navbar_classes|join }}" id="header-nav-wrapper">
-  <div class="{{ navigation_header_container_type ?: 'container' }}">
-    <div class="row">
-      <div class="col-12">
-        {% if page.header_nav %}
-          {{ page.header_nav }}
-        {% endif %}
+{% apply spaceless %}
+  {% set it_header_navbar_classes = [
+    'it-header-navbar-wrapper',
+    navigation_header_light_desktop ? ' theme-light-desk',
+    navigation_header_dark_mobile ? ' theme-dark-mobile'
+  ] %}
+  <div class="{{ it_header_navbar_classes|join }}" id="header-nav-wrapper">
+    <div class="{{ navigation_header_container_type ?: 'container' }}">
+      <div class="row">
+        <div class="col-12">
+          {% if page.header_nav %}
+            {{ page.header_nav }}
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
-</div>
+{% endapply %}

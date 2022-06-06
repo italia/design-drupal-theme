@@ -1,95 +1,97 @@
-{%
-  set it_center_header_wrapper_classes = [
-  'it-header-center-wrapper',
-  center_header_light ? ' theme-light',
-  center_header_small ? ' it-small-header'
-]
-%}
-<div class="{{ it_center_header_wrapper_classes|join }}">
-  <div class="{{ center_header_container_type ?: 'container' }}">
-    <div class="row">
-      <div class="col-12">
-        <div class="it-header-center-content-wrapper">
+{% apply spaceless %}
+  {%
+    set it_center_header_wrapper_classes = [
+    'it-header-center-wrapper',
+    center_header_light ? ' theme-light',
+    center_header_small ? ' it-small-header'
+  ]
+  %}
+  <div class="{{ it_center_header_wrapper_classes|join }}">
+    <div class="{{ center_header_container_type ?: 'container' }}">
+      <div class="row">
+        <div class="col-12">
+          <div class="it-header-center-content-wrapper">
 
-          {% block headerCenterBrand %}
-            {% if page.brand %}
-              {{ page.brand }}
-            {% endif %}
-          {% endblock %}
-
-          <div class="it-right-zone">
-
-            {% block headerCenterSocials %}
-              {% if socials %}
-                {% include '@bi-bcl/share/follow-us.html.twig' with {
-                  socials: socials,
-                  label: 'Follow us on'|trans,
-                  blank: social_new_window,
-                  followus_classes: ["it-socials", "d-none", "d-md-flex"]
-                } %}
-              {% endif %}
-              {% if page.header_center_social and not socials %}
-                {{ page.header_center_social }}
+            {% block headerCenterBrand %}
+              {% if page.brand %}
+                {{ page.brand }}
               {% endif %}
             {% endblock %}
 
-            {% block headerCenterSearch %}
-              {% if page.header_center_search %}
-                <div class="it-search-wrapper">
-                  {% if search_type == 'modal' %}
-                    {% embed '@bi-bcl/modal/modal.html.twig' with {
-                      id: 'modal-header-center-search',
-                      modal_label: 'Site search'|trans,
-                      scrollable: true,
-                      modal_size: search_modal_size ?: 'fullscreen',
-                      dismissibile: false,
-                    } %}
-                      {% block modalBody %}
-                        <div class="container">
-                          {{ page.header_center_search }}
-                        </div>
-                      {% endblock %}
+            <div class="it-right-zone">
 
-                      {% block modalButton %}
-                        <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
-                        <a class="search-link rounded-icon"
-                           aria-label="{{ 'Site search'|trans }}"
-                           data-bs-toggle="modal"
-                           data-bs-target="#modal-header-center-search"
-                           href="#"
-                        >
-                          {% include '@bi-bcl/icon/icon.html.twig' with {
-                            name: 'it-search',
-                          } %}
-                        </a>
-                      {% endblock %}
-                    {% endembed %}
-                  {% endif %}{# End search modal #}
+              {% block headerCenterSocials %}
+                {% if socials %}
+                  {% include '@bi-bcl/share/follow-us.html.twig' with {
+                    socials: socials,
+                    label: 'Follow us on'|trans,
+                    blank: social_new_window,
+                    followus_classes: ["it-socials", "d-none", "d-md-flex"]
+                  } %}
+                {% endif %}
+                {% if page.header_center_social and not socials %}
+                  {{ page.header_center_social }}
+                {% endif %}
+              {% endblock %}
 
-                  {% if search_type == 'page' %}
-                    <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
-                    <a class="search-link rounded-icon"
-                       aria-label="{{ 'Site search'|trans }}"
-                       title="{{ 'Site search'|trans }}"
-                       href="{{ search_page_url ?: '/search/node' }}"
-                    >
-                      {% include '@bi-bcl/icon/icon.html.twig' with {
-                        name: 'it-search',
+              {% block headerCenterSearch %}
+                {% if page.header_center_search %}
+                  <div class="it-search-wrapper">
+                    {% if search_type == 'modal' %}
+                      {% embed '@bi-bcl/modal/modal.html.twig' with {
+                        id: 'modal-header-center-search',
+                        modal_label: 'Site search'|trans,
+                        scrollable: true,
+                        modal_size: search_modal_size ?: 'fullscreen',
+                        dismissibile: false,
                       } %}
-                    </a>
-                  {% endif %}
+                        {% block modalBody %}
+                          <div class="container">
+                            {{ page.header_center_search }}
+                          </div>
+                        {% endblock %}
 
-{#                  {% if search_type == 'inline' %}#}
-{#                    {{ page.header_center_search }}#}
-{#                  {% endif %}#}
+                        {% block modalButton %}
+                          <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
+                          <a class="search-link rounded-icon"
+                             aria-label="{{ 'Site search'|trans }}"
+                             data-bs-toggle="modal"
+                             data-bs-target="#modal-header-center-search"
+                             href="#"
+                          >
+                            {% include '@bi-bcl/icon/icon.html.twig' with {
+                              name: 'it-search',
+                            } %}
+                          </a>
+                        {% endblock %}
+                      {% endembed %}
+                    {% endif %}{# End search modal #}
 
-                </div>{# End it-search-wrapper. #}
-              {% endif %}
-            {% endblock %}{# End headerCenterSearch block. #}
+                    {% if search_type == 'page' %}
+                      <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
+                      <a class="search-link rounded-icon"
+                         aria-label="{{ 'Site search'|trans }}"
+                         title="{{ 'Site search'|trans }}"
+                         href="{{ search_page_url ?: '/search/node' }}"
+                      >
+                        {% include '@bi-bcl/icon/icon.html.twig' with {
+                          name: 'it-search',
+                        } %}
+                      </a>
+                    {% endif %}
 
-          </div>{# End it-right-zone. #}
-        </div>{# End it-header-center-content-wrapper. #}
-      </div>{# End col. #}
-    </div>{# End row. #}
-  </div>{# End container. #}
-</div>{# End wrapper. #}
+  {#                  {% if search_type == 'inline' %}#}
+  {#                    {{ page.header_center_search }}#}
+  {#                  {% endif %}#}
+
+                  </div>{# End it-search-wrapper. #}
+                {% endif %}
+              {% endblock %}{# End headerCenterSearch block. #}
+
+            </div>{# End it-right-zone. #}
+          </div>{# End it-header-center-content-wrapper. #}
+        </div>{# End col. #}
+      </div>{# End row. #}
+    </div>{# End container. #}
+  </div>{# End wrapper. #}
+{% endapply %}

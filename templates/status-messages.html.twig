@@ -21,13 +21,14 @@
  * @ingroup themeable
  */
 #}
-{% set types = {
-  info: 'info',
-  status: 'success',
-  warning: 'warning',
-  error: 'danger',
-} %}
 {% apply spaceless %}
+  {% set types = {
+    info: 'info',
+    status: 'success',
+    warning: 'warning',
+    error: 'danger',
+  } %}
+
   <div data-drupal-messages>
   {% for type, messages in message_list %}
     <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>

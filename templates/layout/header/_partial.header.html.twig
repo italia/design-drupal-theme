@@ -1,29 +1,31 @@
-{% set it_header_wrapper_attributes = create_attribute() %}
-{% set it_header_wrapper_attributes = it_header_wrapper_attributes.addClass('it-header-wrapper') %}
+{% apply spaceless %}
+  {% set it_header_wrapper_attributes = create_attribute() %}
+  {% set it_header_wrapper_attributes = it_header_wrapper_attributes.addClass('it-header-wrapper') %}
 
-{% if navigation_header_sticky %}
-  {% set it_header_wrapper_attributes = it_header_wrapper_attributes
-    .addClass('it-header-sticky')
-    .setAttribute('data-bs-toggle', 'sticky')
-    .setAttribute('data-bs-position-type', 'fixed')
-    .setAttribute('data-bs-sticky-class-name', 'is-sticky')
-    .setAttribute('data-bs-target', '#header-nav-wrapper')
-  %}
-{% endif %}
+  {% if navigation_header_sticky %}
+    {% set it_header_wrapper_attributes = it_header_wrapper_attributes
+      .addClass('it-header-sticky')
+      .setAttribute('data-bs-toggle', 'sticky')
+      .setAttribute('data-bs-position-type', 'fixed')
+      .setAttribute('data-bs-sticky-class-name', 'is-sticky')
+      .setAttribute('data-bs-target', '#header-nav-wrapper')
+    %}
+  {% endif %}
 
-<header{{ it_header_wrapper_attributes }}>
+  <header{{ it_header_wrapper_attributes }}>
 
-  {% block headerSlim %}
-    {% include '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}
-  {% endblock %}
-
-  <div class="it-nav-wrapper">
-    {% block headerCenter %}
-      {% include '@bootstrap_italia/layout/header/_partial.header-center.html.twig' %}
+    {% block headerSlim %}
+      {% include '@bootstrap_italia/layout/header/_partial.header-slim.html.twig' %}
     {% endblock %}
 
-    {% block headerNavbar %}
-      {% include '@bootstrap_italia/layout/header/_partial.header-navbar.html.twig' %}
-    {% endblock %}
-  </div>
-</header>
+    <div class="it-nav-wrapper">
+      {% block headerCenter %}
+        {% include '@bootstrap_italia/layout/header/_partial.header-center.html.twig' %}
+      {% endblock %}
+
+      {% block headerNavbar %}
+        {% include '@bootstrap_italia/layout/header/_partial.header-navbar.html.twig' %}
+      {% endblock %}
+    </div>
+  </header>
+{% endapply %}

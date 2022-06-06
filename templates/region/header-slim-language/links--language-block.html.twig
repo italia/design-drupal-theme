@@ -33,51 +33,53 @@
  * @ingroup themeable
  */
 #}
-{% if links -%}
-  {%- if heading -%}
-    {%- if heading.level -%}
-      <{{ heading.level }}{{ heading.attributes }}>{{ heading.text }}</{{ heading.level }}>
-    {%- else -%}
-      <h2{{ heading.attributes }}>{{ heading.text }}</h2>
+{% apply spaceless %}
+  {% if links -%}
+    {%- if heading -%}
+      {%- if heading.level -%}
+        <{{ heading.level }}{{ heading.attributes }}>{{ heading.text }}</{{ heading.level }}>
+      {%- else -%}
+        <h2{{ heading.attributes }}>{{ heading.text }}</h2>
+      {%- endif -%}
     {%- endif -%}
-  {%- endif -%}
 
-  <div class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">{{ 'Language switcher'|trans }}: {{ 'current language' }}</span>
-      <span>{{ current_language }}</span>
-      {% include '@bi-bcl/icon/icon.html.twig' with {
-        name: 'it-expand'
-      } %}
-    </a>
-    <div class="dropdown-menu">
-      <div class="row">
-        <div class="col-12">
-          <div class="link-list-wrapper">
-            <ul{{ attributes.addClass('link-list') }}>
-              {%- for key, item in links -%}
-                <li>
-                  {% set _current = key == current_language ? true : false %}
-                  {%- if item.link -%}
-                    <a{{ item.attributes.addClass('dropdown-item').addClass('list-item') }} href="{{ item.link['#url'] }}">
-                      <span>
-                        {{ item.link['#title'] }}
-                        {% if _current %}
-                          <span class="visually-hidden">{{ 'Selected'|trans }}</span>
-                        {% endif %}
-                      </span>
-                    </a>
-                  {%- elseif item.text_attributes -%}
-                    <span{{ item.text_attributes }}>{{ item.text }}</span>
-                  {%- else -%}
-                    {{ item.text }}
-                  {%- endif -%}
-                </li>
-              {%- endfor -%}
-            </ul>
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="visually-hidden">{{ 'Language switcher'|trans }}: {{ 'current language' }}</span>
+        <span>{{ current_language }}</span>
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-expand'
+        } %}
+      </a>
+      <div class="dropdown-menu">
+        <div class="row">
+          <div class="col-12">
+            <div class="link-list-wrapper">
+              <ul{{ attributes.addClass('link-list') }}>
+                {%- for key, item in links -%}
+                  <li>
+                    {% set _current = key == current_language ? true : false %}
+                    {%- if item.link -%}
+                      <a{{ item.attributes.addClass('dropdown-item').addClass('list-item') }} href="{{ item.link['#url'] }}">
+                        <span>
+                          {{ item.link['#title'] }}
+                          {% if _current %}
+                            <span class="visually-hidden">{{ 'Selected'|trans }}</span>
+                          {% endif %}
+                        </span>
+                      </a>
+                    {%- elseif item.text_attributes -%}
+                      <span{{ item.text_attributes }}>{{ item.text }}</span>
+                    {%- else -%}
+                      {{ item.text }}
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-{%- endif %}
+  {%- endif %}
+{% endapply %}
