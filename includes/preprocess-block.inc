@@ -18,8 +18,13 @@ use Drupal\block\Entity\Block;
 function bootstrap_italia_preprocess_block(&$variables) {
   // All blocks.
   if (isset($variables['elements']['#id'])) {
+    /** @var \Drupal\block\BlockInterface $block */
+    $block = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->load($variables['elements']['#id']);
+    $region = $block->getRegion();
+
     // Add region and id to data-block
-    $region = Block::load($variables['elements']['#id'])->getRegion();
     if (!empty($region)) {
       $variables['content']['#attributes']['data-block']['region'] = $region;
     }
