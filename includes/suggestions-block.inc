@@ -5,7 +5,6 @@
  * Hook THEME_suggestions_block_*.
  */
 
-use Drupal\block\Entity\Block;
 use Drupal\block_content\BlockContentInterface;
 
 /**
@@ -22,7 +21,11 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
     $suggestions[] = 'block__' . $bundle . $view_mode;
   }
   if (!empty($variables['elements']['#id'])) {
-    $block = Block::load($variables['elements']['#id']);
+    /** @var \Drupal\block\BlockInterface $block */
+    $block = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->load($variables['elements']['#id']);
+
     if ($block) {
       $region = $block->getRegion();
     }

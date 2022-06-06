@@ -5,10 +5,8 @@
  * Hook THEME_preprocess_block_*.
  */
 
-use Drupal\block\Entity\Block;
-
 /**
- * Implements hook_preprocess_HOOK().
+ * Implements hook_preprocess_HOOK() for block.html.twig.
  *
  * Not retro-compatible with 0.x.
  *
