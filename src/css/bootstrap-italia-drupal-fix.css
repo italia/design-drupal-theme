@@ -27,3 +27,53 @@
 .it-footer-main .link-list-wrapper ul li a.active {
   text-decoration: underline;
 }
+
+/* Typography Fix -------------------------------------------------------------------------- */
+em.placeholder {
+  background-color: unset;
+  opacity: .9;
+}
+
+/* Table Fix -------------------------------------------------------------------------- */
+a.tabledrag-handle .handle {
+  width: 24px;
+  height: 24px;
+  margin: 0 1em;
+}
+
+/* Webform fix ------------------------------------------------------------------------ */
+/* Scale component */
+.webform-scale-small input + label {
+  width: 26px;
+  height: 26px;
+  font-size: 0.7em;
+  line-height: 22px;
+}
+.webform-scale-medium input + label {
+  font-size: 0.9em;
+  line-height: 30px;
+}
+.webform-scale-large input + label {
+  font-size: 1.1em;
+  line-height: 40px;
+}
+.webform-scale-text {
+  margin-top: .25rem;
+  font-size: 0.777rem;
+}
+/* Select in webform date list component */
+.select-wrapper select {
+  padding: .375rem 2.25rem .375rem .75rem;
+}
+/* Select in draggable tables */
+fieldset.webform-composite-hidden-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* Editor */
+.js-text-format-wrapper {
+  margin-bottom: 3em;
+}
+.js-text-format-wrapper .form-group {
+  margin-bottom: 0;
+}

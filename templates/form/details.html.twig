@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a details element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the details element.
+ * - errors: (optional) Any errors for this details element, may not be set.
+ * - title: (optional) The title of the element, may not be set.
+ * - summary_attributes: A list of HTML attributes for the summary element.
+ * - description: (optional) The description of the element, may not be set.
+ * - children: (optional) The children of the element, may not be set.
+ * - value: (optional) The value of the element, may not be set.
+ *
+ * @see template_preprocess_details()
+ *
+ * @ingroup themeable
+ */
+#}
+{% set form_accordion_id = 'form-accordion-' ~ random() %}
+{% set form_accordion_title_id = form_accordion_id ~ '-title' %}
+{% set form_accordion_collapse_id = form_accordion_id ~ '-collapse' %}
+{% set attributes = attributes
+  .setAttribute('id', form_accordion_id)
+  .addClass(['accordion', 'accordion-left-icon', 'accordion-background-hover', 'my-1'])
+%}
+<div{{ attributes }}>
+  <div class="accordion-item">
+
+    {% set summary_classes = [
+      required ? 'js-form-required',
+      required ? 'form-required',
+      'accordion-header'
+    ] %}
+    {% set summary_attributes = summary_attributes
+      .setAttribute('id', form_accordion_title_id)
+      .addClass(summary_classes)
+    %}
+
+    <h2{{ summary_attributes }}>
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{ form_accordion_collapse_id }}" aria-expanded="false" aria-controls="{{ form_accordion_collapse_id }}">
+        {%- if title -%}
+          {{ title }}
+        {% else %}
+          {{ 'Details'|trans }}
+        {% endif %}
+      </button>
+    </h2>
+    <div id="{{ form_accordion_collapse_id }}" class="accordion-collapse collapse pt-3" role="region" aria-labelledby="{{ form_accordion_title_id }}">
+      <div class="accordion-body">
+        {% if errors %}
+          <div>
+            {{ errors }}
+          </div>
+        {% endif %}
+
+        {{ description }}
+        {{ children }}
+        {{ value }}
+      </div>
+    </div>
+  </div>
+</div>

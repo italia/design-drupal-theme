@@ -38,9 +38,12 @@
     }
   )
 
-  headerWrapperObserver.observe(
-    document.querySelector(".it-header-wrapper"),
-    {attributes: true}
-  )
+  let headerWrapperObserverTarget = document.querySelector(".it-header-wrapper")
+  if (headerWrapperObserverTarget) {
+    headerWrapperObserver.observe(
+      headerWrapperObserverTarget,
+      {attributes: true}
+    )
+  }
 
 })(Drupal);

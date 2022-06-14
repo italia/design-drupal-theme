@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Default theme implementation for webform wizard progress tracker.
+ *
+ * Available variables:
+ * - webform: A webform.
+ * - pages: Associative array of wizard pages.
+ * - progress: Array of wizard progress containing page titles.
+ * - current_page: Current wizard page key.
+ * - current_index: The current wizard page index.
+ * - max_pages: Maximum number of pages that progress text should be displayed on.
+ *
+ * @see template_preprocess_webform_progress_tracker()
+ * @see https://www.w3.org/WAI/tutorials/forms/multi-page/
+ *
+ * @ingroup themeable
+ */
+#}
+{#{{ attach_library('webform/webform.progress.tracker') }}#}
+
+<ul class="webform-progress-tracker progress-tracker progress-tracker--center steppers-header" data-webform-progress-steps>
+  {% for index, page in progress %}
+    {% set is_completed = index < current_index %}
+    {% set is_active = index == current_index %}
+    {%
+      set classes = [
+        'progress-step',
+        is_completed ? 'is-complete',
+        is_completed ? 'confirmed',
+        is_active ? 'is-active',
+        is_active ? 'active'
+      ]
+    %}
+    {%
+      set attributes = create_attribute()
+        .setAttribute('data-webform-' ~ page.type, page.name)
+        .setAttribute('title', page.title)
+        .setAttribute('class', '')
+        .addClass(classes)
+    %}
+    <li{{ attributes }}>
+      {% if progress|length < max_pages %}
+        <div class="progress-text">
+          <div class="progress-title" data-webform-progress-link>
+            <span class="visually-hidden" data-webform-progress-state>{% if is_active or is_completed %}{{ is_active ? 'Current'|t : 'Completed'|t }}{% endif %}</span>
+            {{ index + 1 }} - {{ page.title }}
+
+            {% if is_completed %}
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-check',
+                icon_classes: ['steppers-success'],
+              } %}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

@@ -367,21 +367,145 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('navigation_header_main_menu_name'),
   ];
 
-  // Libraries Settings -------------------------------------------------------.
-  $form['libraries_settings'] = [
+  // Content ------------------------------------------------------------------.
+  $form['content'] = [
     '#type' => 'details',
-    '#title' => t('Libraries'),
-    '#description' => t("Customize library source. You need to clear the cache if you change these settings."),
-    '#open' => FALSE,
+    '#title' => t('Content'),
+    '#description' => t("This section shows utilities for organizing content, texts, lists, tables, and images."),
+    '#open' => TRUE,
     '#group' => 'bootstrap',
-    '#weight' => 20,
+    '#weight' => 0,
   ];
-  $form['libraries_settings']['libraries_type'] = [
+  // Tables.
+  $form['content']['tables'] = [
+    '#type' => 'details',
+    '#title' => t('Tables'),
+    '#description' => t('Default settings for all tables.'),
+    '#open' => TRUE,
+    '#group' => 'content',
+  ];
+  $form['content']['tables']['table_striped'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Striped'),
+    '#description' => t('Enable zebra-striping to any table row within the "tbody". Default: checked.'),
+    '#default_value' => theme_get_setting('table_striped'),
+  ];
+  $form['content']['tables']['table_striped_columns'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Striped columns'),
+    '#description' => t('Enable zebra-striping to any table column. Default: unchecked.'),
+    '#default_value' => theme_get_setting('table_striped_columns'),
+  ];
+  $form['content']['tables']['table_bg'] = [
     '#type' => 'select',
-    '#title' => t("Choose libraries type"),
-    '#description' => t("Default: Use italiagov.libraries.yml"),
-    '#default_value' => theme_get_setting('libraries_type'),
-    '#options' => Libraries::getLibraries(),
+    '#title' => t('Table background.'),
+    '#description' => t('Choose background color. Default: "Default"'),
+    '#default_value' => theme_get_setting('table_bg'),
+    '#options' => ['' => t('Default')] + Helper::getColorsName(TRUE),
+  ];
+  $form['content']['tables']['table_hover'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Hovered'),
+    '#description' => t('Enable a hover state on table rows within a "tbody". Note: hoverable rows can also be combined with the striped rows variant. Default: unchecked.'),
+    '#default_value' => theme_get_setting('table_hover'),
+  ];
+  $form['content']['tables']['table_bordered'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Bordered'),
+    '#description' => t('Enable borders on all sides of the table and cells. Default: unchecked.'),
+    '#default_value' => theme_get_setting('table_bordered'),
+  ];
+  $form['content']['tables']['table_border_color'] = [
+    '#type' => 'select',
+    '#title' => t('Table border color.'),
+    '#description' => t('Choose table border color. Default: "Default"'),
+    '#default_value' => theme_get_setting('table_border_color'),
+    '#options' => ['' => t('Default')] + Helper::getColorsName(TRUE),
+  ];
+  $form['content']['tables']['table_borderless'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Borderless'),
+    '#description' => t('Enable to show all tables without borders. Note: bordered table can also be combined with the borderless variant. Default: unchecked.'),
+    '#default_value' => theme_get_setting('table_borderless'),
+  ];
+  $form['content']['tables']['table_sm'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Small tables'),
+    '#description' => t('Enable to make any table more compact by cutting all cell padding in half. Default: unchecked.'),
+    '#default_value' => theme_get_setting('table_sm'),
+  ];
+  $form['content']['tables']['table_align_middle'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Vertical align middle'),
+    '#description' => t('Enable to adjust vertical alignment. Default: unchecked.'),
+    '#default_value' => theme_get_setting('table_align_middle'),
+  ];
+  $form['content']['tables']['table_thead_variant'] = [
+    '#type' => 'select',
+    '#title' => t('THead background.'),
+    '#description' => t('Default: "Dark".'),
+    '#default_value' => theme_get_setting('table_thead_variant'),
+    '#options' => [
+      '' => t('Default'),
+      'light' => t('Light'),
+      'dark' => t('Dark'),
+    ],
+  ];
+  $form['content']['tables']['table_caption_top'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Caption top'),
+    '#description' => t('Enable to put the caption on the top of the table. Default: checked.'),
+    '#default_value' => theme_get_setting('table_caption_top'),
+  ];
+  $form['content']['tables']['table_responsive'] = [
+    '#type' => 'select',
+    '#title' => t('Table responsive'),
+    '#description' => t('Enable horizontally scrolling tables. Use responsive{-sm|-md|-lg|-xl|-xxl} as needed to create responsive tables up to a particular breakpoint. From that breakpoint and up, the table will behave normally and not scroll horizontally. Default "Responsive to all breakpoints"'),
+    '#default_value' => theme_get_setting('table_responsive'),
+    '#options' => [
+      '' => t('Disabled'),
+      'table-responsive' => t('Responsive to all breakpoints'),
+      'table-responsive-sm' => t('Responsive sm'),
+      'table-responsive-md' => t('Responsive md'),
+      'table-responsive-lg' => t('Responsive lg'),
+      'table-responsive-xl' => t('Responsive xl'),
+      'table-responsive-xxl' => t('Responsive xxl'),
+    ],
+  ];
+
+  // Forms --------------------------------------------------------------------.
+  $form['forms'] = [
+    '#type' => 'details',
+    '#title' => t('Forms'),
+    '#description' => t("Forms settings."),
+    '#open' => TRUE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+  // Actions.
+  $form['forms']['action'] = [
+    '#type' => 'details',
+    '#title' => t('Form actions'),
+    '#description' => t('Default settings for all forms actions.'),
+    '#open' => TRUE,
+    '#group' => 'forms',
+  ];
+  $form['forms']['action']['forms_action_alignment'] = [
+    '#type' => 'select',
+    '#title' => t('Alignment'),
+    '#description' => t('Choose where to display the submit buttons. Default: "Left"'),
+    '#default_value' => theme_get_setting('forms_action_alignment'),
+    '#options' => [
+      'left' => t('Left'),
+      'center' => t('Center'),
+      'right' => t('Right'),
+    ],
+  ];
+  $form['forms']['action']['forms_action_spacing'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Automatic spacing'),
+    '#description' => t('Enable to add automatic padding. Disable for custom spacing. Note: if you use webform module, use webform ui for this setting.  Default: checked'),
+    '#default_value' => theme_get_setting('forms_action_spacing'),
   ];
 
   // Footer -------------------------------------------------------------------.
@@ -406,6 +530,23 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Choose container type. Default: Container fixed'),
     '#default_value' => theme_get_setting('footer_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+
+  // Libraries Settings -------------------------------------------------------.
+  $form['libraries_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Libraries'),
+    '#description' => t("Customize library source. You need to clear the cache if you change these settings."),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 20,
+  ];
+  $form['libraries_settings']['libraries_type'] = [
+    '#type' => 'select',
+    '#title' => t("Choose libraries type"),
+    '#description' => t("Default: Use italiagov.libraries.yml"),
+    '#default_value' => theme_get_setting('libraries_type'),
+    '#options' => Libraries::getLibraries(),
   ];
 
   // Vanilla Settings

@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Template for number input component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/form/input-numerico/
+ * Last review: v2.0.0-rc5
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * Examples:
+ * @see template_preprocess_input()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+
+  {# Set options #}
+  {% if attributes.value is empty or not attributes.value %}
+    {% set default_value = attributes.min ? attributes.min.__toString() : '0' %}
+    {% set attributes = attributes
+      .setAttribute('value', default_value)
+    %}
+  {% endif %}
+  {% set attributes = attributes
+    .setAttribute('data-bs-input', true)
+    .setAttribute('value', attributes.value ?: '0')
+  %}
+  {% set wrapper_classes = [
+    'input-number',
+  ] %}
+  {% if attributes.hasClass('input-number-currency') %}
+    {% set wrapper_classes = wrapper_classes|merge(['input-number-currency']) %}
+    {% set attributes = attributes.removeClass('input-number-currency') %}
+  {% endif %}
+  {% if attributes.hasClass('input-number-percentage') %}
+    {% set wrapper_classes = wrapper_classes|merge(['input-number-percentage']) %}
+    {% set attributes = attributes.removeClass('input-number-percentage') %}
+  {% endif %}
+  {% if attributes.hasClass('input-number-adaptive') %}
+    {% set wrapper_classes = wrapper_classes|merge(['input-number-adaptive']) %}
+    {% set attributes = attributes.removeClass('input-number-adaptive') %}
+  {% endif %}
+
+  {# Component #}
+  <span class="{{ wrapper_classes|join(' ') }}">
+    <input{{ attributes }} />
+    <button class="input-number-add">
+      <span class="visually-hidden">{{ 'Increase value'|trans }}</span>
+    </button>
+    <button class="input-number-sub">
+      <span class="visually-hidden">{{ 'Decrease value'|trans }}</span>
+    </button>
+  </span>
+  {{ children }}
+{% endapply %}
