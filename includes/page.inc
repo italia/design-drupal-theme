@@ -11,14 +11,14 @@ use Drupal\bootstrap_italia\Helper\Helper;
  * Implements page_attachments_alter()
  */
 function bootstrap_italia_page_attachments_alter(&$page) {
-  $viewport = array(
+  $viewport = [
     '#type' => 'html_tag',
     '#tag' => 'meta',
-    '#attributes' => array(
+    '#attributes' => [
       'name' => 'viewport',
       'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no',
-    ),
-  );
+    ],
+  ];
   $page['#attached']['html_head'][] = [$viewport, 'viewport'];
 }
 
@@ -49,7 +49,7 @@ function bootstrap_italia_preprocess_page(&$variables) {
       $variables['socials'][$low_social]['url'] = theme_get_setting($low_social);
     }
   }
-  // Search
+  // Search.
   $variables['search_type'] = theme_get_setting('search_type');
   $variables['search_page_url'] = theme_get_setting('search_page_url');
   $variables['search_modal_size'] = theme_get_setting('search_modal_size');

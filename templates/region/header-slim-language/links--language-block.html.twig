@@ -60,11 +60,23 @@
                   <li>
                     {% set _current = key == current_language ? true : false %}
                     {%- if item.link -%}
-                      <a{{ item.attributes.addClass('dropdown-item').addClass('list-item') }} href="{{ item.link['#url'] }}">
+                      {% set _item_attributes = item.attributes
+                        .addClass('dropdown-item')
+                        .addClass('list-item')
+                      %}
+                      {% if _current %}
+                        {% set _item_attributes = _item_attributes.addClass('active') %}
+                      {% endif %}
+                      <a{{ _item_attributes }}
+                        href="{{ item.link['#url'] }}"
+                        {% if not _current %}
+                          title="{{ 'Switch to @languageName language'|t({'@languageName': item.link['#title']}) }}"
+                        {% endif %}
+                      >
                         <span>
                           {{ item.link['#title'] }}
                           {% if _current %}
-                            <span class="visually-hidden">{{ 'Selected'|trans }}</span>
+                            <span class="visually-hidden">({{ 'Current language'|trans }})</span>
                           {% endif %}
                         </span>
                       </a>

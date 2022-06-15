@@ -17,7 +17,7 @@ function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, arra
     $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['element']['#form_id'];
   }
 
-  // Check to see if the form is layout builder form
+  // Check to see if the form is layout builder form.
   if (isset($element['#layout_builder_element_keys'])) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . 'layout__builder';
   }

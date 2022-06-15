@@ -4,19 +4,18 @@ namespace Drupal\bootstrap_italia\Helper;
 
 /**
  * Helper Form class for bootstrap_italia theme.
- * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606
+ *
+ * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606.
  */
 class FormInput {
 
   /**
    * Set form input.
    *
-   * @param $variables
+   * @param array &$variables
    *   Referenced $variables.
-   *
-   * @return void
    */
-  public static function set(&$variables) {
+  public static function set(array &$variables) {
     if (isset($variables['element']['#type'])) {
       $variables['type'] = self::getType($variables);
 
@@ -37,19 +36,24 @@ class FormInput {
         case 'week':
           self::setText($variables);
           break;
+
         case 'textfield':
           self::setTextfield($variables);
           break;
+
         case 'range':
           self::setRange($variables);
           break;
+
         case 'file':
           self::setFile($variables);
           break;
+
         case 'password':
         case 'webform_password':
           self::setPassword($variables);
           break;
+
         case 'submit':
           self::setSubmit($variables);
           break;
@@ -63,16 +67,16 @@ class FormInput {
   /**
    * Return variables type.
    *
-   * @param $variables
+   * @param array &$variables
    *   Variables array.
    *
    * @return string
    *   Element type.
    */
-  private static function getType(&$variables): string {
+  private static function getType(array &$variables): string {
     $type = $variables['element']['#type'];
 
-    // Search if a webform-password
+    // Search if a webform-password.
     if (isset($variables['attributes']['class']) &&
       in_array('js-webform-input-hide', $variables['attributes']['class'], TRUE)
     ) {
@@ -82,13 +86,19 @@ class FormInput {
     return $type;
   }
 
+  /**
+   * Set text input type.
+   */
   private static function setText(&$variables) {
     $variables['attributes']['class'][] = 'form-control';
   }
 
+  /**
+   * Set textfield input type.
+   */
   private static function setTextfield(&$variables) {
     // Ensure there is no collision with Bootstrap 5 default class names
-    // by replacing ".form-text" with ".form-textfield"
+    // by replacing ".form-text" with ".form-textfield".
     $attributes = &$variables['attributes'];
 
     if (!empty($attributes['class'])) {
@@ -98,24 +108,36 @@ class FormInput {
     $variables['attributes']['class'][] = 'form-control';
   }
 
+  /**
+   * Set range input type.
+   */
   private static function setRange(&$variables) {
     $variables['attributes']['class'][] = 'form-range';
   }
 
+  /**
+   * Set file input type.
+   */
   private static function setFile(&$variables) {
     $variables['attributes']['class'][] = 'upload';
   }
 
+  /**
+   * Set submit input type.
+   */
   private static function setSubmit(&$variables) {
     $variables['attributes']['class'][] = 'btn';
   }
 
+  /**
+   * Set password input type.
+   */
   private static function setPassword(&$variables) {
     $variables['attributes']['class'][] = 'form-control ';
     $variables['attributes']['class'][] = 'input-password';
 
     // Ensure there is no collision with Bootstrap 5 default class names
-    // unset ".form-text"
+    // unset ".form-text".
     $attributes = &$variables['attributes'];
     if (!empty($attributes['class'])) {
       $classIndex = array_search('form-text', $attributes['class']);
@@ -125,6 +147,9 @@ class FormInput {
     $variables['attributes']['data-bs-input'] = TRUE;
   }
 
+  /**
+   * Check validation error on single field.
+   */
   private static function checkErrors(&$variables) {
     if (isset($variables['attributes']['class']) &&
       in_array('error', $variables['attributes']['class'], TRUE)
@@ -138,6 +163,9 @@ class FormInput {
     }
   }
 
+  /**
+   * Check validation success on single field.
+   */
   private static function checkSuccess(&$variables) {
     if (isset($variables['attributes']['class'])) {
       if (in_array('success', $variables['attributes']['class'], TRUE) ||

@@ -227,7 +227,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('search_type'),
     '#options' => [
       'modal' => t('Search in modal window'),
-//      'inline' => t('Show inline search input'),
+  // 'inline' => t('Show inline search input'),
       'page' => t('Redirect to search page'),
     ],
   ];
@@ -255,7 +255,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'fullscreen-xxl-down' => t('Fullscreen xxl down'),
     ],
   ];
-
 
   // Navigation header --------------------------------------------------------.
   $form['navigation_header'] = [
@@ -472,6 +471,20 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'table-responsive-xxl' => t('Responsive xxl'),
     ],
   ];
+  // Nav tabs.
+  $form['content']['nav_tabs'] = [
+    '#type' => 'details',
+    '#title' => t('Nav tabs'),
+    '#description' => t('Settings for nav tabs in content.'),
+    '#open' => TRUE,
+    '#group' => 'content',
+  ];
+  $form['content']['nav_tabs']['nav_tabs_scrollable'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Scrollable'),
+    '#description' => t('Enable scroll in nav tabs. Default: checked.'),
+    '#default_value' => theme_get_setting('nav_tabs_scrollable'),
+  ];
 
   // Forms --------------------------------------------------------------------.
   $form['forms'] = [
@@ -549,7 +562,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#options' => Libraries::getLibraries(),
   ];
 
-  // Vanilla Settings
+  // Vanilla Settings.
   $form['libraries_settings']['vanilla'] = [
     '#type' => 'details',
     '#title' => t('Vanilla Settings'),
@@ -563,7 +576,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('libraries_bundle'),
   ];
 
-  // CDN Settings
+  // CDN Settings.
   $form['libraries_settings']['cdn'] = [
     '#type' => 'details',
     '#title' => t('CDN Settings'),

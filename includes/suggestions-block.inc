@@ -9,7 +9,6 @@ use Drupal\block_content\BlockContentInterface;
 
 /**
  * Implements hook_theme_suggestions_block_alter().
- * Retro-compatible with 0.x.
  */
 function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {
   $content = $variables['elements']['content'];

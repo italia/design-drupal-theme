@@ -34,11 +34,11 @@
 {% apply spaceless %}
   {% include '@bi-bcl/deprecated.html.twig' with {
     old: 'bootstrap_italia_components/link-list/menu-recursive.twig',
-    new: 'bi-bcl/link-list/menu-recursive.html.twig',
+    new: 'bi-bcl/list/menu-recursive.html.twig',
   } %}
 
   {# Redirect to new component #}
-  {% include '@bi-bcl/link-list/menu-recursive.html.twig' with {
+  {% include '@bi-bcl/list/menu-recursive.html.twig' with {
     menu_name: menu_name,
     items: items,
     attributes: attributes,

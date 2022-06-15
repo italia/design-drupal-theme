@@ -10,7 +10,7 @@ engine: twig
 logo: logo.svg
 screenshot: screenshot.png
 
-hidden: true
+#hidden: true
 
 # https://www.drupal.org/docs/theming-drupal/creating-sub-themes#s-inheriting-theme-regions
 regions:

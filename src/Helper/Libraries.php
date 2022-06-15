@@ -4,7 +4,8 @@ namespace Drupal\bootstrap_italia\Helper;
 
 /**
  * Libraries class for bootstrap_italia theme.
- * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606
+ *
+ * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606.
  */
 class Libraries {
 
@@ -71,7 +72,7 @@ class Libraries {
       $libraries['libraries-ui'] = self::getLibrariesVanilla();
     }
     elseif (!empty($libraries_type) && $libraries_type == 'cdn') {
-      $libraries['libraries-ui'] = self::getLibrariesCDN();
+      $libraries['libraries-ui'] = self::getLibrariesCdn();
     }
     elseif (!empty($libraries_type) && $libraries_type != '') {
       $libraries['libraries-ui'] = [
@@ -108,11 +109,11 @@ class Libraries {
     return [
       'css' => [
         'theme' => [
-          'assets/css/bootstrap-italia.min.css' => ['minified' => TRUE]
+          'assets/css/bootstrap-italia.min.css' => ['minified' => TRUE],
         ],
       ],
       'js' => [
-        $js => ['minified' => TRUE]
+        $js => ['minified' => TRUE],
       ],
       'dependencies' => [
         'core/drupal',
@@ -126,7 +127,7 @@ class Libraries {
    * @return array
    *   Array with CDN libraries
    */
-  public static function getLibrariesCDN(): array {
+  public static function getLibrariesCdn(): array {
     $css = Helper::getSettings()->get('libraries_cdn_css');
     $js = Helper::getSettings()->get('libraries_cdn_js');
     $min = Helper::getSettings()->get('libraries_cdn_minified');
@@ -135,15 +136,15 @@ class Libraries {
         'theme' => [
           $css => [
             'type' => 'external',
-            'minified' => $min
-          ]
+            'minified' => $min,
+          ],
         ],
       ],
       'js' => [
         $js => [
           'type' => 'external',
-          'minified' => $min
-        ]
+          'minified' => $min,
+        ],
       ],
       'dependencies' => [
         'core/drupal',

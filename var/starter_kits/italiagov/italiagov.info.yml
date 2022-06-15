@@ -15,7 +15,7 @@ libraries:
 #  - italiagov/ddev
   - bootstrap_italia/fix
 
-#hidden: true # <---- Remember to set false, comment or delete line
+hidden: true # <---- Remember to set false, comment or delete line
 
 logo: logo.svg
 screenshot: screenshot.png

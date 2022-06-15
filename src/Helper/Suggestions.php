@@ -4,19 +4,18 @@ namespace Drupal\bootstrap_italia\Helper;
 
 /**
  * Helper Form class for bootstrap_italia theme.
- * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606
+ *
+ * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606.
  */
 class Suggestions {
 
   /**
    * Set form input.
    *
-   * @param $suggestions
+   * @param array &$suggestions
    *   Referenced $suggestions.
-   * @param $variables
+   * @param array &$variables
    *   Referenced $variables.
-   *
-   * @return void
    */
   public static function form(array &$suggestions, array &$variables) {
     // Add a suggestion based on the element type.
@@ -30,4 +29,5 @@ class Suggestions {
       $suggestions[] = $variables['theme_hook_original'] . '__name__' . $variables['element']['#name'];
     }
   }
+
 }

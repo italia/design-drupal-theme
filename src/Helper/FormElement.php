@@ -4,19 +4,18 @@ namespace Drupal\bootstrap_italia\Helper;
 
 /**
  * Helper Form class for bootstrap_italia theme.
- * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606
+ *
+ * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606.
  */
 class FormElement {
 
   /**
    * Set form element.
    *
-   * @param $variables
-   *   Referenced $variables.
-   *
-   * @return void
+   * @param array &$variables
+   *   Referenced $variables array.
    */
-  public static function set(&$variables) {
+  public static function set(array &$variables) {
     if (isset($variables['type'])) {
       $variables['type'] = self::getType($variables);
 
@@ -35,15 +34,19 @@ class FormElement {
         case 'webform_email_multiple':
           self::setText($variables);
           break;
+
         case 'number':
           self::setNumber($variables);
           break;
+
         case 'tel':
           self::setTel($variables);
           break;
+
         case 'textarea':
           self::setTextarea($variables);
           break;
+
         case 'date':
         case 'datetime':
         case 'datelist':
@@ -52,10 +55,12 @@ class FormElement {
         case 'webform_time':
           self::setDateTime($variables);
           break;
+
         case 'checkbox':
         case 'radio':
           self::setBoolean($variables);
           break;
+
         case 'select':
           self::setSelect($variables);
           break;
@@ -66,13 +71,13 @@ class FormElement {
   /**
    * Return variables type.
    *
-   * @param $variables
+   * @param array $variables
    *   Variables array.
    *
    * @return string
    *   Element type.
    */
-  private static function getType($variables): string {
+  private static function getType(array $variables): string {
     $type = $variables['type'];
 
     if ($type == 'textfield' &&
@@ -141,12 +146,18 @@ class FormElement {
     return $type;
   }
 
+  /**
+   * Number element settings.
+   */
   private static function setNumber(&$variables) {
     $variables['label']['#attributes']['class'][] = 'input-number-label';
     $variables['label']['#attributes']['class'][] = 'active';
     $variables['attributes']['class'][] = 'form-group';
   }
 
+  /**
+   * Telephone element settings.
+   */
   private static function setTel(&$variables) {
     if (isset($variables['element']['#international']) &&
       $variables['element']['#international']
@@ -156,24 +167,39 @@ class FormElement {
     $variables['attributes']['class'][] = 'form-group';
   }
 
+  /**
+   * Textarea element settings.
+   */
   private static function setTextarea(&$variables) {
     $variables['label']['#attributes']['class'][] = 'active';
     $variables['attributes']['class'][] = 'form-group';
   }
 
+  /**
+   * Date time element settings.
+   */
   private static function setDateTime(&$variables) {
     $variables['label']['#attributes']['class'][] = 'active';
     $variables['attributes']['class'][] = 'form-group';
   }
 
+  /**
+   * Text element settings.
+   */
   private static function setText(&$variables) {
     $variables['attributes']['class'][] = 'form-group';
   }
 
+  /**
+   * Boolean element settings.
+   */
   private static function setBoolean(&$variables) {
     $variables['attributes']['class'][] = 'form-check';
   }
 
+  /**
+   * Select element settings.
+   */
   private static function setSelect(&$variables) {
     $variables['attributes']['class'][] = 'select-wrapper';
   }

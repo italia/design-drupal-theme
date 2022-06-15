@@ -8,6 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\bootstrap_italia\Helper\FormElement;
 use Drupal\bootstrap_italia\Helper\FormInput;
+use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_form_alter() for adding classes and placeholder text to the search forms.
@@ -80,7 +81,7 @@ function bootstrap_italia_preprocess_select(&$variables) {
  */
 function bootstrap_italia_preprocess_container(&$variables) {
   if (isset($variables['element']['#attributes']) &&
-    $variables['element']['#attributes'] instanceof Drupal\Core\Template\Attribute &&
+    $variables['element']['#attributes'] instanceof Attribute &&
     $variables['element']['#attributes']->hasClass('webform-element-description')
   ) {
     $variables['element']['#attributes']->addClass('form-text');
@@ -94,6 +95,6 @@ function bootstrap_italia_preprocess_container(&$variables) {
       $variables['attributes']['class'][] = 'mt-5';
       $variables['attributes']['class'][] = 'mb-3';
     }
-    $variables['attributes']['class'][] = 'text-align-'.theme_get_setting('forms_action_alignment');
+    $variables['attributes']['class'][] = 'text-align-' . theme_get_setting('forms_action_alignment');
   }
 }

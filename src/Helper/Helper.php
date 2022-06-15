@@ -6,7 +6,8 @@ use Drupal\Core\Config\Config;
 
 /**
  * Helper class for bootstrap_italia theme.
- * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606
+ *
+ * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606.
  */
 class Helper {
 
@@ -14,6 +15,7 @@ class Helper {
    * Get active theme.
    *
    * @return mixed
+   *   String with theme name.
    */
   public static function getTheme() {
     return \Drupal::service('theme.manager')->getActiveTheme();
@@ -54,7 +56,8 @@ class Helper {
 
   /**
    * Return colors name.
-   * https://getbootstrap.com/docs/5.1/utilities/colors/#variables
+   *
+   * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
    */
   public static function getColorsName($withLabel = FALSE): array {
     if ($withLabel) {
@@ -143,7 +146,7 @@ class Helper {
       ];
     }
 
-    return ['', 'sm', 'md', 'lg', 'xl','xxl'];
+    return ['', 'sm', 'md', 'lg', 'xl', 'xxl'];
   }
 
   /**
@@ -171,4 +174,5 @@ class Helper {
       'container-xxl',
     ];
   }
+
 }
