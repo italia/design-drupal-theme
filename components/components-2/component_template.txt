@@ -35,7 +35,7 @@
     ] %}
 
   {% if _COMPONENT-NAME_classes is not empty %}
-    {% set _classes = _classes|merge(COMPOONENT-NAME_classes) %}
+    {% set _classes = _classes|merge(COMPONENT-NAME_classes) %}
   {% endif %}
 
   {% if _COMPONENT-NAME_attributes is empty %}

@@ -63,3 +63,14 @@ function bootstrap_italia_preprocess_page(&$variables) {
   // Footer settings.
   $variables['footer_container_type'] = theme_get_setting('footer_container_type');
 }
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function bootstrap_italia_preprocess_html(&$variables) {
+  // Back to top.
+  $variables['back_to_top_enable'] = (bool) theme_get_setting('back_to_top_enable');
+  $variables['back_to_top_small'] = (bool) theme_get_setting('back_to_top_small');
+  $variables['back_to_top_dark'] = (bool) theme_get_setting('back_to_top_dark');
+  $variables['back_to_top_shadow'] = (bool) theme_get_setting('back_to_top_shadow');
+}

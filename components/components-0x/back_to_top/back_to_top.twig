@@ -2,8 +2,8 @@
 /**
  * @file
  * Template for Back to top component.
- * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/alert/
- * Last review: 1.4.1
+ * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/torna-su/
+ * Last review: v2.0.0-rc5
  *
  * Available config:
  * - small: true | false
@@ -11,19 +11,17 @@
  * - shadow: true | false
  */
 #}
-{%
-  set container_classes = [
-    'back-to-top',
-    small ? 'back-to-top-small',
-    dark ? 'dark',
-    shadow ? 'shadow'
-  ]
-%}
-{% set icon_class = dark ? 'icon-secondary' : 'icon-light' %}
 
-<a href="#" aria-hidden="true" title="Back To Top" data-attribute="back-to-top" class="{{ container_classes|join(' ') }}">
-  {% include '@bootstrap_italia_components/icon/icon.twig' with {
-    name: 'it-arrow-up',
-    classes: [icon_class]
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/back_to_top/back_to_top.twig',
+    new: 'bi-bcl/back-to-top/back-to-top.html.twig',
   } %}
-</a>
+
+  {# Redirect to new component #}
+  {% include '@bi-bcl/back-to-top/back-to-top.html.twig' with {
+    back_to_top_small: small,
+    back_to_top_dark: dark,
+    back_to_top_shadow: shadow
+  } %}
+{% endapply %}

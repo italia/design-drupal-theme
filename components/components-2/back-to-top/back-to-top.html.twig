@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Template for back_to_top component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/torna-su/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - back_to_top_small (boolean) (default: false)
+ * - back_to_top_dark (boolean) (default: false)
+ * - back_to_top_shadow (boolean) (default: false)
+ * - assistive_text (string) (default: 'Back to top')
+ * - back_to_top_classes (array) (default: '')
+ * - back_to_top_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/back-to-top/back-to-top.html.twig' with {
+      back_to_top_small: false,
+      back_to_top_dark: false,
+      back_to_top_shadow: true,
+      assistive_text: 'Back to top'|t
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _back_to_top_small = back_to_top_small ?? false %}
+  {% set _back_to_top_dark = back_to_top_dark ?? false %}
+  {% set _back_to_top_shadow = back_to_top_shadow ?? false %}
+  {% set _assistive_text = assistive_text|default('Back to top'|t) %}
+  {% set _back_to_top_classes = back_to_top_classes|default('') %}
+  {% set _back_to_top_attributes = back_to_top_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'back-to-top',
+      _back_to_top_small ? 'back-to-top-small',
+      _back_to_top_shadow ? 'shadow',
+      _back_to_top_dark ? 'dark',
+    ] %}
+
+  {% if _back_to_top_classes is not empty %}
+    {% set _classes = _classes|merge(back_to_top_classes) %}
+  {% endif %}
+
+  {% if _back_to_top_attributes is empty %}
+    {% set back_to_top_attributes = create_attribute() %}
+  {% endif %}
+  {% set back_to_top_attributes = back_to_top_attributes
+    .addClass(_classes)
+    .setAttribute('href', '#')
+    .setAttribute('aria-hidden', "true")
+    .setAttribute('data-bs-toggle', "backtotop")
+    .setAttribute('title', _assistive_text)
+  %}
+
+  {% set back_to_top_icon_class = [
+    _back_to_top_dark ? 'icon-secondary' : 'icon-light'
+  ] %}
+
+  {# Component #}
+  <a{{ back_to_top_attributes }}>
+    <span class="visually-hidden">{{ _assistive_text }}</span>
+    {% include '@bi-bcl/icon/icon.html.twig' with {
+      name: 'it-arrow-up',
+      icon_classes: back_to_top_icon_class,
+    } %}
+  </a>
+{% endapply %}
