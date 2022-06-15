@@ -16,13 +16,13 @@
 
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Badge with title'|trans,
+    title: 'Badge with title'|t,
   } %}
     {% block content %}
       {% for i in 1..6 %}
         <h{{ i }}>Example title
           {% include '@bi-bcl/badge/badge.html.twig' with {
-            label: 'New'|trans,
+            label: 'New'|t,
             background: 'secondary',
           } %}
         </h{{ i }}>
@@ -31,12 +31,12 @@
   {% endembed %}{# End embed demo. #}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Badge with button'|trans,
+    title: 'Badge with button'|t,
   } %}
     {% block content %}
 
       {% embed '@bi-bcl/button/button.html.twig' with {
-        label: 'Notification'|trans,
+        label: 'Notification'|t,
         variant: 'primary',
         button_classes: ['m-2'],
       } %}
@@ -45,14 +45,14 @@
           {% include '@bi-bcl/badge/badge.html.twig' with {
             label: '4',
             text_color: 'secondary',
-            assistive_text: 'Unread Messages'|trans,
+            assistive_text: 'Unread Messages'|t,
             badge_classes: ['neutral-2-bg']
           } %}
         {% endblock %}
       {% endembed %}
 
       {% embed '@bi-bcl/button/button.html.twig' with {
-        label: 'Inbox'|trans,
+        label: 'Inbox'|t,
         variant: 'primary',
         button_classes: ['m-3', 'position-relative'],
       } %}
@@ -60,7 +60,7 @@
           {% include '@bi-bcl/badge/badge.html.twig' with {
             label: '99+',
             background: 'danger',
-            assistive_text: 'Unread Messages'|trans,
+            assistive_text: 'Unread Messages'|t,
             rounded_pill: true,
             badge_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle']
           } %}
@@ -68,7 +68,7 @@
       {% endembed %}
 
       {% embed '@bi-bcl/button/button.html.twig' with {
-        label: 'Profile'|trans,
+        label: 'Profile'|t,
         variant: 'primary',
         button_classes: ['m-3', 'position-relative'],
       } %}
@@ -76,7 +76,7 @@
           {% include '@bi-bcl/badge/badge.html.twig' with {
             label: null,
             background: 'danger',
-            assistive_text: 'New alerts'|trans,
+            assistive_text: 'New alerts'|t,
             rounded_pill: true,
             badge_classes: ['position-absolute', 'top-0', 'start-100', 'translate-middle', 'p-2', 'border', 'border-light', 'rounded-circle']
           } %}
@@ -87,7 +87,7 @@
   {% endembed %}{# End embed demo. #}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Badge contestual variants'|trans,
+    title: 'Badge contestual variants'|t,
   } %}
     {% block content %}
       <p>
@@ -95,7 +95,7 @@
           {% include '@bi-bcl/badge/badge.html.twig' with {
             label: variant,
             background: variant,
-            assistive_text: 'Variants'|trans
+            assistive_text: 'Variants'|t
           } %}
           &nbsp;
         {% endfor %}
@@ -106,7 +106,7 @@
             label: variant,
             background: variant,
             outline: true,
-            assistive_text: 'Variants'|trans
+            assistive_text: 'Variants'|t
           } %}
           &nbsp;
         {% endfor %}
@@ -117,7 +117,7 @@
             label: variant,
             background: variant,
             rounded_pill: true,
-            assistive_text: 'Variants'|trans
+            assistive_text: 'Variants'|t
           } %}
           &nbsp;
         {% endfor %}
@@ -129,7 +129,7 @@
             background: variant,
             rounded_pill: true,
             outline: true,
-            assistive_text: 'Variants'|trans
+            assistive_text: 'Variants'|t
           } %}
           &nbsp;
         {% endfor %}

@@ -3,7 +3,7 @@
  * @file
  * Template for alert component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/alert/
- * Last review: 2.0.0-rc4
+ * Last review: v2.0.0-rc5
  *
  * Parameters:
  * - heading (string) (default: '')
@@ -76,7 +76,7 @@
 
     {%- if _dismissible -%}
       <button
-        aria-label="{{ 'Close alert'|trans }}"
+        aria-label="{{ 'Close alert'|t }}"
         type="button"
         class="btn-close"
         data-bs-dismiss="alert"

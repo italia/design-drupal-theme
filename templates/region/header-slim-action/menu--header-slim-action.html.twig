@@ -24,12 +24,12 @@
  */
 #}
 {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-  label: slim_header_action_username ?: 'User'|trans,
+  label: slim_header_action_username ?: 'User'|t,
   tag: 'button',
   id: menu_name,
   variant: 'primary',
   dropdown_dark: slim_header_action_dark,
-  assistive_text: 'User actions'|trans,
+  assistive_text: 'User actions'|t,
   icon_before: slim_header_action_icon ? 'it-user',
   button_classes: [
     slim_header_action_type == 'full' ? 'btn-full'

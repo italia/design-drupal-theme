@@ -3,7 +3,7 @@
  * @file
  * Template for Modal component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/modale/
- * Last review: 2.0.0-rc4
+ * Last review: v2.0.0-rc4
  *
  * Parameters:
  * - modal_title (string) (default: '')
@@ -114,7 +114,7 @@
 
   {# Settings for accesibility #}
   {% if _modal_title is empty and _modal_label is empty %}
-    {% set _modal_label = 'This is a message in modal dialog'|trans %}
+    {% set _modal_label = 'This is a message in modal dialog'|t %}
   {% endif %}
 
   {% if _modal_title is empty %}
@@ -175,7 +175,7 @@
             {% endif %}
 
             {% if _dismissible %}
-              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="{{ 'Close modal dialog'|trans }}">
+              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="{{ 'Close modal dialog'|t }}">
                 {% include '@bi-bcl/icon/icon.html.twig' with { name: 'it-close' } %}
               </button>
             {% endif %}

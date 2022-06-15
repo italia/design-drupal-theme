@@ -3,7 +3,7 @@
  * @file
  * Template for Callout component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/callout/
- * Last review: 2.0.0-rc4
+ * Last review: v2.0.0-rc5
  *
  * Parameters:
  * - variant (string) (default: 'default')
@@ -88,12 +88,12 @@
   {% endif %}
 
   {% set default_assistive_text = {
-    success:   'Success'|trans,
-    warning:   'Warning'|trans,
-    danger:    'Danger'|trans,
-    important: 'Important'|trans,
-    note:      'Note'|trans,
-    default:   'Info'|trans,
+    success:   'Success'|t,
+    warning:   'Warning'|t,
+    danger:    'Danger'|t,
+    important: 'Important'|t,
+    note:      'Note'|t,
+    default:   'Info'|t,
   } %}
   {% if _assistive_text is empty %}
     {% set _assistive_text = default_assistive_text[_variant] %}

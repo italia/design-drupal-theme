@@ -3,7 +3,7 @@
  * @file
  * Template for Modal component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/modale
- * Last review: 1.4.1
+ * Last review: v2.0.0-rc5
  *
  * Available config:
  * - modal_id: string
@@ -17,38 +17,48 @@
  * - modal_launch_button_size: xs | sm | lg | false
  *
 #}
-{% include '@bootstrap_italia_components/button/button.twig' with
-{
-   data_attributes: {
-      toggle: 'modal',
-      target: '#' ~ modal_id
-   },
-   type: modal_launch_button_type|default('primary'),
-   outline: modal_launch_button_outline,
-   tag: modal_launch_button_tag|default('button'),
-   value: modal_launch_button_value|default('Apri'),
-   input_type: modal_launch_button_input_type|default('button'),
-   size: modal_launch_button_size
-}
-%}
-<div class="modal fade" tabindex="-1" role="dialog" id="{{ modal_id }}">
-  <div class="modal-dialog" role="document">
-     <div class="modal-content">
-        <div class="modal-header">
-           <h5 class="modal-title">{{ modal_header }}
-           </h5>
-           {% if modal_close %}
-           {% include '@bootstrap_italia_components/modal/modal-close-button.twig' %}
-           {% endif %}
-        </div>
-        <div class="modal-body">
-           <p>{{ modal_body }}</p>
-        </div>
-        <div class="modal-footer">
-          {% if modal_dismiss_txt %}
-          <button class="btn btn-outline-primary btn-sm" type="button" data-dismiss="modal">{{ modal_dismiss_txt }}</button>
-          {% endif %}
-        </div>
-     </div>
-  </div>
-</div>
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/modal/modal.twig',
+    new: 'bi-bcl/modal/modal.html.twig',
+  } %}
+
+  {# Redirect to new component #}
+  {% embed '@bi-bcl/modal/modal.html.twig' with {
+    id: modal_id,
+    dismissible: modal_close,
+  } %}
+    {% block modalTitle %}
+      {{ modal_header }}
+    {% endblock %}
+
+    {% block modalBody %}
+      <p>{{ modal_body }}</p>
+    {% endblock %}
+
+    {% block modalFooter %}
+      {% if modal_dismiss_txt %}
+        <button class="btn btn-outline-primary btn-sm" type="button" data-dismiss="modal">{{ modal_dismiss_txt }}</button>
+      {% endif %}
+    {% endblock %}
+
+    {% block modalButton %}
+      {% if _button_label %}
+        {% set button_modal_attributes = create_attribute() %}
+        {% set button_modal_attributes = button_modal_attributes
+          .setAttribute('data-bs-toggle', 'modal')
+          .setAttribute('data-bs-target', '#'~_id)
+        %}
+        {% include '@bi-bcl/button/button.html.twig' with {
+          label: modal_launch_button_value|default('Open'|t),
+          variant: modal_launch_button_type|default('primary'),
+          tag: modal_launch_button_tag|default('button'),
+          type: modal_launch_button_input_type|default('button'),
+          size: modal_launch_button_size,
+          button_attributes: button_modal_attributes
+        } %}
+      {% endif %}
+    {% endblock %}
+
+  {% endembed %}
+{% endapply %}

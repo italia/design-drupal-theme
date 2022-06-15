@@ -19,7 +19,7 @@
   ] %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Callout'|trans,
+    title: 'Callout'|t,
   } %}
     {% block content %}
       {% for variant in variants %}
@@ -33,7 +33,7 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Callout highlight'|trans,
+    title: 'Callout highlight'|t,
   } %}
     {% block content %}
       {% for variant in variants %}
@@ -48,7 +48,7 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Callout more'|trans,
+    title: 'Callout more'|t,
   } %}
     {% block content %}
       {% embed '@bi-bcl/callout/callout.html.twig' with {
@@ -64,14 +64,14 @@
           <div class="collapse-div" id="callout-demo-collapseDiv1">
             <div class="collapse-header" id="callout-demo-heading1">
               <button aria-controls="callout-demo-collapse1" aria-expanded="false" class="callout-more-toggle" data-bs-target="#callout-demo-collapse1" data-bs-toggle="collapse">
-                {{ 'Read more'|trans }} <span></span>
+                {{ 'Read more'|t }} <span></span>
               </button>
               <a class="callout-more-download" href="#"><svg class="icon me-2">
                   {% include '@bi-bcl/icon/icon.html.twig' with {
                     name: 'it-download',
                     color: 'primary',
                   } %}
-                  <span class="visually-hidden">PDF </span>{{ 'Download'|trans }}
+                  <span class="visually-hidden">PDF </span>{{ 'Download'|t }}
               </a>
             </div>
             <div aria-labelledby="callout-demo-heading1" class="collapse" id="callout-demo-collapse1" role="tabpanel">

@@ -24,7 +24,7 @@
                 {% if socials %}
                   {% include '@bi-bcl/share/follow-us.html.twig' with {
                     socials: socials,
-                    label: 'Follow us on'|trans,
+                    label: 'Follow us on'|t,
                     blank: social_new_window,
                     followus_classes: ["it-socials", "d-none", "d-md-flex"]
                   } %}
@@ -40,7 +40,7 @@
                     {% if search_type == 'modal' %}
                       {% embed '@bi-bcl/modal/modal.html.twig' with {
                         id: 'modal-header-center-search',
-                        modal_label: 'Site search'|trans,
+                        modal_label: 'Site search'|t,
                         scrollable: true,
                         modal_size: search_modal_size ?: 'fullscreen',
                         dismissibile: false,
@@ -52,9 +52,9 @@
                         {% endblock %}
 
                         {% block modalButton %}
-                          <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
+                          <span class="d-none d-md-block">{{ 'Search'|t }}</span>
                           <a class="search-link rounded-icon"
-                             aria-label="{{ 'Site search'|trans }}"
+                             aria-label="{{ 'Site search'|t }}"
                              data-bs-toggle="modal"
                              data-bs-target="#modal-header-center-search"
                              href="#"
@@ -68,10 +68,10 @@
                     {% endif %}{# End search modal #}
 
                     {% if search_type == 'page' %}
-                      <span class="d-none d-md-block">{{ 'Search'|trans }}</span>
+                      <span class="d-none d-md-block">{{ 'Search'|t }}</span>
                       <a class="search-link rounded-icon"
-                         aria-label="{{ 'Site search'|trans }}"
-                         title="{{ 'Site search'|trans }}"
+                         aria-label="{{ 'Site search'|t }}"
+                         title="{{ 'Site search'|t }}"
                          href="{{ search_page_url ?: '/search/node' }}"
                       >
                         {% include '@bi-bcl/icon/icon.html.twig' with {

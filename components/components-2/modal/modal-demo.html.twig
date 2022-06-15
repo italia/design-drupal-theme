@@ -61,19 +61,19 @@
     sunt in culpa qui officia deserunt mollit anim id est laborum.' %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Modal demo'|trans,
+    title: 'Modal demo'|t,
   } %}
     {% block content %}
 
       {% embed '@bi-bcl/modal/modal.html.twig' with {
         modal_title: title,
         modal_body: message_xs,
-        button_label: 'Launch demo modal'|trans
+        button_label: 'Launch demo modal'|t
       } %}
         {% block modalFooter %}
           <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
-            {{ 'Action 2'|trans }}</button>
-          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+            {{ 'Action 2'|t }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|t }}</button>
         {% endblock %}
       {% endembed %}
 
@@ -82,7 +82,7 @@
 
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Modal demo icon'|trans,
+    title: 'Modal demo icon'|t,
   } %}
     {% block content %}
 
@@ -90,11 +90,11 @@
         modal_title: title,
         modal_body: message_xs,
         modal_icon: 'it-info-circle',
-        button_label: 'Launch demo modal'|trans
+        button_label: 'Launch demo modal'|t
       } %}
         {% block modalFooter %}
           <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
-            {{ 'Ok'|trans }}</button>
+            {{ 'Ok'|t }}</button>
         {% endblock %}
       {% endembed %}
 
@@ -102,7 +102,7 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Modal demo link-list centered'|trans,
+    title: 'Modal demo link-list centered'|t,
   } %}
     {% block content %}
 
@@ -110,8 +110,8 @@
         modal_title: true,
         dismissible: false,
         modal_position: 'centered',
-        modal_label: 'Link list modal'|trans,
-        button_label: 'Launch demo modal'|trans,
+        modal_label: 'Link list modal'|t,
+        button_label: 'Launch demo modal'|t,
         modal_classes: ['it-dialog-link-list'],
       } %}
 
@@ -160,7 +160,7 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Modal popconfirm centered'|trans,
+    title: 'Modal popconfirm centered'|t,
   } %}
     {% block content %}
 
@@ -169,12 +169,12 @@
         modal_body: message_xs,
         popconfirm: true,
         modal_position: 'centered',
-        button_label: 'Launch demo modal'|trans
+        button_label: 'Launch demo modal'|t
       } %}
         {% block modalFooter %}
           <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
-            {{ 'Action 2'|trans }}</button>
-          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+            {{ 'Action 2'|t }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|t }}</button>
         {% endblock %}
       {% endembed %}
 
@@ -182,7 +182,7 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Modal demo long text'|trans,
+    title: 'Modal demo long text'|t,
   } %}
     {% block content %}
 
@@ -190,12 +190,12 @@
         modal_title: title,
         modal_body: message_xl,
         scrollable: true,
-        button_label: 'Launch demo modal'|trans
+        button_label: 'Launch demo modal'|t
       } %}
         {% block modalFooter %}
           <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
-            {{ 'Action 2'|trans }}</button>
-          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+            {{ 'Action 2'|t }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|t }}</button>
         {% endblock %}
       {% endembed %}
 
@@ -203,7 +203,7 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Modal demo long text fullscreen'|trans,
+    title: 'Modal demo long text fullscreen'|t,
   } %}
     {% block content %}
 
@@ -212,12 +212,12 @@
         modal_body: message_xl~message_xl~message_xl~message_xl~message_xl~message_xl,
         scrollable: true,
         modal_size: 'fullscreen',
-        button_label: 'Launch demo modal'|trans
+        button_label: 'Launch demo modal'|t
       } %}
         {% block modalFooter %}
           <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
-            {{ 'Action 2'|trans }}</button>
-          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+            {{ 'Action 2'|t }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|t }}</button>
         {% endblock %}
       {% endembed %}
 
@@ -225,7 +225,7 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Modal demo long text fullscreen 2'|trans,
+    title: 'Modal demo long text fullscreen 2'|t,
   } %}
     {% block content %}
 
@@ -234,7 +234,7 @@
         scrollable: true,
         modal_size: 'fullscreen',
         dismissibile: false,
-        button_label: 'Launch demo modal'|trans
+        button_label: 'Launch demo modal'|t
       } %}
         {% block modalBody %}
           <div class="container">
@@ -256,8 +256,8 @@
 
         {% block modalFooter %}
           <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">
-            {{ 'Action 2'|trans }}</button>
-          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|trans }}</button>
+            {{ 'Action 2'|t }}</button>
+          <button class="btn btn-primary btn-sm" type="button">{{ 'Action 1'|t }}</button>
         {% endblock %}
       {% endembed %}
 

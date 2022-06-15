@@ -14,13 +14,13 @@
   {% set directions = ["up", "end", "down", "start"] %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Dropdown variant'|trans,
+    title: 'Dropdown variant'|t,
   } %}
     {% block content %}
       <div class="btn-group">
         {% for variant in variants %}
           {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-            label: 'Dropdown '~variant|trans,
+            label: 'Dropdown '~variant|t,
             variant: variant,
             button_classes: ['m-1'],
           } %}
@@ -40,13 +40,13 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Dropdown link'|trans,
+    title: 'Dropdown link'|t,
   } %}
     {% block content %}
       <div class="btn-group">
         {% for variant in variants %}
           {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-            label: 'Dropdown '~variant|trans,
+            label: 'Dropdown '~variant|t,
             tag: 'a',
             variant: variant,
             button_classes: ['m-1'],
