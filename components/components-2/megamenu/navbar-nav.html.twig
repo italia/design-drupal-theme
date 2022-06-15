@@ -3,7 +3,7 @@
  * @file
  * Template for navbar-nav component, reccomended for multilevel horizontal megamenu.
  * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/megamenu/
- * Last review: 2.0.0-rc4
+ * Last review: 2.0.0-rc5
  *
  * Parameters:
  * - menu_name (string) mandatory
@@ -111,11 +111,6 @@
             }) }}
           <div class="dropdown-menu" role="region" aria-labelledby="{{ aria_id }}">
 
-            {% set dropdown_classes = [
-              'dropdown-item',
-              'list-item'
-            ] %}
-
             {% if megamenu %}
               <div class="row">
               {% for item in item.below %}
@@ -124,31 +119,17 @@
                     <div class="link-list-heading">{{ item.title }}</div>
                     <ul class="link-list">
                       {% for item in item.below %}
-                        <li>
-                          {% if item.title == '<divider>' %}
-                            <span class="divider"></span>
-                          {% elseif item.url.isRouted and item.url.routeName == '<nolink>' %}
-                            <div class="link-list-heading">{{ item.title }}</div>
-                          {% else %}
-                            {% set dropdown_title %}
-                              <span>{{ item.title }}</span>
-                              {% if item.original_link.getDescription() and _show_link_description %}
-                                <p>{{ item.original_link.getDescription() }}</p>
-                              {% endif %}
-                              {% if item.in_active_trail %}
-                                <span class="visually-hidden">{{ _active_assistive_text }}</span>
-                              {% endif %}
-                            {% endset %}
-                            {{ link(dropdown_title, item.url, {
-                              'class': dropdown_classes|merge([
-                                _verbose_classes ? 'nav-link__level-2',
-                                item.in_active_trail ? 'active',
-                                item.in_active_trail and _active_items_large ? 'large',
-                                item.in_active_trail and _active_items_bold ? 'medium',
-                              ])
-                            }) }}
-                          {% endif %}
-                        </li>
+                        {% include '@bi-bcl/list/linklist-item.html.twig' with {
+                          item: item,
+                          level: '2',
+                          list_type: 'dropdown',
+                          wrapper_tag: 'li',
+                          verbose_classes: _verbose_classes,
+                          active_items_large: _active_items_large,
+                          active_items_bold: _active_items_bold,
+                          show_link_description: _show_link_description,
+                          active_assistive_text: _active_assistive_text,
+                        } %}
                       {% endfor %}
                     </ul>
                   </div>
@@ -159,31 +140,17 @@
               <div class="link-list-wrapper">
                 <ul class="link-list">
                   {% for item in item.below %}
-                    <li>
-                      {% if item.title == '<divider>' %}
-                        <span class="divider"></span>
-                      {% elseif item.url.isRouted and item.url.routeName == '<nolink>' %}
-                        <div class="link-list-heading">{{ item.title }}</div>
-                      {% else %}
-                        {% set dropdown_title %}
-                          <span>{{ item.title }}</span>
-                          {% if item.original_link.getDescription() and _show_link_description %}
-                            <p>{{ item.original_link.getDescription() }}</p>
-                          {% endif %}
-                          {% if item.in_active_trail %}
-                            <span class="visually-hidden">{{ _active_assistive_text }}</span>
-                          {% endif %}
-                        {% endset %}
-                        {{ link(dropdown_title, item.url, {
-                          'class': dropdown_classes|merge([
-                            _verbose_classes ? 'nav-link__level-1',
-                            item.in_active_trail ? 'active',
-                            item.in_active_trail and _active_items_large ? 'large',
-                            item.in_active_trail and _active_items_bold ? 'medium',
-                          ])
-                        }) }}
-                      {% endif %}
-                    </li>
+                    {% include '@bi-bcl/list/linklist-item.html.twig' with {
+                      item: item,
+                      level: '1',
+                      list_type: 'dropdown',
+                      wrapper_tag: 'li',
+                      verbose_classes: _verbose_classes,
+                      active_items_large: _active_items_large,
+                      active_items_bold: _active_items_bold,
+                      show_link_description: _show_link_description,
+                      active_assistive_text: _active_assistive_text,
+                    } %}
                   {% endfor %}
                 </ul>
               </div>
@@ -191,12 +158,22 @@
             </div>{# End Dropdown. #}
 
           {% else %}
-            {{ link(link_title, item.url, {
-              'class': link_classes|merge([
-                _verbose_classes ? 'nav-link__level-0',
-                item.in_active_trail ? 'active',
-              ])
-            }) }}
+            {% set level0_classes = [
+              _verbose_classes ? 'nav-link__level-0',
+              item.in_active_trail ? 'active',
+            ] %}
+            {% set level0_attributes = create_attribute() %}
+            {% set level0_attributes = level0_attributes
+              .addClass(link_classes)
+              .addClass(level0_classes)
+            %}
+            {% if item.url.external %}
+              {% set level0_attributes = level0_attributes
+                .setAttribute('target', '_blank')
+                .setAttribute('rel', 'nofollow')
+              %}
+            {% endif %}
+            {{ link(link_title, item.url, level0_attributes) }}
           {% endif %}
 
         </li>

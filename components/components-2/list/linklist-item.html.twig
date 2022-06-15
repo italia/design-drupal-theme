@@ -1,0 +1,98 @@
+{#
+/**
+ * @file
+ * Template for linklist-item component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link/
+ * Last review: 2.0.0-rc5
+ *
+ * Parameters:
+ * - item, item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ * - linklist_item_classes (array) (default: '')
+ * - linklist_item_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/list/linklist-item.html.twig' with {
+      item: item,
+      level: 'x',
+      list_type: 'dropdown',
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _item = item|default('') %}
+  {% set _list_type = list_type|default('') %}
+  {% set _wrapper_tag = wrapper_tag|default('') %}
+  {% set _level = level|default('') %}
+  {% set _verbose_classes = verbose_classes ?? false %}
+  {% set _active_items_large = active_items_large ?? false %}
+  {% set _active_items_bold = active_items_bold ?? false %}
+  {% set _show_link_description = show_link_description ?? false %}
+  {% set _active_assistive_text = active_assistive_text|default('Current page'|trans) %}
+  {% set _linklist_item_classes = linklist_item_classes|default('') %}
+  {% set _linklist_item_attributes = linklist_item_attributes|default('') %}
+
+  {# Set options #}
+  {% set _classes = [
+    _list_type is not empty ? _list_type ~ '-item',
+    'list-item',
+    _verbose_classes and _level is not empty ? 'nav-link__level-' ~ _level,
+    _item.in_active_trail ? 'active',
+    _item.in_active_trail and _active_items_large ? 'large',
+    _item.in_active_trail and _active_items_bold ? 'medium',
+  ] %}
+
+  {% if _linklist_item_classes is not empty %}
+    {% set _classes = _classes|merge(linklist_item_classes) %}
+  {% endif %}
+
+  {% if _linklist_item_attributes is empty %}
+    {% set linklist_item_attributes = create_attribute() %}
+  {% endif %}
+  {% set linklist_item_attributes = linklist_item_attributes
+    .addClass(_classes)
+  %}
+  {% if _item.url.external %}
+    {% set linklist_item_attributes = linklist_item_attributes
+      .setAttribute('target', '_blank')
+      .setAttribute('rel', 'nofollow')
+    %}
+  {% endif %}
+
+  {# Component #}
+  {% if _wrapper_tag is not empty %}
+    <{{ _wrapper_tag }}>
+  {% endif %}
+    {% if _item.title == '<divider>' %}
+      <span class="divider"></span>
+
+    {% elseif _item.url.isRouted and _item.url.routeName == '<nolink>' %}
+      <div class="link-list-heading">{{ _item.title }}</div>
+
+    {% else %}
+      {% set _linklist_title %}
+        <span>{{ _item.title }}</span>
+        {% if _item.original_link.getDescription() and _show_link_description %}
+          <p>{{ _item.original_link.getDescription() }}</p>
+        {% endif %}
+        {% if _item.in_active_trail %}
+          <span class="visually-hidden">{{ _active_assistive_text }}</span>
+        {% endif %}
+      {% endset %}
+
+      {{ link(_linklist_title, _item.url, linklist_item_attributes) }}
+    {% endif %}
+  {% if _wrapper_tag is not empty %}
+    </{{ _wrapper_tag }}>
+  {% endif %}
+{% endapply %}

@@ -3,7 +3,7 @@
  * @file
  * Template for link-list recursive component, reccomended for multilevel vertical menu.
  * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-link/#liste-annidate
- * Last review: 2.0.0-rc4
+ * Last review: 2.0.0-rc5
  *
  * Parameters:
  * - menu_name (string) (default: '')
@@ -201,6 +201,13 @@
             %}
           {% else %}
             {% set item_attributes = item_attributes.setAttribute('href', item.url|render()) %}
+          {% endif %}
+
+          {% if item.url.external %}
+            {% set item_attributes = item_attributes
+              .setAttribute('target', '_blank')
+              .setAttribute('rel', 'nofollow')
+            %}
           {% endif %}
 
           {% set _enable_icon_wrapper = icon_position is not empty or item.is_expanded ? true : false %}

@@ -33,7 +33,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Slim header'),
     '#description' => t("Slim header settings"),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
@@ -41,7 +41,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['slim_header']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'slim_header',
   ];
   $form['slim_header']['appearance']['slim_header_container_type'] = [
@@ -62,7 +62,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Government entity'),
     '#description' => t("Settings related to the superior government entity."),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'slim_header',
   ];
   $form['slim_header']['government_entity']['government_entity_name'] = [
@@ -83,7 +83,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['slim_header']['action'] = [
     '#type' => 'details',
     '#title' => t('Login button and user menu'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'slim_header',
   ];
   $form['slim_header']['action']['slim_header_action_type'] = [
@@ -127,7 +127,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Center header'),
     '#description' => t("Center header settings"),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
@@ -135,7 +135,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'center_header',
   ];
   $form['center_header']['appearance']['center_header_container_type'] = [
@@ -161,7 +161,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['branding'] = [
     '#type' => 'details',
     '#title' => t('Branding block'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'center_header',
   ];
   $form['center_header']['branding']['svg_logo_id'] = [
@@ -195,7 +195,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['social'] = [
     '#type' => 'details',
     '#title' => t('Social networks'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'center_header',
   ];
   $form['center_header']['social']['social_new_window'] = [
@@ -217,7 +217,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['search'] = [
     '#type' => 'details',
     '#title' => t('Search settings'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'center_header',
   ];
   $form['center_header']['search']['search_type'] = [
@@ -261,7 +261,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Main navigation'),
     '#description' => t("Main navigation settings"),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
@@ -269,7 +269,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['navigation_header']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'navigation_header',
   ];
   $form['navigation_header']['appearance']['navigation_header_container_type'] = [
@@ -308,7 +308,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['navigation_header']['navbar'] = [
     '#type' => 'details',
     '#title' => t('Navbar settings'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'navigation_header',
   ];
   $form['navigation_header']['navbar']['navigation_header_show_link_description'] = [
@@ -371,7 +371,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Content'),
     '#description' => t("This section shows utilities for organizing content, texts, lists, tables, and images."),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
@@ -380,7 +380,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Tables'),
     '#description' => t('Default settings for all tables.'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'content',
   ];
   $form['content']['tables']['table_striped'] = [
@@ -476,7 +476,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Nav tabs'),
     '#description' => t('Settings for nav tabs in content.'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'content',
   ];
   $form['content']['nav_tabs']['nav_tabs_scrollable'] = [
@@ -491,7 +491,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Forms'),
     '#description' => t("Forms settings."),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
@@ -500,7 +500,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Form actions'),
     '#description' => t('Default settings for all forms actions.'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'forms',
   ];
   $form['forms']['action']['forms_action_alignment'] = [
@@ -526,7 +526,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('Footer'),
     '#description' => t("Footer settings"),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
@@ -534,7 +534,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['footer']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'footer',
   ];
   $form['footer']['appearance']['footer_container_type'] = [
@@ -566,7 +566,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings']['vanilla'] = [
     '#type' => 'details',
     '#title' => t('Vanilla Settings'),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'libraries_settings',
   ];
   $form['libraries_settings']['vanilla']['libraries_bundle'] = [
@@ -581,7 +581,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'details',
     '#title' => t('CDN Settings'),
     '#description' => t("If you use a third-party CDN, check that you are compliant with the GDPR."),
-    '#open' => TRUE,
+    '#open' => FALSE,
     '#group' => 'libraries_settings',
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_css'] = [
