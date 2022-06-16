@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a dropbutton wrapper.
+ *
+ * Available variables:
+ * - children: Contains the child elements of the dropbutton menu.
+ *
+ * @see template_preprocess()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if children %}
+  {% apply spaceless %}
+    {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+      label: '',
+      size: 'lg',
+      icon_before: 'it-more-items',
+      hide_block_after: true,
+      button_classes: ['m-1'],
+    } %}
+      {% block dropdown_content %}
+        {{ children }}
+      {% endblock %}
+
+      {% block after %}{% endblock %}
+
+    {% endembed %}
+  {% endapply %}
+{% endif %}

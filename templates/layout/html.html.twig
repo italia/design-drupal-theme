@@ -31,14 +31,28 @@
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
   </head>
-  <body{{ attributes }}>
-    {#
-      Keyboard navigation/accessibility link to main content section in
-      page.html.twig.
-    #}
-    <a href="#main-content" class="visually-hidden focusable visually-hidden-focusable">
-      <span class="skiplink-text">{{ 'Skip to main content'|t }}</span>
-    </a>
+
+  {% set _body_classes = [
+    logged_in ? 'user-logged-in' : 'user-anonymous',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'page-node-type--' ~ node_type|clean_class,
+    page_type ? 'page-type--' ~ page_type|clean_class,
+    db_offline ? 'db-offline',
+  ] %}
+
+  <body{{ attributes.addClass(_body_classes) }}>
+    <div class="skiplinks">
+      {# Keyboard navigation/accessibility link to:
+          - main content section in ./content/_partial.content.html.twig;
+          - footer content in ./footer/_partial.footer.html.twig.
+      #}
+      <a href="#it-skip-to-main-content" class="visually-hidden focusable visually-hidden-focusable">
+        {{ 'Skip to main content'|t }}
+      </a>
+      <a href="#it-skip-to-footer-content" class="visually-hidden focusable visually-hidden-focusable">
+        {{ 'Skip to footer content'|t }}
+      </a>
+    </div>
 
     {% if back_to_top_enable %}
       {% include '@bi-bcl/back-to-top/back-to-top.html.twig' with {
@@ -51,7 +65,11 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
-    <script>window.__PUBLIC_PATH__ = '{{ base_path ~ "/" ~ directory }}/assets/fonts'</script>
+
+    {% set _libraries_cdn_fonts_path = libraries_cdn_fonts is not empty ?
+      libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/assets/fonts'
+    %}
+    <script>window.__PUBLIC_PATH__ = '{{ _libraries_cdn_fonts_path }}'</script>
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>

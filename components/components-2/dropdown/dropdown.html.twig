@@ -26,6 +26,8 @@
  *   - options ["up", "end", "down", "start"]
  * - icon_before (string) (default: '')
  *   - options ["it-icon-name"]
+ * - hide_block_after (boolean) (default: false)
+ *   - If enabled hide block after
  * - button_classes (array) (default: '')
  * - button_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
@@ -62,6 +64,7 @@
   {% set _assistive_text = assistive_text|default('') %}
   {% set _direction = direction|default('down') %}
   {% set _icon_before = icon_before|default('') %}
+  {% set _hide_block_after = hide_block_after ?? false %}
   {% set _button_classes = button_classes|default('') %}
   {% set _button_attributes = button_attributes|default('') %}
   {% set _dropdown_classes = dropdown_classes|default('') %}
@@ -141,11 +144,13 @@
       {% endblock %}
 
       {% block after %}
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: 'it-expand',
-          size: _size,
-          color: _icon_color,
-        } %}
+        {% if not _hide_block_after %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-expand',
+            size: _size,
+            color: _icon_color,
+          } %}
+        {% endif %}
       {% endblock %}
     {% endembed %}
 

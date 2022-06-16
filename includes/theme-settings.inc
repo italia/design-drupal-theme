@@ -397,7 +397,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
 
-
   // Content ------------------------------------------------------------------.
   $form['content'] = [
     '#type' => 'details',
@@ -503,19 +502,19 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'table-responsive-xxl' => t('Responsive xxl'),
     ],
   ];
-  // Nav tabs.
-  $form['content']['nav_tabs'] = [
+  // Editor nav tabs.
+  $form['content']['editor_nav_tabs'] = [
     '#type' => 'details',
-    '#title' => t('Nav tabs'),
-    '#description' => t('Settings for nav tabs in content.'),
+    '#title' => t('Editor nav tabs'),
+    '#description' => t('Settings for editor nav tabs in content.'),
     '#open' => FALSE,
     '#group' => 'content',
   ];
-  $form['content']['nav_tabs']['nav_tabs_scrollable'] = [
+  $form['content']['editor_nav_tabs']['editor_nav_tabs_scrollable'] = [
     '#type' => 'checkbox',
     '#title' => t('Scrollable'),
     '#description' => t('Enable scroll in nav tabs. Default: checked.'),
-    '#default_value' => theme_get_setting('nav_tabs_scrollable'),
+    '#default_value' => theme_get_setting('editor_nav_tabs_scrollable'),
   ];
 
   // Forms --------------------------------------------------------------------.
@@ -617,13 +616,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#group' => 'libraries_settings',
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_css'] = [
-    '#type' => 'url',
+    '#type' => 'textfield',
     '#title' => t('CSS from CDN'),
     '#description' => t("Put resource URI. Default: empty"),
     '#default_value' => theme_get_setting('libraries_cdn_css'),
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_js'] = [
-    '#type' => 'url',
+    '#type' => 'textfield',
     '#title' => t('JS from CDN'),
     '#description' => t("Put resource URI. Default: empty"),
     '#default_value' => theme_get_setting('libraries_cdn_js'),
@@ -633,6 +632,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('Check if you use minified libraries.'),
     '#description' => t("Default: checked"),
     '#default_value' => theme_get_setting('libraries_cdn_minified'),
+  ];
+  $form['libraries_settings']['cdn']['libraries_cdn_fonts'] = [
+    '#type' => 'textfield',
+    '#title' => t('Fonts from CDN'),
+    '#description' => t("Default: empty"),
+    '#placeholder' => t('/libraries/fonts'),
+    '#default_value' => theme_get_setting('libraries_cdn_fonts'),
   ];
 
   $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';

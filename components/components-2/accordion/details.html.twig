@@ -56,7 +56,12 @@
           </div>
         {% endif %}
 
-        {{ description }}
+        {% if description %}
+          <div class="mb-5">
+            {{ description }}
+          </div>
+        {% endif %}
+
         {{ children }}
         {{ value }}
       </div>

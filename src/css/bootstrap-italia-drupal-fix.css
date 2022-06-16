@@ -79,3 +79,11 @@ fieldset.webform-composite-hidden-title {
 .js-text-format-wrapper .form-group {
   margin-bottom: 0;
 }
+button.link-edit-summary {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+}
+.text-summary-wrapper {
+  margin-bottom: 2em;
+}

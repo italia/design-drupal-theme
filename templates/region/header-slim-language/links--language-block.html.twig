@@ -69,7 +69,9 @@
                       {% endif %}
                       <a{{ _item_attributes }}
                         href="{{ item.link['#url'] }}"
-                        {% if not _current %}
+                        {% if _current %}
+                          title="{{ 'Current language'|t }}"
+                        {% else %}
                           title="{{ 'Switch to @languageName language'|t({'@languageName': item.link['#title']}) }}"
                         {% endif %}
                       >

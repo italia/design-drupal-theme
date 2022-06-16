@@ -44,5 +44,5 @@ function bootstrap_italia_preprocess_menu(&$variables) {
  * Implements hook_preprocess_menu().
  */
 function bootstrap_italia_preprocess_menu_local_tasks(&$variables) {
-  $variables['nav_tabs_scrollable'] = (bool) theme_get_setting('nav_tabs_scrollable');
+  $variables['editor_nav_tabs_scrollable'] = (bool) theme_get_setting('editor_nav_tabs_scrollable');
 }

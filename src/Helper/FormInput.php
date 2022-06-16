@@ -127,6 +127,31 @@ class FormInput {
    */
   private static function setSubmit(&$variables) {
     $variables['attributes']['class'][] = 'btn';
+
+    if (isset($variables['attributes']['data-drupal-selector'])) {
+
+      if ($variables['attributes']['data-drupal-selector'] == 'edit-submit') {
+        $variables['attributes']['class'][] = 'btn-primary';
+      }
+
+      if ($variables['attributes']['data-drupal-selector'] == 'edit-reset') {
+        $variables['attributes']['class'][] = 'btn-outline-danger';
+      }
+
+      if ($variables['attributes']['data-drupal-selector'] == 'edit-delete') {
+        $variables['attributes']['class'][] = 'btn-danger';
+      }
+
+      if ($variables['attributes']['data-drupal-selector'] == 'edit-apply-above' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-apply-below' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-preview-next' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-preview' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-submit-content' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-overview'
+      ) {
+        $variables['attributes']['class'][] = 'btn-outline-primary';
+      }
+    }
   }
 
   /**

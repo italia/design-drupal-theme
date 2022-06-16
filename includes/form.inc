@@ -42,7 +42,7 @@ function bootstrap_italia_form_alter(&$form, FormStateInterface $form_state, $fo
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function bootstrap_italia_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function bootstrap_italia_form_search_block_form_alter(&$form) {
   $form['keys']['#placeholder'] = t('Search by keyword or phrase.');
 }
 

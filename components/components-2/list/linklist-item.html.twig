@@ -98,7 +98,27 @@
         {% endif %}
       {% endset %}
 
-      {{ link(_linklist_title, _item.url, linklist_item_attributes) }}
+      {# Menu item. #}
+      {% if _item.url %}
+        {{ link(_linklist_title, _item.url, linklist_item_attributes) }}
+
+      {# Link item. #}
+      {% elseif _item.link %}
+        {{ _item.link|merge(linklist_item_attributes) }}
+
+      {# Link item. #}
+      {%- elseif _item.text_attributes -%}
+        <span{{ _item.text_attributes }}>{{ _item.text }}</span>
+
+      {# Link item. #}
+      {%- elseif _item.text -%}
+        {{ item.text }}
+
+      {# Other. #}
+      {% else %}
+          {{ _linklist_title }}
+      {% endif %}
+
     {% endif %}
   {% if _wrapper_tag is not empty %}
     </{{ _wrapper_tag }}>

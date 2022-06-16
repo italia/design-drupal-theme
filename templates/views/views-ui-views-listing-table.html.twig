@@ -1,0 +1,85 @@
+{#
+/**
+ * @file
+ * Default theme implementation for views listing table.
+ *
+ * Available variables:
+ * - headers: Contains table headers.
+ * - rows: Contains multiple rows. Each row contains:
+ *   - view_name: The human-readable name of the view.
+ *   - machine_name: Machine name of the view.
+ *   - description: The description of the view.
+ *   - displays: List of displays attached to the view.
+ *   - operations: List of available operations.
+ *
+ * @see template_preprocess_views_ui_views_listing_table()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+
+  {# Set options #}
+  {% set classes = [
+    'table',
+    table_striped ? 'table-striped',
+    table_striped_columns ? 'table-striped-columns',
+    table_bg and table_bg is not empty ? 'table-' ~ table_bg,
+    table_hover ? 'table-hover',
+    table_bordered ? 'table-bordered',
+    table_border_color and table_border_color is not empty ? 'border-' ~ table_border_color,
+    table_borderless ? 'table-borderless',
+    table_sm ? 'table-sm',
+    table_align_middle ? 'align-middle',
+    table_caption_top ? 'caption-top',
+    'cols-' ~ header|length,
+    responsive ? 'responsive-enabled',
+    sticky ? 'sticky-enabled',
+  ] %}
+
+  {% set thead_classes = [
+    table_thead_variant and table_thead_variant is not empty ? 'table-' ~ table_thead_variant
+  ] %}
+
+  {# Component #}
+
+  {% if table_responsive and table_responsive is not empty %}
+    <div class="{{ table_responsive }}">
+  {% endif %}
+
+    <table{{ attributes.addClass(classes) }}>
+      <thead class="{{ thead_classes|join(' ') }}">
+        <tr>
+          {% for header in headers %}
+            <th{{ header.attributes }}>{{ header.data }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr{{ row.attributes }}>
+            <td class="views-ui-view-name">
+              <strong data-drupal-selector="views-table-filter-text-source">{{ row.data.view_name.data }}</strong>
+            </td>
+            <td class="views-ui-view-machine-name" data-drupal-selector="views-table-filter-text-source">
+              {{ row.data.machine_name.data }}
+            </td>
+            <td class="views-ui-view-description" data-drupal-selector="views-table-filter-text-source">
+              {{ row.data.description.data }}
+            </td>
+            <td class="views-ui-view-displays">
+              {{ row.data.displays.data }}
+            </td>
+            <td class="views-ui-view-operations">
+              {{ row.data.operations.data }}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  {% if table_responsive and table_responsive is not empty %}
+    </div>
+  {% endif %}
+{% endapply %}

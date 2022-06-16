@@ -73,4 +73,12 @@ function bootstrap_italia_preprocess_html(&$variables) {
   $variables['back_to_top_small'] = (bool) theme_get_setting('back_to_top_small');
   $variables['back_to_top_dark'] = (bool) theme_get_setting('back_to_top_dark');
   $variables['back_to_top_shadow'] = (bool) theme_get_setting('back_to_top_shadow');
+
+  // Add page type.
+  if (isset($variables['page']['#type'])) {
+    $variables['page_type'] = $variables['page']['#type'];
+  }
+
+  // Font from cdn.
+  $variables['libraries_cdn_fonts'] = theme_get_setting('libraries_cdn_fonts');
 }

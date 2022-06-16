@@ -39,6 +39,10 @@ class FormElement {
           self::setNumber($variables);
           break;
 
+        case 'number_composite':
+          self::setNumberComposite($variables);
+          break;
+
         case 'tel':
           self::setTel($variables);
           break;
@@ -63,6 +67,10 @@ class FormElement {
 
         case 'select':
           self::setSelect($variables);
+          break;
+
+        case 'select_composite':
+          self::setSelectComposite($variables);
           break;
       }
     }
@@ -89,6 +97,15 @@ class FormElement {
       $type = 'textfield_composite';
     }
 
+    if ($type == 'number' &&
+      isset($variables['element']['#title_display']) &&
+      $variables['element']['#title_display'] == 'invisible' &&
+      isset($variables['label_display']) &&
+      $variables['label_display'] == 'invisible'
+    ) {
+      $type = 'number_composite';
+    }
+
     if ($type == 'url' &&
       isset($variables['element']['#title_display']) &&
       $variables['element']['#title_display'] == 'invisible' &&
@@ -112,6 +129,15 @@ class FormElement {
       in_array('webform-select2', $variables['element']['#attributes']['class'], TRUE)
     ) {
       $type = 'select2';
+    }
+
+    if ($type == 'select' &&
+      isset($variables['element']['#title_display']) &&
+      $variables['element']['#title_display'] == 'invisible' &&
+      isset($variables['label_display']) &&
+      $variables['label_display'] == 'invisible'
+    ) {
+      $type = 'select_composite';
     }
 
     if ($type === 'radio' &&
@@ -153,6 +179,14 @@ class FormElement {
     $variables['label']['#attributes']['class'][] = 'input-number-label';
     $variables['label']['#attributes']['class'][] = 'active';
     $variables['attributes']['class'][] = 'form-group';
+  }
+
+  /**
+   * Number composite element settings.
+   */
+  private static function setNumberComposite(&$variables) {
+    $variables['label']['#attributes']['class'][] = 'input-number-label';
+    $variables['label']['#attributes']['class'][] = 'active';
   }
 
   /**
@@ -201,6 +235,14 @@ class FormElement {
    * Select element settings.
    */
   private static function setSelect(&$variables) {
+    $variables['attributes']['class'][] = 'select-wrapper';
+    $variables['attributes']['class'][] = 'form-group';
+  }
+
+  /**
+   * Select composite element settings.
+   */
+  private static function setSelectComposite(&$variables) {
     $variables['attributes']['class'][] = 'select-wrapper';
   }
 

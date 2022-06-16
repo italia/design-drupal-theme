@@ -3,7 +3,7 @@
 namespace Drupal\bootstrap_italia\Helper;
 
 /**
- * Helper Form class for bootstrap_italia theme.
+ * Helper Suggestions class for bootstrap_italia theme.
  *
  * Why isn't it a service? https://www.drupal.org/project/drupal/issues/2002606.
  */
