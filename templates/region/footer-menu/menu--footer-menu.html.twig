@@ -25,31 +25,23 @@
     {% set col = items|length > 4 ? 3 : 12 / items|length %}
     {% for item in items %}
       <div class="col-sm-6 col-md-{{ col }} col-lg-{{ col }} pb-2">
-        <h4>{{ link(item.title, item.url) }}</h4>
-        <div class="link-list-wrapper">
-          {% if item.below %}
+
+        <h4>{{ link(item.title, item.url, item.attributes) }}</h4>
+        {% if item.below %}
+          <div class="link-list-wrapper">
             <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
               {% for item_second in item.below %}
                 <li{{ item_second.attributes }}>
-                  {% if item_second.title == '<divider>' %}
-                    <span class="divider bg-secondary"></span>
-                  {% elseif item_second.url.isRouted and item_second.url.routeName == '<nolink>' %}
-                    <h4 class="text-uppercase mt-3 h6">{{ item_second.title }}</h4>
-                  {% else %}
-                    {{ link(item_second.title, item_second.url, {
-                      'class': [
-                        item_second.in_active_trail ? 'active',
-                      ]
-                    }) }}
-                    {% if item_second.in_active_trail %}
-                      <span class="visually-hidden">{{ 'Current page'|t }}</span>
-                    {% endif %}
-                  {% endif %}
+                  {% include '@bi-bcl/list/linklist-item.html.twig' with {
+                    item: item_second,
+                    list_type: 'footer-menu',
+                  } %}
                 </li>
               {% endfor %}
             </ul>
-          {% endif %}
-        </div>
+          </div>
+        {% endif %}
+
       </div>
     {% endfor %}
   </div>

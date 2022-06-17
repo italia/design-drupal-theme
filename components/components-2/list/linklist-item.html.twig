@@ -18,6 +18,7 @@
  *   - in_active_trail: TRUE if the link is in the active trail.
  * - list_type (string) (default: '')
  * - wrapper_tag (string) (default: '')
+ * - title_wrapper_tag (string) (default: '')
  * - level (string) (default: '')
  * - verbose_classes (boolean) (default: false)
  * - active_items_large (boolean) (default: false)
@@ -38,9 +39,11 @@
 #}
 {% apply spaceless %}
   {# Set defaults #}
-  {% set _item = item|default('') %}
+  {# Check item type: link-item|menu-item #}
+  {% set _item = item.link['#type'] == 'link' ? item.link : item %}
   {% set _list_type = list_type|default('') %}
   {% set _wrapper_tag = wrapper_tag|default('') %}
+  {% set _title_wrapper_tag = title_wrapper_tag|default('') %}
   {% set _level = level|default('') %}
   {% set _verbose_classes = verbose_classes ?? false %}
   {% set _active_items_large = active_items_large ?? false %}
@@ -64,13 +67,25 @@
     {% set _classes = _classes|merge(linklist_item_classes) %}
   {% endif %}
 
-  {% if _linklist_item_attributes is empty %}
+  {# If is a link item #}
+  {% if _item['#options'].attributes|length > 0 %}
+    {% set linklist_item_attributes = _item['#options'].attributes %}
+
+  {# If is a menu item #}
+  {% elseif _item.attributes|length > 0 %}
+    {% set linklist_item_attributes = _item.attributes %}
+
+  {% elseif _linklist_item_attributes is empty %}
     {% set linklist_item_attributes = create_attribute() %}
   {% endif %}
-  {% set linklist_item_attributes = linklist_item_attributes
-    .addClass(_classes)
+
+  {% set linklist_item_attributes = item.link['#type'] == 'link' ?
+    linklist_item_attributes|merge({"class": _classes}) :
+    linklist_item_attributes.addClass(_classes)
   %}
-  {% if _item.url.external %}
+
+  {# Link item or menu item #}
+  {% if _item['#url'].external or _item.url.external %}
     {% set linklist_item_attributes = linklist_item_attributes
       .setAttribute('target', '_blank')
       .setAttribute('rel', 'nofollow')
@@ -81,42 +96,67 @@
   {% if _wrapper_tag is not empty %}
     <{{ _wrapper_tag }}>
   {% endif %}
-    {% if _item.title == '<divider>' %}
+    {# If a divider item #}
+    {% if _item.title == '<divider>' or _item['#title'] == '<divider>' %}
       <span class="divider"></span>
 
-    {% elseif _item.url.isRouted and _item.url.routeName == '<nolink>' %}
+    {# If a Nolink item #}
+    {% elseif
+      (_item.url.isRouted and _item.url.routeName == '<nolink>') or
+      (_item['#url'].isRouted and _item['#url'].routeName == '<nolink>')
+    %}
       <div class="link-list-heading">{{ _item.title }}</div>
 
+    {# If a button item #}
+    {% elseif
+      (_item.url.isRouted and _item.url.routeName == '<button>') or
+      (_item['#url'].isRouted and _item['#url'].routeName == '<button>')
+    %}
+      <h4 class="text-uppercase h6">{{ _item.title }}</h4>
+
     {% else %}
-      {% set _linklist_title %}
-        <span>{{ _item.title }}</span>
+      {%- set _linklist_title -%}
+
+        {% if _title_wrapper_tag is not empty %}
+        <{{ _title_wrapper_tag }}{{ item.text_attributes ? item.text_attributes }}>
+        {% endif %}
+
+          {% if _item.title %}{# Menu item. #}
+            {{ _item.title }}
+          {% elseif _item['#title'] %}{# Link item. #}
+            {{ _item['#title'] }}
+          {% elseif item.text %}{# Link item no url #}
+            {{ item.text }}
+          {% elseif _item['#options'].attributes['title'] %}{# Link item no title #}
+            {{ _item['#options'].attributes['title'] }}
+          {% endif %}
+
+        {% if _title_wrapper_tag is not empty %}
+          </{{ _title_wrapper_tag }}>
+        {% endif %}
+
+        {# Original_link only in menu item #}
         {% if _item.original_link.getDescription() and _show_link_description %}
           <p>{{ _item.original_link.getDescription() }}</p>
         {% endif %}
+
+        {# in_active_trail only in menu item #}
         {% if _item.in_active_trail %}
           <span class="visually-hidden">{{ _active_assistive_text }}</span>
         {% endif %}
-      {% endset %}
+      {%- endset -%}
 
       {# Menu item. #}
       {% if _item.url %}
         {{ link(_linklist_title, _item.url, linklist_item_attributes) }}
 
       {# Link item. #}
-      {% elseif _item.link %}
-        {{ _item.link|merge(linklist_item_attributes) }}
-
-      {# Link item. #}
-      {%- elseif _item.text_attributes -%}
-        <span{{ _item.text_attributes }}>{{ _item.text }}</span>
-
-      {# Link item. #}
-      {%- elseif _item.text -%}
-        {{ item.text }}
+      {% elseif _item['#url'] %}
+        {{ link(_linklist_title, _item['#url'], linklist_item_attributes) }}
 
       {# Other. #}
       {% else %}
-          {{ _linklist_title }}
+        {{ _linklist_title }}
       {% endif %}
 
     {% endif %}

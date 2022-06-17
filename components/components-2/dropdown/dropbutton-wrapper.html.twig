@@ -11,21 +11,19 @@
  * @ingroup themeable
  */
 #}
-{% if children %}
-  {% apply spaceless %}
+{% apply spaceless %}
+  {% if children %}
     {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
       label: '',
       size: 'lg',
       icon_before: 'it-more-items',
       hide_block_after: true,
+      assistive_text: 'Open for more options'|t,
       button_classes: ['m-1'],
     } %}
       {% block dropdown_content %}
         {{ children }}
       {% endblock %}
-
-      {% block after %}{% endblock %}
-
     {% endembed %}
-  {% endapply %}
-{% endif %}
+  {% endif %}
+{% endapply %}

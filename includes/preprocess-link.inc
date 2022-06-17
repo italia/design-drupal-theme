@@ -11,4 +11,5 @@
 function bootstrap_italia_preprocess_links(&$variables) {
   // Add current language to block.
   $variables['current_language'] = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['links_type'] = $variables['theme_hook_original'];
 }
