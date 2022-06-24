@@ -9,21 +9,11 @@
 #toolbar-administration.toolbar {
   height: auto;
 }
-/*
-#header-nav-wrapper.it-header-navbar-wrapper .navbar .navbar-collapsable {
-  z-index: 600;
-}
-*/
 
 /* Fix link-list */
 .link-list-wrapper ul li a span {
   line-height: inherit;
 }
-
-/* Fix modal when navbar is-sticky */
-/*.modal {
-  z-index: 100000;
-}*/
 
 /* Fix footer active link */
 .it-footer-main .link-list-wrapper ul li a.active {

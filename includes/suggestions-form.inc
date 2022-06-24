@@ -33,15 +33,15 @@ function bootstrap_italia_theme_suggestions_form_element_alter(array &$suggestio
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_input_alter(array &$suggestions, array &$variables) {
-  Suggestions::form($suggestions, $variables);
+function bootstrap_italia_theme_suggestions_input_alter(array &$suggestions, array &$variables, string $hook) {
+  Suggestions::form($suggestions, $variables, $hook);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_select_alter(array &$suggestions, array &$variables) {
-  Suggestions::form($suggestions, $variables);
+function bootstrap_italia_theme_suggestions_select_alter(array &$suggestions, array &$variables, string $hook) {
+  Suggestions::form($suggestions, $variables, $hook);
 }
 
 /**

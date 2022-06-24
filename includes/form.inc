@@ -87,9 +87,18 @@ function bootstrap_italia_preprocess_container(&$variables) {
     $variables['element']['#attributes']->addClass('form-text');
   }
 
-  if (isset($variables['element']['#type']) &&
-    $variables['element']['#type'] == 'actions' &&
-    isset($variables['attributes']['class'])
+  // Detects form actions.
+  if (
+    (
+      isset($variables['attributes']['class']) &&
+      isset($variables['element']['#type']) &&
+      $variables['element']['#type'] == 'actions'
+    ) ||
+    (
+      isset($variables['attributes']['class']) &&
+      is_array($variables['attributes']['class']) &&
+      in_array('form-actions', $variables['attributes']['class'], TRUE)
+    )
   ) {
     if (theme_get_setting('forms_action_spacing')) {
       $variables['attributes']['class'][] = 'mt-5';

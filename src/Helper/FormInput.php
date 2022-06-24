@@ -130,7 +130,10 @@ class FormInput {
 
     if (isset($variables['attributes']['data-drupal-selector'])) {
 
-      if ($variables['attributes']['data-drupal-selector'] == 'edit-submit') {
+      if ($variables['attributes']['data-drupal-selector'] == 'edit-submit' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-actions-submit' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-submit-watchdog'
+      ) {
         $variables['attributes']['class'][] = 'btn-primary';
       }
 
@@ -147,10 +150,18 @@ class FormInput {
         $variables['attributes']['data-drupal-selector'] == 'edit-preview-next' ||
         $variables['attributes']['data-drupal-selector'] == 'edit-preview' ||
         $variables['attributes']['data-drupal-selector'] == 'edit-submit-content' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-overview'
+        $variables['attributes']['data-drupal-selector'] == 'edit-overview' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-wizard-next' ||
+        $variables['attributes']['data-drupal-selector'] == 'edit-wizard-prev'
       ) {
         $variables['attributes']['class'][] = 'btn-outline-primary';
       }
+
+      // Detect ajax remove buttons
+      if (str_ends_with($variables['attributes']['data-drupal-selector'], '-remove-button')) {
+        $variables['attributes']['class'][] = 'btn-outline-danger';
+      }
+
     }
   }
 
