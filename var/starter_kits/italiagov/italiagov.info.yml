@@ -42,8 +42,8 @@ regions:
   before_content_fourth: "Before content - Fourth region"
 
   # Content
-  title: "Page title"
   breadcrumb: "Breadcrumb"
+  title: "Page title"
   local_tasks: "Administration tabs"
   help: "Help"
   notification: "Notification area"

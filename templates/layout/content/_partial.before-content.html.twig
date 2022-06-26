@@ -1,0 +1,41 @@
+{% set row_name = 'before-content' %}
+
+{% if page.before_content_full_width %}
+  <div class="{{ row_name }}-full-width__wrapper">
+    {{ page.before_content_full_width }}
+  </div>
+{% endif %}
+
+{% if page.before_content_first or page.before_content_second or page.before_content_third or page.before_content_fourth %}
+  <div class="{{ row_name }}__wrapper">
+    <div class="{{ row_name }} {{ content_container_type ?: 'container' }}">
+      <div class="row">
+
+        {% if page.before_content_first %}
+          <div class="col {{ row_name }}__col {{ row_name }}__first">
+            {{ page.before_content_first }}
+          </div>
+        {% endif %}
+
+        {% if page.before_content_second %}
+          <div class="col {{ row_name }}__col {{ row_name }}__second">
+            {{ page.before_content_second }}
+          </div>
+        {% endif %}
+
+        {% if page.before_content_third %}
+          <div class="col {{ row_name }}__col {{ row_name }}__third">
+            {{ page.before_content_third }}
+          </div>
+        {% endif %}
+
+        {% if page.before_content_fourth %}
+          <div class="col {{ row_name }}__col {{ row_name }}__fourth">
+            {{ page.before_content_fourth }}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+{% endif %}

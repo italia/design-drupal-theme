@@ -1,0 +1,41 @@
+{% set row_name = 'after-content' %}
+
+{% if page.after_content_first or page.after_content_second or page.after_content_third or page.after_content_fourth %}
+  <div class="{{ row_name }}__wrapper">
+    <div class="{{ row_name }} {{ content_container_type ?: 'container' }}">
+      <div class="row">
+
+        {% if page.after_content_first %}
+          <div class="col {{ row_name }}__col {{ row_name }}__first">
+            {{ page.after_content_first }}
+          </div>
+        {% endif %}
+
+        {% if page.after_content_second %}
+          <div class="col {{ row_name }}__col {{ row_name }}__second">
+            {{ page.after_content_second }}
+          </div>
+        {% endif %}
+
+        {% if page.after_content_third %}
+          <div class="col {{ row_name }}__col {{ row_name }}__third">
+            {{ page.after_content_third }}
+          </div>
+        {% endif %}
+
+        {% if page.after_content_fourth %}
+          <div class="col {{ row_name }}__col {{ row_name }}__fourth">
+            {{ page.after_content_fourth }}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if page.after_content_full_width %}
+  <div class="{{ row_name }}-full-width__wrapper">
+    {{ page.after_content_full_width }}
+  </div>
+{% endif %}
