@@ -397,6 +397,45 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
 
+  // Breadcrumbs settings --------------------------------------------------------.
+  $form['breadcrumbs_settings'] = [
+    '#type' => 'details',
+    '#title' => t('Breadcrumb'),
+    '#description' => t("Breadcrumb settings"),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+  // Breadcrumbs settings appearance.
+  $form['breadcrumbs_settings']['appearance'] = [
+    '#type' => 'details',
+    '#title' => t('Appearance'),
+    '#open' => FALSE,
+    '#group' => 'breadcrumbs_settings',
+  ];
+  $form['breadcrumbs_settings']['appearance']['breadcrumb_dark_background'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Dark Background'),
+    '#description' => t('Turn on dark background'),
+    '#default_value' => theme_get_setting('breadcrumb_dark_background'),
+  ];
+  $form['breadcrumbs_settings']['appearance']['breadcrumb_image'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Icon'),
+    '#description' => t('Activate icon before items.'),
+    '#default_value' => theme_get_setting('breadcrumb_image'),
+  ];
+  $form['breadcrumbs_settings']['appearance']['breadcrumb_separator'] = [
+    '#type' => 'select',
+    '#title' => t('Separator'),
+    '#description' => t('Insert the separator between the items (ex:>).'),
+    '#default_value' => theme_get_setting('breadcrumb_separator'),
+    '#options' => [
+      '>' => '>',
+      '/' => '/',
+    ],
+  ];
+
   // Content ------------------------------------------------------------------.
   $form['content'] = [
     '#type' => 'details',

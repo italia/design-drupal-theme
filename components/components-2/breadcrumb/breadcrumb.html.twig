@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Template for a breadcrumb pattern
+ * Docs: https://bootstrap-italia-next-development.vercel.app/docs/menu-di-navigazione/breadcrumbs/
+ * Last review: 2.0.0-rc4
+ *
+ * Available config:
+ * - breadcrumb_dark_background: true | false
+ * - breadcrumb_image: true | false
+ * - breadcrumb_separator: ">", "/";
+ * - breadcrumb: Breadcrumb trail items
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _breadcrumb_dark_background = breadcrumb_dark_background ?? false %}
+  {% set _breadcrumb_image = breadcrumb_image ?? false %}
+
+  {# Set options #}
+  {% set _classes = [
+    'breadcrumb',
+    _breadcrumb_dark_background ? 'dark px-3',
+  ] %}
+  {% set _icon_classes = [
+    _breadcrumb_image ? 'icon icon-sm align-top me-1',
+  ] %}
+
+  {% if _breadcrumb_dark_background %}
+    {% set _icon_classes = _icon_classes|merge(['icon-white']) %}
+  {% endif %}
+
+  <nav class="breadcrumb-container" aria-label="navigation path">
+    <ol {{ attributes.addClass(_classes) }}>
+    {% for item in breadcrumb %}
+      {% if item.url %}
+        <li class="breadcrumb-item">
+          {% spaceless %}
+            {% if breadcrumb_image %}
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-link',
+                icon_classes: _icon_classes
+              } %}
+            {% endif %}
+            <a href="{{ item.url }}">{{ item.text }}</a>
+            {% if breadcrumb_separator and loop.last == false %}
+              <span class="separator">{{ breadcrumb_separator }}</span>
+            {% endif %}
+          {% endspaceless %}
+        </li>
+      {% else %}
+        <li class="breadcrumb-item active" aria-current="page">{{ item.text }}
+          {% if breadcrumb_separator and loop.last == false %}
+            <span class="separator">{{ breadcrumb_separator }}</span>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</nav>
+{% endapply %}
