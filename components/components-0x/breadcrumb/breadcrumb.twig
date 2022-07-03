@@ -3,7 +3,7 @@
  * @file
  * Template for a breadcrumb pattern
  * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/breadcrumbs/
- * Last review: 1.4.1
+ * Last review: v2.0.0-rc5
  *
  * Available config:
  * - breadcrumb_dark_background: true | false
@@ -12,38 +12,17 @@
  * - breadcrumb: Breadcrumb trail items
  */
 #}
-{% set icon_classes = ['icon', 'icon-sm', 'align-top', 'mr-1'] %}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/breadcrumb/breadcrumb.twig',
+    new: 'bi-bcl/breadcrumb/breadcrumb.html.twig',
+  } %}
 
-{% if breadcrumb_dark_background %}
-  {% set dark = ' dark' %}
-  {% set icon_classes = icon_classes|merge(['icon-white']) %}
-{% endif %}
-
-<nav class="breadcrumb-container" aria-label="breadcrumb">
-  <ol class="breadcrumb{{ dark }}">
-    {% for item in breadcrumb %}
-      {% if item.url %}
-        <li class="breadcrumb-item">
-          {% spaceless %}
-            {% if breadcrumb_image %}
-              {% include '@bootstrap_italia_components/icon/icon.twig' with {
-                name: 'it-link',
-                classes: [icon_classes]
-              } %}
-            {% endif %}
-            <a href="{{ item.url }}">{{ item.text }}</a>
-            {% if breadcrumb_separator and loop.last == false %}
-              <span class="separator">{{ breadcrumb_separator }}</span>
-            {% endif %}
-          {% endspaceless %}
-        </li>
-      {% else %}
-        <li class="breadcrumb-item active" aria-current="page">{{ item.text }}
-          {% if breadcrumb_separator and loop.last == false %}
-            <span class="separator">{{ breadcrumb_separator }}</span>
-          {% endif %}
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ol>
-</nav>
+  {# Redirect to new component #}
+  {% include '@bi-bcl/breadcrumb/breadcrumb.html.twig' with {
+    breadcrumb_dark_background: breadcrumb_dark_background,
+    breadcrumb_icon: breadcrumb_image,
+    breadcrumb_separator: breadcrumb_separator,
+    breadcrumb: breadcrumb,
+  } %}
+{% endapply %}

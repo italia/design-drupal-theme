@@ -3,25 +3,21 @@
  * @file
  * Template for Social component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-centrale
- * Last review: 1.4.1
+ * Last review: v2.0.0-rc5
  *
  * Available config:
  * - socials: array
  */
 #}
-{% if socials %}
-  <div class="it-socials d-none d-md-flex">
-    <span>{{ 'Seguici su'|t }}</span>
-    <ul>
-      {% for social in socials %}
-        {% if social.url %}
-          <li>
-            <a aria-label="{{ social.label }}" href="{{ social.url }}" target="_blank">
-              {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-' ~ (social.label|lower) } %}
-            </a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-{% endif %}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/social/social.twig',
+    new: 'bi-bcl/share/follow-us.html.twig',
+  } %}
+
+  {# Redirect to new component #}
+  {% include '@bi-bcl/share/followus.html.twig' with {
+    socials: socials,
+    label: 'Follow us'|t,
+  } %}
+{% endapply %}

@@ -2,60 +2,85 @@
 /**
  * @file
  * Template for a breadcrumb pattern
- * Docs: https://bootstrap-italia-next-development.vercel.app/docs/menu-di-navigazione/breadcrumbs/
- * Last review: 2.0.0-rc4
+ * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/breadcrumbs/
+ * Last review: 2.0.0-rc5
  *
- * Available config:
- * - breadcrumb_dark_background: true | false
- * - breadcrumb_image: true | false
- * - breadcrumb_separator: ">", "/";
+ * Parameters:
+ * - breadcrumb_dark_background (boolean) (default: false)
+ * - breadcrumb_icon (boolean) (default: false)
+ * - breadcrumb_separator (string) (default: "/")
+ *   - options ["/", ">"]
  * - breadcrumb: Breadcrumb trail items
+ * - breadcrumb_classes (array) (default: '')
+ * - breadcrumb_attributes (obj attribute) (default: '')
+ *
+  * Examples:
+   {% include '@bi-bcl/breadcrumb/breadcrumb.html.twig' with {
+      breadcrumb: items,
+      breadcrumb_dark_background: true,
+   } %}
+ *
  */
 #}
 {% apply spaceless %}
   {# Set defaults #}
   {% set _breadcrumb_dark_background = breadcrumb_dark_background ?? false %}
-  {% set _breadcrumb_image = breadcrumb_image ?? false %}
+  {% set _breadcrumb_icon = breadcrumb_icon ?? false %}
+  {% set _breadcrumb_separator = breadcrumb_separator|default('/') %}
+  {% set _breadcrumb_classes = breadcrumb_classes|default('') %}
+  {% set _breadcrumb_attributes = breadcrumb_attributes|default('') %}
 
   {# Set options #}
   {% set _classes = [
     'breadcrumb',
-    _breadcrumb_dark_background ? 'dark px-3',
-  ] %}
-  {% set _icon_classes = [
-    _breadcrumb_image ? 'icon icon-sm align-top me-1',
+    _breadcrumb_dark_background ? 'dark',
+    _breadcrumb_dark_background ? 'px-3',
   ] %}
 
-  {% if _breadcrumb_dark_background %}
-    {% set _icon_classes = _icon_classes|merge(['icon-white']) %}
+  {% if _breadcrumb_classes is not empty %}
+    {% set _classes = _classes|merge(breadcrumb_classes) %}
   {% endif %}
 
-  <nav class="breadcrumb-container" aria-label="navigation path">
-    <ol {{ attributes.addClass(_classes) }}>
-    {% for item in breadcrumb %}
-      {% if item.url %}
-        <li class="breadcrumb-item">
-          {% spaceless %}
-            {% if breadcrumb_image %}
-              {% include '@bi-bcl/icon/icon.html.twig' with {
-                name: 'it-link',
-                icon_classes: _icon_classes
-              } %}
+  {% if _breadcrumb_attributes is empty %}
+    {% set breadcrumb_attributes = create_attribute() %}
+  {% endif %}
+  {% set breadcrumb_attributes = breadcrumb_attributes.addClass(_classes) %}
+
+  {# Set icon #}
+  {% set _icon_classes = [
+    'icon',
+    'icon-sm',
+    'align-top',
+    'me-1',
+    _breadcrumb_dark_background ? 'icon-white',
+  ] %}
+
+  {# Component #}
+  {% if breadcrumb %}
+    <nav class="breadcrumb-container" role="navigation" aria-labelledby="system-breadcrumb">
+      <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+      <ol{{ breadcrumb_attributes }}>
+        {% for item in breadcrumb %}
+          <li class="breadcrumb-item{{ loop.last ? ' active' }}"
+            {% if loop.last %}aria-current="page"{% endif %}
+          >
+            {% if item.url %}
+              {% if _breadcrumb_icon %}
+                {% include '@bi-bcl/icon/icon.html.twig' with {
+                  name: 'it-link',
+                  icon_classes: _icon_classes
+                } %}
+              {% endif %}
+              <a href="{{ item.url }}">{{ item.text }}</a>
+              {% if breadcrumb_separator and loop.last == false %}
+                <span class="separator">{{ breadcrumb_separator }}</span>
+              {% endif %}
+            {% else %}
+              {{ item.text }}
             {% endif %}
-            <a href="{{ item.url }}">{{ item.text }}</a>
-            {% if breadcrumb_separator and loop.last == false %}
-              <span class="separator">{{ breadcrumb_separator }}</span>
-            {% endif %}
-          {% endspaceless %}
-        </li>
-      {% else %}
-        <li class="breadcrumb-item active" aria-current="page">{{ item.text }}
-          {% if breadcrumb_separator and loop.last == false %}
-            <span class="separator">{{ breadcrumb_separator }}</span>
-          {% endif %}
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ol>
-</nav>
+          </li>
+        {% endfor %}
+      </ol>
+    </nav>
+  {% endif %}
 {% endapply %}
