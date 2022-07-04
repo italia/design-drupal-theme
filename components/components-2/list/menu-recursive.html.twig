@@ -49,6 +49,8 @@
  * - icon_color (string) (default: 'primary')
  *   - options ["primary", "secondary", "success", "warning", "danger", "light", "white"]
  * - linklist_wrapper_classes (array) (default: '')
+ * - wrapper_component (boolean) (default: false)
+ *   - Wrap component
  * - wrapper_attributes (obj attribute) (default: '')
  * - list_utility_classes (array) (default: '')
  * - list_attributes (obj attribute) (default: '')
@@ -69,6 +71,7 @@
       icon_position: '',
       icon_type: '',
       icon_color: '',
+      wrapper_component: true
    } %}
  */
 #}
@@ -91,6 +94,7 @@
   {% set _icon_name = icon_name|default('it-expand') %}
   {% set _icon_color = icon_color|default('primary') %}
   {% set _linklist_wrapper_classes = linklist_wrapper_classes|default('') %}
+  {% set _wrapper_component = wrapper_component ?? false %}
   {% set _wrapper_attributes = wrapper_attributes|default('') %}
   {% set _list_utility_classes = list_utility_classes|default('') %}
   {% set _list_attributes = list_attributes|default('') %}
@@ -130,7 +134,9 @@
   {% set list_attributes = list_attributes.addClass(_classes_list) %}
 
   {# Component #}
-  <div{{ wrapper_attributes }}>
+  {% if wrapper_component %}
+    <div{{ wrapper_attributes }}>
+  {% endif %}
     <ul{{ list_attributes }}>
       {{ menus.menu_links(
         items, attributes, 0, _menu_name,
@@ -140,7 +146,9 @@
         _active_assistive_text, _indent_sub_items
       ) }}
     </ul>
-  </div>
+  {% if wrapper_component %}
+    </div>
+  {% endif %}
 {% endapply %}
 
 {% macro menu_links(
