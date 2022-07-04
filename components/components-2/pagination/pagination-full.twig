@@ -1,0 +1,135 @@
+{#
+/**
+ * @file
+ * Template for pagination component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/paginazione/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - heading_id: Pagination heading ID.
+ * - items: List of pager items.
+ * - total_pages: Total number of pages.
+ *   The list is keyed by the following elements:
+ *   - first: Item for the first page; not present on the first page of results.
+ *   - previous: Item for the previous page; not present on the first page
+ *     of results.
+ *   - next: Item for the next page; not present on the last page of results.
+ *   - last: Item for the last page; not present on the last page of results.
+ *   - pages: List of pages, keyed by page number.
+ *   Sub-sub elements:
+ *   items.first, items.previous, items.next, items.last, and each item inside
+ *   items.pages contain the following elements:
+ *   - href: URL with appropriate query parameters for the item.
+ *   - attributes: A keyed list of HTML attributes for the item.
+ *   - text: The visible text used for the item link, such as "‹ Previous"
+ *     or "Next ›".
+ * - current: The page number of the current page.
+ * - ellipses: If there are more pages than the quantity allows, then an
+ *   ellipsis before or after the listed pages may be present.
+ *   - previous: Present if the currently visible list of pages does not start
+ *     at the first page.
+ *   - next: Present if the visible list of pages ends before the last page.
+ *
+ * @see template_preprocess_pager()
+ *
+ * Examples:
+   {% include '@bi-bcl/pagination/pagination.html.twig' with {
+      heading_id: drupal_field_name,
+      items: [''],
+      total_pages: 10,
+      current: 1,
+      ellipses: true
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {% if items %}
+  <nav class="pagination-wrapper justify-content-center" aria-label="{{ 'Pagination results'|t }}">
+    <ul class="pagination justify-content-center js-pager__items">
+      {# Print previous item if we are not on the first page. #}
+      <li class="page-item{% if not items.previous %} disabled{% endif %}">
+        <a
+          class="page-link text"
+          href="{{ items.previous.href }}"
+          {% if not items.previous %} tabindex="-1" aria-hidden="true"{% endif %}
+        >
+          {% if items.previous.text %}
+            <span class="visually-hidden">{{ 'Page'|t }}</span>{{ 'Next'|t }}
+          {% else %}
+            {% include '@bootstrap_italia_components/icon/icon.twig' with {
+                name: 'it-chevron-left',
+                classes: ['icon-primary'] }
+              %}
+            <span class="visually-hidden">{{ 'Previous page'|t }}</span>
+          {% endif %}
+        </a>
+      </li>
+
+      {% if items.first and ellipses.previous  %}
+        <li class="page-item d-none d-sm-flex">
+          <a class="page-link" href="{{ items.first.href }}">1</a>
+        </li>
+      {% endif %}
+
+      {% if ellipses.previous %}
+        <li class="page-item d-none d-sm-flex"><span class="page-link">...</span></li>
+      {% endif %}
+
+      {# Now generate the actual pager piece. #}
+      {% for key, item in items.pages %}
+        <li class="page-item{{ current == key ? ' active' : ' d-none d-sm-flex' }}">
+          {% if current == key %}
+            {% set title = 'Current page'|t %}
+          {% else %}
+            {% set title = 'Go to page @key'|t({'@key': key}) %}
+          {% endif %}
+          <a
+            class="page-link" {{ current == key ? ' aria-current="page"' : '' }}
+            href="{{ item.href }}" title="{{ title }}"
+            {{ item.attributes|without('href', 'title') }}
+          >
+            <span class="visually-hidden">
+              {{ current == key ? 'Current page'|t : 'Page'|t }}
+            </span>
+            {% if current == key %}
+              <span class="d-inline-block d-sm-none">{{ 'Page'|t }} </span>
+            {% endif %}{{ key }}
+          </a>
+        </li>
+      {% endfor %}
+
+      {% if ellipses.next %}
+        <li class="page-item d-none d-sm-flex"><span class="page-link">...</span></li>
+      {% endif %}
+
+      {% if items.last and ellipses.next %}
+        <li class="page-item d-none d-sm-flex">
+          <a class="page-link" href="{{ items.last.href }}">{{ total_pages }}</a>
+        </li>
+      {% endif %}
+
+      {% if items.next %}
+        <li class="page-item{% if not items.next %} disabled{% endif %}">
+          <a
+            class="page-link text"
+            href="{{ items.next.href }}"
+            {% if not items.next %} tabindex="-1" aria-hidden="true"{% endif %}
+          >
+            {% if items.previous.text %}
+              <span class="visually-hidden">{{ 'Page'|t }}</span>{{ 'Next'|t }}
+            {% else %}
+              <span class="visually-hidden">{{ 'Next page'|t }}</span>
+              {% include '@bootstrap_italia_components/icon/icon.twig' with {
+                name: 'it-chevron-right',
+                classes: ['icon-primary']
+              } %}
+            {% endif %}
+          </a>
+        </li>
+      {% endif %}
+
+    </ul>
+  </nav>
+  {% endif %}
+{% endapply %}
