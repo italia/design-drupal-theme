@@ -1,57 +1,72 @@
-<main role="main">
+{% set _main_content_classes = [
+  content_padding_bottom ? content_padding_bottom,
+  content_margin_bottom ? content_margin_bottom
+] %}
 
-  {% if page.breadcrumb %}
-    <section class="it-breadcrumb__wrapper px-4 my-4 {{ content_container_type ?: 'container' }}">
-      <div class="row">
-        <div class="col px-lg-4">
-          {{ page.breadcrumb }}
+<main class="{{ _main_content_classes|join(' ') }}" role="main">
+
+  {% block contentBreadcrumb %}
+    {% if page.breadcrumb %}
+      <section class="it-breadcrumb__wrapper px-4 my-4 {{ content_container_type ?: 'container' }}">
+        <div class="row">
+          <div class="col px-lg-4">
+            {{ page.breadcrumb }}
+          </div>
         </div>
-      </div>
-    </section>
-  {% endif %}
+      </section>
+    {% endif %}
+  {% endblock %}
 
   <a id="it-skip-to-main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-  {% if page.title %}
-    <div class="it-page-title__wrapper {{ content_container_type ?: 'container' }}">
-      <div class="row">
-        <div class="col">
-          {{ page.title }}
+  {% block contentTitle %}
+    {% if page.title %}
+      <div class="it-page-title__wrapper {{ content_container_type ?: 'container' }}">
+        <div class="row">
+          <div class="col">
+            {{ page.title }}
+          </div>
         </div>
       </div>
-    </div>
-  {% endif %}
+    {% endif %}
+  {% endblock %}
 
-  {% if page.local_tasks %}
-    <div class="it-local-tasks_wrapper mb-5 {{ content_container_type ?: 'container' }}">
-      {{ page.local_tasks }}
-    </div>
-  {% endif %}
+  {% block contentLocalTasks %}
+    {% if page.local_tasks %}
+      <div class="it-local-tasks_wrapper mb-5 {{ content_container_type ?: 'container' }}">
+        {{ page.local_tasks }}
+      </div>
+    {% endif %}
+  {% endblock %}
 
-  {% if page.help %}
-    <div class="it-help__wrapper {{ content_container_type ?: 'container' }}">
-      {{ page.help }}
-    </div>
-  {% endif %}
+  {% block contentHelp %}
+    {% if page.help %}
+      <div class="it-help__wrapper {{ content_container_type ?: 'container' }}">
+        {{ page.help }}
+      </div>
+    {% endif %}
+  {% endblock %}
 
-  {% if page.notification %}
-    <div class="it-notification__wrapper {{ content_container_type ?: 'container' }}">
-      {{ page.notification }}
-    </div>
-  {% endif %}
+  {% block contentNotification %}
+    {% if page.notification %}
+      <div class="it-notification__wrapper {{ content_container_type ?: 'container' }}">
+        {{ page.notification }}
+      </div>
+    {% endif %}
+  {% endblock %}
 
   {% set sidebar_width = page.sidebar_first and page.sidebar_second ? 'col-lg-3' : 'col-lg-4' %}
 
   <div class="{{ content_container_type ?: 'container' }}">
     <div class="row">
       {# Sidebar First #}
-      {% if page.sidebar_first %}
-        {% block sidebar_first %}
+      {% block contentSidebarFirst %}
+        {% if page.sidebar_first %}
           <aside class="{{ sidebar_width }} it-sidebar-first__wrapper" role="complementary">
             {{ page.sidebar_first }}
           </aside>
-        {% endblock %}
-      {% endif %}
+        {% endif %}
+      {% endblock %}
 
       <div class="col">
         <div class="it-content__wrapper">
@@ -60,13 +75,13 @@
       </div> {# End col #}
 
       {# Sidebar Second #}
-      {% if page.sidebar_second %}
-        {% block sidebar_second %}
+      {% block contentSidebarSecond %}
+        {% if page.sidebar_second %}
           <aside class="{{ sidebar_width }} it-sidebar-second__wrapper" role="complementary">
             {{ page.sidebar_second }}
           </aside>
-        {% endblock %}
-      {% endif %}
+        {% endif %}
+      {% endblock %}
     </div> {# End row #}
   </div> {# End container #}
 </main>

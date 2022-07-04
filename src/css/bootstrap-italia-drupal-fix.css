@@ -8,6 +8,7 @@
 
 #toolbar-administration.toolbar {
   height: auto;
+  max-width: fit-content;
 }
 
 /* Fix link-list */

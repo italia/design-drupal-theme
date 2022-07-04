@@ -60,6 +60,11 @@ function bootstrap_italia_preprocess_page(&$variables) {
   $variables['navigation_header_dark_mobile'] = (bool) theme_get_setting('navigation_header_dark_mobile');
   $variables['navigation_header_sticky'] = (bool) theme_get_setting('navigation_header_sticky');
 
+  // Content Settings.
+  $variables['content_container_type'] = theme_get_setting('content_container_type');
+  $variables['content_padding_bottom'] = theme_get_setting('content_padding_bottom');
+  $variables['content_margin_bottom'] = theme_get_setting('content_margin_bottom');
+
   // Footer settings.
   $variables['footer_container_type'] = theme_get_setting('footer_container_type');
 }

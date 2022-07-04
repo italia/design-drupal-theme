@@ -397,35 +397,77 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
 
-  // Breadcrumbs settings --------------------------------------------------------.
-  $form['breadcrumbs_settings'] = [
+  // Content ------------------------------------------------------------------.
+  $form['content'] = [
     '#type' => 'details',
-    '#title' => t('Breadcrumb'),
-    '#description' => t("Breadcrumb settings"),
+    '#title' => t('Content'),
+    '#description' => t("This section shows utilities for organizing content, texts, lists, tables, and images."),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
-  // Breadcrumbs settings appearance.
-  $form['breadcrumbs_settings']['appearance'] = [
+  // Navigation header appearance.
+  $form['content']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
     '#open' => FALSE,
-    '#group' => 'breadcrumbs_settings',
+    '#group' => 'content',
   ];
-  $form['breadcrumbs_settings']['appearance']['breadcrumb_dark_background'] = [
+  $form['content']['appearance']['content_container_type'] = [
+    '#type' => 'select',
+    '#title' => t("Container"),
+    '#description' => t('Choose container type. Default: Container fixed'),
+    '#default_value' => theme_get_setting('content_container_type'),
+    '#options' => Helper::getBootstrapContainerType(TRUE),
+  ];
+  $form['content']['appearance']['content_padding_bottom'] = [
+    '#type' => 'select',
+    '#title' => t("Content padding bottom"),
+    '#description' => t('Add padding at the end of the content. Default: Unset'),
+    '#default_value' => theme_get_setting('content_padding_bottom'),
+    '#options' => [
+      '' => 'Unset (no extra padding)',
+      'pb-1' => 'Extra small (pb-1)',
+      'pb-2' => 'Small (pb-2)',
+      'pb-3' => 'Medium (pb-3)',
+      'pb-4' => 'Large (pb-4)',
+      'pb-5' => 'Extra Large (pb-5)',
+    ],
+  ];
+  $form['content']['appearance']['content_margin_bottom'] = [
+    '#type' => 'select',
+    '#title' => t("Content padding bottom"),
+    '#description' => t('Add margin at the end of the content. Default: Unset'),
+    '#default_value' => theme_get_setting('content_margin_bottom'),
+    '#options' => [
+      '' => 'Unset (no extra margin)',
+      'mb-1' => 'Extra small (mb-1)',
+      'mb-2' => 'Small (mb-2)',
+      'mb-3' => 'Medium (mb-3)',
+      'mb-4' => 'Large (mb-4)',
+      'mb-5' => 'Extra Large (mb-5)',
+    ],
+  ];
+  // Breadcrumbs settings
+  $form['content']['breadcrumb'] = [
+    '#type' => 'details',
+    '#title' => t('Breadcrumb'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['breadcrumb']['breadcrumb_dark_background'] = [
     '#type' => 'checkbox',
     '#title' => t('Dark Background'),
     '#description' => t('Turn on dark background. Default: unchecked'),
     '#default_value' => theme_get_setting('breadcrumb_dark_background'),
   ];
-  $form['breadcrumbs_settings']['appearance']['breadcrumb_icon'] = [
+  $form['content']['breadcrumb']['breadcrumb_icon'] = [
     '#type' => 'checkbox',
     '#title' => t('Show item icon'),
     '#description' => t('If checked, displays an icon before items. Default: unchecked'),
     '#default_value' => theme_get_setting('breadcrumb_icon'),
   ];
-  $form['breadcrumbs_settings']['appearance']['breadcrumb_separator'] = [
+  $form['content']['breadcrumb']['breadcrumb_separator'] = [
     '#type' => 'select',
     '#title' => t('Separator'),
     '#description' => t('Choose the element separator. Default: "/".'),
@@ -435,15 +477,19 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       '>' => '>',
     ],
   ];
-
-  // Content ------------------------------------------------------------------.
-  $form['content'] = [
+  // Editor nav tabs.
+  $form['content']['editor_nav_tabs'] = [
     '#type' => 'details',
-    '#title' => t('Content'),
-    '#description' => t("This section shows utilities for organizing content, texts, lists, tables, and images."),
+    '#title' => t('Editor nav tabs'),
+    '#description' => t('Settings for editor nav tabs in content.'),
     '#open' => FALSE,
-    '#group' => 'bootstrap',
-    '#weight' => 0,
+    '#group' => 'content',
+  ];
+  $form['content']['editor_nav_tabs']['editor_nav_tabs_scrollable'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Scrollable'),
+    '#description' => t('Enable scroll in nav tabs. Default: checked.'),
+    '#default_value' => theme_get_setting('editor_nav_tabs_scrollable'),
   ];
   // Tables.
   $form['content']['tables'] = [
@@ -540,20 +586,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'table-responsive-xl' => t('Responsive xl'),
       'table-responsive-xxl' => t('Responsive xxl'),
     ],
-  ];
-  // Editor nav tabs.
-  $form['content']['editor_nav_tabs'] = [
-    '#type' => 'details',
-    '#title' => t('Editor nav tabs'),
-    '#description' => t('Settings for editor nav tabs in content.'),
-    '#open' => FALSE,
-    '#group' => 'content',
-  ];
-  $form['content']['editor_nav_tabs']['editor_nav_tabs_scrollable'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Scrollable'),
-    '#description' => t('Enable scroll in nav tabs. Default: checked.'),
-    '#default_value' => theme_get_setting('editor_nav_tabs_scrollable'),
   ];
 
   // Forms --------------------------------------------------------------------.
