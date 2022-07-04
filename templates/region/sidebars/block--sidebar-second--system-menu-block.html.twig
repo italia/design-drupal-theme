@@ -35,7 +35,7 @@
 #}
 {% set heading_id = 'it-sidebar-first--menu-' ~ attributes.id|clean_id %}
 {% set navbar_collapsible_id = 'it-sidebar-first--collapse-' ~ attributes.id|clean_id %}
-<div class="sidebar-wrapper it-line-right-side">
+<div class="sidebar-wrapper it-line-right-side{{ configuration.sidebar_second_menu_dark ? ' theme-dark' }}">
   <nav
     {{ attributes|without('role', 'aria-labelledby') }}
     role="navigation"

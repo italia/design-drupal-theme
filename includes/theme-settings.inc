@@ -587,6 +587,70 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'table-responsive-xxl' => t('Responsive xxl'),
     ],
   ];
+  // Menu in sidebar first.
+  $form['content']['sidebar_first_menu'] = [
+    '#type' => 'details',
+    '#title' => t('First sidebar menu'),
+    '#description' => t('Default settings for all menus in first sidebar region.'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['sidebar_first_menu']['sidebar_first_menu_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable dark variant'),
+    '#description' => t('Default: unchecked.'),
+    '#default_value' => theme_get_setting('sidebar_first_menu_dark'),
+  ];
+  $form['content']['sidebar_first_menu']['sidebar_first_menu_show_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Show the description of the link"),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_first_menu_show_link_description'),
+  ];
+  $form['content']['sidebar_first_menu']['sidebar_first_menu_first_level_large'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "large" variant on first level'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('sidebar_first_menu_first_level_large'),
+  ];
+  $form['content']['sidebar_first_menu']['sidebar_first_menu_first_level_bold'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "bold" variant on first level'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('sidebar_first_menu_first_level_bold'),
+  ];
+  // Menu in sidebar second.
+  $form['content']['sidebar_second_menu'] = [
+    '#type' => 'details',
+    '#title' => t('Second sidebar menu'),
+    '#description' => t('Default settings for all menus in second sidebar region.'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['sidebar_second_menu']['sidebar_second_menu_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable dark variant'),
+    '#description' => t('Default: unchecked.'),
+    '#default_value' => theme_get_setting('sidebar_second_menu_dark'),
+  ];
+  $form['content']['sidebar_second_menu']['sidebar_second_menu_show_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Show the description of the link"),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_second_menu_show_link_description'),
+  ];
+  $form['content']['sidebar_second_menu']['sidebar_second_menu_first_level_large'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "large" variant on first level'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_second_menu_first_level_large'),
+  ];
+  $form['content']['sidebar_second_menu']['sidebar_second_menu_first_level_bold'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "bold" variant on first level'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_second_menu_first_level_bold'),
+  ];
 
   // Forms --------------------------------------------------------------------.
   $form['forms'] = [

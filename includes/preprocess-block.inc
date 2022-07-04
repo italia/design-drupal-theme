@@ -22,9 +22,16 @@ function bootstrap_italia_preprocess_block(&$variables) {
     // MYTHEME_theme_suggestions_menu_alter.
     if (!empty($region)) {
       $variables['content']['#attributes']['data-block']['region'] = $region;
-    }
-    if (!empty($region) and $region == 'header_slim_menu') {
-      $variables['configuration']['government_entity_name'] = theme_get_setting('government_entity_name');
+
+      if ($region == 'header_slim_menu') {
+        $variables['configuration']['government_entity_name'] = theme_get_setting('government_entity_name');
+      }
+      if ($region == 'sidebar_first' and $variables['base_plugin_id'] == 'system_menu_block') {
+        $variables['configuration']['sidebar_first_menu_dark'] = theme_get_setting('sidebar_first_menu_dark');
+      }
+      if ($region == 'sidebar_second' and $variables['base_plugin_id'] == 'system_menu_block') {
+        $variables['configuration']['sidebar_second_menu_dark'] = theme_get_setting('sidebar_second_menu_dark');
+      }
     }
 
     // Add id to data-block for retro-compatibility.

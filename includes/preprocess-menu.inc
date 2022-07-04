@@ -38,6 +38,27 @@ function bootstrap_italia_preprocess_menu(&$variables) {
     $variables['navigation_header_main_menu_name'] = theme_get_setting('navigation_header_main_menu_name');
   }
 
+  // Menu in sidebar first.
+  if (isset($variables['attributes']['data-block']['region']) &&
+    $variables['attributes']['data-block']['region'] == 'sidebar_first'
+  ) {
+    $variables['sidebar_first_menu_show_link_description'] = (bool) theme_get_setting('sidebar_first_menu_show_link_description');
+    $variables['sidebar_first_menu_first_level_large'] = (bool) theme_get_setting('sidebar_first_menu_first_level_large');
+    $variables['sidebar_first_menu_first_level_bold'] = (bool) theme_get_setting('sidebar_first_menu_first_level_bold');
+    $variables['sidebar_first_menu_icon_color'] =
+      theme_get_setting('sidebar_first_menu_dark') ? 'white' : 'primary';
+  }
+  // Menu in sidebar second.
+  if (isset($variables['attributes']['data-block']['region']) &&
+    $variables['attributes']['data-block']['region'] == 'sidebar_second'
+  ) {
+    $variables['sidebar_second_menu_show_link_description'] = (bool) theme_get_setting('sidebar_second_menu_show_link_description');
+    $variables['sidebar_second_menu_first_level_large'] = (bool) theme_get_setting('sidebar_second_menu_first_level_large');
+    $variables['sidebar_second_menu_first_level_bold'] = (bool) theme_get_setting('sidebar_second_menu_first_level_bold');
+    $variables['sidebar_second_menu_icon_color'] =
+      theme_get_setting('sidebar_second_menu_dark') ? 'white' : 'primary';
+  }
+
 }
 
 /**
