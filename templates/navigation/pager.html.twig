@@ -6,7 +6,6 @@
  * Available variables:
  * - heading_id: Pagination heading ID.
  * - items: List of pager items.
- * - total_pages: Total number of pages.
  *   The list is keyed by the following elements:
  *   - first: Item for the first page; not present on the first page of results.
  *   - previous: Item for the previous page; not present on the first page
@@ -27,14 +26,32 @@
  *   - previous: Present if the currently visible list of pages does not start
  *     at the first page.
  *   - next: Present if the visible list of pages ends before the last page.
+ * - total_pages: Total number of pages.
+ * - pager_alignment (string) (default: '')
+ *   - options ["", "center", "end"]
+ * - pager_responsive (boolean) (default: true)
+ * - pager_jump_to_page (boolean) (default: false)
+ * - pager_show_first_last_page_link (boolean) (default: true)
+ * - pager_text_controls (boolean) (default: false)
+ * - pager_show_total_pages (boolean) (default: false)
  *
  * @see template_preprocess_pager()
  */
 #}
-{% include '@bi-bcl/pagination/pagination-full.twig' with {
+{% include '@bi-bcl/pagination/pagination-full.html.twig' with {
   heading_id: heading_id,
   items: items,
-  total_pages: total_pages,
   current: current,
-  ellipses: ellipses
+  ellipses: ellipses,
+  total_pages: total_pages,
+  alignment: pager_alignment,
+  responsive: pager_responsive,
+  jump_to_page: pager_jump_to_page,
+  show_first_last_page_link: pager_show_first_last_page_link,
+  text_controls: pager_text_controls,
+  text_first_page: pager_text_controls ? items.first.text : '1',
+  text_last_page: pager_text_controls ? items.last.text : total_pages,
+  text_previous: pager_text_controls ? tems.previous.text : '',
+  text_next: pager_text_controls ? items.next.text : '',
+  show_total_pages: pager_show_total_pages
 } %}

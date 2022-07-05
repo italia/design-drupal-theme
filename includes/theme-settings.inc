@@ -651,6 +651,56 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('sidebar_second_menu_first_level_bold'),
   ];
+  // Pagination.
+  $form['content']['pagination'] = [
+    '#type' => 'details',
+    '#title' => t('Pagination'),
+    '#description' => t('Default settings for all pager.'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['pagination']['pager_alignment'] = [
+    '#type' => 'select',
+    '#title' => t('Pager alignment'),
+    '#description' => t('Choose pager alignment. Default "left"'),
+    '#default_value' => theme_get_setting('pager_alignment'),
+    '#options' => [
+      '' => t('Default (left)'),
+      'center' => t('Center'),
+      'end' => t('Right'),
+    ],
+  ];
+  $form['content']['pagination']['pager_responsive'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable responsive pager'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('pager_responsive'),
+  ];
+  $form['content']['pagination']['pager_jump_to_page'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "jump to page" feature'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('pager_jump_to_page'),
+  ];
+  $form['content']['pagination']['pager_show_first_last_page_link'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show first and last link in pager'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('pager_show_first_last_page_link'),
+  ];
+  $form['content']['pagination']['pager_text_controls'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show textual pager (no icons)'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('pager_text_controls'),
+  ];
+  $form['content']['pagination']['pager_show_total_pages'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show total page info'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('pager_show_total_pages'),
+  ];
+
 
   // Forms --------------------------------------------------------------------.
   $form['forms'] = [

@@ -1,0 +1,262 @@
+{#
+/**
+ * @file
+ * Template for pagination component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/paginazione/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - heading_id: Pagination heading ID.
+ * - items: List of pager items.
+ *   The list is keyed by the following elements:
+ *   - first: Item for the first page; not present on the first page of results.
+ *   - previous: Item for the previous page; not present on the first page
+ *     of results.
+ *   - next: Item for the next page; not present on the last page of results.
+ *   - last: Item for the last page; not present on the last page of results.
+ *   - pages: List of pages, keyed by page number.
+ *   Sub-sub elements:
+ *   items.first, items.previous, items.next, items.last, and each item inside
+ *   items.pages contain the following elements:
+ *   - href: URL with appropriate query parameters for the item.
+ *   - attributes: A keyed list of HTML attributes for the item.
+ *   - text: The visible text used for the item link, such as "‹ Previous"
+ *     or "Next ›".
+ * - current: The page number of the current page.
+ * - ellipses: If there are more pages than the quantity allows, then an
+ *   ellipsis before or after the listed pages may be present.
+ *   - previous: Present if the currently visible list of pages does not start
+ *     at the first page.
+ *   - next: Present if the visible list of pages ends before the last page.
+ *
+ * - total_pages (int)
+ *   - Total number of pages.
+ * - alignment (string) (default: '')
+ *   - options ["center", "end"]
+ * - responsive (boolean) (default: true)
+ * - jump_to_page (boolean) (default: false)
+ * - show_first_last_page_link (boolean) (default: true)
+ * - text_controls (boolean) (default: false)
+ *   - If enabled shows "Previous" and "Next" instead "<" and ">"
+ *
+ * - text_first_page (string) (default: '« First')
+ * - text_last_page (string) (default: 'Last »')
+ * - text_previous (string) (default: '‹ Previous')
+ * - text_next (string) (default: 'Next ›')
+ * - show_total_pages (boolean) (default: false)
+ *
+ * @see template_preprocess_pager()
+ *
+ * Examples:
+   {% include '@bi-bcl/pagination/pagination-full.html.twig' with {
+      heading_id: drupal_field_name,
+      items: [''],
+      total_pages: 10,
+      current: 1,
+      ellipses: true
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _pager_alignment = pager_alignment|default('')%}
+  {% set _pager_responsive = pager_responsive ?? true %}
+  {% set _jump_to_page = jump_to_page ?? false %}
+  {% set _show_first_last_page_link = show_first_last_page_link ?? true %}
+  {% set _text_controls = text_controls ?? false %}
+  {% set _text_first_page = text_first_page|default('« First'|t) %}
+  {% set _text_last_page = text_last_page|default('Last »'|t) %}
+  {% set _text_previous = text_previous|default('‹ Previous'|t) %}
+  {% set _text_next = text_next|default('Next ›'|t) %}
+  {% set _show_total_pages = show_total_pages ?? false %}
+
+  {# Set options #}
+  {% set _pager_nav_classes = [
+    'pagination-wrapper',
+    'pager',
+    _pager_alignment == 'center' ? 'justify-content-center',
+    _pager_alignment == 'end' ? 'justify-content-end',
+    _show_total_pages ? 'pagination-total',
+    _show_total_pages ? 'd-block'
+  ] %}
+
+  {% set _item_classes = [
+    'page-item',
+    'pager__item',
+  ] %}
+
+  {% set _spacer_count = items.pages|length %}
+  {% if _show_first_last_page_link %}
+    {% set _spacer_count = _spacer_count + 2 %}
+  {% endif %}
+  {% if _text_controls %}
+    {% set _spacer_count = _spacer_count + 6 %}
+  {% endif %}
+  {% if _jump_to_page %}
+    {% set _spacer_count = _spacer_count + 4 %}
+  {% endif %}
+
+  {% set _responsive_classes = [
+    _pager_responsive ? 'd-none',
+    _pager_responsive and _spacer_count > 0 and _spacer_count <= 6  ? 'd-sm-flex',
+    _pager_responsive and _spacer_count > 6 and _spacer_count <= 10  ? 'd-md-flex',
+    _pager_responsive and _spacer_count > 10  ? 'd-lg-flex'
+  ] %}
+
+  {# Component #}
+  {% if items %}
+  <nav class="{{ _pager_nav_classes|join(' ')|trim }}" role="navigation" aria-label="{{ 'Pagination results'|t }}">
+    <ul class="pagination pager__items js-pager__items">
+
+      {# Print previous item. #}
+      <li class="{{ _item_classes|merge(['pager__item--previous', not items.previous ? 'disabled'])|join(' ') }}">
+        <a class="page-link{{ not items.previous ? ' text' }}"
+           href="{{ items.previous ? items.previous.href : '#' }}"
+          {% if not items.previous %}
+            tabindex="-1"
+            aria-hidden="true"
+            title="{{ 'You are at first page'|t }}"
+            {{ items.previous.attributes|without('href', 'title', 'rel', 'tabindex', 'aria-hidden') }}
+          {% else %}
+            title="{{ 'Go to previous page'|t }}"
+            {{ items.previous.attributes|without('href', 'title', 'rel') }}
+          {% endif %}
+          rel="prev"
+        >
+          <span class="visually-hidden">{{ 'Previous page'|t }}</span>
+          <span aria-hidden="true">
+            {% if _text_controls %}
+              {{ _text_previous }}
+            {% else %}
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-chevron-left',
+                classes: ['icon-primary'] }
+              %}
+            {% endif %}
+          </span>
+        </a>
+      </li>
+
+      {# Print first item if we are not on the first page. #}
+      {% if items.first and ellipses.previous and _show_first_last_page_link %}
+        <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--first'])|join(' ')|trim }}">
+          <a class="page-link text" href="{{ items.first.href }}" title="{{ 'Go to first page'|t }}"{{ items.first.attributes|without('href', 'title') }}>
+            <span class="visually-hidden">{{ 'First page'|t }}</span>
+            <span aria-hidden="true">{{ _text_first_page }}</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {# Add an ellipsis if there are further previous pages. #}
+      {% if ellipses.previous %}
+        <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--ellipsis'])|join(' ')|trim }}" role="presentation">
+          <span class="page-link">&hellip;</span>
+        </li>
+      {% endif %}
+
+      {# Now generate the actual pager piece. #}
+      {% for key, item in items.pages %}
+        {% set _item_actual_piece_classes = current == key ? ['active'] : _responsive_classes %}
+        <li class="{{ _item_classes|merge(_item_actual_piece_classes)|join(' ') }}">
+          {% if current == key %}
+            {% set title = 'Current page'|t %}
+          {% else %}
+            {% set title = 'Go to page @key'|t({'@key': key}) %}
+          {% endif %}
+          <a
+            class="page-link" {{ current == key ? ' aria-current="page"' : '' }}
+            href="{{ item.href }}" title="{{ title }}"
+            {{ item.attributes|without('href', 'title') }}
+          >
+            <span class="visually-hidden">
+              {{ current == key ? 'Current page'|t : 'Page'|t }}
+            </span>
+            {% if current == key %}
+              <span class="d-inline-block d-sm-none">{{ 'Page'|t }} </span>
+            {% endif %}
+            {{- key -}}
+          </a>
+        </li>
+      {% endfor %}
+
+      {# Add an ellipsis if there are further next pages. #}
+      {% if ellipses.next %}
+        <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--ellipsis'])|join(' ')|trim }}" role="presentation">
+          <span class="page-link">&hellip;</span>
+        </li>
+      {% endif %}
+
+      {# Print last item if we are not on the last page. #}
+      {% if items.last and ellipses.next and _show_first_last_page_link %}
+        <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--last'])|join(' ')|trim }}">
+          <a class="page-link" href="{{ items.last.href }}" title="{{ 'Go to last page'|t }}"{{ items.last.attributes|without('href', 'title') }}>
+            <span class="visually-hidden">{{ 'Last page'|t }}</span>
+            <span aria-hidden="true">{{ _text_last_page }}</span>
+          </a>
+        </li>
+      {% endif %}
+
+      {# Print next item if we are not on the last page. #}
+      <li class="{{ _item_classes|merge(['pager__item--next', not items.next ? 'disabled'])|join(' ') }}">
+        <a class="page-link{{ not items.next ? ' text' }}"
+          href="{{ items.next ? items.next.href : '#' }}"
+          {% if not items.next %}
+            tabindex="-1"
+            aria-hidden="true"
+            title="{{ 'You are at last page'|t }}"
+            {{ items.next.attributes|without('href', 'title', 'rel', 'tabindex', 'aria-hidden') }}
+          {% else %}
+            title="{{ 'Go to next page'|t }}"
+            {{ items.next.attributes|without('href', 'title', 'rel') }}
+          {% endif %}
+          rel="next"
+        >
+          <span class="visually-hidden">{{ 'Next page'|t }}</span>
+          <span aria-hidden="true">
+            {% if _text_controls %}
+              {{ _text_next }}
+            {% else %}
+              {% include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-chevron-right',
+                classes: ['icon-primary'] }
+              %}
+            {% endif %}
+          </span>
+        </a>
+      </li>
+
+    </ul>
+
+    {% if _jump_to_page %}
+      {% set _id_jump_to_page = 'pager-jump-to-page-' ~ random() %}
+      {% set _attributes_jump_to_page = create_attribute() %}
+      {% set _attributes_jump_to_page = _attributes_jump_to_page
+        .setAttribute('type', 'text')
+        .setAttribute('id', _id_jump_to_page)
+        .setAttribute('max', total_pages)
+        .setAttribute('min', '0')
+        .setAttribute('maxlength', '3')
+        .setAttribute('value', current)
+        .setAttribute('name', 'goToPage')
+      %}
+      <form id="pass-form" onsubmit="document.location.href = '?page=' + --this.goToPage.value + ''; return false;">
+        <div class="form-group">
+          <input class="form-control"{{ _attributes_jump_to_page }}>
+          <label class="active" for="{{ _id_jump_to_page }}">
+            <span aria-hidden="true">{{ 'Go to'|t }}&hellip;</span>
+            <span class="visually-hidden">{{ 'Write the page number you want to go to'|t }}</span>
+          </label>
+        </div>
+      </form>
+    {% endif %}
+
+    {% if _show_total_pages %}
+      <p>
+        {{ '@total_pages pages totals'|t({'@total_pages': total_pages}) }}
+      </p>
+    {% endif %}
+
+  </nav>
+  {% endif %}
+{% endapply %}
