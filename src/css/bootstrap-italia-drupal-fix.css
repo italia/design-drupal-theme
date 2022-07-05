@@ -78,3 +78,9 @@ button.link-edit-summary {
 .text-summary-wrapper {
   margin-bottom: 2em;
 }
+
+/* Edit node -------------------------------------------------------------------------- */
+.node-form .image-widget,
+.node-form .image-widget img {
+  margin-bottom: 3em;
+}

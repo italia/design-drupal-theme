@@ -107,7 +107,7 @@
   {# Component #}
   {% if items %}
   <nav class="{{ _pager_nav_classes|join(' ')|trim }}" role="navigation" aria-label="{{ 'Pagination results'|t }}">
-    <ul class="pagination pager__items js-pager__items">
+    <ul class="pagination pager__items js-pager__items" aria-label="{{ 'Page @current of @total_pages'|t({'@current': current, '@total_pages': total_pages}) }}">
 
       {# Print previous item. #}
       <li class="{{ _item_classes|merge(['pager__item--previous', not items.previous ? 'disabled'])|join(' ') }}">
@@ -179,6 +179,26 @@
           </a>
         </li>
       {% endfor %}
+
+      {# Simple mode. #}
+      {% if items.current %}
+        <li class="{{ _item_classes|merge(['active'])|join(' ') }}">
+          <span class="visually-hidden">{{ 'Current page'|t }}</span>
+          <span class="page-link" aria-current="page">{{ items.current }}</span>
+        </li>
+        {% if total_pages %}
+          <li class="page-item" role="presentation"><span class="page-link">/</span></li>
+          <li class="page-item">
+            <span class="visually-hidden">{{ 'of total page'|t }}</span>
+            <span class="page-link">{{ total_pages }}</span>
+          </li>
+          <li class="page-item visually-hidden">
+            <a class="page-link" href="#" aria-current="page">
+              {{ 'Page @current of @total_pages'|t({'@current': current, '@total_pages': total_pages}) }}
+            </a>
+          </li>
+        {% endif %}
+      {% endif %}
 
       {# Add an ellipsis if there are further next pages. #}
       {% if ellipses.next %}
