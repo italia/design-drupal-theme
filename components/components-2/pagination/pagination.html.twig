@@ -48,13 +48,21 @@
  * @see template_preprocess_pager()
  *
  * Examples:
-   {% include '@bi-bcl/pagination/pagination-full.html.twig' with {
-      heading_id: drupal_field_name,
-      items: [''],
-      total_pages: 10,
-      current: 1,
-      ellipses: true
-   } %}
+    {% include '@bi-bcl/pagination/pagination-full.html.twig' with {
+      heading_id: heading_id,
+      items: items,
+      current: current,
+      ellipses: ellipses,
+      total_pages: total_pages,
+      alignment: 'center',
+      responsive: true,
+      jump_to_page: false,
+      show_first_last_page_link: true,
+      text_controls: false,
+      text_first_page: '1',
+      text_last_page: total_pages,
+      show_total_pages: false
+    } %}
  *
  */
 #}
