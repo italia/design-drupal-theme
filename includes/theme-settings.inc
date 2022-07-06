@@ -491,6 +491,34 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Enable scroll in nav tabs. Default: checked.'),
     '#default_value' => theme_get_setting('editor_nav_tabs_scrollable'),
   ];
+  // Images settings.
+  $form['content']['images'] = [
+    '#type' => 'details',
+    '#title' => t('Images'),
+    '#description' => t('Settings for all images.'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['images']['image_fluid'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Image responsive.'),
+    '#description' => t('Enable image responsive feature. Default: checked.'),
+    '#default_value' => theme_get_setting('image_fluid'),
+  ];
+  $form['content']['images']['image_rounded'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Rounded border.'),
+    '#description' => t('Enable image rounded border. Default: unchecked.'),
+    '#default_value' => theme_get_setting('image_rounded'),
+  ];
+  $form['content']['images']['image_border'] = [
+    '#type' => 'select',
+    '#title' => t('Image border'),
+    '#description' => t('Choose border style. Default: "None".'),
+    '#default_value' => theme_get_setting('image_border'),
+    '#options' => ['' => t('None')] + Helper::getColorsName(TRUE)
+  ];
+
   // Tables.
   $form['content']['tables'] = [
     '#type' => 'details',

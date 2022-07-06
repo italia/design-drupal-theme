@@ -120,9 +120,42 @@ function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, arra
 function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables) {
   $entity = $variables['item']->getEntity();
   $field_name = $variables['item']->getParent()->getName();
+
+  $suggestions[] =
+    $variables['theme_hook_original'] . '__' . $entity->getEntityTypeId();
+
+  $suggestions[] =
+    $variables['theme_hook_original'] . '__' . $entity->bundle();
+
+  $suggestions[] =
+    $variables['theme_hook_original'] . '__' . $field_name;
+
+  $suggestions[] = $variables['theme_hook_original']
+    . '__' . $entity->getEntityTypeId() . '__' . $entity->bundle();
+
+  $suggestions[] = $variables['theme_hook_original']
+    . '__' . $entity->getEntityTypeId() . '__' . $field_name;
+
+  $suggestions[] = $variables['theme_hook_original']
+    . '__' . $entity->bundle() . '__' . $field_name;
+
   $suggestions[] =
     $variables['theme_hook_original']
     . '__' . $entity->getEntityTypeId()
     . '__' . $entity->bundle()
     . '__' . $field_name;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_image_style_alter(array &$suggestions, array $variables) {
+  Suggestions::imageStyle($suggestions,$variables);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+  Suggestions::imageStyle($suggestions,$variables);
 }

@@ -142,4 +142,18 @@ class Suggestions {
 
   }
 
+  /**
+   * Set menu suggestions.
+   *
+   * @param array &$suggestions
+   *   Referenced $suggestions.
+   * @param array $variables
+   *   Referenced $variables.
+   */
+  public static function imageStyle(array &$suggestions, array $variables) {
+    if (isset($variables['style_name'])) {
+      $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['style_name'];
+    }
+  }
+
 }
