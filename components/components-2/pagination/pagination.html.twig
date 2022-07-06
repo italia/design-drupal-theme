@@ -104,6 +104,11 @@
     _pager_responsive and _spacer_count > 10  ? 'd-lg-flex'
   ] %}
 
+  {# Fix ellipses bug. #}
+  {% if (items.pages|length + 1) == total_pages %}
+    {% set ellipses_hide = true %}
+  {% endif %}
+
   {# Component #}
   {% if items %}
   <nav class="{{ _pager_nav_classes|join(' ')|trim }}" role="navigation" aria-label="{{ 'Pagination results'|t }}">
@@ -149,7 +154,7 @@
       {% endif %}
 
       {# Add an ellipsis if there are further previous pages. #}
-      {% if ellipses.previous %}
+      {% if ellipses.previous and not ellipses_hide %}
         <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--ellipsis'])|join(' ')|trim }}" role="presentation">
           <span class="page-link">&hellip;</span>
         </li>
@@ -201,7 +206,7 @@
       {% endif %}
 
       {# Add an ellipsis if there are further next pages. #}
-      {% if ellipses.next %}
+      {% if ellipses.next and not ellipses_hide %}
         <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--ellipsis'])|join(' ')|trim }}" role="presentation">
           <span class="page-link">&hellip;</span>
         </li>
