@@ -426,12 +426,12 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Add padding at the end of the content. Default: Unset'),
     '#default_value' => theme_get_setting('content_padding_bottom'),
     '#options' => [
-      '' => 'Unset (no extra padding)',
-      'pb-1' => 'Extra small (pb-1)',
-      'pb-2' => 'Small (pb-2)',
-      'pb-3' => 'Medium (pb-3)',
-      'pb-4' => 'Large (pb-4)',
-      'pb-5' => 'Extra Large (pb-5)',
+      '' => t('Unset (no extra padding)'),
+      'pb-1' => t('Extra small (pb-1)'),
+      'pb-2' => t('Small (pb-2)'),
+      'pb-3' => t('Medium (pb-3)'),
+      'pb-4' => t('Large (pb-4)'),
+      'pb-5' => t('Extra Large (pb-5)'),
     ],
   ];
   $form['content']['appearance']['content_margin_bottom'] = [
@@ -440,15 +440,15 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Add margin at the end of the content. Default: Unset'),
     '#default_value' => theme_get_setting('content_margin_bottom'),
     '#options' => [
-      '' => 'Unset (no extra margin)',
-      'mb-1' => 'Extra small (mb-1)',
-      'mb-2' => 'Small (mb-2)',
-      'mb-3' => 'Medium (mb-3)',
-      'mb-4' => 'Large (mb-4)',
-      'mb-5' => 'Extra Large (mb-5)',
+      '' => t('Unset (no extra margin)'),
+      'mb-1' => t('Extra small (mb-1)'),
+      'mb-2' => t('Small (mb-2)'),
+      'mb-3' => t('Medium (mb-3)'),
+      'mb-4' => t('Large (mb-4)'),
+      'mb-5' => t('Extra Large (mb-5)'),
     ],
   ];
-  // Breadcrumbs settings
+  // Breadcrumbs settings.
   $form['content']['breadcrumb'] = [
     '#type' => 'details',
     '#title' => t('Breadcrumb'),
@@ -700,7 +700,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("Default: unchecked"),
     '#default_value' => theme_get_setting('pager_show_total_pages'),
   ];
-
 
   // Forms --------------------------------------------------------------------.
   $form['forms'] = [

@@ -157,7 +157,7 @@ class FormInput {
         $variables['attributes']['class'][] = 'btn-outline-primary';
       }
 
-      // Detect ajax remove buttons
+      // Detect ajax remove buttons.
       if (str_ends_with($variables['attributes']['data-drupal-selector'], '-remove-button')) {
         $variables['attributes']['class'][] = 'btn-outline-danger';
       }

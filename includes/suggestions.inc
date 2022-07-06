@@ -2,10 +2,30 @@
 
 /**
  * @file
- * Suggestions for forms.
+ * Hook THEME_suggestions_*.
  */
 
 use Drupal\bootstrap_italia\Helper\Suggestions;
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  try {
+    Suggestions::block($suggestions, $variables);
+  }
+  catch (InvalidPluginDefinitionException | PluginNotFoundException $e) {
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  Suggestions::menu($suggestions, $variables);
+}
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
