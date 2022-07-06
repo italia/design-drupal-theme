@@ -21,7 +21,7 @@
 #}
 {% set show_error = true %}
 {% if show_error %}
-  {% set message = 'The @' ~ old ~ ' template is deprecated, use @' ~ new ~ ' instead.' %}
+  {% set message = 'The @' ~ old ~ ' component is deprecated, use @' ~ new ~ ' instead.' %}
   {% deprecated message %}
   <script>
     console.warn('{{ message }}');
