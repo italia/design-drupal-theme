@@ -3,6 +3,9 @@
 namespace Drupal\bootstrap_italia\Helper;
 
 use Drupal\block_content\BlockContentInterface;
+use Drupal\Component\Utility\Html;
+use Drupal\node\NodeInterface;
+use Drupal\taxonomy\TermInterface;
 
 /**
  * Helper Suggestions class for bootstrap_italia theme.
@@ -100,6 +103,43 @@ class Suggestions {
       $suggestions[] = $variables['theme_hook_original'] . '__' . $region;
       $suggestions[] = 'menu__' . $region;
     }
+  }
+
+  /**
+   * Set page suggestions.
+   *
+   * @param array &$suggestions
+   *   Referenced $suggestions.
+   * @param array &$variables
+   *   Referenced $variables.
+   */
+  public static function page(array &$suggestions, array &$variables) {
+    // Add content type suggestions.
+    if (($node = \Drupal::request()->attributes->get('node')) &&
+      !strpos($_SERVER['REQUEST_URI'], "revisions")
+    ) {
+      if ($node instanceof NodeInterface) {
+        array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+        $variables['content_type_name'] = $node->getType();
+      }
+    }
+    // Add taxonomy suggestions.
+    if (($term = \Drupal::request()->attributes->get('taxonomy_term')) &&
+      !strpos($_SERVER['REQUEST_URI'], "revisions")
+    ) {
+      if ($term instanceof TermInterface) {
+        if ($term->parent->target_id == 0) {
+          $suggestions[] = 'page__taxonomy__term__firstlevel';
+        }
+        else {
+          $suggestions[] = 'page__taxonomy__term__secondlevel';
+        }
+        $term_name = Html::getUniqueId(strtolower($term->getName()));
+        $suggestions[] = 'page__taxonomy__term__' . $term_name;
+        $suggestions[] = 'page__taxonomy__term__' . $term->bundle();
+      }
+    }
+
   }
 
 }

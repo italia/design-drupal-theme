@@ -10,6 +10,13 @@ use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 
 /**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, array &$variables) {
+  Suggestions::page($suggestions, $variables);
+}
+
+/**
  * Implements hook_theme_suggestions_block_alter().
  */
 function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {
@@ -25,6 +32,19 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
  */
 function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
   Suggestions::menu($suggestions, $variables);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
+  if (isset($variables['view'])) {
+    $view = $variables['view'];
+    $displayObj = $view->getDisplay();
+    $variant = (isset($view->rowPlugin->options['pattern_variant'])) ? '__' . $view->rowPlugin->options['pattern_variant'] : '';
+    $suggestions[] = 'views_view_unformatted__' . $view->id() . $variant;
+    $suggestions[] = 'views_view_unformatted__' . $view->id() . '__' . $displayObj->display['id'] . $variant;
+  }
 }
 
 /**
@@ -69,4 +89,40 @@ function bootstrap_italia_theme_suggestions_select_alter(array &$suggestions, ar
  */
 function bootstrap_italia_theme_suggestions_container_alter(array &$suggestions, array &$variables) {
   Suggestions::form($suggestions, $variables);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+
+  // Define the view mode.
+  $mode = $variables['elements']['#view_mode'];
+
+  // Create a theme hook suggestion which has the view mode name in it.
+  $suggestions[] = 'user__' . $mode;
+
+  // Get current user.
+  $current_user = $variables['elements']['#user'];
+
+  // Get current user's roles.
+  $roles = $current_user->getRoles();
+
+  // Add suggestion per role.
+  foreach ($roles as $role) {
+    $suggestions[] = 'user__' . $mode . '__' . $role;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables) {
+  $entity = $variables['item']->getEntity();
+  $field_name = $variables['item']->getParent()->getName();
+  $suggestions[] =
+    $variables['theme_hook_original']
+    . '__' . $entity->getEntityTypeId()
+    . '__' . $entity->bundle()
+    . '__' . $field_name;
 }

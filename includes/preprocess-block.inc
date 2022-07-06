@@ -45,4 +45,7 @@ function bootstrap_italia_preprocess_block(&$variables) {
     $variables['svg_logo_box_sticky'] = theme_get_setting('svg_logo_box_sticky');
     $variables['image_logo_fluid'] = (bool) theme_get_setting('image_logo_fluid');
   }
+
+  // Add base_path for retro-compatibility.
+  $variables['base_path'] = base_path();
 }
