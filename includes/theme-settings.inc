@@ -8,6 +8,7 @@
 use Drupal\bootstrap_italia\Helper\Helper;
 use Drupal\bootstrap_italia\Helper\Color;
 use Drupal\bootstrap_italia\Helper\Libraries;
+use Drupal\bootstrap_italia\Helper\Spacing;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -426,28 +427,16 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t("Content padding bottom"),
     '#description' => t('Add padding at the end of the content. Default: Unset'),
     '#default_value' => theme_get_setting('content_padding_bottom'),
-    '#options' => [
-      '' => t('Unset (no extra padding)'),
-      'pb-1' => t('Extra small (pb-1)'),
-      'pb-2' => t('Small (pb-2)'),
-      'pb-3' => t('Medium (pb-3)'),
-      'pb-4' => t('Large (pb-4)'),
-      'pb-5' => t('Extra Large (pb-5)'),
-    ],
+    '#options' =>
+      ['' => t('Unset')] + Spacing::getPaddingBottom(TRUE),
   ];
   $form['content']['appearance']['content_margin_bottom'] = [
     '#type' => 'select',
     '#title' => t("Content padding bottom"),
     '#description' => t('Add margin at the end of the content. Default: Unset'),
     '#default_value' => theme_get_setting('content_margin_bottom'),
-    '#options' => [
-      '' => t('Unset (no extra margin)'),
-      'mb-1' => t('Extra small (mb-1)'),
-      'mb-2' => t('Small (mb-2)'),
-      'mb-3' => t('Medium (mb-3)'),
-      'mb-4' => t('Large (mb-4)'),
-      'mb-5' => t('Extra Large (mb-5)'),
-    ],
+    '#options' =>
+      ['' => t('Unset')] + Spacing::getMarginBottom(TRUE),
   ];
   // Breadcrumbs settings.
   $form['content']['breadcrumb'] = [
@@ -491,6 +480,42 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('Scrollable'),
     '#description' => t('Enable scroll in nav tabs. Default: checked.'),
     '#default_value' => theme_get_setting('editor_nav_tabs_scrollable'),
+  ];
+  // Fields settings.
+  $form['content']['field'] = [
+    '#type' => 'details',
+    '#title' => t('Fields'),
+    '#description' => t('Settings for all fields.'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['field']['field_label_bold'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Label bold.'),
+    '#description' => t('Enable to apply bold to label. Default: unchecked.'),
+    '#default_value' => theme_get_setting('field_label_bold'),
+  ];
+  $form['content']['field']['field_label_separator'] = [
+    '#type' => 'textfield',
+    '#title' => t('Separator for inline label.'),
+    '#description' => t("Default: ':'"),
+    '#default_value' => theme_get_setting('field_label_separator'),
+  ];
+  $form['content']['field']['field_container_vertical_padding'] = [
+    '#type' => 'select',
+    '#title' => t('Vertical padding'),
+    '#description' => t('Apply extra vertical padding to all fields. Default: "Unset".'),
+    '#default_value' => theme_get_setting('field_container_vertical_padding'),
+    '#options' =>
+      ['' => t('Unset')] + Spacing::getPaddingVertical(TRUE),
+  ];
+  $form['content']['field']['field_container_vertical_margin'] = [
+    '#type' => 'select',
+    '#title' => t('Vertical margin'),
+    '#description' => t('Apply extra vertical margin to all fields. Default: "Unset".'),
+    '#default_value' => theme_get_setting('field_container_vertical_margin'),
+    '#options' =>
+      ['' => t('Unset')] + Spacing::getMarginVertical(TRUE),
   ];
   // Images settings.
   $form['content']['images'] = [

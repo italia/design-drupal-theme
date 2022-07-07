@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region <div>.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% if content %}
+    {% set id_region = 'it-region-' ~ region|clean_id %}
+    {% set classes = [
+      'region',
+      'region-' ~ region|clean_class
+    ] %}
+    <div{{ attributes.addClass(classes).setAttribute('id', id_region) }}>
+      {{ content }}
+    </div>
+  {% endif %}
+{% endapply %}
