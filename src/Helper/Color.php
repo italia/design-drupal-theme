@@ -44,12 +44,8 @@ class Color {
     }
 
     return [
-      'primary ',
-      'secondary',
-      'success',
-      'info',
-      'warning',
-      'danger',
+      'primary ', 'secondary', 'success',
+      'info', 'warning', 'danger',
     ];
   }
 
