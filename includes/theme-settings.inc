@@ -6,6 +6,7 @@
  */
 
 use Drupal\bootstrap_italia\Helper\Helper;
+use Drupal\bootstrap_italia\Helper\Color;
 use Drupal\bootstrap_italia\Helper\Libraries;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -513,10 +514,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
   $form['content']['images']['image_border'] = [
     '#type' => 'select',
-    '#title' => t('Image border'),
+    '#title' => t('Image border color'),
     '#description' => t('Choose border style. Default: "None".'),
     '#default_value' => theme_get_setting('image_border'),
-    '#options' => ['' => t('None')] + Helper::getColorsName(TRUE)
+    '#options' =>
+      ['' => t('None')] +
+      Color::getTheme(TRUE) +
+      Color::getMonochromatic(TRUE),
   ];
 
   // Tables.
@@ -544,7 +548,12 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('Table background.'),
     '#description' => t('Choose background color. Default: "Default"'),
     '#default_value' => theme_get_setting('table_bg'),
-    '#options' => ['' => t('Default')] + Helper::getColorsName(TRUE),
+    '#options' =>
+      ['' => t('Default')] +
+      Color::getTheme(TRUE) +
+      Color::getPantone(TRUE) +
+      Color::getMonochromatic(TRUE) +
+      Color::getMode(TRUE),
   ];
   $form['content']['tables']['table_hover'] = [
     '#type' => 'checkbox',
@@ -563,7 +572,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('Table border color.'),
     '#description' => t('Choose table border color. Default: "Default"'),
     '#default_value' => theme_get_setting('table_border_color'),
-    '#options' => ['' => t('Default')] + Helper::getColorsName(TRUE),
+    '#options' => ['' => t('Default')] + Color::getAll(TRUE),
   ];
   $form['content']['tables']['table_borderless'] = [
     '#type' => 'checkbox',
@@ -588,11 +597,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('THead background.'),
     '#description' => t('Default: "Dark".'),
     '#default_value' => theme_get_setting('table_thead_variant'),
-    '#options' => [
-      '' => t('Default'),
-      'light' => t('Light'),
-      'dark' => t('Dark'),
-    ],
+    '#options' => ['' => t('Default')] + Color::getMode(TRUE),
   ];
   $form['content']['tables']['table_caption_top'] = [
     '#type' => 'checkbox',
