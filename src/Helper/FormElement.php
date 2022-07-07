@@ -15,7 +15,7 @@ class FormElement {
    * @param array &$variables
    *   Referenced $variables array.
    */
-  public static function set(array &$variables) {
+  public static function set(array &$variables): void {
     if (isset($variables['type'])) {
       $variables['type'] = self::getType($variables);
 
@@ -175,7 +175,7 @@ class FormElement {
   /**
    * Number element settings.
    */
-  private static function setNumber(&$variables) {
+  private static function setNumber(&$variables): void {
     $variables['label']['#attributes']['class'][] = 'input-number-label';
     $variables['label']['#attributes']['class'][] = 'active';
     $variables['attributes']['class'][] = 'form-group';
@@ -184,7 +184,7 @@ class FormElement {
   /**
    * Number composite element settings.
    */
-  private static function setNumberComposite(&$variables) {
+  private static function setNumberComposite(&$variables): void {
     $variables['label']['#attributes']['class'][] = 'input-number-label';
     $variables['label']['#attributes']['class'][] = 'active';
   }
@@ -192,7 +192,7 @@ class FormElement {
   /**
    * Telephone element settings.
    */
-  private static function setTel(&$variables) {
+  private static function setTel(&$variables): void {
     if (isset($variables['element']['#international']) &&
       $variables['element']['#international']
     ) {
@@ -204,7 +204,7 @@ class FormElement {
   /**
    * Textarea element settings.
    */
-  private static function setTextarea(&$variables) {
+  private static function setTextarea(&$variables): void {
     $variables['label']['#attributes']['class'][] = 'active';
     $variables['attributes']['class'][] = 'form-group';
   }
@@ -212,7 +212,7 @@ class FormElement {
   /**
    * Date time element settings.
    */
-  private static function setDateTime(&$variables) {
+  private static function setDateTime(&$variables): void {
     $variables['label']['#attributes']['class'][] = 'active';
     $variables['attributes']['class'][] = 'form-group';
   }
@@ -220,21 +220,21 @@ class FormElement {
   /**
    * Text element settings.
    */
-  private static function setText(&$variables) {
+  private static function setText(&$variables): void {
     $variables['attributes']['class'][] = 'form-group';
   }
 
   /**
    * Boolean element settings.
    */
-  private static function setBoolean(&$variables) {
+  private static function setBoolean(&$variables): void {
     $variables['attributes']['class'][] = 'form-check';
   }
 
   /**
    * Select element settings.
    */
-  private static function setSelect(&$variables) {
+  private static function setSelect(&$variables): void {
     $variables['attributes']['class'][] = 'select-wrapper';
     $variables['attributes']['class'][] = 'form-group';
   }
@@ -242,7 +242,7 @@ class FormElement {
   /**
    * Select composite element settings.
    */
-  private static function setSelectComposite(&$variables) {
+  private static function setSelectComposite(&$variables): void {
     $variables['attributes']['class'][] = 'select-wrapper';
   }
 

@@ -17,7 +17,7 @@ class Helper {
    * @return mixed
    *   String with theme name.
    */
-  public static function getTheme() {
+  public static function getTheme(): mixed {
     return \Drupal::service('theme.manager')->getActiveTheme();
   }
 

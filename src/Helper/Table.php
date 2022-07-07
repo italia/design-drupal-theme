@@ -15,7 +15,7 @@ class Table {
    * @param array &$variables
    *   Referenced $suggestions.
    */
-  public static function set(array &$variables) {
+  public static function set(array &$variables): void {
     $variables['table_striped'] = theme_get_setting('table_striped');
     $variables['table_striped_columns'] = theme_get_setting('table_striped_columns');
     $variables['table_bg'] = theme_get_setting('table_bg');

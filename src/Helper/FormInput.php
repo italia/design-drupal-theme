@@ -15,7 +15,7 @@ class FormInput {
    * @param array &$variables
    *   Referenced $variables.
    */
-  public static function set(array &$variables) {
+  public static function set(array &$variables): void {
     if (isset($variables['element']['#type'])) {
       $variables['type'] = self::getType($variables);
 
@@ -89,14 +89,14 @@ class FormInput {
   /**
    * Set text input type.
    */
-  private static function setText(&$variables) {
+  private static function setText(&$variables): void {
     $variables['attributes']['class'][] = 'form-control';
   }
 
   /**
    * Set textfield input type.
    */
-  private static function setTextfield(&$variables) {
+  private static function setTextfield(&$variables): void {
     // Ensure there is no collision with Bootstrap 5 default class names
     // by replacing ".form-text" with ".form-textfield".
     $attributes = &$variables['attributes'];
@@ -111,21 +111,21 @@ class FormInput {
   /**
    * Set range input type.
    */
-  private static function setRange(&$variables) {
+  private static function setRange(&$variables): void {
     $variables['attributes']['class'][] = 'form-range';
   }
 
   /**
    * Set file input type.
    */
-  private static function setFile(&$variables) {
+  private static function setFile(&$variables): void {
     $variables['attributes']['class'][] = 'upload';
   }
 
   /**
    * Set submit input type.
    */
-  private static function setSubmit(&$variables) {
+  private static function setSubmit(&$variables): void {
     $variables['attributes']['class'][] = 'btn';
 
     if (isset($variables['attributes']['data-drupal-selector'])) {
@@ -168,7 +168,7 @@ class FormInput {
   /**
    * Set password input type.
    */
-  private static function setPassword(&$variables) {
+  private static function setPassword(&$variables): void {
     $variables['attributes']['class'][] = 'form-control ';
     $variables['attributes']['class'][] = 'input-password';
 
@@ -186,7 +186,7 @@ class FormInput {
   /**
    * Check validation error on single field.
    */
-  private static function checkErrors(&$variables) {
+  private static function checkErrors(&$variables): void {
     if (isset($variables['attributes']['class']) &&
       in_array('error', $variables['attributes']['class'], TRUE)
     ) {
@@ -202,7 +202,7 @@ class FormInput {
   /**
    * Check validation success on single field.
    */
-  private static function checkSuccess(&$variables) {
+  private static function checkSuccess(&$variables): void {
     if (isset($variables['attributes']['class'])) {
       if (in_array('success', $variables['attributes']['class'], TRUE) ||
         in_array('valid', $variables['attributes']['class'], TRUE) ||
