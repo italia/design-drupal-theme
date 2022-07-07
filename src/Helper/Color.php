@@ -17,8 +17,7 @@ class Color {
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
    */
   public static function getAll($withLabel = FALSE): array {
-    return
-      self::getTheme($withLabel) +
+    return self::getTheme($withLabel) +
       self::getPantone($withLabel) +
       self::getGrays($withLabel) +
       self::getUtilities($withLabel) +
@@ -72,7 +71,7 @@ class Color {
 
     return [
       'blue', 'indigo', 'purple', 'pink', 'red',
-      'orange','yellow', 'green', 'teal', 'cyan',
+      'orange', 'yellow', 'green', 'teal', 'cyan',
     ];
   }
 

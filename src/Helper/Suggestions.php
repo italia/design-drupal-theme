@@ -24,7 +24,7 @@ class Suggestions {
    * @param string|null $hook
    *   Specific hook.
    */
-  public static function form(array &$suggestions, array $variables, string $hook = NULL) {
+  public static function form(array &$suggestions, array $variables, string $hook = NULL): void {
     // Add a suggestion based on the element type.
     if (isset($variables['element']['#type'])) {
       $suggestions[] = $variables['theme_hook_original'] . '__type__' . $variables['element']['#type'];
@@ -57,7 +57,7 @@ class Suggestions {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public static function block(array &$suggestions, array $variables) {
+  public static function block(array &$suggestions, array $variables): void {
     $content = $variables['elements']['content'];
     if (isset($content['#block_content']) and $content['#block_content'] instanceof BlockContentInterface) {
       $bundle = $content['#block_content']->bundle();
@@ -96,7 +96,7 @@ class Suggestions {
    * @param array $variables
    *   Referenced $variables.
    */
-  public static function menu(array &$suggestions, array $variables) {
+  public static function menu(array &$suggestions, array $variables): void {
     // See bootstrap_italia_preprocess_block().
     if (isset($variables['attributes']['data-block']['region'])) {
       $region = $variables['attributes']['data-block']['region'];
@@ -113,7 +113,7 @@ class Suggestions {
    * @param array &$variables
    *   Referenced $variables.
    */
-  public static function page(array &$suggestions, array &$variables) {
+  public static function page(array &$suggestions, array &$variables): void {
     // Add content type suggestions.
     if (($node = \Drupal::request()->attributes->get('node')) &&
       !strpos($_SERVER['REQUEST_URI'], "revisions")
@@ -143,14 +143,51 @@ class Suggestions {
   }
 
   /**
-   * Set menu suggestions.
+   * Set image_formatter suggestions.
    *
    * @param array &$suggestions
    *   Referenced $suggestions.
    * @param array $variables
    *   Referenced $variables.
    */
-  public static function imageStyle(array &$suggestions, array $variables) {
+  public static function imageFormatter(array &$suggestions, array $variables): void {
+    $entity = $variables['item']->getEntity();
+    $field_name = $variables['item']->getParent()->getName();
+
+    $suggestions[] =
+      $variables['theme_hook_original'] . '__' . $entity->getEntityTypeId();
+
+    $suggestions[] =
+      $variables['theme_hook_original'] . '__' . $entity->bundle();
+
+    $suggestions[] =
+      $variables['theme_hook_original'] . '__' . $field_name;
+
+    $suggestions[] = $variables['theme_hook_original']
+      . '__' . $entity->getEntityTypeId() . '__' . $entity->bundle();
+
+    $suggestions[] = $variables['theme_hook_original']
+      . '__' . $entity->getEntityTypeId() . '__' . $field_name;
+
+    $suggestions[] = $variables['theme_hook_original']
+      . '__' . $entity->bundle() . '__' . $field_name;
+
+    $suggestions[] =
+      $variables['theme_hook_original']
+      . '__' . $entity->getEntityTypeId()
+      . '__' . $entity->bundle()
+      . '__' . $field_name;
+  }
+
+  /**
+   * Set image_style suggestions.
+   *
+   * @param array &$suggestions
+   *   Referenced $suggestions.
+   * @param array $variables
+   *   Referenced $variables.
+   */
+  public static function imageStyle(array &$suggestions, array $variables): void {
     if (isset($variables['style_name'])) {
       $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['style_name'];
     }

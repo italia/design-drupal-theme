@@ -519,8 +519,8 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('image_border'),
     '#options' =>
       ['' => t('None')] +
-      Color::getTheme(TRUE) +
-      Color::getMonochromatic(TRUE),
+    Color::getTheme(TRUE) +
+    Color::getMonochromatic(TRUE),
   ];
 
   // Tables.
@@ -550,10 +550,10 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('table_bg'),
     '#options' =>
       ['' => t('Default')] +
-      Color::getTheme(TRUE) +
-      Color::getPantone(TRUE) +
-      Color::getMonochromatic(TRUE) +
-      Color::getMode(TRUE),
+    Color::getTheme(TRUE) +
+    Color::getPantone(TRUE) +
+    Color::getMonochromatic(TRUE) +
+    Color::getMode(TRUE),
   ];
   $form['content']['tables']['table_hover'] = [
     '#type' => 'checkbox',
