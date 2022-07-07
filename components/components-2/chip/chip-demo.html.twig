@@ -1,0 +1,86 @@
+{#
+/**
+ * @file
+ * Chip demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/chip/chip-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set variants = [
+    "primary", "secondary", "success", "danger", "warning"
+  ] %}
+
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Chip simple'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: 'Label'|t,
+      } %}
+
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: 'Label'|t,
+        chip_dismissibile: true,
+      } %}
+
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: 'Label'|t,
+        chip_dismissibile: true,
+        chip_icon: 'it-github',
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Chip simple lg'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: 'Label'|t,
+        chip_large: true
+      } %}
+
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: 'Label'|t,
+        chip_dismissibile: true,
+        chip_large: true
+      } %}
+
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: 'Label'|t,
+        chip_dismissibile: true,
+        chip_icon: 'it-github',
+        chip_large: true
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Chip color'|t,
+  } %}
+    {% block content %}
+
+      {% for variant in variants %}
+        {% include '@bi-bcl/chip/chip.html.twig' with {
+          chip_label: 'Label'|t,
+          chip_dismissibile: true,
+          chip_icon: 'it-github',
+          chip_large: true,
+          chip_color: variant
+        } %}
+      {% endfor %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+
+{% endapply %}

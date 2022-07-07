@@ -1,9 +1,9 @@
 {#
 /**
  * @file
- * Template for Chips component.
+ * Template for chip component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/chips/
- * Last review: 1.4.1
+ * Last review: v2.0.0-rc5
  *
  * Available config:
  * - chip_icon: string | false
@@ -12,47 +12,60 @@
  * - chip_label: string
  * - chip_url: string
  * - chip_close: true | false
- * - chip_lg: true | false 
+ * - chip_lg: true | false
  * - chip_color: primary | secondary | success | danger | warning | false
  * - chip_disabled: true | false
  *
 #}
-{% set chip_classes = [
-  'chip',
-  chip_lg ? ' chip-lg',
-  chip_color ? ' chip-' ~ chip_color : ' chip-primary',
-  (not chip_icon and not avatar_img and not chip_close) ? 'chip-simple',
-  chip_disabled ? 'chip-disabled'
-] %}
-{% if chip_url %}<a href="{{ chip_url }}">{% endif %}
-  <div {{ attributes.addClass(chip_classes) }}>
-    {% if chip_icon %}
-    {% include '@bootstrap_italia_components/icon/icon.twig' with 
-        { 
-          name: chip_icon,
-          size: 'xs'
-        } 
-      %}
-    {% endif %}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/chips/chip.twig',
+    new: 'bi-bcl/chip/chip.html.twig',
+  } %}
+
+  {# Redirect to new component #}
+  {% if chip_url %}<a href="{{ chip_url }}">{% endif %}
+
+    {% include '@bi-bcl/chip/chip.html.twig' with {
+      chip_label: chip_label,
+      chip_simple: (not chip_icon and not avatar_img and not chip_close) ? true,
+      chip_icon: chip_icon,
+      chip_dismissibile: chip_close,
+      chip_large: chip_lg,
+      chip_color: chip_color,
+      chip_disabled: chip_disabled,
+    } %}
+
     {% if avatar_image %}
-    {% include '@bootstrap_italia_components/avatar/avatar.twig' with 
-      { 
-        avatar_tag: 'div',
-        avatar_size: 'xs',
-        avatar_img: avatar_img,
-        sr_only_alt: sr_only_alt
-      } 
-    %}
+      {% embed '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: chip_label,
+        chip_simple: (not chip_icon and not avatar_img and not chip_close) ? true,
+        chip_icon: chip_icon,
+        chip_dismissibile: chip_close,
+        chip_large: chip_lg,
+        chip_color: chip_color,
+        chip_disabled: chip_disabled,
+      } %}
+        {% block beforeContent %}
+          {# TODO: Remember to develop new version for old avatar component #}
+          {% include '@bootstrap_italia_components/avatar/avatar.twig' with {
+            avatar_tag: 'div',
+            avatar_size: 'xs',
+            avatar_img: avatar_img,
+            sr_only_alt: sr_only_alt
+            } %}
+        {% endblock %}
+      {% endembed %}
+    {% else %}
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: chip_label,
+        chip_simple: (not chip_icon and not avatar_img and not chip_close) ? true,
+        chip_icon: chip_icon,
+        chip_dismissibile: chip_close,
+        chip_large: chip_lg,
+        chip_color: chip_color,
+        chip_disabled: chip_disabled,
+      } %}
     {% endif %}
-    <span class="chip-label">{{ chip_label }}</span>
-    {% if chip_close %}
-    <button>
-      {% include '@bootstrap_italia_components/icon/icon.twig' with 
-        { 
-          name: 'it-close'
-        } 
-      %}
-      <span class="sr-only">{{ 'Elimina label'|t }}</span>
-    </button>
-    {% endif %}
-  </div>{% if chip_url %}</a>{% endif %}
+  {% if chip_url %}</a>{% endif %}
+{% endapply %}

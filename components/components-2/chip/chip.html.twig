@@ -1,0 +1,122 @@
+{#
+/**
+ * @file
+ * Template for chip component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/chips/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - chip_label (string) (default: '')
+ * - chip_simple (boolean) (default: false)
+ * - chip_icon (string) (default: '')
+ *   - options ['it-icon-name']
+ * - chip_dismissibile (boolean) (default: false)
+ * - chip_large (boolean) (default: false)
+ * - chip_color (string) (default: '')
+ *   - options ["primary", "secondary", "success", "danger", "warning"]
+ * - chip_disabled (boolean) (default: false)
+ * - chip_classes (array) (default: '')
+ * - chip_attributes (obj attribute) (default: '')
+ *
+ * - list (string) (default: 'default-value')
+ *   - options ["option1", "option2", "option3", "option4"]
+ * - string (string) mandatory
+ *   - Description
+ * - string (string) (default: '')
+ * - array (array) (default: [...])
+ *
+ * Examples:
+   {% include '@bi-bcl/chip/chip.html.twig' with {
+      chip_label: 'label',
+      chip_color: 'primary'
+   } %}
+ *
+ * Examples:
+   {% embed '@bi-bcl/chip/chip.html.twig' with {
+      chip_label: 'label',
+      chip_color: 'primary'
+   } %}
+
+      {% block beforeContent %}
+        Your custom code
+      {% endblock %}
+
+   {% endembed %}
+ *
+ * Examples with link twig object:
+    {%- set _chip -%}
+      {% include '@bi-bcl/chip/chip.html.twig' with {
+        chip_label: link['#title'],
+        chip_color: 'primary',
+      } %}
+    {% endset %}
+    {{ link(_chip, link['#url'], link['#options'].attributes) }}
+ *
+ * Se working example at: /template/field/field--field-tags.html.twig
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _chip_label = chip_label|default('') %}
+  {% set _chip_simple = chip_simple ?? false %}
+  {% set _chip_icon = chip_icon|default('') %}
+  {% set _chip_dismissibile = chip_dismissibile ?? false %}
+  {% set _chip_large = chip_large ?? false %}
+  {% set _chip_color = chip_color|default('') %}
+  {% set _chip_disabled = chip_disabled ?? false %}
+  {% set _chip_classes = chip_classes|default('') %}
+  {% set _chip_attributes = chip_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'chip',
+      _chip_simple ? 'chip-simple',
+      not _chip_dismissibile and _chip_icon is empty and _chip_color is empty and not _chip_simple ? 'chip-simple',
+      _chip_large ? 'chip-lg',
+      _chip_color is not empty ? 'chip-' ~ _chip_color
+    ] %}
+
+  {% if _chip_classes is not empty %}
+    {% set _classes = _classes|merge(chip_classes) %}
+  {% endif %}
+
+  {% if _chip_attributes is empty %}
+    {% set chip_attributes = create_attribute() %}
+  {% endif %}
+  {% set chip_attributes = chip_attributes
+    .addClass(_classes)
+  %}
+
+  {# Component #}
+  <div{{ chip_attributes }}>
+
+    {% block beforeContent %}
+      {% if _chip_icon %}
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: _chip_icon,
+          size: 'xs',
+        } %}
+      {% endif %}
+    {% endblock %}
+
+    {% block content %}
+      {% if _chip_label is not empty %}
+        <span class="chip-label">{{ _chip_label }}</span>
+      {% endif %}
+    {% endblock %}
+
+    {% block afterContent %}
+      {% if _chip_dismissibile %}
+        <button>
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-close',
+          } %}
+          <span class="visually-hidden">{{ 'Close label'|t }}</span>
+        </button>
+      {% endif %}
+    {% endblock %}
+
+  </div>
+
+{% endapply %}
