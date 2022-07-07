@@ -3,6 +3,7 @@
 namespace Drupal\bootstrap_italia\Helper;
 
 use Drupal\Core\Config\Config;
+use Drupal\Core\Theme\ActiveTheme;
 
 /**
  * Helper class for bootstrap_italia theme.
@@ -14,10 +15,10 @@ class Helper {
   /**
    * Get active theme.
    *
-   * @return mixed
-   *   String with theme name.
+   * @return \Drupal\Core\Theme\ActiveTheme
+   *   Object ActiveTheme.
    */
-  public static function getTheme(): mixed {
+  public static function getTheme(): ActiveTheme {
     return \Drupal::service('theme.manager')->getActiveTheme();
   }
 
