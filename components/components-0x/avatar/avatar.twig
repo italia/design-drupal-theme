@@ -3,7 +3,7 @@
  * @file
  * Template for Avatar component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/
- * Last review: 1.4.1
+ * Last review: v2.0.0-rc5
  *
  * Available config:
  * - avatar_tag: div | a
@@ -18,39 +18,37 @@
  * - sr_only_alt: string
  *
 #}
-{% set avatar_classes = [
-    'avatar',
-    avatar_type ? 'avatar- ' ~ avatar_type : null,
-    avatar_size ? 'size-' ~ avatar_size : 'size-md'
-  ]
-%}
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/avatar/avatar.twig',
+    new: 'bi-bcl/avatar/avatar.html.twig',
+  } %}
 
-<{{ avatar_tag }}
-{% if not avatar_link %}
-  {{ attributes.addClass(avatar_classes) }}
-{% else %}
-  {% if not a_tooltip %}
-    {{ attributes.addClass(avatar_classes).setAttribute('href', avatar_link) }}
-  {% else %}
-    {% set html_title = ' title="' ~ a_tooltip.title ~ '" ' %}
-    {{attributes.addClass(avatar_classes).
-      setAttribute('href', avatar_link).
-      setAttribute('data-toggle', a_tooltip.data_toggle).
-      setAttribute('data-html', a_tooltip.data_html).
-      setAttribute('data-placement', a_tooltip.data_placement) }}
-  {{ html_title|raw }}
-  {% endif %}
-{% endif %}>
-{% if avatar_img %}
-  <img src="{{ avatar_img }}" alt="{{ sr_only_alt }}">
-{% endif %}
-{% if avatar_icon %}
-  {% include '@bootstrap_italia_components/icon/icon.twig' with { name: 'it-user' } %}
-{% endif %}
-{% if avatar_txt %}
-  <p aria-hidden="true">{{ avatar_txt }}</p>
-{% endif %}
-{% if avatar_icon or avatar_txt %}
-  <span class="sr-only">{{ sr_only_alt }}</span>
-{% endif %}
-</{{ avatar_tag }}>
+  {# Redirect to new component #}
+  {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+    avatar_url: avatar_link,
+    avatar_image: field_user_picture,
+    avatar_text_color: avatar_type,
+    avatar_size: avatar_size,
+    avatar_attributes: a_tooltip
+  } %}
+    {% block avatarContent %}
+      {% if avatar_icon %}
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-user',
+          color: avatar_type ?? 'white',
+        } %}
+        <span class="visually-hidden">{{ sr_only_alt }}</span>
+      {% endif %}
+
+      {% if avatar_img %}
+        <img src="{{ avatar_img }}" alt="{{ sr_only_alt }}">
+      {% endif %}
+
+      {% if avatar_txt %}
+        <p aria-hidden="true">{{ avatar_txt }}</p>
+        <span class="visually-hidden">{{ sr_only_alt }}</span>
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+{% endapply %}
