@@ -1,0 +1,209 @@
+{#
+/**
+ * @file
+ * Template for avatar component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - avatar_type (string) (default: 'icon')
+ *   - options ["icon", "image", "text"]
+ * - avatar_icon (string) (default: 'it-user')
+ *   - options ["it-icon-name"]
+ * - avatar_icon_color (string) (default: 'primary')
+ *   - options ["primary", "secondary", "success", "warning", "danger"]
+ * - avatar_image (drupal field) (default: '')
+ *   - option ["field_image", "field_text", "..."]
+ * - avatar_text (string) (default: 'U')
+ * - avatar_text_color (string) (default: 'primary')
+ *   - options ["primary", "secondary", "green", "orange", "red"]
+ * - avatar_assistive_text (string) (default: 'User')
+ * - avatar_size (string) (default: 'md')
+ *   - options ["xs", "sm", "md", "lg", "xl", "xxl"]
+ * - avatar_url (string) (default: '')
+ * - avatar_presence (string) (default: '')
+ *   - options ["active", "busy", "hidden"]
+ * - avatar_presence_text (string) (default: '')
+ * - avatar_status (string) (default: '')
+ *   - options ["approved", "declined", "notify"]
+ * - avatar_status_text (string) (default: '')
+ * - avatar_classes (array) (default: '')
+ * - avatar_attributes (obj attribute) (default: '')
+ *
+ * - avatarContent (block)
+ *   - block content
+ * - avatarPresence (block)
+ * - avatarStatus (block)
+ *
+ * Examples base:
+   {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: 'image',
+      avatar_image: field_user_picture,
+      avatar_size: 'xl'
+   } %}
+ *
+ * Examples link:
+   {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: 'image',
+      avatar_image: field_user_picture,
+      avatar_size: 'xl',
+      avatar_url: item.link['#url'],
+      avatar_attributes: item.link['#options'].attributes
+   } %}
+ *
+ * Examples link tooltip:
+   {% set avatar_attributes = item.link['#options'].attributes %}
+   {% set avatar_attributes = avatar_attributes
+      .setAttribute('data-bs-toggle', 'tooltip')
+      .setAttribute('data-bs-html', 'true')
+      .setAttribute('data-bs-placement', 'left')
+      .setAttribute('title', '<span>Your custom text</span>')
+   %}
+   {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: 'image',
+      avatar_image: field_user_picture,
+      avatar_size: 'xl',
+      avatar_url: item.link['#url'],
+      avatar_attributes: avatar_attributes
+   } %}
+ *
+ * Example with extra text:
+    <div class="avatar-wrapper avatar-extra-text">
+      {% include '@bi-bcl/avatar/avatar.html.twig' with {
+        avatar_type: 'image',
+        avatar_image: field_user_picture,
+        avatar_size: 'xl'
+      } %}
+      <div class="extra-text">
+        <h4>Username</h4>
+        <p>Lorem ipsum dolor</p>
+      </div>
+    </div>
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _avatar_type = avatar_type|default('icon') %}
+  {% set _avatar_icon = avatar_icon|default('it-user') %}
+  {% set _avatar_icon_color = avatar_icon_color|default('primary') %}
+  {% set _avatar_image = avatar_image|default('') %}
+  {% set _avatar_text = avatar_text|default('U') %}
+  {% set _avatar_text_color = avatar_text_color|default('') %}
+  {% set _avatar_size = avatar_size|default('md') %}
+  {% set _avatar_assistive_text = avatar_assistive_text|default('User'|t) %}
+  {% set _avatar_url = avatar_url|default('') %}
+  {% set _avatar_presence = avatar_presence|default('') %}
+  {% set _avatar_presence_text = avatar_presence_text|default('') %}
+  {% set _avatar_status = avatar_status|default('') %}
+  {% set _avatar_status_text = avatar_status_text|default('') %}
+  {% set _avatar_classes = avatar_classes|default('') %}
+  {% set _avatar_attributes = avatar_attributes|default('') %}
+
+  {# Set options #}
+  {% set _classes = [
+    'avatar',
+    'size-' ~ _avatar_size,
+    _avatar_type == 'text' and _avatar_text_color is not empty ? 'avatar-' ~ _avatar_text_color
+  ] %}
+
+  {% if _avatar_classes is not empty %}
+    {% set _classes = _classes|merge(avatar_classes) %}
+  {% endif %}
+
+  {% if _avatar_attributes is empty %}
+    {% set avatar_attributes = create_attribute() %}
+  {% endif %}
+  {% set avatar_attributes = avatar_attributes
+    .addClass(_classes)
+  %}
+
+  {% set container_tag = _avatar_url is empty ? 'div' : 'a' %}
+  {% if container_tag == 'a' %}
+    {% set avatar_attributes = avatar_attributes
+      .setAttribute('href', _avatar_url)
+    %}
+  {% endif %}
+
+  {# Set avatar-presence option #}
+  {% if _avatar_presence is not empty and _avatar_presence_text is empty %}
+    {% if _avatar_presence == 'active' %}
+      {% set _avatar_presence_text = 'User active'|t %}
+    {% elseif _avatar_presence == 'busy' %}
+      {% set _avatar_presence_text = 'User busy'|t %}
+    {% elseif _avatar_presence == 'hidden' %}
+      {% set _avatar_presence_text = 'User hidden'|t %}
+    {% endif %}
+  {% endif %}
+
+  {# Set avatar-status option #}
+  {% if _avatar_status is not empty and _avatar_status_text is empty %}
+    {% if _avatar_status == 'approved' %}
+      {% set _avatar_status_text = 'User aproved'|t %}
+    {% elseif _avatar_status == 'declined' %}
+      {% set _avatar_status_text = 'User declined'|t %}
+    {% elseif _avatar_status == 'notify' %}
+      {% set _avatar_status_text = 'New notification'|t %}
+    {% endif %}
+  {% endif %}
+
+  {# Component #}
+  {% if _avatar_presence is not empty or _avatar_status is not empty %}
+    <div class="avatar-wrapper">
+  {% endif %}
+
+  <{{ container_tag }}{{ avatar_attributes }}>
+
+    {% block avatarContent %}
+      {% if _avatar_type == 'icon' %}
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: _avatar_icon,
+          color: _avatar_icon_color,
+        } %}
+        <span class="visually-hidden">{{ _avatar_assistive_text }}</span>
+      {% endif %}
+
+      {% if _avatar_type == 'image' %}
+        {{ _avatar_image }}
+      {% endif %}
+
+      {% if _avatar_type == 'text' %}
+        <p aria-hidden="true">{{ _avatar_text }}</p>
+        <span class="visually-hidden">{{ _avatar_assistive_text }}</span>
+      {% endif %}
+    {% endblock %}
+
+    {% block avatarPresence %}
+      {% if _avatar_presence is not empty %}
+        <div class="avatar-presence {{ _avatar_presence }}">
+          {% if _avatar_presence == 'busy' %}
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'it-minus',
+              color: 'white',
+            } %}
+          {% endif %}
+          <span class="visually-hidden">{{ _avatar_presence_text }}</span>
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block avatarStatus %}
+      {% if _avatar_status is not empty %}
+        <div class="avatar-status {{ _avatar_status }}">
+          {% if _avatar_status == 'approved' or _avatar_status == 'declined' %}
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: _avatar_status == 'approved' ? 'it-check' : 'it-close',
+              color: 'white',
+            } %}
+          {% endif %}
+          <span class="visually-hidden">{{ _avatar_status_text }}</span>
+        </div>
+      {% endif %}
+    {% endblock %}
+
+  </{{ container_tag }}>
+
+  {% if _avatar_presence is not empty or _avatar_status is not empty %}
+    </div>
+  {% endif %}
+
+{% endapply %}

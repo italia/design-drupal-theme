@@ -1,0 +1,216 @@
+{#
+/**
+ * @file
+ * Avatar demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/avatar/avatar-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set sizes = [
+    "xs", "sm", "md", "lg", "xl", "xxl"
+  ] %}
+
+  {% set colors = [
+    "primary", "secondary", "success", "green", "orange", "red"
+  ] %}
+
+  {% set icon_colors = [
+    "primary", "secondary", "success", "warning", "danger", "info"
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Avatar size'|t,
+    demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
+  } %}
+    {% block content %}
+      {% for size in sizes %}
+        {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+          avatar_size: size
+        } %}
+          {% block avatarContent %}
+            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Avatar with text'|t,
+    demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
+  } %}
+    {% block content %}
+      {% for color in colors %}
+        {% include '@bi-bcl/avatar/avatar.html.twig' with {
+          avatar_type: 'text',
+          avatar_text: random('BCDFGLMNPRSTVZ') ~ random('AEIOU'),
+          avatar_text_color: color,
+          avatar_size: random(['md', 'lg', 'xl', 'xxl']),
+        } %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Avatar with icon'|t,
+    demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
+  } %}
+    {% block content %}
+      {% for color in icon_colors %}
+        {% include '@bi-bcl/avatar/avatar.html.twig' with {
+          avatar_icon_color: color,
+          avatar_size: random(['md', 'lg', 'xl', 'xxl']),
+        } %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Avatar link'|t,
+    demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
+  } %}
+    {% block content %}
+      {% set avatar_attributes = create_attribute() %}
+      {% set avatar_attributes = avatar_attributes
+        .setAttribute('title', 'Go to user'|t)
+      %}
+
+      {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+        avatar_size: 'xl',
+        avatar_url: '#',
+        avatar_attributes: avatar_attributes
+      } %}
+        {% block avatarContent %}
+          <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+        {% endblock %}
+      {% endembed %}
+
+      {% include '@bi-bcl/avatar/avatar.html.twig' with {
+        avatar_type: 'text',
+        avatar_text: 'MR',
+        avatar_text_color: 'red',
+        avatar_size: 'xl',
+        avatar_url: '#',
+        avatar_attributes: avatar_attributes
+      } %}
+
+      {% include '@bi-bcl/avatar/avatar.html.twig' with {
+        avatar_type: 'icon',
+        avatar_icon: 'it-search',
+        avatar_size: 'xl',
+        avatar_url: '#',
+        avatar_attributes: avatar_attributes
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Avatar link with tooltip'|t,
+    demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
+  } %}
+    {% block content %}
+
+      {% set avatar_attributes = create_attribute() %}
+      {% set avatar_attributes = avatar_attributes
+        .setAttribute('data-bs-toggle', 'tooltip')
+        .setAttribute('data-bs-html', 'true')
+        .setAttribute('data-bs-placement', 'left')
+        .setAttribute('title', '<strong>User Name</strong><br /><em>Administrator</em>')
+      %}
+      {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+        avatar_type: 'image',
+        avatar_size: 'xl',
+        avatar_url: '#',
+        avatar_attributes: avatar_attributes
+      } %}
+        {% block avatarContent %}
+          <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+        {% endblock %}
+      {% endembed %}
+
+      {% set avatar_attributes = create_attribute() %}
+      {% set avatar_attributes = avatar_attributes
+        .setAttribute('data-bs-toggle', 'tooltip')
+        .setAttribute('data-bs-html', 'true')
+        .setAttribute('data-bs-placement', 'top')
+        .setAttribute('title', '<strong>User Name</strong><br /><em>Editor</em>')
+      %}
+      {% include '@bi-bcl/avatar/avatar.html.twig' with {
+        avatar_type: 'text',
+        avatar_text: 'MR',
+        avatar_text_color: 'red',
+        avatar_size: 'xl',
+        avatar_url: '#',
+        avatar_attributes: avatar_attributes
+      } %}
+
+      {% set avatar_attributes = create_attribute() %}
+      {% set avatar_attributes = avatar_attributes
+        .setAttribute('data-bs-toggle', 'tooltip')
+        .setAttribute('data-bs-html', 'true')
+        .setAttribute('data-bs-placement', 'right')
+        .setAttribute('title', '<strong>Search/strong><br /><em>News archive</em>')
+      %}
+      {% include '@bi-bcl/avatar/avatar.html.twig' with {
+        avatar_type: 'icon',
+        avatar_icon: 'it-search',
+        avatar_size: 'xl',
+        avatar_url: '#',
+        avatar_attributes: avatar_attributes
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+
+  {% set presences = [
+    "active", "busy", "hidden"
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Avatar presence'|t,
+    demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
+  } %}
+    {% block content %}
+      {% for presence in presences %}
+        {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+          avatar_size: 'xl',
+          avatar_presence: presence
+        } %}
+          {% block avatarContent %}
+            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+
+  {% set statuses = [
+    "approved", "declined", "notify"
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Avatar status'|t,
+    demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
+  } %}
+    {% block content %}
+      {% for status in statuses %}
+        {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+          avatar_size: 'xl',
+          avatar_status: status
+        } %}
+          {% block avatarContent %}
+            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+{% endapply %}
