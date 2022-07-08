@@ -47,15 +47,15 @@
         chip_disabled: chip_disabled,
       } %}
         {% block beforeContent %}
-          {# TODO: Remember to develop new version for old avatar component #}
-          {% include '@bootstrap_italia_components/avatar/avatar.twig' with {
-            avatar_tag: 'div',
+          {% embed '@bi-bcl/avatar/avatar.twig' with {
             avatar_size: 'xs',
-            avatar_img: avatar_img,
-            sr_only_alt: sr_only_alt
             } %}
+            {% block avatarContent %}
+              <img src="{{ avatar_img }}" alt="{{ sr_only_alt }}">
+            {% endblock %}
+          {% endembed %}{# End embed avatar. #}
         {% endblock %}
-      {% endembed %}
+      {% endembed %}{# End embed chip. #}
     {% else %}
       {% include '@bi-bcl/chip/chip.html.twig' with {
         chip_label: chip_label,
