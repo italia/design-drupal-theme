@@ -21,6 +21,11 @@
   text-decoration: underline;
 }
 
+/* Fix modal */
+.modal {
+  z-index: 20000;
+}
+
 /* Typography Fix -------------------------------------------------------------------------- */
 em.placeholder {
   background-color: unset;
