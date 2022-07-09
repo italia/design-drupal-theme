@@ -154,5 +154,76 @@
     {% endblock %}
   {% endembed %}{# End embed demo. #}
 
+  {% set card_demo_image_special %}
+    <figure class="img-wrapper">
+      <img src="https://via.placeholder.com/174x214/F9F9FE/0066CC/?text=IMMAGINE%20DI%20ESEMPIO" title="titolo immagine" alt="descrizione immagine">
+    </figure>
+  {% endset %}
+  {% set card_demo_special_attribute = create_attribute() %}
+  {% set card_demo_special_attribute = card_demo_special_attribute.setAttribute('href', '#') %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card special'|t,
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% embed '@bi-bcl/card/card.html.twig' with {
+            card_tag_container: 'a',
+            card_image: card_demo_image_special,
+            card_title: card_demo_title,
+            card_attributes: card_demo_special_attribute
+          } %}
+            {% block cardCategoryTop %}
+              <div class="category-top">
+                {{ card_demo_date }}
+              </div>
+            {% endblock %}
+          {% endembed %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card teaser'|t,
+  } %}
+    {% block content %}
+
+      <div class="card-wrapper card-teaser-wrapper">
+        {% include '@bi-bcl/card/card.html.twig' with {
+          card_title: card_demo_title,
+          card_text: card_demo_text_short,
+          card_teaser: true
+        } %}
+
+        {% include '@bi-bcl/card/card.html.twig' with {
+          card_title: card_demo_title,
+          card_text: card_demo_text_short,
+          card_shadow: true,
+          card_teaser: true
+        } %}
+
+        {% embed '@bi-bcl/card/card.html.twig' with {
+          card_title: card_demo_title,
+          card_text: card_demo_text_short,
+          card_shadow: true,
+          card_icon: 'it-clip',
+          card_teaser: true
+        } %}
+          {% block cardTitle %}
+            <h3 class="card-title h5">
+              {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-clip'} %}
+              <a href="#">Lorem ipsum dolor sit amet</a>
+            </h3>
+          {% endblock %}
+        {% endembed %}
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
 
 {% endapply %}

@@ -26,6 +26,7 @@
  * - card_read_more_text (string|drupal_field) default(card_title)
  * - card_shadow (boolean) (default: false)
  * - card_border_bottom (boolean) (default: false)
+ * - card_teaser (boolean) (default: false)
  * - card_classes (array) (default: '')
  * - card_attributes (obj attribute) (default: '')
  *
@@ -54,6 +55,7 @@
   {% set _card_read_more_text = card_read_more_text|default(_card_title) %}
   {% set _card_shadow = card_shadow ?? false %}
   {% set _card_border_bottom = card_border_bottom ?? false %}
+  {% set _card_teaser = card_teaser ?? false %}
 
   {% set _card_classes = card_classes|default('') %}
   {% set _card_attributes = card_attributes|default('') %}
@@ -64,6 +66,8 @@
     _card_shadow ? 'card-bg',
     _card_border_bottom ? 'border-bottom-card',
     _card_image is not empty and not _card_shadow ? 'card-img',
+    _card_tag_container == 'a' ? 'special-card',
+    _card_teaser ? 'card-teaser'
   ] %}
 
   {% if _card_classes is not empty %}
