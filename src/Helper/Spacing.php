@@ -27,7 +27,7 @@ class Spacing {
         'pt-auto' => t('Auto'),
       ];
     }
-    return ['pt-0','pt-1','pt-2','pt-3','pt-4','pt-5','pt-auto'];
+    return ['pt-0', 'pt-1', 'pt-2', 'pt-3', 'pt-4', 'pt-5', 'pt-auto'];
   }
 
   /**
@@ -45,7 +45,7 @@ class Spacing {
         'pr-auto' => t('Auto'),
       ];
     }
-    return ['pr-0','pr-1','pr-2','pr-3','pr-4','pr-5','pr-auto'];
+    return ['pr-0', 'pr-1', 'pr-2', 'pr-3', 'pr-4', 'pr-5', 'pr-auto'];
   }
 
   /**
@@ -63,7 +63,7 @@ class Spacing {
         'pb-auto' => t('Auto'),
       ];
     }
-    return ['pb-0','pb-1','pb-2','pb-3','pb-4','pb-5','pb-auto'];
+    return ['pb-0', 'pb-1', 'pb-2', 'pb-3', 'pb-4', 'pb-5', 'pb-auto'];
   }
 
   /**
@@ -81,7 +81,7 @@ class Spacing {
         'pl-auto' => t('Auto'),
       ];
     }
-    return ['pl-0','pl-1','pl-2','pl-3','pl-4','pl-5','pl-auto'];
+    return ['pl-0', 'pl-1', 'pl-2', 'pl-3', 'pl-4', 'pl-5', 'pl-auto'];
   }
 
   /**
@@ -99,7 +99,7 @@ class Spacing {
         'py-auto' => t('Auto'),
       ];
     }
-    return ['py-0','py-1','py-2','py-3','py-4','py-5','py-auto'];
+    return ['py-0', 'py-1', 'py-2', 'py-3', 'py-4', 'py-5', 'py-auto'];
   }
 
   /**
@@ -117,9 +117,8 @@ class Spacing {
         'px-auto' => t('Auto'),
       ];
     }
-    return ['px-0','px-1','px-2','px-3','px-4','px-5','px-auto'];
+    return ['px-0', 'px-1', 'px-2', 'px-3', 'px-4', 'px-5', 'px-auto'];
   }
-
 
   /**
    * Return margin top.
@@ -136,7 +135,7 @@ class Spacing {
         'mt-auto' => t('Auto'),
       ];
     }
-    return ['mt-0','mt-1','mt-2','mt-3','mt-4','mt-5','mt-auto'];
+    return ['mt-0', 'mt-1', 'mt-2', 'mt-3', 'mt-4', 'mt-5', 'mt-auto'];
   }
 
   /**
@@ -154,7 +153,7 @@ class Spacing {
         'mr-auto' => t('Auto'),
       ];
     }
-    return ['mr-0','mr-1','mr-2','mr-3','mr-4','mr-5','mr-auto'];
+    return ['mr-0', 'mr-1', 'mr-2', 'mr-3', 'mr-4', 'mr-5', 'mr-auto'];
   }
 
   /**
@@ -172,7 +171,7 @@ class Spacing {
         'mb-auto' => t('Auto'),
       ];
     }
-    return ['mb-0','mb-1','mb-2','mb-3','mb-4','mb-5','mb-auto'];
+    return ['mb-0', 'mb-1', 'mb-2', 'mb-3', 'mb-4', 'mb-5', 'mb-auto'];
   }
 
   /**
@@ -190,7 +189,7 @@ class Spacing {
         'ml-auto' => t('Auto'),
       ];
     }
-    return ['ml-0','ml-1','ml-2','ml-3','ml-4','ml-5','ml-auto'];
+    return ['ml-0', 'ml-1', 'ml-2', 'ml-3', 'ml-4', 'ml-5', 'ml-auto'];
   }
 
   /**
@@ -208,7 +207,7 @@ class Spacing {
         'my-auto' => t('Auto'),
       ];
     }
-    return ['my-0','my-1','my-2','my-3','my-4','my-5','my-auto'];
+    return ['my-0', 'my-1', 'my-2', 'my-3', 'my-4', 'my-5', 'my-auto'];
   }
 
   /**
@@ -226,8 +225,7 @@ class Spacing {
         'mx-auto' => t('Auto'),
       ];
     }
-    return ['mx-0','mx-1','mx-2','mx-3','mx-4','mx-5','mx-auto'];
+    return ['mx-0', 'mx-1', 'mx-2', 'mx-3', 'mx-4', 'mx-5', 'mx-auto'];
   }
-
 
 }

@@ -5,6 +5,7 @@
  * Hook THEME_suggestions_*.
  */
 
+use Drupal\node\Entity\Node;
 use Drupal\bootstrap_italia\Helper\Suggestions;
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
@@ -26,7 +27,7 @@ function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, arra
       . '__view_mode__' . $variables['elements']['#view_mode'];
 
     if (isset($variables['elements']['#node']) &&
-      ($variables['elements']['#node'] instanceof Drupal\node\Entity\Node)
+      ($variables['elements']['#node'] instanceof Node)
     ) {
       $suggestions[] = $variables['theme_hook_original']
         . '__type_' . $variables['elements']['#node']->getType()
@@ -34,7 +35,6 @@ function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, arra
     }
   }
 }
-
 
 /**
  * Implements hook_theme_suggestions_block_alter().

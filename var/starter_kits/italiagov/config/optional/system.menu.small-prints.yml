@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: small-prints
+label: 'Small prints'
+description: 'Footer legal links'
+locked: false

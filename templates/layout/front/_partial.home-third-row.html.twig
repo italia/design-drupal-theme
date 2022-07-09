@@ -1,0 +1,41 @@
+{% set row_name = 'home-third-row' %}
+
+{% if page.home_third_row_full_width %}
+  <div class="{{ row_name }}-full-width__wrapper">
+    {{ page.home_third_row_full_width}}
+  </div>
+{% endif %}
+
+{% if page.home_third_row_first or page.home_third_row_second or page.home_third_row_third or page.home_third_row_fourth %}
+  <div class="{{ row_name }}__wrapper">
+    <div class="{{ row_name }} {{ home_content_container_type ? home_content_container_type : 'container' }}">
+      <div class="row">
+
+        {% if page.home_third_row_first %}
+          <div class="col {{ row_name }}__col {{ row_name }}__first">
+            {{ page.home_third_row_first }}
+          </div>
+        {% endif %}
+
+        {% if page.home_third_row_second %}
+          <div class="col {{ row_name }}__col {{ row_name }}__second">
+            {{ page.home_third_row_second }}
+          </div>
+        {% endif %}
+
+        {% if page.home_third_row_third %}
+          <div class="col {{ row_name }}__col {{ row_name }}__third">
+            {{ page.home_third_row_third }}
+          </div>
+        {% endif %}
+
+        {% if page.home_third_row_fourth %}
+          <div class="col {{ row_name }}__col {{ row_name }}__fourth">
+            {{ page.home_third_row_fourth }}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+{% endif %}

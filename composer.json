@@ -27,8 +27,7 @@
         }
     ],
     "require": {
-        "drupal/components": ">=3.0.0",
-        "drupal/ui_patterns": ">=1.2"
+        "drupal/components": ">=3.0.0"
     },
     "support": {
         "issues": "https://drupal.org/project/issues/bootstrap_italia",

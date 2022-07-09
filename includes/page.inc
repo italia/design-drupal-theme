@@ -67,6 +67,9 @@ function bootstrap_italia_preprocess_page(&$variables) {
 
   // Footer settings.
   $variables['footer_container_type'] = theme_get_setting('footer_container_type');
+
+  // Home settings.
+  $variables['show_main_content_in_front'] = (bool) theme_get_setting('show_main_content_in_front');
 }
 
 /**

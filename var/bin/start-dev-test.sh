@@ -26,12 +26,8 @@ else
   drupal_version="10"
 fi
 
-read -r -p "Bootstrap Italia version [0.1...x|0.x-dev|latest] (0.x-dev): " bootstrap_italia_version
-bootstrap_italia_version=${bootstrap_italia_version:-0.x-dev}
-
-read -r -p "Do you want to activate the experimental modules? [y|n] (n): " enable_experimental_modules
-enable_experimental_modules=${enable_experimental_modules:-n}
-
+read -r -p "Bootstrap Italia version [2.0...x|2.x-dev|latest] (2.x-dev): " bootstrap_italia_version
+bootstrap_italia_version=${bootstrap_italia_version:-2.x-dev}
 
 echo "==[ Configuration ]=="
 
@@ -47,25 +43,25 @@ ddev start
 
 echo "Download Drupal ${drupal_version} and drush"
 if [ "$drupal_version" == "9" ]; then
-  ddev composer create "'drupal/recommended-project'"
+  ddev composer create "'drupal/recommended-project'" --no-install
 else
-  ddev composer create "'drupal/recommended-project':'^8.9.0 < 9.0'"
+  ddev composer create --no-install "'drupal/recommended-project':'^10@alpha'"
 fi
 
-ddev composer require drush/drush
-#ddev composer require 'drupal/console'
+ddev composer require drush/drush --no-install
+ddev composer install
 
 echo "==[ Installing Drupal ${drupal_version} ]=="
-ddev exec drush -y site:install --locale=it
+ddev exec drush -y site:install
 
 echo '==[ Install end enable bootstrap_italia dependencies ]=='
 ddev exec drush -y pm:enable inline_form_errors responsive_image
-ddev composer require drupal/components drupal/ui_patterns
-ddev exec drush -y pm:enable components ui_patterns ui_patterns_layouts ui_patterns_library ui_patterns_views
+ddev composer require drupal/components
+ddev exec drush -y pm:enable components
 
 echo 'Language settings'
 ddev exec drush -y en locale
-ddev exec drush -y language-add en
+ddev exec drush -y language-add it
 
 echo "==[ Downloading and activating bootstrap_italia:${bootstrap_italia_version} ]=="
 if [ "$bootstrap_italia_version" == "latest" ]; then
@@ -88,26 +84,6 @@ ddev exec drush -y config:set system.theme default italiagov
 echo 'Install assets'
 ddev exec npm install --prefix web/themes/custom/italiagov/
 ddev exec npm run build:prod --prefix web/themes/custom/italiagov/
-
-# Set site
-#ddev exec drush -y config:set system.site name \'Bootstrap Italia Test\'
-#ddev exec drush -y config:set system.site slogan \'Bootstrap Italia Test v0.x-dev\'
-
-if [ "$enable_experimental_modules" == "y" ]; then
-  echo "==[ I am going to activate the experimental modules ]=="
-
-  echo 'Enable optional module: Bootstrap Italia Image Styles'
-  ddev composer require drupal/focal_point
-  ddev exec drush -y pm:enable focal_point bootstrap_italia_image_styles
-
-  echo 'Enable optional module: Bootstrap Italia Image Paragraphs'
-  ddev composer require drupal/paragraphs drupal/field_group drupal/imce
-  ddev exec drush -y pm:enable paragraphs field_group ui_patterns_field_group imce bootstrap_italia_paragraphs
-
-  echo 'Enable optional module: Bootstrap Italia Overlay'
-  ddev composer require drupal/ds
-  ddev exec drush -y pm:enable ds ds_extras ds_switch_view_mode ui_patterns_ds ui_patterns_layouts bootstrap_italia_overlay
-fi
 
 echo '==[ Cache rebuild ]=='
 ddev exec drush cr

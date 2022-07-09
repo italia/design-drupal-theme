@@ -1,4 +1,4 @@
-fix:
+base:
   css:
     theme:
       src/css/bootstrap-italia-drupal-fix.css: {weight: 50}

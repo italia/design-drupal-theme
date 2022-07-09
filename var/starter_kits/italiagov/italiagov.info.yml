@@ -13,7 +13,11 @@ libraries:
 #  - italiagov/cdn
 #  - italiagov/hot
 #  - italiagov/ddev
-  - bootstrap_italia/fix
+  - bootstrap_italia/base
+
+# Check these settings, they must match the "libraries" choices.
+ckeditor_stylesheets:
+  - assets/css/bootstrap-italia.css
 
 hidden: true # <---- Remember to set false, comment or delete line
 
@@ -98,9 +102,6 @@ regions:
   home_fourth_row_fourth: "Home page - Fourth ror - Fourth region"
 
   home_last_row_full_width: "Home page - Last full width region"
-
-ckeditor_stylesheets:
-  - assets/css/bootstrap-italia.css
 
 components:
   namespaces:

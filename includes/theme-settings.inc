@@ -203,7 +203,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['social']['social_new_window'] = [
     '#type' => 'checkbox',
     '#title' => t('Open in new window'),
-    '#description' => t("Open social in new window. Default: unchecked"),
+    '#description' => t("Open social in new window. Default: checked"),
     '#default_value' => theme_get_setting('social_new_window'),
   ];
   foreach (Helper::getSocialItems() as $social) {
@@ -225,7 +225,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['search']['search_type'] = [
     '#type' => 'select',
     '#title' => t('Search type'),
-    '#description' => t('Choose search type.'),
+    '#description' => t('Choose search type. Default: "Search in modal window"'),
     '#default_value' => theme_get_setting('search_type'),
     '#options' => [
       'modal' => t('Search in modal window'),
@@ -408,7 +408,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
-  // Navigation header appearance.
+  // Content appearance.
   $form['content']['appearance'] = [
     '#type' => 'details',
     '#title' => t('Appearance'),
@@ -432,11 +432,17 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
   $form['content']['appearance']['content_margin_bottom'] = [
     '#type' => 'select',
-    '#title' => t("Content padding bottom"),
+    '#title' => t("Content margin bottom"),
     '#description' => t('Add margin at the end of the content. Default: Unset'),
     '#default_value' => theme_get_setting('content_margin_bottom'),
     '#options' =>
       ['' => t('Unset')] + Spacing::getMarginBottom(TRUE),
+  ];
+  $form['content']['appearance']['show_main_content_in_front'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Main content in front page'),
+    '#description' => t('If checked, shows main content region in home page. Default: unchecked'),
+    '#default_value' => theme_get_setting('show_main_content_in_front'),
   ];
   // Breadcrumbs settings.
   $form['content']['breadcrumb'] = [
