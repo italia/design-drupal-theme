@@ -8,6 +8,10 @@
  * Parameters:
  * - card_tag_container (string) (default: 'div')
  *   - options ["div", "article"]
+ * - card_image (drupal_field) (default: '')
+ * - card_image_date (array|drupal_date_field) (default: '')
+ *   - {'day': '9', 'month': 'October', 'year': '2022'}
+ *   - {'date-full': drupal_date_field|raw}
  * - card_icon (string) (default: '')
  *   - option ["it-icon-name"]
  * - card_icon_text (string|drupal_field) (default: '')
@@ -47,6 +51,8 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _card_tag_container = card_tag_container|default('div') %}
+  {% set _card_image = card_image|default('') %}
+  {% set _card_image_date = card_image_date|default('') %}
   {% set _card_icon = card_icon|default('') %}
   {% set _card_icon_text = card_icon_text|default('') %}
   {% set _card_category = card_category|default('') %}
@@ -72,7 +78,8 @@
     'card-big',
     _card_shadow ? 'card-bg',
     _card_border_bottom ? 'border-bottom-card',
-    _card_action_type != 'link' ? 'no-after'
+    _card_action_type != 'link' ? 'no-after',
+    _card_image is not empty and not _card_shadow ? 'card-img',
   ] %}
 
   {% if _card_classes is not empty %}
@@ -86,6 +93,11 @@
     .addClass(_classes)
   %}
 
+  {# Image disable flag. #}
+  {% if _card_image %}
+    {% set _card_flag = false %}
+  {% endif %}
+
   {# Set wrapper options #}
   {% set _wrapper_classes = [
     'card-wrapper',
@@ -95,6 +107,32 @@
   {# Component #}
   <div class="{{ _wrapper_classes|join(' ')|trim }}">
     <{{ _card_tag_container }}{{ card_attributes }}>
+
+      {% block cardImage %}
+        {% if _card_image is not empty %}
+          <div class="img-responsive-wrapper">
+            <div class="img-responsive">
+              {{ _card_image }}
+              {% if _card_image_date is not empty %}
+                <div class="card-calendar d-flex flex-column justify-content-center">
+                  {% if _card_image_date['year'] %}
+                    <span class="card-year">{{ _card_image_date['year'] }}</span>
+                  {% endif %}
+                  {% if _card_image_date['day'] %}
+                    <span class="card-date">{{ _card_image_date['day'] }}</span>
+                  {% endif %}
+                  {% if _card_image_date['month'] %}
+                    <span class="card-month">{{ _card_image_date['month'] }}</span>
+                  {% endif %}
+                  {% if _card_image_date['date-full'] %}
+                    <span class="card-date-full p-1">{{ _card_image_date['date-full'] }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endblock %}
 
       {% block cardCategoryFlag %}
         {% if _card_category is not empty and _card_flag %}

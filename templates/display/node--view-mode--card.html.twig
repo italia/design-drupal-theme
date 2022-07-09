@@ -71,7 +71,8 @@
 #}
 {% embed '@bi-bcl/card/card.html.twig' with {
   card_tag_container: 'article',
-  card_icon: 'it-settings',
+  card_image: content.field_image,
+  card_image_date: {'date-full': date|raw},
   card_date: date,
   card_category: content.field_tags[0],
   card_signature: author_name,
@@ -94,7 +95,7 @@
 
   {% block cardText %}
     <div{{ content_attributes.addClass('card-text') }}>
-      {{ content|without('field_tags') }}
+      {{ content|without('field_tags','field_image') }}
     </div>
   {% endblock %}
 
