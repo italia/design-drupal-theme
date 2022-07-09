@@ -17,6 +17,26 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
 }
 
 /**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+
+  if (isset($variables['elements']['#view_mode'])) {
+    $suggestions[] = $variables['theme_hook_original']
+      . '__view_mode__' . $variables['elements']['#view_mode'];
+
+    if (isset($variables['elements']['#node']) &&
+      ($variables['elements']['#node'] instanceof Drupal\node\Entity\Node)
+    ) {
+      $suggestions[] = $variables['theme_hook_original']
+        . '__type_' . $variables['elements']['#node']->getType()
+        . '__view_mode_' . $variables['elements']['#view_mode'];
+    }
+  }
+}
+
+
+/**
  * Implements hook_theme_suggestions_block_alter().
  */
 function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {

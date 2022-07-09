@@ -1,0 +1,131 @@
+{#
+/**
+ * @file
+ * Card demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/card/card-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set card_demo_title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…' %}
+  {% set card_demo_title_link %}
+    <a href="#">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…
+    </a>
+  {% endset %}
+
+  {% set card_demo_subtitle = 'Subtitle' %}
+  {% set card_demo_subtitle_link %}
+    <a href="#">Subtitle</a>
+  {% endset %}
+
+  {% set card_demo_text_short = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' %}
+
+  {% set card_demo_category = 'Category'|t %}
+  {% set card_demo_category_link %}
+    <a href="#">{{ 'Category'|t }}</a>
+  {% endset %}
+
+  {% set card_demo_date = '10/12/2022' %}
+  {% set card_demo_signature = 'Federico De Paolis' %}
+  {% set card_demo_read_more_url = '#' %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card simple'|t,
+  } %}
+    {% block content %}
+
+      <div class="row">
+        {% for i in 1..3 %}
+          <div class="col">
+            {% include '@bi-bcl/card/card.html.twig' with {
+              card_title: card_demo_title,
+              card_text: card_demo_text_short
+            } %}
+          </div>
+        {% endfor %}
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card simple article'|t,
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% include '@bi-bcl/card/card.html.twig' with {
+            card_title: card_demo_title,
+            card_text: card_demo_text_short,
+            card_category: card_demo_category_link,
+            card_date: card_demo_date,
+            card_signature: card_demo_signature,
+            card_read_more_url: card_demo_read_more_url
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card with icon'|t,
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% include '@bi-bcl/card/card.html.twig' with {
+            card_title: card_demo_title_link,
+            card_text: card_demo_text_short,
+            card_icon: 'it-file',
+            card_icon_text: card_demo_category,
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% embed '@bi-bcl/card/card.html.twig' with {
+            card_title: card_demo_title_link,
+            card_subtitle: card_demo_subtitle_link,
+            card_icon: 'it-copy',
+            card_icon_text: '(2) File',
+          } %}
+            {% block cardText %}
+              <p class="card-text">{{ card_demo_text_short }}</p>
+              <a class="simple-link" href="#">Link <span class="visually-hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</span></a>
+            {% endblock %}
+          {% endembed %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card shadow'|t,
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% include '@bi-bcl/card/card.html.twig' with {
+            card_title: card_demo_title,
+            card_text: card_demo_text_short,
+            card_read_more_url: card_demo_read_more_url,
+            card_shadow: true
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+
+{% endapply %}

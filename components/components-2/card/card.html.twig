@@ -1,0 +1,144 @@
+{#
+/**
+ * @file
+ * Template for card component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - card_tag_container (string) (default: 'div')
+ *   - options ["div", "article"]
+ * - card_icon (string) (default: '')
+ *   - option ["it-icon-name"]
+ * - card_icon_text (string|drupal_field) (default: '')
+ * - card_category (string|drupal_field) (default: '')
+ * - card_date (string|drupal_field) (default: '')
+ * - card_title (string|drupal_field) (default: '')
+ * - card_subtitle (string|drupal_field) (default: '')
+ * - card_text (string|drupal_field) (default: '')
+ * - card_signature (string|drupal_field) default('')
+ * - card_read_more_url (string) default('')
+ * - card_read_more_label (string) default('Read more')
+ * - card_read_more_text (string|drupal_field) default(card_title)
+ * - card_shadow (boolean) (default: false)
+ * - card_border_bottom (boolean) (default: false)
+ * - card_classes (array) (default: '')
+ * - card_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/card/card.html.twig' with {
+      variables: value,
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _card_tag_container = card_tag_container|default('div') %}
+  {% set _card_icon = card_icon|default('') %}
+  {% set _card_icon_text = card_icon_text|default('') %}
+  {% set _card_category = card_category|default('') %}
+  {% set _card_date = card_date|default('') %}
+  {% set _card_title = card_title|default('') %}
+  {% set _card_subtitle = card_subtitle|default('') %}
+  {% set _card_text = card_text|default('') %}
+  {% set _card_signature = card_signature|default('') %}
+  {% set _card_read_more_url = card_read_more_url|default('') %}
+  {% set _card_read_more_label = card_read_more_label|default('Read more'|t) %}
+  {% set _card_read_more_text = card_read_more_text|default(_card_title) %}
+  {% set _card_shadow = card_shadow ?? false %}
+  {% set _card_border_bottom = card_border_bottom ?? false %}
+
+  {% set _card_classes = card_classes|default('') %}
+  {% set _card_attributes = card_attributes|default('') %}
+
+  {# Set options #}
+  {% set _classes = [
+    'card',
+    _card_shadow ? 'card-bg',
+    _card_border_bottom ? 'border-bottom-card'
+  ] %}
+
+  {% if _card_classes is not empty %}
+    {% set _classes = _classes|merge(card_classes) %}
+  {% endif %}
+
+  {% if _card_attributes is empty %}
+    {% set card_attributes = create_attribute() %}
+  {% endif %}
+  {% set card_attributes = card_attributes
+    .addClass(_classes)
+  %}
+
+  {# Set wrapper options #}
+  {% set _wrapper_classes = [
+    'card-wrapper',
+    _card_shadow ? 'card-space',
+  ] %}
+
+  {# Component #}
+  <div class="{{ _wrapper_classes|join(' ')|trim }}">
+    <{{ _card_tag_container }}{{ card_attributes }}>
+
+      <div class="card-body">
+
+        {% block cardCategoryIconTop %}
+          {% if _card_icon is not empty and _card_icon_text is not empty %}
+            <div class="categoryicon-top">
+              {% include '@bi-bcl/icon/icon.html.twig' with {name: _card_icon} %}
+              <span class="text">{{ _card_icon_text }}</span>
+            </div>
+          {% endif %}
+        {% endblock %}
+
+        {% block cardCategoryTop %}
+          {% if _card_category is not empty and _card_date is not empty %}
+            <div class="category-top">
+              <span class="category">{{ _card_category }}</span>
+              <span class="data">{{ _card_date }}</span>
+            </div>
+          {% endif %}
+        {% endblock %}
+
+        {% block cardTitle %}
+          {% if _card_title is not empty %}
+            <h3 class="card-title h5">
+              {{ _card_title }}
+            </h3>
+          {% endif %}
+          {% if _card_subtitle is not empty %}
+            <h6 class="card-subtitle">
+              {{ _card_subtitle }}
+            </h6>
+          {% endif %}
+        {% endblock %}
+
+        {% block cardText %}
+          {% if _card_text is not empty %}
+            <p class="card-text">{{ _card_text }}</p>
+          {% endif %}
+        {% endblock %}
+
+        {% block cardSignature %}
+          {% if _card_signature is not empty %}
+            <span class="card-signature">{{ 'by'|t }} {{ _card_signature }}</span>
+          {% endif %}
+        {% endblock %}
+
+        {% block readMore %}
+          {% if _card_read_more_url is not empty %}
+            <a class="read-more" href="{{ _card_read_more_url }}" title="{{ 'Read more about'|t }} {{ _card_read_more_text }}">
+              <span class="text">{{ _card_read_more_label }}</span>
+              <span class="visually-hidden">{{ 'about'|t }} {{ _card_read_more_text }}</span>
+              {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-arrow-right'} %}
+            </a>
+          {% endif %}
+        {% endblock %}
+
+      </div>
+
+    </{{ _card_tag_container }}>
+  </div>
+
+
+{% endapply %}
