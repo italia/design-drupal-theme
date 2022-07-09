@@ -27,6 +27,7 @@
  * - card_shadow (boolean) (default: false)
  * - card_border_bottom (boolean) (default: false)
  * - card_teaser (boolean) (default: false)
+ * - card_rounded (boolean) (default: false)
  * - card_classes (array) (default: '')
  * - card_attributes (obj attribute) (default: '')
  *
@@ -56,6 +57,7 @@
   {% set _card_shadow = card_shadow ?? false %}
   {% set _card_border_bottom = card_border_bottom ?? false %}
   {% set _card_teaser = card_teaser ?? false %}
+  {% set _card_rounded = card_rounded ?? false %}
 
   {% set _card_classes = card_classes|default('') %}
   {% set _card_attributes = card_attributes|default('') %}
@@ -67,7 +69,8 @@
     _card_border_bottom ? 'border-bottom-card',
     _card_image is not empty and not _card_shadow ? 'card-img',
     _card_tag_container == 'a' ? 'special-card',
-    _card_teaser ? 'card-teaser'
+    _card_teaser ? 'card-teaser',
+    _card_rounded ? 'rounded',
   ] %}
 
   {% if _card_classes is not empty %}

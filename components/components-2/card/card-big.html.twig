@@ -30,14 +30,7 @@
  * - card_border_bottom (boolean) (default: false)
  * - card_action_type (string) (default: 'link')
  *   - option ["link", "button"]
- *
- * - list (string) (default: 'default-value')
- *   - options ["option1", "option2", "option3", "option4"]
- * - string (string) mandatory
- *   - Description
- * - string (string) (default: '')
- * - boolean (boolean) (default: true)
- * - array (array) (default: [...])
+ * - card_rounded (boolean) (default: false)
  * - card_classes (array) (default: '')
  * - card_attributes (obj attribute) (default: '')
  *
@@ -68,6 +61,7 @@
   {% set _card_border_bottom = card_border_bottom ?? false %}
   {% set _card_flag = card_flag ?? false %}
   {% set _card_action_type = card_action_type|default('link') %}
+  {% set _card_rounded = card_rounded ?? false %}
 
   {% set _card_classes = card_classes|default('') %}
   {% set _card_attributes = card_attributes|default('') %}
@@ -79,7 +73,8 @@
     _card_shadow ? 'card-bg',
     _card_border_bottom ? 'border-bottom-card',
     _card_action_type != 'link' ? 'no-after',
-    _card_image is not empty and not _card_shadow ? 'card-img',
+    _card_image is not empty and not _card_shadow ? 'card-img',,
+    _card_rounded ? 'rounded',
   ] %}
 
   {% if _card_classes is not empty %}
