@@ -1,5 +1,5 @@
 # Bootstrap-italia library managed from theme setting UI
-libraries-ui:
+#libraries-ui:
 
 # Bootstrap-italia library if you use a vanilla release
 vanilla:
