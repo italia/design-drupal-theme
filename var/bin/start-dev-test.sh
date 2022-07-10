@@ -43,9 +43,9 @@ ddev start
 
 echo "Download Drupal ${drupal_version} and drush"
 if [ "$drupal_version" == "9" ]; then
-  ddev composer create "'drupal/recommended-project'" --no-install
+  ddev composer create 'drupal/recommended-project' --no-install
 else
-  ddev composer create --no-install "'drupal/recommended-project':'^10@alpha'"
+  ddev composer create --no-install 'drupal/recommended-project:^10.0.0-alpha6'
 fi
 
 ddev composer require drush/drush --no-install
@@ -56,7 +56,7 @@ ddev exec drush -y site:install
 
 echo '==[ Install end enable bootstrap_italia dependencies ]=='
 ddev exec drush -y pm:enable inline_form_errors responsive_image
-ddev composer require drupal/components
+ddev composer require 'drupal/components:^3@beta'
 ddev exec drush -y pm:enable components
 
 echo 'Language settings'
