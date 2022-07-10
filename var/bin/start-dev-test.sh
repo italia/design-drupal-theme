@@ -74,6 +74,9 @@ echo 'Copy sub-theme to destination folder'
 ddev exec mkdir /var/www/html/web/themes/custom/
 ddev exec cp -r /var/www/html/web/themes/contrib/bootstrap_italia/var/starter_kits/italiagov /var/www/html/web/themes/custom/
 
+echo 'Show italiagov sub-theme in theme list'
+ddev exec sed "-i 's/hidden: true/hidden: false/g' /var/www/html/web/themes/custom/italiagov/italiagov.info.yml"
+
 echo 'Enable themes'
 ddev exec drush -y theme:enable bootstrap_italia
 ddev exec drush -y theme:enable italiagov
@@ -81,9 +84,12 @@ ddev exec drush -y theme:enable italiagov
 echo 'Set default theme'
 ddev exec drush -y config:set system.theme default italiagov
 
-echo 'Install assets'
+echo 'Install italiagov assets'
 ddev exec npm install --prefix web/themes/custom/italiagov/
 ddev exec npm run build:prod --prefix web/themes/custom/italiagov/
+
+echo 'Change libraries settings to webpack assets'
+ddev drush -y config-set italiagov.settings libraries_type bootstrap-italia
 
 echo '==[ Cache rebuild ]=='
 ddev exec drush cr
