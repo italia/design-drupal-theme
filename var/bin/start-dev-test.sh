@@ -29,6 +29,12 @@ fi
 read -r -p "Bootstrap Italia version [2.0...x|2.x-dev|latest] (2.x-dev): " bootstrap_italia_version
 bootstrap_italia_version=${bootstrap_italia_version:-2.x-dev}
 
+read -r -p "Do you want enable italian language? [y|n] (y): " enable_locale
+enable_locale=${enable_locale:-y}
+
+read -r -p "Do you want to install extra modules? [y|n] (n): " enable_modules
+enable_modules=${enable_modules:-n}
+
 echo "==[ Configuration ]=="
 
 echo "Make ${project_name}"
@@ -45,7 +51,7 @@ echo "Download Drupal ${drupal_version} and drush"
 if [ "$drupal_version" == "9" ]; then
   ddev composer create 'drupal/recommended-project' --no-install
 else
-  ddev composer create --no-install 'drupal/recommended-project:^10.0.0-alpha6'
+  ddev composer create --no-install 'drupal/recommended-project:^10@alpha'
 fi
 
 ddev composer require drush/drush --no-install
@@ -59,9 +65,11 @@ ddev exec drush -y pm:enable inline_form_errors responsive_image
 ddev composer require 'drupal/components:^3@beta'
 ddev exec drush -y pm:enable components
 
-echo 'Language settings'
-ddev exec drush -y en locale
-ddev exec drush -y language-add it
+if [ "$enable_locale" == "y" ]; then
+  echo 'Language settings'
+  ddev exec drush -y en locale
+  ddev exec drush -y language-add it
+fi
 
 echo "==[ Downloading and activating bootstrap_italia:${bootstrap_italia_version} ]=="
 if [ "$bootstrap_italia_version" == "latest" ]; then
@@ -93,6 +101,21 @@ ddev drush -y config-set italiagov.settings libraries_type bootstrap-italia
 
 echo '==[ Cache rebuild ]=='
 ddev exec drush cr
+
+if [ "$enable_modules" == "y" ]; then
+  echo "==[ Install theme modules ]=="
+
+  if [ ! -d "./web/libraries" ]; then
+    echo "Make libraries directory"
+    mkdir ./web/libraries
+  fi
+
+  echo 'Enable module: Bootstrap Italia Image Style'
+  ddev composer require drupal/focal_point
+  ddev exec drush -y pm:enable focal_point bootstrap_italia_image_styles
+
+
+fi
 
 echo 'Push ssh public key in to container, if you have many keys press CRTL+C after first push'
 ddev auth ssh

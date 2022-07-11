@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_ntsc_32_27_576x486_
+label: 'Focal point NTSC 32:27 (576x486) Wide'
+effects:
+  556adb7e-c0a5-4bfa-9fc1-1e914ca016c2:
+    uuid: 556adb7e-c0a5-4bfa-9fc1-1e914ca016c2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 576
+      height: 486
+      crop_type: focal_point

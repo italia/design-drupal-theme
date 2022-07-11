@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_xga_4_3_1024x768_
+label: 'Focal point XGA 4:3 (1024x768) Wide'
+effects:
+  69f51245-0999-4be2-bd63-451d21ee5efe:
+    uuid: 69f51245-0999-4be2-bd63-451d21ee5efe
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 768
+      crop_type: focal_point

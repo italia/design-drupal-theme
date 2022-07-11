@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_wxga_10_16_900x1440_narrow
+label: 'Focal point WXGA+ 10:16 (900x1440) Narrow'
+effects:
+  1e0f0526-9a35-47ca-9647-8d81ee4bebd8:
+    uuid: 1e0f0526-9a35-47ca-9647-8d81ee4bebd8
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 1440
+      crop_type: focal_point

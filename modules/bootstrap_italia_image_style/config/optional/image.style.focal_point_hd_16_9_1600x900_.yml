@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_hd_16_9_1600x900_
+label: 'Focal point HD+ 16:9 (1600x900) Wide'
+effects:
+  209e698b-6044-4858-81e4-53995d729d77:
+    uuid: 209e698b-6044-4858-81e4-53995d729d77
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 900
+      crop_type: focal_point

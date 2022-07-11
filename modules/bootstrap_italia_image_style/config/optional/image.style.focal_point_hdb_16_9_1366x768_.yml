@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_hdb_16_9_1366x768_
+label: 'Focal point HDB ~16:9 (1366x768) Wide'
+effects:
+  b3e883ab-8514-4ba5-826e-51bc01fc3ed1:
+    uuid: b3e883ab-8514-4ba5-826e-51bc01fc3ed1
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1366
+      height: 768
+      crop_type: focal_point

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_ntsc_27_32_486x576_narrow
+label: 'Focal point NTSC 27:32 (486x576) Narrow'
+effects:
+  0cb931cc-d37f-43c5-aa31-ad314e146dc6:
+    uuid: 0cb931cc-d37f-43c5-aa31-ad314e146dc6
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 486
+      height: 576
+      crop_type: focal_point

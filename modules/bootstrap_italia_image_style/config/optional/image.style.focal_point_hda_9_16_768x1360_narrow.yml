@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_hda_9_16_768x1360_narrow
+label: 'Focal point HDA ~9:16 (768x1360) Narrow'
+effects:
+  e974f551-a390-44f1-b4f1-c512fcb44b78:
+    uuid: e974f551-a390-44f1-b4f1-c512fcb44b78
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 1360
+      crop_type: focal_point

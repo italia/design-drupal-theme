@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * The Arturu Image Styles install file.
+ */
+
+declare(strict_types = 1);
+
+/**
+ * Implements hook_install().
+ */
+function bootstrap_italia_image_style_install($is_syncing) {
+  // Set quality image.
+  Drupal::configFactory()
+    ->getEditable('system.image.gd')
+    ->set('jpeg_quality', '100')
+    ->save(TRUE);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function bootstrap_italia_image_style_uninstall($is_syncing) {
+  // Remove image styles configuration.
+  $image_style_installed = \Drupal::service('file_system')
+    ->scanDirectory(__DIR__ . '/config/optional/', ' /.+(yml)/', ['key' => 'name']);
+
+  foreach ($image_style_installed as $key_image_style => $proprieties) {
+    // image.style.image_style_machine_name_000x000.
+    Drupal::configFactory()->getEditable($key_image_style)->delete();
+  }
+
+  // Restore quality image to default value.
+  Drupal::configFactory()
+    ->getEditable('system.image.gd')
+    ->set('jpeg_quality', '75')
+    ->save(TRUE);
+}

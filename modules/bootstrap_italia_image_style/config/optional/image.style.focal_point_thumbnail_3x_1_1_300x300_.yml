@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_thumbnail_3x_1_1_300x300_
+label: 'Focal point Thumbnail 3X 1:1 (300x300)'
+effects:
+  24d5e90b-bac7-47c5-8693-a81d276c72aa:
+    uuid: 24d5e90b-bac7-47c5-8693-a81d276c72aa
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 300
+      crop_type: focal_point

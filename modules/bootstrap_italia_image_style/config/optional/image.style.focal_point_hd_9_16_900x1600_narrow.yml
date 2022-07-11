@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_hd_9_16_900x1600_narrow
+label: 'Focal point HD+ 9:16 (900x1600) Narrow'
+effects:
+  2cfdf4e6-7b36-456a-8e39-7bd1a0576919:
+    uuid: 2cfdf4e6-7b36-456a-8e39-7bd1a0576919
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 1600
+      crop_type: focal_point

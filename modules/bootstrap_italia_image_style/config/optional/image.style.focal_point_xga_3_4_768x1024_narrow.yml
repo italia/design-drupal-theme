@@ -1,0 +1,6 @@
+langcode: en
+status: true
+dependencies: {  }
+name: focal_point_xga_3_4_768x1024_narrow
+label: 'Focal point XGA 3:4 (768x1024) Narrow'
+effects: {  }

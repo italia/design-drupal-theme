@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_wuxga_10_16_1200x1920_narrow
+label: 'Focal point WUXGA 10:16 (1200x1920) Narrow'
+effects:
+  aef186b3-6079-4352-a977-61ff8f7aa98a:
+    uuid: aef186b3-6079-4352-a977-61ff8f7aa98a
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 1920
+      crop_type: focal_point

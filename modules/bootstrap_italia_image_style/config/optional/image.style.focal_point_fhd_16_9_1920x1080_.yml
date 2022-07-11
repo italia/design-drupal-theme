@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_fhd_16_9_1920x1080_
+label: 'Focal point FHD 16:9 (1920x1080) Wide'
+effects:
+  bf77b862-a212-4610-9756-2b25da5e4a62:
+    uuid: bf77b862-a212-4610-9756-2b25da5e4a62
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 1080
+      crop_type: focal_point

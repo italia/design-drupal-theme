@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_4k_uhd_9_16_2160x3840_narrow
+label: 'Focal point 4K UHD 9:16 (2160x3840) Narrow'
+effects:
+  5cdfa92f-c8dc-483c-9a56-06276e85335d:
+    uuid: 5cdfa92f-c8dc-483c-9a56-06276e85335d
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 2160
+      height: 3840
+      crop_type: focal_point

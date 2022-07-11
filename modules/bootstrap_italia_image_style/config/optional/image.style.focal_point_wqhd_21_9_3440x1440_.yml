@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_wqhd_21_9_3440x1440_
+label: 'Focal point WQHD ~21:9 (3440x1440) Wide'
+effects:
+  c1594f4b-238b-4c03-b601-d016367c0554:
+    uuid: c1594f4b-238b-4c03-b601-d016367c0554
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 3440
+      height: 1440
+      crop_type: focal_point

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_fhd_9_16_1080x1920_narrow
+label: 'Focal point FHD 9:16 (1080x1920) Narrow'
+effects:
+  f60a99f8-bc01-4d08-9b06-0221740c98ff:
+    uuid: f60a99f8-bc01-4d08-9b06-0221740c98ff
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1080
+      height: 1920
+      crop_type: focal_point
