@@ -36,16 +36,16 @@ class Spacing {
   public static function getPaddingRight($withLabel = FALSE): array {
     if ($withLabel) {
       return [
-        'pr-0' => t('Zero'),
-        'pr-1' => t('Extra small'),
-        'pr-2' => t('Small'),
-        'pr-3' => t('Medium'),
-        'pr-4' => t('Large'),
-        'pr-5' => t('Extra Large'),
-        'pr-auto' => t('Auto'),
+        'pe-0' => t('Zero'),
+        'pe-1' => t('Extra small'),
+        'pe-2' => t('Small'),
+        'pe-3' => t('Medium'),
+        'pe-4' => t('Large'),
+        'pe-5' => t('Extra Large'),
+        'pe-auto' => t('Auto'),
       ];
     }
-    return ['pr-0', 'pr-1', 'pr-2', 'pr-3', 'pr-4', 'pr-5', 'pr-auto'];
+    return ['pe-0', 'pe-1', 'pe-2', 'pe-3', 'pe-4', 'pe-5', 'pe-auto'];
   }
 
   /**
@@ -72,16 +72,16 @@ class Spacing {
   public static function getPaddingLeft($withLabel = FALSE): array {
     if ($withLabel) {
       return [
-        'pl-0' => t('Zero'),
-        'pl-1' => t('Extra small'),
-        'pl-2' => t('Small'),
-        'pl-3' => t('Medium'),
-        'pl-4' => t('Large'),
-        'pl-5' => t('Extra Large'),
-        'pl-auto' => t('Auto'),
+        'ps-0' => t('Zero'),
+        'ps-1' => t('Extra small'),
+        'ps-2' => t('Small'),
+        'ps-3' => t('Medium'),
+        'ps-4' => t('Large'),
+        'ps-5' => t('Extra Large'),
+        'ps-auto' => t('Auto'),
       ];
     }
-    return ['pl-0', 'pl-1', 'pl-2', 'pl-3', 'pl-4', 'pl-5', 'pl-auto'];
+    return ['ps-0', 'ps-1', 'ps-2', 'ps-3', 'ps-4', 'ps-5', 'ps-auto'];
   }
 
   /**
@@ -144,16 +144,16 @@ class Spacing {
   public static function getMarginRight($withLabel = FALSE): array {
     if ($withLabel) {
       return [
-        'mr-0' => t('Zero'),
-        'mr-1' => t('Extra small'),
-        'mr-2' => t('Small'),
-        'mr-3' => t('Medium'),
-        'mr-4' => t('Large'),
-        'mr-5' => t('Extra Large'),
-        'mr-auto' => t('Auto'),
+        'me-0' => t('Zero'),
+        'me-1' => t('Extra small'),
+        'me-2' => t('Small'),
+        'me-3' => t('Medium'),
+        'me-4' => t('Large'),
+        'me-5' => t('Extra Large'),
+        'me-auto' => t('Auto'),
       ];
     }
-    return ['mr-0', 'mr-1', 'mr-2', 'mr-3', 'mr-4', 'mr-5', 'mr-auto'];
+    return ['me-0', 'me-1', 'me-2', 'me-3', 'me-4', 'me-5', 'me-auto'];
   }
 
   /**
@@ -180,16 +180,16 @@ class Spacing {
   public static function getMarginLeft($withLabel = FALSE): array {
     if ($withLabel) {
       return [
-        'ml-0' => t('Zero'),
-        'ml-1' => t('Extra small'),
-        'ml-2' => t('Small'),
-        'ml-3' => t('Medium'),
-        'ml-4' => t('Large'),
-        'ml-5' => t('Extra Large'),
-        'ml-auto' => t('Auto'),
+        'ms-0' => t('Zero'),
+        'ms-1' => t('Extra small'),
+        'ms-2' => t('Small'),
+        'ms-3' => t('Medium'),
+        'ms-4' => t('Large'),
+        'ms-5' => t('Extra Large'),
+        'ms-auto' => t('Auto'),
       ];
     }
-    return ['ml-0', 'ml-1', 'ml-2', 'ml-3', 'ml-4', 'ml-5', 'ml-auto'];
+    return ['ms-0', 'ms-1', 'ms-2', 'ms-3', 'ms-4', 'ms-5', 'ms-auto'];
   }
 
   /**
