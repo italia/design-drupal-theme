@@ -1,0 +1,11 @@
+name: "Bootstrap Italia Paragraph Webform"
+description: This is a webform integration in paragraphs
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9
+dependencies:
+  - drupal:webform
+  - drupal:webform_bootstrap
+  - drupal:webform_ui
+  - drupal:bootstrap_italia_paragraph

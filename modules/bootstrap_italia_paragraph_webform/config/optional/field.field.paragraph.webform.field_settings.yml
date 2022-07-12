@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_settings
+    - paragraphs.paragraphs_type.settings
+    - paragraphs.paragraphs_type.webform
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: Q6UfwCTF3EviHM82S6i_Wz5An8V7OAE_lKZuYozm2aA
+id: paragraph.webform.field_settings
+field_name: field_settings
+entity_type: paragraph
+bundle: webform
+label: Settings
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      settings: settings
+    target_bundles_drag_drop:
+      carousel:
+        weight: 9
+        enabled: false
+      content:
+        weight: 10
+        enabled: false
+      gallery:
+        weight: 11
+        enabled: false
+      settings:
+        enabled: true
+        weight: 12
+      slide:
+        weight: 13
+        enabled: false
+      table:
+        weight: 14
+        enabled: false
+      webform:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions
