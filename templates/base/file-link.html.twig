@@ -22,12 +22,12 @@
   card_attributes: attributes,
 } %}
   {% block cardTitle %}
-    <h3 class="card-title h5">
+    <h5 class="card-title">
       {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-clip'} %}
       {{ link }}
       {% if file_size %}
         <span> ({{ file_size }})</span>
       {% endif %}
-    </h3>
+    </h5>
   {% endblock %}
 {% endembed %}
