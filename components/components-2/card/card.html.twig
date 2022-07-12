@@ -26,6 +26,7 @@
  * - card_read_more_text (string|drupal_field) default(card_title)
  * - card_shadow (boolean) (default: false)
  * - card_border_bottom (boolean) (default: false)
+ * - card_border (boolean) (default: false)
  * - card_teaser (boolean) (default: false)
  * - card_rounded (boolean) (default: false)
  * - card_classes (array) (default: '')
@@ -56,6 +57,7 @@
   {% set _card_read_more_text = card_read_more_text|default(_card_title) %}
   {% set _card_shadow = card_shadow ?? false %}
   {% set _card_border_bottom = card_border_bottom ?? false %}
+  {% set _card_border = card_border ?? false %}
   {% set _card_teaser = card_teaser ?? false %}
   {% set _card_rounded = card_rounded ?? false %}
 
@@ -66,11 +68,13 @@
   {% set _classes = [
     'card',
     _card_shadow ? 'card-bg',
+    _card_shadow and _card_teaser ? 'shadow',
     _card_border_bottom ? 'border-bottom-card',
     _card_image is not empty and not _card_shadow ? 'card-img',
     _card_tag_container == 'a' ? 'special-card',
     _card_teaser ? 'card-teaser',
     _card_rounded ? 'rounded',
+    _card_border ? 'border',
   ] %}
 
   {% if _card_classes is not empty %}
@@ -91,7 +95,9 @@
   ] %}
 
   {# Component #}
-  <div class="{{ _wrapper_classes|join(' ')|trim }}">
+  {% if not _card_teaser %}
+    <div class="{{ _wrapper_classes|join(' ')|trim }}">
+  {% endif %}
     <{{ _card_tag_container }}{{ card_attributes }}>
 
       {% block cardImage %}
@@ -178,7 +184,9 @@
       </div>
 
     </{{ _card_tag_container }}>
-  </div>
+  {% if not _card_teaser %}
+    </div>
+  {% endif %}
 
 
 {% endapply %}

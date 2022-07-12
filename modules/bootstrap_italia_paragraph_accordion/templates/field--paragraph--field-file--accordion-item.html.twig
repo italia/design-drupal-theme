@@ -45,11 +45,13 @@
     'field--name-' ~ field_name|clean_class,
     'field--entity-' ~ entity_type|clean_class,
     'field-multiple',
-    'row',
+    'card-wrapper',
+    'card-teaser-wrapper',
+    'card-teaser-wrapper-equal'
   ] %}
   <div{{ attributes.addClass(container_classes) }}>
     {% for item in items %}
-      <div class="col-auto">{{ item.content }}</div>
+      {{ item.content }}
     {% endfor %}
   </div>
 {% endapply %}
