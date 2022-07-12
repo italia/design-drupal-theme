@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_settings
+    - paragraphs.paragraphs_type.attachments
+    - paragraphs.paragraphs_type.settings
+  module:
+    - entity_reference_revisions
+id: paragraph.attachments.field_settings
+field_name: field_settings
+entity_type: paragraph
+bundle: attachments
+label: Settings
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      settings: settings
+    negate: 0
+    target_bundles_drag_drop:
+      attachments:
+        weight: 4
+        enabled: false
+      content:
+        weight: 5
+        enabled: false
+      settings:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

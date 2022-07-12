@@ -1,0 +1,9 @@
+name: "Bootstrap Italia Attachments"
+description: This paragraph type manage the attachments
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - drupal:bootstrap_italia_paragraph

@@ -135,6 +135,9 @@ if [ "$enable_modules" == "y" ]; then
   mv ./web/libraries/spectrum-master ./web/libraries/spectrum
   rm -Rf ./web/libraries/master.zip
 
+  echo 'Install module: Bootstrap Italia Attachments'
+  ddev exec drush -y pm:enable bootstrap_italia_attachments
+
 fi
 
 echo 'Push ssh public key in to container, if you have many keys press CRTL+C after first push'

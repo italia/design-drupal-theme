@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a link to a file.
+ *
+ * Available variables:
+ * - attributes: The HTML attributes for the containing element.
+ * - link: A link to the file.
+ * - file_size: The size of the file.
+ *
+ * @see template_preprocess_file_link()
+ *
+ * @ingroup themeable
+ */
+#}
+{% embed '@bi-bcl/card/card.html.twig' with {
+  card_shadow: true,
+  card_icon: 'it-clip',
+  card_teaser: true,
+  card_attributes: attributes,
+} %}
+  {% block cardTitle %}
+    <h3 class="card-title h5">
+      {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-clip'} %}
+      {{ link }}
+      {% if file_size %}
+        <span> ({{ file_size }})</span>
+      {% endif %}
+    </h3>
+  {% endblock %}
+{% endembed %}
