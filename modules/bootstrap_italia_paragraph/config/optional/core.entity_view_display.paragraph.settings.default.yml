@@ -1,0 +1,92 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.settings.field_background_blend_mode
+    - field.field.paragraph.settings.field_background_color
+    - field.field.paragraph.settings.field_background_image
+    - field.field.paragraph.settings.field_background_image_fixed
+    - field.field.paragraph.settings.field_container_classes
+    - field.field.paragraph.settings.field_enable_container
+    - field.field.paragraph.settings.field_full_width
+    - field.field.paragraph.settings.field_inline_style
+    - paragraphs.paragraphs_type.settings
+  module:
+    - color_field
+    - image
+    - options
+id: paragraph.settings.default
+targetEntityType: paragraph
+bundle: settings
+mode: default
+content:
+  field_background_blend_mode:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_background_color:
+    type: color_field_formatter_text
+    label: hidden
+    settings:
+      format: rgb
+      opacity: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_background_image:
+    type: image_url
+    label: hidden
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_background_image_fixed:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_container_classes:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_enable_container:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_full_width:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_inline_style:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+hidden: {  }

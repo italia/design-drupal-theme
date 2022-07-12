@@ -1,0 +1,16 @@
+name: "Bootstrap Italia Paragraph"
+description: This is the base module for paragraphs integration
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - drupal:paragraphs
+  - drupal:field_group
+  - drupal:imce
+  - drupal:color_field
+
+components:
+  namespaces:
+    bootstrap_italia_paragraph: templates/components

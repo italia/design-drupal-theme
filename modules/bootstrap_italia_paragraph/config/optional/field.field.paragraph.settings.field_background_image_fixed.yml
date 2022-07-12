@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_image_fixed
+    - paragraphs.paragraphs_type.settings
+id: paragraph.settings.field_background_image_fixed
+field_name: field_background_image_fixed
+entity_type: paragraph
+bundle: settings
+label: 'Background Image fixed'
+description: 'If on, sets the paragraph background image as fixed.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_container_classes
+    - paragraphs.paragraphs_type.settings
+id: paragraph.settings.field_container_classes
+field_name: field_container_classes
+entity_type: paragraph
+bundle: settings
+label: 'Container classes'
+description: 'Add one or more space-separated classes to the paragraph container. For more details <a href="https://getbootstrap.com/docs/5.0/utilities/api/" target="_blank" title="Read the docs">Bootstrap 5 Utility API</a>, <a href="https://italia.github.io/bootstrap-italia/" target="_blank" title="Read the bootstrap-italia docs">Bootstrap Italia Docs</a>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

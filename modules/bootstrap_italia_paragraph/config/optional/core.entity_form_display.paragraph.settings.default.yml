@@ -1,0 +1,86 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.settings.field_background_blend_mode
+    - field.field.paragraph.settings.field_background_color
+    - field.field.paragraph.settings.field_background_image
+    - field.field.paragraph.settings.field_background_image_fixed
+    - field.field.paragraph.settings.field_container_classes
+    - field.field.paragraph.settings.field_enable_container
+    - field.field.paragraph.settings.field_full_width
+    - field.field.paragraph.settings.field_inline_style
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.settings
+  module:
+    - color_field
+    - image
+    - imce
+id: paragraph.settings.default
+targetEntityType: paragraph
+bundle: settings
+mode: default
+content:
+  field_background_blend_mode:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_background_color:
+    type: color_field_widget_box
+    weight: 2
+    region: content
+    settings:
+      default_colors: '#007a52,#ffffff,#ff3333,#0066cc,#3126ff,#0bd9d2,#f73e5a,#ff9900,#00cf86,#17324d,#e6ecf2'
+    third_party_settings: {  }
+  field_background_image:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: bar
+      preview_image_style: thumbnail
+    third_party_settings:
+      imce:
+        enabled: true
+  field_background_image_fixed:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_container_classes:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_enable_container:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_full_width:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_inline_style:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,13 @@
+.paragraph--full-width {
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  left: 50%;
+}
+
+.paragraph--background-image-fixed {
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  background-attachment: fixed;
+}

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_full_width
+    - paragraphs.paragraphs_type.settings
+id: paragraph.settings.field_full_width
+field_name: field_full_width
+entity_type: paragraph
+bundle: settings
+label: 'Full width'
+description: 'By activating this setting, the line will occupy the entire width of the screen. This is useful when you want to set a background color or a background image. '
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

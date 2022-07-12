@@ -110,10 +110,30 @@ if [ "$enable_modules" == "y" ]; then
     mkdir ./web/libraries
   fi
 
-  echo 'Enable module: Bootstrap Italia Image Style'
+  echo 'Install module: Bootstrap Italia Image Style'
   ddev composer require drupal/focal_point
   ddev exec drush -y pm:enable focal_point bootstrap_italia_image_styles
 
+  echo 'Install module: Bootstrap Italia Paragraph'
+  ddev composer require drupal/paragraphs drupal/field_group drupal/imce drupal/color_field
+  ddev exec drush -y pm:enable paragraphs field_group imce color_field bootstrap_italia_paragraph
+
+  echo 'Installing color_field library'
+  curl --request GET -sL \
+   --url 'https://github.com/recurser/jquery-simple-color/archive/master.zip' \
+   --output './web/libraries/master.zip'
+
+  unzip ./web/libraries/master.zip -d ./web/libraries/
+  mv ./web/libraries/jquery-simple-color-master ./web/libraries/jquery-simple-color
+  rm -Rf ./web/libraries/master.zip
+
+  curl --request GET -sL \
+   --url 'https://github.com/bgrins/spectrum/archive/master.zip' \
+   --output './web/libraries/master.zip'
+
+  unzip ./web/libraries/master.zip -d ./web/libraries/
+  mv ./web/libraries/spectrum-master ./web/libraries/spectrum
+  rm -Rf ./web/libraries/master.zip
 
 fi
 

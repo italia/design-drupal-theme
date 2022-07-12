@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_blend_mode
+    - paragraphs.paragraphs_type.settings
+  module:
+    - options
+id: paragraph.settings.field_background_blend_mode
+field_name: field_background_blend_mode
+entity_type: paragraph
+bundle: settings
+label: 'Background blend mode'
+description: 'Choose how to blend the background. You must have set a wallpaper first.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

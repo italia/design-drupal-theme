@@ -1,0 +1,68 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_background_blend_mode
+field_name: field_background_blend_mode
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: normal
+      label: Normal
+    -
+      value: multiply
+      label: Multiply
+    -
+      value: screen
+      label: Screen
+    -
+      value: overlay
+      label: Overlay
+    -
+      value: darken
+      label: Darken
+    -
+      value: lighten
+      label: Lighten
+    -
+      value: color-dodge
+      label: 'Color Dodge'
+    -
+      value: color-burn
+      label: 'Color Burn'
+    -
+      value: hard-light
+      label: 'Hard Light'
+    -
+      value: soft-light
+      label: 'Soft Light'
+    -
+      value: difference
+      label: Difference
+    -
+      value: exclusion
+      label: Exclusion
+    -
+      value: hue
+      label: Hue
+    -
+      value: saturation
+      label: Saturation
+    -
+      value: color
+      label: Color
+    -
+      value: luminosity
+      label: Luminosity
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

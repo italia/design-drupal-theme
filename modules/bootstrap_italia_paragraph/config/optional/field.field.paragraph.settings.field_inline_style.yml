@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_inline_style
+    - paragraphs.paragraphs_type.settings
+id: paragraph.settings.field_inline_style
+field_name: field_inline_style
+entity_type: paragraph
+bundle: settings
+label: 'Inline Style'
+description: 'You can insert a style inline. Ex: <em>padding: 20px; background-position: center; background-repeat: none;</em> etc. N.B the "background-image: url (...)" style is added automatically if a background image is loaded '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -168,3 +168,12 @@ function bootstrap_italia_theme_suggestions_image_alter(array &$suggestions, arr
 function bootstrap_italia_theme_suggestions_responsive_image_alter(array &$suggestions, array $variables) {
   Suggestions::imageStyle($suggestions, $variables);
 }
+
+/**
+ * Implements hook_link_alter().
+ */
+function bootstrap_italia_theme_suggestions_details_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['element']['#webform_element'])) {
+    $suggestions[] = $variables['theme_hook_original'] . '__webform';
+  }
+}
