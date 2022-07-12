@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - file
+id: paragraph.accordion_item.field_file
+field_name: field_file
+entity_type: paragraph
+bundle: accordion_item
+label: File
+description: 'Upload one or more files from your device. If you want to attach a file that has already been uploaded, use the File Browser by positioning yourself in the <strong>public://attachments</strong> folder.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: attachments
+  file_extensions: 'txt pdf zip tar.gz 7z odt ods xml'
+  max_filesize: ''
+  description_field: true
+field_type: file

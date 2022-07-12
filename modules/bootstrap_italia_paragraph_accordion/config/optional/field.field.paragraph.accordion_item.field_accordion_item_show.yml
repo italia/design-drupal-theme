@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_item_show
+    - paragraphs.paragraphs_type.accordion_item
+id: paragraph.accordion_item.field_accordion_item_show
+field_name: field_accordion_item_show
+entity_type: paragraph
+bundle: accordion_item
+label: 'Accordion item show'
+description: 'Show/hide accordion item, enable to render item expanded.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

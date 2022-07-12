@@ -39,31 +39,17 @@
  */
 #}
 {% apply spaceless %}
-
   {% set container_classes = [
     'field',
     'field--type-' ~ field_type|clean_class,
     'field--name-' ~ field_name|clean_class,
     'field--entity-' ~ entity_type|clean_class,
-    multiple ? 'field-multiple',
-    multiple ? 'row',
-    'field--label-' ~ label_display|clean_class,
-    field_container_vertical_padding is not empty ? field_container_vertical_padding,
-    field_container_vertical_margin is not empty ? field_container_vertical_margin,
+    'field-multiple',
+    'row',
   ] %}
-
-  {% if multiple %}
-    <div{{ attributes.addClass(container_classes) }}>
-      {% for item in items %}
-        <div class="col-auto">
-          {{ item.content }}
-        </div>
-      {% endfor %}
-    </div>
-  {% else %}
+  <div{{ attributes.addClass(container_classes) }}>
     {% for item in items %}
-      <div{{ attributes.addClass(container_classes) }}>{{ item.content }}</div>
+      <div class="col-auto">{{ item.content }}</div>
     {% endfor %}
-  {% endif %}
-
+  </div>
 {% endapply %}

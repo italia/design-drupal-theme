@@ -1,0 +1,77 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.accordion.field_accordion_background_activ
+    - field.field.paragraph.accordion.field_accordion_background_hover
+    - field.field.paragraph.accordion.field_accordion_flush
+    - field.field.paragraph.accordion.field_accordion_item
+    - field.field.paragraph.accordion.field_accordion_left_icon
+    - field.field.paragraph.accordion.field_settings
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - entity_reference_revisions
+id: paragraph.accordion.default
+targetEntityType: paragraph
+bundle: accordion
+mode: default
+content:
+  field_accordion_background_activ:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_accordion_background_hover:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_accordion_flush:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_accordion_item:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_accordion_left_icon:
+    type: boolean
+    label: above
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_settings:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden: {  }

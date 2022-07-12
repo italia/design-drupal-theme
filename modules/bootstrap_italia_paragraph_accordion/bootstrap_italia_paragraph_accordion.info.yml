@@ -1,0 +1,11 @@
+name: "Bootstrap Italia Paragraph Accordion"
+description: This is a bootstrap accordion
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9
+dependencies:
+  - drupal:paragraphs
+  - drupal:field_group
+  - drupal:imce
+  - drupal:bootstrap_italia_paragraph

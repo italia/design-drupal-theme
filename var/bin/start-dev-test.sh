@@ -135,8 +135,8 @@ if [ "$enable_modules" == "y" ]; then
   mv ./web/libraries/spectrum-master ./web/libraries/spectrum
   rm -Rf ./web/libraries/master.zip
 
-  echo 'Install module: Bootstrap Italia Attachments'
-  ddev exec drush -y pm:enable bootstrap_italia_attachments
+  echo 'Install module: Bootstrap Italia Paragraph Attachments'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_attachments
 
 fi
 

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_background_activ
+    - paragraphs.paragraphs_type.accordion
+id: paragraph.accordion.field_accordion_background_activ
+field_name: field_accordion_background_activ
+entity_type: paragraph
+bundle: accordion
+label: 'Accordion background active'
+description: 'Adds the primary background to the active element'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

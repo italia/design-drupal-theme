@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_item_always_open
+    - paragraphs.paragraphs_type.accordion_item
+id: paragraph.accordion_item.field_accordion_item_always_open
+field_name: field_accordion_item_always_open
+entity_type: paragraph
+bundle: accordion_item
+label: 'Accordion item always open'
+description: 'Enable to make accordion items stay open when another item is opened.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

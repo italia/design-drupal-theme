@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_background_hover
+    - paragraphs.paragraphs_type.accordion
+id: paragraph.accordion.field_accordion_background_hover
+field_name: field_accordion_background_hover
+entity_type: paragraph
+bundle: accordion
+label: 'Accordion background hover'
+description: 'Adds the primary background to the element that has focus'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
