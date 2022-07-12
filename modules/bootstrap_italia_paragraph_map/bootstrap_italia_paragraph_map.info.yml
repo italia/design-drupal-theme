@@ -1,0 +1,10 @@
+name: "Bootstrap Italia Paragraph Map"
+description: This is a Map paragraph with leaflet and open street maps
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9
+dependencies:
+  - drupal:geofield
+  - drupal:leaflet
+  - drupal:bootstrap_italia_paragraph

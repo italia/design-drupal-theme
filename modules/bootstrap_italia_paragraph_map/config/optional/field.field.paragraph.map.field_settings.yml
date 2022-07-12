@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_settings
+    - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.settings
+  module:
+    - entity_reference_revisions
+id: paragraph.map.field_settings
+field_name: field_settings
+entity_type: paragraph
+bundle: map
+label: Settings
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      settings: settings
+    target_bundles_drag_drop:
+      carousel:
+        weight: 10
+        enabled: false
+      content:
+        weight: 11
+        enabled: false
+      gallery:
+        weight: 12
+        enabled: false
+      map:
+        weight: 9
+        enabled: false
+      settings:
+        enabled: true
+        weight: 13
+      slide:
+        weight: 14
+        enabled: false
+      table:
+        weight: 15
+        enabled: false
+      webform:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

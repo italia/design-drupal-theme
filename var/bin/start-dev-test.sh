@@ -138,6 +138,13 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia Paragraph Attachments'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_attachments
 
+  echo 'Install module: Bootstrap Italia Paragraph Accordion'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_accordion
+
+  echo 'Install module: Bootstrap Italia Paragraph Map'
+  ddev composer require drupal/geofield drupal/leaflet
+  ddev exec drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
+
 fi
 
 echo 'Push ssh public key in to container, if you have many keys press CRTL+C after first push'

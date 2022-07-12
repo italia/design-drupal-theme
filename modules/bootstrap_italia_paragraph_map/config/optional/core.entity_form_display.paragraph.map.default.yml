@@ -1,0 +1,129 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map.field_location
+    - field.field.paragraph.map.field_settings
+    - paragraphs.paragraphs_type.map
+  module:
+    - field_group
+    - leaflet
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - group_place
+        - group_settings
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        direction: horizontal
+        width_breakpoint: 640
+      label: Container
+    group_place:
+      children:
+        - field_location
+      parent_name: group_container
+      weight: 5
+      format_type: tab
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        formatter: open
+        required_fields: true
+      label: Place
+    group_settings:
+      children:
+        - field_settings
+      parent_name: group_container
+      weight: 6
+      format_type: tab
+      region: content
+      format_settings:
+        show_empty_fields: false
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Settings
+id: paragraph.map.default
+targetEntityType: paragraph
+bundle: map
+mode: default
+content:
+  field_location:
+    weight: 1
+    settings:
+      map:
+        leaflet_map: 'OSM Mapnik'
+        height: '400'
+        locate: '1'
+        auto_center: '1'
+        map_position:
+          center:
+            lat: '38.299046'
+            lon: '16.331649'
+          zoom: '10'
+          minZoom: '1'
+          maxZoom: '18'
+          zoomFiner: '0'
+          force: 0
+        scroll_zoom_enabled: '1'
+        fullscreen_control: 0
+      input:
+        readonly: '1'
+        show: 0
+      toolbar:
+        position: topright
+        marker: defaultMarker
+        drawPolyline: '1'
+        drawRectangle: '1'
+        drawPolygon: '1'
+        editMode: '1'
+        dragMode: '1'
+        cutPolygon: '1'
+        removalMode: '1'
+        drawCircle: false
+      reset_map:
+        position: topright
+        control: 0
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      geocoder:
+        control: false
+        settings:
+          position: topright
+          input_size: 25
+          providers: {  }
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          popup: false
+          options: ''
+    third_party_settings: {  }
+    type: leaflet_widget_default
+    region: content
+  field_settings:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: settings
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  status: true
