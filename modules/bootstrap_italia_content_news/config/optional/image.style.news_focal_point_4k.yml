@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: news_focal_point_4k
+label: 'News Focal Point 4K (3840x1080)'
+effects:
+  0a1f9109-e7a5-4a1b-bb6a-2eb39ac19965:
+    uuid: 0a1f9109-e7a5-4a1b-bb6a-2eb39ac19965
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 3840
+      height: 1080
+      crop_type: focal_point

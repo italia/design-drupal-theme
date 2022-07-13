@@ -1,0 +1,91 @@
+{#
+/**
+ * @file
+ * Template for share component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/esempi/comuni/template-novita-notizia/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - targets (array) (default: [...])
+ *   {
+      'facebook': {
+        'enable': true,
+        'label': 'Facebook',
+        'icon': 'it-facebook',
+        'description': 'Share on Facebook'|trans,
+        'targetType': '_blank',
+        'targetUrl': 'https://www.facebook.com/sharer/sharer.php?u=' ~ current_url
+      },
+      ...
+    }
+ * - label (string) (default: '')
+ * - icon (string) (default: '')
+ * - share_classes (array) (default: '')
+ * - share_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/share/share.html.twig' with {
+      targets: targets,
+      label: 'label'|t,
+      icon: 'it-icon-name'
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _targets = targets|default('') %}
+  {% set _label = label|default('') %}
+  {% set _icon = icon|default('') %}
+  {% set _share_classes = share_classes|default('') %}
+  {% set _share_attributes = share_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      ''
+    ] %}
+
+  {% if _share_classes is not empty %}
+    {% set _classes = _classes|merge(share_classes) %}
+  {% endif %}
+
+  {% if _share_attributes is empty %}
+    {% set share_attributes = create_attribute() %}
+  {% endif %}
+  {% set share_attributes = share_attributes
+    .addClass(_classes)
+  %}
+
+  {# Component #}
+  {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+    label: _label,
+    icon_before: _icon,
+    hide_block_after: true,
+    icon_color: 'black',
+    dropdown_classes: ['shadow-lg'],
+  } %}
+    {% block dropdownContent %}
+      <div class="link-list-wrapper">
+        <ul class="link-list">
+          {% for target in _targets %}
+            {% if target['enable'] %}
+              <li>
+                <a class="list-item"
+                   href="{{ target['targetUrl'] }}" target="{{ target['targetType'] }}" rel="noopener"
+                   aria-label="{{ target['description'] }}" {{ target['customAttributes'] }}
+                >
+                  {% include '@bi-bcl/icon/icon.html.twig' with {
+                    name: target['icon']
+                  } %}
+                  &nbsp;
+                  <span>{{ target['label'] }}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endblock %}
+  {% endembed %}
+
+{% endapply %}

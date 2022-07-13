@@ -35,6 +35,9 @@ enable_locale=${enable_locale:-y}
 read -r -p "Do you want to install extra modules? [y|n] (n): " enable_modules
 enable_modules=${enable_modules:-n}
 
+read -r -p "Do you want to install extra content type? [y|n] (n): " enable_content_type
+enable_content_type=${enable_content_type:-n}
+
 echo "==[ Configuration ]=="
 
 echo "Make ${project_name}"
@@ -120,16 +123,16 @@ if [ "$enable_modules" == "y" ]; then
 
   echo 'Installing color_field library'
   curl --request GET -sL \
-   --url 'https://github.com/recurser/jquery-simple-color/archive/master.zip' \
-   --output './web/libraries/master.zip'
+    --url 'https://github.com/recurser/jquery-simple-color/archive/master.zip' \
+    --output './web/libraries/master.zip'
 
   unzip ./web/libraries/master.zip -d ./web/libraries/
   mv ./web/libraries/jquery-simple-color-master ./web/libraries/jquery-simple-color
   rm -Rf ./web/libraries/master.zip
 
   curl --request GET -sL \
-   --url 'https://github.com/bgrins/spectrum/archive/master.zip' \
-   --output './web/libraries/master.zip'
+    --url 'https://github.com/bgrins/spectrum/archive/master.zip' \
+    --output './web/libraries/master.zip'
 
   unzip ./web/libraries/master.zip -d ./web/libraries/
   mv ./web/libraries/spectrum-master ./web/libraries/spectrum
@@ -149,6 +152,27 @@ if [ "$enable_modules" == "y" ]; then
   ddev composer require drupal/webform wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
 
+fi
+
+if [ "$enable_content_type" == "y" ]; then
+  echo "==[ Install content type ]=="
+
+  echo 'Install module: Bootstrap Italia content News'
+  ddev composer require drupal/duration_field drupal/toc_js drupal/focal_point
+  ddev exec drush -y pm:enable responsive_image duration_field toc_js focal_point  \
+    bootstrap_italia_paragraph bootstrap_italia_paragraph_accordion \
+    bootstrap_italia_paragraph_attachments bootstrap_italia_paragraph_map \
+    bootstrap_italia_paragraph_webform bootstrap_italia_content_news
+
+  curl --request GET -sL \
+    --url 'https://github.com/jgallen23/toc/archive/refs/heads/greenkeeper/update-all.zip' \
+    --output './web/libraries/master.zip'
+
+  echo 'Installing toc_js library'
+  unzip ./web/libraries/master.zip -d ./web/libraries/
+  mv ./web/libraries/toc-greenkeeper-update-all/dist ./web/libraries/toc
+  rm -Rf ./web/libraries/toc-greenkeeper-update-all
+  rm -Rf ./web/libraries/master.zip
 fi
 
 echo 'Push ssh public key in to container, if you have many keys press CRTL+C after first push'

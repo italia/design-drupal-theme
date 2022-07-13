@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: news_focal_point_hfhd
+label: 'News Focal Point HFHD (576x1024)'
+effects:
+  344bb326-8c38-4a81-abd3-c17e1410edcf:
+    uuid: 344bb326-8c38-4a81-abd3-c17e1410edcf
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 576
+      height: 1024
+      crop_type: focal_point

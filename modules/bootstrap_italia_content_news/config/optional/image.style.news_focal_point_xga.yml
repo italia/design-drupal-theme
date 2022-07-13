@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: news_focal_point_xga
+label: 'News Focal Point XGA (1024x384)'
+effects:
+  65211e07-3e0c-4ef1-b0c2-d9a7c53a8b8c:
+    uuid: 65211e07-3e0c-4ef1-b0c2-d9a7c53a8b8c
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 384
+      crop_type: focal_point

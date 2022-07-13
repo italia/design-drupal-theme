@@ -1,0 +1,24 @@
+/**
+ * Custom bootstrap-italia variables
+ * Use as reference: node_modules/bootstrap-italia/src/scss/_variables.scss
+ * For primary colors see: _palette.scss
+ *
+ * This file is automatically imported into 'theme.scss'.
+ */
+
+/*
+ COMUNI EXAMPLE WITH GREEN PRIMARY COLORS DEFINITION
+ This settings are related with: _palette.scss (GREEN EXAMPLE)
+ and last line _bootstrap-italia.scss
+*/
+$header-center-bg-color: $primary;
+$header-slim-bg-color: #00402b;
+$section-header-background-color: $primary-a10;
+$section-user-header-background-color: #f0f8f5;
+$card-link-color: $primary;
+$btn-comuni-primary-hover: #fff;
+$footer-comuni-bg-color: #202a2e;
+$link-list-comuni-color: #455a64;
+$link-list-hover-color: $primary;
+$card-comuni-bg-dark: #2c2c2c;
+/* END COMUNI EXAMPLE */

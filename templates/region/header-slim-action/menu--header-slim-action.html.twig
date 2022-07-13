@@ -31,12 +31,14 @@
   dropdown_dark: slim_header_action_dark,
   assistive_text: 'User actions'|t,
   icon_before: slim_header_action_icon ? 'it-user',
+  icon_before_rounded: true,
+  icon_color: 'white',
   button_classes: [
     slim_header_action_type == 'full' ? 'btn-full'
   ],
   label_classes: ['d-none', 'd-lg-block'],
 } %}
-  {% block dropdown_content %}
+  {% block dropdownContent %}
     <div class="row">
       <div class="col-12">
         {% include '@bi-bcl/list/menu-recursive.html.twig' with {

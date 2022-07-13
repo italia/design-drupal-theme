@@ -7,7 +7,7 @@
 
   {% block contentBreadcrumb %}
     {% if page.breadcrumb %}
-      <section class="it-breadcrumb__wrapper px-4 my-4 {{ content_container_type ?: 'container' }}">
+      <section class="it-breadcrumb__wrapper px-4 mt-4 {{ content_container_type ?: 'container' }}">
         <div class="row">
           <div class="col px-lg-4">
             {{ page.breadcrumb }}
@@ -17,7 +17,7 @@
     {% endif %}
   {% endblock %}
 
-  <a id="it-skip-to-main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+  <a id="it-skip-to-main-content" tabindex="-1" class="visually-hidden"></a>{# link is in html.html.twig #}
 
   {% block contentTitle %}
     {% if page.title %}
@@ -33,7 +33,7 @@
 
   {% block contentLocalTasks %}
     {% if page.local_tasks %}
-      <div class="it-local-tasks_wrapper mb-5 {{ content_container_type ?: 'container' }}">
+      <div class="it-local-tasks_wrapper {{ content_container_type ?: 'container' }}">
         {{ page.local_tasks }}
       </div>
     {% endif %}
@@ -57,31 +57,33 @@
 
   {% set sidebar_width = page.sidebar_first and page.sidebar_second ? 'col-lg-3' : 'col-lg-4' %}
 
-  <div class="{{ content_container_type ?: 'container' }}">
-    <div class="row">
-      {# Sidebar First #}
-      {% block contentSidebarFirst %}
-        {% if page.sidebar_first %}
-          <aside class="{{ sidebar_width }} it-sidebar-first__wrapper" role="complementary">
-            {{ page.sidebar_first }}
-          </aside>
-        {% endif %}
-      {% endblock %}
+  {% block contentMain %}
+    <div class="{{ content_container_type ?: 'container' }}">
+      <div class="row">
+        {# Sidebar First #}
+        {% block contentSidebarFirst %}
+          {% if page.sidebar_first %}
+            <aside class="{{ sidebar_width }} it-sidebar-first__wrapper" role="complementary">
+              {{ page.sidebar_first }}
+            </aside>
+          {% endif %}
+        {% endblock %}
 
-      <div class="col">
-        <div class="it-content__wrapper">
-          {{ page.content }}
-        </div>
-      </div> {# End col #}
+        <div class="col">
+          <div class="it-content__wrapper">
+            {{ page.content }}
+          </div>
+        </div> {# End col #}
 
-      {# Sidebar Second #}
-      {% block contentSidebarSecond %}
-        {% if page.sidebar_second %}
-          <aside class="{{ sidebar_width }} it-sidebar-second__wrapper" role="complementary">
-            {{ page.sidebar_second }}
-          </aside>
-        {% endif %}
-      {% endblock %}
-    </div> {# End row #}
-  </div> {# End container #}
+        {# Sidebar Second #}
+        {% block contentSidebarSecond %}
+          {% if page.sidebar_second %}
+            <aside class="{{ sidebar_width }} it-sidebar-second__wrapper" role="complementary">
+              {{ page.sidebar_second }}
+            </aside>
+          {% endif %}
+        {% endblock %}
+      </div> {# End row #}
+    </div> {# End container #}
+  {% endblock %}
 </main>

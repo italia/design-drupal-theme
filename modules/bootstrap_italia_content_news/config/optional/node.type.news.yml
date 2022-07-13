@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - toc_js
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  toc_js:
+    toc_js_active: 1
+    title: 'Table of contents'
+    selectors: 'h2, h3, h4'
+    selectors_minimum: '0'
+    container: .it-page-sections-container
+    prefix: toc
+    list_type: ul
+    classes: ''
+    back_to_top: 0
+    back_to_top_label: 'Back to top'
+    smooth_scrolling: 1
+    scroll_to_offset: '0'
+    highlight_on_scroll: 1
+    highlight_offset: '100'
+    sticky: 1
+    sticky_offset: '0'
+    sticky_stop: .it-footer
+    sticky_stop_padding: '0'
+name: News
+type: news
+description: 'Use <em>articles</em> for time-sensitive content like news, press releases or blog posts.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

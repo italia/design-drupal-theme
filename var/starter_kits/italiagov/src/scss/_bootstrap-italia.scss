@@ -4,22 +4,6 @@
  * please do not make any changes.
  */
 
-// Bootstrap Italia version variable.
-// Useful to check for the current version.
-@import 'bootstrap-italia/src/scss/custom/version';
-
-// Bootstrap Italia: functions.
-@import 'bootstrap-italia/src/scss/functions';
-
-// Drupal theme: custom palette.
-@import 'custom/palette';
-
-// Bootstrap Italia: color variables.
-@import 'bootstrap-italia/src/scss/utilities/colors_vars';
-
-// Drupal theme: custom variables.
-@import 'custom/variables';
-
 // Bootstrap Italia: variables.
 @import 'bootstrap-italia/src/scss/variables';
 
@@ -183,6 +167,3 @@
 
 // Splide carousel.
 @import '@splidejs/splide/src/css/core/index';
-
-// Override comuni.
-//@import 'bootstrap-italia/src/scss/override-comuni';

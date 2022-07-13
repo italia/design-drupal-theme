@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: news_focal_point_hda
+label: 'News Focal Point HDA (768x1360)'
+effects:
+  e87bf676-434e-436c-b9b6-ecbe75b7f29e:
+    uuid: e87bf676-434e-436c-b9b6-ecbe75b7f29e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 1360
+      crop_type: focal_point

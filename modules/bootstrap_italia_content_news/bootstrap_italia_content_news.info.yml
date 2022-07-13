@@ -1,0 +1,19 @@
+name: "Bootstrap Italia Content News"
+description: This is a news content example (second level content)
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:focal_point
+  - drupal:responsive_image
+  - drupal:duration_field
+  - drupal:imce
+  - drupal:paragraphs
+  - drupal:field_group
+  - drupal:toc_js
+  - drupal:bootstrap_italia_paragraph
+  - drupal:bootstrap_italia_paragraph_accordion
+  - drupal:bootstrap_italia_paragraph_attachments
+  - drupal:bootstrap_italia_paragraph_map
+  - drupal:bootstrap_italia_paragraph_webform

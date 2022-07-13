@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Template for share-this component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/esempi/comuni/template-novita-notizia/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - subject (string) (default: 'Read this news'|t)
+ * - description (string) (default: subject)
+ * - tags (string) (default: '')
+ * - download_url (string) (default: '<current>')
+ *
+ * Examples:
+   {% include '@bi-bcl/share/share-this.html.twig' with {
+      subject: 'Subject',
+      description: 'Description'|t,
+      download_url: 'https://...'
+   } %}
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _subject = subject ? subject|url_encode : 'Read this news'|t|url_encode %}
+  {% set _description = description ? description|url_encode : _subject %}
+  {% set _tags = tags ? tags : 'News'|t %}
+  {% set _download_href = download_url ? download_url : url('<current>') %}
+  {% set _current_url = url('<current>')|render %}
+
+  {% set targets = {
+    'facebook': {
+      'enable': true,
+      'label': 'Facebook',
+      'icon': 'it-facebook',
+      'description': 'Share on Facebook'|t,
+      'targetType': '_blank',
+      'targetUrl': 'https://www.facebook.com/sharer/sharer.php?u=' ~ _current_url
+    },
+    'twitter': {
+      'enable': true,
+      'label': 'Twitter',
+      'icon': 'it-twitter',
+      'description': 'Share on Twitter'|t,
+      'targetType': '_blank',
+      'targetUrl': 'https://twitter.com/share?url=' ~ _current_url ~ '&text=' ~ _subject ~ '&hashtags=' ~ _tags
+    },
+    'linkedin': {
+      'enable': true,
+      'label': 'Linkedin',
+      'icon': 'it-linkedin',
+      'description': 'Share on Linkedin'|t,
+      'targetType': '_blank',
+      'targetUrl': 'https://www.linkedin.com/sharing/share-offsite/?url=' ~ _current_url
+    },
+    'telegram': {
+      'enable': true,
+      'label': 'Telegram',
+      'icon': 'it-telegram',
+      'description': 'Share on Telegram'|t,
+      'targetUrl': 'https://t.me/share/url?url=' ~ _current_url ~ '&text=' ~ _subject
+    },
+    'whatsapp': {
+      'enable': true,
+      'label': 'Whatsapp',
+      'icon': 'it-whatsapp',
+      'description': 'Share on Whatsapp'|t,
+      'targetType': '_blank',
+      'targetUrl': 'https://api.whatsapp.com/send?text=' ~ _subject ~ '%20' ~ _current_url
+    },
+  } %}
+
+  {# Component #}
+  {% include '@bi-bcl/share/share.html.twig' with {
+    targets: targets,
+    label: 'Share'|t,
+    icon: 'it-share',
+  } %}
+{% endapply %}

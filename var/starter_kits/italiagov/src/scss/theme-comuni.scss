@@ -15,16 +15,19 @@
 @import 'bootstrap-italia/src/scss/functions';
 
 // Drupal theme: custom palette.
-@import 'custom/palette';
+@import 'custom-comuni/palette';
 
 // Bootstrap Italia: color variables.
 @import 'bootstrap-italia/src/scss/utilities/colors_vars';
 
 // Drupal theme: custom variables.
-@import 'custom/variables';
+@import 'custom-comuni/variables';
 
 // Import boostrap-italia styles.
 @import "bootstrap-italia";
 
+// Override comuni.
+@import 'bootstrap-italia/src/scss/override-comuni';
+
 // Your custom styles.
-@import "custom/custom";
+@import "custom-comuni/custom";

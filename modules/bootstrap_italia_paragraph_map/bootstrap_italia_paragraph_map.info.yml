@@ -3,7 +3,7 @@ description: This is a Map paragraph with leaflet and open street maps
 package: "Bootstrap Italia"
 
 type: module
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:geofield
   - drupal:leaflet

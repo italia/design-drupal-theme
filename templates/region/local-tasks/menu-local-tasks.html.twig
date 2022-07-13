@@ -18,20 +18,20 @@
 {% if primary %}
   <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
   {% if editor_nav_tabs_scrollable %}
-    <ul class="nav nav-tabs">{{ primary }}</ul>
+    <ul class="nav nav-tabs mb-3">{{ primary }}</ul>
   {% else %}
     <div class="nav-tabs-hidescroll">
-      <ul class="nav nav-tabs">{{ primary }}</ul>
+      <ul class="nav nav-tabs mb-3">{{ primary }}</ul>
     </div>
   {% endif %}
 {% endif %}
 {% if secondary %}
   <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
   {% if editor_nav_tabs_scrollable %}
-    <ul class="nav nav-tabs mt-5">{{ secondary }}</ul>
+    <ul class="nav nav-tabs mt-5 mb-3">{{ secondary }}</ul>
   {% else %}
     <div class="nav-tabs-hidescroll">
-      <ul class="nav nav-tabs mt-5">{{ secondary }}</ul>
+      <ul class="nav nav-tabs mt-5 mb-3">{{ secondary }}</ul>
     </div>
   {% endif %}
 {% endif %}

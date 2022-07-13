@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph
+    - node.type.news
+    - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.attachments
+    - paragraphs.paragraphs_type.content
+    - paragraphs.paragraphs_type.map
+    - paragraphs.paragraphs_type.webform
+  module:
+    - entity_reference_revisions
+id: node.news.field_paragraph
+field_name: field_paragraph
+entity_type: node
+bundle: news
+label: Paragraph
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      content: content
+      attachments: attachments
+      accordion: accordion
+      map: map
+      webform: webform
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: -13
+        enabled: true
+      accordion_item:
+        weight: -10
+        enabled: false
+      attachments:
+        weight: -14
+        enabled: true
+      content:
+        weight: -15
+        enabled: true
+      map:
+        weight: -12
+        enabled: true
+      settings:
+        weight: -9
+        enabled: false
+      webform:
+        weight: -11
+        enabled: true
+field_type: entity_reference_revisions

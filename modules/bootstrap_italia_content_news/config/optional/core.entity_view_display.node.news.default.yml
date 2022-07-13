@@ -1,0 +1,76 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news.body
+    - field.field.node.news.field_image
+    - field.field.node.news.field_paragraph
+    - field.field.node.news.field_tags
+    - field.field.node.news.field_time_to_read
+    - node.type.news
+    - responsive_image.styles.content_news
+  module:
+    - duration_field
+    - entity_reference_revisions
+    - responsive_image
+    - text
+    - user
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: content_news
+      image_link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_time_to_read:
+    type: duration_human_display
+    label: above
+    settings:
+      text_length: full
+      separator: space
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  toc_js:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: news_focal_point_fhd
+label: 'News Focal Point FHD (1920x540)'
+effects:
+  631f5f1b-a6e1-42fb-b3b7-b0edf37508c5:
+    uuid: 631f5f1b-a6e1-42fb-b3b7-b0edf37508c5
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 540
+      crop_type: focal_point

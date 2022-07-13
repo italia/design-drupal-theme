@@ -3,7 +3,7 @@ description: This is a webform integration in paragraphs
 package: "Bootstrap Italia"
 
 type: module
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:webform
   - drupal:webform_bootstrap

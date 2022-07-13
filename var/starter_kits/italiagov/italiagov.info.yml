@@ -106,4 +106,4 @@ regions:
 components:
   namespaces:
     italiagov_components:
-      - ./src/components
+      - ./components

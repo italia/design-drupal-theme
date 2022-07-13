@@ -1,0 +1,86 @@
+{#
+/**
+ * @file
+ * Template for share-this component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/esempi/comuni/template-novita-notizia/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - subject (string) (default: 'Read this news'|t)
+ * - description (string) (default: subject)
+ * - tags (string) (default: '')
+ * - download_url (string) (default: '<current>')
+ *
+ * Examples:
+   {% include '@bi-bcl/share/content-actions.html.twig' with {
+      subject: 'Subject',
+      description: 'Description'|t,
+      download_url: 'https://...'
+   } %}
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _subject = subject ? subject|url_encode : 'Read this news'|t|url_encode %}
+  {% set _description = description ? description|url_encode : _subject %}
+  {% set _tags = tags ? tags : 'News'|t %}
+  {% set _download_href = download_url ? download_url : url('<current>') %}
+  {% set _current_url = url('<current>')|render %}
+
+  {% set targets = {
+    'download': {
+      'enable': true,
+      'label': 'Download'|t,
+      'icon': 'it-download',
+      'description': 'Download'|t,
+      'targetType': '_self',
+      'targetUrl': _download_href,
+      'customAttributes': 'download'
+    },
+    'print': {
+      'enable': true,
+      'label': 'Print'|t,
+      'icon': 'it-print',
+      'description': 'Print'|t,
+      'targetType': '_self',
+      'targetUrl': 'javascript:if(window.print)window.print()'
+    },
+    'mail': {
+      'enable': true,
+      'label': 'Email'|t,
+      'icon': 'it-mail',
+      'description': 'Email'|t,
+      'targetType': '_self',
+      'targetUrl': 'mailto:?Subject=' ~ _subject ~ '&Body=' ~ _description ~ '%20' ~ _current_url
+    }
+  } %}
+
+  {# Component #}
+  {% include '@bi-bcl/share/share.html.twig' with {
+    targets: targets,
+    label: 'View actions'|t,
+    icon: 'it-more-items',
+  } %}
+{% endapply %}
+
+{# TODO: da sistemare!!!
+<li>
+  <script>
+    function textNodesUnder(el){
+      let n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+      while(n=walk.nextNode()) a.push(n.textContent);
+      return a.join(' ');
+    }
+    const listenPageContent = new SpeechSynthesisUtterance();
+    const elementToRead = document.getElementById('it-block-contenutodellapaginaprincipale');
+    listenPageContent.text = textNodesUnder(elementToRead);
+  </script>
+  <a class="list-item" href="javascript:window.speechSynthesis.speak(listenPageContent)">
+    {% include '@bootstrap_italia_components/icon/icon.twig' with {
+      name: 'it-hearing'
+    } %}
+    <span>{{ 'Listen'|trans }}</span>
+  </a>
+</li>
+#}
+

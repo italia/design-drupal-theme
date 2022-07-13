@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_time_to_read
+    - node.type.news
+  module:
+    - duration_field
+id: node.news.field_time_to_read
+field_name: field_time_to_read
+entity_type: node
+bundle: news
+label: 'Time to read'
+description: 'Time to read the article'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  granularity: 'i:s'
+field_type: duration

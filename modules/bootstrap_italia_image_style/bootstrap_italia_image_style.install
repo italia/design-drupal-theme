@@ -2,7 +2,7 @@
 
 /**
  * @file
- * The Arturu Image Styles install file.
+ * The Bootstrap Italia Image Styles install file.
  */
 
 declare(strict_types = 1);

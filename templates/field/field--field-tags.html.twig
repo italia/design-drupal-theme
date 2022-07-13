@@ -70,7 +70,11 @@
                 chip_color: 'primary',
               } %}
             {% endset %}
-            {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+            {% if item.content['#options'].attributes is iterable %}
+              {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+            {% else %}
+              {{ link(item_chip, item.content['#url']) }}
+            {% endif %}
           </div>
         {% endfor %}
       </div>
@@ -83,7 +87,11 @@
               chip_color: 'primary',
             } %}
           {% endset %}
-          {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+          {% if item.content['#options'].attributes is iterable %}
+            {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+          {% else %}
+            {{ link(item_chip, item.content['#url']) }}
+          {% endif %}
         </div>
       {% endfor %}
     {% endif %}
@@ -112,7 +120,11 @@
               chip_color: 'primary',
             } %}
           {% endset %}
-          {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+          {% if item.content['#options'].attributes is iterable %}
+            {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+          {% else %}
+            {{ link(item_chip, item.content['#url']) }}
+          {% endif %}
         </div>
       {% endfor %}
       {% if multiple %}

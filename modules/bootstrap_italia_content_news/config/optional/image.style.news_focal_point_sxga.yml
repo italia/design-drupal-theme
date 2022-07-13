@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: news_focal_point_sxga
+label: 'News Focal Point SXGA (1280x512)'
+effects:
+  a68debdf-161a-434e-b80b-42c4c50834c8:
+    uuid: a68debdf-161a-434e-b80b-42c4c50834c8
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 512
+      crop_type: focal_point

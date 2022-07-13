@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.news_focal_point_4k
+    - image.style.news_focal_point_fhd
+    - image.style.news_focal_point_hd_
+    - image.style.news_focal_point_hda
+    - image.style.news_focal_point_sxga
+    - image.style.news_focal_point_xga
+  theme:
+    - bootstrap_italia
+id: content_news
+label: 'Content news'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: news_focal_point_4k
+    breakpoint_id: bootstrap_italia.4k
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: news_focal_point_fhd
+    breakpoint_id: bootstrap_italia.full_hd
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: news_focal_point_hd_
+    breakpoint_id: bootstrap_italia.extra_large
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: news_focal_point_sxga
+    breakpoint_id: bootstrap_italia.large
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: news_focal_point_xga
+    breakpoint_id: bootstrap_italia.medium
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: news_focal_point_hda
+    breakpoint_id: bootstrap_italia.small
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: news_focal_point_hda
+    breakpoint_id: bootstrap_italia.extra_small
+    multiplier: 1x
+breakpoint_group: bootstrap_italia
+fallback_image_style: news_focal_point_4k

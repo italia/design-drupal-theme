@@ -26,6 +26,8 @@
  *   - options ["up", "end", "down", "start"]
  * - icon_before (string) (default: '')
  *   - options ["it-icon-name"]
+ * - icon_before_rounded (boolean) (default: false)
+ * - icon_color (string) (default: '')
  * - hide_block_after (boolean) (default: false)
  *   - If enabled hide block after
  * - button_classes (array) (default: '')
@@ -40,7 +42,7 @@
     {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
       variables: value,
     } %}
-      {% block dropdown_content %}
+      {% block dropdownContent %}
         {% include '@bi-bcl/list/menu-recursive.html.twig' with {
           menu_name: menu_name,
           items: items,
@@ -65,6 +67,8 @@
   {% set _assistive_text = assistive_text|default('') %}
   {% set _direction = direction|default('down') %}
   {% set _icon_before = icon_before|default('') %}
+  {% set _icon_before_rounded = icon_before_rounded ?? false %}
+  {% set _icon_color = icon_color|default('') %}
   {% set _hide_block_after = hide_block_after ?? false %}
   {% set _button_classes = button_classes|default('') %}
   {% set _button_attributes = button_attributes|default('') %}
@@ -75,7 +79,7 @@
   {# Set options #}
   {% set _classes = [
     'dropdown-toggle',
-    'btn-icon'
+    _icon_before_rounded ? 'btn-icon'
   ] %}
 
   {% if _button_classes is not empty %}
@@ -92,15 +96,16 @@
   %}
 
   {# Dropdown tooltip settings #}
-  {% set _icon_color = _variant == 'dropdown' ? 'primary' : 'light' %}
+  {% if _icon_color is empty %}
+    {% set _icon_color = _variant == 'light' or _variant == 'white' or _variant == 'dropdown' ? 'primary' : 'white' %}
+  {% endif %}
   {% set _id = 'dropdown-'~_id %}
 
   {% if _dropdown_attributes is empty %}
     {% set dropdown_attributes = create_attribute() %}
   {% endif %}
-  {% if _dropdown_classes is empty %}
-    {% set dropdown_attributes = dropdown_attributes.addClass('dropdown-menu') %}
-  {% else %}
+  {% set dropdown_attributes = dropdown_attributes.addClass('dropdown-menu') %}
+  {% if _dropdown_classes is not empty %}
     {% set dropdown_attributes = dropdown_attributes.addClass(_dropdown_classes) %}
   {% endif %}
 
@@ -133,14 +138,18 @@
 
       {% block before %}
         {% if _icon_before is not empty %}
-          <span class="rounded-icon">
+          {% if _icon_before_rounded %}
+            <span class="rounded-icon">
+          {% endif %}
             {% include '@bi-bcl/icon/icon.html.twig' with {
               name: _icon_before,
               size: _size,
-              color: _variant == 'light' or _variant == 'white' or _variant == 'dropdown' ? 'primary' : _variant,
+              color: _icon_before_rounded ? 'primary' : _icon_color,
               icon_classes: ['mr-1'],
             } %}
-          </span>&nbsp;
+          {% if _icon_before_rounded %}
+            </span>&nbsp;
+          {% endif %}
         {% endif %}
       {% endblock %}
 
@@ -156,7 +165,7 @@
     {% endembed %}
 
     <div{{ dropdown_attributes }}>
-      {% block dropdown_content %}{% endblock %}
+      {% block dropdownContent %}{% endblock %}
     </div>
 
   {% if _direction != 'down' %}

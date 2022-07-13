@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: news_focal_point_hd_
+label: 'News Focal Point HD+ (1600x450)'
+effects:
+  56588d62-6fdb-44b9-8021-1926e15dacbc:
+    uuid: 56588d62-6fdb-44b9-8021-1926e15dacbc
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 450
+      crop_type: focal_point
