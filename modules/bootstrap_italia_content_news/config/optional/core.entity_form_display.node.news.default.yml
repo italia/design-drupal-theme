@@ -3,13 +3,17 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_abstract
+    - field.field.node.news.field_expiration_date
     - field.field.node.news.field_image
+    - field.field.node.news.field_news_type
     - field.field.node.news.field_paragraph
-    - field.field.node.news.field_tags
+    - field.field.node.news.field_subjects
     - field.field.node.news.field_time_to_read
     - image.style.medium
     - node.type.news
   module:
+    - datetime
     - duration_field
     - field_group
     - focal_point
@@ -23,6 +27,7 @@ third_party_settings:
       children:
         - group_header
         - group_content
+        - group_catalogue
       label: Container
       region: content
       parent_name: ''
@@ -37,9 +42,8 @@ third_party_settings:
     group_header:
       children:
         - title
-        - body
+        - field_abstract
         - field_time_to_read
-        - field_tags
         - field_image
       label: Header
       region: content
@@ -55,11 +59,29 @@ third_party_settings:
         required_fields: false
     group_content:
       children:
+        - body
         - field_paragraph
       label: Content
       region: content
       parent_name: group_container
       weight: 15
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_catalogue:
+      children:
+        - field_news_type
+        - field_subjects
+        - field_expiration_date
+      label: Catalogue
+      region: content
+      parent_name: group_container
+      weight: 16
       format_type: tab
       format_settings:
         classes: ''
@@ -75,7 +97,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 9
@@ -89,9 +111,23 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_abstract:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_expiration_date:
+    type: datetime_default
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: image_focal_point
-    weight: 6
+    weight: 5
     region: content
     settings:
       progress_indicator: bar
@@ -101,9 +137,15 @@ content:
     third_party_settings:
       imce:
         enabled: true
+  field_news_type:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_paragraph:
     type: paragraphs
-    weight: 7
+    weight: 5
     region: content
     settings:
       title: Paragraph
@@ -120,15 +162,15 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-  field_tags:
+  field_subjects:
     type: entity_reference_autocomplete_tags
-    weight: 5
+    weight: 27
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
-      placeholder: 'tag 1, tag 2, tag 3'
+      placeholder: ''
     third_party_settings: {  }
   field_time_to_read:
     type: duration_widget
@@ -175,7 +217,7 @@ content:
     weight: 2
     region: content
     settings:
-      size: 60
+      size: 255
       placeholder: ''
     third_party_settings: {  }
   uid:

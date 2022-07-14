@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'News types'
+vid: news_types
+description: ''
+weight: 0

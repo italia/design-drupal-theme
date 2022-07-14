@@ -1,7 +1,8 @@
 {#
 /**
  * @file
- * Default theme implementation to display a node.
+ * Default theme implementation to card display a node.
+ * To activate this template you need to add a display named 'card'.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -68,86 +69,31 @@
  * @ingroup themeable
  */
 #}
-<article{{ attributes }}>
+{% embed '@bi-bcl/card/card-big.html.twig' with {
+  card_tag_container: 'article',
+  card_icon: 'it-horn',
+  card_category: content.field_news_type,
+  card_flag: true,
+  card_signature: display_submitted ? author_name : false,
+  card_read_more_url: url,
+  card_read_more_text: label[0]['#context'].value,
+  card_attributes: attributes
+} %}
 
-  <div class="container px-4 mb-4">
-    <div class="row">
-      <div class="col-lg-8 px-lg-4 py-lg-2">
-        {{ title_prefix }}
-        <h1{{ title_attributes }}>
-          {{ label }}
-        </h1>
-        {{ title_suffix }}
-        <p>{{ content.field_abstract }}</p>
-        <div class="row mt-5 mb-4">
-          <div class="col-6">
-            <small>{{ 'Date'|t }}:</small>
-            <p class="fw-semibold font-monospace">{{ date }}</p>
-          </div>
-          <div class="col-6">
-            <small>{{ content.field_time_to_read['#title'] }}:</small>
-            <p class="fw-semibold">{{ content.field_time_to_read[0]['#markup'] }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 offset-lg-1">
-        {% include '@bi-bcl/share/share-this.twig' with {
-          subject: label[0]['#context'].value,
-          description: content.body|render()|striptags|slice(0, 100),
-        } %}
-        {% include '@bi-bcl/share/content-actions.twig' with {
-          subject: label[0]['#context'].value,
-          description: content.body|render()|striptags|slice(0, 100),
-        } %}
-        <div class="mt-4 mb-4">
-          {{ content.field_subjects }}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="my-3">
-    <figure class="figure px-0">
-      {{ content.field_image }}
-      <figcaption class="figure-caption text-center pt-3">{{ content.field_image['#items'].alt }}</figcaption>
-    </figure>
-  </div>
-
-  <div class="container">
-    <div class="row border-top row-column-border row-column-menu-left">
-      <aside class="col-lg-4">
-        {{ content.toc_js }}
-      </aside>
-      <section class="col-lg-8 it-page-sections-container">
-        <div{{ content_attributes }}>
-          {{ content|without(
-            'field_abstract',
-            'field_subjects',
-            'field_time_to_read',
-            'field_image',
-            'toc_js',
-            'comment'
-          ) }}
-        </div>
-        <footer>
-          <h4 class="mb-3">{{ 'Other information'|t }}</h4>
-          <p class="font-serif">{{ 'Last update'|t }}</p>
-          <h6><strong>{{ node.getChangedTime|date('d/m/Y, H:i') }}</strong></h6>
-          {{ content.field_expiration_date }}
-          {% if display_submitted %}
-            <div{{ author_attributes }}>
-              {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-              {{ metadata }}
-            </div>
-          {% endif %}
-        </footer>
-      </section>
-    </div>
-
-    {% if content.comment %}
-      <div id="node--comments" class="node_comments">
-        {{ content.comment }}
-      </div>
+  {% block cardTitle %}
+    {{ title_prefix }}
+    {% if label and not page %}
+      <h3{{ title_attributes.addClass(['card-title','h5']) }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h3>
     {% endif %}
-  </div>
-</article>
+    {{ title_suffix }}
+  {% endblock %}
+
+  {% block cardText %}
+    <div{{ content_attributes.addClass('card-text') }}>
+      {{ content|without('field_news_type') }}
+    </div>
+  {% endblock %}
+
+{% endembed %}

@@ -2,20 +2,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_time_to_read
+    - field.storage.node.field_expiration_date
     - node.type.news
   module:
-    - duration_field
-id: node.news.field_time_to_read
-field_name: field_time_to_read
+    - datetime
+id: node.news.field_expiration_date
+field_name: field_expiration_date
 entity_type: node
 bundle: news
-label: 'Time to read'
+label: 'Expiration date'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  granularity: i
-field_type: duration
+settings: {  }
+field_type: datetime

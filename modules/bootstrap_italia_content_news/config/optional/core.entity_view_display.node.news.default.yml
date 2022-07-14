@@ -3,13 +3,17 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_abstract
+    - field.field.node.news.field_expiration_date
     - field.field.node.news.field_image
+    - field.field.node.news.field_news_type
     - field.field.node.news.field_paragraph
-    - field.field.node.news.field_tags
+    - field.field.node.news.field_subjects
     - field.field.node.news.field_time_to_read
     - node.type.news
     - responsive_image.styles.content_news
   module:
+    - datetime
     - duration_field
     - entity_reference_revisions
     - responsive_image
@@ -25,7 +29,23 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 5
+    region: content
+  field_abstract:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 1
+    region: content
+  field_expiration_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_image:
     type: responsive_image
@@ -43,15 +63,15 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 5
+    weight: 6
     region: content
-  field_tags:
+  field_subjects:
     type: entity_reference_label
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
   field_time_to_read:
     type: duration_human_display
@@ -60,7 +80,7 @@ content:
       text_length: full
       separator: space
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   links:
     settings: {  }
@@ -73,4 +93,5 @@ content:
     weight: 7
     region: content
 hidden:
+  field_news_type: true
   langcode: true

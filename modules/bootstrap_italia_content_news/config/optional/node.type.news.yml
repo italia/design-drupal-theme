@@ -15,7 +15,7 @@ third_party_settings:
     selectors: 'h2, h3, h4'
     selectors_minimum: '0'
     container: .it-page-sections-container
-    prefix: toc
+    prefix: ''
     list_type: ul
     classes: ''
     back_to_top: 0
