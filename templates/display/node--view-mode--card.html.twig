@@ -72,11 +72,11 @@
 {% set date_card_format = date|split(' ') %}
 {% embed '@bi-bcl/card/card.html.twig' with {
   card_tag_container: 'article',
-  card_image: content.field_image,
-  card_image_date: {'day': date_card_format[0], 'month': date_card_format[1], 'year': date_card_format[2]},
-  card_date: date,
-  card_category: content.field_tags[0],
-  card_signature: author_name,
+  card_image: content.field_image[0] ? content.field_image,
+  card_image_date: content.field_image[0] ? {'day': date_card_format[0], 'month': date_card_format[1], 'year': date_card_format[2]},
+  card_date: content.field_image[0] ? false : date,
+  card_category: content.field_image[0] ? false : content.field_tags[0],
+  card_signature: display_submitted ? author_name : false,
   card_read_more_url: url,
   card_read_more_text: label[0]['#context'].value,
   card_shadow: true,
@@ -99,12 +99,5 @@
       {{ content|without('field_tags','field_image') }}
     </div>
   {% endblock %}
-
-  {% if display_submitted %}
-    {% block cardSignature %}
-      <span{{ author_attributes.addClass('card-signature') }}>{{ 'by'|t }} {{ author_name }}</span>
-      {{ metadata }}
-    {% endblock %}
-  {% endif %}
 
 {% endembed %}
