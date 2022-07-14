@@ -125,7 +125,8 @@
             'field_time_to_read',
             'field_tags',
             'field_image',
-            'toc_js'
+            'toc_js',
+            'comment'
           ) }}
         </div>
         <footer>
@@ -141,5 +142,11 @@
         </footer>
       </section>
     </div>
+
+    {% if content.comment %}
+      <div id="node--comments" class="node_comments">
+        {{ content.comment }}
+      </div>
+    {% endif %}
   </div>
 </article>

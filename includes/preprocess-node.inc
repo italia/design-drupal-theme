@@ -11,7 +11,7 @@ function bootstrap_italia_preprocess_node(&$variables) {
   }
 
   // Apply custom date formatter to "date" field.
-  if (!empty($variables['date']) && !empty($variables['display_submitted']) && $variables['display_submitted'] === TRUE) {
+  if (!empty($variables['date'])) {
     $variables['date'] = \Drupal::service('date.formatter')->format($variables['node']->getCreatedTime(), 'bootstrap_italia_medium');
   }
 }

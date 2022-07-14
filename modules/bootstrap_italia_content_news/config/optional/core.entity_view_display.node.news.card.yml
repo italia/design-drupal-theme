@@ -1,3 +1,4 @@
+uuid: 8ed66b20-b9a1-4a59-85d8-02692c212900
 langcode: en
 status: true
 dependencies:
@@ -9,7 +10,7 @@ dependencies:
     - field.field.node.news.field_tags
     - field.field.node.news.field_time_to_read
     - node.type.news
-    - responsive_image.styles.content_news
+    - responsive_image.styles.wide
   module:
     - responsive_image
     - text
@@ -31,8 +32,8 @@ content:
     type: responsive_image
     label: hidden
     settings:
-      responsive_image_style: content_news
-      image_link: ''
+      responsive_image_style: wide
+      image_link: content
     third_party_settings: {  }
     weight: 0
     region: content
