@@ -10,7 +10,7 @@
  *   - options ["div", "article"]
  * - card_image (drupal_field) (default: '')
  * - card_image_date (array|drupal_date_field) (default: '')
- *   - {'day': '9', 'month': 'October', 'year': '2022'}
+ *   - {'day': '9', 'time': '9:05', 'month': 'October', 'year': '2022'}
  *   - {'date-full': drupal_date_field|raw}
  * - card_icon (string) (default: '')
  *   - option ["it-icon-name"]
@@ -112,6 +112,9 @@
                   {% endif %}
                   {% if _card_image_date['day'] %}
                     <span class="card-date">{{ _card_image_date['day'] }}</span>
+                  {% endif %}
+                  {% if _card_image_date['time'] %}
+                    <span class="card-time">{{ _card_image_date['time'] }}</span>
                   {% endif %}
                   {% if _card_image_date['month'] %}
                     <span class="card-month">{{ _card_image_date['month'] }}</span>

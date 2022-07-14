@@ -1,8 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to card display a node.
- * To activate this template you need to add a display named 'card'.
+ * Default theme implementation to display a node.
  *
  * Available variables:
  * - node: The node entity with limited access to object properties and methods.
@@ -69,42 +68,44 @@
  * @ingroup themeable
  */
 #}
-{% set date_card_format = date|split(' ') %}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_tag_container: 'article',
-  card_image: content.field_image,
-  card_image_date: {'day': date_card_format[0], 'month': date_card_format[1], 'year': date_card_format[2]},
-  card_date: date,
-  card_category: content.field_tags[0],
-  card_signature: author_name,
-  card_read_more_url: url,
-  card_read_more_text: label[0]['#context'].value,
-  card_shadow: true,
-  card_border_bottom: true,
-  card_attributes: attributes
-} %}
+{%
+  set classes = [
+  'node',
+  'node--type-' ~ node.bundle|clean_class,
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+]
+%}
+<article{{ attributes.addClass(classes) }}>
 
-  {% block cardTitle %}
-    {{ title_prefix }}
-    {% if label and not page %}
-      <h3{{ title_attributes.addClass(['card-title','h5']) }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-      </h3>
-    {% endif %}
-    {{ title_suffix }}
-  {% endblock %}
-
-  {% block cardText %}
-    <div{{ content_attributes.addClass('card-text') }}>
-      {{ content|without('field_tags','field_image') }}
-    </div>
-  {% endblock %}
+  {{ title_prefix }}
+  {% if label and not page %}
+    <h2{{ title_attributes.addClass('node__title') }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
 
   {% if display_submitted %}
-    {% block cardSignature %}
-      <span{{ author_attributes.addClass('card-signature') }}>{{ 'by'|t }} {{ author_name }}</span>
-      {{ metadata }}
-    {% endblock %}
+    <footer>
+      {{ author_picture }}
+      <div{{ author_attributes }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
   {% endif %}
 
-{% endembed %}
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content|without('comment') }}
+  </div>
+
+  {% if content.comment %}
+    <div id="node--comments" class="node_comments">
+      {{ content.comment }}
+    </div>
+  {% endif %}
+
+</article>

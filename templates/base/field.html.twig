@@ -47,8 +47,9 @@
     'field--entity-' ~ entity_type|clean_class,
     multiple ? 'field-multiple',
     'field--label-' ~ label_display|clean_class,
-    field_container_vertical_padding is not empty ? field_container_vertical_padding,
-    field_container_vertical_margin is not empty ? field_container_vertical_margin,
+    field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
+    field_container_vertical_padding is not empty and field_view_mode == 'full' ? field_container_vertical_padding,
+    field_container_vertical_margin is not empty and field_view_mode == 'full' ? field_container_vertical_margin,
   ] %}
 
   {% set title_classes = [

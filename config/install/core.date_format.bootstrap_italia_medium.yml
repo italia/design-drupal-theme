@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    theme:
+      - bootstrap_italia
+id: bootstrap_italia_medium
+label: 'Bootstrap Italia Medium'
+locked: false
+pattern: 'j F Y'
