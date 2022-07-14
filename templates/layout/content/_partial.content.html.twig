@@ -33,7 +33,7 @@
 
   {% block contentLocalTasks %}
     {% if page.local_tasks %}
-      <div class="it-local-tasks_wrapper {{ content_container_type ?: 'container' }}">
+      <div class="it-local-tasks_wrapper d-print-none {{ content_container_type ?: 'container' }}">
         {{ page.local_tasks }}
       </div>
     {% endif %}

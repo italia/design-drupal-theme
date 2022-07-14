@@ -10,6 +10,13 @@ namespace Drupal\bootstrap_italia\Helper;
 class Libraries {
 
   /**
+   * Distribution folder name.
+   *
+   * @var string
+   */
+  private static string $distributionFolder = 'dist';
+
+  /**
    * Returns available theme libraries.
    *
    * @return array
@@ -17,8 +24,8 @@ class Libraries {
    */
   public static function getLibraries(): array {
     $theme = Helper::getTheme();
-    $assets_css_path = $theme->getPath() . '/assets/css';
-    $assets_js_path = $theme->getPath() . '/assets/js';
+    $assets_css_path = $theme->getPath() . '/' . self::$distributionFolder . '/css';
+    $assets_js_path = $theme->getPath() . '/' . self::$distributionFolder . '/js';
 
     $static_option = [
       '' => t('Use @theme.libraries.yml', ['@theme' => $theme->getName()]),
@@ -36,7 +43,7 @@ class Libraries {
     $extensions = array_map('preg_quote', $extensions);
     $extensions = implode('|', $extensions);
 
-    // Search css e js file in theme/assets.
+    // Search css e js file in theme/dist.
     $css = \Drupal::service('file_system')->scanDirectory($assets_css_path, "/{$extensions}$/");
     $js = \Drupal::service('file_system')->scanDirectory($assets_js_path, "/{$extensions}$/");
 
@@ -78,11 +85,11 @@ class Libraries {
       $libraries['libraries-ui'] = [
         'css' => [
           'theme' => [
-            'assets/css/' . $libraries_type . '.css' => [],
+            self::$distributionFolder . '/css/' . $libraries_type . '.css' => [],
           ],
         ],
         'js' => [
-          'assets/js/' . $libraries_type . '.js' => [],
+          self::$distributionFolder . '/js/' . $libraries_type . '.js' => [],
         ],
         'dependencies' => [
           'core/drupal',
@@ -103,13 +110,13 @@ class Libraries {
    */
   public static function getLibrariesVanilla(): array {
     $js = Helper::getSettings()->get('libraries_bundle')
-      ? 'assets/js/bootstrap-italia.bundle.min.js'
-      : 'assets/js/bootstrap-italia.min.js';
+      ? self::$distributionFolder . '/js/bootstrap-italia.bundle.min.js'
+      : self::$distributionFolder . '/js/bootstrap-italia.min.js';
 
     return [
       'css' => [
         'theme' => [
-          'assets/css/bootstrap-italia.min.css' => ['minified' => TRUE],
+          self::$distributionFolder . '/css/bootstrap-italia.min.css' => ['minified' => TRUE],
         ],
       ],
       'js' => [

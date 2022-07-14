@@ -5,10 +5,10 @@
 vanilla:
   css:
     theme:
-      assets/css/bootstrap-italia.min.css: { minified: true }
+      dist/css/bootstrap-italia.min.css: { minified: true }
   js:
-    assets/js/bootstrap-italia.bundle.min.js: { minified: true }
-    # assets/js/bootstrap-italia.min.js: { minified: true }
+    dist/js/bootstrap-italia.bundle.min.js: { minified: true }
+    # dist/js/bootstrap-italia.min.js: { minified: true }
   dependencies:
     - core/drupal
 
@@ -16,9 +16,9 @@ vanilla:
 custom:
   css:
     theme:
-      assets/css/bootstrap-italia.css: {}
+      dist/css/bootstrap-italia.css: {}
   js:
-    assets/js/bootstrap-italia.js: {}
+    dist/js/bootstrap-italia.js: {}
   dependencies:
     - core/drupal
 

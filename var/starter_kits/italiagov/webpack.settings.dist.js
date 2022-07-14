@@ -1,7 +1,7 @@
 module.exports = {
   /*** Basic settings ***/
   sourceDir: 'src',
-  destinationDir: 'assets',
+  destinationDir: 'dist',
   moduleDir: 'node_modules',
 
   /*** Hot mode settings ***/
