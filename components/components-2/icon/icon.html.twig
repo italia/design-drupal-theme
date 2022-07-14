@@ -92,7 +92,7 @@
   {% set icon_attributes = icon_attributes.addClass(_classes) %}
 
   {% if _icon_path is empty %}
-    {% set _icon_path = "/" ~ active_theme_path() ~ "/assets/svg/" ~ _library ~ "#" ~ _name %}
+    {% set _icon_path = "/" ~ active_theme_path() ~ "/dist/svg/" ~ _library ~ "#" ~ _name %}
   {% else %}
     {% set _icon_path = _icon_path ~ "#" ~ _name %}
   {% endif %}

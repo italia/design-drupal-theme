@@ -67,7 +67,7 @@
     {{ page_bottom }}
 
     {% set _libraries_cdn_fonts_path = libraries_cdn_fonts is not empty ?
-      libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/assets/fonts'
+      libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/dist/fonts'
     %}
     <script>window.__PUBLIC_PATH__ = '{{ _libraries_cdn_fonts_path }}'</script>
     <js-bottom-placeholder token="{{ placeholder_token }}">
