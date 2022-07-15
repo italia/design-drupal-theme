@@ -10,9 +10,9 @@ use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\CarouselStyle;
 /**
  * Implements hook_theme().
  */
-function bootstrap_italia_views_carousel_theme($existing, $type, $theme, $path) {
+function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $path) {
   return [
-    'bootstrap_italia_views_carousel' => [
+    'views_bootstrap_italia_views_carousel' => [
       'variables' => [
         'view' => NULL,
         'rows' => NULL,
@@ -27,7 +27,7 @@ use \Drupal\Component\Utility\Html;
 /**
  * Prepares variables for bootstrap carousel templates.
  *
- * Default template: bootstrap-italia-views-carousel.html.twig.
+ * Default template: views-bootstrapitalia_views-carousel.html.twig
  *
  * @param array $variables
  *   An associative array containing:

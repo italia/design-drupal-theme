@@ -14,7 +14,7 @@ use Drupal\views\Plugin\views\style\StylePluginBase;
  *   id = "bootstrap_italia_views_carousel_style",
  *   title = @Translation("Bootstrap Italia Carousel component"),
  *   help = @Translation("Render a Bootstrap Italia Carousel."),
- *   theme = "bootstrap_italia_views_carousel",
+ *   theme = "views_bootstrap_italia_views_carousel",
  *   display_types = { "normal" }
  * )
  */
