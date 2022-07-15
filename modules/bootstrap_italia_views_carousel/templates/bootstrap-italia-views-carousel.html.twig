@@ -15,11 +15,10 @@
 #}
 <!-- Carousel main container -->
 {% spaceless %}
-{% set slider_id = options.carousel_settings.container | clean_id %}
 {% set classes = [
   'splide',
   'it-carousel-wrapper',
-  options.carousel_settings.type == 'hl_image_card' ? 'it-carousel-landscape-abstract'
+  options.bi_carousel_settings.type == 'hl_image_card' ? 'it-carousel-landscape-abstract'
 ] %}
 
 <div{{ attributes.addClass(classes)}} data-bs-carousel-splide>
