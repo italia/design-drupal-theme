@@ -18,7 +18,6 @@ function bootstrap_italia_views_carousel_theme($existing, $type, $theme, $path) 
         'rows' => NULL,
         'options' => NULL,
       ],
-      'template' => 'views--bootstrap-italia-views-carousel',
     ],
   ];
 }
