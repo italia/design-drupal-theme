@@ -60,8 +60,8 @@ function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$s
     $view = $variables['elements']['content']['#view'];
 
     if ($view->style_plugin instanceof CarouselStyle) {
-      $suggestions[] = 'block__views_views_carousel__' . $view->id();
-      $suggestions[] = 'block__views_views_carousel';
+      $suggestions[] = 'block__views_views_bi_carousel__' . $view->id();
+      $suggestions[] = 'block__views_views_bi_carousel';
     }
   }
 }
