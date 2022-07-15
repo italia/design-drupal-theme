@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Swiper Views module help and theme functions.
+ */
+
+use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\CarouselStyle;
+
+/**
+ * Implements hook_theme().
+ */
+function bootstrap_italia_views_carousel_theme($existing, $type, $theme, $path) {
+  return [
+    'bootstrap_italia_views_carousel' => [
+      'variables' => [
+        'view' => NULL,
+        'rows' => NULL,
+        'options' => NULL,
+      ],
+      'template' => 'views--bootstrap-italia-views-carousel',
+    ],
+  ];
+}
+
+use \Drupal\Component\Utility\Html;
+
+/**
+ * Prepares variables for bootstrap carousel templates.
+ *
+ * Default template: views--bootstrap-italia-views-carousel.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ */
+function template_preprocess_views_bootstrap_italia_views_carousel(&$variables) {
+  $view = $variables['view'];
+
+  $style = $view->style_plugin;
+  // View options set by user.
+  $options = $style->options;
+
+  // let's check that the container class is not empty
+  $options['bi_carousel_settings']['type'] = (
+    empty($options['bi_carousel_settings']['type']
+    ) ||
+    is_null($options['bi_carousel_settings']['type'])
+    ) ? Html::getClass($view->id()) : trim($options['bi_carousel_settings']['type']);
+
+  // Update options for twig.
+  $variables['options'] = $options;
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#view'])) {
+    $view = $variables['elements']['content']['#view'];
+
+    if ($view->style_plugin instanceof CarouselStyle) {
+      $suggestions[] = 'block__views_views_carousel__' . $view->id();
+      $suggestions[] = 'block__views_views_carousel';
+    }
+  }
+}

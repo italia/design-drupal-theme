@@ -1,0 +1,42 @@
+{#
+/**
+ * Default theme implementation for Views to output a Swiper carousel.
+ *
+ * Available variables:
+ * - options.carousel_settings: View plugin style options:
+ *   - container: CSS classes for swiper container.
+ *   - pagination: Pagination enabled bool.
+ *   - navigation: Navigation enabled bool.
+ *
+ * @see template_preprocess_views_view_swiper()
+ *
+ * @ingroup themeable
+ */
+#}
+<!-- Carousel main container -->
+{% spaceless %}
+{% set slider_id = options.carousel_settings.container | clean_id %}
+{% set classes = [
+  'splide',
+  'it-carousel-wrapper',
+  options.carousel_settings.type == 'hl_image_card' ? 'it-carousel-landscape-abstract'
+] %}
+
+<div{{ attributes.addClass(classes)}} data-bs-carousel-splide>
+  <div class="splide__track">
+    <ul class="splide__list">
+      <!-- Slides -->
+      {% set row_attribute = create_attribute() %}
+      {% set row_classes = ['splide__slide'] %}
+      {% set row_attribute = row_attribute.addClass(row_classes) %}
+
+      {% for row in rows %}
+      <li{{ row_attribute }}>
+        {{ row }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endspaceless %}
+<!-- /Carousel -->
