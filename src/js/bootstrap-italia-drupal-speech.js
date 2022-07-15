@@ -13,7 +13,7 @@
 
     // To get the list of voices using getVoices() function
     speechvoices = window.speechSynthesis.getVoices();
-    tts.voice  = voices[25];
+    tts.voice  = speechvoices[25]; // only for Firefox??
 
     // rate
     tts.rate   = 0.9;
