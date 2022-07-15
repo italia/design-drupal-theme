@@ -1,7 +1,7 @@
 name: Bootstrap Italia Carousel plugin
 type: module
 description: 'Add Boostrap Italia carousel views plugin.'
-package: Views
+package: "Bootstrap Italia"
 core_version_requirement: ^9 || ^10
 
 dependencies:
