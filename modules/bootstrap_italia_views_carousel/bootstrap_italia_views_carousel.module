@@ -10,15 +10,14 @@ use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\CarouselStyle;
 /**
  * Implements hook_theme().
  */
-function bootstrap_italia_views_carousel_theme($existing, $type, $theme, $path) {
+function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $path) {
   return [
-    'bootstrap_italia_views_carousel' => [
+    'views_bootstrap_italia_views_carousel' => [
       'variables' => [
         'view' => NULL,
         'rows' => NULL,
         'options' => NULL,
       ],
-      'template' => 'views--bootstrap-italia-views-carousel',
     ],
   ];
 }
@@ -28,7 +27,7 @@ use \Drupal\Component\Utility\Html;
 /**
  * Prepares variables for bootstrap carousel templates.
  *
- * Default template: views--bootstrap-italia-views-carousel.html.twig.
+ * Default template: views-bootstrapitalia_views-carousel.html.twig
  *
  * @param array $variables
  *   An associative array containing:
@@ -61,8 +60,8 @@ function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$s
     $view = $variables['elements']['content']['#view'];
 
     if ($view->style_plugin instanceof CarouselStyle) {
-      $suggestions[] = 'block__views_views_carousel__' . $view->id();
-      $suggestions[] = 'block__views_views_carousel';
+      $suggestions[] = 'block__views_views_bi_carousel__' . $view->id();
+      $suggestions[] = 'block__views_views_bi_carousel';
     }
   }
 }
