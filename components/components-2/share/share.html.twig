@@ -42,7 +42,7 @@
 
   {# Set options #}
     {% set _classes = [
-      ''
+      'list-item'
     ] %}
 
   {% if _share_classes is not empty %}
@@ -54,6 +54,7 @@
   {% endif %}
   {% set share_attributes = share_attributes
     .addClass(_classes)
+    .setAttribute('rel', 'noopener')
   %}
 
   {# Component #}
@@ -69,11 +70,22 @@
         <ul class="link-list">
           {% for target in _targets %}
             {% if target['enable'] %}
+
+              {% if target['id'] %}
+                {% set share_attributes = share_attributes.setAttribute('id', target['id']) %}
+              {% endif %}
+
+              {% if target['targetType'] %}
+                {% set share_attributes = share_attributes.setAttribute('target', target['targetType']) %}
+              {% endif %}
+
+              {% if target['description'] %}
+                {% set share_attributes = share_attributes.setAttribute('aria-label', target['description']) %}
+              {% endif %}
+
               <li>
-                <a class="list-item"
-                   href="{{ target['targetUrl'] }}" target="{{ target['targetType'] }}" rel="noopener"
-                   aria-label="{{ target['description'] }}" {{ target['customAttributes'] }}
-                >
+                <a href="{{ target['targetUrl'] }}"
+                  {{ share_attributes }} {{ target['customAttributes'] }}>
                   {% include '@bi-bcl/icon/icon.html.twig' with {
                     name: target['icon']
                   } %}

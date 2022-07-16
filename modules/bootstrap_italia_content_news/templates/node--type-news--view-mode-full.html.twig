@@ -98,6 +98,7 @@
         {% include '@bi-bcl/share/content-actions.twig' with {
           subject: label[0]['#context'].value,
           description: content.body|render()|striptags|slice(0, 100),
+          read_element: 'read-this-element'
         } %}
         <div class="mt-4 mb-4">
           {{ content.field_subjects }}
@@ -118,7 +119,7 @@
       <aside class="col-lg-4">
         {{ content.toc_js }}
       </aside>
-      <section class="col-lg-8 it-page-sections-container">
+      <section class="col-lg-8 it-page-sections-container read-this-element">
         <div{{ content_attributes }}>
           {{ content|without(
             'field_abstract',

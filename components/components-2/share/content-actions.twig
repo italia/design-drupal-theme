@@ -10,12 +10,14 @@
  * - description (string) (default: subject)
  * - tags (string) (default: '')
  * - download_url (string) (default: '<current>')
+ * - read_element (string) (default '')
  *
  * Examples:
    {% include '@bi-bcl/share/content-actions.html.twig' with {
       subject: 'Subject',
       description: 'Description'|t,
       download_url: 'https://...'
+      read_element: 'class-elements-to-read'
    } %}
  */
 #}
@@ -45,6 +47,15 @@
       'targetType': '_self',
       'targetUrl': 'javascript:if(window.print)window.print()'
     },
+    'listen': {
+      'id': 'it-share-action-speak',
+      'enable': true,
+      'label': 'Listen'|t,
+      'icon': 'it-hearing',
+      'description': 'Listen'|t,
+      'targetUrl': '#',
+      'customAttributes': 'data-bi-read='~read_element
+    },
     'mail': {
       'enable': true,
       'label': 'Email'|t,
@@ -62,25 +73,3 @@
     icon: 'it-more-items',
   } %}
 {% endapply %}
-
-{# TODO: da sistemare!!!
-<li>
-  <script>
-    function textNodesUnder(el){
-      let n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
-      while(n=walk.nextNode()) a.push(n.textContent);
-      return a.join(' ');
-    }
-    const listenPageContent = new SpeechSynthesisUtterance();
-    const elementToRead = document.getElementById('it-block-contenutodellapaginaprincipale');
-    listenPageContent.text = textNodesUnder(elementToRead);
-  </script>
-  <a class="list-item" href="javascript:window.speechSynthesis.speak(listenPageContent)">
-    {% include '@bootstrap_italia_components/icon/icon.twig' with {
-      name: 'it-hearing'
-    } %}
-    <span>{{ 'Listen'|trans }}</span>
-  </a>
-</li>
-#}
-
