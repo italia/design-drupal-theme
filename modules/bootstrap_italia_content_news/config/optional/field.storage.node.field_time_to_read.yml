@@ -2,14 +2,15 @@ langcode: en
 status: true
 dependencies:
   module:
-    - duration_field
     - node
 id: node.field_time_to_read
 field_name: field_time_to_read
 entity_type: node
-type: duration
-settings: {  }
-module: duration_field
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
 locked: false
 cardinality: 1
 translatable: true

@@ -158,8 +158,8 @@ if [ "$enable_content_type" == "y" ]; then
   echo "==[ Install content type ]=="
 
   echo 'Install module: Bootstrap Italia content News'
-  ddev composer require drupal/duration_field drupal/toc_js drupal/focal_point
-  ddev exec drush -y pm:enable responsive_image duration_field toc_js focal_point  \
+  ddev composer require drupal/toc_js drupal/focal_point
+  ddev exec drush -y pm:enable responsive_image toc_js focal_point  \
     bootstrap_italia_paragraph bootstrap_italia_paragraph_accordion \
     bootstrap_italia_paragraph_attachments bootstrap_italia_paragraph_map \
     bootstrap_italia_paragraph_webform bootstrap_italia_content_news

@@ -14,7 +14,6 @@ dependencies:
     - node.type.news
   module:
     - datetime
-    - duration_field
     - field_group
     - focal_point
     - imce
@@ -43,8 +42,8 @@ third_party_settings:
       children:
         - title
         - field_abstract
-        - field_time_to_read
         - field_image
+        - field_time_to_read
       label: Header
       region: content
       parent_name: group_container
@@ -127,7 +126,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_focal_point
-    weight: 5
+    weight: 4
     region: content
     settings:
       progress_indicator: bar
@@ -173,10 +172,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_time_to_read:
-    type: duration_widget
-    weight: 4
+    type: number
+    weight: 5
     region: content
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select

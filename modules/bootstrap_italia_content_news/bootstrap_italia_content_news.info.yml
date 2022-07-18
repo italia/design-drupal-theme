@@ -7,7 +7,6 @@ core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:focal_point
   - drupal:responsive_image
-  - drupal:duration_field
   - drupal:imce
   - drupal:paragraphs
   - drupal:field_group

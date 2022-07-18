@@ -4,8 +4,6 @@ dependencies:
   config:
     - field.storage.node.field_time_to_read
     - node.type.news
-  module:
-    - duration_field
 id: node.news.field_time_to_read
 field_name: field_time_to_read
 entity_type: node
@@ -17,5 +15,8 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  granularity: i
-field_type: duration
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ' Minutes'
+field_type: integer
