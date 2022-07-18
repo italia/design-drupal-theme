@@ -66,14 +66,18 @@
           <div{{ item.attributes }}>
             {%- set item_chip -%}
               {% include '@bi-bcl/chip/chip.html.twig' with {
-                chip_label: item.content['#title'],
+                chip_label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
                 chip_color: 'primary',
               } %}
             {% endset %}
-            {% if item.content['#options'].attributes is iterable %}
-              {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+            {% if item.content['#type'] == 'link' %}
+              {% if item.content['#options'].attributes is iterable %}
+                {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+              {% else %}
+                {{ link(item_chip, item.content['#url']) }}
+              {% endif %}
             {% else %}
-              {{ link(item_chip, item.content['#url']) }}
+              {{ item_chip }}
             {% endif %}
           </div>
         {% endfor %}
@@ -83,14 +87,18 @@
         <div{{ attributes.addClass(container_classes) }}>
           {%- set item_chip -%}
             {% include '@bi-bcl/chip/chip.html.twig' with {
-              chip_label: item.content['#title'],
+              chip_label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
               chip_color: 'primary',
             } %}
           {% endset %}
-          {% if item.content['#options'].attributes is iterable %}
-            {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+          {% if item.content['#type'] == 'link' %}
+            {% if item.content['#options'].attributes is iterable %}
+              {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+            {% else %}
+              {{ link(item_chip, item.content['#url']) }}
+            {% endif %}
           {% else %}
-            {{ link(item_chip, item.content['#url']) }}
+            {{ item_chip }}
           {% endif %}
         </div>
       {% endfor %}
@@ -116,14 +124,18 @@
         <div{{ item.attributes }}>
           {%- set item_chip -%}
             {% include '@bi-bcl/chip/chip.html.twig' with {
-              chip_label: item.content['#title'],
+              chip_label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
               chip_color: 'primary',
             } %}
           {% endset %}
-          {% if item.content['#options'].attributes is iterable %}
-            {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+          {% if item.content['#type'] == 'link' %}
+            {% if item.content['#options'].attributes is iterable %}
+              {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+            {% else %}
+              {{ link(item_chip, item.content['#url']) }}
+            {% endif %}
           {% else %}
-            {{ link(item_chip, item.content['#url']) }}
+            {{ item_chip }}
           {% endif %}
         </div>
       {% endfor %}
