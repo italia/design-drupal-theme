@@ -69,11 +69,11 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card-big.html.twig' with {
+{% embed '@bi-bcl/card/card-big-flag.html.twig' with {
   card_tag_container: 'article',
   card_icon: 'it-horn',
   card_category: content.field_news_type,
-  card_flag: true,
+  card_flag_invisible: true,
   card_signature: display_submitted ? author_name : false,
   card_read_more_url: url,
   card_read_more_text: label[0]['#context'].value,

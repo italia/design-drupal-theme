@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Template for card component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - Same as @bi-bcl/card/card-big.html.twig
+ *
+ * Examples:
+   {% include '@bi-bcl/card/card-big-flag.html.twig' with {
+      card_title: card_title,
+      card_text: card_text_short,
+      card_icon: 'it-name',
+      card_category: card_demo_category,
+      card_border_bottom: true,
+      card_read_more_url: card_demo_read_more_url
+   } %}
+ *
+ */
+#}
+{% set _card_flag_invisible = card_flag_invisible ?? false %}
+{% extends '@bi-bcl/card/card-big.html.twig' %}
+
+  {% block cardBodyTop %}
+    {% if _card_icon is not empty %}
+      <div class="top-icon">
+        {% include '@bi-bcl/icon/icon.html.twig' with {name: _card_icon} %}
+      </div>
+    {% endif %}
+  {% endblock %}
+

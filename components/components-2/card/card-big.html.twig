@@ -25,8 +25,6 @@
  * - card_read_more_label (string) default('Read more')
  * - card_read_more_text (string|drupal_field) default(card_title)
  * - card_shadow (boolean) (default: true)
- * - card_flag (boolean) (default: false)
- *   - Enable card_big automatically
  * - card_border_bottom (boolean) (default: false)
  * - card_action_type (string) (default: 'link')
  *   - option ["link", "button"]
@@ -59,7 +57,6 @@
   {% set _card_read_more_text = card_read_more_text|default(_card_title) %}
   {% set _card_shadow = card_shadow ?? true %}
   {% set _card_border_bottom = card_border_bottom ?? false %}
-  {% set _card_flag = card_flag ?? false %}
   {% set _card_action_type = card_action_type|default('link') %}
   {% set _card_rounded = card_rounded ?? false %}
 
@@ -103,6 +100,8 @@
   <div class="{{ _wrapper_classes|join(' ')|trim }}">
     <{{ _card_tag_container }}{{ card_attributes }}>
 
+      {% block cardHeader %}{% endblock %}
+
       {% block cardImage %}
         {% if _card_image is not empty %}
           <div class="img-responsive-wrapper">
@@ -129,35 +128,17 @@
         {% endif %}
       {% endblock %}
 
-      {% block cardCategoryFlag %}
-        {% if _card_category is not empty and _card_flag %}
-          <div class="flag-icon"></div>
-          <div class="etichetta">
-            {% if _card_icon %}
-              {% include '@bi-bcl/icon/icon.html.twig' with {name: _card_icon} %}
-            {% endif %}
-            <span>{{ _card_category }}</span>
-          </div>
-        {% endif %}
-      {% endblock %}
-
       <div class="card-body">
 
+        {% block cardBodyTop %}{% endblock %}
+
         {% block cardHeadTags %}
-          {% if not _card_flag and _card_category is not empty and _card_icon is empty %}
+          {% if _card_category is not empty %}
             <div class="head-tags">
               <span class="card-tag">{{ _card_category }}</span>
               {% if _card_date %}
                 <span class="data">{{ _card_date }}</span>
               {% endif %}
-            </div>
-          {% endif %}
-        {% endblock %}
-
-        {% block cardIconBig %}
-          {% if not _card_flag and _card_category is empty and _card_icon is not empty %}
-            <div class="top-icon">
-              {% include '@bi-bcl/icon/icon.html.twig' with {name: _card_icon} %}
             </div>
           {% endif %}
         {% endblock %}

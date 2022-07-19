@@ -34,13 +34,13 @@
   {% set card_demo_read_more_url = '#' %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Card big'|t,
+    title: 'Card big icon'|t,
   } %}
     {% block content %}
 
       <div class="row">
         <div class="col-12 col-lg-8">
-          {% include '@bi-bcl/card/card-big.html.twig' with {
+          {% include '@bi-bcl/card/card-big-icon.html.twig' with {
             card_title: card_demo_title,
             card_text: card_demo_text_short,
             card_icon: 'it-card',
@@ -59,13 +59,33 @@
 
       <div class="row">
         <div class="col-12 col-lg-8">
-          {% include '@bi-bcl/card/card-big.html.twig' with {
+          {% include '@bi-bcl/card/card-big-flag.html.twig' with {
             card_title: card_demo_title,
             card_text: card_demo_text_short,
             card_icon: 'it-settings',
-            card_flag: true,
             card_category: card_demo_category,
             card_border_bottom: true,
+            card_read_more_url: card_demo_read_more_url
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card big 2, flag invisible and not border bottom'|t,
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          {% include '@bi-bcl/card/card-big-flag.html.twig' with {
+            card_title: card_demo_title,
+            card_text: card_demo_text_short,
+            card_icon: 'it-settings',
+            card_flag_invisible: true,
+            card_category: card_demo_category,
             card_read_more_url: card_demo_read_more_url
           } %}
         </div>
@@ -119,6 +139,30 @@
             card_signature: card_demo_signature,
             card_read_more_url: card_demo_read_more_url,
             card_action_type: 'button',
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Card big with tag, image, date without shadow'|t,
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% include '@bi-bcl/card/card-big.html.twig' with {
+            card_image: card_demo_image,
+            card_image_date: {'day': '9', 'month': 'October', 'year': '2022'},
+            card_title: card_demo_title,
+            card_text: card_demo_text_short,
+            card_category: card_demo_category,
+            card_date: card_demo_date,
+            card_signature: card_demo_signature,
+            card_read_more_url: card_demo_read_more_url,
+            card_shadow: false
           } %}
         </div>
       </div>
