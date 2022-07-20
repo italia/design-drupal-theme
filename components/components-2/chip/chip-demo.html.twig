@@ -16,50 +16,94 @@
 
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Chip simple'|t,
+    title: 'Chips'|t,
   } %}
     {% block content %}
 
-      {% include '@bi-bcl/chip/chip.html.twig' with {
-        chip_label: 'Label'|t,
-      } %}
+      <div class="row">
 
-      {% include '@bi-bcl/chip/chip.html.twig' with {
-        chip_label: 'Label'|t,
-        chip_dismissibile: true,
-      } %}
+        <div class="col-12 col-md-6">
+          <h4>{{ 'Standard'|t }}</h4>
+          <p class="mt-4 mb-2">{{ 'Only text'|t }}</p>
+          {% include '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'Label'|t,
+          } %}
 
-      {% include '@bi-bcl/chip/chip.html.twig' with {
-        chip_label: 'Label'|t,
-        chip_dismissibile: true,
-        chip_icon: 'it-github',
-      } %}
+          <p class="mt-4 mb-2">{{ 'Dismissible'|t }}</p>
+          {% include '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'Label'|t,
+            chip_dismissibile: true,
+          } %}
 
-    {% endblock %}
-  {% endembed %}{# End embed demo. #}
+          <p class="mt-4 mb-2">{{ 'Dismissible with icon'|t }}</p>
+          {% include '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'Label'|t,
+            chip_dismissibile: true,
+            chip_icon: 'it-github',
+          } %}
 
-  {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Chip simple lg'|t,
-  } %}
-    {% block content %}
+          <p class="mt-4 mb-2">{{ 'Dismissible with avatar'|t }}</p>
+          {% embed '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'label'|t,
+            chip_dismissibile: true,
+          } %}
+            {% block beforeContent %}
+              {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+                avatar_size: 'xs'
+              } %}
+                {% block avatarContent %}
+                  <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+                {% endblock %}
+              {% endembed %}
+            {% endblock %}
+          {% endembed %}
 
-      {% include '@bi-bcl/chip/chip.html.twig' with {
-        chip_label: 'Label'|t,
-        chip_large: true
-      } %}
+        </div>{# End Standard. #}
 
-      {% include '@bi-bcl/chip/chip.html.twig' with {
-        chip_label: 'Label'|t,
-        chip_dismissibile: true,
-        chip_large: true
-      } %}
+        <div class="col-12 col-md-6">
+          <h4>{{ 'Big variant' }}</h4>
 
-      {% include '@bi-bcl/chip/chip.html.twig' with {
-        chip_label: 'Label'|t,
-        chip_dismissibile: true,
-        chip_icon: 'it-github',
-        chip_large: true
-      } %}
+          <p>{{ 'Only text'|t }}</p>
+          {% include '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'Label'|t,
+            chip_large: true
+          } %}
+
+          <p class="mt-4 mb-2">{{ 'Dismissible'|t }}</p>
+          {% include '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'Label'|t,
+            chip_dismissibile: true,
+            chip_large: true
+          } %}
+
+
+          <p class="mt-4 mb-2">{{ 'Dismissible with icon'|t }}</p>
+          {% include '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'Label'|t,
+            chip_dismissibile: true,
+            chip_icon: 'it-github',
+            chip_large: true
+          } %}
+
+          <p class="mt-4 mb-2">{{ 'Dismissible with avatar'|t }}</p>
+          {% embed '@bi-bcl/chip/chip.html.twig' with {
+            chip_label: 'label'|t,
+            chip_dismissibile: true,
+            chip_large: true
+          } %}
+            {% block beforeContent %}
+              {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+                avatar_size: 'xs'
+              } %}
+                {% block avatarContent %}
+                  <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+                {% endblock %}
+              {% endembed %}
+            {% endblock %}
+          {% endembed %}
+
+        </div>{# End big variant. #}
+      </div>{# End row. #}
 
     {% endblock %}
   {% endembed %}{# End embed demo. #}
@@ -81,6 +125,26 @@
 
     {% endblock %}
   {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Chip disabled'|t,
+  } %}
+    {% block content %}
+
+      {% for variant in variants %}
+        {% include '@bi-bcl/chip/chip.html.twig' with {
+          chip_label: 'Label'|t,
+          chip_dismissibile: true,
+          chip_icon: 'it-github',
+          chip_large: true,
+          chip_color: variant,
+          chip_disabled: true,
+        } %}
+      {% endfor %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
 
 
 {% endapply %}
