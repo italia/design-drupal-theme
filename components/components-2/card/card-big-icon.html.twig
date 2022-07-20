@@ -23,6 +23,8 @@
 {% set _card_flag_invisible = card_flag_invisible ?? false %}
 {% extends '@bi-bcl/card/card-big.html.twig' %}
 
+  {% block cardImage %}{% endblock %}
+
   {% block cardBodyTop %}
     {% if _card_icon is not empty %}
       <div class="top-icon">
