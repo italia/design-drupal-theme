@@ -8,8 +8,9 @@ library as a dependency.
 # Drupal configuration
 Install `drupal` and `drush` with `composer` (https://getcomposer.org/)
 ```
-$ composer create drupal/recommended-project my_site_name_dir
-$ composer require drush/drush
+$ composer create drupal/recommended-project my_site_name_dir --no-install
+$ composer require drush/drush --no-install
+$ composer install
 ```
 
 Install drupal, you can use drush or your browser
@@ -24,9 +25,9 @@ Install `npm`: https://www.npmjs.com/get-npm
 $ cd <drupal-root>
 
 /* 1. Install end enable dependencies */
-$ composer require drupal/components
+$ composer require drupal/components:^3@beta
 $ drush pm:enable components
-$ composer require drupal/bootstrap_italia
+$ composer require drupal/bootstrap_italia:2.x-dev
 
 /* 2. Copy sub-theme to destination folder */
 $ cd web/themes/
@@ -41,13 +42,20 @@ $ drush -y theme:enable italiagov
 $ drush config-set system.theme default italiagov
 ```
 
+Edit `custom/italiagov/italiagov.info.yml` and change `hidden` variable to `false`
+```
+sed "-i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml"
+```
+
 # Manage and generate assets
-## Bootstrap-italia vanilla
+You can install the bootstrap-Italy library in several ways.
 
-Download https://github.com/italia/bootstrap-italia-next/releases/download/v2.0.0-rc4/bootstrap-italia.zip
-and unzip in `<your-subtheme>/assets`
+## A. Bootstrap-italia vanilla
 
-## For developer and expert user:
+Download https://github.com/italia/bootstrap-italia-next/releases/download/v2.0.0-rc5/bootstrap-italia.zip
+and unzip in `<your-subtheme>/dist`.
+
+## B. For developer or advanced user
 
 Install assets
 ```
@@ -110,51 +118,15 @@ services:
       - 8080:8080
 ```
 
+## C. For developer or expert user
+By appropriately modifying `*.info.yml` and `*.libraries.yml` you can adapt
+the loading of libraries according to your infrastructure.
+
 # Optional
 If you want to install optional plugins.
 
-## Image styles [EXPERIMENTAL]
-This is a module that installs/uninstalls the image styles.
-This module is dependent on `focal_point`.
-```
-$ composer require drupal/focal_point
-$ drush pm:enable focal_point bootstrap_italia_image_styles
-```
-
-## Paragraphs [EXPERIMENTAL]
-This is the base module for `paragraphs` integration.
-This module adds paragraph `content` and paragraph `configuration`.
-This module is dependent on `paragraphs`, `field_group` and `imce`.
-```
-$ composer require drupal/paragraphs drupal/field_group drupal/imce
-$ drush pm:enable paragraphs \
-    field_group \
-    ui_patterns_field_group \
-    imce \
-    bootstrap_italia_paragraphs
-```
-
-## Paragraphs overlay [EXPERIMENTAL]
-This module adds paragraph
-[overlay component](https://italia.github.io/bootstrap-italia/docs/componenti/overlay/).
-This module is dependent on `bootstrap_italia_paragraphs`, `ds_extras`,
-`ds_switch_view_mode`, `ui_patterns_layouts` and `ui_patterns_ds`.
-```
-$ composer require drupal/ds
-$ drush pm:enable bootstrap_italia_paragraphs \
-    ds ds_extras ds_switch_view_mode \
-    ui_patterns_ds ui_patterns_layouts \
-    bootstrap_italia_overlay
-```
-
-## Webform
-Enables the creation of webforms and questionnaires.
-```
-$ composer require drupal/webform
-$ drush pm:enable webform webform_ui webform_attachment webform_image_select
-```
+*Cooming soon*
 
 # How to start a ddev container
 If you want an automated script that works for you, run script located at
-[var/bin/start-dev-test.sh](https://git.drupalcode.org/project/bootstrap_italia/-/tree/8.x-0.x/var/bin/start-dev-test.sh)
-and enjoy it
+`themes/bootstrap_italia/var/bin/start-dev-test.sh` and enjoy it
