@@ -1,0 +1,101 @@
+{#
+/**
+ * @file
+ * Template for carousel component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/carousel/
+ * Last review: v2.0.0-rc5
+ *
+ * Parameters:
+ * - slides (array|drupal_field) (default: '')
+ * - carousel_col_type (string) (default: 'it-carousel-landscape-abstract-three-cols')
+ *   - options [
+        "it-carousel-landscape-abstract-three-cols",
+        "it-carousel-landscape-abstract-three-cols-arrow-visible",
+        "it-carousel-landscape-abstract",
+       ]
+ * - carousel_full (boolean) (default: true)
+ * - carousel_image_type (string) (default: '')
+ *   - options ["standard", "big"]
+ * - carousel_title (string) (default: '')
+ * - slide_container_type (string) (default: 'li')
+ * - slide_lined (boolean) (default: false)
+ * - slide_classes (array) (default: '')
+ * - slide_attributes (obj attribute) (default: '')
+ * - carousel_classes (array) (default: '')
+ * - carousel_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/carousel/carousel.html.twig' with {
+      variables: value,
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _carousel_col_type = carousel_col_type|default('it-carousel-landscape-abstract-three-cols') %}
+  {% set _carousel_full = carousel_full ?? false %}
+  {% set _carousel_image_type = carousel_image_type|default('') %}
+  {% set _carousel_title = carousel_title|default('') %}
+  {% set _slide_container_type = slide_container_type|default('li') %}
+  {% set _slide_lined = slide_lined ?? false %}
+  {% set _slide_classes = slide_classes|default('') %}
+  {% set _slide_attributes = slide_attributes|default('') %}
+  {% set _carousel_classes = carousel_classes|default('') %}
+  {% set _carousel_attributes = carousel_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'it-carousel-wrapper',
+      'splide',
+      _carousel_col_type,
+      _carousel_full ? 'it-full-carousel',
+      _carousel_image_type == 'standard' ? 'it-standard-image',
+      _carousel_image_type == 'big' ? 'it-big-img',
+    ] %}
+
+  {% if _carousel_classes is not empty %}
+    {% set _classes = _classes|merge(carousel_classes) %}
+  {% endif %}
+
+  {% if _carousel_attributes is empty %}
+    {% set carousel_attributes = create_attribute() %}
+  {% endif %}
+  {% set carousel_attributes = carousel_attributes
+    .addClass(_classes)
+    .setAttribute('data-bs-carousel-splide', 'true')
+  %}
+
+  {# Component #}
+  <div{{ carousel_attributes }}>
+
+    {% block carouselTitle %}
+      {% if _carousel_title is not empty %}
+        <div class="it-header-block">
+          <div class="it-header-block-title">
+            <h2>{{ _carousel_title }}</h2>
+          </div>
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    <div class="splide__track ps-lg-3 pe-lg-3">
+      <ul class="splide__list">
+
+        {% block carouselSlides %}
+          {% for slide in slides %}
+            {% include '@bi-bcl/carousel/carousel-slide.html.twig' with {
+              content: slide,
+              slide_container_type: _slide_container_type,
+              slide_lined: _slide_lined,
+              slide_classes: _slide_classes,
+              slide_attributes: _slide_attributes
+            } %}
+          {% endfor %}
+        {% endblock %}
+
+      </ul>
+    </div>
+
+  </div>
+{% endapply %}

@@ -1,6 +1,6 @@
 {#
 /**
- * Default theme implementation for Views to output a Swiper carousel.
+ * Default theme implementation for Views to output a splide carousel.
  *
  * Available variables:
  * - options.bi_carousel_settings: View plugin style options:
@@ -12,28 +12,20 @@
  */
 #}
 <!-- Carousel main container -->
-{% spaceless %}
-{% set classes = [
-  'splide',
-  'it-carousel-wrapper',
-  options.bi_carousel_settings.type == 'hl_image_card' ? 'it-carousel-landscape-abstract'
-] %}
+{% embed '@bi-bcl/carousel/carousel.html.twig' with {
+  carousel_col_type: options.bi_carousel_settings.type == 'hl_image_card' ? 'it-carousel-landscape-abstract'
+} %}
 
-<div{{ attributes.addClass(classes)}} data-bs-carousel-splide>
-  <div class="splide__track">
-    <ul class="splide__list">
-      <!-- Slides -->
-      {% set row_attribute = create_attribute() %}
-      {% set row_classes = ['splide__slide'] %}
-      {% set row_attribute = row_attribute.addClass(row_classes) %}
+  {% block carouselSlides %}
+    {% for slide in rows %}
+      {% include '@bi-bcl/carousel/carousel-slide.html.twig' with {
+        content: slide,
+        slide_container_type: _slide_container_type,
+        slide_lined: _slide_lined,
+        slide_classes: _slide_classes,
+        slide_attributes: _slide_attributes
+      } %}
+    {% endfor %}
+  {% endblock %}
 
-      {% for row in rows %}
-      <li{{ row_attribute }}>
-        {{ row }}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-{% endspaceless %}
-<!-- /Carousel -->
+{% endembed %}
