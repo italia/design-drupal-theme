@@ -22,8 +22,6 @@ function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $
   ];
 }
 
-use \Drupal\Component\Utility\Html;
-
 /**
  * Prepares variables for bootstrap carousel templates.
  *
@@ -35,21 +33,8 @@ use \Drupal\Component\Utility\Html;
  *   - rows: The raw row data.
  */
 function template_preprocess_views_bootstrap_italia_views_carousel(&$variables) {
-  $view = $variables['view'];
-
-  $style = $view->style_plugin;
-  // View options set by user.
-  $options = $style->options;
-
-  // let's check that the container class is not empty
-  $options['bi_carousel_settings']['type'] = (
-    empty($options['bi_carousel_settings']['type']
-    ) ||
-    is_null($options['bi_carousel_settings']['type'])
-    ) ? Html::getClass($view->id()) : trim($options['bi_carousel_settings']['type']);
-
   // Update options for twig.
-  $variables['options'] = $options;
+  $variables['options'] = $variables['view']->style_plugin->options;
 }
 
 /**

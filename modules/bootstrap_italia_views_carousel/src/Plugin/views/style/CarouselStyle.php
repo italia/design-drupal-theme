@@ -49,16 +49,46 @@ class CarouselStyle extends StylePluginBase {
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
-    // select examples
-    $form['bi_carousel_settings']['type'] = array(
+    // Carousel type.
+    $form['bi_carousel_settings']['carousel_col_type'] = array(
       '#type' => 'select',
-      '#title' => $this->t('Select an example'),
+      '#title' => $this->t('Column type'),
+      '#description' => $this->t('Select slide column type. Default: "Landscape abstract: 3 cols"'),
       '#options' => [
-        'title_card' => 'Simple title and card',
-        'hl_image_card' => 'Highlited image card',
+        'it-carousel-landscape-abstract' => 'Landscape abstract: 1 col',
+        'it-carousel-landscape-abstract-three-cols' => 'Landscape abstract: 3 cols',
+        'it-carousel-landscape-abstract-three-cols-arrow-visible' => 'Landscape abstract: 3 cols with arrows'
       ],
-      '#default_value' => (isset($this->options['bi_carousel_settings']['type'])) ? $this->options['bi_carousel_settings']['type'] : 'hl_image_card',
-      '#description' => $this->t('Select one example.'),
+      '#default_value' =>
+        $this->options['bi_carousel_settings']['carousel_col_type'] ?? 'it-carousel-landscape-abstract-three-cols',
+    );
+
+    // Slide spacing.
+    $form['bi_carousel_settings']['slide_spacing'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Slide spacing'),
+      '#description' => $this->t('Select slide separator. Default: "Automatic padding"'),
+      '#options' => [
+        '' => $this->t('Unset'),
+        'slide_track_padding' => $this->t('Automatic padding'),
+        'slide_lined' => $this->t('Vertical line'),
+      ],
+      '#default_value' =>
+        $this->options['bi_carousel_settings']['slide_spacing'] ?? 'slide_track_padding',
+    );
+
+    // Carousel image type.
+    $form['bi_carousel_settings']['carousel_image_type'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Image type'),
+      '#description' => $this->t('If you are building an image carousel, select how you want to display the images. Note: if you choose "standard" or "big" the images will be displayed with the theme "Landscape abstract: 3 cols". Default: "Use field image formatter".'),
+      '#options' => [
+        '' => $this->t('Use field image formatter.'),
+        'standard' => 'Standard',
+        'big' => 'Big',
+      ],
+      '#default_value' =>
+        $this->options['bi_carousel_settings']['carousel_image_type'] ?? '',
     );
 
   }

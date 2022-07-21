@@ -10,6 +10,7 @@
  * - slide_container_type (string) (default: 'li')
  *   - options ["li", "div"]
  * - slide_lined (boolean) (default: false)
+ * - slide_image_wrapper (boolean) (default: false)
  * - slide_classes (array) (default: '')
  * - slide_attributes (obj attribute) (default: '')
  *
@@ -26,6 +27,7 @@
   {% set _content = content|default('Slide content'|t) %}
   {% set _slide_container_type = slide_container_type|default('li') %}
   {% set _slide_lined = slide_lined ?? false %}
+  {% set _slide_image_wrapper = slide_image_wrapper ?? false %}
   {% set _slide_classes = slide_classes|default('') %}
   {% set _slide_attributes = slide_attributes|default('') %}
 
@@ -49,9 +51,27 @@
   {# Component #}
   <{{ _slide_container_type }} {{ slide_attributes }}>
     <div class="it-single-slide-wrapper">
+
+      {% if _slide_image_wrapper %}
+        <div class="card-wrapper">
+          <div class="card card-img no-after">
+            <div class="img-responsive-wrapper">
+              <div class="img-responsive">
+                <div class="img-wrapper">
+      {% endif %}
+
       {% block slideContent %}
         {{ _content }}
       {% endblock %}
+
+      {% if _slide_image_wrapper %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
     </div>
   </{{ _slide_container_type }}>
 

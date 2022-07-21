@@ -4,6 +4,8 @@
  *
  * Available variables:
  * - options.bi_carousel_settings: View plugin style options:
+ *   - carousel_col_type
+ *   - carousel_image_type
  *   - type
  *
  * @see template_preprocess_views_bootstrap_italia_views_carousel()
@@ -11,17 +13,18 @@
  * @ingroup themeable
  */
 #}
-<!-- Carousel main container -->
 {% embed '@bi-bcl/carousel/carousel.html.twig' with {
-  carousel_col_type: options.bi_carousel_settings.type == 'hl_image_card' ? 'it-carousel-landscape-abstract'
+  carousel_col_type: options.bi_carousel_settings.carousel_col_type,
+  carousel_image_type: options.bi_carousel_settings.carousel_image_type,
+  slide_lined: options.bi_carousel_settings.slide_spacing == 'slide_lined' ? true,
+  slide_track_padding: options.bi_carousel_settings.slide_spacing == 'slide_track_padding' ? true,
 } %}
 
   {% block carouselSlides %}
     {% for slide in rows %}
       {% include '@bi-bcl/carousel/carousel-slide.html.twig' with {
         content: slide,
-        slide_container_type: _slide_container_type,
-        slide_lined: _slide_lined,
+        slide_image_wrapper: options.bi_carousel_settings.carousel_image_type is not empty ? true,
         slide_classes: _slide_classes,
         slide_attributes: _slide_attributes
       } %}

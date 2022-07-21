@@ -19,6 +19,7 @@
  * - carousel_title (string) (default: '')
  * - slide_container_type (string) (default: 'li')
  * - slide_lined (boolean) (default: false)
+ * - slide_track_padding (boolean) (default: false)
  * - slide_classes (array) (default: '')
  * - slide_attributes (obj attribute) (default: '')
  * - carousel_classes (array) (default: '')
@@ -39,10 +40,18 @@
   {% set _carousel_title = carousel_title|default('') %}
   {% set _slide_container_type = slide_container_type|default('li') %}
   {% set _slide_lined = slide_lined ?? false %}
+  {% set _slide_track_padding = slide_track_padding ?? false %}
   {% set _slide_classes = slide_classes|default('') %}
   {% set _slide_attributes = slide_attributes|default('') %}
   {% set _carousel_classes = carousel_classes|default('') %}
   {% set _carousel_attributes = carousel_attributes|default('') %}
+
+  {# Auto settings. #}
+  {% if _carousel_image_type is not empty %}
+    {% set _carousel_full = true %}
+    {% set _slide_track_padding = false %}
+    {% set _slide_lined = false %}
+  {% endif %}
 
   {# Set options #}
     {% set _classes = [
@@ -79,7 +88,7 @@
       {% endif %}
     {% endblock %}
 
-    <div class="splide__track ps-lg-3 pe-lg-3">
+    <div class="splide__track{{ _slide_track_padding ? ' ps-lg-3 pe-lg-3' }}">
       <ul class="splide__list">
 
         {% block carouselSlides %}
@@ -88,6 +97,7 @@
               content: slide,
               slide_container_type: _slide_container_type,
               slide_lined: _slide_lined,
+              slide_image_wrapper: _carousel_image_type is not empty ? true,
               slide_classes: _slide_classes,
               slide_attributes: _slide_attributes
             } %}
