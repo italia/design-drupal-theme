@@ -138,11 +138,14 @@ if [ "$enable_modules" == "y" ]; then
   mv ./web/libraries/spectrum-master ./web/libraries/spectrum
   rm -Rf ./web/libraries/master.zip
 
+  echo 'Install module: Bootstrap Italia Paragraph Accordion'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_accordion
+
   echo 'Install module: Bootstrap Italia Paragraph Attachments'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_attachments
 
-  echo 'Install module: Bootstrap Italia Paragraph Accordion'
-  ddev exec drush -y pm:enable bootstrap_italia_paragraph_accordion
+  echo 'Install module: Bootstrap Italia Paragraph Carousel'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_carousel
 
   echo 'Install module: Bootstrap Italia Paragraph Map'
   ddev composer require drupal/geofield drupal/leaflet
@@ -151,6 +154,9 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia Paragraph Webform'
   ddev composer require drupal/webform wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
+
+  echo 'Install module: Bootstrap Italia Paragraph views carousel'
+  ddev exec drush -y pm:enable bootstrap_italia_views_carousel
 
 fi
 
