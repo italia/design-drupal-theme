@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.carousel.field_carousel_col_type
+    - field.field.paragraph.carousel.field_carousel_image_type
+    - field.field.paragraph.carousel.field_carousel_slide_spacing
+    - field.field.paragraph.carousel.field_settings
+    - field.field.paragraph.carousel.field_slides
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.carousel.default
+targetEntityType: paragraph
+bundle: carousel
+mode: default
+content:
+  field_carousel_col_type:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_carousel_image_type:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_carousel_slide_spacing:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_settings:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_slides:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

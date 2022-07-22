@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.focal_point_fhd_16_9_1920x1080_
+    - image.style.focal_point_vga_4_3_640x480_
+    - image.style.focal_point_xga_4_3_1024x768_
+  theme:
+    - bootstrap_italia
+id: bootstrap_italia_paragraph_slide
+label: 'Bootstrap Italia paragraph slide'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: focal_point_xga_4_3_1024x768_
+    breakpoint_id: bootstrap_italia.extra_large
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: focal_point_vga_4_3_640x480_
+    breakpoint_id: bootstrap_italia.small
+    multiplier: 1x
+breakpoint_group: bootstrap_italia
+fallback_image_style: focal_point_fhd_16_9_1920x1080_

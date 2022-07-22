@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slide.field_background_image
+    - field.field.paragraph.slide.field_text
+    - image.style.medium
+    - paragraphs.paragraphs_type.slide
+  module:
+    - focal_point
+    - imce
+    - text
+id: paragraph.slide.default
+targetEntityType: paragraph
+bundle: slide
+mode: default
+content:
+  field_background_image:
+    type: image_focal_point
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: bar
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings:
+      imce:
+        enabled: true
+  field_text:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

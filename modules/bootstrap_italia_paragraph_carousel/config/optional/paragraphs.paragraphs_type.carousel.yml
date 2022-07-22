@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:81be34f9-dc6a-4a12-b21b-5fd146a46ec2'
+id: carousel
+label: Carousel
+icon_uuid: 81be34f9-dc6a-4a12-b21b-5fd146a46ec2
+icon_default: 'data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiB2aWV3Qm94PSIwIDAgOTYgOTYiPgo8dGl0bGU+YW1wX3N0b3JpZXM8L3RpdGxlPgo8cGF0aCBkPSJNNzUuOTM4IDI0aDguMDYzdjQ0LjA2M2gtOC4wNjN2LTQ0LjA2M3pNMTIgMjRoOC4wNjN2NDQuMDYzaC04LjA2M3YtNDQuMDYzek0yNy45MzggMTUuOTM4aDQwLjEyNXY2MGgtNDAuMTI1di02MHoiPjwvcGF0aD4KPC9zdmc+Cg=='
+description: 'Manage carousel component with image.'
+behavior_plugins: {  }

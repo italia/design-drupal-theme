@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_carousel_col_type
+field_name: field_carousel_col_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: it-carousel-landscape-abstract-three-cols
+      label: 'Landscape abstract: 3 cols'
+    -
+      value: it-carousel-landscape-abstract-three-cols-arrow-visible
+      label: 'Landscape abstract: 3 cols with arrows'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

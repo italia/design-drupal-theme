@@ -1,0 +1,14 @@
+name: "Bootstrap Italia Paragraph Carousel"
+description: This is a carousel based on paragraphs and splide
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:responsive_image
+  - drupal:paragraphs
+  - drupal:field_group
+  - drupal:imce
+  - drupal:focal_point
+  - drupal:bootstrap_italia_image_style
+  - drupal:bootstrap_italia_paragraph

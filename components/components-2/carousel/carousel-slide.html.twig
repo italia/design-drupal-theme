@@ -52,25 +52,25 @@
   <{{ _slide_container_type }} {{ slide_attributes }}>
     <div class="it-single-slide-wrapper">
 
-      {% if _slide_image_wrapper %}
-        <div class="card-wrapper">
-          <div class="card card-img no-after">
-            <div class="img-responsive-wrapper">
-              <div class="img-responsive">
-                <div class="img-wrapper">
-      {% endif %}
-
       {% block slideContent %}
-        {{ _content }}
-      {% endblock %}
+        {% if _slide_image_wrapper %}
+          <div class="card-wrapper">
+            <div class="card card-img no-after">
+              <div class="img-responsive-wrapper">
+                <div class="img-responsive">
+                  <div class="img-wrapper">
+        {% endif %}
 
-      {% if _slide_image_wrapper %}
+        {{ _content }}
+
+        {% if _slide_image_wrapper %}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      {% endif %}
+        {% endif %}
+      {% endblock %}
 
     </div>
   </{{ _slide_container_type }}>

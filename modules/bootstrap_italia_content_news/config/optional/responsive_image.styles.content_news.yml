@@ -11,7 +11,7 @@ dependencies:
   theme:
     - bootstrap_italia
 id: content_news
-label: 'Content news'
+label: 'Bootstrap Italia Content news'
 image_style_mappings:
   -
     image_mapping_type: image_style
