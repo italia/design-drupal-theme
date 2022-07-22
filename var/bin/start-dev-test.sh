@@ -38,6 +38,9 @@ enable_modules=${enable_modules:-n}
 read -r -p "Do you want to install extra content type? [y|n] (n): " enable_content_type
 enable_content_type=${enable_content_type:-n}
 
+read -r -p "Bootstrap libraries type [vanilla|webpack] (webpack): " bi_libraries_type
+bi_libraries_type=${bi_libraries_type:-webpack}
+
 echo "==[ Configuration ]=="
 
 echo "Make ${project_name}"
@@ -95,12 +98,33 @@ ddev exec drush -y theme:enable italiagov
 echo 'Set default theme'
 ddev exec drush -y config:set system.theme default italiagov
 
-echo 'Install italiagov assets'
-ddev exec npm install --prefix web/themes/custom/italiagov/
-ddev exec npm run build:prod --prefix web/themes/custom/italiagov/
+echo 'Install italiagov libraries'
+if [ "$bi_libraries_type" == "webpack" ]; then
+  echo 'Install webpack libraries'
+  ddev exec npm install --prefix web/themes/custom/italiagov/
+  ddev exec npm run build:prod --prefix web/themes/custom/italiagov/
 
-echo 'Change libraries settings to webpack assets'
-ddev drush -y config-set italiagov.settings libraries_type bootstrap-italia
+  echo 'Change libraries settings to webpack assets'
+  ddev drush -y config-set italiagov.settings libraries_type bootstrap-italia
+fi
+
+if [ "$bi_libraries_type" == "vanilla" ]; then
+  echo 'Install vanilla libraries'
+
+  if [ ! -d "./web/themes/custom/italiagov/dist" ]; then
+    echo "Make libraries directory"
+    mkdir ./web/themes/custom/italiagov/dist
+  fi
+
+  curl --request GET -sL \
+    --url 'https://github.com/italia/bootstrap-italia-next/releases/download/v2.0.0-rc5/bootstrap-italia.zip' \
+    --output './web/themes/custom/italiagov/dist/bootstrap-italia.zip'
+
+  unzip ./web/themes/custom/italiagov/dist/bootstrap-italia.zip -d ./web/themes/custom/italiagov/dist/
+  rm -Rf ./web/themes/custom/italiagov/dist/bootstrap-italia.zip
+
+  ddev drush -y config-set italiagov.settings libraries_type vanilla
+fi
 
 echo '==[ Cache rebuild ]=='
 ddev exec drush cr
