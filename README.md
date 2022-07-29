@@ -134,7 +134,7 @@ with
 ```
 example
 ```
-"bootstrap-italia": "github:italia/bootstrap-italia#development"
+"bootstrap-italia": "github:italia/bootstrap-italia#main"
 ```
 
 # Optional
