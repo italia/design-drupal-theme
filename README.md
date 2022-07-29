@@ -122,6 +122,21 @@ services:
 By appropriately modifying `*.info.yml` and `*.libraries.yml` you can adapt
 the loading of libraries according to your infrastructure.
 
+## D. How to use bootstrap-italia library from github (for developer)
+Replace in `<sub-theme>/package.json`
+
+```
+"bootstrap-italia": "<version>"
+```
+with
+```
+"bootstrap-italia": "github:italia/bootstrap-italia#<branch>"
+```
+example
+```
+"bootstrap-italia": "github:italia/bootstrap-italia#development"
+```
+
 # Optional
 If you want to install optional plugins.
 
