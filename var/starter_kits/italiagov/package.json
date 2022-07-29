@@ -1,6 +1,6 @@
 {
   "name": "bootstrap_italia",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "'A Drupal theme which implements the Italia Design System'",
   "main": "src/js/index.js",
   "engineStrict": true,
