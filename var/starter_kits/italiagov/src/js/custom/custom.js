@@ -4,4 +4,5 @@
  */
 
 // Example JS
-//import 'example'
+//import './example'
+//import './example-alert-event'
