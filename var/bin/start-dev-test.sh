@@ -139,7 +139,7 @@ if [ "$enable_modules" == "y" ]; then
 
   echo 'Install module: Bootstrap Italia Image Style'
   ddev composer require drupal/focal_point
-  ddev exec drush -y pm:enable focal_point bootstrap_italia_image_styles
+  ddev exec drush -y pm:enable focal_point bootstrap_italia_image_style
 
   echo 'Install module: Bootstrap Italia Paragraph'
   ddev composer require drupal/paragraphs drupal/field_group drupal/imce drupal/color_field
