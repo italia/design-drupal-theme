@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_more_icon
+    - paragraphs.paragraphs_type.callout
+id: paragraph.callout.field_more_icon
+field_name: field_more_icon
+entity_type: paragraph
+bundle: callout
+label: 'More icon'
+description: 'If you leave it blank, the icon <code>it-download</code> will be used, or you can choose an icon from this <a href="https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili" title="Icon list" target="_blank">list</a>.'
+required: true
+translatable: false
+default_value:
+  -
+    value: it-download
+default_value_callback: ''
+settings: {  }
+field_type: string

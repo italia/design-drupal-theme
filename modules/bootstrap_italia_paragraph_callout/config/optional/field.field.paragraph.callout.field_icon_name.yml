@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_name
+    - paragraphs.paragraphs_type.callout
+id: paragraph.callout.field_icon_name
+field_name: field_icon_name
+entity_type: paragraph
+bundle: callout
+label: 'Icon name'
+description: 'If you leave it blank, the icon will be used as in the documentation, or you can choose an icon from this <a href="https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili" title="Icon list" target="_blank">list</a>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

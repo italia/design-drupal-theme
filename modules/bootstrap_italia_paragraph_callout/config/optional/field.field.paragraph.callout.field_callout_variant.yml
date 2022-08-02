@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_callout_variant
+    - paragraphs.paragraphs_type.callout
+  module:
+    - options
+id: paragraph.callout.field_callout_variant
+field_name: field_callout_variant
+entity_type: paragraph
+bundle: callout
+label: 'Callout variant'
+description: 'Docs: <a href="https://italia.github.io/bootstrap-italia/docs/componenti/callout/" title="Docs" target="_blank">https://italia.github.io/bootstrap-italia/docs/componenti/callout/</a>'
+required: true
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings: {  }
+field_type: list_string

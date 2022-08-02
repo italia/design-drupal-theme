@@ -168,6 +168,9 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia Paragraph Attachments'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_attachments
 
+  echo 'Install module: Bootstrap Italia Paragraph Callout'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_callout
+
   echo 'Install module: Bootstrap Italia Paragraph Carousel'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_carousel
 

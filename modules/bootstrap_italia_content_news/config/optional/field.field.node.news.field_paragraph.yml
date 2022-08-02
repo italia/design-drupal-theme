@@ -6,6 +6,8 @@ dependencies:
     - node.type.news
     - paragraphs.paragraphs_type.accordion
     - paragraphs.paragraphs_type.attachments
+    - paragraphs.paragraphs_type.callout
+    - paragraphs.paragraphs_type.carousel
     - paragraphs.paragraphs_type.content
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.webform
@@ -27,30 +29,41 @@ settings:
     target_bundles:
       content: content
       attachments: attachments
+      callout: callout
       accordion: accordion
+      carousel: carousel
       map: map
       webform: webform
     negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: -13
+        weight: -18
         enabled: true
       accordion_item:
-        weight: -10
+        weight: -14
         enabled: false
       attachments:
-        weight: -14
+        weight: -20
+        enabled: true
+      callout:
+        weight: -19
+        enabled: true
+      carousel:
+        weight: -17
         enabled: true
       content:
-        weight: -15
+        weight: -21
         enabled: true
       map:
-        weight: -12
+        weight: -16
         enabled: true
       settings:
-        weight: -9
+        weight: -13
+        enabled: false
+      slide:
+        weight: -12
         enabled: false
       webform:
-        weight: -11
+        weight: -15
         enabled: true
 field_type: entity_reference_revisions
