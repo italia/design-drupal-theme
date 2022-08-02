@@ -69,9 +69,18 @@
  * @ingroup themeable
  */
 #}
-{% include '@bi-bcl/card/card.html.twig' with {
+{% embed '@bi-bcl/card/card.html.twig' with {
   card_title: label,
   card_text: content.field_abstract|render|striptags,
   card_teaser: true,
   card_shadow: true,
+  card_attributes: attributes
 } %}
+
+  {% block cardTitle %}
+    <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
+      <a href="{{ url }}" title="{{ 'Read more abot:'|t }} {{ label }}">{{ label }}</a>
+    </h3>
+  {% endblock %}
+
+{% endembed %}
