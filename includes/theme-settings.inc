@@ -859,20 +859,22 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings']['cdn'] = [
     '#type' => 'details',
     '#title' => t('CDN Settings'),
-    '#description' => t("If you use a third-party CDN, check that you are compliant with the GDPR."),
+    '#description' => t("If you use a third-party CDN, check that you are compliant with the GDPR. For example use: @cdn", ['@cdn' => 'https://www.jsdelivr.com/package/npm/bootstrap-italia?path=dist']),
     '#open' => FALSE,
     '#group' => 'libraries_settings',
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_css'] = [
     '#type' => 'textfield',
     '#title' => t('CSS from CDN'),
-    '#description' => t("Put resource URI. Default: empty"),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/css/bootstrap-italia.min.css']),
+    '#placeholder' => t('/libraries/bootstrap-italia/dist/css/bootstrap-italia.min.css'),
     '#default_value' => theme_get_setting('libraries_cdn_css'),
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_js'] = [
     '#type' => 'textfield',
     '#title' => t('JS from CDN'),
-    '#description' => t("Put resource URI. Default: empty"),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/js/bootstrap-italia.bundle.min.js']),
+    '#placeholder' => t('/libraries/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js'),
     '#default_value' => theme_get_setting('libraries_cdn_js'),
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_minified'] = [
@@ -884,9 +886,16 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings']['cdn']['libraries_cdn_fonts'] = [
     '#type' => 'textfield',
     '#title' => t('Fonts from CDN'),
-    '#description' => t("Default: empty"),
-    '#placeholder' => t('/libraries/fonts'),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/fonts']),
+    '#placeholder' => t('/libraries/bootstrap-italia/dist/fonts'),
     '#default_value' => theme_get_setting('libraries_cdn_fonts'),
+  ];
+  $form['libraries_settings']['cdn']['libraries_cdn_icons'] = [
+    '#type' => 'textfield',
+    '#title' => t('Icons from CDN'),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/svg/sprites.svg']),
+    '#placeholder' => t('/libraries/bootstrap-italia/dist/svg/sprites.svg'),
+    '#default_value' => theme_get_setting('libraries_cdn_icons'),
   ];
 
   $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';

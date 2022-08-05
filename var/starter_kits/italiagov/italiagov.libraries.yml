@@ -26,10 +26,10 @@ custom:
 cdn:
   css:
     theme:
-      https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc5/dist/css/bootstrap-italia.min.css: { type: external, minified: true }
+      https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.2/dist/css/bootstrap-italia.min.css: { type: external, minified: true }
+      # https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.2/dist/css/bootstrap-italia-comuni.min.css: { type: external, minified: true }
   js:
-    https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc5/dist/js/bootstrap-italia.bundle.min.js: { type: external, minified: true }
-    # https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.0-rc5/dist/js/bootstrap-italia.min.js: { type: external, minified: true }
+    https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.2/dist/js/bootstrap-italia.bundle.min.js: { type: external, minified: true }
   dependencies:
     - core/drupal
 
