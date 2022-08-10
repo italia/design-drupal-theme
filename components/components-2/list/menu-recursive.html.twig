@@ -181,13 +181,10 @@
             first_level_large and menu_level == 0 ? 'large',
             first_level_bold and menu_level == 0 ? 'medium',
             item.is_expanded and icon_position is not empty ? 'icon-'~icon_position,
-            item.is_expanded and icon_position is empty ? 'right-icon',
+            item.is_expanded and icon_position is empty ? 'icon-right',
             not item.is_expanded and icon_position == 'left' ? 'icon-left',
-            not item.is_expanded and icon_position == 'right' ? 'right-icon',
+            not item.is_expanded and icon_position == 'right' ? 'icon-right',
           ] %}
-          {# See doc for `right-icon` or `icon-right` and
-            this issue https://github.com/italia/bootstrap-italia-next/issues/41
-          #}
 
           {% set item_attributes = item.attributes %}
 
