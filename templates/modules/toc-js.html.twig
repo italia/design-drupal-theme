@@ -14,36 +14,42 @@
  */
 #}
 {% spaceless %}
-  <div class="sticky-wrapper navbar-wrapper">
-    <nav class="navbar it-navscroll-wrapper it-top-navscroll navbar-expand-lg">
-      <button class="custom-navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-table-of-contents" aria-expanded="false" aria-controls="navbar-table-of-contents">
-        <span class="it-list"></span>{{ title }}
-      </button>
-      <div class="navbar-collapsable collapse" id="navbar-table-of-contents">
-        <div class="overlay"></div>
-        <div class="close-div visually-hidden">
-          <button class="btn close-menu" type="button">
-            <span class="it-close"></span>
-            {{ 'Close'|t }}
-          </button>
-        </div>
-        <a class="it-back-button" href="#">
-          {% include '@bi-bcl/icon/icon.html.twig' with {
-            name: it-chevron-left,
-            size: sm,
-            color: primary,
-            alignment: top
-          } %}
-          <span>{{ 'Close menu'|t }}</span>
-        </a>
-        <div class="menu-wrapper">
-          <div id="sticky-anchor"></div>
-          <div {{ attributes.addClass('link-list-wrapper', 'menu-link-list') }}>
-            <h3 {{ title_attributes.addClass('no_toc') }}>{{ title }}</h3>
-            <nav role="navigation" aria-label="{{ title }}"></nav>
-          </div>
+  <nav class="navbar it-navscroll-wrapper it-bottom-navscroll navbar-expand-lg" data-bs-navscroll>
+    <button
+      class="custom-navbar-toggler"
+      type="button"
+      aria-controls="navbar-table-of-contents"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      data-bs-target="#navbar-table-of-contents"
+      data-bs-toggle="navbarcollapsible"
+    >
+      <span class="it-list"></span>{{ title }}
+    </button>
+    <div class="navbar-collapsable" id="navbar-table-of-contents">
+      <div class="overlay"></div>
+      <div class="close-div visually-hidden">
+        <button class="btn close-menu" type="button">
+          <span class="it-close"></span>
+          {{ 'Close'|t }}
+        </button>
+      </div>
+      <a class="it-back-button" href="#">
+        {% include '@bi-bcl/icon/icon.html.twig' with {
+          name: 'it-chevron-left',
+          size: 'sm',
+          color: 'primary',
+          alignment: 'top'
+        } %}
+        <span>{{ 'Close menu'|t }}</span>
+      </a>
+      <div class="menu-wrapper">
+        <div id="sticky-anchor"></div>
+        <div {{ attributes.addClass('link-list-wrapper', 'menu-link-list') }}>
+          <h3 {{ title_attributes.addClass('no_toc') }}>{{ title }}</h3>
+          <nav role="navigation" aria-label="{{ title }}"></nav>
         </div>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 {% endspaceless %}
