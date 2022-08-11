@@ -48,22 +48,17 @@
 } %}
   {% block content %}
 
-    {% set background_activ = content.field_accordion_background_activ[0]['#markup']|render == 'True' ? true : false %}
-    {% set background_hover = content.field_accordion_background_hover[0]['#markup']|render == 'True' ? true : false %}
-    {% set flush = content.field_accordion_flush[0]['#markup']|render == 'True' ? true : false %}
-    {% set left_icon = content.field_accordion_left_icon[0]['#markup']|render == 'True' ? true : false %}
-
-    {% set accordion_classes = [
-      'accordion',
-      background_activ ? 'accordion-background-active',
-      background_hover ? 'accordion-background-hover',
-      flush ? 'accordion-flush',
-      left_icon ? 'accordion-left-icon'
-    ] %}
-
-    <div class="{{ accordion_classes|join(' ')|trim }}" id="accordion-{{ paragraph.id() }}">
-      {{ content.field_accordion_item }}
-    </div>
+    {% embed '@bi-bcl/accordion/accordion.html.twig' with {
+      container_id: 'accordion-' ~ paragraph.id(),
+      background_active: content.field_accordion_background_activ[0]['#markup']|render == 'True' ? true : false,
+      background_hover: content.field_accordion_background_hover[0]['#markup']|render == 'True' ? true : false,
+      flush: content.field_accordion_flush[0]['#markup']|render == 'True' ? true : false,
+      left_icon: content.field_accordion_left_icon[0]['#markup']|render == 'True' ? true : false,
+    } %}
+      {% block accordionItems %}
+        {{ content.field_accordion_item }}
+      {% endblock %}
+    {% endembed %}
 
   {% endblock %}
 {% endembed %}

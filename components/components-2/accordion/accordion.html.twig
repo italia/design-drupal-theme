@@ -1,0 +1,82 @@
+{#
+/**
+ * @file
+ * Template for accordion component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/accordion/
+ * Last review: v2.0.2
+ *
+ * Parameters:
+ * - container_id (string) (default: 'accordion-container-' ~ random)
+ * - background_active (boolean) (default: false)
+ * - background_hover (boolean) (default: false)
+ * - flush (boolean) (default: false)
+ * - left_icon (boolean) (default: false)
+ * - items (array) (default: '')
+ *   ["item_title", "item_body", "item_show", "always_open"]
+ * - accordion_classes (array) (default: '')
+ * - accordion_attributes (obj attribute) (default: '')
+ *
+ * - accordionItems (block) (default: item_title)
+ *
+ * Examples:
+   {% include '@bi-bcl/accordion/accordion.html.twig' with {
+     container_id: 'your id',
+     background_active: true
+   } %}
+ *
+   {% embed '@bi-bcl/accordion/accordion.html.twig' with {
+     container_id: 'your id',
+     background_hover: true
+   } %}
+     {% block accordionItems %}
+       {{ content.field }}
+     {% endblock %}
+   {% endembed %}
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _container_id = container_id|default('accordion-container-' ~ random()) %}
+  {% set _background_active = background_active ?? false %}
+  {% set _background_hover = background_hover ?? false %}
+  {% set _flush = flush ?? false %}
+  {% set _left_icon = left_icon ?? false %}
+  {% set _accordion_classes = accordion_classes|default('') %}
+  {% set _accordion_attributes = accordion_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'accordion',
+      _background_active ? 'accordion-background-active',
+      _background_hover ? 'accordion-background-hover',
+      _flush ? 'accordion-flush',
+      _left_icon ? 'accordion-left-icon'
+    ] %}
+
+  {% if _accordion_classes is not empty %}
+    {% set _classes = _classes|merge(accordion_classes) %}
+  {% endif %}
+
+  {% if _accordion_attributes is empty %}
+    {% set accordion_attributes = create_attribute() %}
+  {% endif %}
+  {% set accordion_attributes = accordion_attributes
+    .addClass(_classes)
+    .setAttribute('id', _container_id)
+  %}
+
+  {# Component #}
+  <div{{ accordion_attributes }}>
+    {% block accordionItems %}
+      {% for item in items %}
+        {% include '@bi-bcl/accordion/accordion-item.html.twig' with {
+          item_title: item.item_title,
+          item_body: item.item_body,
+          item_show: item.item_show,
+          container_id: always_open ? _container_id : ''
+        } %}
+      {% endfor %}
+    {% endblock %}
+  </div>
+
+{% endapply %}

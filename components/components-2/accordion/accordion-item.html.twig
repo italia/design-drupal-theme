@@ -1,0 +1,95 @@
+{#
+/**
+ * @file
+ * Template for accordion_item component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/accordion/
+ * Last review: v2.0.2
+ *
+ * Parameters:
+ * - item_title (string) (default: '')
+ * - item_body (string) (default: '')
+ * - title_id (string) (default: 'accordion-title-' ~ random)
+ * - item_show (boolean) (default: true)
+ * - container_id (string) (default: '')
+ *   Enable 'always open' feature
+ *
+ * - accordionItemTitle (block) (default: item_title)
+ * - accordionItemBody (block) (default: item_body)
+ *
+ * Examples:
+   {% include '@bi-bcl/accordion/accordion-item.html.twig' with {
+     item_title: 'Title',
+     item_body: 'Body',
+   } %}
+ *
+   {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
+     item_show: true,
+     container_id: 'container-id',
+   } %}
+     {% block accordionItemTitle %}
+       {{ content.field_title }}
+     {% endblock %}
+
+     {% block accordionItemBody %}
+       {{ content|without('field_title') }}
+     {% endblock %}
+   {% endembed %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _item_title = item_title|default('') %}
+  {% set _item_body = item_body|default('') %}
+  {% set _title_id = title_id|default('accordion-title-' ~ random()) %}
+  {% set _item_show = item_show ?? false %}
+  {% set _container_id = container_id|default('') %}
+  {% set _accordion_item_classes = accordion_item_classes|default('') %}
+  {% set _accordion_item_attributes = accordion_item_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'accordion-item'
+    ] %}
+
+  {% if _accordion_item_classes is not empty %}
+    {% set _classes = _classes|merge(accordion_item_classes) %}
+  {% endif %}
+
+  {% if _accordion_item_attributes is empty %}
+    {% set accordion_item_attributes = create_attribute() %}
+  {% endif %}
+  {% set accordion_item_attributes = accordion_item_attributes
+    .addClass(_classes)
+  %}
+
+  {# Component #}
+  <div{{ accordion_item_attributes }}>
+    <h2 class="accordion-header" id="heading-{{ _title_id }}">
+      <button
+        class="accordion-button{{ _item_show ? '' : ' collapsed' }}"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapse-{{ _title_id }}"
+        aria-expanded="{{ _item_show ? 'true' : 'false' }}"
+        aria-controls="collapse-{{ _title_id }}">
+        {% block accordionItemTitle %}
+          {{ _item_title }}
+        {% endblock %}
+      </button>
+    </h2>
+    <div id="collapse-{{ _title_id }}"
+      class="accordion-collapse collapse{{ _item_show ? ' show' : '' }}"
+      aria-labelledby="heading-{{ _title_id }}"
+      {% if _container_id is not empty %}
+        data-bs-parent="#{{ _container_id }}"
+      {% endif %}
+    >
+      <div class="accordion-body">
+        {% block accordionItemBody %}
+          {{ _item_body }}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+{% endapply %}

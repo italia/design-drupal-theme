@@ -18,7 +18,7 @@
  *
  * Examples:
    {% include '@bi-bcl/*/*.html.twig' with {
-      variables: value,
+     variables: value,
    } %}
  *
  */

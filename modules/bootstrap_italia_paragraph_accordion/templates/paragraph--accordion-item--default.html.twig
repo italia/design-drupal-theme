@@ -38,45 +38,30 @@
  * @ingroup themeable
  */
 #}
-{%
-  set classes = [
+{% set classes = [
     'paragraph',
     'paragraph--type--' ~ paragraph.bundle|clean_class,
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished'
-  ]
-%}
-{% set title_id = paragraph.bundle() ~ '--' ~ paragraph.id() %}
-{% set item_show = content.field_accordion_item_show[0]['#markup']|render == 'True' ? true : false %}
+] %}
 {% set always_open = content.field_accordion_item_always_open[0]['#markup']|render == 'True' ? true : false %}
 
 {% block paragraph %}
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading-{{ title_id }}">
-      <button
-        class="accordion-button{{ item_show ? '' : ' collapsed' }}"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapse-{{ title_id }}"
-        aria-expanded="{{ item_show ? 'true' : 'false' }}"
-        aria-controls="collapse-{{ title_id }}">
-        {{ content.field_title }}
-      </button>
-    </h2>
-    <div id="collapse-{{ title_id }}"
-         class="accordion-collapse collapse{{ item_show ? ' show' : '' }}"
-         aria-labelledby="heading-{{ title_id }}"
-         {% if always_open %}
-           data-bs-parent="#accordion-{{ paragraph.getParentEntity().id() }}"
-         {% endif %}
-    >
-      <div class="accordion-body">
-        <div{{ attributes.addClass(classes) }}>
-          {% block content %}
-            {{ content|without('field_title','field_accordion_item_show','field_accordion_item_always_open') }}
-          {% endblock %}
-        </div>
+  {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
+    title_id: paragraph.bundle() ~ '--' ~ paragraph.id(),
+    item_show: content.field_accordion_item_show[0]['#markup']|render == 'True' ? true : false,
+    container_id: always_open ? 'accordion-' ~ paragraph.getParentEntity().id() : ''
+  } %}
+    {% block accordionItemTitle %}
+      {{ content.field_title }}
+    {% endblock %}
+
+    {% block accordionItemBody %}
+      <div{{ attributes.addClass(classes) }}>
+        {% block content %}
+          {{ content|without('field_title','field_accordion_item_show','field_accordion_item_always_open') }}
+        {% endblock %}
       </div>
-    </div>
-  </div>
+    {% endblock %}
+  {% endembed %}
 {% endblock paragraph %}
