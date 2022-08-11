@@ -25,7 +25,7 @@ third_party_settings:
     highlight_on_scroll: 1
     highlight_offset: '100'
     sticky: 1
-    sticky_offset: '0'
+    sticky_offset: '80'
     sticky_stop: .it-footer
     sticky_stop_padding: '0'
 name: News
