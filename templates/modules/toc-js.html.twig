@@ -20,7 +20,7 @@
       type="button"
       aria-controls="navbar-table-of-contents"
       aria-expanded="false"
-      aria-label="Toggle navigation"
+      aria-label="{{ 'Toggle navigation'|t }}"
       data-bs-target="#navbar-table-of-contents"
       data-bs-toggle="navbarcollapsible"
     >
@@ -45,7 +45,7 @@
       </a>
       <div class="menu-wrapper">
         <div id="sticky-anchor"></div>
-        <div {{ attributes.addClass('link-list-wrapper', 'menu-link-list') }}>
+        <div {{ attributes.addClass(['link-list-wrapper', 'menu-link-list']) }}>
           <h3 {{ title_attributes.addClass('no_toc') }}>{{ title }}</h3>
           <nav role="navigation" aria-label="{{ title }}"></nav>
         </div>
