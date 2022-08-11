@@ -75,7 +75,8 @@
       not _chip_dismissibile and _chip_icon is empty and _chip_color is empty and not _chip_simple ? 'chip-simple',
       _chip_large ? 'chip-lg',
       _chip_color is not empty ? 'chip-' ~ _chip_color,
-      _chip_disabled ? 'chip-disabled'
+      _chip_disabled ? 'chip-disabled',
+      _chip_dismissibile ? 'alert'
     ] %}
 
   {% if _chip_classes is not empty %}
@@ -109,8 +110,7 @@
 
     {% block afterContent %}
       {% if _chip_dismissibile %}
-        {# TODO after https://github.com/italia/bootstrap-italia-next/issues/63 #}
-        <button {{ _chip_disabled ? ' disabled' }}>
+        <button data-bs-dismiss="alert"{{ _chip_disabled ? ' disabled' }}>
           {% include '@bi-bcl/icon/icon.html.twig' with {
             name: 'it-close',
           } %}
