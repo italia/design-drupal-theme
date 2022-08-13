@@ -1,0 +1,133 @@
+{#
+/**
+ * @file
+ * Template for list_item component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/
+ * Last review: v2.0.2
+ *
+ * Parameters:
+ * - list_item_container (string) (default: 'li')
+ * - list_url (string) (default: '')
+ * - list_text (field,string) (default: '')
+ * - list_icon (string) (default: '')
+ * - list_image (field,string) (default: '')
+ * - list_active (boolean) (default: false)
+ * - list_show_end_arrow (boolean) (default: false)
+ * - list_metadata (field,string) (default: '')
+ * - list_item_classes (array) (default: '')
+ * - list_item_attributes (obj attribute) (default: '')
+ *
+ * - listStart (block) (default: '')
+ * - listIcon (block) (default: list_icon)
+ * - listImage (block) (default: list_image)
+ * - listText (block) (default: list_text)
+ * - listMetadata (block) (default: list_metadata)
+ * - listEnd (block) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/list/list-item.html.twig' with {
+     list_text: '',
+     list_icon: '',
+   } %}
+ *
+   {% embed '@bi-bcl/list/list-item.html.twig' with {
+     list_text: '',
+     list_icon: '',
+   } %}
+     {% block listEnd %}
+       Your content
+     {% endblock %}
+   {% endembed %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _list_item_container = list_item_container|default('li') %}
+  {% set _list_url = list_url|default('') %}
+  {% set _list_text = list_text|default('') %}
+  {% set _list_icon = list_icon|default('') %}
+  {% set _list_image = list_image|default('') %}
+  {% set _list_active = list_active ?? false %}
+  {% set _list_show_end_arrow = list_show_end_arrow ?? false %}
+  {% set _list_metadata = list_metadata ?? false %}
+
+  {% set _option = option|default('') %}
+  {% set _list_item_classes = list_item_classes|default('') %}
+  {% set _list_item_attributes = list_item_attributes|default('') %}
+
+  {# Set options #}
+  {% set _list_item_tag = _list_url is empty ? 'div' : 'a' %}
+
+  {% set _classes = [
+    'list-item',
+    _list_active ? 'active'
+  ] %}
+
+  {% if _list_item_classes is not empty %}
+    {% set _classes = _classes|merge(list_item_classes) %}
+  {% endif %}
+
+  {% if _list_item_attributes is empty %}
+    {% set list_item_attributes = create_attribute() %}
+  {% endif %}
+  {% set list_item_attributes = list_item_attributes
+    .addClass(_classes)
+  %}
+
+  {% if _list_item_tag == 'a' %}
+    {% set list_item_attributes = list_item_attributes
+      .setAttribute('href', _list_url)
+      .setAttribute('title', _list_text)
+    %}
+  {% endif %}
+
+  {# Component #}
+  <{{ _list_item_container }}>
+    <{{ _list_item_tag }}{{ list_item_attributes }}>
+
+      {% block listStart %}{% endblock %}
+
+      {% block listIcon %}
+        {% if _list_icon is not empty %}
+          <div class="it-rounded-icon">
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: _list_icon,
+            } %}
+          </div>
+        {% endif %}
+      {% endblock %}
+
+      {% block listImage %}
+        {% if _list_image is not empty %}
+          <div class="it-thumb">
+            {{ _list_image }}
+          </div>
+        {% endif %}
+      {% endblock %}
+
+      <div class="it-right-zone">
+        {% block listText %}
+          {% if _list_text is not empty %}
+            <span class="text">{{ _list_text }}</span>
+          {% endif %}
+        {% endblock %}
+
+        {% block listMetadata %}
+          {% if _list_metadata is not empty %}
+            <span class="metadata">{{ _list_metadata }}</span>
+          {% endif %}
+        {% endblock %}
+
+        {% block listEnd %}{% endblock %}
+
+        {% if _list_show_end_arrow is not empty %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-chevron-right',
+          } %}
+        {% endif %}
+      </div>
+
+    </{{ _list_item_tag }}>
+  </{{ _list_item_container }}>
+{% endapply %}
