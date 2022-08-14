@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Template for list component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/
+ * Last review: v2.0.2
+ *
+ * Parameters:
+ * - list_container (string) (default: 'ul')
+ * - list_items (array) (default: '')
+ *   list-item component ["list_text", "list_icon", ... ]
+ *
+ * - listItems (block) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/list/list.html.twig' with {
+     list_items: '',
+   } %}
+ *
+   {% embed '@bi-bcl/list/list.html.twig' with {
+     list_text: '',
+     list_icon: '',
+   } %}
+     {% block listItems %}
+       Your content
+     {% endblock %}
+   {% endembed %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _list_container = list_container|default('ul') %}
+  {% set _list_items = list_items|default('') %}
+  {% set _list_classes = list_classes|default('') %}
+  {% set _list_attributes = list_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'it-list'
+    ] %}
+
+  {% if _list_classes is not empty %}
+    {% set _classes = _classes|merge(list_classes) %}
+  {% endif %}
+
+  {% if _list_attributes is empty %}
+    {% set list_attributes = create_attribute() %}
+  {% endif %}
+  {% set list_attributes = list_attributes
+    .addClass(_classes)
+  %}
+
+  {# Component #}
+  <div class="it-list-wrapper">
+    <{{ _list_container }}{{ list_attributes }}>
+
+      {% block listItems %}
+        {% for item in _list_items %}
+          {% include '@bi-bcl/list/list-item.html.twig' with item %}
+        {% endfor %}
+      {% endblock %}
+
+    </{{ _list_container }}>
+  </div>
+
+{% endapply %}

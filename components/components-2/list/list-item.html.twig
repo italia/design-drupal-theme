@@ -50,7 +50,7 @@
   {% set _list_image = list_image|default('') %}
   {% set _list_active = list_active ?? false %}
   {% set _list_show_end_arrow = list_show_end_arrow ?? false %}
-  {% set _list_metadata = list_metadata ?? false %}
+  {% set _list_metadata = list_metadata|default('') %}
 
   {% set _option = option|default('') %}
   {% set _list_item_classes = list_item_classes|default('') %}

@@ -1,0 +1,141 @@
+{#
+/**
+ * @file
+ * List demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/list/list-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set demo_items_1 = [
+    {'list_text': 'Text'},
+    {'list_url': '#', 'list_text': 'Link'},
+    {'list_url': '#', 'list_text': 'Link active', 'list_active': true},
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Simple List demo'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/list/list.html.twig' with {
+        list_items: demo_items_1,
+      } %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'List with avatar icon'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/list/list.html.twig' with {
+        list_items: demo_items_1,
+      } %}
+        {% block listItems %}
+
+          {% for item in _list_items %}
+            {% embed '@bi-bcl/list/list-item.html.twig' with item %}
+              {% block listStart %}
+
+                {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+                  avatar_size: 'lg'
+                } %}
+                  {% block avatarContent %}
+                    <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+                  {% endblock %}
+                {% endembed %}
+
+              {% endblock %}
+            {% endembed %}
+          {% endfor %}
+
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% set demo_items_2 = [
+    {'list_text': 'Text', 'list_icon': 'it-folder'},
+    {'list_url': '#', 'list_text': 'Link', 'list_icon': 'it-folder'},
+    {'list_url': '#', 'list_text': 'Link active', 'list_active': true, 'list_icon': 'it-folder'},
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'List with icon demo'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/list/list.html.twig' with {
+        list_items: demo_items_2,
+      } %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'List with image demo'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/list/list.html.twig' with {
+        list_items: demo_items_1,
+      } %}
+        {% block listItems %}
+
+          {% for item in _list_items %}
+            {% embed '@bi-bcl/list/list-item.html.twig' with item %}
+              {% block listImage %}
+                <div class="it-thumb"><img src="https://via.placeholder.com/40x40.png?text=40x40" alt="{{ 'Image description'|t }}"></div>
+              {% endblock %}
+            {% endembed %}
+          {% endfor %}
+
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% set demo_items_3 = [
+    {'list_text': 'Text', 'list_show_end_arrow': true},
+    {'list_url': '#', 'list_text': 'Link', 'list_show_end_arrow': true},
+    {'list_url': '#', 'list_text': 'Link active', 'list_active': true, 'list_show_end_arrow': true},
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'List with arrow demo'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/list/list.html.twig' with {
+        list_items: demo_items_3,
+      } %}
+
+    {% endblock %}
+  {% endembed %}
+
+  {% set demo_items_4 = [
+    {'list_text': 'Text', 'list_metadata': 'Metadata Text'},
+    {'list_url': '#', 'list_text': 'Link', 'list_metadata': 'Metadata Text'},
+    {'list_url': '#', 'list_text': 'Link active', 'list_active': true, 'list_metadata': 'Metadata Text'},
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'List with metadata demo'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/list/list.html.twig' with {
+        list_items: demo_items_4,
+      } %}
+
+    {% endblock %}
+  {% endembed %}
+
+{% endapply %}
