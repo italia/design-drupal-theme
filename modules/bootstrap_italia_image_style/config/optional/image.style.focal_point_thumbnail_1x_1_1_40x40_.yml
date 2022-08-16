@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_thumbnail_1x_1_1_40x40_
+label: 'Focal point Thumbnail 1X 1:1 (40x40)'
+effects:
+  781192e8-82d2-4292-88d2-4bb57f0c40c1:
+    uuid: 781192e8-82d2-4292-88d2-4bb57f0c40c1
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 40
+      height: 40
+      crop_type: focal_point

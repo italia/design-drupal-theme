@@ -1,0 +1,8 @@
+name: Bootstrap Italia Views List
+type: module
+description: 'Add Boostrap Italia carousel views style plugin.'
+package: "Bootstrap Italia"
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - drupal:views

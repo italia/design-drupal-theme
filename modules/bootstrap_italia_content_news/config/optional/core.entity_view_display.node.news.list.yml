@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.list
+    - field.field.node.news.body
+    - field.field.node.news.field_abstract
+    - field.field.node.news.field_expiration_date
+    - field.field.node.news.field_image
+    - field.field.node.news.field_news_type
+    - field.field.node.news.field_paragraph
+    - field.field.node.news.field_subjects
+    - field.field.node.news.field_time_to_read
+    - image.style.focal_point_thumbnail_1x_1_1_40x40_
+    - node.type.news
+  module:
+    - image
+    - user
+id: node.news.list
+targetEntityType: node
+bundle: news
+mode: list
+content:
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: focal_point_thumbnail_1x_1_1_40x40_
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_abstract: true
+  field_expiration_date: true
+  field_news_type: true
+  field_paragraph: true
+  field_subjects: true
+  field_time_to_read: true
+  langcode: true
+  toc_js: true

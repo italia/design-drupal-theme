@@ -14,5 +14,7 @@ dependencies:
   - drupal:bootstrap_italia_paragraph
   - drupal:bootstrap_italia_paragraph_accordion
   - drupal:bootstrap_italia_paragraph_attachments
+  - drupal:bootstrap_italia_paragraph_callout
+  - drupal:bootstrap_italia_paragraph_carousel
   - drupal:bootstrap_italia_paragraph_map
   - drupal:bootstrap_italia_paragraph_webform
