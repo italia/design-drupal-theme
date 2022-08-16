@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.accordion
+    - field.field.node.news.body
+    - field.field.node.news.field_abstract
+    - field.field.node.news.field_expiration_date
+    - field.field.node.news.field_image
+    - field.field.node.news.field_news_type
+    - field.field.node.news.field_paragraph
+    - field.field.node.news.field_subjects
+    - field.field.node.news.field_time_to_read
+    - node.type.news
+  module:
+    - user
+id: node.news.accordion
+targetEntityType: node
+bundle: news
+mode: accordion
+content:
+  field_abstract:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_subjects:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  body: true
+  field_expiration_date: true
+  field_image: true
+  field_news_type: true
+  field_paragraph: true
+  field_time_to_read: true
+  langcode: true
+  toc_js: true

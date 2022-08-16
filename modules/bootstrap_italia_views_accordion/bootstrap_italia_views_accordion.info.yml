@@ -1,0 +1,8 @@
+name: Bootstrap Italia Views Accordion
+type: module
+description: 'Add Boostrap Italia accordion views style plugin.'
+package: "Bootstrap Italia"
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - drupal:views

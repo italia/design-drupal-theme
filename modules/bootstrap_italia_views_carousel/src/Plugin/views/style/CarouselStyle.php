@@ -6,13 +6,13 @@ use Drupal\core\form\FormStateInterface;
 use Drupal\views\Plugin\views\style\StylePluginBase;
 
 /**
- * Style plugin to render swiper carousel.
+ * Style plugin to render carousel component.
  *
  * @ingroup views_style_plugins
  *
  * @ViewsStyle(
  *   id = "bootstrap_italia_views_carousel_style",
- *   title = @Translation("Bootstrap Italia Carousel component"),
+ *   title = @Translation("Bootstrap Italia Carousel"),
  *   help = @Translation("Render a Bootstrap Italia Carousel."),
  *   theme = "views_bootstrap_italia_views_carousel",
  *   display_types = { "normal" }

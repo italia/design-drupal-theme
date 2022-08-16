@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Accordion Views module help and theme functions.
+ */
+
+use Drupal\bootstrap_italia_views_accordion\Plugin\views\style\AccordionStyle;
+
+/**
+ * Implements hook_theme().
+ */
+function bootstrap_italia_views_accordion_style_theme($existing, $type, $theme, $path) {
+  return [
+    'views_bootstrap_italia_views_accordion' => [
+      'variables' => [
+        'view' => NULL,
+        'rows' => NULL,
+        'options' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for bootstrap accordion templates.
+ *
+ * Default template: views-bootstrap-italia-views-accordion.html.twig
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ */
+function template_preprocess_views_bootstrap_italia_views_accordion(&$variables) {
+  // Update options for twig.
+  $variables['options'] = $variables['view']->style_plugin->options;
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function bootstrap_italia_views_accordion_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#view'])) {
+    $view = $variables['elements']['content']['#view'];
+
+    if ($view->style_plugin instanceof AccordionStyle) {
+      $suggestions[] = 'block__views_views_bi_accordion__' . $view->id();
+      $suggestions[] = 'block__views_views_bi_accordion';
+    }
+  }
+}

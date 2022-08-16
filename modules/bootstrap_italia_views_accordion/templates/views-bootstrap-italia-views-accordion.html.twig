@@ -1,0 +1,31 @@
+{#
+/**
+ * Default theme implementation for Views to output a splide carousel.
+ *
+ * Available variables:
+ * - options.bi_accordion_settings: View plugin style options:
+ *   - accordion_background_active (boolean) (Default: false)
+ *   - accordion_background_hover (boolean) (Default: false)
+ *   - accordion_left_icon (boolean) (Default: false)
+ *   - accordion_flush (boolean) (Default: false)
+ *
+ * @see template_preprocess_views_bootstrap_italia_views_accordion()
+ *
+ * @ingroup themeable
+ */
+#}
+{% embed '@bi-bcl/accordion/accordion.html.twig' with {
+  background_active: options.bi_accordion_settings.accordion_background_active,
+  background_hover: options.bi_accordion_settings.accordion_background_hover,
+  left_icon: options.bi_accordion_settings.accordion_left_icon,
+  flush: options.bi_accordion_settings.accordion_flush,
+  accordion_attributes: attributes,
+} %}
+
+  {% block accordionItems %}
+    {% for row in rows %}
+      {{ row }}
+    {% endfor %}
+  {% endblock %}
+
+{% endembed %}
