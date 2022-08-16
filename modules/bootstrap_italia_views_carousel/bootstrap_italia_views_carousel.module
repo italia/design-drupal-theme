@@ -5,7 +5,7 @@
  * Carousel Views module help and theme functions.
  */
 
-use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\AccordionStyle;
+use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\CarouselStyle;
 
 /**
  * Implements hook_theme().
@@ -44,7 +44,7 @@ function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$s
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 
-    if ($view->style_plugin instanceof AccordionStyle) {
+    if ($view->style_plugin instanceof CarouselStyle) {
       $suggestions[] = 'block__views_views_bi_carousel__' . $view->id();
       $suggestions[] = 'block__views_views_bi_carousel';
     }
