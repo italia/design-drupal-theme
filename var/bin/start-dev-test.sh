@@ -117,7 +117,7 @@ if [ "$bi_libraries_type" == "vanilla" ]; then
   fi
 
   curl --request GET -sL \
-    --url 'https://github.com/italia/bootstrap-italia-next/releases/download/v2.0.0-rc5/bootstrap-italia.zip' \
+    --url 'https://github.com/italia/bootstrap-italia/releases/download/v2.0.2/bootstrap-italia.zip' \
     --output './web/themes/custom/italiagov/dist/bootstrap-italia.zip'
 
   unzip ./web/themes/custom/italiagov/dist/bootstrap-italia.zip -d ./web/themes/custom/italiagov/dist/
@@ -174,6 +174,9 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia Paragraph Carousel'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_carousel
 
+  echo 'Install module: Bootstrap Italia Paragraph Citation'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_citation
+
   echo 'Install module: Bootstrap Italia Paragraph Map'
   ddev composer require drupal/geofield drupal/leaflet
   ddev exec drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
@@ -182,8 +185,14 @@ if [ "$enable_modules" == "y" ]; then
   ddev composer require drupal/webform wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
 
+  echo 'Install module: Bootstrap Italia Paragraph views accordion'
+  ddev exec drush -y pm:enable bootstrap_italia_views_accordion
+
   echo 'Install module: Bootstrap Italia Paragraph views carousel'
   ddev exec drush -y pm:enable bootstrap_italia_views_carousel
+
+  echo 'Install module: Bootstrap Italia Paragraph views list'
+  ddev exec drush -y pm:enable bootstrap_italia_views_list
 
 fi
 
