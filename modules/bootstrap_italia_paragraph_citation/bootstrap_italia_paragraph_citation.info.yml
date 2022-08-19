@@ -1,0 +1,8 @@
+name: Bootstrap Italia Paragraph Citation
+type: module
+description: 'Add a Citation paragraph.'
+package: "Bootstrap Italia"
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - drupal:bootstrap_italia_paragraph

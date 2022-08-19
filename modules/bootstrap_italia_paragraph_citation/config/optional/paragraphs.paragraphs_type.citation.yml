@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:36310e22-f911-4c9d-a00e-fb32c007c41e'
+id: citation
+label: Citation
+icon_uuid: 36310e22-f911-4c9d-a00e-fb32c007c41e
+icon_default: 'data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiB2aWV3Qm94PSIwIDAgOTYgOTYiPgo8dGl0bGU+Zm9ybWF0X3F1b3RlPC90aXRsZT4KPHBhdGggZD0iTTU2LjA2MyA2OC4wNjNsNy44NzUtMTYuMTI1aC0xMnYtMjRoMjR2MjRsLTcuODc1IDE2LjEyNWgtMTJ6TTI0IDY4LjA2M2w4LjA2My0xNi4xMjVoLTEydi0yNGgyNHYyNGwtOC4wNjMgMTYuMTI1aC0xMnoiPjwvcGF0aD4KPC9zdmc+Cg=='
+description: 'This paragraph type manage Citation component'
+behavior_plugins: {  }

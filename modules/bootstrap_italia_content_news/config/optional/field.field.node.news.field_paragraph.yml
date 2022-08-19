@@ -8,6 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.attachments
     - paragraphs.paragraphs_type.callout
     - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.citation
     - paragraphs.paragraphs_type.content
     - paragraphs.paragraphs_type.map
     - paragraphs.paragraphs_type.webform
@@ -30,6 +31,7 @@ settings:
       content: content
       attachments: attachments
       callout: callout
+      citation: citation
       accordion: accordion
       carousel: carousel
       map: map
@@ -37,33 +39,36 @@ settings:
     negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: -18
-        enabled: true
-      accordion_item:
-        weight: -14
-        enabled: false
-      attachments:
-        weight: -20
-        enabled: true
-      callout:
         weight: -19
         enabled: true
-      carousel:
-        weight: -17
+      accordion_item:
+        weight: -15
+        enabled: false
+      attachments:
+        weight: -22
         enabled: true
-      content:
+      callout:
         weight: -21
         enabled: true
+      carousel:
+        weight: -18
+        enabled: true
+      citation:
+        weight: -20
+        enabled: true
+      content:
+        weight: -23
+        enabled: true
       map:
-        weight: -16
+        weight: -17
         enabled: true
       settings:
-        weight: -13
+        weight: -14
         enabled: false
       slide:
-        weight: -12
+        weight: -13
         enabled: false
       webform:
-        weight: -15
+        weight: -16
         enabled: true
 field_type: entity_reference_revisions

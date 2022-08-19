@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_blockquote_simple
+    - paragraphs.paragraphs_type.citation
+id: paragraph.citation.field_blockquote_simple
+field_name: field_blockquote_simple
+entity_type: paragraph
+bundle: citation
+label: Simple
+description: 'Check to display <code>simple</code> variant. <a href="https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/tipografia/#semplice" title="Read the docs" target="_blank">Docs</a>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alignment
+    - paragraphs.paragraphs_type.citation
+  module:
+    - options
+id: paragraph.citation.field_alignment
+field_name: field_alignment
+entity_type: paragraph
+bundle: citation
+label: Alignment
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: text-start
+default_value_callback: ''
+settings: {  }
+field_type: list_string
