@@ -181,6 +181,9 @@ if [ "$enable_modules" == "y" ]; then
   ddev composer require drupal/geofield drupal/leaflet
   ddev exec drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
 
+  echo 'Install module: Bootstrap Italia Paragraph Section'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_section
+
   echo 'Install module: Bootstrap Italia Paragraph Webform'
   ddev composer require drupal/webform wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
