@@ -43,12 +43,10 @@
   set classes = [
   'paragraph',
   'it-page-section',
-  'anchor-offset',
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
   not paragraph.isPublished() ? 'paragraph--unpublished',
   content.field_settings[0]['#paragraph'].field_full_width.getString() ? 'paragraph--full-width',
-  content.field_settings[0]['#paragraph'].field_background_image_fixed.getString() ? 'paragraph--background-image-fixed',
   content.field_settings[0]['#paragraph'].field_container_classes.getString()
 ]
 %}
@@ -84,15 +82,24 @@
   : ''
 %}
 
+{% set background_fixed =
+  content.field_settings[0]['#paragraph'].field_background_image_fixed.getString()
+  ? 'background-repeat: no-repeat;background-position: left;background-size: cover;background-attachment: fixed;'
+  : ''
+%}
+
 {% set style_attribute = [
   background_image,
+  background_fixed,
   background_color,
   background_blend_mode,
   content.field_settings[0]['#paragraph'].field_inline_style.getString()
 ]
 %}
 
-<div id="{{ "paragraph-" ~ paragraph.bundle|clean_class ~ "-" ~paragraph.id() }}"{{ attributes.addClass(classes).setAttribute('style', style_attribute) }}>
+{% set id = "paragraph-" ~ paragraph.bundle|clean_class ~ "-" ~paragraph.id() %}
+
+<div{{ attributes.addClass(classes).setAttribute('id', id).setAttribute('style', style_attribute) }}>
   {% if content.field_settings[0]['#paragraph'].field_full_width.getString() == "1"
     and content.field_settings[0]['#paragraph'].field_enable_container.getString() == "1"  %}
     <div class="container">
