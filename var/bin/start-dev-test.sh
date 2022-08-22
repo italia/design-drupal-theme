@@ -191,13 +191,13 @@ if [ "$enable_modules" == "y" ]; then
   ddev composer require drupal/webform wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
 
-  echo 'Install module: Bootstrap Italia Paragraph views accordion'
+  echo 'Install module: Bootstrap Italia views accordion'
   ddev exec drush -y pm:enable bootstrap_italia_views_accordion
 
-  echo 'Install module: Bootstrap Italia Paragraph views carousel'
+  echo 'Install module: Bootstrap Italia views carousel'
   ddev exec drush -y pm:enable bootstrap_italia_views_carousel
 
-  echo 'Install module: Bootstrap Italia Paragraph views list'
+  echo 'Install module: Bootstrap Italia views list'
   ddev exec drush -y pm:enable bootstrap_italia_views_list
 fi
 
