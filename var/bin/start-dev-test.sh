@@ -35,6 +35,9 @@ enable_locale=${enable_locale:-y}
 read -r -p "Do you want to install extra modules? [y|n] (n): " enable_modules
 enable_modules=${enable_modules:-n}
 
+read -r -p "Do you want to install experimental modules? [y|n] (n): " enable_experimental_modules
+enable_experimental_modules=${enable_experimental_modules:-n}
+
 read -r -p "Do you want to install extra content type? [y|n] (n): " enable_content_type
 enable_content_type=${enable_content_type:-n}
 
@@ -196,7 +199,14 @@ if [ "$enable_modules" == "y" ]; then
 
   echo 'Install module: Bootstrap Italia Paragraph views list'
   ddev exec drush -y pm:enable bootstrap_italia_views_list
+fi
 
+if [ "$enable_experimental_modules" == "y" ]; then
+  echo "==[ Install experimental modules ]=="
+
+  echo 'Install module: Bootstrap Italia Paragraph Node Reference'
+  ddev composer require drupal/entity_reference_display
+  ddev exec drush -y pm:enable entity_reference_display bootstrap_italia_paragraph_node_reference
 fi
 
 if [ "$enable_content_type" == "y" ]; then
