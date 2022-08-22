@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_display_mode
+    - paragraphs.paragraphs_type.node_reference
+  module:
+    - entity_reference_display
+id: paragraph.node_reference.field_display_mode
+field_name: field_display_mode
+entity_type: paragraph
+bundle: node_reference
+label: 'Display mode'
+description: 'Select display mode for referenced entities'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  exclude: {  }
+  negate: 0
+field_type: entity_reference_display

@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.node_reference.field_display_mode
+    - field.field.paragraph.node_reference.field_node
+    - field.field.paragraph.node_reference.field_settings
+    - paragraphs.paragraphs_type.node_reference
+  module:
+    - entity_reference_display
+    - entity_reference_revisions
+    - options
+id: paragraph.node_reference.default
+targetEntityType: paragraph
+bundle: node_reference
+mode: default
+content:
+  field_display_mode:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_node:
+    type: entity_reference_display_default
+    label: hidden
+    settings:
+      link: true
+      display_field: null
+      view_mode: default
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_settings:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }
