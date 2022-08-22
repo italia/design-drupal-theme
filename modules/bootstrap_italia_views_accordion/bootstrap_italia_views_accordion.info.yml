@@ -1,6 +1,6 @@
 name: Bootstrap Italia Views Accordion
 type: module
-description: 'Add Boostrap Italia accordion views style plugin.'
+description: 'This module manages the integration of the accordion component into the views module.'
 package: "Bootstrap Italia"
 core_version_requirement: ^9 || ^10
 

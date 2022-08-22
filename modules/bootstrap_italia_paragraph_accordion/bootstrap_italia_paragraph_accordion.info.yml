@@ -1,5 +1,5 @@
 name: "Bootstrap Italia Paragraph Accordion"
-description: This is a bootstrap accordion
+description: This module manages the accordion component through the paragraph module.
 package: "Bootstrap Italia"
 
 type: module

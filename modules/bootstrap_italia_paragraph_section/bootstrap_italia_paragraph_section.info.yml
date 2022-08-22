@@ -1,6 +1,6 @@
 name: Bootstrap Italia Paragraph Section
 type: module
-description: 'Add a Section paragraph.'
+description: 'This module manages the section component through the paragraph module.'
 package: "Bootstrap Italia"
 core_version_requirement: ^9 || ^10
 

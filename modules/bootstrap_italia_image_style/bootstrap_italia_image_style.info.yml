@@ -1,5 +1,5 @@
 name: "Bootstrap Italia Image Styles"
-description: Add image styles to Admin -> Configurations -> Media -> Image Styles
+description: This module adds different image styles in Admin -> Configurations -> Media -> Image Styles.
 package: "Bootstrap Italia"
 
 type: module

@@ -1,5 +1,5 @@
 name: "Bootstrap Italia Paragraph Attachments"
-description: This paragraph type manage the attachments
+description: This module manages the attachments through the paragraph module.
 package: "Bootstrap Italia"
 
 type: module

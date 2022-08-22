@@ -1,5 +1,5 @@
 name: "Bootstrap Italia Paragraph Map"
-description: This is a Map paragraph with leaflet and open street maps
+description: This module manages the map component through the paragraph module. This module uses leaflets and open street maps.
 package: "Bootstrap Italia"
 
 type: module

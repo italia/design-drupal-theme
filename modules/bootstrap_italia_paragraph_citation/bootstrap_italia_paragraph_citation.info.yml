@@ -1,6 +1,6 @@
 name: Bootstrap Italia Paragraph Citation
 type: module
-description: 'Add a Citation paragraph.'
+description: 'This module manages the citation component through the paragraph module.'
 package: "Bootstrap Italia"
 core_version_requirement: ^9 || ^10
 

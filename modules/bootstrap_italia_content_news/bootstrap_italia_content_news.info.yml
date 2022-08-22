@@ -1,6 +1,6 @@
 name: "Bootstrap Italia Content News"
-description: This is a news content example (second level content)
-package: "Bootstrap Italia"
+description: 'This module adds the "News" content type (second level content).'
+package: "Bootstrap Italia Example"
 
 type: module
 core_version_requirement: ^9 || ^10

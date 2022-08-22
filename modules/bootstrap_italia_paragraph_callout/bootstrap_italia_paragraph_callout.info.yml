@@ -1,6 +1,6 @@
 name: Bootstrap Italia Paragraph Callout
 type: module
-description: 'Add a Callout paragraph.'
+description: 'This module manages the callout component through the paragraph module.'
 package: "Bootstrap Italia"
 core_version_requirement: ^9 || ^10
 

@@ -1,5 +1,5 @@
 name: "Bootstrap Italia Paragraph Carousel"
-description: This is a carousel based on paragraphs and splide
+description: This module manages the splide carousel component through the paragraph module.
 package: "Bootstrap Italia"
 
 type: module

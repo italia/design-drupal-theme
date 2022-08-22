@@ -1,5 +1,5 @@
 name: "Bootstrap Italia Paragraph Webform"
-description: This is a webform integration in paragraphs
+description: This module manages the integration of webform with paragraph.
 package: "Bootstrap Italia"
 
 type: module
