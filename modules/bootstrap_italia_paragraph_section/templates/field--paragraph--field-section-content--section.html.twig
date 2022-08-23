@@ -39,9 +39,15 @@
  */
 #}
 {% apply spaceless %}
+  {% set item_classes = [
+    'col-12',
+    items|length > 1 ? 'col-lg-6',
+    items|length > 2 ? 'col-xl-4'
+  ] %}
+
   <div class="row">
     {% for item in items %}
-      <div class="col-12 col-lg-6 col-xl-4 pe-0 pe-md-5 mb-3">
+      <div class="{{ item_classes|join(' ')|trim }}">
         {{ item.content }}
       </div>
     {% endfor %}
