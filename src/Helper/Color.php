@@ -33,7 +33,7 @@ class Color {
   public static function getTheme($withLabel = FALSE): array {
     if ($withLabel) {
       return [
-        'primary' => 'Primary ',
+        'primary' => 'Primary',
         'secondary' => 'Secondary',
         'success' => 'Success',
         'info' => 'Info',
@@ -43,7 +43,7 @@ class Color {
     }
 
     return [
-      'primary ', 'secondary', 'success',
+      'primary', 'secondary', 'success',
       'info', 'warning', 'danger',
     ];
   }
