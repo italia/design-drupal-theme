@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_image_light
+    - paragraphs.paragraphs_type.hero
+id: paragraph.hero.field_hero_image_light
+field_name: field_hero_image_light
+entity_type: paragraph
+bundle: hero
+label: 'Image Light'
+description: 'Adjust the contrast for light images. <a href="https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-testi-ed-immagine-di-sfondo" title="Read the Docs" target="_blank">Docs</a>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_centered
+    - paragraphs.paragraphs_type.hero
+id: paragraph.hero.field_text_centered
+field_name: field_text_centered
+entity_type: paragraph
+bundle: hero
+label: 'Text centered'
+description: 'If checked, centers the text. <a href="https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-contenuti-testuali-centrati" title="Read the Docs" target="_blank">Docs</a>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

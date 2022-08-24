@@ -1,0 +1,148 @@
+{#
+/**
+ * @file
+ * Hero demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/hero/hero-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set demo_title = 'Heading lorem ipsum dolor sit amet, consetetur sadipscing.' %}
+  {% set demo_text %}
+     <p>You are reading this important message.
+        This sample text will be longer so you can see how spacing works within an alert
+       with this type of content.</p>
+  {% endset %}
+
+  {% set demo_url = '#' %}
+  {% set demo_label = 'Label CTA' %}
+
+  {% set image_src = 'https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg' %}
+  {% set image_alt = 'Image description' %}
+  {% set image_title = 'Image title' %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Hero whith image'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/hero/hero.html.twig' with {
+        hero_image_src: image_src,
+        hero_image_alt: image_alt,
+        hero_image_title: image_title,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Hero small whith image'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/hero/hero.html.twig' with {
+        hero_image_src: image_src,
+        hero_image_alt: image_alt,
+        hero_image_title: image_title,
+        hero_small: true,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Hero textual'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/hero/hero.html.twig' with {
+        hero_kicker: 'Category'|t,
+        hero_title: demo_title,
+        hero_text: demo_text,
+        hero_cta_url: demo_url,
+        hero_cta_label: demo_label,
+        hero_cta_type: 'outline-primary',
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Hero textual centered'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/hero/hero.html.twig' with {
+        hero_kicker: 'Category'|t,
+        hero_title: demo_title,
+        hero_text: demo_text,
+        hero_cta_url: demo_url,
+        hero_cta_label: demo_label,
+        hero_cta_type: 'outline-primary',
+        hero_text_centered: true,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Hero textual whit image background'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/hero/hero.html.twig' with {
+        hero_kicker: 'Category'|t,
+        hero_title: demo_title,
+        hero_text: demo_text,
+        hero_cta_url: demo_url,
+        hero_cta_label: demo_label,
+        hero_cta_type: 'secondary',
+        hero_image_src: image_src,
+        hero_image_alt: image_alt,
+        hero_image_title: image_title,
+        hero_image_light: true,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Hero textual whit image background and overlay'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/hero/hero.html.twig' with {
+        hero_kicker: 'Category'|t,
+        hero_title: demo_title,
+        hero_text: demo_text,
+        hero_cta_url: demo_url,
+        hero_cta_label: demo_label,
+        hero_cta_type: 'outline-primary',
+        hero_image_src: image_src,
+        hero_image_alt: image_alt,
+        hero_image_title: image_title,
+        hero_overlay_color: 'primary'
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Hero whith image and filter'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/hero/hero.html.twig' with {
+        hero_image_src: image_src,
+        hero_image_alt: image_alt,
+        hero_image_title: image_title,
+        hero_image_filter: true,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+{% endapply %}

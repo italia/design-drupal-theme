@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:3cd2c713-944b-45a5-a5f3-240e592ad0fc'
+id: hero
+label: Hero
+icon_uuid: 3cd2c713-944b-45a5-a5f3-240e592ad0fc
+icon_default: 'data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9Ijk2IiBoZWlnaHQ9Ijk2IiB2aWV3Qm94PSIwIDAgOTYgOTYiPgo8dGl0bGU+dmlld19kYXk8L3RpdGxlPgo8cGF0aCBkPSJNOC4wNjMgMTJoNzUuOTM4djEyaC03NS45Mzh2LTEyek04MC4wNjMgMzIuMDYzcTEuNjg4IDAgMi44MTMgMS4xMjV0MS4xMjUgMi44MTN2MjRxMCAxLjY4OC0xLjEyNSAyLjgxM3QtMi44MTMgMS4xMjVoLTY4LjA2M3EtMS42ODggMC0yLjgxMy0xLjEyNXQtMS4xMjUtMi44MTN2LTI0cTAtMS42ODggMS4xMjUtMi44MTN0Mi44MTMtMS4xMjVoNjguMDYzek04LjA2MyA4NHYtMTJoNzUuOTM4djEyaC03NS45Mzh6Ij48L3BhdGg+Cjwvc3ZnPgo='
+description: 'This paragraph type manage Hero component.'
+behavior_plugins: {  }

@@ -1,0 +1,80 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_call_to_action_type
+field_name: field_call_to_action_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: primary
+      label: Primary
+    -
+      value: secondary
+      label: Secondary
+    -
+      value: success
+      label: Success
+    -
+      value: warning
+      label: Warning
+    -
+      value: danger
+      label: Danger
+    -
+      value: info
+      label: Info
+    -
+      value: white
+      label: White
+    -
+      value: dark
+      label: Dark
+    -
+      value: light
+      label: Light
+    -
+      value: black
+      label: Black
+    -
+      value: outline-primary
+      label: 'Outline Primary'
+    -
+      value: outline-secondary
+      label: 'Outline Secondary'
+    -
+      value: outline-success
+      label: 'Outline Success'
+    -
+      value: outline-warning
+      label: 'Outline Warning'
+    -
+      value: outline-danger
+      label: 'Outline Danger'
+    -
+      value: outline-info
+      label: 'Outline Info'
+    -
+      value: outline-white
+      label: 'Outline White'
+    -
+      value: outline-dark
+      label: 'Outline Dark'
+    -
+      value: outline-light
+      label: 'Outline Light'
+    -
+      value: outline-black
+      label: 'Outline Black'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

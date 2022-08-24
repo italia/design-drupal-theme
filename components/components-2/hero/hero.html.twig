@@ -1,0 +1,149 @@
+{#
+/**
+ * @file
+ * Template for hero component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/hero/
+ * Last review: v2.0.2
+ *
+ * Parameters:
+ * - hero_kicker (string) (default: '')
+ * - hero_title (string) (default: '')
+ * - hero_text (string) (default: '')
+ * - hero_cta_url (string) (default: '')
+ * - hero_cta_label (string) (default: '')
+ * - hero_cta_type (string) (default: 'outline-primary')
+ * - hero_small (boolean) (default: false)
+ * - hero_description (string) (default: 'Highlights section'|t)
+ * - hero_overlay_color (string) (default: '')
+ *   options ["primary", "secondary", "warning", "danger", "info", ...]
+ * - hero_image_src (string) (default: '')
+ * - hero_image_alt (string) (default: 'Highlights section image'|t)
+ * - hero_image_title (string) (default: '')
+ * - hero_image_light (boolean) (default: false)
+ *   - If true adjust contrast
+ * - hero_image_filter (boolean) (default: false)
+ * - hero_text_centered (boolean) (default: false)
+ * - hero_overlapping_content (boolean) (default: false)
+ *   options ["primary", "secondary", "warning", "danger", "info", ...]
+ * - hero_classes (array) (default: '')
+ * - hero_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/hero/hero.html.twig' with {
+     hero_kicker: 'Category',
+     hero_title: 'The title',
+     hero_text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _hero_kicker = hero_kicker|default('') %}
+  {% set _hero_title = hero_title|default('') %}
+  {% set _hero_text = hero_text|default('') %}
+  {% set _hero_cta_url = hero_cta_url|default('') %}
+  {% set _hero_cta_label = hero_cta_label|default('') %}
+  {% set _hero_cta_type = hero_cta_type|default('outline-primary') %}
+  {% set _hero_small = hero_small ?? false %}
+  {% set _hero_description = hero_description|default('Highlights section'|t) %}
+  {% set _hero_overlay_color = hero_overlay_color|default('') %}
+  {% set _hero_image_src = hero_image_src|default('') %}
+  {% set _hero_image_alt = hero_image_alt|default('Highlights section image'|t) %}
+  {% set _hero_image_title = hero_image_title|default('') %}
+  {% set _hero_image_light = hero_image_light ?? false %}
+  {% set _hero_image_filter = hero_image_filter ?? false %}
+  {% set _hero_text_centered = hero_text_centered ?? false %}
+  {% set _hero_overlapping_content = hero_overlapping_content ?? false %}
+  {% set _hero_classes = hero_classes|default('') %}
+  {% set _hero_attributes = hero_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'it-hero-wrapper',
+      _hero_small ? 'it-hero-small-size',
+      _hero_text_centered ? 'it-text-centered',
+      _hero_image_light ? 'it-dark',
+      _hero_overlay_color ? 'it-' ~ _hero_overlay_color,
+      _hero_image_filter ? 'it-filter',
+      _hero_image_light or _hero_overlay_color or _hero_image_filter ? 'it-overlay',
+      _hero_overlapping_content ? 'it-bottom-overlapping-content',
+    ] %}
+
+  {% if _hero_classes is not empty %}
+    {% set _classes = _classes|merge(hero_classes) %}
+  {% endif %}
+
+  {% if _hero_attributes is empty %}
+    {% set hero_attributes = create_attribute() %}
+  {% endif %}
+  {% set hero_attributes = hero_attributes
+    .addClass(_classes)
+    .setAttribute('aria-label', _hero_description)
+  %}
+
+  {# Component #}
+  <section{{ hero_attributes }}>
+
+    {% block heroImage %}
+      {% if _hero_image_src is not empty %}
+        <div class="img-responsive-wrapper">
+          <div class="img-responsive">
+            <div class="img-wrapper">
+              <img src="{{ hero_image_src }}" alt="{{ _hero_image_alt }}" title="{{ _hero_image_title }}" />
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block heroContent %}
+      {% if _hero_kicker is not empty or
+            _hero_title is not empty or
+            _hero_text is not empty or
+            _hero_cta_url is not empty or
+            _hero_cta_label is not empty
+      %}
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="it-hero-text-wrapper bg-dark">
+
+                {% block heroKicker %}
+                  {% if _hero_kicker is not empty %}
+                    <span class="it-Categoria">{{ _hero_kicker }}</span>
+                  {% endif %}
+                {% endblock %}
+
+                {% block heroTitle %}
+                  {% if _hero_title is not empty %}
+                    <h2>{{ _hero_title }}</h2>
+                  {% endif %}
+                {% endblock %}
+
+                {% block heroText %}
+                  {% if _hero_text is not empty %}
+                    <div class="d-none d-lg-block">{{ _hero_text }}</div>
+                  {% endif %}
+                {% endblock %}
+
+                {% block heroCTA %}
+                  {% if _hero_cta_url is not empty and _hero_cta_label is not empty %}
+                    <div class="it-btn-container">
+                      <a class="btn btn-sm btn-{{ _hero_cta_type }}" href="{{ _hero_cta_url }}" title="{{ _hero_cta_label }}">
+                        {{ _hero_cta_label }}
+                      </a>
+                    </div>
+                  {% endif %}
+                {% endblock %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endblock %}
+
+  </section>
+
+{% endapply %}

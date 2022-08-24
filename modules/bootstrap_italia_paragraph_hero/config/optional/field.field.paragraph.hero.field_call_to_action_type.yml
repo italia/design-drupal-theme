@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_call_to_action_type
+    - paragraphs.paragraphs_type.hero
+  module:
+    - options
+id: paragraph.hero.field_call_to_action_type
+field_name: field_call_to_action_type
+entity_type: paragraph
+bundle: hero
+label: 'Call to action type'
+description: 'Choose button type. Default: <em>Outline primary</em>. <a href="https://italia.github.io/bootstrap-italia/docs/utilities/colori/" title="Read the docs" target="_blank">Docs</a>'
+required: true
+translatable: false
+default_value:
+  -
+    value: outline-primary
+default_value_callback: ''
+settings: {  }
+field_type: list_string

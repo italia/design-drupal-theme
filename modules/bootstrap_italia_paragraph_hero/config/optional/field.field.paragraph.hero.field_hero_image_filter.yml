@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hero_image_filter
+    - paragraphs.paragraphs_type.hero
+id: paragraph.hero.field_hero_image_filter
+field_name: field_hero_image_filter
+entity_type: paragraph
+bundle: hero
+label: 'Image filter'
+description: 'If checked, a filter is added as described in the <a href="https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-overlay-e-filtro-di-colore-primario" title="Read the Docs" target="_blank">documentation</a>.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

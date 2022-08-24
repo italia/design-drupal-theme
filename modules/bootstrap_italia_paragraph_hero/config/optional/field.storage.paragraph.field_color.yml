@@ -1,0 +1,107 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_color
+field_name: field_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: primary
+      label: Primary
+    -
+      value: secondary
+      label: Secondary
+    -
+      value: success
+      label: Success
+    -
+      value: info
+      label: Info
+    -
+      value: warning
+      label: Warning
+    -
+      value: danger
+      label: Danger
+    -
+      value: blue
+      label: Blue
+    -
+      value: indigo
+      label: Indigo
+    -
+      value: purple
+      label: Purple
+    -
+      value: pink
+      label: Pink
+    -
+      value: red
+      label: Red
+    -
+      value: orange
+      label: Orange
+    -
+      value: yellow
+      label: Yellow
+    -
+      value: green
+      label: Green
+    -
+      value: teal
+      label: Teal
+    -
+      value: cyan
+      label: Cyan
+    -
+      value: gray-100
+      label: 'Gray 100'
+    -
+      value: gray-200
+      label: 'Gray 100'
+    -
+      value: gray-300
+      label: 'Gray 100'
+    -
+      value: gray-400
+      label: 'Gray 100'
+    -
+      value: gray-500
+      label: 'Gray 100'
+    -
+      value: gray-600
+      label: 'Gray 100'
+    -
+      value: gray-700
+      label: 'Gray 100'
+    -
+      value: gray-800
+      label: 'Gray 100'
+    -
+      value: gray-900
+      label: 'Gray 100'
+    -
+      value: light
+      label: Light
+    -
+      value: dark
+      label: Dark
+    -
+      value: black
+      label: Black
+    -
+      value: white
+      label: White
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
