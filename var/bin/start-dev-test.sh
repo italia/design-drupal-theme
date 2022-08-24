@@ -180,6 +180,9 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia Paragraph Citation'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_citation
 
+  echo 'Install module: Bootstrap Italia Paragraph Hero'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_hero
+
   echo 'Install module: Bootstrap Italia Paragraph Map'
   ddev composer require drupal/geofield drupal/leaflet
   ddev exec drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
