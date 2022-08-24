@@ -37,6 +37,38 @@ function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, arra
 }
 
 /**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, array &$variables) {
+
+  if (isset($variables['element']['#view_mode'])) {
+    $suggestions[] = $variables['theme_hook_original']
+      . '__view_mode_' . $variables['element']['#view_mode'];
+
+    if (isset($variables['element']['#bundle'])) {
+      $suggestions[] = $variables['theme_hook_original']
+        . '__view_mode_' . $variables['element']['#view_mode']
+        . '__bundle_' . $variables['element']['#bundle'];
+
+      if (isset($variables['element']['#field_type'])) {
+        $suggestions[] = $variables['theme_hook_original']
+          . '__view_mode_' . $variables['element']['#view_mode']
+          . '__bundle_' . $variables['element']['#bundle']
+          . '__type_' . $variables['element']['#field_type'];
+
+        if (isset($variables['element']['#field_name'])) {
+          $suggestions[] = $variables['theme_hook_original']
+            . '__view_mode_' . $variables['element']['#view_mode']
+            . '__bundle_' . $variables['element']['#bundle']
+            . '__type_' . $variables['element']['#field_type']
+            . '__name_' . $variables['element']['#field_name'];
+        }
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_theme_suggestions_block_alter().
  */
 function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {
