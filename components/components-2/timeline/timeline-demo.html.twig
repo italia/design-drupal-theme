@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Timeline demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/timeline/timeline-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set card_demo_category_link %}
+    <a href="#">{{ 'Category'|t }}</a>
+  {% endset %}
+
+  {% set demo_item_content1 %}
+    {% include '@bi-bcl/card/card.html.twig' with {
+      card_title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit…',
+      card_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      card_category: card_demo_category_link,
+      card_date: '10/12/2022',
+      card_signature: 'Federico De Paolis',
+      card_read_more_url: '#'
+    } %}
+  {% endset %}
+
+  {% set demo_item_content2 %}
+    {% include '@bi-bcl/card/card.html.twig' with {
+      card_title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit…',
+      card_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    } %}
+  {% endset %}
+
+  {% set demo_timeline_items = [
+    {'past_event': true, 'pin_icon': 'it-code-circle', 'pin_text': 'May 2022'|t, 'content': demo_item_content1},
+    {'past_event': true, 'pin_icon': 'it-code-circle', 'pin_text': 'June 2022'|t, 'content': demo_item_content2},
+    {'past_event': true, 'pin_icon': 'it-code-circle', 'pin_text': 'July 2022'|t, 'content': demo_item_content2},
+    {'now_event': true, 'pin_icon': 'it-code-circle', 'pin_text': 'August 2022'|t, 'content': demo_item_content1},
+    {'pin_icon': 'it-code-circle', 'pin_text': 'September 2022'|t, 'content': demo_item_content2},
+    {'pin_icon': 'it-code-circle', 'pin_text': 'Octobre 2022'|t, 'content': demo_item_content2},
+    {'pin_icon': 'it-code-circle', 'pin_text': 'November 2022'|t, 'content': demo_item_content2},
+    {'pin_icon': 'it-code-circle', 'pin_text': 'December 2022'|t, 'content': demo_item_content1},
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Timeline'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/timeline/timeline.html.twig' with {
+        items: demo_timeline_items
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+
+{% endapply %}

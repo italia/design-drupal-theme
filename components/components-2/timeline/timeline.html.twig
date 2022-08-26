@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Template for timeline component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
+ * Last review: v2.0.3
+ *
+ * Parameters:
+ * - items (array) mandatory
+ *   - timeline-items array
+ * - timeline_classes (array) (default: '')
+ * - timeline_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/timeline/timeline.html.twig' with {
+     items: [{...},{...}],
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _option = option|default('') %}
+  {% set _timeline_classes = timeline_classes|default('') %}
+  {% set _timeline_attributes = timeline_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'it-timeline-wrapper'
+    ] %}
+
+  {% if _timeline_classes is not empty %}
+    {% set _classes = _classes|merge(timeline_classes) %}
+  {% endif %}
+
+  {% if _timeline_attributes is empty %}
+    {% set timeline_attributes = create_attribute() %}
+  {% endif %}
+  {% set timeline_attributes = timeline_attributes
+    .addClass(_classes)
+  %}
+
+  {# Component #}
+  <div{{ timeline_attributes }}>
+    <div class="row">
+
+      {% block timelineItems %}
+        {% for item in items %}
+          <div class="col-12">
+            {% include '@bi-bcl/timeline/timeline-item.html.twig' with item %}
+          </div>
+        {% endfor %}
+      {% endblock %}
+
+    </div>
+  </div>
+{% endapply %}

@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * Template for timeline_item component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
+ * Last review: v2.0.3
+ *
+ * Parameters:
+ * - past_event (boolean) (default: false)
+ * - now_event (boolean) (default: false)
+ * - pin_icon (string) (default: '')
+ *   options ["it-name", ...]
+ * - pin_text (string) (default: '')
+ * - content (string) (default: '')
+ *
+ * Examples:
+   {% embed '@bi-bcl/timeline/timeline-item.html.twig' with {
+     past_event: true,
+     pin_icon: '',
+     pin_text: '',
+   } %}
+     {% block timelineItemContent %}
+       Your content
+     {% endblock %}
+   {% endembed %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _past_event = past_event ?? false %}
+  {% set _now_event = now_event ?? false %}
+  {% set _pin_icon = pin_icon|default('') %}
+  {% set _pin_text = pin_text|default('') %}
+  {% set _timeline_item_classes = timeline_item_classes|default('') %}
+  {% set _timeline_item_attributes = timeline_item_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'it-pin-wrapper',
+      _past_event ? 'it-evidence',
+      _now_event and not _past_event ? 'it-now',
+    ] %}
+
+  {% if _timeline_item_classes is not empty %}
+    {% set _classes = _classes|merge(timeline_item_classes) %}
+  {% endif %}
+
+  {% if _timeline_item_attributes is empty %}
+    {% set timeline_item_attributes = create_attribute() %}
+  {% endif %}
+  {% set timeline_item_attributes = timeline_item_attributes
+    .addClass(_classes)
+  %}
+
+  {# Automatic set pin icon #}
+  {% if _pin_icon is empty %}
+    {% set _pin_icon = _past_event ? 'it-check' : 'it-refresh' %}
+  {% endif %}
+
+  {# Component #}
+  <div class="timeline-element">
+    {% if _now_event and not _past_event %}
+      <span class="it-now-label d-none d-lg-flex">{{ 'Today'|t }}</span>
+    {% endif %}
+    <div{{ timeline_item_attributes }}>
+      <div class="pin-icon">
+        {% include '@bi-bcl/icon/icon.html.twig' with { name: _pin_icon } %}
+      </div>
+      {% if _pin_text is not empty %}
+        <div class="pin-text"><span>{{ _pin_text }}</span></div>
+      {% endif %}
+    </div>
+    {% block timelineItemContent %}
+      {{ content }}
+    {% endblock %}
+  </div>
+
+{% endapply %}
