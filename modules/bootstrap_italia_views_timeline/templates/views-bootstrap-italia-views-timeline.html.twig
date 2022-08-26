@@ -1,0 +1,36 @@
+{#
+/**
+ * Default theme implementation for Views to output a splide carousel.
+ *
+ * Available variables:
+ * - options.bi_timeline_settings: View plugin style options:
+ *
+ * @see template_preprocess_views_bootstrap_italia_views_timeline()
+ *
+ * @ingroup themeable
+ */
+#}
+{% embed '@bi-bcl/timeline/timeline.html.twig' with {
+  timeline_attributes: attributes
+} %}
+
+  {% block timelineItems %}
+    {% for item in rows %}
+      <div class="col-12">
+        {% set time_passed = "now"|date("U") - item['#node'].getCreatedTime() %}
+        {% set month = 2592000 %}
+
+        {% embed '@bi-bcl/timeline/timeline-item.html.twig' with {
+          past_event: time_passed > month ? true : false,
+          now_event: time_passed < month and time_passed > 1 ? true : false,
+          pin_text: item['#node'].getCreatedTime()|date("F Y")
+        } %}
+          {% block timelineItemContent %}
+            {{ item }}
+          {% endblock %}
+        {% endembed %}
+      </div>
+    {% endfor %}
+  {% endblock %}
+
+{% endembed %}

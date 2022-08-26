@@ -1,0 +1,8 @@
+name: Bootstrap Italia Views Timeline
+type: module
+description: 'This module manages the integration of the timeline component into the views module.'
+package: "Bootstrap Italia"
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - drupal:views

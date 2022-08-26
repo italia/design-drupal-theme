@@ -194,6 +194,9 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia Paragraph Section'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_section
 
+  echo 'Install module: Bootstrap Italia Paragraph Timeline'
+  ddev exec drush -y pm:enable bootstrap_italia_paragraph_timeline
+
   echo 'Install module: Bootstrap Italia Paragraph Webform'
   ddev composer require drupal/webform wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
@@ -206,6 +209,9 @@ if [ "$enable_modules" == "y" ]; then
 
   echo 'Install module: Bootstrap Italia views list'
   ddev exec drush -y pm:enable bootstrap_italia_views_list
+
+  echo 'Install module: Bootstrap Italia views timeline'
+  ddev exec drush -y pm:enable bootstrap_italia_views_timeline
 fi
 
 if [ "$enable_experimental_modules" == "y" ]; then
