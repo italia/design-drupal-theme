@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'file:file:d5713859-a79d-43a3-9011-d25510828e08'
+id: timeline_item
+label: 'Timeline item'
+icon_uuid: d5713859-a79d-43a3-9011-d25510828e08
+icon_default: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjQuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxpdmVsbG9fMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDI0IDI0IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNCAyNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxwYXRoIGQ9Ik0yMCwxMi41SDR2LTFoMTZWMTIuNXoiLz4KPC9nPgo8L3N2Zz4K'
+description: 'This paragraph manage timeline item.'
+behavior_plugins: {  }

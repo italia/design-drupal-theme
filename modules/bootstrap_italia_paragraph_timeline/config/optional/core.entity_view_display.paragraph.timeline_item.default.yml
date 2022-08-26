@@ -1,0 +1,72 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.timeline_item.field_icon_name
+    - field.field.paragraph.timeline_item.field_kicker
+    - field.field.paragraph.timeline_item.field_node_reference
+    - field.field.paragraph.timeline_item.field_now_event
+    - field.field.paragraph.timeline_item.field_past_event
+    - field.field.paragraph.timeline_item.field_text
+    - paragraphs.paragraphs_type.timeline_item
+  module:
+    - entity_reference_revisions
+    - text
+id: paragraph.timeline_item.default
+targetEntityType: paragraph
+bundle: timeline_item
+mode: default
+content:
+  field_icon_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_kicker:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_node_reference:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_now_event:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_past_event:
+    type: boolean
+    label: hidden
+    settings:
+      format: true-false
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden: {  }

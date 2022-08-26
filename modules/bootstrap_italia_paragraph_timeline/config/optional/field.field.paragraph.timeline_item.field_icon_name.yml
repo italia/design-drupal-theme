@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon_name
+    - paragraphs.paragraphs_type.timeline_item
+id: paragraph.timeline_item.field_icon_name
+field_name: field_icon_name
+entity_type: paragraph
+bundle: timeline_item
+label: 'Icon name'
+description: 'If you leave it blank the ''it-check'' icon will be used if the event has passed otherwise the ''it-refresh'' icon will be used, or you can choose an icon from this <a href="https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili" title="Icon list" target="_blank">list</a>.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,10 @@
+name: Bootstrap Italia Paragraph Timeline
+type: module
+description: 'This module manages the timeline component through the paragraph module.'
+package: "Bootstrap Italia"
+core_version_requirement: ^9 || ^10
+
+dependencies:
+  - drupal:entity_reference_display
+  - drupal:bootstrap_italia_paragraph
+  - drupal:bootstrap_italia_paragraph_node_reference
