@@ -38,20 +38,29 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bootstrap_italia_paragraph/content/bi-paragraph-base.html.twig' with {
-  paragraph: paragraph,
-  content: content,
-  attributes: attributes,
-  view_mode: view_mode,
-  logged_in: logged_in,
-  is_admin: is_admin
-} %}
-  {% block content %}
+{# Wrap accordion items. #}
+{% if content.field_display_mode[0]['#markup'] == 'accordion' %}
+  {% embed '@bi-bcl/accordion/accordion.html.twig' %}
+    {% block accordionItems %}
+      {{ content.field_node }}
+    {% endblock %}
+  {% endembed %}
 
-    {{ content|without(
-      'field_settings',
-      'field_display_mode',
-    ) }}
+{# Wrap list items. #}
+{% elseif content.field_display_mode[0]['#markup'] == 'list' %}
+  {% embed '@bi-bcl/list/list.html.twig' %}
+    {% block listItems %}
+      {{ content.field_node }}
+    {% endblock %}
+  {% endembed %}
 
-  {% endblock %}
-{% endembed %}
+{# Wrap teaser card. #}
+{% elseif content.field_display_mode[0]['#markup'] == 'teaser' %}
+  <div class="card-wrapper card-teaser-wrapper">
+    {{ content.field_node }}
+  </div>
+
+{# Other display. #}
+{% else %}
+  {{ content.field_node }}
+{% endif %}

@@ -187,6 +187,10 @@ if [ "$enable_modules" == "y" ]; then
   ddev composer require drupal/geofield drupal/leaflet
   ddev exec drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
 
+  echo 'Install module: Bootstrap Italia Paragraph Node Reference'
+  ddev composer require drupal/entity_reference_display
+  ddev exec drush -y pm:enable entity_reference_display bootstrap_italia_paragraph_node_reference
+
   echo 'Install module: Bootstrap Italia Paragraph Section'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_section
 
@@ -207,9 +211,6 @@ fi
 if [ "$enable_experimental_modules" == "y" ]; then
   echo "==[ Install experimental modules ]=="
 
-  echo 'Install module: Bootstrap Italia Paragraph Node Reference'
-  ddev composer require drupal/entity_reference_display
-  ddev exec drush -y pm:enable entity_reference_display bootstrap_italia_paragraph_node_reference
 fi
 
 if [ "$enable_content_type" == "y" ]; then
