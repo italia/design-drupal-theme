@@ -84,7 +84,7 @@
     {{ title_prefix }}
     {% if label and not page %}
       <h3{{ title_attributes.addClass(['card-title','h5']) }}>
-        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+        <a href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
       </h3>
     {% endif %}
     {{ title_suffix }}

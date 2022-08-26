@@ -79,7 +79,7 @@
 
   {% block cardTitle %}
     <h3{{ title_attributes.addClass(['card-title', 'h5']) }}>
-      <a href="{{ url }}" title="{{ 'Read more abot:'|t }} {{ label }}" rel="bookmark">{{ label }}</a>
+      <a href="{{ url }}" title="{{ 'Read more about:'|t }} {{ label[0]['#context'].value }}" rel="bookmark">{{ label }}</a>
     </h3>
   {% endblock %}
 
