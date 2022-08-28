@@ -10,8 +10,6 @@ dependencies:
   module:
     - responsive_image
     - text
-_core:
-  default_config_hash: cmdqRNSrOgQLlQVIUGSJo7uHoOX5IQOEWJlkTNtYlIg
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
