@@ -6,4 +6,6 @@ type: module
 core_version_requirement: ^9 || ^10
 
 dependencies:
+  - drupal:media
+  - drupal:media_library
   - drupal:bootstrap_italia_paragraph

@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.attachments.field_file
+    - field.field.paragraph.attachments.field_file_managed
     - field.field.paragraph.attachments.field_settings
     - field.field.paragraph.attachments.field_title
     - paragraphs.paragraphs_type.attachments
@@ -22,6 +23,15 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_file_managed:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_settings:
     type: entity_reference_revisions_entity_view
     label: hidden
@@ -29,7 +39,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_title:
     type: string

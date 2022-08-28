@@ -169,7 +169,7 @@ if [ "$enable_modules" == "y" ]; then
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_accordion
 
   echo 'Install module: Bootstrap Italia Paragraph Attachments'
-  ddev exec drush -y pm:enable bootstrap_italia_paragraph_attachments
+  ddev exec drush -y pm:enable media media_library bootstrap_italia_paragraph_attachments
 
   echo 'Install module: Bootstrap Italia Paragraph Callout'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_callout
