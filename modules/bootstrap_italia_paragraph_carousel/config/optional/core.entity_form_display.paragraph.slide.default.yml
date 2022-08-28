@@ -12,8 +12,6 @@ dependencies:
     - imce
     - media_library
     - text
-_core:
-  default_config_hash: '--u6NveIGxa3gP6HPe3K-l_9UJnCwJJyohoViyjndsc'
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
