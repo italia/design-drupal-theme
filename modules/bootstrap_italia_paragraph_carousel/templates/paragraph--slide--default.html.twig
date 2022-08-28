@@ -59,11 +59,12 @@
             <div class="img-responsive">
               <div class="img-wrapper">
                 {{ content.field_background_image }}
+                {{ content.field_image }}
               </div>
             </div>
           </div>
 
-          {{ content|without('field_background_image') }}
+          {{ content|without('field_background_image','field_image') }}
 
         </div>
       </div>

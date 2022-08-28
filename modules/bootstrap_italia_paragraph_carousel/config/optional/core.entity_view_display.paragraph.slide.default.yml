@@ -3,31 +3,43 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.slide.field_background_image
+    - field.field.paragraph.slide.field_image
     - field.field.paragraph.slide.field_text
     - paragraphs.paragraphs_type.slide
     - responsive_image.styles.bootstrap_italia_paragraph_slide
   module:
     - responsive_image
     - text
+_core:
+  default_config_hash: cmdqRNSrOgQLlQVIUGSJo7uHoOX5IQOEWJlkTNtYlIg
 id: paragraph.slide.default
 targetEntityType: paragraph
 bundle: slide
 mode: default
 content:
   field_background_image:
-    weight: 0
+    type: responsive_image
     label: hidden
     settings:
       responsive_image_style: bootstrap_italia_paragraph_slide
       image_link: ''
     third_party_settings: {  }
-    type: responsive_image
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
     region: content
   field_text:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: content
 hidden: {  }
