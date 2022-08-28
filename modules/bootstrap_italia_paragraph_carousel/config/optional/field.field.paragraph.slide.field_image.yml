@@ -9,7 +9,7 @@ id: paragraph.slide.field_image
 field_name: field_image
 entity_type: paragraph
 bundle: slide
-label: Image
+label: 'Image managed'
 description: ''
 required: false
 translatable: false
