@@ -10,5 +10,7 @@ dependencies:
   - drupal:field_group
   - drupal:imce
   - drupal:focal_point
+  - drupal:media
+  - drupal:media_library
   - drupal:bootstrap_italia_image_style
   - drupal:bootstrap_italia_paragraph

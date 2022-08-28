@@ -175,7 +175,7 @@ if [ "$enable_modules" == "y" ]; then
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_callout
 
   echo 'Install module: Bootstrap Italia Paragraph Carousel'
-  ddev exec drush -y pm:enable bootstrap_italia_paragraph_carousel
+  ddev exec drush -y pm:enable media media_library bootstrap_italia_paragraph_carousel
 
   echo 'Install module: Bootstrap Italia Paragraph Citation'
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_citation
