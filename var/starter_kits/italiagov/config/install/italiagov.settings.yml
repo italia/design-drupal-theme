@@ -11,6 +11,7 @@ slim_header_container_type: container
 slim_header_light: 0
 government_entity_name: 'Government entity name'
 government_entity_url: 'https://example.gov.it'
+slim_header_action_active_login: 1
 slim_header_action_type: full
 slim_header_action_url: ''
 slim_header_action_icon: 1

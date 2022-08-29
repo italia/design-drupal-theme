@@ -32,6 +32,7 @@ function bootstrap_italia_preprocess_page(&$variables) {
   $variables['government_entity_name'] = theme_get_setting('government_entity_name');
   $variables['government_entity_url'] = theme_get_setting('government_entity_url');
   // Login button settings for anonymous user.
+  $variables['slim_header_action_active_login'] = (bool) theme_get_setting('slim_header_action_active_login');
   $variables['slim_header_action_type'] = theme_get_setting('slim_header_action_type');
   $variables['slim_header_action_url'] = theme_get_setting('slim_header_action_url');
   $variables['slim_header_action_icon'] = (bool) theme_get_setting('slim_header_action_icon');

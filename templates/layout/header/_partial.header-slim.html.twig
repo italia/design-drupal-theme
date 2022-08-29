@@ -28,7 +28,7 @@
                     {% if page.header_slim_action %}
                       {{ page.header_slim_action }}
                     {% endif %}
-                  {% else %}
+                  {% elseif slim_header_action_active_login %}
                     {% embed '@bi-bcl/button/button.html.twig' with {
                       label: 'Login to your personal area'|t,
                       variant: 'primary',

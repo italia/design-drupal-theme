@@ -88,6 +88,12 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#open' => FALSE,
     '#group' => 'slim_header',
   ];
+  $form['slim_header']['action']['slim_header_action_active_login'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Active login button'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('slim_header_action_active_login'),
+  ];
   $form['slim_header']['action']['slim_header_action_type'] = [
     '#type' => 'select',
     '#title' => t('Login button type'),
