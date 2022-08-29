@@ -100,7 +100,7 @@ pager_show_total_pages: 0
 forms_action_alignment: left
 forms_action_spacing: 1
 footer_container_type: container
-libraries_type: ''
+libraries_type: 'vanilla'
 libraries_bundle: 1
 libraries_cdn_css: ''
 libraries_cdn_js: ''

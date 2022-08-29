@@ -28,9 +28,9 @@ class Libraries {
     $assets_js_path = $theme->getPath() . '/' . self::$distributionFolder . '/js';
 
     $static_option = [
-      '' => t('Use @theme.libraries.yml', ['@theme' => $theme->getName()]),
       'vanilla' => t('Vanilla libraries'),
       'cdn' => t('CDN libraries'),
+      '' => t('Use @theme.libraries.yml', ['@theme' => $theme->getName()]),
     ];
 
     // Check if directories css and js exists.

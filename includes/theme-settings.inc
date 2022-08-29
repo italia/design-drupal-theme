@@ -842,7 +842,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings']['libraries_type'] = [
     '#type' => 'select',
     '#title' => t("Choose libraries type"),
-    '#description' => t("Default: Use italiagov.libraries.yml"),
+    '#description' => t("Default: vanilla libraries"),
     '#default_value' => theme_get_setting('libraries_type'),
     '#options' => Libraries::getLibraries(),
   ];
