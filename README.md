@@ -287,8 +287,7 @@ $ drush -y pm:enable bootstrap_italia_views_timeline
 
 ## Bootstrap Italia content News
 This module adds the "News" content type (second level content).
-*Note: This is an example of how to develop a type of reusable content
-in other installations.*
+*Note: this is an example of how to develop a reusable content type.*
 ```
 $ composer require drupal/toc_js drupal/focal_point
 $ drush -y pm:enable responsive_image toc_js focal_point  \
