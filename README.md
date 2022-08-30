@@ -137,10 +137,181 @@ example
 "bootstrap-italia": "github:italia/bootstrap-italia#main"
 ```
 
-# Optional
-If you want to install optional plugins.
+# Optional modules
+This theme provides several modules that allow you to manage the components
+with the Drupal administration panel. Below is a list
 
-*Cooming soon*
+## Bootstrap Italia Image Styles
+This module adds different image styles in Admin -> Configurations -> Media -> Image Styles.
+```
+$ composer require drupal/focal_point
+$ drush -y pm:enable focal_point bootstrap_italia_image_style
+```
+
+## Bootstrap Italia Paragraph
+This is the base module for paragraphs integration.
+```
+$ composer require drupal/paragraphs drupal/field_group drupal/imce drupal/color_field
+$ drush -y pm:enable paragraphs field_group imce color_field bootstrap_italia_paragraph
+```
+Install third-party libraries via the Drupal administration panel
+or with this script by positioning yourself in the same folder
+in which `composer.json` is located
+```
+#!/bin/bash
+curl --request GET -sL \
+  --url 'https://github.com/recurser/jquery-simple-color/archive/master.zip' \
+  --output './web/libraries/master.zip'
+
+unzip ./web/libraries/master.zip -d ./web/libraries/
+mv ./web/libraries/jquery-simple-color-master ./web/libraries/jquery-simple-color
+rm -Rf ./web/libraries/master.zip
+
+curl --request GET -sL \
+  --url 'https://github.com/bgrins/spectrum/archive/master.zip' \
+  --output './web/libraries/master.zip'
+
+unzip ./web/libraries/master.zip -d ./web/libraries/
+mv ./web/libraries/spectrum-master ./web/libraries/spectrum
+rm -Rf ./web/libraries/master.zip
+```
+
+## Bootstrap Italia Paragraph Accordion
+This module manages the accordion component through the paragraph module.
+```
+$ drush -y pm:enable bootstrap_italia_paragraph_accordion
+```
+
+## Bootstrap Italia Paragraph Attachments
+This module manages the attachments through the paragraph module.
+```
+$ drush -y pm:enable media media_library bootstrap_italia_paragraph_attachments
+```
+
+## Bootstrap Italia Paragraph Callout
+This module manages the callout component through the paragraph module.
+```
+$ drush -y pm:enable bootstrap_italia_paragraph_callout
+```
+
+## Bootstrap Italia Paragraph Carousel
+This module manages the splide carousel component through the paragraph module.
+```
+$ drush -y pm:enable media media_library bootstrap_italia_paragraph_carousel
+```
+
+## Bootstrap Italia Paragraph Citation
+This module manages the citation component through the paragraph module.
+```
+$ drush -y pm:enable bootstrap_italia_paragraph_citation
+```
+
+## Bootstrap Italia Paragraph Hero
+This module manages the hero component through the paragraph module.
+```
+$ drush -y pm:enable bootstrap_italia_paragraph_hero
+```
+
+## Bootstrap Italia Paragraph Map
+This module manages the map component through the paragraph module.
+This module uses leaflets and open street maps.
+```
+$ composer require drupal/geofield drupal/leaflet
+$ drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
+```
+
+## Bootstrap Italia Paragraph Node Reference
+This module, through a paragraph, refers to other nodes
+and allows you to choose the view with which they must be displayed.
+```
+$ composer require drupal/entity_reference_display
+$ drush -y pm:enable entity_reference_display bootstrap_italia_paragraph_node_reference
+```
+
+## Bootstrap Italia Paragraph Section
+This module manages the section component through the paragraph module.
+```
+$ drush -y pm:enable bootstrap_italia_paragraph_section
+```
+
+## Bootstrap Italia Paragraph Timeline
+This module manages the timeline component through the paragraph module.
+```
+$ drush -y pm:enable bootstrap_italia_paragraph_timeline
+```
+
+## Bootstrap Italia Paragraph Webform
+This module manages the integration of webform with paragraph.
+```
+$ composer require drupal/webform wikimedia/composer-merge-plugin
+$ drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
+```
+Install third-party libraries by edit the `composer.json` file
+of your website and under the "extra": { section add:
+```
+"merge-plugin": {
+  "include": [
+    "web/modules/contrib/webform/composer.libraries.json"
+  ]
+},
+```
+Then run:
+```
+$ composer update -W
+```
+[Learn more](https://www.drupal.org/node/3003140)
+
+## Bootstrap Italia Views Accordion
+This module manages the integration of the accordion component into the views module.
+```
+$ drush -y pm:enable bootstrap_italia_views_accordion
+```
+
+## Bootstrap Italia Views Carousel
+This module manages the integration of the carousel component into the views module.
+```
+$ drush -y pm:enable bootstrap_italia_views_carousel
+```
+
+## Bootstrap Italia Views List
+This module manages the integration of the list component into the views module.
+```
+$ drush -y pm:enable bootstrap_italia_views_list
+```
+
+## Bootstrap Italia Views Timeline
+This module manages the integration of the timeline component into the views module.
+```
+$ drush -y pm:enable bootstrap_italia_views_timeline
+```
+
+## Bootstrap Italia content News
+This module adds the "News" content type (second level content).
+*Note: This is an example of how to develop a type of reusable content
+in other installations.*
+```
+$ composer require drupal/toc_js drupal/focal_point
+$ drush -y pm:enable responsive_image toc_js focal_point  \
+    bootstrap_italia_paragraph bootstrap_italia_paragraph_accordion \
+    bootstrap_italia_paragraph_attachments bootstrap_italia_paragraph_callout \
+    bootstrap_italia_paragraph_carousel bootstrap_italia_paragraph_citation \
+    bootstrap_italia_paragraph_map bootstrap_italia_paragraph_webform  \
+    bootstrap_italia_content_news
+```
+Install third-party libraries via the Drupal administration panel
+or with this script by positioning yourself in the same folder
+in which `composer.json` is located
+```
+#!/bin/bash
+curl --request GET -sL \
+  --url 'https://github.com/jgallen23/toc/archive/refs/heads/greenkeeper/update-all.zip' \
+  --output './web/libraries/master.zip'
+
+unzip ./web/libraries/master.zip -d ./web/libraries/
+mv ./web/libraries/toc-greenkeeper-update-all/dist ./web/libraries/toc
+rm -Rf ./web/libraries/toc-greenkeeper-update-all
+rm -Rf ./web/libraries/master.zip
+```
 
 # How to start a ddev container
 If you want an automated script that works for you, run script located at
