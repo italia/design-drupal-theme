@@ -49,6 +49,20 @@ class TimelineStyle extends StylePluginBase {
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
+    // Today check type.
+    $form['bi_timeline_settings']['today_check_period'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Today check'),
+      '#description' => $this->t('Period of time when an element is marked as current. Default: "Week"'),
+      '#options' => [
+        'month' => 'Month',
+        'week' => 'Week',
+        'day' => 'Day'
+      ],
+      '#default_value' =>
+          $this->options['bi_timeline_settings']['today_check_period'] ?? 'week',
+    );
+
   }
 
 }
