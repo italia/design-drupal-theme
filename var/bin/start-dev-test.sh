@@ -140,7 +140,7 @@ if [ "$enable_modules" == "y" ]; then
     mkdir ./web/libraries
   fi
 
-  echo 'Install module: Bootstrap Italia Image Style'
+  echo 'Install module: Bootstrap Italia Image Styles'
   ddev composer require drupal/focal_point
   ddev exec drush -y pm:enable focal_point bootstrap_italia_image_style
 
@@ -226,8 +226,10 @@ if [ "$enable_content_type" == "y" ]; then
   ddev composer require drupal/toc_js drupal/focal_point
   ddev exec drush -y pm:enable responsive_image toc_js focal_point  \
     bootstrap_italia_paragraph bootstrap_italia_paragraph_accordion \
-    bootstrap_italia_paragraph_attachments bootstrap_italia_paragraph_map \
-    bootstrap_italia_paragraph_webform bootstrap_italia_content_news
+    bootstrap_italia_paragraph_attachments bootstrap_italia_paragraph_callout \
+    bootstrap_italia_paragraph_carousel bootstrap_italia_paragraph_citation \
+    bootstrap_italia_paragraph_map bootstrap_italia_paragraph_webform  \
+    bootstrap_italia_content_news
 
   curl --request GET -sL \
     --url 'https://github.com/jgallen23/toc/archive/refs/heads/greenkeeper/update-all.zip' \
