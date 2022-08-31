@@ -11,35 +11,48 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/timeline/timeline.html.twig' with {
-  timeline_attributes: attributes
-} %}
+{% apply spaceless %}
+  {% if options.bi_timeline_settings.today_check_period == 'day' %}
+    {% set _check_period = 86400 %}
+  {% elseif options.bi_timeline_settings.today_check_period == 'week' %}
+    {% set _check_period = 604800 %}
+  {% else %}
+    {# Default: Month. #}
+    {% set _check_period = 2592000 %}
+  {% endif %}
 
-  {% block timelineItems %}
-    {% for item in rows %}
-      <div class="col-12">
-        {% set time_passed = "now"|date("U") - item['#node'].getCreatedTime() %}
+  {% embed '@bi-bcl/timeline/timeline.html.twig' with {
+    timeline_attributes: attributes
+  } %}
 
-        {% if options.bi_timeline_settings.today_check_period == 'day' %}
-          {% set check_period = 86400 %}
-        {% elseif options.bi_timeline_settings.today_check_period == 'week' %}
-          {% set check_period = 604800 %}
-        {% else %}
-          {# Default: Month. #}
-          {% set check_period = 2592000 %}
+    {% block timelineItems %}
+      {# Only one "now" event. #}
+      {% set _check_first_now_event = false %}
+
+      {% for item in rows %}
+        <div class="col-12">
+          {% set _time_passed = "now"|date("U") - item['#node'].getCreatedTime() %}
+          {% set _is_past_event = _time_passed > _check_period ? true : false %}
+          {% set _is_now_event = _time_passed < _check_period and _time_passed > 1 ? true : false %}
+
+          {% embed '@bi-bcl/timeline/timeline-item.html.twig' with {
+            past_event: _is_past_event,
+            now_event: _is_now_event and not _check_first_now_event ? true : false,
+            pin_text: item['#node'].getCreatedTime()|date("F Y")
+          } %}
+            {% block timelineItemContent %}
+              {{ item }}
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        {# If the first now_event is checked. #}
+        {% if _is_now_event and not _check_first_now_event %}
+          {% set _check_first_now_event = true %}
         {% endif %}
 
-        {% embed '@bi-bcl/timeline/timeline-item.html.twig' with {
-          past_event: time_passed > check_period ? true : false,
-          now_event: time_passed < check_period and time_passed > 1 ? true : false,
-          pin_text: item['#node'].getCreatedTime()|date("F Y")
-        } %}
-          {% block timelineItemContent %}
-            {{ item }}
-          {% endblock %}
-        {% endembed %}
-      </div>
-    {% endfor %}
-  {% endblock %}
+      {% endfor %}
+    {% endblock %}
 
-{% endembed %}
+  {% endembed %}
+{% endapply %}
