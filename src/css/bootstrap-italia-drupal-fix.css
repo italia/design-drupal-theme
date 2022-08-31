@@ -11,6 +11,14 @@
   max-width: fit-content;
 }
 
+/* Navbar sticky VS drupal toolbar */
+.toolbar-horizontal.toolbar-tray-open .bs-it-sticky-wrapper .is-sticky{
+  top: 78px !important;
+}
+.toolbar-horizontal .bs-it-sticky-wrapper .is-sticky{
+  top: 39px !important;
+}
+
 /* Fix link-list */
 .link-list-wrapper ul li a span {
   line-height: inherit;
