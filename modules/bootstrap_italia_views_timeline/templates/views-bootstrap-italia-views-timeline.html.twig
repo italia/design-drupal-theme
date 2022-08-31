@@ -4,7 +4,11 @@
  *
  * Available variables:
  * - options.bi_timeline_settings: View plugin style options:
+ *   - date_format
+ *   - today_check
  *   - today_check_period
+ *   - icon_past_event
+ *   - icon_event
  *
  * @see template_preprocess_views_bootstrap_italia_views_timeline()
  *
@@ -37,8 +41,9 @@
 
           {% embed '@bi-bcl/timeline/timeline-item.html.twig' with {
             past_event: _is_past_event,
-            now_event: _is_now_event and not _check_first_now_event ? true : false,
-            pin_text: item['#node'].getCreatedTime()|date("F Y")
+            now_event: _is_now_event and options.bi_timeline_settings.today_check and not _check_first_now_event ? true : false,
+            pin_text: item['#node'].getCreatedTime()|date(options.bi_timeline_settings.date_format),
+            pin_icon: _is_past_event ? options.bi_timeline_settings.icon_past_event : options.bi_timeline_settings.icon_event,
           } %}
             {% block timelineItemContent %}
               {{ item }}
