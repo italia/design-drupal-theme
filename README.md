@@ -206,6 +206,12 @@ This module manages the citation component through the paragraph module.
 $ drush -y pm:enable bootstrap_italia_paragraph_citation
 ```
 
+## Bootstrap Italia Paragraph Gallery
+This module manages the gallery component (image list) through the paragraph module.
+```
+$ drush -y pm:enable bootstrap_italia_paragraph_gallery
+```
+
 ## Bootstrap Italia Paragraph Hero
 This module manages the hero component through the paragraph module.
 ```
