@@ -1,0 +1,16 @@
+name: "Bootstrap Italia Paragraph Gallery"
+description: This module manages the gallery component (image list) through the paragraph module.
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:responsive_image
+  - drupal:paragraphs
+  - drupal:field_group
+  - drupal:imce
+  - drupal:focal_point
+  - drupal:media
+  - drupal:media_library
+  - drupal:bootstrap_italia_image_style
+  - drupal:bootstrap_italia_paragraph

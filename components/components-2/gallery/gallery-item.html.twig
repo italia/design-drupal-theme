@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Template for Gallery Item component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-immagini/
+ * Last review: v2.0.3
+ *
+ * Parameters:
+ * - image_url (string) (default: '')
+ * - image_description (string) (default: '')
+ * - show_image_caption (boolean) (default: false)
+ * - icon_name (string) (default: '')
+ * - overlay (boolean) (default: false)
+ * - call_to_action_url (string) (default: '')
+ * - call_to_action_attibutes (obj attribute) (default: '')
+ * - gallery_item_classes (array) (default: '')
+ * - gallery_item_attributes (obj attribute) (default: '')
+ *
+ * - galleryItemImage (block) (default: image_url, image_description)
+ *
+ * Examples:
+   {% include '@bi-bcl/gallery/gallery-item.html.twig' with {
+     variables: value,
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _image_url = image_url|default('') %}
+  {% set _image_description = image_description|default('') %}
+  {% set _show_image_caption = show_image_caption ?? false %}
+  {% set _icon_name = icon_name|default('') %}
+  {% set _overlay = overlay ?? false %}
+  {% set _call_to_action_url = call_to_action_url|default('') %}
+  {% set _call_to_action_attibutes = call_to_action_attibutes|default('') %}
+  {% set _gallery_item_classes = gallery_item_classes|default('') %}
+  {% set _gallery_item_attributes = gallery_item_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      'it-grid-item-wrapper',
+      _overlay ? 'it-grid-item-overlay',
+    ] %}
+
+  {% if _gallery_item_classes is not empty %}
+    {% set _classes = _classes|merge(gallery_item_classes) %}
+  {% endif %}
+
+  {% if _gallery_item_attributes is empty %}
+    {% set gallery_item_attributes = create_attribute() %}
+  {% endif %}
+  {% set gallery_item_attributes = gallery_item_attributes
+    .addClass(_classes)
+  %}
+
+  {# Component #}
+  <div{{ gallery_item_attributes }}>
+
+    {% if _call_to_action_url is not empty %}
+      <a href="{{ _call_to_action_url }}"{{ call_to_action_attibutes }}>
+    {% endif %}
+
+      <div class="img-responsive-wrapper">
+        <div class="img-responsive">
+          <div class="img-wrapper">
+            {% block galleryItemImage %}
+              <img src="{{ _image_url }}" alt="{{ _image_description }}">
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+      {% if _show_image_caption %}
+        <span class="it-griditem-text-wrapper">
+          {% if _image_description is not empty %}
+            <span class="it-griditem-text">{{ _image_description }}</span>
+          {% endif %}
+          {% if _icon_name is not empty %}
+            {% include '@bi-bcl/icon/icon.html.twig' with { name: _icon_name } %}
+          {% endif %}
+        </span>
+      {% endif %}
+
+    {% if _call_to_action_url is not empty %}
+      </a>
+    {% endif %}
+
+  </div>
+{% endapply %}

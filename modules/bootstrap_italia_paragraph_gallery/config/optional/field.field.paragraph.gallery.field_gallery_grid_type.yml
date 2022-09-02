@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_gallery_grid_type
+    - paragraphs.paragraphs_type.gallery
+  module:
+    - options
+id: paragraph.gallery.field_gallery_grid_type
+field_name: field_gallery_grid_type
+entity_type: paragraph
+bundle: gallery
+label: 'Gallery grid type'
+description: '<a href="https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-immagini/#tipi-di-griglia" title="Read the docs" target="_blank">Docs</a>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

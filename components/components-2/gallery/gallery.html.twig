@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Template for gallery component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-immagini/
+ * Last review: v2.0.3
+ *
+ * Parameters:
+ * - items (array) mandatory
+ *   - {[gallery-item], ...}
+ * - show_image_caption (boolean) (default: false)
+ * - grid_type (string) (default: '')
+ *   - options ["quilted", "masonry"]
+ *
+ * - gallery_classes (array) (default: '')
+ * - gallery_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/gallery/gallery.html.twig' with {
+     items: array,
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _show_image_caption = show_image_caption ?? false %}
+  {% set _grid_type = grid_type|default('') %}
+  {% set _gallery_classes = gallery_classes|default('') %}
+  {% set _gallery_attributes = gallery_attributes|default('') %}
+
+  {# Set options #}
+    {% set _classes = [
+      _grid_type != 'masonry' or _grid_type is empty ? 'it-grid-list-wrapper',
+      _grid_type == 'masonry' ? 'container-fluid',
+      _grid_type == 'quilted' ? 'it-quilted-grid',
+      _show_image_caption and not _grid_type == 'quilted' ? 'it-image-label-grid',
+    ] %}
+
+  {% if _gallery_classes is not empty %}
+    {% set _classes = _classes|merge(gallery_classes) %}
+  {% endif %}
+
+  {% if _gallery_attributes is empty %}
+    {% set gallery_attributes = create_attribute() %}
+  {% endif %}
+  {% set gallery_attributes = gallery_attributes
+    .addClass(_classes)
+  %}
+
+  {% set gallery_grid_attributes = create_attribute() %}
+  {# Masonry grid. #}
+  {% if _grid_type == 'masonry' %}
+    {% set _show_image_caption = true %}
+    {% set gallery_grid_attributes = gallery_grid_attributes
+      .addClass(['row', 'it-masonry'])
+      .setAttribute('data-bs-toggle', 'masonry')
+    %}
+  {# Other grid. #}
+  {% else %}
+    {% set gallery_grid_attributes = gallery_grid_attributes
+      .addClass('grid-row')
+    %}
+  {% endif %}
+
+  {# Component #}
+  <div{{ gallery_attributes }}>
+    <div{{ gallery_grid_attributes }}>
+      {% block galleryItems %}
+        {% for item in items %}
+          {# Quilted grid force overlay:true #}
+          {% if _grid_type == 'quilted' %}
+            {% set item = item|merge({'overlay': true}) %}
+          {% endif %}
+
+          <div class="{{ _grid_type == 'masonry' ? 'col-sm-6 col-lg-4 mb-4' : 'col-6 col-lg-4' }}">
+            {% include '@bi-bcl/gallery/gallery-item.html.twig' with item %}
+          </div>
+
+        {% endfor %}
+      {% endblock %}
+    </div>
+  </div>
+{% endapply %}

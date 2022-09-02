@@ -1,0 +1,89 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% set _grid_type = items[0].content['#paragraph'].getParentEntity().field_gallery_grid_type.value %}
+
+  {% set container_classes = [
+    'field',
+    'field--type-' ~ field_type|clean_class,
+    'field--name-' ~ field_name|clean_class,
+    'field--entity-' ~ entity_type|clean_class,
+    multiple ? 'field-multiple',
+    'field--label-' ~ label_display|clean_class,
+    field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
+  ] %}
+
+  {% set attributes = attributes.addClass(container_classes) %}
+
+  {% for item in items %}
+    {% if _grid_type != 'double' or loop.length < 4 %}
+      {% set _grid_classes = _grid_type == 'masonry' ? 'col-sm-6 col-lg-4 mb-4' : 'col-6 col-lg-4' %}
+      <div{{ attributes.addClass(_grid_classes) }}>{{ item.content }}</div>
+
+    {% else %}
+      {# First image double. #}
+      {% if loop.first %}
+        <div class="col-12 col-md-6">{{ item.content }}</div>
+
+        {# Start second column. #}
+        <div class="col-12 col-md-6">
+          <div class="grid-row">
+      {% endif %}
+
+          {% if not loop.first and not loop.last %}
+            <div class="col-6">{{ item.content }}</div>
+          {% endif %}
+
+      {% if loop.last %}
+        {% if loop.index is divisible by(2) %}
+          <div class="col-12">{{ item.content|merge({'gallery_item_classes': ['it-grid-item-double-w']}) }}</div>
+        {% else %}
+          <div class="col-6">{{ item.content }}</div>
+        {% endif %}
+
+          </div>{# End grid-row. #}
+        </div>{# End second column. #}
+      {% endif %}{# End loop.last. #}
+
+    {% endif %}
+  {% endfor %}
+
+{% endapply %}

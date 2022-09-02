@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.focal_point_hda_16_9_1360x768_
+    - image.style.focal_point_ntsc_32_27_576x486_
+    - image.style.focal_point_pal_40_27_720x486_
+    - image.style.focal_point_svga_4_3_800x600_
+    - image.style.focal_point_vga_4_3_640x480_
+  theme:
+    - bootstrap_italia
+id: bootstrap_italia_paragraph_gallery
+label: 'Bootstrap Italia paragraph gallery'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: focal_point_hda_16_9_1360x768_
+    breakpoint_id: bootstrap_italia.4k
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: focal_point_svga_4_3_800x600_
+    breakpoint_id: bootstrap_italia.full_hd
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: focal_point_pal_40_27_720x486_
+    breakpoint_id: bootstrap_italia.large
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: focal_point_ntsc_32_27_576x486_
+    breakpoint_id: bootstrap_italia.extra_small
+    multiplier: 1x
+breakpoint_group: bootstrap_italia
+fallback_image_style: focal_point_vga_4_3_640x480_

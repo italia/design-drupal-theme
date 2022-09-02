@@ -1,0 +1,82 @@
+{#
+/**
+ * @file
+ * Template for gallery-first-image-double component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-immagini/#proporzionale
+ * Last review: v2.0.3
+ *
+ * Parameters:
+ * - items (array) mandatory
+ *   - {[gallery-item], ...}
+ *
+ * - gallery_classes (array) (default: '')
+ * - gallery_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/gallery/gallery-first-image-double.html.twig' with {
+     items: [...],
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _gallery_classes = gallery_classes|default('') %}
+  {% set _gallery_attributes = gallery_attributes|default('') %}
+
+  {# Component #}
+  {% embed '@bi-bcl/gallery/gallery.html.twig' with {
+    show_image_caption: true,
+    grid_type: 'quilted',
+    gallery_classes: _gallery_classes,
+    gallery_attributes: _gallery_attributes
+  } %}
+    {% block galleryItems %}
+      {% for item in items %}
+        {% set item = item|merge({'overlay': true}) %}
+        {% set item = item|merge({'show_image_caption': true}) %}
+
+        {# First image double. #}
+        {% if loop.length > 3 %}
+          {% if loop.first %}
+            <div class="col-12 col-md-6">
+              {% include '@bi-bcl/gallery/gallery-item.html.twig' with item %}
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="grid-row">
+          {% endif %}
+
+              {% if not loop.first and not loop.last %}
+                <div class="col-6">
+                  {% include '@bi-bcl/gallery/gallery-item.html.twig' with item %}
+                </div>
+              {% endif %}
+
+          {% if loop.last %}
+                {% if loop.index is divisible by(2) %}
+                  {% set item = item|merge({'gallery_item_classes': ['it-grid-item-double-w']}) %}
+                  <div class="col-12">
+                    {% include '@bi-bcl/gallery/gallery-item.html.twig' with item %}
+                  </div>
+                {% else %}
+                  <div class="col-6">
+                    {% include '@bi-bcl/gallery/gallery-item.html.twig' with item %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+
+        {# Equal width. #}
+        {% else %}
+          <div class="col-6 col-lg-4">
+            {% include '@bi-bcl/gallery/gallery-item.html.twig' with item %}
+          </div>
+        {% endif %}
+
+      {% endfor %}
+
+    {% endblock %}
+  {% endembed %}
+
+{% endapply %}

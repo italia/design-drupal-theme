@@ -1,0 +1,226 @@
+{#
+/**
+ * @file
+ * Hero demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/gallery/gallery-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set demo_gallery_items_1 = [
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+      'overlay': true
+    },
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Image list'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/gallery/gallery.html.twig' with {
+        items: demo_gallery_items_1,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% set demo_gallery_items_2 = [
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Image list: grid standard'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/gallery/gallery.html.twig' with {
+        items: demo_gallery_items_2,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Image list: grid standard with caption'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/gallery/gallery.html.twig' with {
+        items: demo_gallery_items_2,
+        show_image_caption: true,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% set demo_gallery_items_3 = [
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/660x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'icon_name': 'it-code-circle',
+    },
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Image list: grid quilted with caption'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/gallery/gallery-first-image-double.html.twig' with {
+        items: demo_gallery_items_3,
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% set demo_gallery_items_4 = [
+    {
+      'image_url': 'https://via.placeholder.com/400x300/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x500/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x700/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x600/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x500/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x400/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x600/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x500/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x400/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x600/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x500/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+    {
+      'image_url': 'https://via.placeholder.com/400x400/ebebeb/808080/?text=Image',
+      'image_description': 'Image description',
+      'show_image_caption': true,
+      'icon_name': 'it-code-circle',
+    },
+  ] %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Image list: masonry'|t,
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/gallery/gallery.html.twig' with {
+        items: demo_gallery_items_4,
+        grid_type: 'masonry',
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+{% endapply %}

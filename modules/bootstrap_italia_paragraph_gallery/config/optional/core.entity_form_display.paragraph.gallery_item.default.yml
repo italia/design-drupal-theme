@@ -1,0 +1,96 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.gallery_item.field_background_image
+    - field.field.paragraph.gallery_item.field_call_to_action
+    - field.field.paragraph.gallery_item.field_description
+    - field.field.paragraph.gallery_item.field_icon_name
+    - field.field.paragraph.gallery_item.field_image
+    - field.field.paragraph.gallery_item.field_show_caption
+    - image.style.medium
+    - paragraphs.paragraphs_type.gallery_item
+  module:
+    - field_group
+    - focal_point
+    - imce
+    - link
+    - media_library
+third_party_settings:
+  field_group:
+    group_options:
+      children:
+        - field_show_caption
+        - field_description
+        - field_icon_name
+        - field_call_to_action
+      label: 'Item options'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: false
+id: paragraph.gallery_item.default
+targetEntityType: paragraph
+bundle: gallery_item
+mode: default
+content:
+  field_background_image:
+    type: image_focal_point
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: bar
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings:
+      imce:
+        enabled: true
+  field_call_to_action:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_description:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_icon_name:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: media_library_widget
+    weight: 6
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_show_caption:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
