@@ -32,6 +32,21 @@
  * - field_name: The name of the field.
  * - field_type: The type of the field.
  * - label_display: The display settings for the label.
+ * - field_container_vertical_padding: Automatic vertical padding.
+ * - field_container_vertical_margin: Automatic vertical margin.
+ * - field_view_mode: View mode.
+ *
+ * - background (string) (default: 'primary')
+ *   - options ["primary", "secondary", "success", "danger", "warning", "white", "dark" ]
+ * - text_color (string) (default: '')
+ *   - options ["primary", "secondary", "success", "danger", "warning", "muted",
+ *               "white", "dark"]
+ * - assistive_text (string) (default: '')
+ *   - Optional assistive text for badge label
+ * - rounded_pill (boolean) (default: false)
+ *   - Rounded effect
+ * - outline (boolean) (default: false)
+ *   - Enable outiline background color
  *
  * @see template_preprocess_field()
  *
@@ -39,6 +54,11 @@
  */
 #}
 {% apply spaceless %}
+  {% set _background = background|default('primary') %}
+  {% set _text_color = text_color|default('') %}
+  {% set _assistive_text = assistive_text|default('') %}
+  {% set _rounded_pill = rounded_pill ?? false %}
+  {% set _outline = outline ?? false %}
 
   {% set container_classes = [
     'field',
@@ -64,20 +84,25 @@
       <div{{ attributes.addClass(container_classes|merge(['d-flex'])) }}>
         {% for item in items %}
           <div{{ item.attributes }}>
-            {%- set item_chip -%}
-              {% include '@bi-bcl/chip/chip.html.twig' with {
-                chip_label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
-                chip_color: 'primary',
+            {%- set item_badge -%}
+              {% include '@bi-bcl/badge/badge.html.twig' with {
+                label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
+                background: _background,
+                text_color: _text_color,
+                assistive_text: _assistive_text,
+                rounded_pill: _rounded_pill,
+                outline: _outline,
+                badge_classes: ['me-2'],
               } %}
             {% endset %}
             {% if item.content['#type'] == 'link' %}
               {% if item.content['#options'].attributes is iterable %}
-                {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+                {{ link(item_badge, item.content['#url'], item.content['#options'].attributes) }}
               {% else %}
-                {{ link(item_chip, item.content['#url']) }}
+                {{ link(item_badge, item.content['#url']) }}
               {% endif %}
             {% else %}
-              {{ item_chip }}
+              {{ item_badge }}
             {% endif %}
           </div>
         {% endfor %}
@@ -85,20 +110,25 @@
     {% else %}
       {% for item in items %}
         <div{{ attributes.addClass(container_classes) }}>
-          {%- set item_chip -%}
-            {% include '@bi-bcl/chip/chip.html.twig' with {
-              chip_label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
-              chip_color: 'primary',
+          {%- set item_badge -%}
+            {% include '@bi-bcl/badge/badge.html.twig' with {
+              label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
+              background: _background,
+              text_color: _text_color,
+              assistive_text: _assistive_text,
+              rounded_pill: _rounded_pill,
+              outline: _outline,
+              badge_classes: ['me-2'],
             } %}
           {% endset %}
           {% if item.content['#type'] == 'link' %}
             {% if item.content['#options'].attributes is iterable %}
-              {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+              {{ link(item_badge, item.content['#url'], item.content['#options'].attributes) }}
             {% else %}
-              {{ link(item_chip, item.content['#url']) }}
+              {{ link(item_badge, item.content['#url']) }}
             {% endif %}
           {% else %}
-            {{ item_chip }}
+            {{ item_badge }}
           {% endif %}
         </div>
       {% endfor %}
@@ -122,20 +152,25 @@
       {% endif %}
       {% for item in items %}
         <div{{ item.attributes }}>
-          {%- set item_chip -%}
-            {% include '@bi-bcl/chip/chip.html.twig' with {
-              chip_label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
-              chip_color: 'primary',
+          {%- set item_badge -%}
+            {% include '@bi-bcl/badge/badge.html.twig' with {
+              label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
+              background: _background,
+              text_color: _text_color,
+              assistive_text: _assistive_text,
+              rounded_pill: _rounded_pill,
+              outline: _outline,
+              badge_classes: ['me-2'],
             } %}
           {% endset %}
           {% if item.content['#type'] == 'link' %}
             {% if item.content['#options'].attributes is iterable %}
-              {{ link(item_chip, item.content['#url'], item.content['#options'].attributes) }}
+              {{ link(item_badge, item.content['#url'], item.content['#options'].attributes) }}
             {% else %}
-              {{ link(item_chip, item.content['#url']) }}
+              {{ link(item_badge, item.content['#url']) }}
             {% endif %}
           {% else %}
-            {{ item_chip }}
+            {{ item_badge }}
           {% endif %}
         </div>
       {% endfor %}

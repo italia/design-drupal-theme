@@ -101,3 +101,7 @@ components:
     # Components library 2.0
     bi-bcl:
       - ./components/components-2
+
+    # Field library 2.0
+    bi-field:
+      - ./components/field
