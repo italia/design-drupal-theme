@@ -94,6 +94,7 @@
 
           <div class="{{ _grid_type == 'masonry' ? 'col-sm-6 col-lg-4 mb-4' : 'col-6 col-lg-4' }}">
             {% embed '@bi-bcl/gallery/gallery-item.html.twig' with {
+              image_description: item.content['#item'].alt,
               show_image_caption: _show_image_caption,
               icon_name: _icon_name,
               overlay: _overlay,
