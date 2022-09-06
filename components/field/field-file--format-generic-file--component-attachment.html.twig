@@ -1,0 +1,96 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ * - field_container_vertical_padding: Automatic vertical padding.
+ * - field_container_vertical_margin: Automatic vertical margin.
+ * - field_view_mode: View mode.
+ *
+ * @see template_preprocess_field()
+ *
+ * Examples:
+   {% include '@bi-field/field-file--format-generic-file--component-attachment.html.twig' %}
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% set container_classes = [
+    'field',
+    'field--type-' ~ field_type|clean_class,
+    'field--name-' ~ field_name|clean_class,
+    'field--entity-' ~ entity_type|clean_class,
+    multiple ? 'field-multiple',
+    'field--label-' ~ label_display|clean_class,
+    field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
+    field_container_vertical_padding is not empty and field_view_mode == 'full' ? field_container_vertical_padding,
+    field_container_vertical_margin is not empty and field_view_mode == 'full' ? field_container_vertical_margin,
+  ] %}
+
+  {% set card_class = [
+    'field-multiple',
+    'card-wrapper',
+    'card-teaser-wrapper',
+    'card-teaser-wrapper-equal'
+  ] %}
+
+  {% if label_hidden %}
+    <div{{ attributes.addClass(container_classes|merge(card_class)) }}>
+      {% for item in items %}
+        {{ item.content }}
+      {% endfor %}
+    </div>
+
+  {% else %}
+    <div{{ attributes.addClass(container_classes) }}>
+
+      <div{{ title_attributes.addClass(title_classes) }}>
+        {%- if field_label_bold -%}
+          <strong>{{ label }}</strong>
+        {%- else -%}
+          {{ label }}
+        {%- endif -%}
+        {%- if field_label_separator is not empty -%}
+          {{ field_label_separator }}&nbsp;
+        {%- endif -%}
+      </div>{# End label container. #}
+
+      <div class="{{ card_class|join(' ')|trim }}">
+        {% for item in items %}
+          {{ item.content }}
+        {% endfor %}
+      </div>
+    </div>
+
+  {% endif %}
+{% endapply %}
