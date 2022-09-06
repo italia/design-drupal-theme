@@ -1,0 +1,111 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ * - field_container_vertical_padding: Automatic vertical padding.
+ * - field_container_vertical_margin: Automatic vertical margin.
+ * - field_view_mode: View mode.
+ *
+ * - carousel_col_type (string) (default: 'it-carousel-landscape-abstract-three-cols')
+ *   - options [
+        "it-carousel-landscape-abstract-three-cols",
+        "it-carousel-landscape-abstract-three-cols-arrow-visible",
+        "it-carousel-landscape-abstract",
+       ]
+ * - carousel_full (boolean) (default: true)
+ * - carousel_image_type (string) (default: '')
+ *   - options ["standard", "big"]
+ * - slide_track_padding (boolean) (default: false)
+ * - slide_lined (boolean) (default: false)
+ *
+ *
+ * @see template_preprocess_field()
+ *
+ * @ingroup themeable
+ *
+ * Examples:
+   {% include '@bi-field/field-image--format-image--component-carousel.html.twig' with {
+     show_image_caption: true,
+     grid_type: '',
+     icon_name: '',
+     overlay: false,
+   } %}
+ */
+#}
+{% apply spaceless %}
+  {% set _carousel_col_type = carousel_col_type|default('it-carousel-landscape-abstract-three-cols') %}
+  {% set _carousel_full = carousel_full ?? false %}
+  {% set _carousel_image_type = carousel_image_type|default('') %}
+  {% set _slide_track_padding = slide_track_padding ?? false %}
+  {% set _slide_lined = slide_lined ?? false %}
+
+  {% set container_classes = [
+    'field',
+    'field--type-' ~ field_type|clean_class,
+    'field--name-' ~ field_name|clean_class,
+    'field--entity-' ~ entity_type|clean_class,
+    multiple ? 'field-multiple',
+    'field--label-' ~ label_display|clean_class,
+    field_view_mode ? 'field--view-mode-' ~ field_view_mode|clean_class,
+    field_container_vertical_padding is not empty and field_view_mode == 'full' ? field_container_vertical_padding,
+    field_container_vertical_margin is not empty and field_view_mode == 'full' ? field_container_vertical_margin,
+  ] %}
+
+  {% set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ] %}
+
+  {% set container_with_label_classes = [
+    label_display == 'inline' ? 'd-flex'
+  ]|merge(container_classes) %}
+
+  {% embed '@bi-bcl/carousel/carousel.html.twig' with {
+    carousel_title: label_hidden ? '' : label,
+    carousel_col_type: _carousel_col_type,
+    carousel_full: _carousel_full,
+    carousel_image_type: _carousel_image_type,
+    slide_track_padding: _slide_track_padding,
+    carousel_attributes: attributes.addClass(container_classes)
+  } %}
+    {% block carouselSlides %}
+      {% for item in items %}
+        {% include '@bi-bcl/carousel/carousel-slide.html.twig' with {
+          content: item.content,
+          slide_lined: _slide_lined,
+          slide_attributes: item.attributes
+        } %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
+{% endapply %}
