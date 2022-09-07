@@ -44,6 +44,9 @@ enable_content_type=${enable_content_type:-n}
 read -r -p "Bootstrap libraries type [vanilla|webpack] (webpack): " bi_libraries_type
 bi_libraries_type=${bi_libraries_type:-webpack}
 
+read -r -p "Do you want enable dev mode [y|n] (n): " enable_dev_mode
+enable_dev_mode=${enable_dev_mode:-n}
+
 echo "==[ Configuration ]=="
 
 echo "Make ${project_name}"
@@ -219,6 +222,13 @@ fi
 
 if [ "$enable_experimental_modules" == "y" ]; then
   echo "==[ Install experimental modules ]=="
+
+fi
+
+if [ "$enable_dev_mode" == "y" ]; then
+  echo "==[ Enable dev mode ]=="
+  ddev composer require drupal/devel drupal/dev_mode
+  ddev exec drush -y pm:enable devel dev_mode
 
 fi
 

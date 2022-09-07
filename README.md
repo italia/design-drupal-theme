@@ -320,4 +320,9 @@ rm -Rf ./web/libraries/master.zip
 
 # How to start a ddev container
 If you want an automated script that works for you, run script located at
-`themes/bootstrap_italia/var/bin/start-dev-test.sh` and enjoy it
+`themes/bootstrap_italia/var/bin/build-ddev-installation.sh` and enjoy it
+
+Download ad run:
+```
+curl -s -L https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh | bash
+```
