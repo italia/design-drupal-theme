@@ -324,5 +324,7 @@ If you want an automated script that works for you, run script located at
 
 Download ad run:
 ```
-$ curl -s -L https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh | bash
+$ curl --request GET -sL --url 'https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh' --output './build-ddev-installation.sh'
+$ chmod +x ./build-ddev-installation.sh
+$ ./build-ddev-installation.sh
 ```
