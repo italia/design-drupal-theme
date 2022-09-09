@@ -35,7 +35,7 @@ function bootstrap_italia_preprocess_menu(&$variables) {
     $variables['navigation_header_verbose_classes'] = (bool) theme_get_setting('navigation_header_verbose_classes');
     $variables['navigation_header_megamenu_columns_lg'] = theme_get_setting('navigation_header_megamenu_columns_lg');
     $variables['navigation_header_megamenu_columns_xl'] = theme_get_setting('navigation_header_megamenu_columns_xl');
-    $variables['navigation_header_main_menu_name'] = theme_get_setting('navigation_header_main_menu_name');
+    $variables['navigation_header_sticky_menu_name'] = theme_get_setting('navigation_header_sticky_menu_name');
   }
 
   // Menu in sidebar first.

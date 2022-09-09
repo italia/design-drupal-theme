@@ -22,10 +22,10 @@
 #}
 {# Set default settings. #}
 {% set navigation_header_megamenu_columns_lg = navigation_header_megamenu_columns_lg ?: 'col-lg-4' %}
-{% set navigation_header_main_menu_name = navigation_header_main_menu_name ?: 'main' %}
+{% set navigation_header_sticky_menu_name = navigation_header_sticky_menu_name ?: 'main' %}
 
 {# Detect secondary menu. #}
-{% if navigation_header_main_menu_name != menu_name %}
+{% if navigation_header_sticky_menu_name != menu_name %}
   {% set attributes = attributes.addClass('navbar-secondary') %}
 {% endif %}
 

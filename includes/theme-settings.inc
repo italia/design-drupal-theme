@@ -312,6 +312,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("Default: checked"),
     '#default_value' => theme_get_setting('navigation_header_sticky'),
   ];
+  $form['navigation_header']['appearance']['navigation_header_sticky_menu_name'] = [
+    '#type' => 'textfield',
+    '#title' => t('Sticky menu (machine name)'),
+    '#description' => t('If there are two menus in the "Header Navigation - Main Menu" area and the sticky on top is enabled, fill in this field with the machine name of the menu to be displayed in the sticky header. Default: main'),
+    '#placeholder' => t('menu_machine_name'),
+    '#default_value' => theme_get_setting('navigation_header_sticky_menu_name'),
+  ];
   // Navigation header menu.
   $form['navigation_header']['navbar'] = [
     '#type' => 'details',
@@ -365,13 +372,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'col-xl-2' => t('6 Columns'),
       'col-xl' => t('All sub menus in one row'),
     ],
-  ];
-  $form['navigation_header']['navbar']['navigation_header_main_menu_name'] = [
-    '#type' => 'textfield',
-    '#title' => t('Main menu machine name'),
-    '#description' => t('If there are two menus in the "Header Nav - Main Menu" region, fill in this field with the machine name of the main menu. Default: main'),
-    '#placeholder' => t('menu_machine_name'),
-    '#default_value' => theme_get_setting('navigation_header_main_menu_name'),
   ];
 
   // Content ------------------------------------------------------------------.
