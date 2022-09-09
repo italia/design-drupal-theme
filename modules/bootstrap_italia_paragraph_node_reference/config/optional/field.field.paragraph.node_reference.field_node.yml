@@ -11,7 +11,7 @@ field_name: field_node
 entity_type: paragraph
 bundle: node_reference
 label: Node
-description: 'To manage types go to <a href="/admin/structure/paragraphs_type/node_reference/fields/paragraph.reference.field_node" title="Click to choose types">Structure -> Paragraphs types -> Node Reference -> Manage fields -> Edit Node Field</a>'
+description: 'To manage types go to <a href="/admin/structure/paragraphs_type/node_reference/fields/paragraph.node_reference.field_node" title="Click to choose types">Structure -> Paragraphs types -> Node Reference -> Manage fields -> Edit Node Field</a>'
 required: true
 translatable: true
 default_value: {  }
