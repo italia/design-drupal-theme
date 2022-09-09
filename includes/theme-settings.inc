@@ -34,7 +34,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['slim_header'] = [
     '#type' => 'details',
     '#title' => t('Slim header'),
-    '#description' => t("Slim header settings"),
+    '#description' => t('Slim header settings. <a href="@link" title="Read the docs" target="_blank">Docs</a>', ['@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#slim-header']),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -134,7 +134,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header'] = [
     '#type' => 'details',
     '#title' => t('Center header'),
-    '#description' => t("Center header settings"),
+    '#description' => t('Center header settings. <a href="@link" title="Read the docs" target="_blank">Docs</a>', ['@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-centrale']),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -268,7 +268,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['navigation_header'] = [
     '#type' => 'details',
     '#title' => t('Main navigation'),
-    '#description' => t("Main navigation settings"),
+    '#description' => t('Main navigation settings. <a href="@link" title="Read the docs" target="_blank">Docs</a>', ['@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-nav']),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -871,21 +871,21 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings']['cdn'] = [
     '#type' => 'details',
     '#title' => t('CDN Settings'),
-    '#description' => t("If you use a third-party CDN, check that you are compliant with the GDPR. For example use: @cdn", ['@cdn' => 'https://www.jsdelivr.com/package/npm/bootstrap-italia?path=dist']),
+    '#description' => t('If you use a third-party CDN, check that you are compliant with the GDPR. For example use: <a href="@cdn" title="Read the docs" target="_blank">@cdn</a>', ['@cdn' => 'https://www.jsdelivr.com/package/npm/bootstrap-italia?path=dist']),
     '#open' => FALSE,
     '#group' => 'libraries_settings',
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_css'] = [
     '#type' => 'textfield',
     '#title' => t('CSS from CDN'),
-    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/css/bootstrap-italia.min.css']),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@<version>/dist/css/bootstrap-italia.min.css']),
     '#placeholder' => t('/libraries/bootstrap-italia/dist/css/bootstrap-italia.min.css'),
     '#default_value' => theme_get_setting('libraries_cdn_css'),
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_js'] = [
     '#type' => 'textfield',
     '#title' => t('JS from CDN'),
-    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/js/bootstrap-italia.bundle.min.js']),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@<version>/dist/js/bootstrap-italia.bundle.min.js']),
     '#placeholder' => t('/libraries/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js'),
     '#default_value' => theme_get_setting('libraries_cdn_js'),
   ];
@@ -898,14 +898,14 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings']['cdn']['libraries_cdn_fonts'] = [
     '#type' => 'textfield',
     '#title' => t('Fonts from CDN'),
-    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/fonts']),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@<version>/dist/fonts']),
     '#placeholder' => t('/libraries/bootstrap-italia/dist/fonts'),
     '#default_value' => theme_get_setting('libraries_cdn_fonts'),
   ];
   $form['libraries_settings']['cdn']['libraries_cdn_icons'] = [
     '#type' => 'textfield',
     '#title' => t('Icons from CDN'),
-    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@2.0.2/dist/svg/sprites.svg']),
+    '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@<version>/dist/svg/sprites.svg']),
     '#placeholder' => t('/libraries/bootstrap-italia/dist/svg/sprites.svg'),
     '#default_value' => theme_get_setting('libraries_cdn_icons'),
   ];
