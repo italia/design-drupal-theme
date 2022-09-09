@@ -101,7 +101,8 @@ forms_action_alignment: left
 forms_action_spacing: 1
 footer_container_type: container
 libraries_type: 'vanilla'
-libraries_bundle: 1
+libraries_vanilla_bundle: 1
+libraries_vanilla_comuni: 0
 libraries_cdn_css: ''
 libraries_cdn_js: ''
 libraries_cdn_minified: 1

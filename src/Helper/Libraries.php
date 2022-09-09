@@ -109,14 +109,18 @@ class Libraries {
    *   Array with vanilla libraries
    */
   public static function getLibrariesVanilla(): array {
-    $js = Helper::getSettings()->get('libraries_bundle')
+    $js = Helper::getSettings()->get('libraries_vanilla_bundle')
       ? self::$distributionFolder . '/js/bootstrap-italia.bundle.min.js'
       : self::$distributionFolder . '/js/bootstrap-italia.min.js';
+
+    $css = Helper::getSettings()->get('libraries_vanilla_comuni')
+      ? self::$distributionFolder . '/css/bootstrap-italia-comuni.min.css'
+      : self::$distributionFolder . '/css/bootstrap-italia.min.css';
 
     return [
       'css' => [
         'theme' => [
-          self::$distributionFolder . '/css/bootstrap-italia.min.css' => ['minified' => TRUE],
+          $css => ['minified' => TRUE],
         ],
       ],
       'js' => [
