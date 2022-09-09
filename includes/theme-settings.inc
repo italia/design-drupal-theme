@@ -373,37 +373,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#placeholder' => t('menu_machine_name'),
     '#default_value' => theme_get_setting('navigation_header_main_menu_name'),
   ];
-  // Back to top settings.
-  $form['navigation_header']['back_to_top'] = [
-    '#type' => 'details',
-    '#title' => t('Back to top'),
-    '#open' => FALSE,
-    '#group' => 'navigation_header',
-  ];
-  $form['navigation_header']['back_to_top']['back_to_top_enable'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable back to top'),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('back_to_top_enable'),
-  ];
-  $form['navigation_header']['back_to_top']['back_to_top_small'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Use small variant'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('back_to_top_small'),
-  ];
-  $form['navigation_header']['back_to_top']['back_to_top_dark'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Adjust for dark background'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('back_to_top_dark'),
-  ];
-  $form['navigation_header']['back_to_top']['back_to_top_shadow'] = [
-    '#type' => 'checkbox',
-    '#title' => t("Enable shadow"),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('back_to_top_shadow'),
-  ];
 
   // Content ------------------------------------------------------------------.
   $form['content'] = [
@@ -449,6 +418,37 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#title' => t('Main content in front page'),
     '#description' => t('If checked, shows main content region in home page. Default: unchecked'),
     '#default_value' => theme_get_setting('show_main_content_in_front'),
+  ];
+  // Back to top settings.
+  $form['content']['back_to_top'] = [
+    '#type' => 'details',
+    '#title' => t('Back to top'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['back_to_top']['back_to_top_enable'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable back to top'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('back_to_top_enable'),
+  ];
+  $form['content']['back_to_top']['back_to_top_small'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Use small variant'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('back_to_top_small'),
+  ];
+  $form['content']['back_to_top']['back_to_top_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Adjust for dark background'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('back_to_top_dark'),
+  ];
+  $form['content']['back_to_top']['back_to_top_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Enable shadow"),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('back_to_top_shadow'),
   ];
   // Breadcrumbs settings.
   $form['content']['breadcrumb'] = [
