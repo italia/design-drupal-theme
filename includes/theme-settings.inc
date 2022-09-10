@@ -34,7 +34,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['slim_header'] = [
     '#type' => 'details',
     '#title' => t('Slim header'),
-    '#description' => t('Slim header settings. <a href="@link" title="Read the docs" target="_blank">Docs</a>', ['@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#slim-header']),
+    '#description' => t('Slim header settings. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#slim-header',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -134,7 +138,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header'] = [
     '#type' => 'details',
     '#title' => t('Center header'),
-    '#description' => t('Center header settings. <a href="@link" title="Read the docs" target="_blank">Docs</a>', ['@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-centrale']),
+    '#description' => t('Center header settings. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-centrale',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -268,7 +276,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['navigation_header'] = [
     '#type' => 'details',
     '#title' => t('Main navigation'),
-    '#description' => t('Main navigation settings. <a href="@link" title="Read the docs" target="_blank">Docs</a>', ['@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-nav']),
+    '#description' => t('Main navigation settings. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-nav',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 0,
@@ -374,6 +386,211 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     ],
   ];
 
+  // Navigation Components ----------------------------------------------------.
+  $form['navigation_components'] = [
+    '#type' => 'details',
+    '#title' => t('Navigation components'),
+    '#description' => t("Navigation component settings."),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+  // Back to top settings.
+  $form['navigation_components']['back_to_top'] = [
+    '#type' => 'details',
+    '#title' => t('Back to top'),
+    '#description' => t('Back to top settings. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/torna-su/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
+    '#open' => FALSE,
+    '#group' => 'navigation_components',
+  ];
+  $form['navigation_components']['back_to_top']['back_to_top_enable'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable back to top'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('back_to_top_enable'),
+  ];
+  $form['navigation_components']['back_to_top']['back_to_top_small'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Use small variant'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('back_to_top_small'),
+  ];
+  $form['navigation_components']['back_to_top']['back_to_top_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Adjust for dark background'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('back_to_top_dark'),
+  ];
+  $form['navigation_components']['back_to_top']['back_to_top_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Enable shadow"),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('back_to_top_shadow'),
+  ];
+  // Breadcrumbs settings.
+  $form['navigation_components']['breadcrumb'] = [
+    '#type' => 'details',
+    '#title' => t('Breadcrumb'),
+    '#description' => t('Breadcrumb settings. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/breadcrumbs/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
+    '#open' => FALSE,
+    '#group' => 'navigation_components',
+  ];
+  $form['navigation_components']['breadcrumb']['breadcrumb_dark_background'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Dark Background'),
+    '#description' => t('Turn on dark background. Default: unchecked'),
+    '#default_value' => theme_get_setting('breadcrumb_dark_background'),
+  ];
+  $form['navigation_components']['breadcrumb']['breadcrumb_icon'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show item icon'),
+    '#description' => t('If checked, displays an icon before items. Default: unchecked'),
+    '#default_value' => theme_get_setting('breadcrumb_icon'),
+  ];
+  $form['navigation_components']['breadcrumb']['breadcrumb_separator'] = [
+    '#type' => 'select',
+    '#title' => t('Separator'),
+    '#description' => t('Choose the element separator. Default: "/".'),
+    '#default_value' => theme_get_setting('breadcrumb_separator'),
+    '#options' => [
+      '/' => '/',
+      '>' => '>',
+    ],
+  ];
+  // Menu in sidebar first.
+  $form['navigation_components']['sidebar_first_menu'] = [
+    '#type' => 'details',
+    '#title' => t('First sidebar menu'),
+    '#description' => t('Default settings for all menus in first sidebar region. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#liste-per-men%C3%B9-di-navigazione',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
+    '#open' => FALSE,
+    '#group' => 'navigation_components',
+  ];
+  $form['navigation_components']['sidebar_first_menu']['sidebar_first_menu_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable dark variant'),
+    '#description' => t('Default: unchecked.'),
+    '#default_value' => theme_get_setting('sidebar_first_menu_dark'),
+  ];
+  $form['navigation_components']['sidebar_first_menu']['sidebar_first_menu_show_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Show the description of the link"),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_first_menu_show_link_description'),
+  ];
+  $form['navigation_components']['sidebar_first_menu']['sidebar_first_menu_first_level_large'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "large" variant on first level'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('sidebar_first_menu_first_level_large'),
+  ];
+  $form['navigation_components']['sidebar_first_menu']['sidebar_first_menu_first_level_bold'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "bold" variant on first level'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('sidebar_first_menu_first_level_bold'),
+  ];
+  // Menu in sidebar second.
+  $form['navigation_components']['sidebar_second_menu'] = [
+    '#type' => 'details',
+    '#title' => t('Second sidebar menu'),
+    '#description' => t('Default settings for all menus in second sidebar region. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#liste-per-men%C3%B9-di-navigazione',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
+    '#open' => FALSE,
+    '#group' => 'navigation_components',
+  ];
+  $form['navigation_components']['sidebar_second_menu']['sidebar_second_menu_dark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable dark variant'),
+    '#description' => t('Default: unchecked.'),
+    '#default_value' => theme_get_setting('sidebar_second_menu_dark'),
+  ];
+  $form['navigation_components']['sidebar_second_menu']['sidebar_second_menu_show_link_description'] = [
+    '#type' => 'checkbox',
+    '#title' => t("Show the description of the link"),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_second_menu_show_link_description'),
+  ];
+  $form['navigation_components']['sidebar_second_menu']['sidebar_second_menu_first_level_large'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "large" variant on first level'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_second_menu_first_level_large'),
+  ];
+  $form['navigation_components']['sidebar_second_menu']['sidebar_second_menu_first_level_bold'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "bold" variant on first level'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('sidebar_second_menu_first_level_bold'),
+  ];
+  // Pagination.
+  $form['navigation_components']['pagination'] = [
+    '#type' => 'details',
+    '#title' => t('Pagination'),
+    '#description' => t('Default settings for all pager. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/componenti/paginazione/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
+    '#open' => FALSE,
+    '#group' => 'navigation_components',
+  ];
+  $form['navigation_components']['pagination']['pager_alignment'] = [
+    '#type' => 'select',
+    '#title' => t('Pager alignment'),
+    '#description' => t('Choose pager alignment. Default "left"'),
+    '#default_value' => theme_get_setting('pager_alignment'),
+    '#options' => [
+      '' => t('Default (left)'),
+      'center' => t('Center'),
+      'end' => t('Right'),
+    ],
+  ];
+  $form['navigation_components']['pagination']['pager_responsive'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable responsive pager'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('pager_responsive'),
+  ];
+  $form['navigation_components']['pagination']['pager_jump_to_page'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable "jump to page" feature'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('pager_jump_to_page'),
+  ];
+  $form['navigation_components']['pagination']['pager_show_first_last_page_link'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show first and last link in pager'),
+    '#description' => t("Default: checked"),
+    '#default_value' => theme_get_setting('pager_show_first_last_page_link'),
+  ];
+  $form['navigation_components']['pagination']['pager_text_controls'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show textual pager (no icons)'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('pager_text_controls'),
+  ];
+  $form['navigation_components']['pagination']['pager_show_total_pages'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show total page info'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('pager_show_total_pages'),
+  ];
+
   // Content ------------------------------------------------------------------.
   $form['content'] = [
     '#type' => 'details',
@@ -419,71 +636,15 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('If checked, shows main content region in home page. Default: unchecked'),
     '#default_value' => theme_get_setting('show_main_content_in_front'),
   ];
-  // Back to top settings.
-  $form['content']['back_to_top'] = [
-    '#type' => 'details',
-    '#title' => t('Back to top'),
-    '#open' => FALSE,
-    '#group' => 'content',
-  ];
-  $form['content']['back_to_top']['back_to_top_enable'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable back to top'),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('back_to_top_enable'),
-  ];
-  $form['content']['back_to_top']['back_to_top_small'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Use small variant'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('back_to_top_small'),
-  ];
-  $form['content']['back_to_top']['back_to_top_dark'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Adjust for dark background'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('back_to_top_dark'),
-  ];
-  $form['content']['back_to_top']['back_to_top_shadow'] = [
-    '#type' => 'checkbox',
-    '#title' => t("Enable shadow"),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('back_to_top_shadow'),
-  ];
-  // Breadcrumbs settings.
-  $form['content']['breadcrumb'] = [
-    '#type' => 'details',
-    '#title' => t('Breadcrumb'),
-    '#open' => FALSE,
-    '#group' => 'content',
-  ];
-  $form['content']['breadcrumb']['breadcrumb_dark_background'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Dark Background'),
-    '#description' => t('Turn on dark background. Default: unchecked'),
-    '#default_value' => theme_get_setting('breadcrumb_dark_background'),
-  ];
-  $form['content']['breadcrumb']['breadcrumb_icon'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Show item icon'),
-    '#description' => t('If checked, displays an icon before items. Default: unchecked'),
-    '#default_value' => theme_get_setting('breadcrumb_icon'),
-  ];
-  $form['content']['breadcrumb']['breadcrumb_separator'] = [
-    '#type' => 'select',
-    '#title' => t('Separator'),
-    '#description' => t('Choose the element separator. Default: "/".'),
-    '#default_value' => theme_get_setting('breadcrumb_separator'),
-    '#options' => [
-      '/' => '/',
-      '>' => '>',
-    ],
-  ];
   // Editor nav tabs.
   $form['content']['editor_nav_tabs'] = [
     '#type' => 'details',
     '#title' => t('Editor nav tabs'),
-    '#description' => t('Settings for editor nav tabs in content.'),
+    '#description' => t('Settings for editor nav tabs in content. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/componenti/tab/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'content',
   ];
@@ -533,7 +694,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['content']['images'] = [
     '#type' => 'details',
     '#title' => t('Images'),
-    '#description' => t('Settings for all images.'),
+    '#description' => t('Settings for all images. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/immagini/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'content',
   ];
@@ -564,7 +729,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['content']['tables'] = [
     '#type' => 'details',
     '#title' => t('Tables'),
-    '#description' => t('Default settings for all tables.'),
+    '#description' => t('Default settings for all tables. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/tabelle/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'content',
   ];
@@ -657,119 +826,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
       'table-responsive-xxl' => t('Responsive xxl'),
     ],
   ];
-  // Menu in sidebar first.
-  $form['content']['sidebar_first_menu'] = [
-    '#type' => 'details',
-    '#title' => t('First sidebar menu'),
-    '#description' => t('Default settings for all menus in first sidebar region.'),
-    '#open' => FALSE,
-    '#group' => 'content',
-  ];
-  $form['content']['sidebar_first_menu']['sidebar_first_menu_dark'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable dark variant'),
-    '#description' => t('Default: unchecked.'),
-    '#default_value' => theme_get_setting('sidebar_first_menu_dark'),
-  ];
-  $form['content']['sidebar_first_menu']['sidebar_first_menu_show_link_description'] = [
-    '#type' => 'checkbox',
-    '#title' => t("Show the description of the link"),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('sidebar_first_menu_show_link_description'),
-  ];
-  $form['content']['sidebar_first_menu']['sidebar_first_menu_first_level_large'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable "large" variant on first level'),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('sidebar_first_menu_first_level_large'),
-  ];
-  $form['content']['sidebar_first_menu']['sidebar_first_menu_first_level_bold'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable "bold" variant on first level'),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('sidebar_first_menu_first_level_bold'),
-  ];
-  // Menu in sidebar second.
-  $form['content']['sidebar_second_menu'] = [
-    '#type' => 'details',
-    '#title' => t('Second sidebar menu'),
-    '#description' => t('Default settings for all menus in second sidebar region.'),
-    '#open' => FALSE,
-    '#group' => 'content',
-  ];
-  $form['content']['sidebar_second_menu']['sidebar_second_menu_dark'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable dark variant'),
-    '#description' => t('Default: unchecked.'),
-    '#default_value' => theme_get_setting('sidebar_second_menu_dark'),
-  ];
-  $form['content']['sidebar_second_menu']['sidebar_second_menu_show_link_description'] = [
-    '#type' => 'checkbox',
-    '#title' => t("Show the description of the link"),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('sidebar_second_menu_show_link_description'),
-  ];
-  $form['content']['sidebar_second_menu']['sidebar_second_menu_first_level_large'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable "large" variant on first level'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('sidebar_second_menu_first_level_large'),
-  ];
-  $form['content']['sidebar_second_menu']['sidebar_second_menu_first_level_bold'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable "bold" variant on first level'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('sidebar_second_menu_first_level_bold'),
-  ];
-  // Pagination.
-  $form['content']['pagination'] = [
-    '#type' => 'details',
-    '#title' => t('Pagination'),
-    '#description' => t('Default settings for all pager.'),
-    '#open' => FALSE,
-    '#group' => 'content',
-  ];
-  $form['content']['pagination']['pager_alignment'] = [
-    '#type' => 'select',
-    '#title' => t('Pager alignment'),
-    '#description' => t('Choose pager alignment. Default "left"'),
-    '#default_value' => theme_get_setting('pager_alignment'),
-    '#options' => [
-      '' => t('Default (left)'),
-      'center' => t('Center'),
-      'end' => t('Right'),
-    ],
-  ];
-  $form['content']['pagination']['pager_responsive'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable responsive pager'),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('pager_responsive'),
-  ];
-  $form['content']['pagination']['pager_jump_to_page'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Enable "jump to page" feature'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('pager_jump_to_page'),
-  ];
-  $form['content']['pagination']['pager_show_first_last_page_link'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Show first and last link in pager'),
-    '#description' => t("Default: checked"),
-    '#default_value' => theme_get_setting('pager_show_first_last_page_link'),
-  ];
-  $form['content']['pagination']['pager_text_controls'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Show textual pager (no icons)'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('pager_text_controls'),
-  ];
-  $form['content']['pagination']['pager_show_total_pages'] = [
-    '#type' => 'checkbox',
-    '#title' => t('Show total page info'),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('pager_show_total_pages'),
-  ];
 
   // Forms --------------------------------------------------------------------.
   $form['forms'] = [
@@ -784,7 +840,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['forms']['action'] = [
     '#type' => 'details',
     '#title' => t('Form actions'),
-    '#description' => t('Default settings for all forms actions.'),
+    '#description' => t('Default settings for all forms actions. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/form/introduzione/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'forms',
   ];
@@ -834,7 +894,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings'] = [
     '#type' => 'details',
     '#title' => t('Libraries'),
-    '#description' => t("Customize library source. You need to clear the cache if you change these settings."),
+    '#description' => t('Customize library source. <strong>You need to clear the cache if you change these settings</strong>. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 20,
@@ -851,6 +915,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings']['vanilla'] = [
     '#type' => 'details',
     '#title' => t('Vanilla Settings'),
+    '#description' => t('Download <code class="color-success">bootstrap-italia</code> libraries and unzip into <code class="color-success">your-sub-theme/dist/</code>. <a href="@link" title="@title" target="_blank">@label</a>', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/#caricare-la-libreria',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
     '#open' => FALSE,
     '#group' => 'libraries_settings',
   ];
