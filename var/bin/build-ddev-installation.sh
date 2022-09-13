@@ -81,6 +81,9 @@ if [ "$enable_locale" == "y" ]; then
   echo 'Language settings'
   ddev exec drush -y en locale
   ddev exec drush -y language-add it
+  ddev exec drush -y config:set system.date first_day 1
+  ddev exec drush -y config:set system.date country.default IT
+  ddev exec drush -y config:set system.date timezone.default Europe/Rome
 fi
 
 echo "==[ Downloading and activating bootstrap_italia:${bootstrap_italia_version} ]=="
