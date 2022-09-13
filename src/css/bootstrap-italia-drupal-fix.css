@@ -29,9 +29,13 @@
   text-decoration: underline;
 }
 
-/* Fix modal */
-.modal {
-  z-index: 20000;
+/* Fix modal search */
+.it-header-wrapper:not(.is-sticky) {
+  z-index: unset !important;
+}
+/* Fix timeline */
+.it-timeline-wrapper .it-pin-wrapper {
+  z-index: 2 !important;
 }
 
 /* Typography Fix -------------------------------------------------------------------------- */
