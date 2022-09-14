@@ -78,12 +78,13 @@ ddev composer require 'drupal/components:^3@beta'
 ddev exec drush -y pm:enable components
 
 if [ "$enable_locale" == "y" ]; then
-  echo 'Language settings'
+  echo 'Setting Italian language'
   ddev exec drush -y en locale
   ddev exec drush -y language-add it
   ddev exec drush -y config:set system.date first_day 1
   ddev exec drush -y config:set system.date country.default IT
   ddev exec drush -y config:set system.date timezone.default Europe/Rome
+  ddev exec drush -y config:set system.site default_langcode it
 fi
 
 echo "==[ Downloading and activating bootstrap_italia:${bootstrap_italia_version} ]=="
