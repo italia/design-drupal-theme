@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - editor
+    - media
+name: 'Bootstrap Italia'
+format: bootstrap_italia
+weight: 0
+filters:
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: 0
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes: {  }
+      allowed_media_types: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <code> <ol type start> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <ul type class="list-unstyled list-inline"> <li class="list-inline-item"> <blockquote cite class="blockquote blockquote text-center blockquote text-end blockquote blockquote-simple blockquote blockquote-card blockquote blockquote-card dark"> <u> <s> <h1> <pre> <abbr class="attribute initialism"> <sup> <sub> <caption> <tbody> <thead> <tfoot> <th> <td> <p class="font-sans-serif font-serif font-monospace lead mark small font-sans-serif font-serif font-monospace text-start text-center text-end text-lowercase text-uppercase fw-bold fw-semibold fw-normal fw-light fst-italic"> <a href hreflang class="text-decoration-none fw-bold"> <img src alt data-entity-type data-entity-uuid data-align data-caption class="img-thumbnail rounded float-start float-end mx-auto d-block"> <table class="table table table-striped table table-dark table-striped table table-hover table table-striped table-hover table table-bordered table table-borderless table table-dark table-borderless table table-small table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark"> <tr class="table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark">'
+      filter_html_help: true
+      filter_html_nofollow: false
