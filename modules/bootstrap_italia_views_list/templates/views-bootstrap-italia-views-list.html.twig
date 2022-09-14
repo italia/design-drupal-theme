@@ -1,6 +1,6 @@
 {#
 /**
- * Default theme implementation for Views to output a splide carousel.
+ * Default theme implementation for Views to output a list component.
  *
  * Available variables:
  * - options.bi_list_settings: View plugin style options:
@@ -11,7 +11,7 @@
  */
 #}
 {% embed '@bi-bcl/list/list.html.twig' with {
-  list_attributes: attributes
+  list_attributes: attributes.addClass('mb-4')
 } %}
 
   {% block listItems %}
