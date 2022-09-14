@@ -894,7 +894,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['libraries_settings'] = [
     '#type' => 'details',
     '#title' => t('Libraries'),
-    '#description' => t('Customize library source. <strong>You need to clear the cache if you change these settings</strong>. Check in your <code>theme.info.yml</code> the value of <code>ckeditor_stylesheets</code>. <a href="@link" title="@title" target="_blank">@label</a>', [
+    '#description' => t('Customize library source. Check in your <code class="color-success">theme.info.yml</code> the value of <code class="color-success">ckeditor_stylesheets</code>. <strong>You need to clear the cache if you change these settings</strong>. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/',
       '@title' => 'Read the docs',
       '@label' => 'Docs'
