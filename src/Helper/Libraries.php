@@ -85,11 +85,11 @@ class Libraries {
       $libraries['libraries-ui'] = [
         'css' => [
           'theme' => [
-            self::$distributionFolder . '/css/' . $libraries_type . '.css' => [],
+            self::$distributionFolder . '/css/' . $libraries_type . '.css' => ['minified' => TRUE],
           ],
         ],
         'js' => [
-          self::$distributionFolder . '/js/' . $libraries_type . '.js' => [],
+          self::$distributionFolder . '/js/' . $libraries_type . '.js' => ['minified' => TRUE],
         ],
         'dependencies' => [
           'core/drupal',
