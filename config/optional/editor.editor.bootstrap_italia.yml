@@ -2,28 +2,22 @@ langcode: en
 status: true
 dependencies:
   config:
-    - filter.format.full_html
+    - filter.format.bootstrap_italia
   module:
     - ckeditor
-format: full_html
+format: bootstrap_italia
 editor: ckeditor
 settings:
   toolbar:
     rows:
       -
         -
-          name: Formatting
+          name: Styles
           items:
-            - Bold
-            - Italic
-            - Strike
-            - Underline
-            - Superscript
-            - Subscript
-            - '-'
-            - RemoveFormat
+            - Format
+            - Styles
         -
-          name: Linking
+          name: Links
           items:
             - DrupalLink
             - DrupalUnlink
@@ -32,31 +26,42 @@ settings:
           items:
             - BulletedList
             - NumberedList
-            - Outdent
             - Indent
+            - Outdent
         -
           name: Media
           items:
             - Blockquote
             - DrupalImage
-            - Table
-            - HorizontalRule
         -
-          name: 'Block Formatting'
+          name: Formatting
           items:
-            - Format
-            - Styles
+            - Bold
+            - Underline
+            - Italic
+            - Strike
+            - '-'
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - '-'
+            - Superscript
+            - Subscript
         -
           name: Tools
           items:
+            - Table
+            - RemoveFormat
+            - SpecialChar
+            - '-'
             - ShowBlocks
-            - Maximize
             - Source
+            - Maximize
   plugins:
     stylescombo:
       styles: "a.text-decoration-none.fw-bold|Link\r\nabbr.attribute|Abbreviation\r\nabbr.initialism|Initialism\r\nblockquote.blockquote|Citation\r\nblockquote.blockquote.text-center|Citation Center\r\nblockquote.blockquote.text-end|Citation end\r\nblockquote.blockquote.blockquote-simple|Citation simple\r\nblockquote.blockquote.blockquote-card|Citation card\r\nblockquote.blockquote.blockquote-card.dark|Citation dark card\r\np.lead|Paragraph lead\r\np.mark|Paragraph mark\r\np.small|Paragraph small\r\np.font-sans-serif|Paragraph sans serif\r\np.font-serif|Paragraph serif\r\np.font-monospace|Paragraph monospace\r\np.text-start|Paragraph left\r\np.text-center|Paragraph center\r\np.text-end|Paragraph end\r\np.text-lowercase|Paragraph lowercase\r\np.text-uppercase|Paragraph uppercase\r\np.fw-bold|Paragraph bold\r\np.fw-semibold|Paragraph semibold\r\np.fw-normal|Paragraph normal\r\np.fw-light|Paragraph light\r\np.fst-italic|Paragraph italic\r\nul.list-unstyled|List\r\nul.list-inline|List inline\r\nli.list-inline-item|List inline item\r\nimg.img-thumbnail|Image Thumbnail\r\nimg.rounded|Image Rounded\r\nimg.float-start|Image left\r\nimg.float-end|Image right\r\nimg.mx-auto.d-block|Image center\r\ntable.table|Table standard\r\ntable.table.table-striped|Table striped\r\ntable.table.table-dark.table-striped|Table dark striped\r\ntable.table.table-hover|Table hover\r\ntable.table.table-striped.table-hover|Table hover striped\r\ntable.table.table-bordered|Table bordered\r\ntable.table.table-borderless|Table bordeless\r\ntable.table.table-dark.table-borderless|Table dark bordeless\r\ntable.table.table-small|Table small\r\ntable.table-primary|Table primary\r\ntable.table-secondary|Table secondary\r\ntable.table-success|Table success\r\ntable.table-danger|Table danger\r\ntable.table-warning|Table warning\r\ntable.table-info|Table info\r\ntable.table-light|Table light\r\ntable.table-dark|Table dark\r\ntr.table-primary|Table row primary\r\ntr.table-secondary|Table row secondary\r\ntr.table-success|Table row success\r\ntr.table-danger|Table row danger\r\ntr.table-warning|Table row warning\r\ntr.table-info|Table row info\r\ntr.table-light|Table row light\r\ntr.table-dark|Table row dark"
 image_upload:
-  status: true
+  status: false
   scheme: public
   directory: inline-images
   max_size: ''
