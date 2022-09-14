@@ -51,6 +51,7 @@
     {% block content %}
 
       {% embed '@bi-bcl/gallery/gallery.html.twig' with {
+        show_image_caption: content.field_show_caption[0]|render == 'True' ? true : false,
         grid_type: _gallery_grid_type  == 'double' ? 'quilted' : _gallery_grid_type
       } %}
         {% block galleryItems %}

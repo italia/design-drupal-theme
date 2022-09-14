@@ -42,6 +42,8 @@
   {% set _grid_type = items[0].content['#paragraph'].getParentEntity().field_gallery_grid_type.value %}
 
   {% set container_classes = [
+    _grid_type == 'masonry' ? 'col-sm-6 col-lg-4 mb-4',
+    _grid_type != 'masonry' and _grid_type != 'double' ? 'col-6 col-lg-4',
     'field',
     'field--type-' ~ field_type|clean_class,
     'field--name-' ~ field_name|clean_class,
@@ -55,8 +57,7 @@
 
   {% for item in items %}
     {% if _grid_type != 'double' or loop.length < 4 %}
-      {% set _grid_classes = _grid_type == 'masonry' ? 'col-sm-6 col-lg-4 mb-4' : 'col-6 col-lg-4' %}
-      <div{{ attributes.addClass(_grid_classes) }}>{{ item.content }}</div>
+      <div{{ attributes }}>{{ item.content }}</div>
 
     {% else %}
       {# First image double. #}

@@ -53,7 +53,10 @@
     ? true
   %}
   {% set _item_icon = content.field_icon_name[0] ? content.field_icon_name[0]['#context'].value %}
-  {% set _item_overlay = paragraph.getParentEntity().field_overlay.value ? true %}
+  {% set _item_overlay =
+    paragraph.getParentEntity().field_overlay.value or paragraph.getParentEntity().field_gallery_grid_type.value == 'double'
+    ? true
+  %}
 
   {# Call to action setup. #}
   {% set call_to_action_attributes = create_attribute() %}
