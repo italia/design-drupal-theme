@@ -17,7 +17,7 @@ libraries:
 
 # Check these settings, they must match the "libraries" choices.
 ckeditor_stylesheets:
-  - dist/css/bootstrap-italia.css
+  - dist/css/bootstrap-italia.min.css
 
 hidden: true # <---- Remember to set false, comment or delete line
 

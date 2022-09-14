@@ -116,6 +116,9 @@ if [ "$bi_libraries_type" == "webpack" ]; then
 
   echo 'Change libraries settings to webpack assets'
   ddev drush -y config-set italiagov.settings libraries_type bootstrap-italia
+
+  echo 'Set ckeditor styles'
+  ddev exec sed "-i 's/bootstrap-italia.min.css/bootstrap-italia.css/g' /var/www/html/web/themes/custom/italiagov/italiagov.info.yml"
 fi
 
 if [ "$bi_libraries_type" == "vanilla" ]; then
