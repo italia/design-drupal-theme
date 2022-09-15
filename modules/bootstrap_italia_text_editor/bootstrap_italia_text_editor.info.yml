@@ -1,0 +1,8 @@
+name: "Bootstrap Italia text editor"
+description: This module adds text editor styles.
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:ckeditor
