@@ -43,7 +43,7 @@
 
       {# The #headerSlimMenu are used in menu--header-slim-menu.html.twig #}
       <a class="it-opener d-lg-none" data-bs-toggle="collapse" href="#headerSlimMenu" role="button" aria-expanded="false" aria-controls="headerSlimMenu">
-        <span>{{ configuration.government_entity_name }}</span>
+        <span>{{ configuration.government_entity_name ?: 'Slim menu'|t }}</span>
         {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-expand'} %}
       </a>
 

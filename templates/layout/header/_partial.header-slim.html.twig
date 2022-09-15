@@ -6,18 +6,33 @@
           <div class="it-header-slim-wrapper-content">
 
             {% block headerSlimMenu %}
-              {% set government_entity_url_classes = '' %}
+              {% set government_entity_url_classes = [
+                page.header_slim_menu ? 'd-none',
+                'd-lg-block',
+                'navbar-brand',
+              ] %}
+              {% set government_entity_url_attributes = create_attribute() %}
+              {% set government_entity_url_attributes = government_entity_url_attributes
+                .addClass(government_entity_url_classes)
+                .setAttribute('href', government_entity_url ?: '#')
+                .setAttribute('target', government_entity_url ? '_blank' : '_self')
+                .setAttribute('title', 'Go to '|t ~ government_entity_name)
+              %}
+              {% if not government_entity_url %}
+                {% set government_entity_url_attributes = government_entity_url_attributes
+                  .setAttribute('disabled', true)
+                  .setAttribute('style', 'text-decoration: none;')
+                  .removeAttribute('title')
+                %}
+              {% endif %}
+
+              {% if government_entity_name %}
+                <a{{ government_entity_url_attributes }}>{{ government_entity_name }}</a>
+              {% endif %}
+
               {% if page.header_slim_menu %}
-                {% set government_entity_url_classes = 'd-none ' %}
+                {{ page.header_slim_menu }}
               {% endif %}
-              {% if government_entity_url %}
-                <a class="{{ government_entity_url_classes }}d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">
-              {% endif %}
-              <span>{{ government_entity_name }}</span>
-              {% if government_entity_url %}
-                </a>
-              {% endif %}
-              {{ page.header_slim_menu }}
             {% endblock %}
 
             {% block headerSlimRightZone %}
