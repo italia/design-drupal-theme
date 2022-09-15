@@ -891,10 +891,11 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
 
   // Libraries Settings -------------------------------------------------------.
+  //To load styles into ckeditor correctly, check the value of 'ckeditor_stylesheets' in the 'theme.info.yml' file.
   $form['libraries_settings'] = [
     '#type' => 'details',
     '#title' => t('Libraries'),
-    '#description' => t('Customize library source. Check in your <code class="color-success">theme.info.yml</code> the value of <code class="color-success">ckeditor_stylesheets</code>. <strong>You need to clear the cache if you change these settings</strong>. <a href="@link" title="@title" target="_blank">@label</a>', [
+    '#description' => t('Customize library source.<br /> To load styles into ckeditor correctly, check the value of <code class="color-success">ckeditor_stylesheets</code> in the <code class="color-success">your-sub-theme.info.yml</code> file.<br /> <strong>You need to clear the cache if you change these settings</strong>. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/',
       '@title' => 'Read the docs',
       '@label' => 'Docs'
