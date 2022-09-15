@@ -6,12 +6,18 @@
           <div class="it-header-slim-wrapper-content">
 
             {% block headerSlimMenu %}
+              {% set government_entity_url_classes = '' %}
               {% if page.header_slim_menu %}
-                <a class="d-none d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">{{ government_entity_name }}</a>
-                {{ page.header_slim_menu }}
-              {% else %}
-                <a class="d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">{{ government_entity_name }}</a>
+                {% set government_entity_url_classes = 'd-none ' %}
               {% endif %}
+              {% if government_entity_url %}
+                <a class="{{ government_entity_url_classes }}d-lg-block navbar-brand" href="{{ government_entity_url }}" target="_blank">
+              {% endif %}
+              <span>{{ government_entity_name }}</span>
+              {% if government_entity_url %}
+                </a>
+              {% endif %}
+              {{ page.header_slim_menu }}
             {% endblock %}
 
             {% block headerSlimRightZone %}
