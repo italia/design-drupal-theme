@@ -121,7 +121,8 @@
                     {% if item.title == '<hidden>' or item['#title'] == '<hidden>' or
                           item.title == '<divider>' or item['#title'] == '<divider>'
                     %}
-                      <span></span>
+                      {# No output. #}
+
                     {# If a Nolink list heading item #}
                     {% elseif
                       (item.url.isRouted and item.url.routeName == '<nolink>') or
