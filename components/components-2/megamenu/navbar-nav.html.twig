@@ -116,7 +116,25 @@
               {% for item in item.below %}
                 <div class="col-12 {{ _megamenu_responsive_columns }}">
                   <div class="link-list-wrapper">
-                    <div class="link-list-heading">{{ item.title }}</div>
+
+                    {# If a hidden item #}
+                    {% if item.title == '<hidden>' or item['#title'] == '<hidden>' or
+                          item.title == '<divider>' or item['#title'] == '<divider>'
+                    %}
+                      <span></span>
+                    {# If a Nolink list heading item #}
+                    {% elseif
+                      (item.url.isRouted and item.url.routeName == '<nolink>') or
+                      (item['#url'].isRouted and item['#url'].routeName == '<nolink>')
+                    %}
+                      <div class="link-list-heading">{{ item.title }}</div>
+
+                    {% else%}
+                      <div class="link-list-heading">
+                        {% include '@bi-bcl/list/linklist-item.html.twig' with { item: item } %}
+                      </div>
+                    {% endif %}
+
                     <ul class="link-list">
                       {% for item in item.below %}
                         {% include '@bi-bcl/list/linklist-item.html.twig' with {
