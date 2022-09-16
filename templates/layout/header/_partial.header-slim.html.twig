@@ -5,31 +5,32 @@
         <div class="col-12">
           <div class="it-header-slim-wrapper-content">
 
-            {% block headerSlimMenu %}
-              {% set government_entity_url_classes = [
-                page.header_slim_menu ? 'd-none',
-                'd-lg-block',
-                'navbar-brand',
-              ] %}
-              {% set government_entity_url_attributes = create_attribute() %}
-              {% set government_entity_url_attributes = government_entity_url_attributes
-                .addClass(government_entity_url_classes)
-                .setAttribute('href', government_entity_url ?: '#')
-                .setAttribute('target', government_entity_url ? '_blank' : '_self')
-                .setAttribute('title', 'Go to '|t ~ government_entity_name)
-              %}
-              {% if not government_entity_url %}
-                {% set government_entity_url_attributes = government_entity_url_attributes
-                  .setAttribute('disabled', true)
-                  .setAttribute('style', 'text-decoration: none;')
-                  .removeAttribute('title')
-                %}
-              {% endif %}
-
+            {% block headerSlimGovernment %}
               {% if government_entity_name %}
+                {% set government_entity_url_classes = [
+                  page.header_slim_menu ? 'd-none',
+                  'd-lg-block',
+                  'navbar-brand',
+                ] %}
+                {% set government_entity_url_attributes = create_attribute() %}
+                {% set government_entity_url_attributes = government_entity_url_attributes
+                  .addClass(government_entity_url_classes)
+                  .setAttribute('href', government_entity_url ?: '#')
+                  .setAttribute('target', government_entity_url ? '_blank' : '_self')
+                  .setAttribute('title', 'Go to '|t ~ government_entity_name)
+                %}
+                {% if not government_entity_url %}
+                  {% set government_entity_url_attributes = government_entity_url_attributes
+                    .setAttribute('disabled', true)
+                    .setAttribute('style', 'text-decoration: none;')
+                    .removeAttribute('title')
+                  %}
+                {% endif %}
                 <a{{ government_entity_url_attributes }}>{{ government_entity_name }}</a>
               {% endif %}
+            {% endblock %}
 
+            {% block headerSlimMenu %}
               {% if page.header_slim_menu %}
                 {{ page.header_slim_menu }}
               {% endif %}
