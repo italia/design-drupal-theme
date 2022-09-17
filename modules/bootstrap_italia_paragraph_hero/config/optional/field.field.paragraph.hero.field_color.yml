@@ -11,7 +11,7 @@ field_name: field_color
 entity_type: paragraph
 bundle: hero
 label: 'Overlay color'
-description: 'Choose the color of the overlay. <a href="https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-overlay-di-colore-primario" title="Read the Docs" target="_blank">Docs</a>'
+description: 'Choose the color of the overlay. In this version only <em>Primary</em> work. <a href="https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-overlay-di-colore-primario" title="Read the Docs" target="_blank">Docs</a>'
 required: false
 translatable: false
 default_value: {  }
