@@ -91,7 +91,7 @@ sidebar_second_menu_dark: 0
 sidebar_second_menu_show_link_description: 0
 sidebar_second_menu_first_level_large: 0
 sidebar_second_menu_first_level_bold: 0
-pager_alignment: ''
+pager_alignment: 'center'
 pager_responsive: 1
 pager_jump_to_page: 0
 pager_show_first_last_page_link: 1
