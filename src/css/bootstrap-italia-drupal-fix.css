@@ -18,6 +18,9 @@
 .toolbar-horizontal .bs-it-sticky-wrapper .is-sticky{
   top: 39px !important;
 }
+.toolbar-oriented .toolbar-bar {
+   z-index: 10001;
+ }
 
 /* Fix link-list */
 .link-list-wrapper ul li a span {
