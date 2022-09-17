@@ -94,7 +94,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
   $form['slim_header']['action']['slim_header_action_active_login'] = [
     '#type' => 'checkbox',
-    '#title' => t('Active login button'),
+    '#title' => t('Show login button'),
     '#description' => t("Default: checked"),
     '#default_value' => theme_get_setting('slim_header_action_active_login'),
   ];
