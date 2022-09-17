@@ -746,7 +746,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['content']['tables']['table_striped_columns'] = [
     '#type' => 'checkbox',
     '#title' => t('Striped columns'),
-    '#description' => t('Enable zebra-striping to any table column. Default: unchecked.'),
+    '#description' => t('Enable zebra-striping to any table column. (Bootstrap >= 5.2) Default: unchecked.'),
     '#default_value' => theme_get_setting('table_striped_columns'),
   ];
   $form['content']['tables']['table_bg'] = [
