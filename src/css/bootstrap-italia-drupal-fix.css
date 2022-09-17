@@ -37,6 +37,10 @@
 .it-timeline-wrapper .it-pin-wrapper {
   z-index: 2 !important;
 }
+/* Fix modals */
+.it-header-wrapper:not(.is-sticky) {
+  z-index: 10000 !important;
+}
 
 /* Typography Fix -------------------------------------------------------------------------- */
 em.placeholder {
