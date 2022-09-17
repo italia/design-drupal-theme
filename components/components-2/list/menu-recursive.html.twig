@@ -164,10 +164,15 @@
     {%- for uuid, item in items -%}
       <li{{ item.attributes }}>
 
+        {# Rare and unlikely case #}
+        {%- if item.title == '<hidden>' -%}
+          {% set item = item|merge({'title':'Menu'|t}) %}
+        {%- endif -%}
+
         {%- if item.title == '<divider>' -%}
           <span class="divider"></span>
 
-        {%- elseif item.url.isRouted and item.url.routeName == '<nolink>' -%}
+        {%- elseif item.url.isRouted and item.url.routeName == '<nolink>' and menu_level > 1 -%}
           <div class="link-list-heading">{{ item.title }}</div>
 
         {%- else -%}
