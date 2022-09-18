@@ -50,34 +50,34 @@ class TimelineStyle extends StylePluginBase {
     parent::buildOptionsForm($form, $form_state);
 
     // Date format.
-    $form['bi_timeline_settings']['date_format'] = array(
+    $form['bi_timeline_settings']['date_format'] = [
       '#type' => 'textfield',
       '#title' => t('Date format'),
       '#description' => t('Valid PHP <a href="@url" target="_blank">Date function</a> parameter to display date.', ['@url' => 'https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters']),
       '#default_value' =>
-          $this->options['bi_timeline_settings']['date_format'] ?? 'F Y',
-    );
+      $this->options['bi_timeline_settings']['date_format'] ?? 'F Y',
+    ];
 
     // Today check.
-    $form['bi_timeline_settings']['today_check'] = array(
+    $form['bi_timeline_settings']['today_check'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Today automatic check'),
       '#description' => $this->t('If checked enable "Today" feature. Default: checked.'),
       '#default_value' =>
-        $this->options['bi_timeline_settings']['today_check'] ?? TRUE,
-    );
-    $form['bi_timeline_settings']['today_check_period'] = array(
+      $this->options['bi_timeline_settings']['today_check'] ?? TRUE,
+    ];
+    $form['bi_timeline_settings']['today_check_period'] = [
       '#type' => 'select',
       '#title' => $this->t('Today check period'),
       '#description' => $this->t('Period of time when an element is marked as current. Default: "Week".'),
       '#options' => [
         'month' => 'Month',
         'week' => 'Week',
-        'day' => 'Day'
+        'day' => 'Day',
       ],
       '#default_value' =>
-        $this->options['bi_timeline_settings']['today_check_period'] ?? 'month',
-    );
+      $this->options['bi_timeline_settings']['today_check_period'] ?? 'month',
+    ];
 
     // Icons.
     $form['bi_timeline_settings']['icon_past_event'] = [
@@ -86,7 +86,7 @@ class TimelineStyle extends StylePluginBase {
       '#description' => t('Fill with icon name. <a href="@iconList" target="_blank">Icon list</a>. Default: "it-check"', ['@iconList' => 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili']),
       '#placeholder' => 'it-name',
       '#default_value' =>
-          $this->options['bi_timeline_settings']['icon_past_event'] ?? 'it-check',
+      $this->options['bi_timeline_settings']['icon_past_event'] ?? 'it-check',
     ];
     $form['bi_timeline_settings']['icon_event'] = [
       '#type' => 'textfield',
@@ -94,10 +94,9 @@ class TimelineStyle extends StylePluginBase {
       '#description' => t('Fill with icon name. <a href="@iconList" target="_blank">Icon list</a>. Default: "it-refresh"', ['@iconList' => 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili']),
       '#placeholder' => 'it-name',
       '#default_value' =>
-          $this->options['bi_timeline_settings']['icon_event'] ?? 'it-refresh',
+      $this->options['bi_timeline_settings']['icon_event'] ?? 'it-refresh',
     ];
 
   }
 
 }
-

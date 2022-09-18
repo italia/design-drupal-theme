@@ -25,7 +25,7 @@ function bootstrap_italia_views_list_style_theme($existing, $type, $theme, $path
 /**
  * Prepares variables for bootstrap list templates.
  *
- * Default template: views-bootstrap-italia-views-list.html.twig
+ * Default template: views-bootstrap-italia-views-list.html.twig.
  *
  * @param array $variables
  *   An associative array containing:

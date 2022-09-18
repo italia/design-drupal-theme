@@ -25,7 +25,7 @@ function bootstrap_italia_views_timeline_style_theme($existing, $type, $theme, $
 /**
  * Prepares variables for bootstrap list templates.
  *
- * Default template: views-bootstrap-italia-views-timeline.html.twig
+ * Default template: views-bootstrap-italia-views-timeline.html.twig.
  *
  * @param array $variables
  *   An associative array containing:

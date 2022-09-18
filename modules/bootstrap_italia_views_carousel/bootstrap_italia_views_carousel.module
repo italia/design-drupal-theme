@@ -25,7 +25,7 @@ function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $
 /**
  * Prepares variables for bootstrap carousel templates.
  *
- * Default template: views-bootstrap-italia-views-carousel.html.twig
+ * Default template: views-bootstrap-italia-views-carousel.html.twig.
  *
  * @param array $variables
  *   An associative array containing:

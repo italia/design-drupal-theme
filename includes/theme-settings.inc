@@ -37,7 +37,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Slim header settings. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#slim-header',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
@@ -141,7 +141,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Center header settings. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-centrale',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
@@ -279,7 +279,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Main navigation settings. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-nav',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
@@ -402,7 +402,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Back to top settings. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/torna-su/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'navigation_components',
@@ -438,7 +438,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Breadcrumb settings. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/breadcrumbs/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'navigation_components',
@@ -472,7 +472,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Default settings for all menus in first sidebar region. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#liste-per-men%C3%B9-di-navigazione',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'navigation_components',
@@ -508,7 +508,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Default settings for all menus in second sidebar region. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#liste-per-men%C3%B9-di-navigazione',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'navigation_components',
@@ -544,7 +544,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Default settings for all pager. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/componenti/paginazione/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'navigation_components',
@@ -643,7 +643,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Settings for editor nav tabs in content. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/componenti/tab/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'content',
@@ -697,7 +697,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Settings for all images. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/immagini/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'content',
@@ -732,7 +732,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Default settings for all tables. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/tabelle/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'content',
@@ -843,7 +843,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Default settings for all forms actions. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/form/introduzione/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'forms',
@@ -891,14 +891,14 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
 
   // Libraries Settings -------------------------------------------------------.
-  //To load styles into ckeditor correctly, check the value of 'ckeditor_stylesheets' in the 'theme.info.yml' file.
+  // To load styles into ckeditor correctly, check the value of 'ckeditor_stylesheets' in the 'theme.info.yml' file.
   $form['libraries_settings'] = [
     '#type' => 'details',
     '#title' => t('Libraries'),
     '#description' => t('Customize library source.<br /> To load styles into ckeditor correctly, check the value of <code class="color-success">ckeditor_stylesheets</code> in the <code class="color-success">your-sub-theme.info.yml</code> file.<br /> <strong>You need to clear the cache if you change these settings</strong>. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'bootstrap',
@@ -919,7 +919,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('Download <code class="color-success">bootstrap-italia</code> libraries and unzip into <code class="color-success">your-sub-theme/dist/</code>. <a href="@link" title="@title" target="_blank">@label</a>', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/#caricare-la-libreria',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#open' => FALSE,
     '#group' => 'libraries_settings',

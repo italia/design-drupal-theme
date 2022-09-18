@@ -52,4 +52,3 @@ class ListStyle extends StylePluginBase {
   }
 
 }
-
