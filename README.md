@@ -42,7 +42,8 @@ $ drush -y theme:enable italiagov
 $ drush config-set system.theme default italiagov
 ```
 
-Edit `custom/italiagov/italiagov.info.yml` and change `hidden` variable to `false`
+Edit `custom/italiagov/italiagov.info.yml`
+and change `hidden` variable to `false`
 ```
 sed "-i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml"
 ```
@@ -142,14 +143,16 @@ This theme provides several modules that allow you to manage the components
 with the Drupal administration panel. Below is a list
 
 ## Bootstrap Italia Image Styles
-This module adds different image styles in Admin -> Configurations -> Media -> Image Styles.
+This module adds different image styles in
+Admin -> Configurations -> Media -> Image Styles.
 ```
 $ composer require drupal/focal_point
 $ drush -y pm:enable focal_point bootstrap_italia_image_style
 ```
 
 ## Bootstrap Italia Text editor
-This module adds new text editor format in "Configuration" -> "Text formats and editors".
+This module adds new text editor format in
+"Configuration" -> "Text formats and editors".
 ```
 $ drush -y pm:enable bootstrap_italia_text_editor
 ```
@@ -158,7 +161,8 @@ $ drush -y pm:enable bootstrap_italia_text_editor
 This is the base module for paragraphs integration.
 ```
 $ composer require drupal/paragraphs drupal/field_group drupal/imce drupal/color_field
-$ drush -y pm:enable paragraphs field_group imce color_field bootstrap_italia_paragraph
+$ drush -y pm:enable paragraphs field_group imce color_field
+$ drush -y pm:enable bootstrap_italia_paragraph
 ```
 Install third-party libraries via the Drupal administration panel
 or with this script by positioning yourself in the same folder
@@ -213,7 +217,8 @@ $ drush -y pm:enable bootstrap_italia_paragraph_citation
 ```
 
 ## Bootstrap Italia Paragraph Gallery
-This module manages the gallery component (image list) through the paragraph module.
+This module manages the gallery component (image list)
+through the paragraph module.
 ```
 $ drush -y pm:enable bootstrap_italia_paragraph_gallery
 ```
@@ -237,7 +242,8 @@ This module, through a paragraph, refers to other nodes
 and allows you to choose the view with which they must be displayed.
 ```
 $ composer require drupal/entity_reference_display
-$ drush -y pm:enable entity_reference_display bootstrap_italia_paragraph_node_reference
+$ drush -y pm:enable entity_reference_display
+$ drush -y pm:enable bootstrap_italia_paragraph_node_reference
 ```
 
 ## Bootstrap Italia Paragraph Section
@@ -256,7 +262,8 @@ $ drush -y pm:enable bootstrap_italia_paragraph_timeline
 This module manages the integration of webform with paragraph.
 ```
 $ composer require drupal/webform wikimedia/composer-merge-plugin
-$ drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
+$ drush -y pm:enable webform webform_bootstrap webform_ui
+$ drush -y pm:enable bootstrap_italia_paragraph_webform
 ```
 Install third-party libraries by edit the `composer.json` file
 of your website and under the "extra": { section add:
@@ -274,13 +281,15 @@ $ composer update -W
 [Learn more](https://www.drupal.org/node/3003140)
 
 ## Bootstrap Italia Views Accordion
-This module manages the integration of the accordion component into the views module.
+This module manages the integration of the accordion component
+into the views module.
 ```
 $ drush -y pm:enable bootstrap_italia_views_accordion
 ```
 
 ## Bootstrap Italia Views Carousel
-This module manages the integration of the carousel component into the views module.
+This module manages the integration of the carousel component
+into the views module.
 ```
 $ drush -y pm:enable bootstrap_italia_views_carousel
 ```
@@ -292,7 +301,8 @@ $ drush -y pm:enable bootstrap_italia_views_list
 ```
 
 ## Bootstrap Italia Views Timeline
-This module manages the integration of the timeline component into the views module.
+This module manages the integration of the timeline component
+into the views module.
 ```
 $ drush -y pm:enable bootstrap_italia_views_timeline
 ```

@@ -891,7 +891,8 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   ];
 
   // Libraries Settings -------------------------------------------------------.
-  // To load styles into ckeditor correctly, check the value of 'ckeditor_stylesheets' in the 'theme.info.yml' file.
+  // To load styles into ckeditor correctly,
+  // check the value of 'ckeditor_stylesheets' in the 'theme.info.yml' file.
   $form['libraries_settings'] = [
     '#type' => 'details',
     '#title' => t('Libraries'),

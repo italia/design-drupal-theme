@@ -32,7 +32,7 @@ function bootstrap_italia_views_list_style_theme($existing, $type, $theme, $path
  *   - view: A ViewExecutable object.
  *   - rows: The raw row data.
  */
-function template_preprocess_views_bootstrap_italia_views_list(&$variables) {
+function template_preprocess_views_bootstrap_italia_views_list(array &$variables) {
   // Update options for twig.
   $variables['options'] = $variables['view']->style_plugin->options;
 }
