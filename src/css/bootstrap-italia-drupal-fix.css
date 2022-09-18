@@ -22,6 +22,11 @@
   z-index: 10001;
 }
 
+/* Navbar sticky vs Layout Builder sidebar */
+.ui-dialog {
+  z-index: 10001 !important;
+}
+
 /* Fix link-list */
 .link-list-wrapper ul li a span {
   line-height: inherit;

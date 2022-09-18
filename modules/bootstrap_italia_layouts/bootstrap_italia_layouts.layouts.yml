@@ -1,0 +1,136 @@
+bootstrap_italia_content-2-level:
+  label: 'Bootstrap Italia second level content'
+  description: 'BI second level content'
+  category: 'Bootstrap Italia Content'
+  path: layouts
+  template: bootstrap_italia_content-2-level
+  default_region: second
+  icon_map:
+    - [top_left, top_left, top_right]
+    - [top_bottom_left, top_bottom_right, top_right]
+    - [image]
+    - [first, second, second]
+    - [first, bottom, bottom]
+  regions:
+    top_left:
+      label: Top Left
+    top_right:
+      label: Top right
+    top_bottom_left:
+      label: Top bottom left
+    top_bottom_right:
+      label: Top bottom right
+    image:
+      label: Image
+    first:
+      label: First
+    second:
+      label: Second
+    bottom:
+      label: Bottom
+bootstrap_italia_col2-equal:
+  label: 'Bootstrap Italia 2 Columns equal (col-lg-6)'
+  description: 'Two columns col-lg-6 + col-lg-6'
+  category: 'Bootstrap Italia Columns'
+  path: layouts
+  template: bootstrap_italia_col2-equal
+  default_region: first
+  icon_map:
+    - [top]
+    - [first, second]
+    - [bottom]
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    bottom:
+      label: Bottom
+bootstrap_italia_col2-3-9:
+  label: 'Bootstrap Italia 2 Columns (col-lg-3 and col-lg-9)'
+  description: 'Two columns col-lg-3 + col-lg-9'
+  category: 'Bootstrap Italia Columns'
+  path: layouts
+  template: bootstrap_italia_col2-3-9
+  default_region: second
+  icon_map:
+    - [top]
+    - [first, second]
+    - [bottom]
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    bottom:
+      label: Bottom
+bootstrap_italia_col2-9-3:
+  label: 'Bootstrap Italia 2 Columns (col-lg-9 and col-lg-3)'
+  description: 'Two columns col-lg-9 + col-lg-3'
+  category: 'Bootstrap Italia Columns'
+  path: layouts
+  template: bootstrap_italia_col2-9-3
+  default_region: first
+  icon_map:
+    - [top]
+    - [first, second]
+    - [bottom]
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    bottom:
+      label: Bottom
+bootstrap_italia_col3-equal:
+  label: 'Bootstrap Italia 3 Columns equal (col-lg-4)'
+  description: 'Three columns col-lg-4'
+  category: 'Bootstrap Italia Columns'
+  path: layouts
+  template: bootstrap_italia_col3-equal
+  default_region: first
+  icon_map:
+    - [top]
+    - [first, second, third]
+    - [bottom]
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    bottom:
+      label: Bottom
+bootstrap_italia_col4-equal:
+  label: 'Bootstrap Italia 4 Columns equal (col-lg-3)'
+  description: 'Four columns col-lg-3'
+  category: 'Bootstrap Italia Columns'
+  path: layouts
+  template: bootstrap_italia_col4-equal
+  default_region: first
+  icon_map:
+    - [top]
+    - [first, second, third, fourth]
+    - [bottom]
+  regions:
+    top:
+      label: Top
+    first:
+      label: First
+    second:
+      label: Second
+    third:
+      label: Third
+    fourth:
+      label: Fourth
+    bottom:
+      label: Bottom

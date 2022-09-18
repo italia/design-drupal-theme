@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout <div>.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  <div{{ attributes.addClass('row') }}>
+
+    <div{{ region_attributes.top_left.addClass(['col-lg-8', 'px-lg-4', 'py-lg-2']) }}>
+      {{ content.top_left }}
+
+      {% if content.top_bottom_left or content.top_bottom_right %}
+        <div class="row mt-5 mb-4">
+          {% if content.top_bottom_left %}
+            <div{{ region_attributes.top_bottom_left.addClass('col-6') }}>
+              {{ content.top_bottom_left }}
+            </div>
+          {% endif %}
+          {% if content.top_bottom_right %}
+            <div{{ region_attributes.top_bottom_right.addClass('col-6') }}>
+              {{ content.top_bottom_right }}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="col-lg-3 offset-lg-1">
+      {% include '@bi-bcl/share/share-this.twig' with {
+        subject: label[0]['#context'].value,
+        description: content.body|render()|striptags|slice(0, 100),
+      } %}
+      {% include '@bi-bcl/share/content-actions.twig' with {
+        subject: label[0]['#context'].value,
+        description: content.body|render()|striptags|slice(0, 100),
+        read_element: 'read-this-element'
+      } %}
+      {% if content.top_bottom_right %}
+        <div{{ region_attributes.top_right.addClass(['mt-4', 'mb-4']) }}>
+          {{ content.top_right }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if content.image %}
+    <div{{ region_attributes.image.addClass('my-3') }}>
+      <figure class="figure px-0">
+        {{ content.image }}
+      </figure>
+    </div>
+  {% endif %}
+
+  <div{{ attributes.addClass(['row', 'border-top', 'row-column-border', 'row-column-menu-left']) }}>
+    <aside{{ region_attributes.first.addClass('col-lg-4') }}>
+      {{ content.first }}
+    </aside>
+    <section{{ region_attributes.second.addClass(['col-lg-8', 'it-page-sections-container', 'read-this-element', 'overflow-hidden']) }}>
+      {{ content.second }}
+      {% if content.bottom %}
+        <footer{{ region_attributes.bottom }}>
+          <h4 class="mb-3">{{ 'Other information'|t }}</h4>
+          {{ content.bottom }}
+        </footer>
+      {% endif %}
+    </section>
+  </div>
+{% endif %}

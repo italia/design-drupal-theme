@@ -1,0 +1,9 @@
+name: "Bootstrap Italia Layouts"
+description: This module adds several layouts that can be used immediately with Layout Builder, Display Suite or any other layout consuming module.
+package: "Bootstrap Italia"
+
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:layout_discovery
+  - drupal:layout_builder
