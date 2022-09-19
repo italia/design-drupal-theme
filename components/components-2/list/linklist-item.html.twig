@@ -93,74 +93,74 @@
   {% endif %}
 
   {# Component #}
-  {% if _wrapper_tag is not empty %}
+  {%- if _wrapper_tag is not empty -%}
     <{{ _wrapper_tag }}>
-  {% endif %}
+  {%- endif -%}
     {# If a divider item #}
-    {% if _item.title == '<divider>' or _item['#title'] == '<divider>' %}
+    {%- if _item.title == '<divider>' or _item['#title'] == '<divider>' -%}
       <span class="divider"></span>
 
     {# If a Nolink item #}
-    {% elseif
+    {%- elseif
       (_item.url.isRouted and _item.url.routeName == '<nolink>') or
       (_item['#url'].isRouted and _item['#url'].routeName == '<nolink>')
-    %}
+    -%}
       <div class="link-list-heading">{{ _item.title }}</div>
 
     {# If a button item #}
-    {% elseif
+    {%- elseif
       (_item.url.isRouted and _item.url.routeName == '<button>') or
       (_item['#url'].isRouted and _item['#url'].routeName == '<button>')
-    %}
+    -%}
       <h4 class="text-uppercase h6">{{ _item.title }}</h4>
 
-    {% else %}
+    {%- else -%}
       {%- set _linklist_title -%}
 
-        {% if _title_wrapper_tag is not empty %}
+        {%- if _title_wrapper_tag is not empty -%}
         <{{ _title_wrapper_tag }}{{ item.text_attributes ? item.text_attributes }}>
-        {% endif %}
+        {%- endif -%}
 
-          {% if _item.title %}{# Menu item. #}
+          {%- if _item.title -%}{# Menu item. #}
             {{ _item.title }}
-          {% elseif _item['#title'] %}{# Link item. #}
+          {%- elseif _item['#title'] -%}{# Link item. #}
             {{ _item['#title'] }}
-          {% elseif item.text %}{# Link item no url #}
+          {%- elseif item.text -%}{# Link item no url #}
             {{ item.text }}
-          {% elseif _item['#options'].attributes['title'] %}{# Link item no title #}
+          {%- elseif _item['#options'].attributes['title'] -%}{# Link item no title #}
             {{ _item['#options'].attributes['title'] }}
-          {% endif %}
+          {%- endif -%}
 
-        {% if _title_wrapper_tag is not empty %}
+        {%- if _title_wrapper_tag is not empty -%}
           </{{ _title_wrapper_tag }}>
-        {% endif %}
+        {%- endif -%}
 
         {# Original_link only in menu item #}
-        {% if _item.original_link.getDescription() and _show_link_description %}
+        {%- if _item.original_link.getDescription() and _show_link_description -%}
           <p>{{ _item.original_link.getDescription() }}</p>
-        {% endif %}
+        {%- endif -%}
 
         {# in_active_trail only in menu item #}
-        {% if _item.in_active_trail %}
+        {%- if _item.in_active_trail -%}
           <span class="visually-hidden">{{ _active_assistive_text }}</span>
-        {% endif %}
+        {%- endif -%}
       {%- endset -%}
 
       {# Menu item. #}
-      {% if _item.url %}
+      {%- if _item.url -%}
         {{ link(_linklist_title, _item.url, linklist_item_attributes) }}
 
       {# Link item. #}
-      {% elseif _item['#url'] %}
+      {%- elseif _item['#url'] -%}
         {{ link(_linklist_title, _item['#url'], linklist_item_attributes) }}
 
       {# Other. #}
-      {% else %}
+      {%- else -%}
         {{ _linklist_title }}
-      {% endif %}
+      {%- endif -%}
 
-    {% endif %}
-  {% if _wrapper_tag is not empty %}
+    {%- endif -%}
+  {%- if _wrapper_tag is not empty -%}
     </{{ _wrapper_tag }}>
-  {% endif %}
+  {%- endif -%}
 {% endapply %}
