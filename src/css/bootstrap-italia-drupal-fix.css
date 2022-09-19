@@ -9,6 +9,7 @@
 #toolbar-administration.toolbar {
   height: auto;
   max-width: fit-content;
+  z-index: 10000;
 }
 
 /* Navbar sticky VS drupal toolbar */
@@ -23,8 +24,9 @@
 }
 
 /* Navbar sticky vs Layout Builder sidebar */
-.ui-dialog {
-  z-index: 10001 !important;
+.ui-dialog,
+.modal {
+  z-index: 20001 !important;
 }
 
 /* Fix link-list */
@@ -46,7 +48,7 @@
   z-index: 2 !important;
 }
 /* Fix modals */
-.it-header-wrapper:not(.is-sticky) {
+.it-header-wrapper.is-sticky {
   z-index: 10000 !important;
 }
 
@@ -112,4 +114,9 @@ button.link-edit-summary {
 .node-form .image-widget,
 .node-form .image-widget img {
   margin-bottom: 3em;
+}
+
+/* Overflow -_------------------------------------------------------------------------- */
+html {
+  overflow-x: hidden;
 }
