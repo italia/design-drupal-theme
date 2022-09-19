@@ -52,19 +52,25 @@
   <div{{ followus_attributes }}>
     <span>{{ _label }}</span>
     <ul>
-      {% for social in socials %}
-        {% if social.url %}
+      {%- for social in socials -%}
+        {%- if social.url -%}
           <li>
-            <a
-              href="{{ social.url }}"
-              aria-label="{{ social.label }}"
-              {% if _blank %}target="_blank"{% endif %}
-            >
-              {% include '@bi-bcl/icon/icon.html.twig' with { name: 'it-' ~ (social.label|lower) } %}
+            {%- set social_attributes = create_attribute() -%}
+            {%- set social_attributes = social_attributes
+              .setAttribute('href', social.url)
+              .setAttribute('aria-label', social.label)
+            -%}
+            {%- if _blank -%}
+              {%- set social_attributes = social_attributes
+                .setAttribute('target', '_blank')
+              -%}
+            {%- endif -%}
+            <a{{- social_attributes -}}>
+              {%- include '@bi-bcl/icon/icon.html.twig' with { name: 'it-' ~ (social.label|lower) } -%}
             </a>
           </li>
-        {% endif %}
-      {% endfor %}
+        {%- endif -%}
+      {%- endfor -%}
     </ul>
   </div>
 {% endapply %}
