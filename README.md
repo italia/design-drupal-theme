@@ -157,6 +157,13 @@ This module adds new text editor format in
 $ drush -y pm:enable bootstrap_italia_text_editor
 ```
 
+## Bootstrap Italia Layouts
+This module adds several layouts that can be used immediately
+with Layout Builder, Display Suite or any other layout consuming module.
+```
+$ drush -y pm:enable bootstrap_italia_layouts
+```
+
 ## Bootstrap Italia Paragraph
 This is the base module for paragraphs integration.
 ```
