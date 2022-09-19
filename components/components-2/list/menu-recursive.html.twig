@@ -134,9 +134,9 @@
   {% set list_attributes = list_attributes.addClass(_classes_list) %}
 
   {# Component #}
-  {% if wrapper_component %}
+  {%- if wrapper_component -%}
     <div{{ wrapper_attributes }}>
-  {% endif %}
+  {%- endif -%}
     <ul{{ list_attributes }}>
       {{ menus.menu_links(
         items, attributes, 0, _menu_name,
@@ -146,9 +146,9 @@
         _active_assistive_text, _indent_sub_items
       ) }}
     </ul>
-  {% if wrapper_component %}
+  {%- if wrapper_component %}
     </div>
-  {% endif %}
+  {% endif -%}
 {% endapply %}
 
 {% macro menu_links(
@@ -195,13 +195,13 @@
 
           {% set item_attributes = item_attributes.addClass(item_classes) %}
 
-          {% if item.original_link.getDescription() %}
+          {%- if item.original_link.getDescription() -%}
             {% set item_attributes = item_attributes.setAttribute('title', item.original_link.getDescription()) %}
-          {% endif %}
+          {%- endif -%}
 
           {% set aria_id = menu_name ~ '--menu-recursive--' ~ uuid|clean_id %}
 
-          {% if item.is_expanded %}
+          {%- if item.is_expanded -%}
             {% set item_attributes = item_attributes
               .setAttribute('data-bs-toggle', 'collapse')
               .setAttribute('data-bs-target', '#'~aria_id)
@@ -209,45 +209,45 @@
               .setAttribute('aria-controls', aria_id)
               .setAttribute('href', aria_id)
             %}
-          {% else %}
+          {%- else -%}
             {% set item_attributes = item_attributes.setAttribute('href', item.url|render()) %}
-          {% endif %}
+          {%- endif -%}
 
-          {% if item.url.external %}
+          {%- if item.url.external -%}
             {% set item_attributes = item_attributes
               .setAttribute('target', '_blank')
               .setAttribute('rel', 'nofollow')
             %}
-          {% endif %}
+          {%- endif -%}
 
           {% set _enable_icon_wrapper = icon_position is not empty or item.is_expanded ? true : false %}
 
           <a{{- item_attributes -}}>
             {%- if _enable_icon_wrapper -%}
               <span class="list-item-title-icon-wrapper">
-            {% endif %}
+            {%- endif -%}
 
               {% set _item_icon_name = item.is_expanded ? 'it-expand' : icon_name %}
               {% set _item_icon_position = icon_position is empty and item.is_expanded ? 'right' : icon_position %}
 
-              {% if _item_icon_position == 'left' %}
+              {%- if _item_icon_position == 'left' -%}
                 {% include '@bi-bcl/icon/icon.html.twig' with {
                   name: _item_icon_name,
                   color: icon_color,
                   size: 'sm',
                   icon_classes: ['left']
                 } %}
-              {% endif %}
+              {%- endif -%}
 
               {%- if link_label_wrapper -%}
                 <{{ link_label_wrapper_tag }} class="list-item-title">{{- item.title -}}</{{ link_label_wrapper_tag }}>
               {%- else -%}
                 {{- item.title -}}
-              {% endif %}
+              {%- endif -%}
 
               {%- if item.in_active_trail -%}
                 <span class="visually-hidden">{{ active_assistive_text }}</span>
-              {% endif %}
+              {%- endif -%}
 
               {%- if _item_icon_position == 'right' -%}
                 {% include '@bi-bcl/icon/icon.html.twig' with {
@@ -256,17 +256,17 @@
                   size: 'sm',
                   icon_classes: ['right']
                 } %}
-              {% endif %}
+              {%- endif -%}
 
             {%- if _enable_icon_wrapper -%}
               </span>
-            {% endif %}
+            {%- endif -%}
 
             {%- if item.original_link.getDescription() and show_link_description -%}
               <p>{{ item.original_link.getDescription() }}</p>
-            {% endif %}
+            {%- endif -%}
           </a>
-        {% endif %}
+        {%- endif -%}
 
         {# Recursive link-list #}
         {%- if item.below -%}
@@ -282,9 +282,9 @@
               active_assistive_text, indent_sub_items
             ) -}}
           </ul>
-        {% endif %}
+        {%- endif -%}
 
       </li>
-    {% endfor %}
-  {% endif %}
+    {%- endfor -%}
+  {%- endif -%}
 {% endmacro %}
