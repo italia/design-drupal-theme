@@ -55,21 +55,34 @@
     {% endif %}
   {% endblock %}
 
-  {% set sidebar_width = page.sidebar_first and page.sidebar_second ? 'col-lg-3' : 'col-lg-4' %}
-
   {% block contentMain %}
-    <div class="{{ content_container_type ?: 'container' }}">
+    {% set _main_container_classes = [
+      content_container_type ?: 'container',
+      page.sidebar_first and not page.sidebar_second ? 'has-one-sidebar',
+      page.sidebar_second and not page.sidebar_first ? 'has-one-sidebar',
+      page.sidebar_first and page.sidebar_second ? 'has-two-sidebars',
+    ] %}
+
+    {% set _sidebar_width = page.sidebar_first and page.sidebar_second ? 'col-lg-3' : 'col-lg-4' %}
+    {% set _content_width = [
+      not page.sidebar_first and not page.sidebar_second ? 'col-12',
+      page.sidebar_first and not page.sidebar_second ? 'col-lg-8',
+      page.sidebar_second and not page.sidebar_first ? 'col-lg-8',
+      page.sidebar_first and page.sidebar_second ? 'col-lg-6'
+    ] %}
+
+    <div class="{{ _main_container_classes|join(' ')|trim }}">
       <div class="row">
         {# Sidebar First #}
         {% block contentSidebarFirst %}
           {% if page.sidebar_first %}
-            <aside class="{{ sidebar_width }} it-sidebar-first__wrapper" role="complementary">
+            <aside class="{{ _sidebar_width }} it-sidebar-first__wrapper" role="complementary">
               {{ page.sidebar_first }}
             </aside>
           {% endif %}
         {% endblock %}
 
-        <div class="col">
+        <div class="{{ _content_width|join(' ')|trim }}">
           <div class="it-content__wrapper">
             {{ page.content }}
           </div>
@@ -78,7 +91,7 @@
         {# Sidebar Second #}
         {% block contentSidebarSecond %}
           {% if page.sidebar_second %}
-            <aside class="{{ sidebar_width }} it-sidebar-second__wrapper" role="complementary">
+            <aside class="{{ _sidebar_width }} it-sidebar-second__wrapper" role="complementary">
               {{ page.sidebar_second }}
             </aside>
           {% endif %}

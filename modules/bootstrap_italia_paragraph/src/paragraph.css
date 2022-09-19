@@ -4,3 +4,19 @@
   margin-left: -50vw;
   left: 50%;
 }
+@media screen and (min-width: 992px) {
+  .it-page-sections-container .paragraph--full-width {
+    width: 62vw;
+    position: relative;
+    margin-left: -3rem;
+    left: auto;
+  }
+
+  .has-two-sidebar .paragraph--full-width,
+  .has-one-sidebar .paragraph--full-width {
+    width: auto;
+    position: relative;
+    margin-left: unset;
+    left: auto;
+  }
+}
