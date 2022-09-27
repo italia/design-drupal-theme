@@ -21,6 +21,8 @@
  * - card_subtitle (string|drupal_field) (default: '')
  * - card_text (string|drupal_field) (default: '')
  * - card_signature (string|drupal_field) default('')
+ * - card_read_more_type (string) default('read-more')
+ *   - option ["read-more","simple-link"]
  * - card_read_more_url (string) default('')
  * - card_read_more_label (string) default('Read more')
  * - card_read_more_text (string|drupal_field) default(card_title)
@@ -52,6 +54,7 @@
   {% set _card_subtitle = card_subtitle|default('') %}
   {% set _card_text = card_text|default('') %}
   {% set _card_signature = card_signature|default('') %}
+  {% set _card_read_more_type = card_read_more_type|default('read-more') %}
   {% set _card_read_more_url = card_read_more_url|default('') %}
   {% set _card_read_more_label = card_read_more_label|default('Read more'|t) %}
   {% set _card_read_more_text = card_read_more_text|default(_card_title) %}
@@ -177,10 +180,12 @@
 
         {% block readMore %}
           {% if _card_read_more_url is not empty %}
-            <a class="read-more" href="{{ _card_read_more_url }}" title="{{ 'Read more about'|t }} {{ _card_read_more_text }}">
+            <a class="{{ _card_read_more_type == 'simple-link' ? 'simple-link' : 'read-more' }}" href="{{ _card_read_more_url }}" title="{{ 'Read more about'|t }} {{ _card_read_more_text }}">
               <span class="text">{{ _card_read_more_label }}</span>
               <span class="visually-hidden">{{ 'about'|t }} {{ _card_read_more_text }}</span>
-              {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-arrow-right'} %}
+              {% if _card_read_more_type != 'simple-link' %}
+                {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-arrow-right'} %}
+              {% endif %}
             </a>
           {% endif %}
         {% endblock %}

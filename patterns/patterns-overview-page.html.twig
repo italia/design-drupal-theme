@@ -1,0 +1,62 @@
+{#
+/**
+ * @file
+ * UI Pattern library page template, override this in your theme.
+ */
+#}
+<div id="page-patterns-overview" class="mt-5">
+
+  {% embed '@bi-bcl/callout/callout.html.twig' with {
+    variant: 'note',
+    title: 'Notice',
+    callout_classes: ['mb-5']
+  } %}
+    {% block content %}
+      <p>
+        Install <a href="https://www.drupal.org/project/ui_patterns_settings" target="_blank">UI Patterns Settings</a> to see more settings when using Patterns.
+      </p>
+    {% endblock %}
+  {% endembed %}
+
+  {% if patterns is not empty %}
+    <div class="row">
+
+      <div class="col-sm-3">
+        {# List of available patterns with anchor links. #}
+        <nav class="patterns-sidebar hidden-print hidden-sm hidden-xs">
+          {% embed '@bi-bcl/list/list.html.twig' %}
+            {% block listItems %}
+              {% for pattern_name, pattern in patterns %}
+                {% include '@bi-bcl/list/list-item.html.twig' with {
+                  list_url: '#'~pattern_name,
+                  list_text: pattern.label,
+                  list_show_end_arrow: true,
+                } %}
+              {% endfor %}
+            {% endblock %}
+          {% endembed %}
+        </nav>
+      </div>
+
+      <div class="col-md-9">
+        {% for pattern_name, pattern in patterns %}
+
+          <div class="pattern-row">
+            {# Pattern name and desciption. #}
+            <a id="{{ pattern_name }}"></a>
+            <h2 class="page-header">
+              {{ pattern.label }}
+              <a href="{{ url('ui_patterns.patterns.single', {'name': pattern.id}) }}" class="btn btn-secondary btn-sm pull-right">View {{ pattern.label }} <i class="glyphicon glyphicon-chevron-right"></i></a>
+            </h2>
+            {{ pattern.meta }}
+
+            {# Rendered pattern preview. #}
+            <div class="pattern-preview">
+              {{ pattern.rendered }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>

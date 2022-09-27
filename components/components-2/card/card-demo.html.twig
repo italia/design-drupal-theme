@@ -91,17 +91,17 @@
 
       <div class="row">
         <div class="col-12 col-lg-6">
-          {% embed '@bi-bcl/card/card.html.twig' with {
+          {% include '@bi-bcl/card/card.html.twig' with {
             card_title: card_demo_title_link,
             card_subtitle: card_demo_subtitle_link,
+            card_text: card_demo_text_short,
             card_icon: 'it-copy',
             card_icon_text: '(2) File',
+            card_read_more_type: 'simple-link',
+            card_read_more_url: card_demo_read_more_url,
+            card_read_more_label: 'Link',
+            card_read_more_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
           } %}
-            {% block cardText %}
-              <p class="card-text">{{ card_demo_text_short }}</p>
-              <a class="simple-link" href="#">Link <span class="visually-hidden">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…</span></a>
-            {% endblock %}
-          {% endembed %}
         </div>
       </div>
 

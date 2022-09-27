@@ -1,0 +1,41 @@
+{% if variant == 'article' %}
+  {% include '@bi-bcl/card/card.html.twig' with {
+    card_title: card_title,
+    card_subtitle: card_subtitle,
+    card_text: card_text,
+    card_category: card_category,
+    card_date: card_date,
+    card_signature: card_signature,
+    card_read_more_url: card_read_more_url|render|striptags|trim,
+    card_read_more_text: card_title|render|striptags|trim,
+    card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+    card_shadow: card_shadow,
+  } %}
+{% elseif variant == 'icon' %}
+  {% include '@bi-bcl/card/card.html.twig' with {
+    card_title: card_title,
+    card_subtitle: card_subtitle,
+    card_text: card_text,
+    card_category: false,
+    card_date: false,
+    card_icon: card_icon ?? default_icon,
+    card_icon_text: card_category,
+    card_read_more_url: card_read_more_url|render|striptags|trim,
+    card_read_more_text: card_title|render|striptags|trim,
+    card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+    card_shadow: card_shadow,
+  } %}
+{% else %}
+  {% include '@bi-bcl/card/card.html.twig' with {
+    card_title: card_title,
+    card_subtitle: card_subtitle,
+    card_text: card_text,
+    card_category: false,
+    card_date: false,
+    card_signature: false,
+    card_read_more_url: card_read_more_url|render|striptags|trim,
+    card_read_more_text: card_title|render|striptags|trim,
+    card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+    card_shadow: card_shadow,
+  } %}
+{% endif %}
