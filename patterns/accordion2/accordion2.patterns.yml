@@ -11,7 +11,7 @@
 #
 accordion2:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: "Accordion 2 item"
+  label: "Accordion 2 Item"
   description: "The accordion uses collapse internally to make it collapsible. https://italia.github.io/bootstrap-italia/docs/componenti/accordion/"
 
   # Fields of data supported by the pattern.
