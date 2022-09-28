@@ -41,7 +41,7 @@
       <div class="col-md-9">
         {% for pattern_name, pattern in patterns %}
 
-          <div class="pattern-row">
+          <div class="pattern-row mb-5">
             {# Pattern name and desciption. #}
             <a id="{{ pattern_name }}"></a>
             <h2 class="page-header">
@@ -51,7 +51,7 @@
             {{ pattern.meta }}
 
             {# Rendered pattern preview. #}
-            <div class="pattern-preview">
+            <div class="pattern-preview my-5">
               {{ pattern.rendered }}
             </div>
           </div>

@@ -57,49 +57,49 @@ card2-simple:
   fields:
     card_title:
       type: text
-      label: Card title
-      description: Card title.
+      label: 'Card title (field)'
+      description: 'Card title.'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
     card_subtitle:
       type: text
-      label: Card subtitle
-      description: Card subtitle.
+      label: 'Card subtitle (field)'
+      description: 'Card subtitle.'
       preview: 'Lorem ipsum dolor sit amet'
     card_text:
       type: text
-      label: Card text (eg. body)
-      description: Preview content.
+      label: 'Card text (eg. body, raw text)'
+      description: 'Preview content.'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     card_category:
       type: text
-      label: Category, tag or link
-      description: Link of the category, tag or taxonomy term to associate.
+      label: 'Category, tag or link (field)'
+      description: 'Link of the category, tag or taxonomy term to associate.'
       preview: 'Category'
     card_date:
       type: text
-      label: Card date
+      label: 'Card date (field)'
       description: 'Submitting date. Format: Bootstrap Italia Medium Format (dd month yyyy)'
       preview: '09 October 2022'
     card_icon:
       type: text
-      label: Card icon (eg. it-name)
-      description: https://italia.github.io/bootstrap-italia/docs/utilities/icone/
+      label: 'Card icon (eg. it-name, raw text)'
+      description: 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/'
       preview: 'it-file'
     card_signature:
       type: text
-      label: Author name
-      description: The author of the content or signature.
+      label: 'Author name (field)'
+      description: 'The author of the content or signature.'
       preview: 'di Federico De Paolis'
     card_read_more_url:
       type: text
-      label: Text link to content (eg. /node/id)
-      description: Enter a url in raw text format.
+      label: 'Link (eg. /node/id, raw text).'
+      description: 'Enter a url in raw text format.'
       preview: '#/node/1'
     card_image:
       type: text
-      label: Image
-      description: Enter a image field.
-      preview: '<figure class="img-wrapper"><img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description"></figure>'
+      label: Image (field)
+      description: 'Enter a image field.'
+      preview: '<img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">'
 
   # Optional: Attached libraries.
   #

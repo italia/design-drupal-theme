@@ -153,9 +153,7 @@
   {% endembed %}{# End embed demo. #}
 
   {% set card_demo_image_special %}
-    <figure class="img-wrapper">
-      <img src="https://via.placeholder.com/174x214/F9F9FE/0066CC/?text=IMMAGINE%20DI%20ESEMPIO" title="Image title" alt="Image description">
-    </figure>
+    <img src="https://via.placeholder.com/174x214/F9F9FE/0066CC/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">
   {% endset %}
   {% set card_demo_special_attribute = create_attribute() %}
   {% set card_demo_special_attribute = card_demo_special_attribute.setAttribute('href', '#') %}
@@ -174,8 +172,8 @@
             card_attributes: card_demo_special_attribute
           } %}
             {% block cardCategoryTop %}
-              <div class="category-top">
-                {{ card_demo_date }}
+              <div class="head-tags">
+                <span class="data">{{ card_demo_date }}</span>
               </div>
             {% endblock %}
           {% endembed %}
