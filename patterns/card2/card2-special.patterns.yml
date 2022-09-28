@@ -9,9 +9,9 @@
 #   - button
 #   - button_with_icon
 #
-card2-Special:
+card2-special:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: "Card 2 special"
+  label: "Card 2 Special"
   description: "A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options. https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-speciali"
 
   # Fields of data supported by the pattern.
