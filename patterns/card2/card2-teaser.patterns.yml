@@ -9,7 +9,7 @@
 #   - button
 #   - button_with_icon
 #
-card2-teaser:
+card2-Teaser:
   # The label and description are used in the Drupal UI and the pattern library.
   label: "Card 2 teaser"
   description: "A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options. https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-teaser"
@@ -62,7 +62,7 @@ card2-teaser:
     card_text:
       type: text
       label: 'Card text (eg. body, raw text)'
-      description: 'Preview content.'
+      description: 'Preview content raw text'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     card_icon:
       type: text
@@ -107,5 +107,3 @@ card2-teaser:
     # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
     #
     #   Example: pattern-blockquote.html.twig
-
-
