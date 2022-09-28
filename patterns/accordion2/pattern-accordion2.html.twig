@@ -1,0 +1,15 @@
+{% apply spaceless %}
+  {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
+    accordion_item_attributes: attributes
+  } %}
+
+    {% block accordionItemTitle %}
+      {{ accordion_title }}
+    {% endblock %}
+
+    {% block accordionItemBody %}
+      {{ accordion_content }}
+    {% endblock %}
+
+  {% endembed %}
+{% endapply %}

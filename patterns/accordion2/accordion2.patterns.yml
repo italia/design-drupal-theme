@@ -1,0 +1,29 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+accordion2:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: "Accordion 2 item"
+  description: "The accordion uses collapse internally to make it collapsible. https://italia.github.io/bootstrap-italia/docs/componenti/accordion/"
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    accordion_title:
+      type: text
+      label: 'Accordion title (field)'
+      description: 'Accordion title.'
+      preview: 'Lorem ipsum dolor sit amet'
+    accordion_content:
+      type: text
+      label: 'Accordion content (fields)'
+      description: 'Accordion content'
+      preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
