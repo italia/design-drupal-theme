@@ -4,26 +4,14 @@
  * UI Pattern library page template, override this in your theme.
  */
 #}
-<div id="page-patterns-overview" class="mt-5">
-
-  {% embed '@bi-bcl/callout/callout.html.twig' with {
-    variant: 'note',
-    title: 'Notice',
-    callout_classes: ['mb-5']
-  } %}
-    {% block content %}
-      <p>
-        Install <a href="https://www.drupal.org/project/ui_patterns_settings" target="_blank">UI Patterns Settings</a> to see more settings when using Patterns.
-      </p>
-    {% endblock %}
-  {% endembed %}
+<div id="page-patterns-overview" class="mt-3">
 
   {% if patterns is not empty %}
     <div class="row">
 
       <div class="col-sm-3">
         {# List of available patterns with anchor links. #}
-        <nav class="patterns-sidebar hidden-print hidden-sm hidden-xs">
+        <nav class="patterns-sidebar hidden-print hidden-sm hidden-xs affix-top" style="top: 8em;">
           {% embed '@bi-bcl/list/list.html.twig' %}
             {% block listItems %}
               {% for pattern_name, pattern in patterns %}
@@ -39,6 +27,18 @@
       </div>
 
       <div class="col-md-9">
+        {% embed '@bi-bcl/callout/callout.html.twig' with {
+          variant: 'note',
+          title: 'Notice',
+          callout_classes: ['mb-5']
+        } %}
+          {% block content %}
+            <p>
+              Install <a href="https://www.drupal.org/project/ui_patterns_settings" target="_blank">UI Patterns Settings</a> to see more settings when using Patterns.
+            </p>
+          {% endblock %}
+        {% endembed %}
+
         {% for pattern_name, pattern in patterns %}
 
           <div class="pattern-row mb-5">
