@@ -1,0 +1,36 @@
+{# This is a partial reusable template for card component. #}
+{% apply spaceless %}
+  {% if _card_image is not empty %}
+    <div class="img-responsive-wrapper">
+      <div class="img-responsive">
+        <figure class="img-wrapper">
+          {{ _card_image }}
+        </figure>
+        {% if _card_image_date is not empty %}
+          <div class="card-calendar d-flex flex-column justify-content-center">
+            {% if _card_image_date['year'] or
+              _card_image_date['day'] or
+              _card_image_date['time'] or
+              _card_image_date['month']
+            %}
+              {% if _card_image_date['year'] %}
+                <span class="card-year">{{ _card_image_date['year'] }}</span>
+              {% endif %}
+              {% if _card_image_date['day'] %}
+                <span class="card-date">{{ _card_image_date['day'] }}</span>
+              {% endif %}
+              {% if _card_image_date['time'] %}
+                <span class="card-time">{{ _card_image_date['time'] }}</span>
+              {% endif %}
+              {% if _card_image_date['month'] %}
+                <span class="card-month">{{ _card_image_date['month'] }}</span>
+              {% endif %}
+            {% elseif _card_image_date['date-full'] %}
+              <span class="card-date-full p-1">{{ _card_image_date['date-full'] }}</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endapply %}

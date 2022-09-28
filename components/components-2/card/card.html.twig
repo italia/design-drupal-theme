@@ -105,32 +105,7 @@
     <{{ _card_tag_container }}{{ card_attributes }}>
 
       {% block cardImage %}
-        {% if _card_image is not empty %}
-          <div class="img-responsive-wrapper">
-            <div class="img-responsive">
-              {{ _card_image }}
-              {% if _card_image_date is not empty %}
-                <div class="card-calendar d-flex flex-column justify-content-center">
-                  {% if _card_image_date['year'] %}
-                    <span class="card-year">{{ _card_image_date['year'] }}</span>
-                  {% endif %}
-                  {% if _card_image_date['day'] %}
-                    <span class="card-date">{{ _card_image_date['day'] }}</span>
-                  {% endif %}
-                  {% if _card_image_date['time'] %}
-                    <span class="card-time">{{ _card_image_date['time'] }}</span>
-                  {% endif %}
-                  {% if _card_image_date['month'] %}
-                    <span class="card-month">{{ _card_image_date['month'] }}</span>
-                  {% endif %}
-                  {% if _card_image_date['date-full'] %}
-                    <span class="card-date-full p-1">{{ _card_image_date['date-full'] }}</span>
-                  {% endif %}
-                </div>
-              {% endif %}
-            </div>
-          </div>
-        {% endif %}
+        {% include '@bi-bcl/card/_partial.card-image-block.html.twig' %}
       {% endblock %}
 
       <div class="card-body">
@@ -154,28 +129,16 @@
         {% endblock %}
 
         {% block cardTitle %}
-          {% if _card_title is not empty %}
-            <h3 class="card-title h5">
-              {{ _card_title }}
-            </h3>
-          {% endif %}
-          {% if _card_subtitle is not empty %}
-            <h6 class="card-subtitle">
-              {{ _card_subtitle }}
-            </h6>
-          {% endif %}
+          {% include '@bi-bcl/card/_partial.card-title-block.html.twig' %}
+          {% include '@bi-bcl/card/_partial.card-subtitle-block.html.twig' %}
         {% endblock %}
 
         {% block cardText %}
-          {% if _card_text is not empty %}
-            <p class="card-text">{{ _card_text }}</p>
-          {% endif %}
+          {% include '@bi-bcl/card/_partial.card-text-block.html.twig' %}
         {% endblock %}
 
         {% block cardSignature %}
-          {% if _card_signature is not empty %}
-            <span class="card-signature">{{ 'by'|t }} {{ _card_signature }}</span>
-          {% endif %}
+          {% include '@bi-bcl/card/_partial.card-signature-block.html.twig' %}
         {% endblock %}
 
         {% block readMore %}

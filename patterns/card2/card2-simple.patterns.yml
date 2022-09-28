@@ -25,7 +25,11 @@ card2-simple:
     icon:
       label: Icon (category and icon are mandatory)
       description: In this variant card_icon field are mandatory, use the settings to provide a default value. https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-con-icona
+    image:
+      label: Image (image field are mandatory)
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-con-immagine
 
+  # Settings (ui_patterns_settings module).
   settings:
     card_shadow:
       type: boolean
@@ -47,7 +51,6 @@ card2-simple:
       options:
         read_more: Default
         simple_link: Simple link
-
 
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
@@ -75,8 +78,8 @@ card2-simple:
     card_date:
       type: text
       label: Card date
-      description: Submitting date.
-      preview: '09/10/1981'
+      description: 'Submitting date. Format: Bootstrap Italia Medium Format (dd month yyyy)'
+      preview: '09 October 2022'
     card_icon:
       type: text
       label: Card icon (eg. it-name)
@@ -92,6 +95,11 @@ card2-simple:
       label: Text link to content (eg. /node/id)
       description: Enter a url in raw text format.
       preview: '#/node/1'
+    card_image:
+      type: text
+      label: Image
+      description: Enter a image field.
+      preview: '<figure class="img-wrapper"><img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description"></figure>'
 
   # Optional: Attached libraries.
   #

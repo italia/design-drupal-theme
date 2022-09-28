@@ -108,7 +108,7 @@
             card_date: card_demo_date,
             card_signature: card_demo_signature,
             card_read_more_url: card_demo_read_more_url,
-            card_action_type: 'button'
+            card_read_more_type: 'button'
           } %}
         </div>
       </div>
@@ -117,9 +117,7 @@
   {% endembed %}{# End embed demo. #}
 
   {% set card_demo_image %}
-    <figure class="img-wrapper">
-      <img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=IMMAGINE%20DI%20ESEMPIO" title="Image title" alt="Image description">
-    </figure>
+    <img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">
   {% endset %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
@@ -138,7 +136,7 @@
             card_date: card_demo_date,
             card_signature: card_demo_signature,
             card_read_more_url: card_demo_read_more_url,
-            card_action_type: 'button',
+            card_read_more_type: 'button',
           } %}
         </div>
       </div>

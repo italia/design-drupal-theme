@@ -1,0 +1,6 @@
+{# This is a partial reusable template for card component. #}
+{% apply spaceless %}
+  {% if _card_signature is not empty %}
+    <span class="card-signature">{{ 'by'|t }} {{ _card_signature }}</span>
+  {% endif %}
+{% endapply %}

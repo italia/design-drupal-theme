@@ -1,41 +1,95 @@
-{% if variant == 'article' %}
-  {% include '@bi-bcl/card/card.html.twig' with {
-    card_title: card_title,
-    card_subtitle: card_subtitle,
-    card_text: card_text,
-    card_category: card_category,
-    card_date: card_date,
-    card_signature: card_signature,
-    card_read_more_url: card_read_more_url|render|striptags|trim,
-    card_read_more_text: card_title|render|striptags|trim,
-    card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
-    card_shadow: card_shadow,
-  } %}
-{% elseif variant == 'icon' %}
-  {% include '@bi-bcl/card/card.html.twig' with {
-    card_title: card_title,
-    card_subtitle: card_subtitle,
-    card_text: card_text,
-    card_category: false,
-    card_date: false,
-    card_icon: card_icon ?? default_icon,
-    card_icon_text: card_category,
-    card_read_more_url: card_read_more_url|render|striptags|trim,
-    card_read_more_text: card_title|render|striptags|trim,
-    card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
-    card_shadow: card_shadow,
-  } %}
-{% else %}
-  {% include '@bi-bcl/card/card.html.twig' with {
-    card_title: card_title,
-    card_subtitle: card_subtitle,
-    card_text: card_text,
-    card_category: false,
-    card_date: false,
-    card_signature: false,
-    card_read_more_url: card_read_more_url|render|striptags|trim,
-    card_read_more_text: card_title|render|striptags|trim,
-    card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
-    card_shadow: card_shadow,
-  } %}
-{% endif %}
+{% apply spaceless %}
+  {% if variant == 'article' %}
+    {% include '@bi-bcl/card/card.html.twig' with {
+      card_image: false,
+      card_title: card_title,
+      card_subtitle: card_subtitle,
+      card_text: card_text,
+      card_category: card_category,
+      card_date: card_date,
+      card_signature: card_signature,
+      card_read_more_url: card_read_more_url|render|striptags|trim,
+      card_read_more_text: card_title|render|striptags|trim,
+      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+      card_shadow: card_shadow,
+    } %}
+  {% elseif variant == 'icon' %}
+    {% include '@bi-bcl/card/card.html.twig' with {
+      card_image: false,
+      card_title: card_title,
+      card_subtitle: card_subtitle,
+      card_text: card_text,
+      card_category: false,
+      card_date: false,
+      card_icon: card_icon ?? default_icon,
+      card_icon_text: card_category,
+      card_read_more_url: card_read_more_url|render|striptags|trim,
+      card_read_more_text: card_title|render|striptags|trim,
+      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+      card_shadow: card_shadow,
+    } %}
+  {% elseif variant == 'image' %}
+    {% if card_date['date-full'] or
+      card_date['year'] or
+      card_date['day'] or
+      card_date['time'] or
+      card_date['month']
+    %}
+      {% set card_image_date = card_date %}
+    {% else %}
+      {# Check if 'dd m y' #}
+      {% set _date_value = card_date|render|striptags|trim|split(' ') %}
+      {% if _date_value|length == 2 %}
+        {% set card_image_date = {
+          'day': _date_value[0],
+          'month': _date_value[1]
+        } %}
+      {% elseif _date_value|length == 3 %}
+        {% set card_image_date = {
+          'day': _date_value[0],
+          'month': _date_value[1],
+          'year': _date_value[2],
+        } %}
+      {% elseif _date_value|length == 4 %}
+        {% set card_image_date = {
+          'day': _date_value[0],
+          'month': _date_value[1],
+          'year': _date_value[2],
+          'time': _date_value[3],
+        } %}
+      {% else %}
+        {% set card_image_date = {'date-full': card_date } %}
+      {% endif %}
+    {% endif %}
+    {% include '@bi-bcl/card/card.html.twig' with {
+      card_image: card_image,
+      card_image_date: card_image_date,
+      card_title: card_title,
+      card_subtitle: card_subtitle,
+      card_text: card_text,
+      card_category: false,
+      card_date: false,
+      card_icon: card_icon ?? default_icon,
+      card_icon_text: card_category,
+      card_read_more_url: card_read_more_url|render|striptags|trim,
+      card_read_more_text: card_title|render|striptags|trim,
+      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+      card_shadow: card_shadow,
+    } %}
+
+  {% else %}
+    {% include '@bi-bcl/card/card.html.twig' with {
+      card_image: false,
+      card_title: card_title,
+      card_subtitle: card_subtitle,
+      card_text: card_text,
+      card_category: false,
+      card_date: false,
+      card_signature: false,
+      card_read_more_url: card_read_more_url|render|striptags|trim,
+      card_read_more_text: card_title|render|striptags|trim,
+      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+      card_shadow: card_shadow,
+    } %}
+  {% endif %}
+{% endapply %}
