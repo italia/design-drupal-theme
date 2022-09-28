@@ -31,7 +31,10 @@
     {% if _card_category is not empty %}
       <div class="etichetta">
         {% if _card_icon %}
-          {% include '@bi-bcl/icon/icon.html.twig' with {name: _card_icon} %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: _card_icon,
+            color: card_icon_color|default(''),
+          } %}
         {% endif %}
         <span>{{ _card_category }}</span>
       </div>

@@ -1,33 +1,56 @@
 {% apply spaceless %}
   {% if variant == 'article' %}
-    {% include '@bi-bcl/card/card.html.twig' with {
+    {% include '@bi-bcl/card/card-big.html.twig' with {
       card_image: false,
       card_title: card_title,
-      card_subtitle: card_subtitle,
       card_text: card_text,
       card_category: card_category,
       card_date: card_date,
+      card_icon: false,
+      card_icon_color: false,
       card_signature: card_signature,
       card_read_more_url: card_read_more_url|render|striptags|trim,
       card_read_more_text: card_title|render|striptags|trim,
-      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+      card_read_more_type: read_more_type == 'button' ? 'button' : 'link',
       card_shadow: card_shadow,
+      card_border_bottom: border_bottom,
+      card_flag_invisible: flag_invisible,
+      card_classes: ['mb-3']
     } %}
-  {% elseif variant == 'icon' %}
-    {% include '@bi-bcl/card/card.html.twig' with {
+  {% elseif variant == 'flag' %}
+    {% include '@bi-bcl/card/card-big-flag.html.twig' with {
       card_image: false,
       card_title: card_title,
-      card_subtitle: card_subtitle,
+      card_text: card_text,
+      card_category: card_category,
+      card_date: false,
+      card_icon: card_icon ?? default_icon,
+      card_icon_color: default_icon_color,
+      card_signature: card_signature,
+      card_read_more_url: card_read_more_url|render|striptags|trim,
+      card_read_more_text: card_title|render|striptags|trim,
+      card_read_more_type: read_more_type == 'button' ? 'button' : 'link',
+      card_shadow: card_shadow,
+      card_border_bottom: border_bottom,
+      card_flag_invisible: flag_invisible,
+      card_classes: ['mb-3']
+    } %}
+  {% elseif variant == 'icon' %}
+    {% include '@bi-bcl/card/card-big-icon.html.twig' with {
+      card_image: false,
+      card_title: card_title,
       card_text: card_text,
       card_category: false,
       card_date: false,
-      card_signature: card_signature,
       card_icon: card_icon ?? default_icon,
-      card_icon_text: card_category,
+      card_signature: card_signature,
       card_read_more_url: card_read_more_url|render|striptags|trim,
       card_read_more_text: card_title|render|striptags|trim,
-      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+      card_read_more_type: read_more_type == 'button' ? 'button' : 'link',
       card_shadow: card_shadow,
+      card_border_bottom: border_bottom,
+      card_flag_invisible: true,
+      card_classes: ['mb-3']
     } %}
   {% elseif variant == 'image' %}
     {% if card_date['date-full'] or
@@ -62,35 +85,23 @@
         {% set card_image_date = {'date-full': card_date } %}
       {% endif %}
     {% endif %}
-    {% include '@bi-bcl/card/card.html.twig' with {
+    {% include '@bi-bcl/card/card-big.html.twig' with {
       card_image: card_image,
       card_image_date: card_image_date,
       card_title: card_title,
-      card_subtitle: card_subtitle,
       card_text: card_text,
       card_category: false,
       card_date: false,
+      card_icon: false,
+      card_icon_color: false,
       card_signature: card_signature,
-      card_icon: card_icon ?? default_icon,
-      card_icon_text: card_category,
       card_read_more_url: card_read_more_url|render|striptags|trim,
       card_read_more_text: card_title|render|striptags|trim,
-      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
+      card_read_more_type: read_more_type == 'button' ? 'button' : 'link',
       card_shadow: card_shadow,
-    } %}
-  {% else %}
-    {% include '@bi-bcl/card/card.html.twig' with {
-      card_image: false,
-      card_title: card_title,
-      card_subtitle: card_subtitle,
-      card_text: card_text,
-      card_category: false,
-      card_date: false,
-      card_signature: false,
-      card_read_more_url: card_read_more_url|render|striptags|trim,
-      card_read_more_text: card_title|render|striptags|trim,
-      card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
-      card_shadow: card_shadow,
+      card_border_bottom: border_bottom,
+      card_flag_invisible: flag_invisible,
+      card_classes: ['mb-3']
     } %}
   {% endif %}
 {% endapply %}
