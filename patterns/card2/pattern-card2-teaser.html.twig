@@ -1,0 +1,22 @@
+{% apply spaceless %}
+  {% embed '@bi-bcl/card/card.html.twig' with {
+    card_title: card_title,
+    card_text: card_text,
+    card_shadow: card_shadow,
+    card_icon: card_icon ?? default_icon,
+    card_teaser: true,
+    card_classes: ['mb-3']
+  } %}
+    {% block cardTitle %}
+      <h3 class="card-title h5">
+        {% if variant == 'icon' %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: card_icon,
+            color: default_icon_color
+          } %}
+        {% endif %}
+        {{ card_title }}
+      </h3>
+    {% endblock %}
+  {% endembed %}
+{% endapply %}
