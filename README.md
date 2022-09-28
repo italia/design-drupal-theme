@@ -341,6 +341,39 @@ rm -Rf ./web/libraries/toc-greenkeeper-update-all
 rm -Rf ./web/libraries/master.zip
 ```
 
+# How to manage components with the user interface
+The components of the theme are mapped with the drupal graphical interface,
+so you can manage cards, lists, etc., without writing code or templates.
+First install and enable `ui_patterns`, `ui_patterns_library`
+and `ui_patterns_settings`.
+```
+$ composer require drupal/ui_patterns drupal/ui_patterns_settings
+$ drush en ui_patterns ui_patterns_library ui_patterns_settings
+```
+To the `https://domain.example/patterns` page you will see
+the list of components/patterns that you can manage from the UI.
+
+## Display
+Enable `ui_patterns_ds` to use components as layouts
+via Display suite.
+```
+$ composer require drupal/ds
+$ drush en ds ds_extras ds_switch_view_mode ui_patterns_ds
+```
+
+## Layout
+Enable `ui_patterns_layouts` to use components as layouts
+via the Layout Discovery module.
+```
+$ drush en ui_patterns_layouts
+```
+
+## Views
+Enable `ui_patterns_views` to use components with views.
+```
+$ drush en ui_patterns_views
+```
+
 # How to start a ddev container
 If you want an automated script that works for you, run script located at
 `themes/bootstrap_italia/var/bin/build-ddev-installation.sh` and enjoy it
