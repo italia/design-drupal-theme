@@ -35,11 +35,14 @@ enable_locale=${enable_locale:-y}
 read -r -p "Do you want to install extra modules? [y|n] (n): " enable_modules
 enable_modules=${enable_modules:-n}
 
-read -r -p "Do you want to install experimental modules? [y|n] (n): " enable_experimental_modules
-enable_experimental_modules=${enable_experimental_modules:-n}
-
 read -r -p "Do you want to install extra content type? [y|n] (n): " enable_content_type
 enable_content_type=${enable_content_type:-n}
+
+read -r -p "Do you want to install UI tools? [y|n] (n): " enable_ui_tools
+enable_ui_tools=${enable_ui_tools:-n}
+
+read -r -p "Do you want to install experimental modules? [y|n] (n): " enable_experimental_modules
+enable_experimental_modules=${enable_experimental_modules:-n}
 
 read -r -p "Bootstrap libraries type [vanilla|webpack] (webpack): " bi_libraries_type
 bi_libraries_type=${bi_libraries_type:-webpack}
@@ -53,7 +56,7 @@ echo "Make ${project_name}"
 mkdir "$project_name"
 cd "$project_name" || exit
 
-echo "Installing ddev config files in ${pwd} ..."
+echo "Installing ddev config files in $(pwd) ..."
 ddev config --project-type=drupal${drupal_version} --docroot=web --create-docroot
 
 echo 'Run docker containers'
@@ -263,6 +266,16 @@ if [ "$enable_content_type" == "y" ]; then
   mv ./web/libraries/toc-greenkeeper-update-all/dist ./web/libraries/toc
   rm -Rf ./web/libraries/toc-greenkeeper-update-all
   rm -Rf ./web/libraries/master.zip
+fi
+
+if [ "$enable_ui_tools" == "y" ]; then
+  echo "==[ Install UI tools ]=="
+
+  ddev composer require drupal/ui_patterns drupal/ui_patters_settings drupal/ds
+  ddev exec drush -y pm:enable ui_patterns ui_patters_settings \
+    layout_discovery layout_builder bootstrap_italia_layouts \
+    ds ds_extras ds_switch_view_mode \
+    ui_patterns_library ui_patterns_views ui_patterns_layouts ui_patterns_ds
 fi
 
 echo 'Push ssh public key in to container, if you have many keys press CRTL+C after first push'
