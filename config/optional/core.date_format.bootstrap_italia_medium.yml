@@ -5,6 +5,6 @@ dependencies:
     theme:
       - bootstrap_italia
 id: bootstrap_italia_medium
-label: 'Bootstrap Italia Medium'
+label: 'Bootstrap Italia medium'
 locked: false
 pattern: 'j F Y'

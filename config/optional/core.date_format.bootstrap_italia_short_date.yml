@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: bootstrap_italia_short_date
+label: 'Bootstrap Italia short date'
+locked: false
+pattern: j/n/Y
