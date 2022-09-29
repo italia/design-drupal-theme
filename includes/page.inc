@@ -32,7 +32,6 @@ function bootstrap_italia_preprocess_page_title(&$variables) {
     }
     $variables['title_attributes']['class'][] = 'fw-semibold';
   }
-  dump($variables);
 }
 
 /**
