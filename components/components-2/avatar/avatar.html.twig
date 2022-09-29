@@ -21,6 +21,9 @@
  * - avatar_size (string) (default: 'md')
  *   - options ["xs", "sm", "md", "lg", "xl", "xxl"]
  * - avatar_url (string) (default: '')
+ * - avatar_tooltip_text (string) (default: '')
+ * - avatar_tooltip_placement (string) (default: 'left')
+ *   - options ["top", "bottom", "left", "right"]
  * - avatar_presence (string) (default: '')
  *   - options ["active", "busy", "hidden"]
  * - avatar_presence_text (string) (default: '')
@@ -53,17 +56,13 @@
  *
  * Examples link tooltip:
    {% set avatar_attributes = item.link['#options'].attributes %}
-   {% set avatar_attributes = avatar_attributes
-      .setAttribute('data-bs-toggle', 'tooltip')
-      .setAttribute('data-bs-html', 'true')
-      .setAttribute('data-bs-placement', 'left')
-      .setAttribute('title', '<span>Your custom text</span>')
-   %}
    {% include '@bi-bcl/avatar/avatar.html.twig' with {
       avatar_type: 'image',
       avatar_image: field_user_picture,
       avatar_size: 'xl',
       avatar_url: item.link['#url'],
+      avatar_tooltip_text: '<strong>Name</strong><br /><em>Citizen</em>',
+      avatar_tooltip_placement: 'right',
       avatar_attributes: avatar_attributes
    } %}
  *
@@ -92,6 +91,8 @@
   {% set _avatar_size = avatar_size|default('md') %}
   {% set _avatar_assistive_text = avatar_assistive_text|default('User'|t) %}
   {% set _avatar_url = avatar_url|default('') %}
+  {% set _avatar_tooltip_text = avatar_tooltip_text|default('') %}
+  {% set _avatar_tooltip_placement = avatar_tooltip_placement|default('left') %}
   {% set _avatar_presence = avatar_presence|default('') %}
   {% set _avatar_presence_text = avatar_presence_text|default('') %}
   {% set _avatar_status = avatar_status|default('') %}
@@ -121,6 +122,21 @@
   {% if container_tag == 'a' %}
     {% set avatar_attributes = avatar_attributes
       .setAttribute('href', _avatar_url)
+    %}
+  {% endif %}
+
+  {% if _avatar_tooltip_text is not empty and container_tag == 'a' %}
+    {% set avatar_attributes = avatar_attributes
+      .setAttribute('data-bs-toggle', 'tooltip')
+      .setAttribute('data-bs-html', 'true')
+      .setAttribute('data-bs-placement', _avatar_tooltip_placement)
+      .setAttribute('title', _avatar_tooltip_text)
+    %}
+  {% endif %}
+
+  {% if _avatar_tooltip_text is empty and container_tag == 'a' %}
+    {% set avatar_attributes = avatar_attributes
+      .setAttribute('title', 'Go to user'|t)
     %}
   {% endif %}
 

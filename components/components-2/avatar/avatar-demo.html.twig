@@ -74,15 +74,10 @@
     demo_classes: ['d-flex', 'align-items-center', 'justify-content-around', 'flex-wrap', 'flex-sm-nowrap']
   } %}
     {% block content %}
-      {% set avatar_attributes = create_attribute() %}
-      {% set avatar_attributes = avatar_attributes
-        .setAttribute('title', 'Go to user'|t)
-      %}
 
       {% embed '@bi-bcl/avatar/avatar.html.twig' with {
         avatar_size: 'xl',
         avatar_url: '#',
-        avatar_attributes: avatar_attributes
       } %}
         {% block avatarContent %}
           <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
@@ -95,7 +90,6 @@
         avatar_text_color: 'red',
         avatar_size: 'xl',
         avatar_url: '#',
-        avatar_attributes: avatar_attributes
       } %}
 
       {% include '@bi-bcl/avatar/avatar.html.twig' with {
@@ -103,7 +97,6 @@
         avatar_icon: 'it-search',
         avatar_size: 'xl',
         avatar_url: '#',
-        avatar_attributes: avatar_attributes
       } %}
 
     {% endblock %}
@@ -115,53 +108,35 @@
   } %}
     {% block content %}
 
-      {% set avatar_attributes = create_attribute() %}
-      {% set avatar_attributes = avatar_attributes
-        .setAttribute('data-bs-toggle', 'tooltip')
-        .setAttribute('data-bs-html', 'true')
-        .setAttribute('data-bs-placement', 'left')
-        .setAttribute('title', '<strong>User Name</strong><br /><em>Administrator</em>')
-      %}
       {% embed '@bi-bcl/avatar/avatar.html.twig' with {
         avatar_type: 'image',
         avatar_size: 'xl',
         avatar_url: '#',
-        avatar_attributes: avatar_attributes
+        avatar_tooltip_text: '<strong>User Name</strong><br /><em>Administrator</em>',
+        avatar_tooltip_placement: 'left'
       } %}
         {% block avatarContent %}
           <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
         {% endblock %}
       {% endembed %}
 
-      {% set avatar_attributes = create_attribute() %}
-      {% set avatar_attributes = avatar_attributes
-        .setAttribute('data-bs-toggle', 'tooltip')
-        .setAttribute('data-bs-html', 'true')
-        .setAttribute('data-bs-placement', 'top')
-        .setAttribute('title', '<strong>User Name</strong><br /><em>Editor</em>')
-      %}
       {% include '@bi-bcl/avatar/avatar.html.twig' with {
         avatar_type: 'text',
         avatar_text: 'MR',
         avatar_text_color: 'red',
         avatar_size: 'xl',
         avatar_url: '#',
-        avatar_attributes: avatar_attributes
+        avatar_tooltip_text: '<strong>User Name</strong><br /><em>Editor</em>',
+        avatar_tooltip_placement: 'top'
       } %}
 
-      {% set avatar_attributes = create_attribute() %}
-      {% set avatar_attributes = avatar_attributes
-        .setAttribute('data-bs-toggle', 'tooltip')
-        .setAttribute('data-bs-html', 'true')
-        .setAttribute('data-bs-placement', 'right')
-        .setAttribute('title', '<strong>Search/strong><br /><em>News archive</em>')
-      %}
       {% include '@bi-bcl/avatar/avatar.html.twig' with {
         avatar_type: 'icon',
         avatar_icon: 'it-search',
         avatar_size: 'xl',
         avatar_url: '#',
-        avatar_attributes: avatar_attributes
+        avatar_tooltip_text: '<strong>Search</strong><br /><em>News archive</em>',
+        avatar_tooltip_placement: 'right'
       } %}
 
     {% endblock %}
