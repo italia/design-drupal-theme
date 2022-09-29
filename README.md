@@ -341,7 +341,7 @@ rm -Rf ./web/libraries/toc-greenkeeper-update-all
 rm -Rf ./web/libraries/master.zip
 ```
 
-# How to manage components with the user interface
+# How to manage components via the user interface.
 The components of the theme are mapped with the drupal graphical interface,
 so you can manage cards, lists, etc., without writing code or templates.
 First install and enable `ui_patterns`, `ui_patterns_library`
