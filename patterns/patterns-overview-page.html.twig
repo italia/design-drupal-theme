@@ -21,6 +21,12 @@
                   list_show_end_arrow: true,
                 } %}
               {% endfor %}
+
+              {% include '@bi-bcl/list/list-item.html.twig' with {
+                list_url: '#components-list',
+                list_text: 'Components list'|t,
+                list_show_end_arrow: true,
+              } %}
             {% endblock %}
           {% endembed %}
         </nav>
@@ -42,7 +48,7 @@
         {% for pattern_name, pattern in patterns %}
 
           <div class="pattern-row mb-5">
-            {# Pattern name and desciption. #}
+            {# Pattern name and description. #}
             <a id="{{ pattern_name }}"></a>
             <h2 class="page-header fw-semibold">
               {{ pattern.label }}
@@ -60,6 +66,6 @@
     </div>
   {% endif %}
 
-  <h2 class="mt-5 mb-3 fw-semibold">{{ 'Components list'|t }}</h2>
+  <h2 id="components-list" class="mt-5 mb-3 fw-semibold">{{ 'Components list'|t }}</h2>
   {% include '@bi-bcl/all-demo.html.twig' %}
 </div>
