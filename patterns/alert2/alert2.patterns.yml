@@ -9,23 +9,47 @@
 #   - button
 #   - button_with_icon
 #
-accordion2:
+alert2:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: "Accordion 2 Item"
+  label: "Alert 2"
   description: "The accordion uses collapse internally to make it collapsible. https://italia.github.io/bootstrap-italia/docs/componenti/accordion/"
+
+  variants:
+    info:
+      label: Info
+      description: Type info
+    success:
+      label: Success
+      description: Type success
+    warning:
+      label: Warning
+      description: Type waring
+    danger:
+      label: Danger
+      description: danger
+
+  # Settings (ui_patterns_settings module).
+  settings:
+    dismissible:
+      type: boolean
+      label: "Alert dismissible"
+      description: "Enable alert dismissible."
+      allow_token: true
+      preview: 1
+      allow_expose: true
 
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:
-    accordion_title:
+    heading:
       type: text
-      label: 'Accordion title (field)'
-      description: 'Accordion title.'
-      preview: 'Lorem ipsum dolor sit amet'
-    accordion_content:
+      label: 'Alert heading (raw text)'
+      description: 'Alert heading. Optional. Raw text.'
+      preview: 'Lorem ipsum'
+    message:
       type: text
-      label: 'Accordion content (fields)'
-      description: 'Accordion content'
+      label: 'Message (field)'
+      description: 'Alert content'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
 
     # Optional: Attached libraries.
@@ -58,10 +82,10 @@ accordion2:
     # and flexible paths.
     #
     #   Examples:
-    #     use: '@patterns/blockquote/blockquote.html.twig'
+    # use: '@patterns/blockquote/blockquote.html.twig'
     #     use: '@blockquote/blockquote.html.twig'
     #
     # Not defining 'use' makes the UI Patterns module look for a template with
     # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
     #
-    #   Example: pattern-blockquote.html.twig
+  #   Example: pattern-blockquote.html.twig
