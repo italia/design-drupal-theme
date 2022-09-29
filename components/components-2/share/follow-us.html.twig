@@ -58,6 +58,7 @@
             {%- set social_attributes = create_attribute() -%}
             {%- set social_attributes = social_attributes
               .setAttribute('href', social.url)
+              .setAttribute('rel', 'noopener')
               .setAttribute('aria-label', social.label)
             -%}
             {%- if _blank -%}
