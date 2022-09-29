@@ -60,6 +60,7 @@ content_container_type: container
 content_padding_bottom: ''
 content_margin_bottom: ''
 show_main_content_in_front: 0
+page_title_semibold: 0
 breadcrumb_dark_background: 0
 breadcrumb_icon: 0
 breadcrumb_separator: /

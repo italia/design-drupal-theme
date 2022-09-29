@@ -25,6 +25,19 @@ function bootstrap_italia_page_attachments_alter(&$page) {
 /**
  * Implements hook_preprocess_page().
  */
+function bootstrap_italia_preprocess_page_title(&$variables) {
+  if (theme_get_setting('page_title_semibold')) {
+    if (!isset($variables['title_attributes']['class'])) {
+      $variables['title_attributes']['class'] = [];
+    }
+    $variables['title_attributes']['class'][] = 'fw-semibold';
+  }
+  dump($variables);
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
 function bootstrap_italia_preprocess_page(&$variables) {
   // Slim header settings.
   $variables['slim_header_container_type'] = theme_get_setting('slim_header_container_type');

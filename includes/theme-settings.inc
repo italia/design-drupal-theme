@@ -636,6 +636,19 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('If checked, shows main content region in home page. Default: unchecked'),
     '#default_value' => theme_get_setting('show_main_content_in_front'),
   ];
+  // Page title.
+  $form['content']['page_title'] = [
+    '#type' => 'details',
+    '#title' => t('Page title'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['page_title']['page_title_semibold'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Page title semibold variant'),
+    '#description' => t('If checked, applies the "semibold" style to the page title. Default: unchecked'),
+    '#default_value' => theme_get_setting('page_title_semibold'),
+  ];
   // Editor nav tabs.
   $form['content']['editor_nav_tabs'] = [
     '#type' => 'details',
