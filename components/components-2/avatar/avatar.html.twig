@@ -154,7 +154,7 @@
   {# Set avatar-status option #}
   {% if _avatar_status is not empty and _avatar_status_text is empty %}
     {% if _avatar_status == 'approved' %}
-      {% set _avatar_status_text = 'User aproved'|t %}
+      {% set _avatar_status_text = 'User approved'|t %}
     {% elseif _avatar_status == 'declined' %}
       {% set _avatar_status_text = 'User declined'|t %}
     {% elseif _avatar_status == 'notify' %}

@@ -1,0 +1,162 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+avatar2:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: "Avatar 2"
+  description: "The Avatar element is a graphical representation of a user and can include an image, text, icon, or drop-down menu with additional content. https://italia.github.io/bootstrap-italia/docs/componenti/avatar/"
+
+  # Variants definition.
+  variants:
+    icon:
+      label: Icon
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-icona
+    image:
+      label: Image
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-immagine
+    text:
+      label: Text
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-testo
+
+  # Settings (ui_patterns_settings module).
+  settings:
+    default_avatar_size:
+      type: select
+      label: Avatar size
+      allow_expose: true
+      preview: 'xxl'
+      options:
+        xs: "Extra small"
+        sm: "Small"
+        md: "Medium"
+        lg: "Large"
+        xl: "Extra large"
+        xxl: "Extra Extra Large"
+    default_icon:
+      type: textfield
+      label: "Default icon"
+      description: "Choose default icon (only icon variant)."
+      allow_token: true
+      preview: "it-user"
+    default_icon_color:
+      type: select
+      label: Default icon color
+      description: 'Choose default icon color (only icon variant).'
+      allow_expose: true
+      options:
+        primary: Primary
+        secondary: Secondary
+        success: Success
+        warning: Warning
+        danger: Danger
+        light: Light
+        white: White
+    default_background_color:
+      type: select
+      label: Default background color
+      description: 'Choose default background color (except image variant).'
+      allow_expose: true
+      options:
+        primary: Primary
+        secondary: Secondary
+        green: Green
+        orange: Orange
+        red: Red
+    avatar_tooltip_placement:
+      type: select
+      label: Tooltip placement
+      description: 'Choose tooltip placement.'
+      preview: 'top'
+      allow_expose: true
+      options:
+        top: Top
+        bottom: Bottom
+        left: Left
+        right: right
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    avatar_image:
+      type: text
+      label: 'Avatar image (field)'
+      description: 'Image from drupal field. Square format. Only image variant.'
+      preview: '<img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Francesca Rossi">'
+    avatar_text:
+      type: text
+      label: 'Avatar name (raw text)'
+      description: 'Avatar text. Eg. Username. Raw text. Only text variant.'
+      preview: 'Francesca Rossi'
+    avatar_url:
+      type: text
+      label: 'Link (eg. /user/id, raw text).'
+      description: 'Enter a url in raw text format.'
+      preview: '#/user/1'
+    avatar_tooltip_text:
+      type: text
+      label: 'Avatar tooltip text (field)'
+      description: 'Avatar tooltip text.'
+      preview: "Francesca Rossi - Administrator"
+    avatar_presence:
+      type: text
+      label: 'Avatar presence (raw text)'
+      description: 'Avatar status. Raw text. ["active", "busy", "hidden"]'
+    avatar_presence_text:
+      type: text
+      label: 'Avatar presence text (raw text)'
+      description: 'Avatar status. Raw text.'
+    avatar_status:
+      type: text
+      label: 'Avatar status type (raw text)'
+      description: 'Avatar status. Raw text. ["approved", "declined", "notify"]'
+    avatar_status_text:
+      type: text
+      label: 'Avatar status text (raw text)'
+      description: 'Avatar status. Raw text.'
+
+
+    # Optional: Attached libraries.
+    #
+    # You can include libraries defined by other modules / themes with dependencies.
+    #
+    # These libraries are also available for include in theme libraries as
+    # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
+    # irrespective of whether a pattern of that type appears on the page.
+    #   Example: ui_patterns/button.button
+    # libraries:
+    #   -
+    #     card_simple:
+    #       css:
+    #         component:
+    #           css/card_simple.css: {}
+
+    # Optional: Specify a TWIG template with 'use'.
+    #
+    #   Example:
+    #     use: 'themes/custom/THEME/patterns/blockquote/blockquote.html.twig'
+    #
+    # This usually contains a path relative to the Drupal root. Some documentation
+    # says that a theme-relative path can also be used, but it didn't work for me.
+    #
+    #   Example:
+    #     use: '@oldie/patterns/blockquote/blockquote.html.twig' (didn't work)
+    #
+    # Alternatively, you can use the 'components' module to have better-looking
+    # and flexible paths.
+    #
+    #   Examples:
+    # use: '@patterns/blockquote/blockquote.html.twig'
+    #     use: '@blockquote/blockquote.html.twig'
+    #
+    # Not defining 'use' makes the UI Patterns module look for a template with
+    # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
+    #
+  #   Example: pattern-blockquote.html.twig

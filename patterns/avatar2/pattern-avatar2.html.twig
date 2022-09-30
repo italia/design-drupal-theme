@@ -1,0 +1,69 @@
+{% apply spaceless %}
+  {% if variant == 'image' %}
+    {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: variant,
+      avatar_icon: false,
+      avatar_icon_color: false,
+      avatar_image: avatar_image,
+      avatar_text: false,
+      avatar_text_color: false,
+      avatar_assistive_text: avatar_text,
+      avatar_size: default_avatar_size,
+      avatar_url: avatar_url,
+      avatar_tooltip_text: avatar_tooltip_text,
+      avatar_tooltip_placement: avatar_tooltip_placement,
+      avatar_presence: avatar_presence,
+      avatar_presence_text: avatar_presence_text,
+      avatar_status: avatar_status,
+      avatar_status_text: avatar_status_text,
+    } %}
+      {% block avatarContent %}
+        {{ avatar_image }}
+      {% endblock %}
+    {% endembed %}
+  {% elseif variant == 'text' %}
+    {% set text_split = avatar_text|split(' ') %}
+    {% if text_split|length > 1 %}
+      {% set _avatar_text = text_split[0]|slice(0,1) ~ text_split[1]|slice(0,1) %}
+    {% elseif avatar_text|length > 1 %}
+      {% set _avatar_text = avatar_text|slice(0,2) %}
+    {% else %}
+      {% set _avatar_text = avatar_text|default('U')|slice(0,1) %}
+    {% endif %}
+    {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: variant,
+      avatar_icon: false,
+      avatar_icon_color: false,
+      avatar_image: false,
+      avatar_text: _avatar_text|upper,
+      avatar_text_color: default_background_color,
+      avatar_assistive_text: avatar_text,
+      avatar_size: default_avatar_size,
+      avatar_url: avatar_url,
+      avatar_tooltip_text: avatar_tooltip_text,
+      avatar_tooltip_placement: avatar_tooltip_placement,
+      avatar_presence: avatar_presence,
+      avatar_presence_text: avatar_presence_text,
+      avatar_status: avatar_status,
+      avatar_status_text: avatar_status_text,
+    } %}
+  {% elseif variant == 'icon' %}
+    {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: variant,
+      avatar_icon: default_icon,
+      avatar_icon_color: default_icon_color,
+      avatar_image: false,
+      avatar_text: false,
+      avatar_text_color: default_background_color,
+      avatar_assistive_text: avatar_text,
+      avatar_size: default_avatar_size,
+      avatar_url: avatar_url,
+      avatar_tooltip_text: avatar_tooltip_text,
+      avatar_tooltip_placement: avatar_tooltip_placement,
+      avatar_presence: avatar_presence,
+      avatar_presence_text: avatar_presence_text,
+      avatar_status: avatar_status,
+      avatar_status_text: avatar_status_text,
+    } %}
+  {% endif %}
+{% endapply %}
