@@ -37,7 +37,7 @@
       card_date['month']
     %}
       {% set card_image_date = card_date %}
-    {% else %}
+    {% elseif card_date %}
       {# Check if 'dd m y' #}
       {% set _date_value = card_date|render|striptags|trim|split(' ') %}
       {% if _date_value|length == 2 %}

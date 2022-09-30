@@ -79,6 +79,7 @@
     _card_rounded ? 'rounded',
     _card_border ? 'border',
     _card_signature is empty and _card_read_more_url is empty ? 'no-after',
+    _card_teaser and _card_image is not empty ? 'no-after',
   ] %}
 
   {% if _card_classes is not empty %}
