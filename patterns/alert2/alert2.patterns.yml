@@ -43,13 +43,13 @@ alert2:
   fields:
     heading:
       type: text
-      label: 'Alert heading (raw text)'
-      description: 'Alert heading. Optional. Raw text.'
+      label: 'Heading (raw text)'
+      description: 'Optional. Raw text.'
       preview: 'Lorem ipsum'
     message:
       type: text
       label: 'Message (field)'
-      description: 'Alert content'
+      description: 'Alert content.'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
 
     # Optional: Attached libraries.

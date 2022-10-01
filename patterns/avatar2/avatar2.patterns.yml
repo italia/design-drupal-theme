@@ -87,12 +87,12 @@ avatar2:
   fields:
     avatar_image:
       type: text
-      label: 'Avatar image (field)'
+      label: 'Image (field)'
       description: 'Image from drupal field. Square format. Only image variant.'
       preview: '<img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Francesca Rossi">'
     avatar_text:
       type: text
-      label: 'Avatar name (raw text)'
+      label: 'Name (raw text)'
       description: 'Avatar text. Eg. Username. Raw text. Only text variant.'
       preview: 'Francesca Rossi'
     avatar_url:
@@ -102,25 +102,25 @@ avatar2:
       preview: '#/user/1'
     avatar_tooltip_text:
       type: text
-      label: 'Avatar tooltip text (field)'
-      description: 'Avatar tooltip text.'
+      label: 'Tooltip text (field)'
+      description: 'Tooltip text.'
       preview: "Francesca Rossi - Administrator"
     avatar_presence:
       type: text
-      label: 'Avatar presence (raw text)'
+      label: 'Presence (raw text)'
       description: 'Avatar status. Raw text. ["active", "busy", "hidden"]'
     avatar_presence_text:
       type: text
-      label: 'Avatar presence text (raw text)'
-      description: 'Avatar status. Raw text.'
+      label: 'Presence text (raw text)'
+      description: 'Customize assistive text. Raw text.'
     avatar_status:
       type: text
-      label: 'Avatar status type (raw text)'
+      label: 'Status type (raw text)'
       description: 'Avatar status. Raw text. ["approved", "declined", "notify"]'
     avatar_status_text:
       type: text
-      label: 'Avatar status text (raw text)'
-      description: 'Avatar status. Raw text.'
+      label: 'Status text (raw text)'
+      description: 'Customize assistive text. Raw text.'
 
 
     # Optional: Attached libraries.

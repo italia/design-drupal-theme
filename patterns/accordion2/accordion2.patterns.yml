@@ -19,13 +19,13 @@ accordion2:
   fields:
     accordion_title:
       type: text
-      label: 'Accordion title (field)'
+      label: 'Title (field)'
       description: 'Accordion title.'
       preview: 'Lorem ipsum dolor sit amet'
     accordion_content:
       type: text
-      label: 'Accordion content (fields)'
-      description: 'Accordion content'
+      label: 'Content (fields)'
+      description: 'Accordion content.'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
 
     # Optional: Attached libraries.

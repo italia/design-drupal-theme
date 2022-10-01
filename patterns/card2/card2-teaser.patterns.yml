@@ -56,18 +56,18 @@ card2_teaser:
   fields:
     card_title:
       type: text
-      label: 'Card title (field)'
+      label: 'Title (field)'
       description: Enter the title field.
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
     card_text:
       type: text
-      label: 'Card text (eg. body, raw text)'
-      description: 'Preview content raw text'
+      label: 'Text (eg. body, raw text)'
+      description: 'Card content in raw text'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     card_icon:
       type: text
-      label: 'Card icon (eg. it-name, raw text)'
-      description: 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/'
+      label: 'Icon (eg. it-name, raw text)'
+      description: 'Only icon variant. https://italia.github.io/bootstrap-italia/docs/utilities/icone/'
       preview: 'it-file'
 
     # Optional: Attached libraries.

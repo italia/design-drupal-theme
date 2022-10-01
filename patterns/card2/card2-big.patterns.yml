@@ -84,18 +84,18 @@ card2_big:
   fields:
     card_title:
       type: text
-      label: 'Card title (field)'
+      label: 'Title (field)'
       description: 'Card title.'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
     card_subtitle:
       type: text
-      label: 'Card subtitle (field)'
+      label: 'Subtitle (field)'
       description: 'Card subtitle.'
       preview: 'Lorem ipsum dolor sit amet'
     card_text:
       type: text
-      label: 'Card text (eg. body, raw text)'
-      description: 'Preview content.'
+      label: 'Text (eg. body, raw text)'
+      description: 'Card content.'
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     card_category:
       type: text
@@ -104,12 +104,12 @@ card2_big:
       preview: 'Category'
     card_date:
       type: text
-      label: 'Card date (field)'
+      label: 'Date (field)'
       description: 'Submitting date. Format: Bootstrap Italia Medium Format (dd month yyyy)'
       preview: '09 October 2022'
     card_icon:
       type: text
-      label: 'Card icon (eg. it-name, raw text)'
+      label: 'Icon (eg. it-name, raw text)'
       description: 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/'
       preview: 'it-file'
     card_signature:
@@ -124,7 +124,7 @@ card2_big:
       preview: '#/node/1'
     card_image:
       type: text
-      label: Image (field)
+      label: 'Image (field)'
       description: 'Enter a image field.'
       preview: '<img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">'
 

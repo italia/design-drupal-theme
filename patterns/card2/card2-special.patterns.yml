@@ -19,12 +19,12 @@ card2_special:
   fields:
     card_title:
       type: text
-      label: 'Card title (raw text)'
+      label: 'Title (raw text)'
       description: Enter the title in text format and without links.
       preview: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor…'
     card_date:
       type: text
-      label: 'Card date (dd/mm/yy)'
+      label: 'Date (dd/mm/yy)'
       description: 'Format: dd/mm/yyyy'
       preview: '09/10/2022'
     card_image:
