@@ -87,6 +87,9 @@
   {% set _avatar_icon_color = avatar_icon_color|default('primary') %}
   {% set _avatar_image = avatar_image|default('') %}
   {% set _avatar_text = avatar_text|default('U') %}
+  {% set _avatar_extra_text_user = avatar_extra_text_user|default('User Name') %}
+  {% set _avatar_extra_text_role = avatar_extra_text_role|default('Teacher') %}
+  {% set _avatar_extra_text_date = avatar_extra_text_date|default('') %}
   {% set _avatar_text_color = avatar_text_color|default('') %}
   {% set _avatar_size = avatar_size|default('md') %}
   {% set _avatar_assistive_text = avatar_assistive_text|default('User'|t) %}
@@ -99,6 +102,10 @@
   {% set _avatar_status_text = avatar_status_text|default('') %}
   {% set _avatar_classes = avatar_classes|default('') %}
   {% set _avatar_attributes = avatar_attributes|default('') %}
+
+  {% if _avatar_type == 'extra_text' or _avatar_type == 'extra_text_date' %}
+    <div class="avatar-wrapper avatar-extra-text">
+  {% endif %}
 
   {# Set options #}
   {% set _classes = [
@@ -186,6 +193,25 @@
         <p aria-hidden="true">{{ _avatar_text }}</p>
         <span class="visually-hidden">{{ _avatar_assistive_text }}</span>
       {% endif %}
+
+      {% if _avatar_type == 'extra_text' or _avatar_type == 'extra_text_date' %}
+        {% if _avatar_image|render %}
+          {{ _avatar_image }}
+        {% else %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-user',
+          } %}
+        {% endif %}
+        </{{ container_tag }}>
+        <div class="extra-text">
+          <h4>{{ _avatar_extra_text_user }}</h4>
+          {% if _avatar_type == 'extra_text' %}
+            <p>{{ _avatar_extra_text_role }}</p>
+          {% else %}
+            <time>{{ avatar_extra_text_date|render.__toString()|date('U')|format_date('custom','d M Y') }}</time>
+          {% endif %}
+        </div>
+      {% endif %}
     {% endblock %}
 
     {% block avatarPresence %}
@@ -219,6 +245,10 @@
   </{{ container_tag }}>
 
   {% if _avatar_presence is not empty or _avatar_status is not empty %}
+    </div>
+  {% endif %}
+
+  {% if _avatar_type == 'extra_text' or _avatar_type == 'extra_text_date' %}
     </div>
   {% endif %}
 

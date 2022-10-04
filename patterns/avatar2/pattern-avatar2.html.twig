@@ -66,5 +66,46 @@
       avatar_status: avatar_status|render|striptags|trim,
       avatar_status_text: avatar_status_text|render|striptags|trim,
     } %}
+  {% elseif variant == 'extra_text' %}
+    {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: variant,
+      avatar_icon: default_icon,
+      avatar_icon_color: default_icon_color,
+      avatar_image: avatar_image,
+      avatar_text: false,
+      avatar_extra_text_user: avatar_extra_text_user,
+      avatar_extra_text_role: avatar_extra_text_role,
+      avatar_text_color: default_background_color,
+      avatar_assistive_text: false,
+      avatar_size: default_avatar_size,
+      avatar_url: avatar_url|render|striptags|trim,
+      avatar_tooltip_text: avatar_tooltip_text,
+      avatar_tooltip_placement: avatar_tooltip_placement,
+      avatar_presence: false,
+      avatar_presence_text: false,
+      avatar_status: false,
+      avatar_status_text: false,
+    } %}
+  {% elseif variant == 'extra_text_date' %}
+    {% include '@bi-bcl/avatar/avatar.html.twig' with {
+      avatar_type: variant,
+      avatar_icon: default_icon,
+      avatar_icon_color: default_icon_color,
+      avatar_image: avatar_image,
+      avatar_text: false,
+      avatar_extra_text_user: avatar_extra_text_user,
+      avatar_extra_text_role: false,
+      avatar_extra_text_date: avatar_extra_text_date,
+      avatar_text_color: default_background_color,
+      avatar_assistive_text: false,
+      avatar_size: default_avatar_size,
+      avatar_url: avatar_url|render|striptags|trim,
+      avatar_tooltip_text: avatar_tooltip_text,
+      avatar_tooltip_placement: avatar_tooltip_placement,
+      avatar_presence: false,
+      avatar_presence_text: false,
+      avatar_status: false,
+      avatar_status_text: false,
+    } %}
   {% endif %}
 {% endapply %}

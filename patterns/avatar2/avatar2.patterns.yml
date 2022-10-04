@@ -25,6 +25,12 @@ avatar2:
     text:
       label: Text
       description: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-testo
+    extra_text:
+      label: Extra Text
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-testo-aggiuntivo
+    extra_text_date:
+      label: Extra Text With Date
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/avatar/#avatar-con-testo-aggiuntivo
 
   # Settings (ui_patterns_settings module).
   settings:
@@ -95,6 +101,21 @@ avatar2:
       label: 'Name (raw text)'
       description: 'Avatar text. Eg. Username. Raw text. Only text variant.'
       preview: 'Francesca Rossi'
+    avatar_extra_text_user:
+      type: text
+      label: 'User Name (raw text)'
+      description: 'Avatar Extra text. Eg. User Name. Raw text. Only Extra Text variant.'
+      preview: 'Francesca Rossi'
+    avatar_extra_text_role:
+      type: text
+      label: 'User Role (raw text)'
+      description: 'Avatar Extra text Role. Eg. Role. Raw text. Only Extra Text variant.'
+      preview: 'Administrator'
+    avatar_extra_text_date:
+      type: text
+      label: 'Date (raw text)'
+      description: 'Avatar Extra text Date. Raw text. Only Extra Text variant.'
+      preview: '15 SET 2022'
     avatar_url:
       type: text
       label: 'Link (eg. /user/id, raw text).'
