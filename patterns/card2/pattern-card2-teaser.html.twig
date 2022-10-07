@@ -11,7 +11,7 @@
       <h3 class="card-title h5">
         {% if variant == 'icon' %}
           {% include '@bi-bcl/icon/icon.html.twig' with {
-            name: card_icon,
+            name: card_icon|render|striptags|trim,
             color: default_icon_color
           } %}
         {% endif %}
