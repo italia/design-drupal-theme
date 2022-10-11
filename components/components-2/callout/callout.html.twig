@@ -117,13 +117,11 @@
       {% endif %}
     </div>
 
-    {# Text for simple content #}
-    {% if _text is not empty %}
-      <p>{{ _text }}</p>
-    {% endif %}
-
-    {# Block for complex content #}
-    {% block content %}{% endblock %}
+    {% block content %}
+      {% if _text is not empty %}
+        <p>{{ _text }}</p>
+      {% endif %}
+    {% endblock %}
 
   </div>
 {% endapply %}

@@ -1,0 +1,52 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+callout2:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: "Callout 2 "
+  description: "Callouts can be used to highlight certain parts of the text that require special attention. They may contain error messages, warnings, tips, etc. https://italia.github.io/bootstrap-italia/docs/componenti/callout/"
+
+  # Variants definition.
+  variants:
+    default:
+      label: Default
+      description: Basic callout. https://italia.github.io/bootstrap-italia/docs/componenti/callout/
+    highlight:
+      label: Highlight
+      description: Callout with border only on the left side. https://italia.github.io/bootstrap-italia/docs/componenti/callout/#callout-highlights
+    more:
+      label: More
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/callout/#callout-approfondimento
+
+  # Settings (ui_patterns_settings module).
+  settings:
+    default_variant:
+      type: select
+      label: Default variant
+      description: 'Choose default variant.'
+      preview: 'note'
+      allow_expose: true
+      options:
+        default: Default
+        success: Success
+        warning: Warning
+        danger: Danger
+        important: Important
+        note: Note
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    title:
+      type: text
+      label: 'Title (raw text)'
+      description: 'Callout title. Raw text.'
+      preview: 'Lorem ipsum'
