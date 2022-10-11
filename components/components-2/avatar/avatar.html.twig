@@ -162,6 +162,16 @@
     {% endif %}
   {% endif %}
 
+  {# Slice _avatar_text in 2 char. #}
+  {% set text_split = avatar_text|split(' ') %}
+  {% if text_split|length > 1 %}
+    {% set _avatar_text = text_split[0]|slice(0,1) ~ text_split[1]|slice(0,1) %}
+  {% elseif avatar_text|length > 1 %}
+    {% set _avatar_text = avatar_text|slice(0,2) %}
+  {% else %}
+    {% set _avatar_text = avatar_text|slice(0,1) %}
+  {% endif %}
+
   {# Component #}
   {% if _avatar_presence is not empty or _avatar_status is not empty %}
     <div class="avatar-wrapper">
@@ -183,7 +193,7 @@
     {% endif %}
 
     {% if _avatar_type == 'text' %}
-      <p aria-hidden="true">{{ _avatar_text }}</p>
+      <p aria-hidden="true">{{ _avatar_text|upper }}</p>
       <span class="visually-hidden">{{ _avatar_assistive_text }}</span>
     {% endif %}
   {% endblock %}

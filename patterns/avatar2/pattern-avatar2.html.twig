@@ -1,4 +1,8 @@
 {% apply spaceless %}
+  {% if avatar_extra_title or avatar_extra_text %}
+    <div class="avatar-wrapper avatar-extra-text">
+  {% endif %}
+
   {% if variant == 'image' %}
     {% embed '@bi-bcl/avatar/avatar.html.twig' with {
       avatar_type: variant,
@@ -23,20 +27,12 @@
     {% endembed %}
   {% elseif variant == 'text' %}
     {% set avatar_text = avatar_text ? avatar_text|render|striptags|trim %}
-    {% set text_split = avatar_text|split(' ') %}
-    {% if text_split|length > 1 %}
-      {% set _avatar_text = text_split[0]|slice(0,1) ~ text_split[1]|slice(0,1) %}
-    {% elseif avatar_text|length > 1 %}
-      {% set _avatar_text = avatar_text|slice(0,2) %}
-    {% else %}
-      {% set _avatar_text = avatar_text|slice(0,1) %}
-    {% endif %}
     {% include '@bi-bcl/avatar/avatar.html.twig' with {
       avatar_type: variant,
       avatar_icon: false,
       avatar_icon_color: false,
       avatar_image: false,
-      avatar_text: _avatar_text|upper,
+      avatar_text: avatar_text,
       avatar_text_color: default_background_color,
       avatar_assistive_text: avatar_text,
       avatar_size: default_avatar_size,
@@ -66,5 +62,15 @@
       avatar_status: avatar_status|render|striptags|trim,
       avatar_status_text: avatar_status_text|render|striptags|trim,
     } %}
+  {% endif %}
+
+  {% if avatar_extra_title or avatar_extra_text %}
+      <div class="extra-text">
+        {% if avatar_extra_title %}
+          <h4>{{ avatar_extra_title }}</h4>
+        {% endif %}
+        {{ avatar_extra_text }}
+      </div>
+    </div>
   {% endif %}
 {% endapply %}

@@ -121,7 +121,16 @@ avatar2:
       type: text
       label: 'Status text (raw text)'
       description: 'Customize assistive text. Raw text.'
-
+    avatar_extra_title:
+      type: text
+      label: 'Extra title (field)'
+      description: 'Avatar Extra text. Eg. User Name. Raw text.'
+      preview: 'Francesca Rossi'
+    avatar_extra_text:
+      type: text
+      label: 'Extra text (field)'
+      description: 'Avatar Extra text. Eg. Role. Raw text.'
+      preview: 'Administrator'
 
     # Optional: Attached libraries.
     #
