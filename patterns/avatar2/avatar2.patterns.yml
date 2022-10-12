@@ -124,12 +124,12 @@ avatar2:
     avatar_extra_title:
       type: text
       label: 'Extra title (field)'
-      description: 'Avatar Extra text. Eg. User Name. Raw text.'
+      description: 'Avatar Extra text. Eg. User Name.'
       preview: 'Francesca Rossi'
     avatar_extra_text:
       type: text
       label: 'Extra text (field)'
-      description: 'Avatar Extra text. Eg. Role. Raw text.'
+      description: 'Avatar Extra text. Eg. Role.'
       preview: 'Administrator'
 
     # Optional: Attached libraries.
