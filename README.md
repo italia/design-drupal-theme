@@ -19,8 +19,6 @@ Install drupal, you can use drush or your browser
 $ drush site:install
 ```
 
-Install `npm`: https://www.npmjs.com/get-npm
-
 # Install theme
 ```
 $ cd <drupal-root>
@@ -58,6 +56,7 @@ Download https://github.com/italia/bootstrap-italia/releases/download/v2.0.4/boo
 and unzip in `<your-subtheme>/dist`.
 
 ## B. For developer or advanced user
+`npm` is required: https://www.npmjs.com/get-npm
 
 Install assets
 ```
