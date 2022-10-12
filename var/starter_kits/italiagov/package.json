@@ -48,6 +48,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "bootstrap-italia": ">=2.0.4"
+    "bootstrap-italia": "^2.0.6"
   }
 }
