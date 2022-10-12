@@ -9,6 +9,7 @@ library as a dependency.
 Install `drupal` and `drush` with `composer` (https://getcomposer.org/)
 ```
 $ composer create drupal/recommended-project my_site_name_dir --no-install
+$ cd my_site_name_dir
 $ composer require drush/drush --no-install
 $ composer install
 ```
