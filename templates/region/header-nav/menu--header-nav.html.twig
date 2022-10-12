@@ -29,6 +29,11 @@
   {% set attributes = attributes.addClass('navbar-secondary') %}
 {% endif %}
 
+{# Compliance C.SI.1.6 #}
+{% if navigation_header_sticky_menu_name == menu_name %}
+  {% set attributes = attributes.setAttribute('data-element', 'main-navigation') %}
+{% endif %}
+
 {# Component. #}
 {% include '@bi-bcl/megamenu/navbar-nav.html.twig' with {
   menu_name: menu_name,
