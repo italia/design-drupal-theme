@@ -49,7 +49,7 @@
   {% block content %}
 
     {% embed '@bi-bcl/callout/callout.html.twig' with {
-      variant: content.field_callout_variant[0]['#markup']|render,
+      callout_variant: content.field_callout_variant[0]['#markup']|render,
       display: content.field_callout_display[0]['#markup']|render,
       icon_name: content.field_icon_name[0]['#context'].value,
       title: content.field_title[0]['#context'].value,

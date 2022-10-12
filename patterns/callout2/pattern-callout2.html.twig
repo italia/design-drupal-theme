@@ -1,0 +1,42 @@
+{% embed '@bi-bcl/callout/callout.html.twig' with {
+  callout_variant: callout_type ? callout_type|render|striptags|trim : default_type,
+  title: title|render|striptags|trim,
+  display: variant,
+  icon_name: custom_icon is not empty ? custom_icon|render|striptags|trim : null
+} %}
+  {% block content %}
+    {% if variant == 'more' %}
+      {{ content }}
+      {% set _more_collapse_id = 'callout-more' ~ random() %}
+      {% set _more_call_to_action_label = more_call_to_action_label is not empty ? more_call_to_action_label|render|striptags|trim : default_call_to_action_label %}
+      {% set _more_call_to_action_icon = more_call_to_action_icon is not empty ? more_call_to_action_icon|render|striptags|trim : default_call_to_action_icon %}
+      <div class="collapse-div" id="{{ _more_collapse_id }}">
+        <div class="collapse-header" id="{{ _more_collapse_id }}-heading">
+          <button aria-controls="{{ _more_collapse_id }}-collapse" aria-expanded="false" class="callout-more-toggle" data-bs-target="#{{ _more_collapse_id }}-collapse" data-bs-toggle="collapse">
+            {{ 'Read more'|t }} <span></span>
+          </button>
+          {% if more_call_to_action_url is not empty %}
+            <a class="callout-more-download"
+               href="{{ more_call_to_action_url|render|striptags|trim }}"
+               title="{{ _more_call_to_action_label }}"
+            >
+              {%- include '@bi-bcl/icon/icon.html.twig' with {
+                name: _more_call_to_action_icon,
+                color: 'primary',
+                icon_classes: ['me-2']
+              } -%}
+              {{- _more_call_to_action_label -}}
+            </a>
+          {% endif %}
+        </div>
+        <div aria-labelledby="{{ _more_collapse_id }}-heading" class="collapse" id="{{ _more_collapse_id }}-collapse" role="tabpanel">
+          <div class="collapse-body">
+            {{ more_content }}
+          </div>
+        </div>
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

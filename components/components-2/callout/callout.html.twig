@@ -6,7 +6,7 @@
  * Last review: v2.0.4
  *
  * Parameters:
- * - variant (string) (default: 'default')
+ * - callout_variant (string) (default: 'default')
  *   - options ["success", "warning", "danger", "important", "note", "default"]
  * - display (boolean) (default: '')
  *   - options ["highlight", "more"]
@@ -23,7 +23,7 @@
  *
  * Examples:
    {% include '@bi-bcl/callout/callout.html.twig' with {
-      variant: 'success',
+      callout_variant: 'success',
       title: 'success',
       text: 'Lorem ipsum',
    } %}
@@ -40,7 +40,7 @@
 #}
 {% apply spaceless %}
   {# Set defaults #}
-  {% set _variant = variant|default('default') %}
+  {% set _callout_variant = callout_variant|default('default') %}
   {% set _display = display|default('') %}
   {% set _icon_name = icon_name|default('') %}
   {% set _title = title|default('') %}
@@ -51,14 +51,14 @@
 
   {# Set options #}
   {% if _display == 'more' %}
-    {% set _variant = 'note' %}
+    {% set _callout_variant = 'note' %}
   {% endif %}
 
   {% set _classes = [
     'callout',
     _display is not empty ? 'callout-' ~ _display,
     _display == 'more' ? 'note',
-    _variant != 'default' ? _variant,
+    _callout_variant != 'default' ? _callout_variant,
   ] %}
 
   {% if _callout_classes is not empty %}
@@ -83,7 +83,7 @@
     {% if _display == 'more' %}
       {% set _icon_name = 'it-zoom-in' %}
     {% else %}
-      {% set _icon_name = icons[_variant] %}
+      {% set _icon_name = icons[_callout_variant] %}
     {% endif %}
   {% endif %}
 
@@ -96,7 +96,7 @@
     default:   'Info'|t,
   } %}
   {% if _assistive_text is empty %}
-    {% set _assistive_text = default_assistive_text[_variant] %}
+    {% set _assistive_text = default_assistive_text[_callout_variant] %}
   {% endif %}
 
   {% set icon_attributes = create_attribute() %}

@@ -24,7 +24,7 @@
     {% block content %}
       {% for variant in variants %}
         {% include '@bi-bcl/callout/callout.html.twig' with {
-          variant: variant,
+          callout_variant: variant,
           title: variant,
           text: text,
         } %}
@@ -38,7 +38,7 @@
     {% block content %}
       {% for variant in variants %}
         {% include '@bi-bcl/callout/callout.html.twig' with {
-          variant: variant,
+          callout_variant: variant,
           title: variant,
           display: 'highlight',
           text: text,

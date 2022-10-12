@@ -1,0 +1,103 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+callout2:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: "Callout 2 "
+  description: "Callouts can be used to highlight certain parts of the text that require special attention. They may contain error messages, warnings, tips, etc. https://italia.github.io/bootstrap-italia/docs/componenti/callout/"
+
+  # Variants definition.
+  variants:
+    default:
+      label: Default
+      description: Basic callout. https://italia.github.io/bootstrap-italia/docs/componenti/callout/
+    highlight:
+      label: Highlight
+      description: Callout with border only on the left side. https://italia.github.io/bootstrap-italia/docs/componenti/callout/#callout-highlights
+    more:
+      label: More
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/callout/#callout-approfondimento
+
+  # Settings (ui_patterns_settings module).
+  settings:
+    default_type:
+      type: select
+      label: Default type
+      description: 'Choose default type.'
+      preview: 'note'
+      allow_expose: true
+      options:
+        default: Default
+        success: Success
+        warning: Warning
+        danger: Danger
+        important: Important
+        note: Note
+    default_call_to_action_label:
+      type: textfield
+      label: "Default call to action label"
+      description: "Choose default label (only more variant)."
+      allow_token: true
+      preview: "Download"
+    default_call_to_action_icon:
+      type: textfield
+      label: "Default all to action icon"
+      description: "Choose default icon (only more variant)."
+      allow_token: true
+      preview: "it-download"
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    title:
+      type: text
+      label: 'Title (raw text)'
+      description: 'Callout title. Raw text.'
+      preview: 'Lorem ipsum'
+    content:
+      type: text
+      label: 'Content (field)'
+      description: 'Callout content. Wrap your content with <p> tag.'
+      preview: |
+        <p>Maecenas vulputate ante dictum <a href="#">vestibulum volutpat</a>. Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Aenean non augue non purus vestibulum varius. Maecenas ullamcorper tincidunt nulla quis laoreet.</p>
+    callout_type:
+      type: text
+      label: 'Type (raw text)'
+      description: 'Callout type: "success", "warning", "danger", "important", "note", "default". Raw text.'
+      preview: 'default'
+    more_content:
+      type: text
+      label: 'More content (field, only more variant)'
+      description: 'Callout more content. Wrap your content with <p> tag.'
+      preview: |
+        <p>Aenean tortor enim, suscipit eget commodo at, imperdiet quis diam. Vestibulum non accumsan felis, at ultrices lorem. Pellentesque ac diam a ipsum cursus interdum id nec odio. Vestibulum nec congue mauris. Aliquam et dui purus. Mauris in imperdiet risus, sed blandit tellus. Donec posuere accumsan lacinia. Mauris dignissim, sem vel volutpat rhoncus, neque mi ullamcorper ante, vitae volutpat ipsum quam id purus. Duis tincidunt sodales nisl eget ultricies. Sed condimentum mi eu ex venenatis, quis bibendum dui ultrices. Quisque ex eros, pellentesque vitae enim sed, pharetra tempus dolor. Donec eu nibh ac lacus luctus pellentesque. Duis interdum scelerisque magna nec malesuada.</p>
+        <p>Maecenas at erat id <strong>sem interdum efficitur eu sed nunc.</strong> Mauris sit amet erat eget augue molestie malesuada ut sed ex. In sed dignissim elit. Donec efficitur, sem eget vestibulum auctor, sem erat interdum magna, eu commodo odio mauris semper dolor.</p>
+        <p>Maecenas vulputate ante dictum <a href="#">vestibulum volutpat</a>. Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit.</strong> Aenean non augue non purus vestibulum varius. Maecenas ullamcorper tincidunt nulla quis laoreet.</p>
+    more_call_to_action_url:
+      type: text
+      label: 'Call to action link (eg. /node/id, raw text).'
+      description: 'Enter a url in raw text format. Only more variant.'
+      preview: '#/node/1'
+    more_call_to_action_label:
+      type: text
+      label: 'Call to action label (raw text).'
+      description: 'Enter a string in raw text format. Only more variant.'
+      preview: 'Download'
+    more_call_to_action_icon:
+      type: text
+      label: 'Call to action icon (it-name, raw text).'
+      description: 'Enter the icon name format in raw text. Only more variant.'
+      preview: 'it-download'
+    custom_icon:
+      type: text
+      label: 'Custom icon (raw text)'
+      description: 'Choose a custom icon. Icon name format in Raw text. Leave blank for automatic icon.'
+
