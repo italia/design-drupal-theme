@@ -51,6 +51,10 @@
                       {{ page.header_slim_action }}
                     {% endif %}
                   {% elseif slim_header_action_active_login %}
+                    {# Compliance C.SE.5.1 and C.SE.5.2 #}
+                    {% set login_button_attributes = create_attribute() %}
+                    {% set login_button_attributes = login_button_attributes.setAttribute('data-element', 'personal-area-login') %}
+
                     {% embed '@bi-bcl/button/button.html.twig' with {
                       label: 'Login to your personal area'|t,
                       variant: 'primary',
@@ -62,6 +66,7 @@
                         slim_header_action_type == 'full' ? 'btn-full'
                       ],
                       label_classes: ['d-none', 'd-lg-block'],
+                      button_attributes: login_button_attributes,
                     } %}
                       {% block before %}
                         {% if slim_header_action_type == 'full' and slim_header_action_icon %}
