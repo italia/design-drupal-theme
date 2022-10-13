@@ -1,0 +1,189 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+hero2:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: "Hero 2"
+  description: "Hero is a lightweight and flexible component that can optionally extend the entire window to show featured posts on your site. https://italia.github.io/bootstrap-italia/docs/componenti/hero/"
+
+  # Variants definition.
+  variants:
+    default:
+      label: Default
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/hero/
+
+  # Settings (ui_patterns_settings module).
+  settings:
+    hero_description:
+      type: textfield
+      label: "Accessibility description"
+      description: "Customize accessibility description. Default: Highlights section."
+      allow_token: true
+    default_hero_cta_label:
+      type: textfield
+      label: "Default call to action label"
+      description: "Choose default call to action label."
+      allow_token: true
+      preview: "Read More"
+    hero_cta_type:
+      type: select
+      label: Call to action type
+      description: 'Choose button type.'
+      preview: 'primary'
+      allow_expose: true
+      options:
+        primary: Primary
+        secondary: Secondary
+        success: Success
+        warning: Warning
+        danger: Danger
+        info: Info
+        white: White
+        dark: Dark
+        light: Light
+        black: Black
+    hero_small:
+      type: boolean
+      label: "Enable hero small"
+      description: "Enable small variant."
+      allow_token: true
+      preview: 0
+      allow_expose: true
+    hero_overlay_color:
+      type: select
+      label: Overlay color
+      description: 'Choose the color of the overlay. In this version only Primary work.'
+      preview: 'primary'
+      allow_expose: true
+      options:
+        primary: Primary
+        secondary: Secondary
+        success: Success
+        warning: Warning
+        danger: Danger
+        info: Info
+        white: White
+        dark: Dark
+        light: Light
+        black: Black
+        blue: Blue
+        indigo: Indigo
+        purple: Purple
+        pink: Pink
+        red: Red
+        orange: Orange
+        yellow: Yellow
+        green: Green
+        teal: Teal
+        cyan: Cyan
+        gray-100: Gray 100
+        gray-200: Gray 200
+        gray-300: Gray 300
+        gray-400: Gray 400
+        gray-500: Gray 500
+        gray-600: Gray 600
+        gray-700: Gray 700
+        gray-800: Gray 800
+        gray-900: Gray 900
+    hero_image_light:
+      type: boolean
+      label: "Image Light"
+      description: "Adjust the contrast for light images. https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-testi-ed-immagine-di-sfondo"
+      allow_token: true
+      preview: 0
+      allow_expose: true
+    hero_image_filter:
+      type: boolean
+      label: "Image filter"
+      description: "If checked, a filter is added as described in the https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-overlay-e-filtro-di-colore-primario"
+      allow_token: true
+      preview: 0
+      allow_expose: true
+    hero_text_centered:
+      type: boolean
+      label: "Text centered"
+      description: "If checked, centers the text. https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-contenuti-testuali-centrati"
+      allow_token: true
+      preview: 0
+      allow_expose: true
+    hero_overlapping_content:
+      type: boolean
+      label: "Overlapping"
+      description: "If checked, the following content covers a portion of this component. https://italia.github.io/bootstrap-italia/docs/componenti/hero/#con-immagine-e-margine-negativo-per-contenuti-sovrapposti"
+      allow_token: true
+      preview: 0
+      allow_expose: true
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    image:
+      type: text
+      label: 'Image (field)'
+      description: 'Image from drupal field.'
+    hero_kicker:
+      type: text
+      label: 'Kicker (field)'
+      description: 'Hero Kicker. Field.'
+      preview: 'Category'
+    hero_title:
+      type: text
+      label: 'Title (field)'
+      description: 'Hero title. Field.'
+      preview: 'Heading lorem ipsum dolor sit amet, consetetur sadipscing.'
+    hero_text:
+      type: text
+      label: 'Content text (field)'
+      description: 'Hero content with <p> wrapper. Field.'
+      preview: '<p>Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Dictum sit amet justo donec enim diam vulputate ut. Eu nisl nunc mi ipsum faucibus.</p>'
+    hero_cta_url:
+      type: text
+      label: 'Call to action link (eg. /node/id, raw text).'
+      description: 'Enter a url in raw text format.'
+      preview: '#/node/1'
+
+  # Optional: Attached libraries.
+  #
+  # You can include libraries defined by other modules / themes with dependencies.
+  #
+  # These libraries are also available for include in theme libraries as
+  # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
+  # irrespective of whether a pattern of that type appears on the page.
+  #   Example: ui_patterns/button.button
+  # libraries:
+  #   -
+  #     card_simple:
+  #       css:
+  #         component:
+  #           css/card_simple.css: {}
+
+  # Optional: Specify a TWIG template with 'use'.
+  #
+  #   Example:
+  #     use: 'themes/custom/THEME/patterns/blockquote/blockquote.html.twig'
+  #
+  # This usually contains a path relative to the Drupal root. Some documentation
+  # says that a theme-relative path can also be used, but it didn't work for me.
+  #
+  #   Example:
+  #     use: '@oldie/patterns/blockquote/blockquote.html.twig' (didn't work)
+  #
+  # Alternatively, you can use the 'components' module to have better-looking
+  # and flexible paths.
+  #
+  #   Examples:
+  # use: '@patterns/blockquote/blockquote.html.twig'
+  #     use: '@blockquote/blockquote.html.twig'
+  #
+  # Not defining 'use' makes the UI Patterns module look for a template with
+  # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
+  #
+  #   Example: pattern-blockquote.html.twig

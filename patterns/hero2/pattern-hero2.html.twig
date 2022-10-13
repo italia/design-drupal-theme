@@ -1,0 +1,26 @@
+{% embed '@bi-bcl/hero/hero.html.twig' with {
+  hero_kicker: hero_kicker,
+  hero_title: hero_title,
+  hero_text: hero_text,
+  hero_cta_url: hero_cta_url|render|striptags|trim,
+  hero_cta_label: default_hero_cta_label|render|length > 1 ? default_hero_cta_label : 'Read More'|t,
+  hero_cta_type: image ? hero_cta_type : 'outline-' ~ hero_cta_type,
+  hero_small: hero_small,
+  hero_description: hero_description,
+  hero_overlay_color: hero_overlay_color,
+  hero_image_filter: hero_image_filter,
+  hero_text_centered: hero_text_centered,
+  hero_overlapping_content: hero_overlapping_content,
+} %}
+  {% block heroImage %}
+    {% if image is not empty %}
+      <div class="img-responsive-wrapper">
+        <div class="img-responsive">
+          <div class="img-wrapper">
+            {{ image }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+{% endembed %}

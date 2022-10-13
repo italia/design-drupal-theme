@@ -63,28 +63,28 @@ settings:
       label: 'Gray 100'
     -
       value: gray-200
-      label: 'Gray 100'
+      label: 'Gray 200'
     -
       value: gray-300
-      label: 'Gray 100'
+      label: 'Gray 300'
     -
       value: gray-400
-      label: 'Gray 100'
+      label: 'Gray 400'
     -
       value: gray-500
-      label: 'Gray 100'
+      label: 'Gray 500'
     -
       value: gray-600
-      label: 'Gray 100'
+      label: 'Gray 600'
     -
       value: gray-700
-      label: 'Gray 100'
+      label: 'Gray 700'
     -
       value: gray-800
-      label: 'Gray 100'
+      label: 'Gray 800'
     -
       value: gray-900
-      label: 'Gray 100'
+      label: 'Gray 900'
     -
       value: light
       label: Light
