@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Gallery Views module help and theme functions.
+ */
+
+use Drupal\bootstrap_italia_views_gallery\Plugin\views\style\GalleryStyle;
+
+/**
+ * Implements hook_theme().
+ */
+function bootstrap_italia_views_gallery_style_theme($existing, $type, $theme, $path) {
+  return [
+    'views_bootstrap_italia_views_gallery' => [
+      'variables' => [
+        'view' => NULL,
+        'rows' => NULL,
+        'options' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for bootstrap list templates.
+ *
+ * Default template: views-bootstrap-italia-views-gallery.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ */
+function template_preprocess_views_bootstrap_italia_views_gallery(array &$variables) {
+  // Update options for twig.
+  $variables['options'] = $variables['view']->style_plugin->options;
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function bootstrap_italia_views_gallery_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#view'])) {
+    $view = $variables['elements']['content']['#view'];
+
+    if ($view->style_plugin instanceof GalleryStyle) {
+      $suggestions[] = 'block__views_views_bi_gallery__' . $view->id();
+      $suggestions[] = 'block__views_views_bi_gallery';
+    }
+  }
+}

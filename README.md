@@ -301,6 +301,13 @@ into the views module.
 $ drush -y pm:enable bootstrap_italia_views_carousel
 ```
 
+## Bootstrap Italia Views Gallery
+This module manages the integration of the gallery component
+into the views module.
+```
+$ drush -y pm:enable bootstrap_italia_views_gallery
+```
+
 ## Bootstrap Italia Views List
 This module manages the integration of the list component into the views module.
 ```

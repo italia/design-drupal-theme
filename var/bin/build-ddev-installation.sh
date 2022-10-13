@@ -226,6 +226,9 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia views carousel'
   ddev exec drush -y pm:enable bootstrap_italia_views_carousel
 
+  echo 'Install module: Bootstrap Italia views gallery'
+  ddev exec drush -y pm:enable bootstrap_italia_views_gallery
+
   echo 'Install module: Bootstrap Italia views list'
   ddev exec drush -y pm:enable bootstrap_italia_views_list
 

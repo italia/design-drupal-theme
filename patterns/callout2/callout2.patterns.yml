@@ -11,7 +11,7 @@
 #
 callout2:
   # The label and description are used in the Drupal UI and the pattern library.
-  label: "Callout 2 "
+  label: "Callout 2"
   description: "Callouts can be used to highlight certain parts of the text that require special attention. They may contain error messages, warnings, tips, etc. https://italia.github.io/bootstrap-italia/docs/componenti/callout/"
 
   # Variants definition.

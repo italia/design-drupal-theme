@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Default theme implementation to hero display a node.
+ * Default theme implementation to gallery display a node.
  * To activate this template you need to add a display named 'card'.
  *
  * Available variables:
@@ -69,36 +69,24 @@
  * @ingroup themeable
  */
 #}
-{% apply spaceless %}
-  {% embed '@bi-bcl/hero/hero.html.twig' with {
-    hero_title: label,
-    hero_cta_url: url,
-    hero_cta_label: 'Read More'|t,
-    hero_cta_type: 'outline-primary',
-    hero_overlay_color: 'primary',
-    hero_image_light: true,
-  } %}
-    {% block heroImage %}
-      {% if content.field_image[0] %}
-        <div class="img-responsive-wrapper">
-          <div class="img-responsive">
-            <div class="img-wrapper">
-              {{ content.field_image }}
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    {% endblock %}
+{# Call to action setup. #}
+{% set call_to_action_attributes = create_attribute() %}
+{% set call_to_action_attributes = call_to_action_attributes
+  .setAttribute('title', label|render|striptags|trim)
+%}
 
-    {% block heroKicker %}
-      {% if content.field_tags[0] %}
-        <span class="it-Categoria">{{ content.field_tags[0] }}</span>
-      {% endif %}
-    {% endblock %}
+{% embed '@bi-bcl/gallery/gallery-item.html.twig' with {
+  image_description: label,
+  show_image_caption: true,
+  icon_name: '',
+  overlay: true,
+  call_to_action_url: url,
+  call_to_action_attibutes: call_to_action_attributes,
+  gallery_item_attributes: attributes,
+} %}
 
-    {% block heroText %}
-      <div class="d-none d-lg-block">{{ content|without('field_tags','field_image') }}</div>
-    {% endblock %}
+  {% block galleryItemImage %}
+    {{ content.field_image }}
+  {% endblock %}
 
-  {% endembed %}
-{% endapply %}
+{% endembed %}

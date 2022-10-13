@@ -1,0 +1,63 @@
+{#
+/**
+ * Default theme implementation for Views to output a splide carousel.
+ *
+ * Available variables:
+ * - options.bi_gallery_settings: View plugin style options:
+ *   - grid_type
+ *   - show_image_caption
+ *
+ * @see template_preprocess_views_bootstrap_italia_views_gallery()
+ *
+ * @ingroup themeable
+ */
+#}
+{% apply spaceless %}
+  {% embed '@bi-bcl/gallery/gallery.html.twig' with {
+    show_image_caption: options.bi_gallery_settings.show_image_caption,
+    grid_type: options.bi_gallery_settings.grid_type  == 'double' ? 'quilted' : options.bi_gallery_settings.grid_type
+  } %}
+    {% block galleryItems %}
+      {% set container_classes = [
+      ] %}
+
+      {% for row in rows %}
+
+        {% if options.bi_gallery_settings.grid_type != 'double' or loop.length < 4 %}
+          {% set _item_classes = [
+            _grid_type == 'masonry' ? 'col-sm-6 col-lg-4 mb-4' : 'col-6 col-lg-4',
+          ]|merge(container_classes) %}
+          <div{{ attributes.addClass(_item_classes) }}>{{ row }}</div>
+
+        {% else %}
+          {# First image double. #}
+          {% if loop.first %}
+            {% set _item_classes = ['col-12 col-md-6']|merge(container_classes) %}
+            <div{{ attributes.addClass(_item_classes) }}>{{ row }}</div>
+
+            {# Start second column. #}
+            <div class="col-12 col-md-6">
+            <div class="grid-row">
+          {% endif %}
+
+          {% if not loop.first and not loop.last %}
+            <div class="col-6">{{ row }}</div>
+          {% endif %}
+
+          {% if loop.last %}
+            {% if loop.index is divisible by(2) %}
+              <div class="col-6">{{ row|merge({'gallery_item_classes': ['it-grid-item-double-w']}) }}</div>
+            {% else %}
+              <div class="col-6">{{ row }}</div>
+            {% endif %}
+
+            </div>{# End grid-row. #}
+            </div>{# End second column. #}
+          {% endif %}{# End loop.last. #}
+
+        {% endif %}
+
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+{% endapply %}
