@@ -3,7 +3,7 @@
  * @file
  * Template for Overlay component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/overlay
- * Last review: 1.4.1
+ * Latest revision: 1.4.1
  *
  * Available config:
  * - overlay_caption: string
@@ -31,9 +31,9 @@
   <figcaption {{ attributes.addClass(caption_classes) }}><span>{{ overlay_caption }}</span>
     {% if overlay_icon %}
       <span class="sr-only">{{ overlay_icon_sr_only }}</span>
-      {% include '@bootstrap_italia_components/icon/icon.twig' with { 
+      {% include '@bootstrap_italia_components/icon/icon.twig' with {
         name: overlay_icon
-      } 
+      }
     %}
     {% endif %}
   </figcaption>

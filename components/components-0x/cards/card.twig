@@ -3,7 +3,7 @@
  * @file
  * Template for Card component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
- * Last review: 1.4.1
+ * Latest revision: 1.4.1
  *
  * Available config:
  * - card_category_url: URL
@@ -126,7 +126,7 @@
       {% if card_subtitle and card_type == 'with_icon' %}
       <h6 class="card-subtitle">{{ card_subtitle }}</h6>
       {% endif %}
-      
+
       {% set text_tag = (card_type == 'custom') ? 'div' : 'p' %}
       {% if variant %}
         {% set card_text = card_text|render|striptags %}
