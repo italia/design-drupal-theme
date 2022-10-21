@@ -1,0 +1,130 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+modal2:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: "Modal 2"
+  description: "https://italia.github.io/bootstrap-italia/docs/componenti/modale/"
+
+  # Variants definition.
+  variants:
+    default:
+      label: Default
+      description: https://italia.github.io/bootstrap-italia/docs/componenti/modale/
+
+  # Settings (ui_patterns_settings module).
+  settings:
+    popconfirm:
+      type: boolean
+      label: "Popconfirm"
+      description: "Enable popconfirm feature. https://italia.github.io/bootstrap-italia/docs/componenti/modale/#modale-popconfirm"
+      preview: 0
+    modal_default_icon:
+      type: textfield
+      label: "Default icon"
+      description: "Choose default icon. Eg: it-name"
+      allow_token: true
+      preview: "it-info-circle"
+    modal_position:
+      type: select
+      label: Modal Position
+      description: 'Choose modal position.'
+      preview: 'centered'
+      options:
+        centered: Centered
+        left: Left
+        right: Right
+    modal_size:
+      type: select
+      label: Modal Size
+      description: 'Choose modal size.'
+      options:
+        sm: Small
+        lg: Large
+        xl: Extra large
+        fullscreen: Fullscreen
+        fullscreen-sm-down: Fullscreen SM down
+        fullscreen-lg-down: Fullscreen LG down
+        fullscreen-xl-down: Fullscreen XL down
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    modal_title:
+      type: text
+      label: 'Title (raw text).'
+      description: 'Enter a title in raw text.'
+      preview: 'Modal title'
+    modal_body:
+      type: text
+      label: 'Body (field).'
+      description: 'Enter a body. Wrap text in <p> tag'
+      preview: |
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    modal_footer:
+      type: text
+      label: 'Footer (field).'
+      description: 'Enter a footer.'
+      preview: |
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-dismiss="modal">Action 2</button>
+        <button class="btn btn-primary btn-sm" type="button">Action 1</button>
+    modal_icon:
+      type: text
+      label: 'Icon (eg. it-name, raw text)'
+      description: 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/'
+    modal_label:
+      type: text
+      label: 'Button label (raw text)'
+      description: 'Customize button label'
+      preview: 'Launch demo modal'
+
+  # Optional: Attached libraries.
+  #
+  # You can include libraries defined by other modules / themes with dependencies.
+  #
+  # These libraries are also available for include in theme libraries as
+  # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
+  # irrespective of whether a pattern of that type appears on the page.
+  #   Example: ui_patterns/button.button
+  # libraries:
+  #   -
+  #     card_simple:
+  #       css:
+  #         component:
+  #           css/card_simple.css: {}
+
+  # Optional: Specify a TWIG template with 'use'.
+  #
+  #   Example:
+  #     use: 'themes/custom/THEME/patterns/blockquote/blockquote.html.twig'
+  #
+  # This usually contains a path relative to the Drupal root. Some documentation
+  # says that a theme-relative path can also be used, but it didn't work for me.
+  #
+  #   Example:
+  #     use: '@oldie/patterns/blockquote/blockquote.html.twig' (didn't work)
+  #
+  # Alternatively, you can use the 'components' module to have better-looking
+  # and flexible paths.
+  #
+  #   Examples:
+  # use: '@patterns/blockquote/blockquote.html.twig'
+  #     use: '@blockquote/blockquote.html.twig'
+  #
+  # Not defining 'use' makes the UI Patterns module look for a template with
+  # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
+  #
+  #   Example: pattern-blockquote.html.twig

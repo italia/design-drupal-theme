@@ -1,0 +1,20 @@
+{% embed '@bi-bcl/modal/modal.html.twig' with {
+  modal_title: modal_title|render|striptags|trim,
+  scrollable: modal_body|render|striptags|trim|length > 1000 ? true : false,
+  popconfirm: popconfirm,
+  dismissible: true,
+  modal_icon: modal_icon != "" ? modal_icon : modal_default_icon,
+  modal_position: modal_position,
+  modal_size: modal_size,
+  footer_shadow: modal_footer != "" ? true : false,
+  button_label: modal_label != "" ? modal_label : modal_title|render|striptags|trim|slice(0,15)~'...'
+} %}
+
+  {% block modalBody %}
+    {{ modal_body }}
+  {% endblock %}
+
+  {% block modalFooter %}
+    {{ modal_footer }}
+  {% endblock %}
+{% endembed %}
