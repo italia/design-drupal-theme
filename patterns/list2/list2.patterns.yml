@@ -16,7 +16,7 @@ list2:
 
   # Variants definition.
   variants:
-    default:
+    simple:
       label: Simple
       description: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#lista-semplice-solo-testo
     avatar:
@@ -64,7 +64,6 @@ list2:
       type: text
       label: 'Metadata (field)'
       description: 'https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#con-metadata'
-      preview: 'Metadata'
 
   # Optional: Attached libraries.
   #
