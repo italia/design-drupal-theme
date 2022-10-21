@@ -1,0 +1,65 @@
+{% set list_icon_name = list_icon != "" ? list_icon : list_default_icon %}
+
+{% if _context['theme_hook_suggestions'][0] == 'pattern_list2__preview' %}
+  {% embed '@bi-bcl/list/list.html.twig' %}
+    {% block listItems %}
+      {% embed '@bi-bcl/list/list-item.html.twig' with {
+        list_url: list_url,
+        list_text: list_text|render|striptags|trim,
+        list_icon: variant == 'icon' ? list_icon_name|render|striptags|trim,
+        list_show_end_arrow: list_url != "" and list_metadata == "" ? true : false,
+      } %}
+
+        {% block listStart %}
+          {% if variant == 'avatar' %}
+            {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+              avatar_size: 'lg'
+            } %}
+              {% block avatarContent %}
+                {{ list_image }}
+              {% endblock %}
+            {% endembed %}
+          {% endif %}
+        {% endblock %}
+
+        {% block listImage %}
+          {% if variant == 'image' %}
+            <div class="it-thumb">
+              {{ list_image }}
+            </div>
+          {% endif %}
+        {% endblock %}
+
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+{% else %}
+  {% embed '@bi-bcl/list/list-item.html.twig' with {
+    list_url: list_url,
+    list_text: list_text|render|striptags|trim,
+    list_icon: variant == 'icon' ? list_icon_name|render|striptags|trim,
+    list_show_end_arrow: list_url != "" and list_metadata == "" ? true : false,
+  } %}
+
+    {% block listStart %}
+      {% if variant == 'avatar' %}
+        {% embed '@bi-bcl/avatar/avatar.html.twig' with {
+          avatar_size: 'lg'
+        } %}
+          {% block avatarContent %}
+            {{ list_image }}
+          {% endblock %}
+        {% endembed %}
+      {% endif %}
+    {% endblock %}
+
+    {% block listImage %}
+      {% if variant == 'image' %}
+        <div class="it-thumb">
+          {{ list_image }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+  {% endembed %}
+{% endif %}
