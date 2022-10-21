@@ -1,0 +1,7 @@
+{% embed '@bi-bcl/accordion/accordion.html.twig' %}
+  {% block accordionItems %}
+    {% for i in 1..4 %}
+      {% include 'pattern-accordion2.html.twig' %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

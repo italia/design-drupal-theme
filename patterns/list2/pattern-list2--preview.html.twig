@@ -1,0 +1,8 @@
+{% set list_icon_name = list_icon != "" ? list_icon : list_default_icon %}
+{% embed '@bi-bcl/list/list.html.twig' %}
+  {% block listItems %}
+    {% for i in 1..3 %}
+      {% include 'pattern-list2.html.twig' %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

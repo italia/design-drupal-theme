@@ -1,0 +1,15 @@
+{% embed '@bi-bcl/gallery/gallery.html.twig' %}
+  {% block galleryItems %}
+    {% for i in 1..6 %}
+      {# Quilted grid force overlay:true #}
+      {% if _grid_type == 'quilted' %}
+        {% set item = item|merge({'overlay': true}) %}
+      {% endif %}
+
+      <div class="{{ _grid_type == 'masonry' ? 'col-sm-6 col-lg-4 mb-4' : 'col-6 col-lg-4' }}">
+        {% include 'pattern-gallery2.html.twig' %}
+      </div>
+
+    {% endfor %}
+  {% endblock %}
+{% endembed %}
