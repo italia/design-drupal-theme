@@ -1,6 +1,6 @@
 {% set list_icon_name = list_icon != "" ? list_icon : list_default_icon %}
 {% embed '@bi-bcl/list/list-item.html.twig' with {
-  list_url: list_url,
+  list_url: list_url['node_link']['0']['0']['#context']['entity_url'] ? list_url['node_link']['0']['0']['#context']['entity_url']|render : list_url|render|striptags|trim,
   list_text: list_text|render|striptags|trim,
   list_icon: variant == 'icon' ? list_icon_name|render|striptags|trim,
   list_show_end_arrow: list_url != "" and list_metadata == "" ? true : false,

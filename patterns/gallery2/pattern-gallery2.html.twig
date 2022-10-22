@@ -4,7 +4,7 @@
   show_image_caption: image_description ? true : false,
   icon_name: icon_name ? icon_name|render|striptags|trim : default_icon_name,
   overlay: overlay,
-  call_to_action_url: call_to_action_url|render|striptags|trim,
+  call_to_action_url: call_to_action_url['node_link']['0']['0']['#context']['entity_url'] ? call_to_action_url['node_link']['0']['0']['#context']['entity_url']|render : call_to_action_url|render|striptags|trim,
   call_to_action_attibutes: call_to_action_url ? call_to_actiion_attributes.setAttribute('title', image_description|render|striptags|trim),
 } %}
   {% block galleryItemImage %}

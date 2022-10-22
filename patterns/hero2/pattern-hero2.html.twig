@@ -2,7 +2,7 @@
   hero_kicker: hero_kicker,
   hero_title: hero_title,
   hero_text: hero_text,
-  hero_cta_url: hero_cta_url|render|striptags|trim,
+  hero_cta_url: hero_cta_url['node_link']['0']['0']['#context']['entity_url'] ? hero_cta_url['node_link']['0']['0']['#context']['entity_url']|render : hero_cta_url|render|striptags|trim,
   hero_cta_label: default_hero_cta_label|render|length > 1 ? default_hero_cta_label : 'Read More'|t,
   hero_cta_type: image ? hero_cta_type : 'outline-' ~ hero_cta_type,
   hero_small: hero_small,
