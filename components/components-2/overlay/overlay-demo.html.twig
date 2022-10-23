@@ -1,0 +1,150 @@
+{#
+/**
+ * @file
+ * Overlay demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/overlay/overlay-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+  {% set label = 'Image label' %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/240/160?image=1056" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay fullheight'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label,
+        panel_fullheight: true
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/240/160?image=1056" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay large image'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label,
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/800/300?image=1055" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay dark'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label,
+        overlay_black: true,
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/240/160?image=1056" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay fullheight dark'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label,
+        panel_fullheight: true,
+        overlay_black: true,
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/240/160?image=1056" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay large image dark'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label,
+        overlay_black: true,
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/800/300?image=1055" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay icon primary'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label,
+        overlay_icon: 'it-star-outline'
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/240/160?image=1056" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Overlay icon primary black'|t,
+  } %}
+    {% block content %}
+
+      {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+        label: label,
+        overlay_black: true,
+        overlay_icon: 'it-star-outline'
+      } %}
+        {% block overlayImage %}
+          <img src="https://picsum.photos/240/160?image=1056" alt="Image description" class="img-fluid">
+        {% endblock %}
+      {% endembed %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+{% endapply %}

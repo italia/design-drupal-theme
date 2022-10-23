@@ -2,8 +2,8 @@
 /**
  * @file
  * Template for Overlay component.
- * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/overlay
- * Latest revision: 1.4.1
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/overlay/
+ * Latest revision: v2.0.7
  *
  * Available config:
  * - overlay_caption: string
@@ -16,25 +16,21 @@
  * - overlay_icon_sr_only: string
  *
 #}
-{% set figure_classes = [
-  'overlay-wrapper',
-  overlay_hover ? 'overlay-hover'
-] %}
-{% set caption_classes = [
-  'overlay-panel',
-  overlay_fulllheight ? 'overlay-panel-fullheight',
-  overlay_black ? 'overlay-black',
-  overlay_icon ? 'overlay-icon'
-] %}
-<figure {{ attributes.addClass(figure_classes) }}>
-  <img src="{{ overlay_img }}" alt="{{ overlay_img_alt }}" class="img-fluid">
-  <figcaption {{ attributes.addClass(caption_classes) }}><span>{{ overlay_caption }}</span>
-    {% if overlay_icon %}
-      <span class="sr-only">{{ overlay_icon_sr_only }}</span>
-      {% include '@bootstrap_italia_components/icon/icon.twig' with {
-        name: overlay_icon
-      }
-    %}
-    {% endif %}
-  </figcaption>
-</figure>
+{% apply spaceless %}
+  {% include '@bi-bcl/deprecated.html.twig' with {
+    old: 'bootstrap_italia_components/overlay/overlay.twig',
+    new: 'bi-bcl/overlay/overlay.html.twig',
+  } %}
+
+  {% embed '@bi-bcl/overlay/overlay.html.twig' with {
+    label: overlay_caption,
+    panel_fullheight: overlay_fulllheight,
+    overlay_black: overlay_black,
+    overlay_icon: overlay_icon
+  } %}
+    {% block overlayImage %}
+      <img src="{{ overlay_img }}" alt="{{ overlay_img_alt }}" class="img-fluid">
+    {% endblock %}
+  {% endembed %}
+
+{% endapply %}

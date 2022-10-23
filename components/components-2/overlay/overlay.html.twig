@@ -1,0 +1,82 @@
+{#
+/**
+ * @file
+ * Template for overlay component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/overlay/
+ * Latest revision: v2.0.7
+ *
+ * Parameters:
+ * - image (field) (default: '')
+ *   - drupal image field
+ * - label (string) (default: '')
+ *   - Image Description
+ * - overlay_icon (string) (default: '')
+ *   - Show icon, it-name format
+ * - panel_fullheight (boolean) (default: false)
+ *   - Enable panel fullheight feature
+ * - overlay_black (boolean) (default: false)
+ *   - Enable overlay black feature
+ * - overlay_classes (array) (default: '')
+ * - overlay_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/overlay/overlay.html.twig' with {
+     image: field_image,
+     label: label
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _image = image|default('') %}
+  {% set _label = label|default('') %}
+  {% set _overlay_icon = overlay_icon|default('') %}
+  {% set _panel_fullheight = panel_fullheight ?? false %}
+  {% set _overlay_black = overlay_black ?? false %}
+  {% set _overlay_classes = overlay_classes|default('') %}
+  {% set _overlay_attributes = overlay_attributes|default('') %}
+
+  {# Set options #}
+  {% set _classes = [
+    'overlay-wrapper',
+  ] %}
+
+  {% if _overlay_classes is not empty %}
+    {% set _classes = _classes|merge(overlay_classes) %}
+  {% endif %}
+
+  {% if _overlay_attributes is empty %}
+    {% set overlay_attributes = create_attribute() %}
+  {% endif %}
+  {% set overlay_attributes = overlay_attributes
+    .addClass(_classes)
+  %}
+
+  {# Set panel options #}
+  {% set _panel_classes = [
+    'overlay-panel',
+    _panel_fullheight and not _overlay_icon ? 'overlay-panel-fullheight',
+    _overlay_black ? 'overlay-black',
+    _overlay_icon ? 'overlay-icon'
+  ] %}
+  {% set panel_attributes = create_attribute() %}
+  {% set panel_attributes = panel_attributes
+    .addClass(_panel_classes)
+  %}
+
+  {# Component #}
+  <figure{{- overlay_attributes -}}>
+    {% block overlayImage %}
+      {{- _image -}}
+    {% endblock %}
+    <figcaption{{ panel_attributes }}>
+      {%- if _overlay_icon is not empty -%}
+        <span class="visually-hidden">{{ _label }}</span>
+        {% include '@bi-bcl/icon/icon.html.twig' with {name: _overlay_icon} %}
+      {%- else -%}
+        <span>{{- _label -}}</span>
+      {%- endif -%}
+    </figcaption>
+  </figure>
+{% endapply %}
