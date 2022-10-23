@@ -40,6 +40,12 @@
 #}
 {% apply spaceless %}
   {% for item in items %}
-    {{ item.content }}
+    {% if _context['element']['#display_mode'] is defined and _context['element']['#display_mode'] == 'gallery' %}
+      <div class="col-6 col-lg-4">
+        {{ item.content }}
+      </div>
+    {% else %}
+      {{ item.content }}
+    {% endif %}
   {% endfor %}
 {% endapply %}

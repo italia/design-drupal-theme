@@ -54,6 +54,14 @@
     {% endblock %}
   {% endembed %}
 
+{# Wrap gallery items. #}
+{% elseif content.field_display_mode[0]['#markup'] == 'gallery' %}
+  {% embed '@bi-bcl/gallery/gallery.html.twig' %}
+    {% block galleryItems %}
+      {{ content.field_node|merge({'#display_mode': 'gallery'}) }}
+    {% endblock %}
+  {% endembed %}
+
 {# Wrap teaser card. #}
 {% elseif content.field_display_mode[0]['#markup'] == 'teaser' %}
   <div class="card-wrapper card-teaser-wrapper">
