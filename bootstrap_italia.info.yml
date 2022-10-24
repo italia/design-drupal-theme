@@ -26,7 +26,7 @@ regions:
 
   # Before content
   before_content_full_width: "Before content - Full width region"
-  before_content_first: "Before content- First region"
+  before_content_first: "Before content - First region"
   before_content_second: "Before content - Second region"
   before_content_third: "Before content - Third region"
   before_content_fourth: "Before content - Fourth region"
