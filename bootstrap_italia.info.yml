@@ -81,11 +81,11 @@ regions:
   home_third_row_third: "Home page - Third row - Third region"
   home_third_row_fourth: "Home page - Third row - Fourth region"
 
-  home_fourth_row_full_width: "Home page - Fourth ror full width"
-  home_fourth_row_first: "Home page - Fourth ror- First region"
-  home_fourth_row_second: "Home page - Fourth ror - Second region"
-  home_fourth_row_third: "Home page - Fourth ror - Third region"
-  home_fourth_row_fourth: "Home page - Fourth ror - Fourth region"
+  home_fourth_row_full_width: "Home page - Fourth row full width"
+  home_fourth_row_first: "Home page - Fourth row - First region"
+  home_fourth_row_second: "Home page - Fourth row - Second region"
+  home_fourth_row_third: "Home page - Fourth row - Third region"
+  home_fourth_row_fourth: "Home page - Fourth row - Fourth region"
 
   home_last_row_full_width: "Home page - Last full width region"
 
