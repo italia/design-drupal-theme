@@ -77,7 +77,7 @@ ddev exec drush -y site:install
 
 echo '==[ Install end enable bootstrap_italia dependencies ]=='
 ddev exec drush -y pm:enable inline_form_errors responsive_image
-ddev composer require 'drupal/components:^3@beta'
+ddev composer require 'drupal/components:^3.0@beta'
 ddev exec drush -y pm:enable components
 
 if [ "$enable_locale" == "y" ]; then

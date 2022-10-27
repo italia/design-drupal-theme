@@ -24,7 +24,7 @@ $ drush site:install
 $ cd <drupal-root>
 
 /* 1. Install end enable dependencies */
-$ composer require drupal/components:^3@beta
+$ composer require drupal/components:^3.0@beta
 $ drush pm:enable components
 $ composer require drupal/bootstrap_italia:2.x-dev
 
