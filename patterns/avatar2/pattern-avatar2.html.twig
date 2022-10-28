@@ -31,7 +31,7 @@
       avatar_type: variant,
       avatar_icon: false,
       avatar_icon_color: false,
-      avatar_image: false,
+      avatar_image: avatar_image,
       avatar_text: avatar_text,
       avatar_text_color: default_background_color,
       avatar_assistive_text: avatar_text,
@@ -67,7 +67,7 @@
   {% if avatar_extra_title or avatar_extra_text %}
       <div class="extra-text">
         {% if avatar_extra_title %}
-          <h4>{{ avatar_extra_title }}</h4>
+          <h3 class="h4">{{ avatar_extra_title }}</h3>
         {% endif %}
         {{ avatar_extra_text }}
       </div>
