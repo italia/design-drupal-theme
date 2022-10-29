@@ -1,5 +1,5 @@
 {% set card_read_more_url = card_read_more_url['node_link']['0']['0']['#context']['entity_url'] ? card_read_more_url['node_link']['0']['0']['#context']['entity_url']|render : card_read_more_url|render|striptags|trim %}
-<a href="{{ card_read_more_url }}">
+<a href="{{ card_read_more_url }}" title="{{ 'Read more about'|t }} {{ card_title|render|striptags|trim }}">
   <div class="img-responsive-wrapper">
     <div class="img-responsive">
       <div class="img-wrapper">
