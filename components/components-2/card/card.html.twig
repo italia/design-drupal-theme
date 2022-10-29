@@ -18,6 +18,7 @@
  * - card_category (string|drupal_field) (default: '')
  * - card_date (string|drupal_field) (default: '')
  * - card_title (string|drupal_field) (default: '')
+ * - card_big_title (boolean) (default: false)
  * - card_subtitle (string|drupal_field) (default: '')
  * - card_text (string|drupal_field) (default: '')
  * - card_signature (string|drupal_field) default('')
@@ -51,6 +52,7 @@
   {% set _card_category = card_category|default('') %}
   {% set _card_date = card_date|default('') %}
   {% set _card_title = card_title|default('') %}
+  {% set _card_big_title = card_big_title ?? false %}
   {% set _card_subtitle = card_subtitle|default('') %}
   {% set _card_text = card_text|default('') %}
   {% set _card_signature = card_signature|default('') %}

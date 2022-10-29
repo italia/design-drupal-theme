@@ -1,10 +1,10 @@
 {# This is a partial reusable template for card component. #}
-{% if _card_title is not empty and variant == 'article' %}
-  <h3 class="card-title big-heading h5">
-    {{ _card_title }}
-  </h3>
-{% elseif _card_title is not empty %}
-  <h3 class="card-title h5">
-    {{ _card_title }}
-  </h3>
-{% endif %}
+{% set _card_title_classes = [
+  'card-title',
+  _card_big_title ? 'big-heading',
+  'h5',
+] %}
+<h3 class="{{ _card_title_classes|join(' ')|trim }}">
+  {{ _card_title }}
+</h3>
+
