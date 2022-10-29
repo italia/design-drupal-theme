@@ -189,23 +189,10 @@
     {% endif %}
 
     {% if _avatar_type == 'image' %}
-      {% if _avatar_image|render %}
-        {{ _avatar_image }}
-      {% else %}
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: 'it-user',
-        } %}
-      {% endif %}
+      {{ _avatar_image }}
     {% endif %}
 
     {% if _avatar_type == 'text' %}
-      {% if _avatar_image|render %}
-        {{ _avatar_image }}
-      {% else %}
-        {% include '@bi-bcl/icon/icon.html.twig' with {
-          name: 'it-user',
-        } %}
-      {% endif %}
       <p aria-hidden="true">{{ _avatar_text|upper }}</p>
       <span class="visually-hidden">{{ _avatar_assistive_text }}</span>
     {% endif %}

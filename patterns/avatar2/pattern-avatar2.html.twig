@@ -31,10 +31,10 @@
       avatar_type: variant,
       avatar_icon: false,
       avatar_icon_color: false,
-      avatar_image: avatar_image,
+      avatar_image: false,
       avatar_text: avatar_text,
       avatar_text_color: default_background_color,
-      avatar_assistive_text: avatar_text,
+      avatar_assistive_text: avatar_text|render|striptags|trim,
       avatar_size: default_avatar_size,
       avatar_url: avatar_url['node_link']['0']['0']['#context']['entity_url'] ? avatar_url['node_link']['0']['0']['#context']['entity_url']|render : avatar_url|render|striptags|trim,
       avatar_tooltip_text: avatar_tooltip_text,
@@ -67,7 +67,7 @@
   {% if avatar_extra_title or avatar_extra_text %}
       <div class="extra-text">
         {% if avatar_extra_title %}
-          <h3 class="h4">{{ avatar_extra_title }}</h3>
+          <h3>{{ avatar_extra_title }}</h3>
         {% endif %}
         {{ avatar_extra_text }}
       </div>
