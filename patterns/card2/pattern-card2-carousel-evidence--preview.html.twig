@@ -1,0 +1,13 @@
+{% embed '@bi-bcl/carousel/carousel.html.twig' with {
+  carousel_col_type: 'it-carousel-landscape-abstract',
+} %}
+  {% block carouselSlides %}
+    {% for i in 1..4 %}
+      {% embed '@bi-bcl/carousel/carousel-slide.html.twig' %}
+        {% block slideContent %}
+          {% include 'pattern-card2-carousel-evidence.html.twig' %}
+        {% endblock %}
+      {% endembed %}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

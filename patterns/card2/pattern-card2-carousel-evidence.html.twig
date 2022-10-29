@@ -1,0 +1,26 @@
+{% set card_read_more_url = card_read_more_url['node_link']['0']['0']['#context']['entity_url'] ? card_read_more_url['node_link']['0']['0']['#context']['entity_url']|render : card_read_more_url|render|striptags|trim %}
+<a href="{{ card_read_more_url }}">
+  <div class="img-responsive-wrapper">
+    <div class="img-responsive">
+      <div class="img-wrapper">
+        {{ card_image }}
+      </div>
+    </div>
+  </div>
+</a>
+<div class="it-text-slider-wrapper-outside">
+  {% include '@bi-bcl/card/card.html.twig' with {
+    card_image: false,
+    card_title: card_title,
+    card_big_title: true,
+    card_subtitle: false,
+    card_text: card_text,
+    card_category: card_category,
+    card_date: card_date,
+    card_signature: card_signature,
+    card_read_more_url: card_read_more_url,
+    card_read_more_text: card_title|render|striptags|trim,
+    card_read_more_type: 'read-more',
+    card_shadow: false,
+  } %}
+</div>
