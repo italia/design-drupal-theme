@@ -19,3 +19,9 @@ dependencies:
   - drupal:bootstrap_italia_paragraph_citation
   - drupal:bootstrap_italia_paragraph_map
   - drupal:bootstrap_italia_paragraph_webform
+
+components:
+  namespaces:
+    # Components library 2.0
+    bi-bcl:
+      - ../../components/components-2

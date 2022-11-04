@@ -9,3 +9,9 @@ dependencies:
   - drupal:webform_bootstrap
   - drupal:webform_ui
   - drupal:bootstrap_italia_paragraph
+
+components:
+  namespaces:
+    # Components library 2.0
+    bi-bcl:
+      - ../../components/components-2

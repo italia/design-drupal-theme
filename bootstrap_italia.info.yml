@@ -96,12 +96,12 @@ components:
   namespaces:
     # Components library 0.x for retro-compatibility
     bootstrap_italia_components:
-      - ./components/components-0x
+      - components/components-0x
 
     # Components library 2.0
     bi-bcl:
-      - ./components/components-2
+      - components/components-2
 
     # Field library 2.0
     bi-field:
-      - ./components/field
+      - components/field

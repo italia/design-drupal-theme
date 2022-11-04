@@ -7,3 +7,9 @@ core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:entity_reference_display
   - drupal:bootstrap_italia_paragraph
+
+components:
+  namespaces:
+    # Components library 2.0
+    bi-bcl:
+      - ../../components/components-2

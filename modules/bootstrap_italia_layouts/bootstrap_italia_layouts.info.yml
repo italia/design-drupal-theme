@@ -7,3 +7,9 @@ core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:layout_discovery
   - drupal:layout_builder
+
+components:
+  namespaces:
+    # Components library 2.0
+    bi-bcl:
+      - ../../components/components-2
