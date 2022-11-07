@@ -61,19 +61,15 @@
                     {% set _current = key == current_language ? true : false %}
                     {%- if item.link -%}
                       {% set _item_attributes = item.attributes
-                        .addClass('dropdown-item')
-                        .addClass('list-item')
+                        .addClass(['dropdown-item', 'list-item', _current ? 'active'])
+                        .setAttribute(
+                          'title',
+                          _current ? 'Current language'|t : 'Switch to @languageName language'|t({'@languageName': item.link['#title']})
+                        )
                       %}
-                      {% if _current %}
-                        {% set _item_attributes = _item_attributes.addClass('active') %}
-                      {% endif %}
-                      <a{{ _item_attributes }}
-                        href="{{ item.link['#url'] }}"
-                        {% if _current %}
-                          title="{{ 'Current language'|t }}"
-                        {% else %}
-                          title="{{ 'Switch to @languageName language'|t({'@languageName': item.link['#title']}) }}"
-                        {% endif %}
+                      <a
+                        href="{{ path(item.link['#url'].getRouteName(), item.link['#url'].getRouteParameters(), item.link['#options']) }}"
+                        {{ _item_attributes }}
                       >
                         <span>
                           {{ item.link['#title'] }}
