@@ -13,7 +13,7 @@ if [ -d "$project_name" ]; then
 fi
 
 # Search project in ddev
-ddev_search=$(ddev list | grep -w "$project_name" | awk '{name = $1}; END {print name}')
+ddev_search=$(ddev list | grep -w "$project_name" | awk '{name = $2}; END {print name}')
 if [ "$project_name" == "$ddev_search" ]; then
   echo "Error! The project name ${ddev_search} already exists! Exit..."
   exit

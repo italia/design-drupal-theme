@@ -385,6 +385,8 @@ $ drush en ui_patterns_views
 If you want an automated script that works for you, run script located at
 `themes/bootstrap_italia/var/bin/build-ddev-installation.sh` and enjoy it
 
+This script works for ddev >= 1.18.0 (Sept 2021)
+
 Download ad run:
 ```
 $ bash <(curl -s https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh)
