@@ -55,9 +55,9 @@ class GalleryStyle extends StylePluginBase {
       '#description' => $this->t('Display type. Default: "Default".'),
       '#options' => [
         '' => 'Default',
-        'quilted' => 'Quilted',
-        'double' => 'First image double (4 items min.)',
-        'masonry' => 'Masonry',
+        'quilted' => $this->t('Quilted'),
+        'double' => $this->t('First image double (4 items min.)'),
+        'masonry' => $this->t('Masonry'),
       ],
       '#default_value' =>
       $this->options['bi_gallery_settings']['grid_type'] ?? '',

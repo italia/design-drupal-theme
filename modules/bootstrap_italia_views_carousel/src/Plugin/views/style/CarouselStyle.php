@@ -55,9 +55,9 @@ class CarouselStyle extends StylePluginBase {
       '#title' => $this->t('Column type'),
       '#description' => $this->t('Select slide column type. Default: "Landscape abstract: 3 cols"'),
       '#options' => [
-        'it-carousel-landscape-abstract' => 'Landscape abstract: 1 col',
-        'it-carousel-landscape-abstract-three-cols' => 'Landscape abstract: 3 cols',
-        'it-carousel-landscape-abstract-three-cols-arrow-visible' => 'Landscape abstract: 3 cols with arrows',
+        'it-carousel-landscape-abstract' => $this->t('Landscape abstract: 1 col'),
+        'it-carousel-landscape-abstract-three-cols' => $this->t('Landscape abstract: 3 cols'),
+        'it-carousel-landscape-abstract-three-cols-arrow-visible' => $this->t('Landscape abstract: 3 cols with arrows'),
       ],
       '#default_value' =>
       $this->options['bi_carousel_settings']['carousel_col_type'] ?? 'it-carousel-landscape-abstract-three-cols',

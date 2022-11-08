@@ -52,8 +52,8 @@ class TimelineStyle extends StylePluginBase {
     // Date format.
     $form['bi_timeline_settings']['date_format'] = [
       '#type' => 'textfield',
-      '#title' => t('Date format'),
-      '#description' => t('Valid PHP <a href="@url" target="_blank">Date function</a> parameter to display date.', ['@url' => 'https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters']),
+      '#title' => $this->t('Date format'),
+      '#description' => $this->t('Valid PHP <a href="@url" target="_blank">Date function</a> parameter to display date.', ['@url' => 'https://www.php.net/manual/en/datetime.format.php#refsect1-datetime.format-parameters']),
       '#default_value' =>
       $this->options['bi_timeline_settings']['date_format'] ?? 'F Y',
     ];
@@ -82,16 +82,16 @@ class TimelineStyle extends StylePluginBase {
     // Icons.
     $form['bi_timeline_settings']['icon_past_event'] = [
       '#type' => 'textfield',
-      '#title' => t('Icon for past event'),
-      '#description' => t('Fill with icon name. <a href="@iconList" target="_blank">Icon list</a>. Default: "it-check"', ['@iconList' => 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili']),
+      '#title' => $this->t('Icon for past event'),
+      '#description' => $this->t('Fill with icon name. <a href="@iconList" target="_blank">Icon list</a>. Default: "it-check"', ['@iconList' => 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili']),
       '#placeholder' => 'it-name',
       '#default_value' =>
       $this->options['bi_timeline_settings']['icon_past_event'] ?? 'it-check',
     ];
     $form['bi_timeline_settings']['icon_event'] = [
       '#type' => 'textfield',
-      '#title' => t('Icon for events that have not passed'),
-      '#description' => t('Fill with icon name. <a href="@iconList" target="_blank">Icon list</a>. Default: "it-refresh"', ['@iconList' => 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili']),
+      '#title' => $this->t('Icon for events that have not passed'),
+      '#description' => $this->t('Fill with icon name. <a href="@iconList" target="_blank">Icon list</a>. Default: "it-refresh"', ['@iconList' => 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili']),
       '#placeholder' => 'it-name',
       '#default_value' =>
       $this->options['bi_timeline_settings']['icon_event'] ?? 'it-refresh',
