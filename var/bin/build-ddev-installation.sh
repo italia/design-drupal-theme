@@ -26,8 +26,8 @@ else
   drupal_version="10"
 fi
 
-read -r -p "Bootstrap Italia version [2.0...x|2.x-dev|latest] (2.x-dev): " bootstrap_italia_version
-bootstrap_italia_version=${bootstrap_italia_version:-2.x-dev}
+read -r -p "Bootstrap Italia version [2.x|2.0@beta|2.x-dev@dev|latest] (2.x-dev@dev): " bootstrap_italia_version
+bootstrap_italia_version=${bootstrap_italia_version:-2.x-dev@dev}
 
 read -r -p "Do you want enable italian language? [y|n] (y): " enable_locale
 enable_locale=${enable_locale:-y}
@@ -274,8 +274,8 @@ fi
 if [ "$enable_ui_tools" == "y" ]; then
   echo "==[ Install UI tools ]=="
 
-  ddev composer require drupal/ui_patterns drupal/ui_patters_settings drupal/ds
-  ddev exec drush -y pm:enable ui_patterns ui_patters_settings \
+  ddev composer require drupal/ui_patterns drupal/ui_patterns_settings drupal/ds
+  ddev exec drush -y pm:enable ui_patterns ui_patterns_settings \
     layout_discovery layout_builder bootstrap_italia_layouts \
     ds ds_extras ds_switch_view_mode \
     ui_patterns_library ui_patterns_views ui_patterns_layouts ui_patterns_ds
