@@ -12,6 +12,7 @@
  * - card_image_date (array|drupal_date_field) (default: '')
  *   - {'day': '9', 'month': 'October', 'year': '2022'}
  *   - {'date-full': drupal_date_field|raw}
+ * - image_panoramic (boolean) (default: false)
  * - card_icon (string) (default: '')
  *   - option ["it-icon-name"]
  * - card_icon_text (string|drupal_field) (default: '')
@@ -45,6 +46,7 @@
   {% set _card_tag_container = card_tag_container|default('div') %}
   {% set _card_image = card_image|default('') %}
   {% set _card_image_date = card_image_date|default('') %}
+  {% set _image_panoramic = image_panoramic ?? false %}
   {% set _card_icon = card_icon|default('') %}
   {% set _card_icon_text = card_icon_text|default('') %}
   {% set _card_category = card_category|default('') %}

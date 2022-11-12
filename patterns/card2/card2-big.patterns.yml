@@ -45,6 +45,13 @@ card2_big:
       allow_token: true
       preview: 1
       allow_expose: true
+    image_panoramic:
+      type: boolean
+      label: "Enable image panoramic"
+      description: "Shows image panoramic."
+      allow_token: true
+      preview: 0
+      allow_expose: true
     flag_invisible:
       type: boolean
       label: "Hide flag"
