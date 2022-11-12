@@ -1,8 +1,13 @@
 {# This is a partial reusable template for card component. #}
 {% apply spaceless %}
+
+  {% set _image_classes = [
+    _image_panoramic ? 'img-responsive img-responsive-panoramic' : 'img-responsive',
+  ] %}
+
   {% if _card_image is not empty %}
     <div class="img-responsive-wrapper">
-      <div class="img-responsive">
+      <div class="{{ _image_classes|join(' ')|trim }}">
         <figure class="img-wrapper">
           {{ _card_image }}
         </figure>

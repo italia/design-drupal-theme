@@ -38,6 +38,13 @@ card2_simple:
       allow_token: true
       preview: 1
       allow_expose: true
+    image_panoramic:
+      type: boolean
+      label: "Enable image panoramic"
+      description: "Shows image panoramic."
+      allow_token: true
+      preview: 1
+      allow_expose: true
     default_icon:
       type: textfield
       label: "Default icon"
