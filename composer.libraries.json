@@ -45,7 +45,7 @@
           "installer-name": "italia.bootstrap-italia"
         },
         "dist": {
-          "url": "italia.bootstrap-italia",
+          "url": "https://github.com/italia/bootstrap-italia/releases/download/v2.0.9/bootstrap-italia.zip",
           "type": "zip"
         }
       }
