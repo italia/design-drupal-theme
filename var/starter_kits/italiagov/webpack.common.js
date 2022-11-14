@@ -15,7 +15,7 @@ module.exports = {
   // Output
   output: {
     path: paths.build,
-    filename: "js/[name].js",
+    filename: "js/[name].min.js",
   },
   module: {
     rules: [
@@ -37,8 +37,8 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: 'css/[id].css'
+      filename: 'css/[name].min.css',
+      chunkFilename: 'css/[id].min.css'
     }),
     new SpriteLoaderPlugin({
       plainSprite: true

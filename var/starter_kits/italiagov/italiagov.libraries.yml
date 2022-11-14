@@ -6,6 +6,7 @@ vanilla:
   css:
     theme:
       dist/css/bootstrap-italia.min.css: { minified: true }
+      #dist/css/bootstrap-italia-comuni.min.css: { minified: true }
   js:
     dist/js/bootstrap-italia.bundle.min.js: { minified: true }
     # dist/js/bootstrap-italia.min.js: { minified: true }
@@ -16,9 +17,9 @@ vanilla:
 custom:
   css:
     theme:
-      dist/css/bootstrap-italia.css: {}
+      dist/css/bootstrap-italia.min.css: { minified: true }
   js:
-    dist/js/bootstrap-italia.js: {}
+    dist/js/bootstrap-italia.min.js: { minified: true }
   dependencies:
     - core/drupal
 
@@ -26,10 +27,10 @@ custom:
 cdn:
   css:
     theme:
-      https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.4/dist/css/bootstrap-italia.min.css: { type: external, minified: true }
-      # https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.2/dist/css/bootstrap-italia-comuni.min.css: { type: external, minified: true }
+      https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.9/dist/css/bootstrap-italia.min.css: { type: external, minified: true }
+      # https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.9/dist/css/bootstrap-italia-comuni.min.css: { type: external, minified: true }
   js:
-    https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.4/dist/js/bootstrap-italia.bundle.min.js: { type: external, minified: true }
+    https://cdn.jsdelivr.net/npm/bootstrap-italia@2.0.9/dist/js/bootstrap-italia.bundle.min.js: { type: external, minified: true }
   dependencies:
     - core/drupal
 
@@ -40,9 +41,9 @@ cdn:
 hot:
   css:
     theme:
-      http://127.0.0.1:8080/css/bootstrap-italia.css: { type: external }
+      http://127.0.0.1:8080/css/bootstrap-italia.min.css: { type: external, minified: true }
   js:
-    http://127.0.0.1:8080/js/bootstrap-italia.js: { type: external }
+    http://127.0.0.1:8080/js/bootstrap-italia.min.js: { type: external, minified: true }
   dependencies:
     - core/drupal
 
@@ -61,8 +62,8 @@ hot:
 ddev:
   css:
     theme:
-      http://project-name.ddev.site:8080/css/bootstrap-italia.css: { type: external }
+      http://project-name.ddev.site:8080/css/bootstrap-italia.min.css: { type: external, minified: true }
   js:
-    http://project-name.ddev.site:8080/js/bootstrap-italia.js: { type: external }
+    http://project-name.ddev.site:8080/js/bootstrap-italia.min.js: { type: external, minified: true }
   dependencies:
     - core/drupal

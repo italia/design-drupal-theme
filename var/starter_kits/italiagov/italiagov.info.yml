@@ -19,6 +19,9 @@ libraries:
 ckeditor_stylesheets:
   - dist/css/bootstrap-italia.min.css
 
+#ckeditor5-stylesheets:
+#  - dist/css/bootstrap-italia.min.css
+
 hidden: true # <---- Remember to set false, comment or delete line
 
 logo: logo.svg
