@@ -26,7 +26,7 @@ else
   drupal_version="10"
 fi
 
-read -r -p "Bootstrap Italia version [2.x|2.0@beta|2.x-dev@dev|latest] (2.x-dev@dev): " bootstrap_italia_version
+read -r -p "Bootstrap Italia version [2.x|2.0.0@beta|2.x-dev@dev|latest] (2.x-dev@dev): " bootstrap_italia_version
 bootstrap_italia_version=${bootstrap_italia_version:-2.x-dev@dev}
 
 read -r -p "Do you want enable italian language? [y|n] (y): " enable_locale
