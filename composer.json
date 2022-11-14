@@ -2,8 +2,8 @@
     "name": "drupal/bootstrap_italia",
     "description": "A Drupal theme which implements the Italia Design System",
     "type": "drupal-theme",
-    "homepage": "https://www.drupal.org/project/bootstrap_italia",
     "license": "GPL-2.0-only",
+    "homepage": "https://www.drupal.org/project/bootstrap_italia",
     "authors": [
         {
             "name": "Pietro Arturo Panetta",

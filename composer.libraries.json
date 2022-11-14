@@ -1,0 +1,54 @@
+{
+  "name": "drupal/bootstrap_italia",
+  "description": "A Drupal theme which implements the Italia Design System",
+  "type": "drupal-theme",
+  "license": "GPL-2.0-only",
+  "homepage": "https://www.drupal.org/project/bootstrap_italia",
+  "authors": [
+    {
+      "name": "Pietro Arturo Panetta",
+      "email": "arturu@arturu.it",
+      "homepage": "https://www.drupal.org/u/arturopanetta",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Maurizio Cavalletti",
+      "homepage": "https://www.drupal.org/u/maurizio_akabit",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Crescenzo Velleca",
+      "homepage": "https://www.drupal.org/u/kris77",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Contributor",
+      "homepage": "https://www.drupal.org/node/3094960/committers"
+    }
+  ],
+  "support": {
+    "issues": "https://drupal.org/project/issues/bootstrap_italia",
+    "source": "https://git.drupalcode.org/project/bootstrap_italia"
+  },
+  "require": {
+    "composer/installers": "*",
+    "italia/bootstrap-italia": "*"
+  },
+  "repositories": {
+    "italia.bootstrap-italia": {
+      "type": "package",
+      "package": {
+        "name": "italia/bootstrap-italia",
+        "version": "2.0.9",
+        "type": "drupal-library",
+        "extra": {
+          "installer-name": "italia.bootstrap-italia"
+        },
+        "dist": {
+          "url": "italia.bootstrap-italia",
+          "type": "zip"
+        }
+      }
+    }
+  }
+}
