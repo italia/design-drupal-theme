@@ -216,6 +216,8 @@ if [ "$enable_modules" == "y" ]; then
   echo 'Install module: Bootstrap Italia Paragraph Webform'
   ddev composer require drupal/webform wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
+  ddev exec sed "-i 's#\"extra\": {#\"extra\": {\n\ \ \ \ \ \ \ \ \"merge-plugin\":{ \"include\": [\"web/modules/contrib/webform/composer.libraries.json\"] },#g' /var/www/html/composer.json"
+  ddev composer update -W
 
   echo 'Install module: Bootstrap Italia views accordion'
   ddev exec drush -y pm:enable bootstrap_italia_views_accordion
