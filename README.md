@@ -26,7 +26,7 @@ $ cd <drupal-root>
 /* 1. Install end enable dependencies */
 $ composer require drupal/components:^3.0@beta
 $ drush pm:enable components
-$ composer require drupal/bootstrap_italia:2.x-dev
+$ composer require drupal/bootstrap_italia:^2.0@beta
 
 /* 2. Copy sub-theme to destination folder */
 $ cd web/themes/
