@@ -44,7 +44,7 @@ $ drush config-set system.theme default italiagov
 Edit `custom/italiagov/italiagov.info.yml`
 and change `hidden` variable to `false`
 ```
-sed "-i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml"
+sed -i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml
 ```
 
 # Manage and generate assets
