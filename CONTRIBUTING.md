@@ -1,11 +1,13 @@
+# 💟 Contributors list 💟
+⤷ [Here is a list
+of people who have actively contributed](https://git.drupalcode.org/project/bootstrap_italia/-/graphs/2.x).
+
 # How to contribute
 
 I'm really glad you're reading this, because we need volunteer developers
 to help this project come to fruition.
 
 If you haven't already, come and visit us on our channels.
-[Here](https://www.drupal.org/node/3094960/committers) is a list
-of people who have actively contributed.
 
 Here are some important resources
 
