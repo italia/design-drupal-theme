@@ -849,6 +849,19 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#group' => 'bootstrap',
     '#weight' => 0,
   ];
+  // Fields.
+  $form['forms']['fields'] = [
+    '#type' => 'details',
+    '#title' => t('Form fields'),
+    '#description' => t('Form fields settings'),
+    '#open' => FALSE,
+    '#group' => 'forms',
+  ];
+  $form['forms']['fields']['forms_field_label_required_mark'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Show an asterisk after the label when the field is required.'),
+    '#default_value' => theme_get_setting('forms_field_label_required_mark'),
+  ];
   // Actions.
   $form['forms']['action'] = [
     '#type' => 'details',

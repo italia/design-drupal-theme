@@ -98,6 +98,7 @@ pager_jump_to_page: 0
 pager_show_first_last_page_link: 1
 pager_text_controls: 0
 pager_show_total_pages: 0
+forms_field_label_required_mark: 0
 forms_action_alignment: left
 forms_action_spacing: 1
 footer_container_type: container
