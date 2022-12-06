@@ -23,6 +23,7 @@
 {# Set default settings. #}
 {% set navigation_header_megamenu_columns_lg = navigation_header_megamenu_columns_lg ?: 'col-lg-4' %}
 {% set navigation_header_sticky_menu_name = navigation_header_sticky_menu_name ?: 'main' %}
+{% set _navigation_header_data_attribute = navigation_header_data_attribute|default('')%}
 
 {# Detect secondary menu. #}
 {% if navigation_header_sticky_menu_name != menu_name %}
@@ -30,8 +31,14 @@
 {% endif %}
 
 {# Compliance C.SI.1.6 #}
+{% set my_attributes = [
+  _navigation_header_data_attribute == 'default' ? '',
+  _navigation_header_data_attribute == 'comune' ? 'main-navigation',
+  _navigation_header_data_attribute == 'school' ? 'menu',
+] %}
+
 {% if navigation_header_sticky_menu_name == menu_name %}
-  {% set attributes = attributes.setAttribute('data-element', 'main-navigation') %}
+  {% set attributes = attributes.setAttribute('data-element', my_attributes) %}
 {% endif %}
 
 {# Component. #}

@@ -362,6 +362,17 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("Print multiple classes for each list and each link. Default: unchecked"),
     '#default_value' => theme_get_setting('navigation_header_verbose_classes'),
   ];
+  $form['navigation_header']['navbar']['navigation_header_data_attribute'] = [
+    '#type' => 'select',
+    '#title' => t('Data element attribute'),
+    '#description' => t('Choose if you want to select data element attribute for Comuni, School or leave default'),
+    '#default_value' => theme_get_setting('navigation_header_data_attribute'),
+    '#options' => [
+      'default' => t('default'),
+      'comune' => t('Comune'),
+      'school' => t('School'),
+    ],
+  ];
   $form['navigation_header']['navbar']['navigation_header_megamenu_columns_lg'] = [
     '#type' => 'select',
     '#title' => t('Megamenu columns in large breakpoint'),
