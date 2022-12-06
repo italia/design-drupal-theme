@@ -365,11 +365,17 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['navigation_header']['navbar']['navigation_header_data_attribute'] = [
     '#type' => 'select',
     '#title' => t('Data element attribute'),
-    '#description' => t('Choose if you want to select data element attribute for Comuni, School or leave default'),
+    '#description' => t(
+      'Select the data-attribute for <a href="@mSites" title="Read the docs" target="_blank">Municipality sites</a> or <a href="@sSites" title="Read the docs" target="_blank">School sites</a>, or leave unset for generic sites.',
+      [
+        '@mSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-comuni.html#criterio-c-si-1-6',
+        '@sSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-scuole.html#criterio-c-sc-1-4'
+      ]
+    ),
     '#default_value' => theme_get_setting('navigation_header_data_attribute'),
     '#options' => [
-      'default' => t('default'),
-      'comune' => t('Comune'),
+      '' => t('Unset'),
+      'municipality' => t('Municipality'),
       'school' => t('School'),
     ],
   ];

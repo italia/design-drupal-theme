@@ -30,15 +30,13 @@
   {% set attributes = attributes.addClass('navbar-secondary') %}
 {% endif %}
 
-{# Compliance C.SI.1.6 #}
-{% set my_attributes = [
-  _navigation_header_data_attribute == 'default' ? '',
-  _navigation_header_data_attribute == 'comune' ? 'main-navigation',
-  _navigation_header_data_attribute == 'school' ? 'menu',
-] %}
-
-{% if navigation_header_sticky_menu_name == menu_name %}
-  {% set attributes = attributes.setAttribute('data-element', my_attributes) %}
+{% if navigation_header_sticky_menu_name == menu_name and _navigation_header_data_attribute is not empty %}
+  {# Compliance C.SI.1.6 Municipality or C.SI.1.4 School #}
+  {% set site_attributes = [
+    _navigation_header_data_attribute == 'municipality' ? 'main-navigation',
+    _navigation_header_data_attribute == 'school' ? 'menu',
+  ] %}
+  {% set attributes = attributes.setAttribute('data-element', site_attributes) %}
 {% endif %}
 
 {# Component. #}

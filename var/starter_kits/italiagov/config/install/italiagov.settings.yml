@@ -49,6 +49,7 @@ navigation_header_show_link_description: 0
 navigation_header_active_items_large: 0
 navigation_header_active_items_bold: 0
 navigation_header_verbose_classes: 0
+navigation_header_data_attribute: ''
 navigation_header_megamenu_columns_lg: ''
 navigation_header_megamenu_columns_xl: ''
 navigation_header_sticky_menu_name: main
