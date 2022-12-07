@@ -66,8 +66,7 @@ class GalleryStyle extends StylePluginBase {
       '#type' => 'checkbox',
       '#title' => $this->t('Show caption'),
       '#description' => $this->t('If checked enable "caption" feature. Default: checked.'),
-      '#default_value' =>
-        $this->options['bi_gallery_settings']['show_image_caption'] ?? TRUE,
+      '#default_value' => $this->options['bi_gallery_settings']['show_image_caption'] ?? TRUE,
     ];
 
   }

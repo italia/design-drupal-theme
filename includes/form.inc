@@ -112,7 +112,7 @@ function bootstrap_italia_preprocess_container(&$variables) {
  * Implements hook_template_preprocess_form_element_label().
  */
 function bootstrap_italia_preprocess_form_element_label(&$variables) {
-  if (isset($variables['required']) && $variables['required']){
+  if (isset($variables['required']) && $variables['required']) {
     $variables['forms_field_label_required_mark'] = (bool) theme_get_setting('forms_field_label_required_mark');
   }
 }
