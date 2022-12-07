@@ -152,7 +152,7 @@ if [ "$enable_modules" == "y" ]; then
 
   echo 'Install module: Bootstrap Italia Image Styles'
   ddev composer require drupal/focal_point
-  ddev exec drush -y pm:enable focal_point bootstrap_italia_image_style
+  ddev exec drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
 
   echo 'Install module: Bootstrap Italia Text Editor'
   ddev exec drush -y pm:enable bootstrap_italia_text_editor

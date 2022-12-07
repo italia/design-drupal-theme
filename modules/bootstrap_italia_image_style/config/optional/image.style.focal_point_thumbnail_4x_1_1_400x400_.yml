@@ -14,3 +14,9 @@ effects:
       width: 400
       height: 400
       crop_type: focal_point
+  08b0136b-5de8-4ede-9a8a-520fb89342d6:
+    uuid: 08b0136b-5de8-4ede-9a8a-520fb89342d6
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

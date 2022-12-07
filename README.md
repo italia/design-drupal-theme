@@ -147,7 +147,7 @@ This module adds different image styles in
 Admin -> Configurations -> Media -> Image Styles.
 ```
 $ composer require drupal/focal_point
-$ drush -y pm:enable focal_point bootstrap_italia_image_style
+$ drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
 ```
 
 ## Bootstrap Italia Text editor

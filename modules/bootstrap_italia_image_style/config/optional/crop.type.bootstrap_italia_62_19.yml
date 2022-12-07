@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+label: 'Bootstrap Italia 62:19'
+id: bootstrap_italia_62_19
+description: 'Bootstrap Italia 62:19'
+aspect_ratio: '62:19'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

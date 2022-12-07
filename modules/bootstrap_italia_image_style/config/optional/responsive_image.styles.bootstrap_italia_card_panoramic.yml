@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.bootstrap_italia_card_image_panoramic
+    - image.style.bootstrap_italia_card_image_panoramic_2x
+    - image.style.bootstrap_italia_card_image_panoramic_4x
+  theme:
+    - bootstrap_italia
+id: bootstrap_italia_card_panoramic
+label: 'Bootstrap Italia Card Panoramic'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: bootstrap_italia_card_image_panoramic_4x
+    breakpoint_id: bootstrap_italia.full_hd
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: bootstrap_italia_card_image_panoramic_2x
+    breakpoint_id: bootstrap_italia.extra_large
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: bootstrap_italia_card_image_panoramic
+    breakpoint_id: bootstrap_italia.extra_small
+    multiplier: 1x
+breakpoint_group: bootstrap_italia
+fallback_image_style: bootstrap_italia_card_image_panoramic

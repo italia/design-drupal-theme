@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.bootstrap_italia_31_19
+  module:
+    - crop
+    - focal_point
+name: bootstrap_italia_card_image_standard_4x
+label: 'Bootstrap Italia Card Image Standard 4x'
+effects:
+  9fcef959-74e9-453f-8fdf-19f2161947fc:
+    uuid: 9fcef959-74e9-453f-8fdf-19f2161947fc
+    id: image_scale
+    weight: 1
+    data:
+      width: 1240
+      height: null
+      upscale: false
+  cecc0788-5a77-42fb-b233-2833dd22da20:
+    uuid: cecc0788-5a77-42fb-b233-2833dd22da20
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1240
+      height: 760
+      crop_type: focal_point
+  4a00ec80-822c-4b89-8891-2fdc2ee2255d:
+    uuid: 4a00ec80-822c-4b89-8891-2fdc2ee2255d
+    id: crop_crop
+    weight: 3
+    data:
+      crop_type: bootstrap_italia_31_19
+      automatic_crop_provider: null
+  6c617824-362d-4bc4-80ab-d33343e4019a:
+    uuid: 6c617824-362d-4bc4-80ab-d33343e4019a
+    id: image_convert
+    weight: 4
+    data:
+      extension: webp

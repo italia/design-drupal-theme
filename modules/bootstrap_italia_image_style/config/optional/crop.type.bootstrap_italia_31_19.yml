@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+label: 'Bootstrap Italia 31:19'
+id: bootstrap_italia_31_19
+description: 'Crop type 31:19.'
+aspect_ratio: '31:19'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

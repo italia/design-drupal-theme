@@ -1,6 +1,22 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - focal_point
 name: focal_point_xga_3_4_768x1024_narrow
 label: 'Focal point XGA 3:4 (768x1024) Narrow'
-effects: {  }
+effects:
+  fb5cd91a-94b2-446d-9a4f-b6ade3fe27ef:
+    uuid: fb5cd91a-94b2-446d-9a4f-b6ade3fe27ef
+    id: image_convert
+    weight: -9
+    data:
+      extension: webp
+  1dd2a47a-02a1-4674-8981-7ade31a96471:
+    uuid: 1dd2a47a-02a1-4674-8981-7ade31a96471
+    id: focal_point_scale_and_crop
+    weight: -10
+    data:
+      width: 768
+      height: 1024
+      crop_type: focal_point
