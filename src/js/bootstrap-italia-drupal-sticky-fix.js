@@ -1,5 +1,5 @@
 // is-sticky fix. Sticky clones the "id" attributes.
-(function () {
+(function (bootstrap) {
   'use strict';
 
   const headerWrapperObserver = new MutationObserver(
@@ -31,6 +31,13 @@
                 .setAttribute('id', newID);
               document.querySelector(searchButtonSelector)
                 .setAttribute('data-bs-target', '#'+newID);
+
+              searchModalElement.addEventListener('shown.bs.modal', () => {
+                document.getElementById('toolbar-administration')?.classList.add('d-none')
+              })
+              searchModalElement.addEventListener('hidden.bs.modal', () => {
+                document.getElementById('toolbar-administration')?.classList.remove('d-none')
+              })
             }
           }
         }
@@ -46,4 +53,4 @@
     )
   }
 
-})(Drupal);
+})(Drupal, bootstrap);

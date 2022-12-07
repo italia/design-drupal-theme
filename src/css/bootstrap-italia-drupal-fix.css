@@ -9,7 +9,7 @@
 #toolbar-administration.toolbar {
   height: auto;
   max-width: fit-content;
-  z-index: 10000;
+  z-index: 10001;
 }
 
 /* Navbar sticky VS drupal toolbar */
