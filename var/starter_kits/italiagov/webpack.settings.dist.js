@@ -6,9 +6,9 @@ module.exports = {
 
   /*** Hot mode settings ***/
   /**
-   * If you change this variable
+   * If you edit this variable, change relative path in "<theme>.libraries.yml" on 'hot' array.
    */
-  hotPublicPath: '/', // if change this, change relative path in "theme.libraries.yml".
+  hotPublicPath: '/',
 
   devServer: {
     /**

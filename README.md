@@ -90,8 +90,8 @@ To properly activate hot mode, do this:
 
 - Make sure your host port 8080 is not filtered,
 or exposed if you are using a container.
-- In the file `<sub-theme>/<sub-theme>.libraries.yml` load the css and js
-as in the example commented.
+- In the `<sub-theme>/<sub-theme>.info.yml` file edit the `libraries` array
+to load only `italiagov/hot` and `bootstrap_italia/base`
 ```
 $ drush cr && npm run build:dev && npm run hot
 ```
