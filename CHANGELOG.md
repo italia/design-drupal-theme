@@ -1,6 +1,6 @@
 # Summary 2.0.0
 ## Release notes
-- Upgrade `<sub-theme>/italiagov.info.yml`
+
 
 ## Removed feature
 - `macro.icon` (deprecated in 0.11)
@@ -43,7 +43,7 @@ update `<sub-theme>/<sub-theme>.theme`.
     - `theme_hook_original + region_name`
     - `menu__ + region_name`
 
-## Update from 0.x
+## Update from 0.x (Work in progress)
 - copy `bootstrap_italia/templates/patterns` in `<sub-theme>/templates/`
 - if you use experimental modules 0.x copy `/bootstrap_italia/modules` in `<sub-theme>/`
 - admin/config/development/configuration/single/export -> simple configuration -> italiagov.settings
@@ -54,7 +54,7 @@ update `<sub-theme>/<sub-theme>.theme`.
   - `ente_appartenenza_url` -> `government_entity_url`
   - new slim_header_action_active_login
   - `right_action_size` -> `slim_header_action_type`
-  - update in sub-theme: composer.json, *.yml, *.theme, webpack.*
-  - drush cr
-  - layout bloks set language block
-  - update src folder in your sub-theme
+- update in sub-theme: composer.json, *.yml, *.theme, webpack.*
+- drush cr
+- layout blocks set language block
+- update src folder in your sub-theme
