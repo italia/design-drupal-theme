@@ -16,6 +16,8 @@ import * as fontsLoader from 'bootstrap-italia/src/js/plugins/fonts-loader'
 import * as icons from 'bootstrap-italia/src/js/icons'
 import * as headerSticky from 'bootstrap-italia/src/js/plugins/header-sticky'
 
+import BOOTSTRAP_ITALIA_VERSION from 'bootstrap-italia/src/js/version'
+
 loadPlugin(icons)
 loadPlugin(fontsLoader)
 loadPlugin(headerSticky)
@@ -46,6 +48,8 @@ import {
   List,
   Transfer,
 } from 'bootstrap-italia/src/js/bootstrap-italia.esm'
+
+window.BOOTSTRAP_ITALIA_VERSION = BOOTSTRAP_ITALIA_VERSION
 
 window.bootstrap = {
   Alert,
