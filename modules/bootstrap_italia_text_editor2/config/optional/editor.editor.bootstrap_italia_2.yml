@@ -1,0 +1,320 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.bootstrap_italia_2
+  module:
+    - ckeditor5
+format: bootstrap_italia_2
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - style
+      - alignment
+      - bold
+      - italic
+      - underline
+      - strikethrough
+      - '|'
+      - numberedList
+      - bulletedList
+      - indent
+      - outdent
+      - '-'
+      - link
+      - drupalInsertImage
+      - drupalMedia
+      - blockQuote
+      - insertTable
+      - '|'
+      - removeFormat
+      - code
+      - codeBlock
+      - sourceEditing
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_style:
+      styles:
+        -
+          label: Link
+          element: '<a class="text-decoration-none fw-bold">'
+        -
+          label: Abbreviation
+          element: '<abbr class="attribute">'
+        -
+          label: Initialism
+          element: '<abbr class="initialism">'
+        -
+          label: Citation
+          element: '<blockquote class="blockquote">'
+        -
+          label: 'Citation Center'
+          element: '<blockquote class="text-center">'
+        -
+          label: 'Citation end'
+          element: '<blockquote class="text-end">'
+        -
+          label: 'Citation simple'
+          element: '<blockquote class="blockquote-simple">'
+        -
+          label: 'Citation card'
+          element: '<blockquote class="blockquote-card">'
+        -
+          label: 'Citation dark card'
+          element: '<blockquote class="blockquote-card dark">'
+        -
+          label: 'Image Fluid'
+          element: '<img class="img-fluid">'
+        -
+          label: 'Image Thumbnail'
+          element: '<img class="img-thumbnail">'
+        -
+          label: 'Image Rounded'
+          element: '<img class="rounded">'
+        -
+          label: 'Image left'
+          element: '<img class="float-start m-5">'
+        -
+          label: 'Image right'
+          element: '<img class="float-end m-5">'
+        -
+          label: 'Image center'
+          element: '<img class="mx-auto d-block my-5">'
+        -
+          label: Figure
+          element: '<figure class="figure">'
+        -
+          label: 'Figure caption'
+          element: '<figcaption class="figure-caption">'
+        -
+          label: 'Figure caption text right'
+          element: '<figcaption class="text-end">'
+        -
+          label: 'Text bold'
+          element: '<p class="fw-bold">'
+        -
+          label: 'Text semibold'
+          element: '<p class="fw-semibold">'
+        -
+          label: 'Text normal'
+          element: '<p class="fw-normal">'
+        -
+          label: 'Text light'
+          element: '<p class="fw-light">'
+        -
+          label: 'Text italic'
+          element: '<p class="fst-italic">'
+        -
+          label: 'Text left'
+          element: '<p class="text-start">'
+        -
+          label: 'Text center'
+          element: '<p class="text-center">'
+        -
+          label: 'Text right'
+          element: '<p class="text-end">'
+        -
+          label: 'Text small'
+          element: '<p class="small">'
+        -
+          label: 'Text sans serif'
+          element: '<p class="font-sans-serif">'
+        -
+          label: 'Text serif'
+          element: '<p class="font-serif">'
+        -
+          label: 'Text monospace'
+          element: '<p class="font-monospace">'
+        -
+          label: 'Text highlight'
+          element: '<p class="bd-highlight">'
+        -
+          label: 'Text lead'
+          element: '<p class="lead">'
+        -
+          label: 'Text mark'
+          element: '<p class="mark">'
+        -
+          label: 'Text muted'
+          element: '<p class="text-muted">'
+        -
+          label: 'Text lowercase'
+          element: '<p class="text-lowercase">'
+        -
+          label: 'Text uppercase'
+          element: '<p class="text-uppercase">'
+        -
+          label: 'Text Capitalize'
+          element: '<p class="text-capitalize">'
+        -
+          label: 'Table Responsive'
+          element: '<table class="table table-responsive">'
+        -
+          label: 'Table striped'
+          element: '<table class="table-striped">'
+        -
+          label: 'Table hover'
+          element: '<table class="table-hover">'
+        -
+          label: 'Table bordered'
+          element: '<table class="table-bordered">'
+        -
+          label: 'Table bordeless'
+          element: '<table class="table-borderless">'
+        -
+          label: 'Table small'
+          element: '<table class="table-small">'
+        -
+          label: 'Table primary'
+          element: '<table class="table-primary">'
+        -
+          label: 'Table secondary'
+          element: '<table class="table-secondary">'
+        -
+          label: 'Table success'
+          element: '<table class="table-success">'
+        -
+          label: 'Table danger'
+          element: '<table class="table-danger">'
+        -
+          label: 'Table warning'
+          element: '<table class="table-warning">'
+        -
+          label: 'Table info'
+          element: '<table class="table-info">'
+        -
+          label: 'Table light'
+          element: '<table class="table-light">'
+        -
+          label: 'Table dark'
+          element: '<table class="table-dark">'
+        -
+          label: 'Table align top'
+          element: '<table class="align-top">'
+        -
+          label: 'Table align middle'
+          element: '<table class="align-middle">'
+        -
+          label: 'Table align bottom'
+          element: '<table class="align-bottom">'
+        -
+          label: 'Table caption top'
+          element: '<table class="caption-top">'
+        -
+          label: 'THead Light'
+          element: '<thead class="table-light">'
+        -
+          label: 'THead Dark'
+          element: '<thead class="table-dark">'
+        -
+          label: 'Row align top'
+          element: '<tr class="align-top">'
+        -
+          label: 'Row align middle'
+          element: '<tr class="align-middle">'
+        -
+          label: 'Row align bottom'
+          element: '<tr class="align-bottom">'
+        -
+          label: 'Row active'
+          element: '<tr class="table-active">'
+        -
+          label: 'Row primary'
+          element: '<tr class="table-primary">'
+        -
+          label: 'Row secondary'
+          element: '<tr class="table-secondary">'
+        -
+          label: 'Row success'
+          element: '<tr class="table-success">'
+        -
+          label: 'Row danger'
+          element: '<tr class="table-danger">'
+        -
+          label: 'Row warning'
+          element: '<tr class="table-warning">'
+        -
+          label: 'Row info'
+          element: '<tr class="table-info">'
+        -
+          label: 'Row light'
+          element: '<tr class="table-light">'
+        -
+          label: 'Row dark'
+          element: '<tr class="table-dark">'
+        -
+          label: 'Ceil align top'
+          element: '<td class="align-top">'
+        -
+          label: 'Ceil align middle'
+          element: '<td class="align-middle">'
+        -
+          label: 'Ceil align bottom'
+          element: '<td class="align-bottom">'
+        -
+          label: 'Ceil active'
+          element: '<td class="table-active">'
+        -
+          label: 'Ceil primary'
+          element: '<td class="table-primary">'
+        -
+          label: 'Ceil secondary'
+          element: '<td class="table-secondary">'
+        -
+          label: 'Ceil success'
+          element: '<td class="table-success">'
+        -
+          label: 'Ceil danger'
+          element: '<td class="table-danger">'
+        -
+          label: 'Ceil warning'
+          element: '<td class="table-warning">'
+        -
+          label: 'Ceil info'
+          element: '<td class="table-info">'
+        -
+          label: 'Ceil light'
+          element: '<td class="table-light">'
+        -
+          label: 'Ceil dark'
+          element: '<td class="table-dark">'
+        -
+          label: 'List unstyled'
+          element: '<ul class="list-unstyled">'
+        -
+          label: 'List inline'
+          element: '<ul class="list-inline">'
+        -
+          label: 'List inline item'
+          element: '<li class="list-inline-item">'
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+    ckeditor5_list:
+      reversed: true
+      startIndex: true
+    ckeditor5_alignment:
+      enabled_alignments:
+        - left
+        - center
+        - right
+        - justify
+    ckeditor5_imageResize:
+      allow_resize: true
+    media_media:
+      allow_view_mode_override: false
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: 0
+    height: 0

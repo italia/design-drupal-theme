@@ -151,10 +151,17 @@ $ drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
 ```
 
 ## Bootstrap Italia Text editor
-This module adds new text editor format in
+This module adds new text editor format (ckeditor 4) in
 "Configuration" -> "Text formats and editors".
 ```
 $ drush -y pm:enable bootstrap_italia_text_editor
+```
+
+## Bootstrap Italia Text editor 2 (Experimental)
+This module adds new text editor format (ckeditor 5) in
+"Configuration" -> "Text formats and editors".
+```
+$ drush -y pm:enable bootstrap_italia_text_editor2
 ```
 
 ## Bootstrap Italia Layouts

@@ -1,0 +1,15 @@
+name: "Bootstrap Italia Text Editor 2"
+description: This module adds text editor styles.
+package: "Bootstrap Italia (Experimental)"
+experimental: true
+
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:ckeditor5
+
+components:
+  namespaces:
+    # Components library 2.0
+    bi-bcl:
+      - ../../components/components-2

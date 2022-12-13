@@ -238,6 +238,8 @@ fi
 if [ "$enable_experimental_modules" == "y" ]; then
   echo "==[ Install experimental modules ]=="
 
+  ddev exec drush -y pm:enable ckeditor5 bootstrap_italia_text_editor2
+
 fi
 
 if [ "$enable_dev_mode" == "y" ]; then

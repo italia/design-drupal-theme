@@ -1,0 +1,31 @@
+bootstrap_italia_text_editor2_table:
+  ckeditor5:
+    plugins:
+      - table.TableProperties
+      - table.TableCellProperties
+      - table.TableColumnResize
+    config:
+      table:
+        contentToolbar: [  tableProperties, tableCellProperties, TableColumnResize ]
+  drupal:
+    label: Table
+    library: core/ckeditor5.table
+    admin_library: ckeditor5/admin.table
+    toolbar_items:
+      insertTable:
+        label: table
+    elements:
+      - <table>
+      - <table class>
+      - <tr>
+      - <tr class>
+      - <td>
+      - <td class>
+      - <td rowspan colspan>
+      - <th style color>
+      - <th rowspan colspan>
+      - <thead style color>
+      - <tbody>
+      - <tfoot>
+      - <caption>
+

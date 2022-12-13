@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - editor
+    - media
+name: 'Bootstrap Italia 2'
+format: bootstrap_italia_2
+weight: 0
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: false
+    weight: -10
+    settings:
+      allowed_html: '<a class="text-decoration-none fw-bold"> <abbr class="attribute initialism"> <blockquote class="blockquote text-center text-end blockquote-simple blockquote-card dark"> <img class="img-fluid img-thumbnail rounded float-start m-5 float-end mx-auto d-block my-5"> <figure class="figure"> <figcaption class="figure-caption text-end"> <p class="fw-bold fw-semibold fw-normal fw-light fst-italic text-start text-center text-end small font-sans-serif font-serif font-monospace bd-highlight lead mark text-muted text-lowercase text-uppercase text-capitalize"> <table class="table table-responsive table-striped table-hover table-bordered table-borderless table-small table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark align-top align-middle align-bottom caption-top"> <thead class="table-light table-dark"> <tr class="align-top align-middle align-bottom table-active table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark"> <td class="align-top align-middle align-bottom table-active table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark"> <ul class="list-unstyled list-inline"> <li class="list-inline-item">'
+      filter_html_help: true
+      filter_html_nofollow: false
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes: {  }
+      allowed_media_types: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: 0
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
