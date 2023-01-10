@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const webpack = require('webpack')
 const check = require('./webpack.check')
 
@@ -16,11 +17,32 @@ module.exports = {
     path: paths.build,
     filename: "js/[name].js",
   },
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        include: paths.modules + '/bootstrap-italia/src/svg',
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true,
+              outputPath: '/svg/',
+              spriteFilename: 'sprites.svg',
+            }
+          },
+        ],
+      },
+    ],
+  },
 
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css'
+    }),
+    new SpriteLoaderPlugin({
+      plainSprite: true
     }),
     new CopyWebpackPlugin({
       patterns:[

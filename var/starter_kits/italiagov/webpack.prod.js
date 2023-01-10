@@ -1,5 +1,4 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { merge } = require('webpack-merge')
 
@@ -35,7 +34,6 @@ module.exports = merge(common, {
   },
   optimization: {
     minimize: true,
-    minimizer: [new CssMinimizerPlugin(), '...'],
   },
   performance: {
     hints: false,
