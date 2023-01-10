@@ -1,12 +1,14 @@
 # Summary 8.x-0.23
 ## Release notes
 
-This release updates the sub-theme to bootstrap-italia version 1.6.2.
+This release updates the sub-theme to bootstrap-italia version 1.6.4.
 If you want to align your sub-theme with the latest version, do the following.
 
 ```
 $ npm update
-$ npm install bootstrap-italia@1.6.2
+$ npm install bootstrap-italia@1.6.4
+$ npm remove css-minimizer-webpack-plugin
+$ npm install svg-sprite-loader
 ```
 
 - Edit `<sub-theme>/src/js/index.js`:
@@ -37,7 +39,10 @@ import '../../node_modules/bootstrap-italia/src/js/plugins/collapse'
 @import 'node_modules/bootstrap-italia/src/scss/bootstrap-italia';
 ```
 
+- Edit `<sub-theme>/webpack.common.js` and `<sub-theme>/webpack.prod.js` using this diff
+  https://git.drupalcode.org/project/bootstrap_italia/-/commit/bf15f94e46ae00d8ce26b6ecae90885f31da4a96
 
+Finally
 
 ```
 $ npm run build:prod
