@@ -72,11 +72,11 @@
                 } %}
               {% endif %}
               <a href="{{ item.url }}">{{ item.text }}</a>
-              {% if breadcrumb_separator and loop.last == false %}
-                <span class="separator">{{ breadcrumb_separator }}</span>
-              {% endif %}
             {% else %}
               {{ item.text }}
+            {% endif %}
+            {% if breadcrumb_separator and loop.last == false %}
+              <span class="separator">{{ breadcrumb_separator }}</span>
             {% endif %}
           </li>
         {% endfor %}
