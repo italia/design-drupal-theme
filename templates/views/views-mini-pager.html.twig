@@ -12,18 +12,20 @@
  * @ingroup themeable
  */
 #}
-{% include '@bi-bcl/pagination/pagination.html.twig' with {
-  heading_id: heading_id,
-  items: items,
-  current: null,
-  ellipses: null,
-  total_pages: null,
-  alignment: pager_alignment,
-  responsive: false,
-  jump_to_page: false,
-  show_first_last_page_link: false,
-  text_controls: pager_text_controls,
-  text_previous: pager_text_controls ? tems.previous.text : '',
-  text_next: pager_text_controls ? items.next.text : '',
-  show_total_pages: false
-} %}
+{% if items["next"] or items["previous"] %}
+  {% include '@bi-bcl/pagination/pagination.html.twig' with {
+    heading_id: heading_id,
+    items: items,
+    current: null,
+    ellipses: null,
+    total_pages: null,
+    alignment: pager_alignment,
+    responsive: false,
+    jump_to_page: false,
+    show_first_last_page_link: false,
+    text_controls: pager_text_controls,
+    text_previous: pager_text_controls ? tems.previous.text : '',
+    text_next: pager_text_controls ? items.next.text : '',
+    show_total_pages: false
+  } %}
+{% endif %}
