@@ -38,11 +38,14 @@ function bootstrap_italia_preprocess_page_title(&$variables) {
  * Implements hook_preprocess_page().
  */
 function bootstrap_italia_preprocess_page(&$variables) {
+  $variables['pa_website_validator_type'] = theme_get_setting('pa_website_validator_type');
+
   // Slim header settings.
   $variables['slim_header_container_type'] = theme_get_setting('slim_header_container_type');
   $variables['slim_header_light'] = (bool) theme_get_setting('slim_header_light');
   $variables['government_entity_name'] = theme_get_setting('government_entity_name');
   $variables['government_entity_url'] = theme_get_setting('government_entity_url');
+
   // Login button settings for anonymous user.
   $variables['slim_header_action_active_login'] = (bool) theme_get_setting('slim_header_action_active_login');
   $variables['slim_header_action_type'] = theme_get_setting('slim_header_action_type');

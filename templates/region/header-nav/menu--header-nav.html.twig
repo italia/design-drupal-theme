@@ -23,7 +23,7 @@
 {# Set default settings. #}
 {% set navigation_header_megamenu_columns_lg = navigation_header_megamenu_columns_lg ?: 'col-lg-4' %}
 {% set navigation_header_sticky_menu_name = navigation_header_sticky_menu_name ?: 'main' %}
-{% set _navigation_header_data_attribute = navigation_header_data_attribute|default('')%}
+{% set _navigation_header_data_attribute = pa_website_validator_type|default('')%}
 
 {# Detect secondary menu. #}
 {% if navigation_header_sticky_menu_name != menu_name %}
@@ -31,7 +31,7 @@
 {% endif %}
 
 {% if navigation_header_sticky_menu_name == menu_name and _navigation_header_data_attribute is not empty %}
-  {# Compliance C.SI.1.6 Municipality or C.SI.1.4 School #}
+  {# Compliance C.SI.1.6 Municipality or C.SC.1.4 School #}
   {% set site_attributes = [
     _navigation_header_data_attribute == 'municipality' ? 'main-navigation',
     _navigation_header_data_attribute == 'school' ? 'menu',

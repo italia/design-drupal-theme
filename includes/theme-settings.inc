@@ -362,23 +362,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("Print multiple classes for each list and each link. Default: unchecked"),
     '#default_value' => theme_get_setting('navigation_header_verbose_classes'),
   ];
-  $form['navigation_header']['navbar']['navigation_header_data_attribute'] = [
-    '#type' => 'select',
-    '#title' => t('Data element attribute'),
-    '#description' => t(
-      'Select the data-attribute for <a href="@mSites" title="Read the docs" target="_blank">Municipality sites</a> or <a href="@sSites" title="Read the docs" target="_blank">School sites</a>, or leave unset for generic sites.',
-      [
-        '@mSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-comuni.html#criterio-c-si-1-6',
-        '@sSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-scuole.html#criterio-c-sc-1-4',
-      ]
-    ),
-    '#default_value' => theme_get_setting('navigation_header_data_attribute'),
-    '#options' => [
-      '' => t('Unset'),
-      'municipality' => t('Municipality'),
-      'school' => t('School'),
-    ],
-  ];
   $form['navigation_header']['navbar']['navigation_header_megamenu_columns_lg'] = [
     '#type' => 'select',
     '#title' => t('Megamenu columns in large breakpoint'),
@@ -1022,6 +1005,190 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("Example: @cdn. Default: empty", ['@cdn' => 'https://cdn.domain.gov.it/bootstrap-italia@<version>/dist/svg/sprites.svg']),
     '#placeholder' => t('/libraries/bootstrap-italia/dist/svg/sprites.svg'),
     '#default_value' => theme_get_setting('libraries_cdn_icons'),
+  ];
+
+  // PA Website Validator -----------------------------------------------------.
+  $form['pwv'] = [
+    '#type' => 'details',
+    '#title' => t('PA Website Validator'),
+    '#description' => t(
+      '<p>Settings for <a href="@mSites" title="Read the docs" target="_blank">Municipality sites</a> or <a href="@sSites" title="Read the docs" target="_blank">School sites</a>, or leave unset for generic sites.</p>
+             <p>The theme automatically sets some data-attributes without you having to override templates. In the table below a summary of the automatically set data-attributes. You have to do everything else.</p>',
+      [
+        '@mSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-comuni.html',
+        '@sSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-scuole.html',
+      ]
+    ),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 20,
+  ];
+  $form['pwv']['pa_website_validator_type'] = [
+    '#type' => 'select',
+    '#title' => t('Site type'),
+    '#description' => t(''),
+    '#default_value' => theme_get_setting('pa_website_validator_type'),
+    '#options' => [
+      '' => t('Unset'),
+      'municipality' => t('Municipality'),
+      'school' => t('School'),
+    ],
+  ];
+  // Municipality.
+  $form['pwv']['municipality'] = [
+    '#type' => 'details',
+    '#title' => t('Municipality'),
+    '#description' => t(''),
+    '#open' => FALSE,
+    '#group' => 'pwv',
+  ];
+  $form['pwv']['municipality']['docs'] = [
+    '#type' => 'markup',
+    '#markup' => t('
+     <table>
+      <thead><tr><th>Code</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>C.SI.1.1</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "all-services"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td class="color-success">C.SI.1.2</td>
+          <td>Provided by the theme.</td>
+        </tr>
+        <tr>
+          <td>C.SI.1.3</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "all-services"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td class="color-error">C.SI.1.4</td>
+          <td>Only for Wordpress.</td>
+        </tr>
+        <tr>
+          <td>C.SI.1.5</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "all-topics"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td class="color-success">C.SI.1.6</td>
+          <td>Provided by the theme.</td>
+        </tr>
+        <tr>
+          <td>C.SI.1.7</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "all-services"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SI.2.1</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "all-services"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SI.2.2</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "all-services"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SI.2.3</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "faq"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SI.2.4</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "report-inefficiency"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SI.2.5</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "[management,all-services,news,live]"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SI.3.1</td>
+          <td>You have to do it.</td>
+        </tr>
+        <tr>
+          <td>C.SI.3.2</td>
+          <td>You have to do it.  To set <code class="color-success">data-element: "accessibility-link"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SI.3.3</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "privacy-policy-link"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td class="color-warning">C.SI.5.1</td>
+          <td>You have to do it. Data-element <code class="color-success">data-element="personal-area-login"</code> is provided by the theme.</td>
+        </tr>
+        <tr>
+          <td class="color-warning">C.SI.5.2</td>
+          <td>You have to do it. Data-element <code class="color-success">data-element="personal-area-login"</code> is provided by the theme.</td>
+        </tr>
+        <tr>
+          <td>R.SI.1.1</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "all-services"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+      </tbody>
+     </table>
+    ')
+  ];
+  // School.
+  $form['pwv']['school'] = [
+    '#type' => 'details',
+    '#title' => t('School'),
+    '#description' => t(''),
+    '#open' => FALSE,
+    '#group' => 'pwv',
+  ];
+  $form['pwv']['school']['docs'] = [
+    '#type' => 'markup',
+    '#markup' => t('
+     <table>
+      <thead><tr><th>Code</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>C.SC.1.1</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "service-type"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td class="color-success">C.SC.1.2</td>
+          <td>Provided by the theme.</td>
+        </tr>
+        <tr>
+          <td class="color-error">C.SC.1.3</td>
+          <td>Only for Wordpress.</td>
+        </tr>
+        <tr>
+          <td class="color-success">C.SC.1.4</td>
+          <td>Provided by the theme.</td>
+        </tr>
+        <tr>
+          <td>C.SC.1.5</td>
+          <td>You have to do it. To set <code class="color-success">data-element-child: "school-submenu"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SC.2.1</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "privacy-policy-link"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SC.2.2</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "accessibility-link"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>C.SC.2.3</td>
+          <td>You have to do it.</td>
+        </tr>
+        <tr>
+          <td>C.SC.3.1</td>
+          <td>You have to do it.</td>
+        </tr>
+        <tr>
+          <td>R.SC.1.1</td>
+          <td>You have to do it. Customize <code class="color-success">/themes/contrib/bootstrap_italia/templates/layout/header/_partial.header-center.html.twig</code> template and use an hook <code class="color-warning">theme_form_search_block_x</code> to alter form.</td>
+        </tr>
+        <tr>
+          <td>R.SC.1.2</td>
+          <td>You have to do it. To set <code class="color-success">data-element: "service-type"</code> you can use a hook or the module <a href="https://www.drupal.org/project/menu_link_attributes" target="_blank">Menu link attributes</a>.</td>
+        </tr>
+        <tr>
+          <td>4.12</td>
+          <td>You have to do it.</td>
+        </tr>
+      </tbody>
+    </table>
+    '),
   ];
 
   $form['#validate'][] = 'bootstrap_italia_form_system_theme_settings_validate';

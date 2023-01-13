@@ -158,7 +158,15 @@
               </div>{# End megamenu #}
             {% else %}
               <div class="link-list-wrapper">
-                <ul class="link-list">
+                {% set link_list_attributes = create_attribute() %}
+                {% set link_list_attributes = link_list_attributes.addClass('link-list') %}
+
+                {# Compliance C.SC.1.5 School #}
+                {% if item.url.options['attributes']['data-attribute-child'] %}
+                  {% set link_list_attributes = link_list_attributes.setAttribute('data-attribute', item.url.options['attributes']['data-attribute-child']) %}
+                {% endif %}
+
+                <ul{{ link_list_attributes }}>
                   {% for item in item.below %}
                     {% include '@bi-bcl/list/linklist-item.html.twig' with {
                       item: item,

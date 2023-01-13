@@ -51,9 +51,11 @@
                       {{ page.header_slim_action }}
                     {% endif %}
                   {% elseif slim_header_action_active_login %}
-                    {# Compliance C.SE.5.1 and C.SE.5.2 #}
+                    {# Compliance C.SI.5.1 and C.SI.5.2 Municipality #}
                     {% set login_button_attributes = create_attribute() %}
-                    {% set login_button_attributes = login_button_attributes.setAttribute('data-element', 'personal-area-login') %}
+                    {% if pa_website_validator_type == 'municipality' %}
+                      {% set login_button_attributes = login_button_attributes.setAttribute('data-element', 'personal-area-login') %}
+                    {% endif %}
 
                     {% embed '@bi-bcl/button/button.html.twig' with {
                       label: 'Login to your personal area'|t,
