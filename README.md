@@ -358,10 +358,10 @@ rm -Rf ./web/libraries/master.zip
 # How to manage components via the user interface.
 The components of the theme are mapped with the drupal graphical interface,
 so you can manage cards, lists, etc., without writing code or templates.
-First install and enable `ui_patterns`, `ui_patterns_library`
+First install and enable `ui_patterns` (>= 1.5), `ui_patterns_library`
 and `ui_patterns_settings`.
 ```
-$ composer require drupal/ui_patterns drupal/ui_patterns_settings
+$ composer require 'drupal/ui_patterns:^1.5' drupal/ui_patterns_settings
 $ drush en ui_patterns ui_patterns_library ui_patterns_settings
 ```
 To the `https://domain.example/patterns` page you will see
