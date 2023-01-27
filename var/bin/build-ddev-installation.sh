@@ -64,9 +64,9 @@ ddev start
 
 echo "Download Drupal ${drupal_version} and drush"
 if [ "$drupal_version" == "9" ]; then
-  ddev composer create 'drupal/recommended-project' --no-install
+  ddev composer create 'drupal/recommended-project:^9' --no-install
 else
-  ddev composer create --no-install 'drupal/recommended-project:^10@rc'
+  ddev composer create --no-install 'drupal/recommended-project:^10'
 fi
 
 ddev composer require drush/drush --no-install
