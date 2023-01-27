@@ -220,7 +220,7 @@ if [ "$enable_modules" == "y" ]; then
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_timeline
 
   echo 'Install module: Bootstrap Italia Paragraph Webform'
-  if [ "$drupal_version" == "9" ]; then
+  if [ "$drupal_version" == "10" ]; then
     ddev composer require 'drupal/webform:^6.2@beta'
   else
     ddev composer require drupal/webform
