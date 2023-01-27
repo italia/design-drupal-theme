@@ -10,7 +10,6 @@ dependencies:
   - drupal:field_group
   - drupal:imce
   - drupal:color_field
-  - drupal:bootstrap_italia_text_editor
 
 components:
   namespaces:

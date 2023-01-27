@@ -151,11 +151,17 @@ if [ "$enable_modules" == "y" ]; then
   fi
 
   echo 'Install module: Bootstrap Italia Image Styles'
-  ddev composer require drupal/focal_point
+  if [ "$drupal_version" == "10" ]; then
+    ddev composer require 'drupal/focal_point:^2.0@alpha'
+  else
+    ddev composer require drupal/focal_point
+  fi
   ddev exec drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
 
-  echo 'Install module: Bootstrap Italia Text Editor'
-  ddev exec drush -y pm:enable bootstrap_italia_text_editor
+  if [ "$drupal_version" == "9" ]; then
+    echo 'Install module: Bootstrap Italia Text Editor'
+    ddev exec drush -y pm:enable bootstrap_italia_text_editor
+  fi
 
   echo 'Install module: Bootstrap Italia Paragraph'
   ddev composer require drupal/paragraphs drupal/field_group drupal/imce drupal/color_field
@@ -214,7 +220,12 @@ if [ "$enable_modules" == "y" ]; then
   ddev exec drush -y pm:enable bootstrap_italia_paragraph_timeline
 
   echo 'Install module: Bootstrap Italia Paragraph Webform'
-  ddev composer require drupal/webform wikimedia/composer-merge-plugin
+  if [ "$drupal_version" == "9" ]; then
+    ddev composer require 'drupal/webform:^6.2@beta'
+  else
+    ddev composer require drupal/webform
+  fi
+  ddev composer require wikimedia/composer-merge-plugin
   ddev exec drush -y pm:enable webform webform_bootstrap webform_ui bootstrap_italia_paragraph_webform
   ddev exec sed "-i 's#\"extra\": {#\"extra\": {\n\ \ \ \ \ \ \ \ \"merge-plugin\":{ \"include\": [\"web/modules/contrib/webform/composer.libraries.json\"] },#g' /var/www/html/composer.json"
   ddev composer update -W
