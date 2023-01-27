@@ -260,7 +260,7 @@ if [ "$enable_dev_mode" == "y" ]; then
 
 fi
 
-if [ "$enable_content_type" == "y" ]; then
+if [[ "$enable_content_type" == "y" && "$drupal_version" == "9" ]]; then
   echo "==[ Install content type ]=="
 
   echo 'Install module: Bootstrap Italia content News'
@@ -286,7 +286,11 @@ fi
 if [ "$enable_ui_tools" == "y" ]; then
   echo "==[ Install UI tools ]=="
 
-  ddev composer require drupal/ui_patterns drupal/ui_patterns_settings drupal/ds
+  if [ "$drupal_version" == "10" ]; then
+    ddev composer require drupal/ui_patterns 'drupal/ui_patterns_settings:^2.0@RC' drupal/ds
+  else
+    ddev composer require drupal/ui_patterns drupal/ui_patterns_settings drupal/ds
+  fi
   ddev exec drush -y pm:enable ui_patterns ui_patterns_settings \
     layout_discovery layout_builder bootstrap_italia_layouts \
     ds ds_extras ds_switch_view_mode \
