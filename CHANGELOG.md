@@ -5,7 +5,7 @@ First v2 release.
 ## Update from 2.0@RC1
 `$ composer require 'drupal/bootstrap_italia:^2.0'`
 
-Go to your sub-theme settings -> PA Website Validator and choose your site type
+Go to your sub-theme settings -> PA Website Validator and choose your site type.
 
 Edit `<your-sub-theme>italiagov/package.json` and change
 ```
