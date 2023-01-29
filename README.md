@@ -26,7 +26,7 @@ $ cd <drupal-root>
 /* 1. Install end enable dependencies */
 $ composer require drupal/components:^3.0@beta
 $ drush pm:enable components
-$ composer require drupal/bootstrap_italia:^2.0@RC
+$ composer require drupal/bootstrap_italia:^2.0
 
 /* 2. Copy sub-theme to destination folder */
 $ cd web/themes/
@@ -386,6 +386,12 @@ $ drush en ui_patterns_layouts
 Enable `ui_patterns_views` to use components with views.
 ```
 $ drush en ui_patterns_views
+```
+
+# Italian Language
+Import/edit `translations/bootstrap_italia-2.x.it.po`
+```
+$ drush locale-import it /absolute/path/to/bootstrap_italia-2.0.0.it.po --type=customized --override=all
 ```
 
 # How to start a ddev container
