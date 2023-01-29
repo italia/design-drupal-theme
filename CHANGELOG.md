@@ -1,6 +1,6 @@
 # Summary 2.0.0
 ## Release notes
-First stable release.
+First v2 release.
 
 ## Update from 2.0@RC1
 `$ composer require 'drupal/bootstrap_italia:^2.0'`
