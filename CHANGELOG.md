@@ -1,8 +1,31 @@
 # Summary 2.0.0
 ## Release notes
+First stable release.
 
+## Update from 2.0@RC1
+`$ composer require 'drupal/bootstrap_italia:^2.0'`
 
-## Removed feature
+Go to your sub-theme settings -> PA Website Validator and choose your site type
+
+Edit `<your-sub-theme>italiagov/package.json` and change
+```
+"dependencies": {
+  "bootstrap-italia": "^2.0.9"
+}
+```
+in
+```
+  "dependencies": {
+    "bootstrap-italia": "2.0.9"
+  }
+```
+
+Update `<your-sub-theme>italiagov/src/js/index.js`
+
+Package.json and index.js diff:
+https://git.drupalcode.org/project/bootstrap_italia/-/compare/2.0.0-rc1...2.x?from_project_id=61656&page=2&straight=false#4707d11b57f77fd9a16fd8a8ac18cb111ef72865
+
+## Removed feature from 8.x-0.x
 - `macro.icon` (deprecated in 0.11)
 
 - `macro.password_icon`, if you use this feature
@@ -58,3 +81,4 @@ update `<sub-theme>/<sub-theme>.theme`.
 - drush cr
 - layout blocks set language block
 - update src folder in your sub-theme
+- update template folder in your sub-theme
