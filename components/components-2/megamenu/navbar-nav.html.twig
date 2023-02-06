@@ -163,7 +163,7 @@
 
                 {# Compliance C.SC.1.5 School #}
                 {% if item.url.options['attributes']['data-element-child'] %}
-                  {% set link_list_attributes = link_list_attributes.setAttribute('data-attribute', item.url.options['attributes']['data-attribute-child']) %}
+                  {% set link_list_attributes = link_list_attributes.setAttribute('data-element', item.url.options['attributes']['data-element-child']) %}
                 {% endif %}
 
                 <ul{{ link_list_attributes }}>
