@@ -1,6 +1,6 @@
 {
   "name": "bootstrap_italia",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "description": "'A Drupal theme which implements the Italia Design System'",
   "main": "src/js/index.js",
   "engineStrict": true,
@@ -34,20 +34,21 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
-    "css-loader": "^6.6.0",
-    "mini-css-extract-plugin": "^2.5.3",
-    "postcss-loader": "^7.0.0",
-    "sass": "^1.49.8",
-    "sass-loader": "^13.0.2",
-    "semver": "^7.3.5",
+    "css-loader": "^6.7.3",
+    "mini-css-extract-plugin": "^2.7.2",
+    "postcss-loader": "^7.0.2",
+    "sass": "^1.58.0",
+    "sass-loader": "^13.2.0",
+    "semver": "^7.3.8",
     "style-loader": "^3.3.1",
-    "svg-sprite-loader": "^6.0.11",
-    "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0",
+    "svg-sprite-loader": "^2.0.3",
+    "svgo-loader": "^4.0.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1",
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "bootstrap-italia": "2.0.9"
+    "bootstrap-italia": "2.1.1"
   }
 }
