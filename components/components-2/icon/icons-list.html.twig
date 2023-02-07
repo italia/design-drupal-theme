@@ -24,12 +24,12 @@
     'it-collapse', 'it-comment', 'it-copy',
     'it-delete', 'it-download', 'it-error',
     'it-exchange-circle', 'it-expand', 'it-external-link',
-    'it-file', 'it-files', 'it-flag',
+    'it-flag',
     'it-folder', 'it-fullscreen', 'it-funnel',
     'it-hearing', 'it-help', 'it-help-circle',
     'it-horn', 'it-inbox', 'it-info-circle',
     'it-key', 'it-link', 'it-list',
-    'it-locked', 'it-mail', 'it-map-marker',
+    'it-locked', 'it-logout', 'it-mail', 'it-mail-open', 'it-map-marker',
     'it-map-marker-circle', 'it-map-marker-minus', 'it-map-marker-plus',
     'it-maximize', 'it-maximize-alt', 'it-minimize',
     'it-minus', 'it-minus-circle', 'it-more-actions',
@@ -46,16 +46,50 @@
     'it-warning', 'it-warning-circle', 'it-wifi', 'it-zoom-in',
     'it-zoom-out',
   ] %}
-  {% set icons_social = [
-    'it-behance', 'it-facebook', 'it-facebook-square',
-    'it-flickr', 'it-flickr-square', 'it-github',
-    'it-instagram', 'it-linkedin', 'it-linkedin-square',
-    'it-medium', 'it-medium-square', 'it-telegram',
-    'it-twitter', 'it-twitter-square', 'it-whatsapp',
-    'it-whatsapp-square', 'it-youtube', 'it-google',
+  {% set icons_platforms = [
+    'it-behance',
+    'it-facebook', 'it-facebook-square',
+    'it-figma', 'it-figma-square',
+    'it-flickr', 'it-flickr-square',
+    'it-github',
+    'it-instagram',
+    'it-linkedin', 'it-linkedin-square',
+    'it-medium', 'it-medium-square',
+    'it-pinterest', 'it-pinterest-square',
+    'it-quora', 'it-quora-square',
+    'it-reddit', 'it-reddit-square',
+    'it-slack', 'it-slack-square',
+    'it-snapchat', 'it-snapchat-square',
+    'it-stackexchange', 'it-stackexchange-square',
+    'it-stackoverflow', 'it-stackoverflow-square',
+    'it-telegram',
+    'it-tiktok', 'it-tiktok-square',
+    'it-twitter', 'it-twitter-square',
+    'it-vimeo', 'it-vimeo-square',
+    'it-whatsapp', 'it-whatsapp-square',
+    'it-youtube',
+    'it-google',
   ] %}
   {% set icons_extra = [
     'it-designers-italia', 'it-team-digitale'
+  ] %}
+  {% set icons_files = [
+    'it-file',
+    'it-files',
+    'it-file-audio',
+    'it-file-compressed',
+    'it-file-csv',
+    'it-file-json',
+    'it-file-odp',
+    'it-file-ods',
+    'it-file-odt',
+    'it-file-pdf',
+    'it-file-pdf-ext',
+    'it-file-sheet',
+    'it-file-slides',
+    'it-file-txt',
+    'it-file-video',
+    'it-file-xml',
   ] %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
@@ -76,11 +110,11 @@
   {% endembed %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Social icons'|trans,
+    title: 'Platforms icons'|trans,
   } %}
     {% block content %}
       <div class="row">
-        {% for icon in icons_social %}
+        {% for icon in icons_platforms %}
           <div class="col-12 col-md-6 col-lg-4">
             {% include '@bi-bcl/icon/icon.html.twig' with {
               name: icon
@@ -98,6 +132,23 @@
     {% block content %}
       <div class="row">
         {% for icon in icons_extra %}
+          <div class="col-12 col-md-6 col-lg-4">
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: icon
+            } %}
+            {{ icon }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'File icons'|trans,
+  } %}
+    {% block content %}
+      <div class="row">
+        {% for icon in icons_files %}
           <div class="col-12 col-md-6 col-lg-4">
             {% include '@bi-bcl/icon/icon.html.twig' with {
               name: icon
