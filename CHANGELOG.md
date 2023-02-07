@@ -1,3 +1,10 @@
+# Summary 2.1.0
+## Release notes
+Update sub-theme dependencies for compliance v2.1.1 bootstrap-italia library
+
+# Summary 2.0.1
+- Fix data-attribute for shools sites
+
 # Summary 2.0.0
 ## Release notes
 First v2 release.
