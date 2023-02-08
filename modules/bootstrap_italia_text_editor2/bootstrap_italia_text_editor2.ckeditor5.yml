@@ -10,7 +10,7 @@ bootstrap_italia_text_editor2_table:
   drupal:
     label: Table
     library: core/ckeditor5.table
-    admin_library: ckeditor5/admin.table
+    admin_library: ckeditor5/internal.admin.table
     toolbar_items:
       insertTable:
         label: table
