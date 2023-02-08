@@ -26,7 +26,7 @@ else
   drupal_version="10"
 fi
 
-read -r -p "Bootstrap Italia version [2.x|^2.0@RC|2.x-dev@dev|latest] (2.x-dev@dev): " bootstrap_italia_version
+read -r -p "Bootstrap Italia version [2.x|2.x-dev@dev|latest] (2.x-dev@dev): " bootstrap_italia_version
 bootstrap_italia_version=${bootstrap_italia_version:-2.x-dev@dev}
 
 read -r -p "Do you want enable italian language? [y|n] (y): " enable_locale
@@ -130,7 +130,7 @@ if [ "$bi_libraries_type" == "vanilla" ]; then
   fi
 
   curl --request GET -sL \
-    --url 'https://github.com/italia/bootstrap-italia/releases/download/v2.0.9/bootstrap-italia.zip' \
+    --url 'https://github.com/italia/bootstrap-italia/releases/download/v2.1.1/bootstrap-italia.zip' \
     --output './web/themes/custom/italiagov/dist/bootstrap-italia.zip'
 
   unzip ./web/themes/custom/italiagov/dist/bootstrap-italia.zip -d ./web/themes/custom/italiagov/dist/
