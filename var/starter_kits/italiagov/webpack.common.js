@@ -1,6 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const check = require('./webpack.check')
 
 const paths = require('./webpack.paths')
@@ -31,6 +31,19 @@ module.exports = {
               spriteFilename: 'sprites.svg',
             }
           },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {
+                  name: 'removeAttrs',
+                  params: {
+                    attrs: '(fill)',
+                  },
+                }
+              ]
+            }
+          }
         ],
       },
     ],
