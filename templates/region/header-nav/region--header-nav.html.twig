@@ -18,7 +18,7 @@
   {% if content %}
     {% set _header_nav_id = region~'-main-navbar' %}
 
-    <nav class="navbar navbar-expand-{{ navigation_header_breakpoint_expand ?: 'lg' }} has-megamenu" aria-label="{{ 'Main navigation'|t }}" role="navigation">
+    <div class="navbar navbar-expand-{{ navigation_header_breakpoint_expand ?: 'lg' }} has-megamenu" aria-label="{{ 'Main navigation'|t }}" role="navigation">
       <button
         class="custom-navbar-toggler"
         type="button"
@@ -32,8 +32,8 @@
           name: 'it-burger'
         } %}
       </button>
-      <div class="navbar-collapsable" id="{{ _header_nav_id }}">
-        <div class="overlay"></div>
+      <div id="{{ _header_nav_id }}" class="navbar-collapsable">
+        <div class="overlay" style="display: none;"></div>
         <div class="close-div">
           <button class="btn close-menu" type="button">
             <span class="visually-hidden">{{ 'Hide navigation'|t }}</span>
@@ -42,10 +42,10 @@
             } %}
           </button>
         </div>
-        <div class="menu-wrapper">
+        <div class="menu-wrapper d-lg-flex justify-content-lg-between align-items-lg-end">
           {{ content }}
         </div>
       </div>
-    </nav>
+    </div>
   {% endif %}
 {% endapply %}

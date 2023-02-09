@@ -25,9 +25,23 @@
 {% set navigation_header_sticky_menu_name = navigation_header_sticky_menu_name ?: 'main' %}
 {% set _navigation_header_data_attribute = pa_website_validator_type|default('')%}
 
-{# Detect secondary menu. #}
-{% if navigation_header_sticky_menu_name != menu_name %}
-  {% set attributes = attributes.addClass('navbar-secondary') %}
+{% set _navbar_attributes = create_attribute() %}
+
+{# Detect primary menu. #}
+{% if navigation_header_sticky_menu_name == menu_name %}
+  {% set _navbar_attributes = _navbar_attributes
+    .setAttribute('aria-label', 'Primary'|t)
+    .addClass('ps-lg-0')
+  %}
+  {% set attributes = attributes.addClass('ps-lg-0') %}
+
+{# or secondary menu #}
+{% else %}
+  {% set attributes = attributes.addClass(['navbar-secondary','pe-xl-0']) %}
+  {% set _navbar_attributes = _navbar_attributes
+    .setAttribute('aria-label', 'Secondary'|t)
+    .addClass('pe-xl-0')
+  %}
 {% endif %}
 
 {% if navigation_header_sticky_menu_name == menu_name and _navigation_header_data_attribute is not empty %}
@@ -40,14 +54,16 @@
 {% endif %}
 
 {# Component. #}
-{% include '@bi-bcl/megamenu/navbar-nav.html.twig' with {
-  menu_name: menu_name,
-  items: items,
-  attributes: attributes,
-  active_assistive_text: 'Current Page'|t,
-  show_link_description: navigation_header_show_link_description,
-  active_items_large: navigation_header_active_items_large,
-  active_items_bold: navigation_header_active_items_bold,
-  megamenu_responsive_columns: (navigation_header_megamenu_columns_lg ~ ' ' ~ navigation_header_megamenu_columns_xl)|trim,
-  verbose_classes: navigation_header_verbose_classes,
-} %}
+<nav{{ _navbar_attributes }}>
+  {% include '@bi-bcl/megamenu/navbar-nav.html.twig' with {
+    menu_name: menu_name,
+    items: items,
+    attributes: attributes,
+    active_assistive_text: 'Current Page'|t,
+    show_link_description: navigation_header_show_link_description,
+    active_items_large: navigation_header_active_items_large,
+    active_items_bold: navigation_header_active_items_bold,
+    megamenu_responsive_columns: (navigation_header_megamenu_columns_lg ~ ' ' ~ navigation_header_megamenu_columns_xl)|trim,
+    verbose_classes: navigation_header_verbose_classes,
+  } %}
+</nav>

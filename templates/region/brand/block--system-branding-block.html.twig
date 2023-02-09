@@ -23,6 +23,7 @@
           <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="icon{{ image_logo_fluid ? ' img-fluid' }}" />
         {% else %}
           {% set svg_attributes = create_attribute() %}
+          {% set svg_attributes = svg_attributes.setAttribute('aria-hidden', 'true') %}
 
           {% if svg_logo_box %}
             {% set svg_attributes = svg_attributes
