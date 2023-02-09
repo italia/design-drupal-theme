@@ -36,6 +36,14 @@
  * - modal_dialog_attributes (obj attribute) (default: '')
  * - button_label (string) (default: '')
  *   - If set show laucher button
+ * - button_tag (string) (default: 'button')
+ *   - options ["button", "a", "span"]
+ * - button_variant (string) (default: 'primary')
+ *   - options ["primary", "secondary", "success", "danger", "warning", "white", "dark" ]
+ * - button_outline (boolean) (default: false)
+ *   - Enable outline
+ * - button_size (string) (default: '')
+ *   - options ["xs", "sm", "lg"]
  *
  * - modalTitle (block) (default: modal_title)
  *   - block for custom title
@@ -88,6 +96,10 @@
   {% set _modal_dialog_attributes = modal_dialog_attributes|default('') %}
 
   {% set _button_label = button_label|default('') %}
+  {% set _button_tag = button_tag|default('button') %}
+  {% set _button_variant = button_variant|default('primary') %}
+  {% set _button_outline = button_outline ?? false %}
+  {% set _button_size = button_size|default('') %}
 
   {# Set modal options #}
   {% set _classes = [
@@ -210,8 +222,10 @@
       %}
       {% include '@bi-bcl/button/button.html.twig' with {
         label: _button_label,
-        variant: 'primary',
-        tag: 'button',
+        tag: _button_tag,
+        variant: _button_variant,
+        outline: _button_outline,
+        size: _button_size,
         button_attributes: button_modal_attributes
       } %}
     {% endif %}
