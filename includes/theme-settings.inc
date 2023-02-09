@@ -1122,7 +1122,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
         </tr>
       </tbody>
      </table>
-    ')
+    '),
   ];
   // School.
   $form['pwv']['school'] = [
