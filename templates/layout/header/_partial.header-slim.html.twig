@@ -18,6 +18,7 @@
                   .setAttribute('href', government_entity_url ?: '#')
                   .setAttribute('target', government_entity_url ? '_blank' : '_self')
                   .setAttribute('title', 'Go to '|t ~ government_entity_name)
+                  .setAttribute('aria-label', 'Go to '|t ~ government_entity_name ~ ' - ' ~ 'External link'|t ~ ' - ' ~ 'New window'|t)
                 %}
                 {% if not government_entity_url %}
                   {% set government_entity_url_attributes = government_entity_url_attributes
@@ -37,7 +38,7 @@
             {% endblock %}
 
             {% block headerSlimRightZone %}
-              <div class="it-header-slim-right-zone">
+              <div class="it-header-slim-right-zone" role="navigation">
                 {% if page.header_slim_language %}
                   {{ page.header_slim_language }}
                 {% endif %}
@@ -56,6 +57,7 @@
                     {% if pa_website_validator_type == 'municipality' %}
                       {% set login_button_attributes = login_button_attributes.setAttribute('data-element', 'personal-area-login') %}
                     {% endif %}
+                    {% set login_button_attributes = login_button_attributes.setAttribute('data-focus-mouse', 'false') %}
 
                     {% embed '@bi-bcl/button/button.html.twig' with {
                       label: 'Login to your personal area'|t,
@@ -72,7 +74,7 @@
                     } %}
                       {% block before %}
                         {% if slim_header_action_type == 'full' and slim_header_action_icon %}
-                          <span class="rounded-icon">
+                          <span class="rounded-icon" aria-hidden="true">
                             {% include '@bi-bcl/icon/icon.html.twig' with {
                               name: 'it-user',
                               color: 'primary',
