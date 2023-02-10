@@ -24,7 +24,7 @@
   <div class="row">
     {% set col = items|length > 4 ? 3 : 12 / items|length %}
     {% for item in items %}
-      <div class="col-sm-6 col-md-{{ col }} col-lg-{{ col }} pb-2">
+      <div class="col-sm-6 col-lg-{{ col }} pb-4 footer-items-wrapper">
 
         <h4>{{ link(item.title, item.url, item.attributes) }}</h4>
         {% if item.below %}

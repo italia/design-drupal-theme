@@ -1,26 +1,22 @@
 {% apply spaceless %}
-  <footer class="it-footer d-print-none">
+  <footer id="footer" class="it-footer d-print-none">
     <a id="it-skip-to-footer-content" tabindex="-1"></a>{# link is in html.html.twig #}
     <div class="it-footer-main">
       <div class="{{ footer_container_type ?: 'container' }}">
 
         {% block footerBrand %}
           {% if page.brand %}
-            <section>
-              <div class="row clearfix">
-                <div class="col-sm-12">
-                  {{ page.brand }}
-                </div>
+            <div class="row">
+              <div class="col-sm-12 footer-items-wrapper logo-wrapper">
+                {{ page.brand }}
               </div>
-            </section>
+            </div>
           {% endif %}
         {% endblock %}
 
         {% block footerMenu %}
           {% if page.footer_menu %}
-            <section>
-              {{ page.footer_menu }}
-            </section>
+            {{ page.footer_menu }}
           {% endif %}
         {% endblock %}
 
@@ -45,32 +41,32 @@
               count_footer_blocks == 3 ? 'col-md-4',
               count_footer_blocks == 2 ? 'col-md-6',
               count_footer_blocks == 1 ? 'col',
-              'pb-2'
+              'pb-2',
+              'footer-items-wrapper'
             ] %}
-            <section class="py-4{{ page.footer_menu ? ' border-white border-top' }}">
-              <div class="row">
-                {% if page.footer_first %}
-                  <div class="{{ footer_blocks_classes|join(' ') }}">
-                    {{ page.footer_first }}
-                  </div>
-                {% endif %}
-                {% if page.footer_second %}
-                  <div class="{{ footer_blocks_classes|join(' ') }}">
-                    {{ page.footer_second }}
-                  </div>
-                {% endif %}
-                {% if page.footer_third %}
-                  <div class="{{ footer_blocks_classes|join(' ') }}">
-                    {{ page.footer_third }}
-                  </div>
-                {% endif %}
-                {% if page.footer_fourth %}
-                  <div class="{{ footer_blocks_classes|join(' ') }}">
-                    {{ page.footer_fourth }}
-                  </div>
-                {% endif %}
-              </div>
-            </section>
+
+            <div class="row py-4{{ page.footer_menu ? ' border-white border-top' }}">
+              {% if page.footer_first %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_first }}
+                </div>
+              {% endif %}
+              {% if page.footer_second %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_second }}
+                </div>
+              {% endif %}
+              {% if page.footer_third %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_third }}
+                </div>
+              {% endif %}
+              {% if page.footer_fourth %}
+                <div class="{{ footer_blocks_classes|join(' ') }}">
+                  {{ page.footer_fourth }}
+                </div>
+              {% endif %}
+            </div>
           {% endif %}
         {% endblock %}
       </div>{# End container. #}
