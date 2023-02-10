@@ -31,13 +31,13 @@
 {% if navigation_header_sticky_menu_name == menu_name %}
   {% set _navbar_attributes = _navbar_attributes
     .setAttribute('aria-label', 'Primary'|t)
-    .addClass('ps-lg-0')
+    .addClass(['ps-lg-0', 'flex-grow-1'])
   %}
   {% set attributes = attributes.addClass('ps-lg-0') %}
 
 {# or secondary menu #}
 {% else %}
-  {% set attributes = attributes.addClass(['navbar-secondary','pe-xl-0']) %}
+  {% set attributes = attributes.addClass(['navbar-secondary', 'pe-xl-0']) %}
   {% set _navbar_attributes = _navbar_attributes
     .setAttribute('aria-label', 'Secondary'|t)
     .addClass('pe-xl-0')
