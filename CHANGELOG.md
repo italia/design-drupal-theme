@@ -1,9 +1,38 @@
 # Summary 2.1.0
 ## Release notes
-Update sub-theme dependencies for compliance v2.1.1 bootstrap-italia library
+- Update sub-theme dependencies for compliance v2.1.1 bootstrap-italia library
+- Various fix
+
+## Update from 2.0.1
+If you have custom template overrides, check:
+- `templates/layout/footer/_partial.footer.html.twig`
+- `templates/layout/header/_partial.header-center.html.twig`
+- `templates/layout/header/_partial.header-navbar.html.twig`
+- `templates/layout/header/_partial.header-slim.html.twig`
+- `templates/layout/html.html.twig`
+- `templates/region/footer-menu/menu--footer-menu.html.twig`
+- `templates/region/header-nav/menu--header-nav.html.twig`
+- `templates/region/header-nav/region--header-nav.html.twig`
+- `templates/region/header-slim-language/links--language-block.html.twig`
+- `templates/region/small-prints/menu--footer-small-prints.html.twig`
+
+If you use custom libraries built with webpack, check:
+- `var/starter_kits/italiagov/package.json`
+- `var/starter_kits/italiagov/webpack.common.js`
+
+## All changes
+- Sub-theme dependencies update
+- Sub-theme up to bootstrap-italia 2.1.1
+- Add option to modal component
+- Fix bug to Bootstrap Italia Text Editor 2 (Experimental module)
+- Fix accessibility slim header, header center, navbar, skipping, follow-us, footer
+- Fix bug in navbar burger icon
+- Review all component
+- Update italian translations (thanks @braintec)
+- Update ddev installer
 
 # Summary 2.0.1
-- Fix data-attribute for shools sites
+- Fix data-attribute for schools sites
 
 # Summary 2.0.0
 ## Release notes
