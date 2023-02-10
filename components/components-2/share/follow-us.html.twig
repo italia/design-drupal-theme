@@ -11,6 +11,7 @@
  *     - label (string)
  *     - url (url)
  * - label (string) (default: '')
+ * - icon_color (string) (default: '')
  * - blank (boolean) (default: true)
  *   - Open link in new window
  * - followus_classes (array) (default: '')
@@ -28,6 +29,7 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _label = label|default('') %}
+  {% set _icon_color = icon_color|default('') %}
   {% set _blank = blank ?? true %}
   {% set _followus_classes = followus_classes|default('') %}
   {% set _followus_attributes = followus_attributes|default('') %}
@@ -67,7 +69,13 @@
               -%}
             {%- endif -%}
             <a{{- social_attributes -}}>
-              {%- include '@bi-bcl/icon/icon.html.twig' with { name: 'it-' ~ (social.label|lower) } -%}
+              {%- include '@bi-bcl/icon/icon.html.twig' with {
+                name: 'it-' ~ (social.label|lower),
+                size: 'sm',
+                color: _icon_color,
+                icon_classes: ['align-top']
+              } -%}
+              <span class="visually-hidden">{{ social.label }}</span>
             </a>
           </li>
         {%- endif -%}

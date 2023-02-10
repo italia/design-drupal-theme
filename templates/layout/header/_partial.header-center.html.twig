@@ -25,8 +25,9 @@
                   {% include '@bi-bcl/share/follow-us.html.twig' with {
                     socials: socials,
                     label: 'Follow us on'|t,
+                    icon_color: center_header_light ? 'primary' : 'white',
                     blank: social_new_window,
-                    followus_classes: ["it-socials", "d-none", "d-md-flex"]
+                    followus_classes: ["it-socials", "d-none", "d-lg-flex"]
                   } %}
                 {% endif %}
                 {% if page.header_center_social and not socials %}
