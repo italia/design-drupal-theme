@@ -62,6 +62,7 @@
               .setAttribute('href', social.url)
               .setAttribute('rel', 'noopener')
               .setAttribute('aria-label', social.label)
+              .addClass('text-'~_icon_color)
             -%}
             {%- if _blank -%}
               {%- set social_attributes = social_attributes
@@ -75,7 +76,7 @@
                 color: _icon_color,
                 icon_classes: ['align-top']
               } -%}
-              <span class="visually-hidden">{{ social.label }}</span>
+              <span class="visually-hidden-focusable">{{ social.label }}</span>
             </a>
           </li>
         {%- endif -%}

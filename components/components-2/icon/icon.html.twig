@@ -89,7 +89,10 @@
   {% if _icon_attributes is empty %}
     {% set icon_attributes = create_attribute() %}
   {% endif %}
-  {% set icon_attributes = icon_attributes.addClass(_classes) %}
+  {% set icon_attributes = icon_attributes
+    .addClass(_classes)
+    .setAttribute('aria-hidden', 'true')
+  %}
 
   {% if _icon_path is empty and _context.libraries_cdn_icons is empty %}
     {% set _icon_path = "/" ~ active_theme_path() ~ "/dist/svg/" ~ _library ~ "#" ~ _name %}
@@ -100,7 +103,7 @@
   {% endif %}
 
   {# Component #}
-  <svg {{ icon_attributes }}>
+  <svg{{ icon_attributes }}>
     <use href="{{ _icon_path }}" xlink:href="{{ _icon_path }}"></use>
   </svg>
 {% endapply %}

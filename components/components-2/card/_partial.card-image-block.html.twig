@@ -9,7 +9,7 @@
 
     <div class="img-responsive-wrapper">
       <div class="{{ _image_classes|join(' ')|trim }}">
-        <figure class="img-wrapper">
+        <figure class="img-wrapper" aria-label="{{ _card_title|render|striptags|trim }}">
           {{ _card_image }}
         </figure>
         {% if _card_image_date is not empty %}

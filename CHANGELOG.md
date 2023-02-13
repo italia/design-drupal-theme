@@ -5,15 +5,17 @@
 
 ## Update from 2.0.1
 If you have custom template overrides, check:
-- `templates/layout/footer/_partial.footer.html.twig`
+- `templates/layout/html.html.twig`
+- `templates/layout/header/_partial.header-slim.html.twig`
 - `templates/layout/header/_partial.header-center.html.twig`
 - `templates/layout/header/_partial.header-navbar.html.twig`
-- `templates/layout/header/_partial.header-slim.html.twig`
-- `templates/layout/html.html.twig`
-- `templates/region/footer-menu/menu--footer-menu.html.twig`
-- `templates/region/header-nav/menu--header-nav.html.twig`
-- `templates/region/header-nav/region--header-nav.html.twig`
+- `templates/layout/content/_partial.content.html.twig`
+- `templates/layout/footer/_partial.footer.html.twig`
+- `templates/region/header-slim-menu/block--header-slim-menu.html.twig`
 - `templates/region/header-slim-language/links--language-block.html.twig`
+- `templates/region/header-nav/region--header-nav.html.twig`
+- `templates/region/header-nav/menu--header-nav.html.twig`
+- `templates/region/footer-menu/menu--footer-menu.html.twig`
 - `templates/region/small-prints/menu--footer-small-prints.html.twig`
 
 If you use custom libraries built with webpack, check:

@@ -52,8 +52,7 @@
           {% for pattern_name, pattern in group_patterns %}
             <div class="pattern-row mb-5">
               {# Pattern name and description. #}
-              <a id="{{ pattern_name }}"></a>
-              <h2 class="page-header fw-semibold">
+              <h2 id="{{ pattern_name }}" class="page-header fw-semibold">
                 {{ pattern.label }}
                 <a href="{{ url('ui_patterns.patterns.single', {'name': pattern.id}) }}" class="btn btn-secondary btn-sm pull-right">View {{ pattern.label }} <i class="glyphicon glyphicon-chevron-right"></i></a>
               </h2>

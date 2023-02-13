@@ -185,7 +185,7 @@
         name: _avatar_icon,
         color: _avatar_icon_color,
       } %}
-      <span class="visually-hidden">{{ _avatar_assistive_text }}</span>
+      <span class="visually-hidden text-dark bg-white">{{ _avatar_assistive_text }}</span>
     {% endif %}
 
     {% if _avatar_type == 'image' %}
@@ -194,7 +194,7 @@
 
     {% if _avatar_type == 'text' %}
       <p aria-hidden="true">{{ _avatar_text|upper }}</p>
-      <span class="visually-hidden">{{ _avatar_assistive_text }}</span>
+      <span class="visually-hidden text-dark bg-white">{{ _avatar_assistive_text }}</span>
     {% endif %}
   {% endblock %}
 
@@ -207,7 +207,7 @@
             color: 'white',
           } %}
         {% endif %}
-        <span class="visually-hidden">{{ _avatar_presence_text }}</span>
+        <span class="visually-hidden text-dark bg-white">{{ _avatar_presence_text }}</span>
       </div>
     {% endif %}
   {% endblock %}
@@ -221,7 +221,7 @@
             color: 'white',
           } %}
         {% endif %}
-        <span class="visually-hidden">{{ _avatar_status_text }}</span>
+        <span class="visually-hidden text-dark bg-white">{{ _avatar_status_text }}</span>
       </div>
     {% endif %}
   {% endblock %}

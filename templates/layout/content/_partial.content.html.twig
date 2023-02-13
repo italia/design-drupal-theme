@@ -4,7 +4,7 @@
     content_margin_bottom ? content_margin_bottom
   ] %}
 
-  <main class="{{ _main_content_classes|join(' ')|trim }}" role="main">
+  <main id="it-main-content" class="{{ _main_content_classes|join(' ')|trim }}" role="main">
 
     {% block contentBreadcrumb %}
       {% if page.breadcrumb %}
@@ -17,8 +17,6 @@
         </section>
       {% endif %}
     {% endblock %}
-
-    <a id="it-skip-to-main-content" tabindex="-1" class="visually-hidden"></a>{# link is in html.html.twig #}
 
     {% block contentTitle %}
       {% if page.title %}
