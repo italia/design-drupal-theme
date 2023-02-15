@@ -8,4 +8,4 @@ base:
     #src/js/bootstrap-italia-drupal-speech.js: {}
   dependencies:
     - core/drupal
-    #- core/once
+    - core/once
