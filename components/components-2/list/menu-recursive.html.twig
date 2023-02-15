@@ -217,6 +217,7 @@
             {% set item_attributes = item_attributes
               .setAttribute('target', '_blank')
               .setAttribute('rel', 'nofollow')
+              .setAttribute('aria-label', item.title ~ ' - ' ~ 'External link'|t ~ ' - ' ~ 'New window'|t)
             %}
           {%- endif -%}
 

@@ -89,6 +89,7 @@
     {% set linklist_item_attributes = linklist_item_attributes
       .setAttribute('target', '_blank')
       .setAttribute('rel', 'nofollow')
+      .setAttribute('aria-label', _item.title ~ ' - ' ~ 'External link'|t ~ ' - ' ~ 'New window'|t)
     %}
   {% endif %}
 

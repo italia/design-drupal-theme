@@ -25,7 +25,9 @@
   ) }}>
     {% for item in items %}
       <li{{ item.attributes.addClass(['list-inline-item']) }}>
-        {{ link(item.title, item.url) }}
+        {% include '@bi-bcl/list/linklist-item.html.twig' with {
+          item: item,
+        } %}
       </li>
     {% endfor %}
   </ul>
