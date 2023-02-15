@@ -1,3 +1,10 @@
+# Summary 2.1.1
+# Release notes
+- Accessibility of external links in the menus
+
+If you have custom template overrides, check:
+- `templates/region/small-prints/menu--footer-small-prints.html.twig`
+
 # Summary 2.1.0
 ## Release notes
 - Update sub-theme dependencies for compliance v2.1.1 bootstrap-italia library
