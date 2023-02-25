@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for Bootstrap Italia Empty Front Page.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function bootstrap_italia_empty_front_page_install() {
+  // set frontpage to new empty route
+  Drupal::configFactory()->getEditable('system.site')->set('page.front', '/empty-front-page')->save();
+  // disable frontapage view
+  \Drupal::entityTypeManager()->getStorage('view')
+    ->load('frontpage')
+    ->setStatus(FALSE)
+    ->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function bootstrap_italia_empty_front_page_uninstall() {
+  Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save();
+  \Drupal::entityTypeManager()->getStorage('view')
+    ->load('frontpage')
+    ->setStatus(TRUE)
+    ->save();
+}

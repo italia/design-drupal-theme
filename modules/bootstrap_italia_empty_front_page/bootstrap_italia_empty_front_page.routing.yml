@@ -1,0 +1,7 @@
+empty_front_page.content:
+  path: '/empty-front-page'
+  defaults:
+    _controller: '\Drupal\bootstrap_italia_empty_front_page\Controller\EmptyFrontPageController::content'
+    _title: ''
+  requirements:
+    _permission: 'access content'
