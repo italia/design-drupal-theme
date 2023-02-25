@@ -361,8 +361,7 @@ This module modifies the front page to have an empty page. This way, only the bl
 Useful as in the case of Municipalities whose home page is built only with 
 blocks in custom zones, thus avoiding recalling the frontpage view which isn't used. 
 The same view is also disabled.
-This module is a fork of
-https://www.drupal.org/project/empty_front_page
+
 
 # How to manage components via the user interface.
 The components of the theme are mapped with the drupal graphical interface,
