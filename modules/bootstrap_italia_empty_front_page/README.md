@@ -29,7 +29,8 @@ back, disable the module and clear caches.
 
 ## Credits
 
-- [Greg Boggs (greg-boggs)](https://www.drupal.org/u/greg-boggs)
+This module is a fork of https://www.drupal.org/project/empty_front_page
+all credits to:
 
-## Previous Credits
+- [Greg Boggs (greg-boggs)](https://www.drupal.org/u/greg-boggs)
 - [Patrick Fournier (pfournier)](https://www.drupal.org/u/pfournier)
