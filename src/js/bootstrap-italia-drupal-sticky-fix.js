@@ -1,5 +1,5 @@
 // is-sticky fix. Sticky clones the "id" attributes.
-(function (bootstrap) {
+(function () {
   'use strict';
 
   const headerWrapperObserver = new MutationObserver(
@@ -53,4 +53,4 @@
     )
   }
 
-})(Drupal, bootstrap);
+})(Drupal);
