@@ -391,7 +391,7 @@ $ drush en ui_patterns_views
 # Italian Language
 Import/edit `translations/bootstrap_italia-2.x.it.po`
 ```
-$ drush locale-import it /absolute/path/to/bootstrap_italia-2.1.0.it.po --type=customized --override=all
+$ drush locale-import it /absolute/path/to/bootstrap_italia-2.2.0.it.po --type=customized --override=all
 ```
 
 # How to start a ddev container
