@@ -1011,14 +1011,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['pwv'] = [
     '#type' => 'details',
     '#title' => t('PA Website Validator'),
-    '#description' => t(
-      '<p>Settings for <a href="@mSites" title="Read the docs" target="_blank">Municipality sites</a> or <a href="@sSites" title="Read the docs" target="_blank">School sites</a>, or leave unset for generic sites.</p>
-             <p>The theme automatically sets some data-attributes without you having to override templates. In the table below a summary of the automatically set data-attributes. You have to do everything else.</p>',
-      [
-        '@mSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-comuni.html',
-        '@sSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-scuole.html',
-      ]
-    ),
+    '#description' => t('The theme automatically sets some data-attributes without you having to override templates. In the table below a summary of the automatically set data-attributes. You have to do everything else.'),
     '#open' => FALSE,
     '#group' => 'bootstrap',
     '#weight' => 20,
@@ -1026,7 +1019,13 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['pwv']['pa_website_validator_type'] = [
     '#type' => 'select',
     '#title' => t('Site type'),
-    '#description' => t(''),
+    '#description' => t(
+      '<p>Settings for <a href="@mSites" title="Read the docs" target="_blank">Municipality sites</a> or <a href="@sSites" title="Read the docs" target="_blank">School sites</a>, or leave unset for generic sites.</p>',
+      [
+        '@mSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-comuni.html',
+        '@sSites' => 'https://docs.italia.it/italia/designers-italia/app-valutazione-modelli-docs/it/versione-attuale/requisiti-e-modalita-verifica-scuole.html',
+      ]
+    ),
     '#default_value' => theme_get_setting('pa_website_validator_type'),
     '#options' => [
       '' => t('Unset'),
@@ -1038,7 +1037,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['pwv']['municipality'] = [
     '#type' => 'details',
     '#title' => t('Municipality'),
-    '#description' => t(''),
     '#open' => FALSE,
     '#group' => 'pwv',
   ];
@@ -1128,7 +1126,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['pwv']['school'] = [
     '#type' => 'details',
     '#title' => t('School'),
-    '#description' => t(''),
     '#open' => FALSE,
     '#group' => 'pwv',
   ];

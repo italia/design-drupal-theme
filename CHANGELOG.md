@@ -1,5 +1,24 @@
+# Summary 2.2.0
+## Release notes
+- Update sub-theme dependencies for compliance v2.2.0 bootstrap-italia library
+
+## Update from 2.1.x
+If you use vanilla libraries, download bootstrap-italia v2.2.0
+and update `<your-sub-theme>/dist` folder.
+
+If you use custom libraries built with webpack, do:
+```
+$ npm install bootstrap-italia@2.2.0 --save-exact
+$ npm update
+```
+- update `<your-sub-theme>/src/js/index.js`
+```
+$ npm run build:prod
+$ drush cr
+```
+
 # Summary 2.1.1
-# Release notes
+## Release notes
 - Accessibility of external links in the menus
 
 If you have custom template overrides, check:

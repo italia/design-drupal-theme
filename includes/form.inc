@@ -51,6 +51,7 @@ function bootstrap_italia_form_search_block_form_alter(&$form) {
  */
 function bootstrap_italia_preprocess_form_element(&$variables) {
   FormElement::set($variables);
+  FormElement::setActiveLabel($variables);
 }
 
 /**

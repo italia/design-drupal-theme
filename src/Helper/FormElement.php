@@ -77,6 +77,26 @@ class FormElement {
   }
 
   /**
+   * Check if label is active.
+   *
+   * @param array &$variables
+   *   Referenced $variables array.
+   */
+  public static function setActiveLabel(array &$variables): void {
+
+    if (
+      isset($variables['element']['#attributes']['value']) &&
+      (
+        !empty($variables['element']['#attributes']['value']) ||
+        !empty($variables['element']['#attributes']['placeholder'])
+      ) &&
+      !isset($variables['label']['#attributes']['class']['active'])
+    ) {
+      $variables['label']['#attributes']['class'][] = 'active';
+    }
+  }
+
+  /**
    * Return variables type.
    *
    * @param array $variables

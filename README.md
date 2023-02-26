@@ -355,6 +355,14 @@ rm -Rf ./web/libraries/toc-greenkeeper-update-all
 rm -Rf ./web/libraries/master.zip
 ```
 
+## Bootstrap Italia empty front page
+By default Drupal fills the front page with the latest content from your site.
+This module modifies the front page to have an empty page. This way, only the blocks will be displayed.
+Useful as in the case of Municipalities whose home page is built only with 
+blocks in custom zones, thus avoiding recalling the frontpage view which isn't used. 
+The same view is also disabled.
+
+
 # How to manage components via the user interface.
 The components of the theme are mapped with the drupal graphical interface,
 so you can manage cards, lists, etc., without writing code or templates.
@@ -391,7 +399,7 @@ $ drush en ui_patterns_views
 # Italian Language
 Import/edit `translations/bootstrap_italia-2.x.it.po`
 ```
-$ drush locale-import it /absolute/path/to/bootstrap_italia-2.1.0.it.po --type=customized --override=all
+$ drush locale-import it /absolute/path/to/bootstrap_italia-2.2.0.it.po --type=customized --override=all
 ```
 
 # How to start a ddev container

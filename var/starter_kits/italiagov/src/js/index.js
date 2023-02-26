@@ -12,15 +12,9 @@ import { Alert, Button, Carousel, Collapse, Dropdown, Modal, Offcanvas, Popover,
 
 // Import Bootstrap Italia.
 import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin'
-import * as fontsLoader from 'bootstrap-italia/src/js/plugins/fonts-loader'
+import init from 'bootstrap-italia/src/js/plugins/init'
+import loadFonts from 'bootstrap-italia/src/js/plugins/fonts-loader'
 import * as icons from 'bootstrap-italia/src/js/icons'
-import * as headerSticky from 'bootstrap-italia/src/js/plugins/header-sticky'
-
-import BOOTSTRAP_ITALIA_VERSION from 'bootstrap-italia/src/js/version'
-
-loadPlugin(icons)
-loadPlugin(fontsLoader)
-loadPlugin(headerSticky)
 
 import {
   Dimmer,
@@ -29,7 +23,6 @@ import {
   NavBarCollapsible,
   Accordion,
   NavScroll,
-  TrackFocus,
   CarouselBI,
   FormValidate,
   ValidatorSelectAutocomplete,
@@ -42,6 +35,7 @@ import {
   UploadDragDrop,
   BackToTop,
   Sticky,
+  HeaderSticky,
   HistoryBack,
   Forward,
   Masonry,
@@ -49,7 +43,8 @@ import {
   Transfer,
 } from 'bootstrap-italia/src/js/bootstrap-italia.esm'
 
-window.BOOTSTRAP_ITALIA_VERSION = BOOTSTRAP_ITALIA_VERSION
+loadPlugin(icons)
+init()
 
 window.bootstrap = {
   Alert,
@@ -84,10 +79,11 @@ window.bootstrap = {
   ProgressDonut,
   SelectAutocomplete,
   Sticky,
-  TrackFocus,
+  HeaderSticky,
   Transfer,
   UploadDragDrop,
   ValidatorSelectAutocomplete,
+  loadFonts,
 }
 
 // Component library initialization.
