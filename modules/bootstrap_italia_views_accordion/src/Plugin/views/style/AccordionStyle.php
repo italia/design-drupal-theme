@@ -36,8 +36,10 @@ class AccordionStyle extends StylePluginBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @param array mixed[] $options
    */
-  protected function defineOptions() {
+  protected function defineOptions(): array {
     $options = parent::defineOptions();
     $options['accordion_settings'] = ['default' => []];
     return $options;
