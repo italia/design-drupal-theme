@@ -83,7 +83,6 @@ class FormElement {
    *   Referenced $variables array.
    */
   public static function setActiveLabel(array &$variables): void {
-
     if (
       isset($variables['element']['#attributes']['value']) &&
       (
