@@ -133,7 +133,7 @@ card2_big:
       type: text
       label: 'Image (field)'
       description: 'Enter a image field.'
-      preview: '<img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">'
+      preview: '<img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Card big image description">'
 
   # Optional: Attached libraries.
   #

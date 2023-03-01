@@ -31,7 +31,7 @@ card2_special:
       type: text
       label: 'Image (field)'
       description: Mandatory and without links.
-      preview: '<img src="https://via.placeholder.com/174x214/F9F9FE/0066CC/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">'
+      preview: '<img src="https://via.placeholder.com/174x214/F9F9FE/0066CC/?text=EXAMPLE%20IMAGE" title="Image title" alt="Card special image description">'
     card_target_url:
       type: text
       label: 'Target Url (raw text)'

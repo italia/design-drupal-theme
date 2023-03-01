@@ -51,7 +51,7 @@ card2_carousel_evidence:
       type: text
       label: 'Image (field)'
       description: 'Enter a image field.'
-      preview: '<img src="https://via.placeholder.com/480x360/ebebeb/808080/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">'
+      preview: '<img src="https://via.placeholder.com/480x360/ebebeb/808080/?text=EXAMPLE%20IMAGE" title="Image title" alt="Card carousel evidence Image description">'
 
   # Optional: Attached libraries.
   #

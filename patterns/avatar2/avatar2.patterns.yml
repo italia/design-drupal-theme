@@ -89,7 +89,7 @@ avatar2:
       type: text
       label: 'Image (field)'
       description: 'Image from drupal field. Square format. Only image variant.'
-      preview: '<img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Francesca Rossi">'
+      preview: '<img src="https://randomuser.me/api/portraits/women/24.jpg" alt="Francesca Rossi picture">'
     avatar_text:
       type: text
       label: 'Name (raw text)'

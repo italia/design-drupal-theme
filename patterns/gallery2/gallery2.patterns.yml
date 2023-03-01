@@ -43,7 +43,7 @@ gallery2:
       type: text
       label: 'Image (field)'
       description: 'Image from drupal field.'
-      preview: '<img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Image" alt="Image description">'
+      preview: '<img src="https://via.placeholder.com/660x300/ebebeb/808080/?text=Image" alt="Gallery image description">'
     image_description:
       type: text
       label: 'Description (raw text)'

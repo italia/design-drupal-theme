@@ -59,7 +59,7 @@ list2:
       type: text
       label: 'Image (field)'
       description: 'Image from drupal field. Only avatar and image variant.'
-      preview: '<img src="https://via.placeholder.com/40x40.png?text=40x40" alt="Image description">'
+      preview: '<img src="https://via.placeholder.com/40x40.png?text=40x40" alt="List image description">'
     list_metadata:
       type: text
       label: 'Metadata (field)'
