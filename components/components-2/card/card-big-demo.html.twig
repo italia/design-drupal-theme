@@ -117,7 +117,7 @@
   {% endembed %}{# End embed demo. #}
 
   {% set card_demo_image %}
-    <img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Image description">
+    <img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Card big image description">
   {% endset %}
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
@@ -144,6 +144,10 @@
     {% endblock %}
   {% endembed %}{# End embed demo. #}
 
+  {% set card_demo_image2 %}
+    <img src="https://via.placeholder.com/310x190/0066cc/FFFFFF/?text=EXAMPLE%20IMAGE" title="Image title" alt="Card big image description 2">
+  {% endset %}
+
   {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Card big with tag, image, date without shadow'|t,
   } %}
@@ -152,7 +156,7 @@
       <div class="row">
         <div class="col-12 col-lg-6">
           {% include '@bi-bcl/card/card-big.html.twig' with {
-            card_image: card_demo_image,
+            card_image: card_demo_image2,
             card_image_date: {'day': '9', 'month': 'October', 'year': '2022'},
             card_title: card_demo_title,
             card_text: card_demo_text_short,
