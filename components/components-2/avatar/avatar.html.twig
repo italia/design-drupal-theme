@@ -121,6 +121,7 @@
   {% set container_tag = _avatar_url is empty ? 'div' : 'a' %}
   {% if container_tag == 'a' %}
     {% set avatar_attributes = avatar_attributes
+      .addClass('text-decoration-none')
       .setAttribute('href', _avatar_url)
     %}
   {% endif %}
@@ -193,7 +194,20 @@
     {% endif %}
 
     {% if _avatar_type == 'text' %}
-      <span class="fs-1" aria-hidden="true">{{ _avatar_text|upper }}</span>
+      {% set _avatar_text_classes = [
+        _avatar_size == 'xs' ? 'fs-6',
+        _avatar_size == 'sm' ? 'fs-6',
+        _avatar_size == 'md' ? 'fs-6',
+        _avatar_size == 'lg' ? 'fs-5',
+        _avatar_size == 'xl' ? 'fs-1',
+        _avatar_size == 'xxl' ? 'fs-1',
+      ] %}
+
+      {% if _avatar_size == 'xs' or _avatar_size == 'sm' %}
+        {% set _avatar_text = _avatar_text|slice(0,1) %}
+      {% endif %}
+
+      <span class="{{ _avatar_text_classes|join(' ')|trim }}" aria-hidden="true">{{ _avatar_text|upper }}</span>
       <span class="visually-hidden text-dark bg-white">{{ _avatar_assistive_text }}</span>
     {% endif %}
   {% endblock %}
