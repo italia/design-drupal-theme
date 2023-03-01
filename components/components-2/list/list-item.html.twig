@@ -78,7 +78,7 @@
   {% if _list_item_tag == 'a' %}
     {% set list_item_attributes = list_item_attributes
       .setAttribute('href', _list_url)
-      .setAttribute('title', _list_text)
+      .setAttribute('title', 'Go to '|t ~ _list_text)
     %}
   {% endif %}
 
