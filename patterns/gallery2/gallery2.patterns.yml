@@ -27,7 +27,7 @@ gallery2:
       label: "Enable overlay"
       description: "Enable overlay."
       allow_token: true
-      preview: 1
+      preview: 0
       allow_expose: true
     default_icon_name:
       type: textfield
