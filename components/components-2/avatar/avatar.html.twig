@@ -193,7 +193,7 @@
     {% endif %}
 
     {% if _avatar_type == 'text' %}
-      <p aria-hidden="true">{{ _avatar_text|upper }}</p>
+      <span class="fs-1" aria-hidden="true">{{ _avatar_text|upper }}</span>
       <span class="visually-hidden text-dark bg-white">{{ _avatar_assistive_text }}</span>
     {% endif %}
   {% endblock %}
