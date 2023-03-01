@@ -356,11 +356,11 @@ rm -Rf ./web/libraries/master.zip
 ```
 
 ## Bootstrap Italia empty front page
-By default Drupal fills the front page with the latest content from your site.
-This module modifies the front page to have an empty page. This way, only the blocks will be displayed.
-Useful as in the case of Municipalities whose home page is built only with
-blocks in custom zones, thus avoiding recalling the frontpage view which isn't used.
-The same view is also disabled.
+By default, Drupal fills the front page with the latest content from your site.
+This module modifies the front page to have an empty page. This way, only the
+blocks will be displayed. Useful as in the case of Municipalities
+whose home page is built only with blocks in custom zones, thus avoiding
+recalling the frontpage view which isn't used. The same view is also disabled.
 ```
 $ composer require drupal/empty_front_page
 $ drush -y pm:enable empty_front_page bootstrap_italia_empty_front_page

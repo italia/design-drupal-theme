@@ -71,9 +71,9 @@ class TimelineStyle extends StylePluginBase {
       '#title' => $this->t('Today check period'),
       '#description' => $this->t('Period of time when an element is marked as current. Default: "Week".'),
       '#options' => [
-        'month' => 'Month',
-        'week' => 'Week',
-        'day' => 'Day',
+        'month' => $this->t('Month'),
+        'week' => $this->t('Week'),
+        'day' => $this->t('Day'),
       ],
       '#default_value' =>
       $this->options['bi_timeline_settings']['today_check_period'] ?? 'month',

@@ -1,6 +1,8 @@
 # Summary 2.2.0
 ## Release notes
 - Update sub-theme dependencies for compliance v2.2.0 bootstrap-italia library
+- Various accessibility fix
+- New module for full blocks home page
 
 ## Update from 2.1.x
 If you use vanilla libraries, download bootstrap-italia v2.2.0

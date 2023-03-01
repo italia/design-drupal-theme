@@ -84,8 +84,8 @@ class CarouselStyle extends StylePluginBase {
       '#description' => $this->t('If you are building an image carousel, select how you want to display the images. Note: if you choose "standard" or "big" the images will be displayed with the theme "Landscape abstract: 3 cols". Default: "Use field image formatter".'),
       '#options' => [
         '' => $this->t('Use field image formatter.'),
-        'standard' => 'Standard',
-        'big' => 'Big',
+        'standard' => $this->t('Standard'),
+        'big' => $this->t('Big'),
       ],
       '#default_value' =>
       $this->options['bi_carousel_settings']['carousel_image_type'] ?? '',

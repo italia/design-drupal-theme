@@ -2,14 +2,14 @@
 
 /**
  * @file
- * Install, update and uninstall functions for Bootstrap Italia Empty Front Page.
+ * The Bootstrap Italia Empty Front Page install file.
  */
 
 /**
  * Implements hook_install().
  */
 function bootstrap_italia_empty_front_page_install() {
-  // disable frontapage view
+  // Disable frontapage view.
   \Drupal::entityTypeManager()->getStorage('view')
     ->load('frontpage')
     ->setStatus(FALSE)

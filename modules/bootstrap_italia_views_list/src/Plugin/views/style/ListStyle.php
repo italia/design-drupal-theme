@@ -48,7 +48,6 @@ class ListStyle extends StylePluginBase {
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state) {
     parent::buildOptionsForm($form, $form_state);
-
   }
 
 }

@@ -36,8 +36,6 @@ class AccordionStyle extends StylePluginBase {
 
   /**
    * {@inheritdoc}
-   *
-   * @param array mixed[] $options
    */
   protected function defineOptions(): array {
     $options = parent::defineOptions();
