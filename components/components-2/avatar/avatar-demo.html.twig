@@ -32,7 +32,7 @@
           avatar_size: size
         } %}
           {% block avatarContent %}
-            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero picture">
+            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero picture {{ size }}">
           {% endblock %}
         {% endembed %}
       {% endfor %}
@@ -116,7 +116,7 @@
         avatar_tooltip_placement: 'left'
       } %}
         {% block avatarContent %}
-          <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+          <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Francesca Rossi">
         {% endblock %}
       {% endembed %}
 
@@ -158,7 +158,7 @@
           avatar_presence: presence
         } %}
           {% block avatarContent %}
-            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero {{ presence }}">
           {% endblock %}
         {% endembed %}
       {% endfor %}
@@ -181,7 +181,7 @@
           avatar_status: status
         } %}
           {% block avatarContent %}
-            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero">
+            <img src="https://randomuser.me/api/portraits/{{ random(['women','men']) }}/{{ random(24) }}.jpg" alt="Giovanna Ferrero {{ status }}">
           {% endblock %}
         {% endembed %}
       {% endfor %}
