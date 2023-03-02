@@ -1,4 +1,4 @@
-(function (Drupal, once) {
+(function (Drupal, once, bootstrap) {
   'use strict';
 
   Drupal.behaviors.enableAllTooltip = {
@@ -9,4 +9,4 @@
     }
   };
 
-})(Drupal, once);
+})(Drupal, once, bootstrap);
