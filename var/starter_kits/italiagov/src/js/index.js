@@ -22,10 +22,6 @@ import * as icons from 'bootstrap-italia/src/js/icons'
 import * as bootstrap from 'bootstrap-italia'
 
 loadPlugin(icons)
-// New from BI 2.2.0: move js fonts loading externally
-import { loadFonts } from 'bootstrap-italia'
-loadFonts();
-
 init()
 
 // Component library initialization.
