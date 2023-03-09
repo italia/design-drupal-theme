@@ -2,7 +2,6 @@
 
 namespace Drupal\bootstrap_italia_views_accordion\Plugin\views\style;
 
-use Drupal\core\form\FormStateInterface;
 use Drupal\views\Plugin\views\style\StylePluginBase;
 
 /**
@@ -46,7 +45,7 @@ class AccordionStyle extends StylePluginBase {
   /**
    * {@inheritdoc}
    */
-  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+  public function buildOptionsForm(&$form, $form_state) {
     parent::buildOptionsForm($form, $form_state);
 
     // Background active.
