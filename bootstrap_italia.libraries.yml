@@ -1,12 +1,12 @@
 base:
   css:
     theme:
-      src/css/bootstrap-italia-drupal-fix.css: {weight: 50}
+      css/bootstrap-italia-drupal-fix.css: {weight: 50}
   js:
-    src/js/bootstrap-italia-drupal-sticky-fix.js: {}
-    src/js/bootstrap-italia-enable-all-tooltip.js: {}
-    #src/js/bootstrap-italia-drupal-speech.js: {}
-    src/js/load-fonts.js: {}
+    js/bootstrap-italia-drupal-sticky-fix.js: {}
+    js/bootstrap-italia-enable-all-tooltip.js: {}
+    #js/bootstrap-italia-drupal-speech.js: {}
+    js/load-fonts.js: {}
   dependencies:
     - core/drupal
     - core/once
