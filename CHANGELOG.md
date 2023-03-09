@@ -55,7 +55,8 @@ If you use custom libraries built with webpack, check:
 - Sub-theme up to bootstrap-italia 2.1.1
 - Add option to modal component
 - Fix bug to Bootstrap Italia Text Editor 2 (Experimental module)
-- Fix accessibility slim header, header center, navbar, skipping, follow-us, footer
+- Fix accessibility slim header, header center, navbar, skipping,
+  follow-us, footer
 - Fix bug in navbar burger icon
 - Review all component
 - Update italian translations (thanks @braintec)
@@ -97,8 +98,10 @@ https://git.drupalcode.org/project/bootstrap_italia/-/compare/2.0.0-rc1...2.x?fr
 - `macro.password_icon`, if you use this feature
 switch to `components/icon/password_icon` (deprecated in 0.21)
 
-- `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-evidenza.html.twig` (deprecated in 0.22)
-- `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-home.html.twig` (deprecated in 0.22)
+- `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-evidenza.html.twig`
+   (deprecated in 0.22)
+- `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-home.html.twig`
+   (deprecated in 0.22)
 - `italiagov/src/components/card/card-hp-intro.twig` (deprecated in 0.22)
 - `bootstrap_italia.libraries.yml` (deprecated in 0.22)
 
@@ -134,8 +137,10 @@ update `<sub-theme>/<sub-theme>.theme`.
 
 ## Update from 0.x (Work in progress)
 - copy `bootstrap_italia/templates/patterns` in `<sub-theme>/templates/`
-- if you use experimental modules 0.x copy `/bootstrap_italia/modules` in `<sub-theme>/`
-- admin/config/development/configuration/single/export -> simple configuration -> italiagov.settings
+- if you use experimental modules 0.x copy `/bootstrap_italia/modules`
+  in `<sub-theme>/`
+- admin/config/development/configuration/single/export ->
+  simple configuration -> italiagov.settings
 - composer require 'drupal/bootstrap_italia:^2.0@beta'
 - drush cr
 - update sub-theme settings

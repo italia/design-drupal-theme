@@ -7,7 +7,7 @@ library as a dependency.
 
 # Drupal configuration
 Install `drupal` and `drush` with `composer` (https://getcomposer.org/)
-```
+```shell
 $ composer create drupal/recommended-project my_site_name_dir --no-install
 $ cd my_site_name_dir
 $ composer require drush/drush --no-install
@@ -15,36 +15,36 @@ $ composer install
 ```
 
 Install drupal, you can use drush or your browser
-```
+```shell
 $ drush site:install
 ```
 
 # Install theme
-```
+```shell
 $ cd <drupal-root>
 
-/* 1. Install end enable dependencies */
+# 1. Install end enable dependencies
 $ composer require drupal/components:^3.0@beta
 $ drush pm:enable components
 $ composer require drupal/bootstrap_italia:^2.2
 
-/* 2. Copy sub-theme to destination folder */
+# 2. Copy sub-theme to destination folder
 $ cd web/themes/
 $ mkdir custom
 $ cp -r contrib/bootstrap_italia/var/starter_kits/italiagov custom/
 
-/* 3. Enable themes */
+# 3. Enable themes
 $ drush -y theme:enable bootstrap_italia
 $ drush -y theme:enable italiagov
 
-/* 4. Set default theme */
+# 4. Set default theme
 $ drush config-set system.theme default italiagov
 ```
 
 Edit `custom/italiagov/italiagov.info.yml`
 and change `hidden` variable to `false`
-```
-sed -i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml
+```shell
+$ sed -i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml
 ```
 
 # Manage and generate assets
@@ -59,28 +59,28 @@ and unzip in `<your-subtheme>/dist`.
 `npm` is required: https://www.npmjs.com/get-npm
 
 Install assets
-```
+```shell
 $ cd custom/italiagov
 $ npm install
 ```
 
 Run watcher:
-```
+```shell
 $ npm run watch:dev
 ```
 Build assets:
-```
+```shell
 $ npm run build:dev
 $ drush cr
 ```
 
 ### Production mode:
 Run watcher:
-```
+```shell
 $ npm run watch:prod
 ```
 Build assets:
-```
+```shell
 $ npm run build:prod
 $ drush cr
 ```
@@ -92,7 +92,7 @@ To properly activate hot mode, do this:
 or exposed if you are using a container.
 - In the `<sub-theme>/<sub-theme>.info.yml` file edit the `libraries` array
 to load only `italiagov/hot` and `bootstrap_italia/base`
-```
+```shell
 $ drush cr && npm run build:dev && npm run hot
 ```
 
@@ -106,8 +106,8 @@ in `<sub-theme>/webpack.settings.js` and edit
 
 If you use ddev use this tip to expose 8080 port and view the site with
 the URL `http://127.0.0.1:<ddev-port>`
-```
-<project-name>/.ddev/docker-compose.ports.yaml
+```yaml
+# <project-name>/.ddev/docker-compose.ports.yaml
 
 version: '3.6'
 
@@ -126,15 +126,15 @@ the loading of libraries according to your infrastructure.
 ## D. How to use bootstrap-italia library from github (for developer)
 Replace in `<sub-theme>/package.json`
 
-```
+```json
 "bootstrap-italia": "<version>"
 ```
 with
-```
+```json
 "bootstrap-italia": "github:italia/bootstrap-italia#<branch>"
 ```
 example
-```
+```json
 "bootstrap-italia": "github:italia/bootstrap-italia#main"
 ```
 
@@ -145,7 +145,7 @@ with the Drupal administration panel. Below is a list
 ## Bootstrap Italia Image Styles
 This module adds different image styles in
 Admin -> Configurations -> Media -> Image Styles.
-```
+```shell
 $ composer require drupal/focal_point
 $ drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
 ```
@@ -153,42 +153,49 @@ $ drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
 ## Bootstrap Italia Text editor
 This module adds new text editor format (ckeditor 4) in
 "Configuration" -> "Text formats and editors".
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_text_editor
 ```
 
 ## Bootstrap Italia Text editor 2 (Experimental)
 This module adds new text editor format (ckeditor 5) in
 "Configuration" -> "Text formats and editors".
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_text_editor2
 ```
 
 ## Bootstrap Italia Layouts
 This module adds several layouts that can be used immediately
 with Layout Builder, Display Suite or any other layout consuming module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_layouts
 ```
 
 ## Bootstrap Italia Paragraph
 This is the base module for paragraphs integration.
-```
-$ composer require drupal/paragraphs drupal/field_group drupal/imce drupal/color_field
+```shell
+$ composer require \
+    drupal/paragraphs \
+    drupal/field_group \
+    drupal/imce \
+    drupal/color_field
+
 $ drush -y pm:enable paragraphs field_group imce color_field
 $ drush -y pm:enable bootstrap_italia_paragraph
 ```
 Install third-party libraries via the Drupal administration panel
 or with this script by positioning yourself in the same folder
 in which `composer.json` is located
-```
+```shell
 #!/bin/bash
 curl --request GET -sL \
   --url 'https://github.com/recurser/jquery-simple-color/archive/master.zip' \
   --output './web/libraries/master.zip'
 
 unzip ./web/libraries/master.zip -d ./web/libraries/
-mv ./web/libraries/jquery-simple-color-master ./web/libraries/jquery-simple-color
+mv ./web/libraries/jquery-simple-color-master \
+   ./web/libraries/jquery-simple-color
+
 rm -Rf ./web/libraries/master.zip
 
 curl --request GET -sL \
@@ -202,51 +209,51 @@ rm -Rf ./web/libraries/master.zip
 
 ## Bootstrap Italia Paragraph Accordion
 This module manages the accordion component through the paragraph module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_paragraph_accordion
 ```
 
 ## Bootstrap Italia Paragraph Attachments
 This module manages the attachments through the paragraph module.
-```
+```shell
 $ drush -y pm:enable media media_library bootstrap_italia_paragraph_attachments
 ```
 
 ## Bootstrap Italia Paragraph Callout
 This module manages the callout component through the paragraph module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_paragraph_callout
 ```
 
 ## Bootstrap Italia Paragraph Carousel
 This module manages the splide carousel component through the paragraph module.
-```
+```shell
 $ drush -y pm:enable media media_library bootstrap_italia_paragraph_carousel
 ```
 
 ## Bootstrap Italia Paragraph Citation
 This module manages the citation component through the paragraph module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_paragraph_citation
 ```
 
 ## Bootstrap Italia Paragraph Gallery
 This module manages the gallery component (image list)
 through the paragraph module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_paragraph_gallery
 ```
 
 ## Bootstrap Italia Paragraph Hero
 This module manages the hero component through the paragraph module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_paragraph_hero
 ```
 
 ## Bootstrap Italia Paragraph Map
 This module manages the map component through the paragraph module.
 This module uses leaflets and open street maps.
-```
+```shell
 $ composer require drupal/geofield drupal/leaflet
 $ drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
 ```
@@ -254,7 +261,7 @@ $ drush -y pm:enable geofield leaflet bootstrap_italia_paragraph_map
 ## Bootstrap Italia Paragraph Node Reference
 This module, through a paragraph, refers to other nodes
 and allows you to choose the view with which they must be displayed.
-```
+```shell
 $ composer require drupal/entity_reference_display
 $ drush -y pm:enable entity_reference_display
 $ drush -y pm:enable bootstrap_italia_paragraph_node_reference
@@ -262,26 +269,26 @@ $ drush -y pm:enable bootstrap_italia_paragraph_node_reference
 
 ## Bootstrap Italia Paragraph Section
 This module manages the section component through the paragraph module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_paragraph_section
 ```
 
 ## Bootstrap Italia Paragraph Timeline
 This module manages the timeline component through the paragraph module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_paragraph_timeline
 ```
 
 ## Bootstrap Italia Paragraph Webform
 This module manages the integration of webform with paragraph.
-```
+```shell
 $ composer require drupal/webform wikimedia/composer-merge-plugin
 $ drush -y pm:enable webform webform_bootstrap webform_ui
 $ drush -y pm:enable bootstrap_italia_paragraph_webform
 ```
 Install third-party libraries by edit the `composer.json` file
 of your website and under the "extra": { section add:
-```
+```json
 "merge-plugin": {
   "include": [
     "web/modules/contrib/webform/composer.libraries.json"
@@ -289,7 +296,7 @@ of your website and under the "extra": { section add:
 },
 ```
 Then run:
-```
+```shell
 $ composer update -W
 ```
 [Learn more](https://www.drupal.org/node/3003140)
@@ -297,41 +304,41 @@ $ composer update -W
 ## Bootstrap Italia Views Accordion
 This module manages the integration of the accordion component
 into the views module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_views_accordion
 ```
 
 ## Bootstrap Italia Views Carousel
 This module manages the integration of the carousel component
 into the views module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_views_carousel
 ```
 
 ## Bootstrap Italia Views Gallery
 This module manages the integration of the gallery component
 into the views module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_views_gallery
 ```
 
 ## Bootstrap Italia Views List
 This module manages the integration of the list component into the views module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_views_list
 ```
 
 ## Bootstrap Italia Views Timeline
 This module manages the integration of the timeline component
 into the views module.
-```
+```shell
 $ drush -y pm:enable bootstrap_italia_views_timeline
 ```
 
 ## Bootstrap Italia content News
 This module adds the "News" content type (second level content).
 *Note: this is an example of how to develop a reusable content type.*
-```
+```shell
 $ composer require drupal/toc_js drupal/focal_point
 $ drush -y pm:enable responsive_image toc_js focal_point  \
     bootstrap_italia_paragraph bootstrap_italia_paragraph_accordion \
@@ -340,19 +347,18 @@ $ drush -y pm:enable responsive_image toc_js focal_point  \
     bootstrap_italia_paragraph_map bootstrap_italia_paragraph_webform  \
     bootstrap_italia_content_news
 ```
-Install third-party libraries via the Drupal administration panel
-or with this script by positioning yourself in the same folder
-in which `composer.json` is located
+Install third-party libraries by edit the `composer.json` file
+of your website and under the "extra": { section add:
+```json
+"merge-plugin": {
+  "include": [
+    "web/modules/contrib/toc_js/composer.libraries.json"
+  ]
+},
 ```
-#!/bin/bash
-curl --request GET -sL \
-  --url 'https://github.com/jgallen23/toc/archive/refs/heads/greenkeeper/update-all.zip' \
-  --output './web/libraries/master.zip'
-
-unzip ./web/libraries/master.zip -d ./web/libraries/
-mv ./web/libraries/toc-greenkeeper-update-all/dist ./web/libraries/toc
-rm -Rf ./web/libraries/toc-greenkeeper-update-all
-rm -Rf ./web/libraries/master.zip
+Then run:
+```shell
+$ composer update -W
 ```
 
 ## Bootstrap Italia empty front page
@@ -361,7 +367,7 @@ This module modifies the front page to have an empty page. This way, only the
 blocks will be displayed. Useful as in the case of Municipalities
 whose home page is built only with blocks in custom zones, thus avoiding
 recalling the frontpage view which isn't used. The same view is also disabled.
-```
+```shell
 $ composer require drupal/empty_front_page
 $ drush -y pm:enable empty_front_page bootstrap_italia_empty_front_page
 ```
@@ -372,7 +378,7 @@ The components of the theme are mapped with the drupal graphical interface,
 so you can manage cards, lists, etc., without writing code or templates.
 First install and enable `ui_patterns` (>= 1.5), `ui_patterns_library`
 and `ui_patterns_settings`.
-```
+```shell
 $ composer require 'drupal/ui_patterns:^1.5' drupal/ui_patterns_settings
 $ drush en ui_patterns ui_patterns_library ui_patterns_settings
 ```
@@ -382,7 +388,7 @@ the list of components/patterns that you can manage from the UI.
 ## Display
 Enable `ui_patterns_ds` to use components as layouts
 via Display suite.
-```
+```shell
 $ composer require drupal/ds
 $ drush en ds ds_extras ds_switch_view_mode ui_patterns_ds
 ```
@@ -390,20 +396,21 @@ $ drush en ds ds_extras ds_switch_view_mode ui_patterns_ds
 ## Layout
 Enable `ui_patterns_layouts` to use components as layouts
 via the Layout Discovery module.
-```
+```shell
 $ drush en ui_patterns_layouts
 ```
 
 ## Views
 Enable `ui_patterns_views` to use components with views.
-```
+```shell
 $ drush en ui_patterns_views
 ```
 
 # Italian Language
 Import/edit `translations/bootstrap_italia-2.x.it.po`
-```
-$ drush locale-import it /absolute/path/to/bootstrap_italia-2.2.0.it.po --type=customized --override=all
+```shell
+$ drush locale-import it /absolute/path/to/bootstrap_italia-2.2.0.it.po \
+    --type=customized --override=all
 ```
 
 # How to start a ddev container
@@ -413,6 +420,6 @@ If you want an automated script that works for you, run script located at
 This script works for ddev >= 1.18.0 (Sept 2021)
 
 Download ad run:
-```
+```shell
 $ bash <(curl -s https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh)
 ```

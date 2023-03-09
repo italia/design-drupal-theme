@@ -2,7 +2,6 @@
 
 namespace Drupal\bootstrap_italia_views_list\Plugin\views\style;
 
-use Drupal\core\form\FormStateInterface;
 use Drupal\views\Plugin\views\style\StylePluginBase;
 
 /**
@@ -41,13 +40,6 @@ class ListStyle extends StylePluginBase {
     $options = parent::defineOptions();
     $options['list_settings'] = ['default' => []];
     return $options;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
-    parent::buildOptionsForm($form, $form_state);
   }
 
 }
