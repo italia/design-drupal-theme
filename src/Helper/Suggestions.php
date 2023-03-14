@@ -72,7 +72,7 @@ class Suggestions {
         ->getStorage('block')
         ->load($variables['elements']['#id']);
 
-      if ($block) {
+      if (!empty($block->getRegion())) {
         $region = $block->getRegion();
       }
       else {
