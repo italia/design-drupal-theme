@@ -10,7 +10,7 @@ use Drupal\bootstrap_italia\Helper\Helper;
 /**
  * Implements page_attachments_alter()
  */
-function bootstrap_italia_page_attachments_alter(&$page) {
+function bootstrap_italia_page_attachments_alter(array &$page): void {
   $viewport = [
     '#type' => 'html_tag',
     '#tag' => 'meta',
@@ -25,7 +25,7 @@ function bootstrap_italia_page_attachments_alter(&$page) {
 /**
  * Implements hook_preprocess_page().
  */
-function bootstrap_italia_preprocess_page_title(&$variables) {
+function bootstrap_italia_preprocess_page_title(array &$variables): void {
   if (theme_get_setting('page_title_semibold')) {
     if (!isset($variables['title_attributes']['class'])) {
       $variables['title_attributes']['class'] = [];
@@ -37,7 +37,7 @@ function bootstrap_italia_preprocess_page_title(&$variables) {
 /**
  * Implements hook_preprocess_page().
  */
-function bootstrap_italia_preprocess_page(&$variables) {
+function bootstrap_italia_preprocess_page(array &$variables): void {
   $variables['pa_website_validator_type'] = theme_get_setting('pa_website_validator_type');
 
   // Slim header settings.
@@ -94,7 +94,7 @@ function bootstrap_italia_preprocess_page(&$variables) {
 /**
  * Implements hook_preprocess_html().
  */
-function bootstrap_italia_preprocess_html(&$variables) {
+function bootstrap_italia_preprocess_html(array &$variables): void {
   // Back to top.
   $variables['back_to_top_enable'] = (bool) theme_get_setting('back_to_top_enable');
   $variables['back_to_top_small'] = (bool) theme_get_setting('back_to_top_small');

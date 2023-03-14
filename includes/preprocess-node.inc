@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function bootstrap_italia_preprocess_node(&$variables) {
+function bootstrap_italia_preprocess_node(array &$variables): void {
   // Remove the "Add new comment" link on teasers or when the comment form is
   // displayed on the page.
   if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {

@@ -14,7 +14,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, $form_id = NULL) {
+function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, $form_id = NULL): void {
 
   // General "alters" use a form id. Settings should not be set here. The only
   // thing useful about this is if you need to alter the form for the running
@@ -1194,7 +1194,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
 /**
  * Implements hook_form_system_theme_settings_validate().
  */
-function bootstrap_italia_form_system_theme_settings_validate(array &$form, FormStateInterface $form_state) {
+function bootstrap_italia_form_system_theme_settings_validate(array &$form, FormStateInterface $form_state): void {
   if (function_exists('file_save_upload')) {
     // Handle file uploads.
     $image_factory = \Drupal::service('image.factory');

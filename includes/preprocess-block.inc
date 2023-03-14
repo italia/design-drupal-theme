@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess_block() for block templates.
  */
-function bootstrap_italia_preprocess_block(&$variables) {
+function bootstrap_italia_preprocess_block(array &$variables): void {
   // All blocks.
   if (isset($variables['elements']['#id'])) {
     /** @var \Drupal\block\BlockInterface $block */

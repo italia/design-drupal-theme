@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess_field().
  */
-function bootstrap_italia_preprocess_field(&$variables): void {
+function bootstrap_italia_preprocess_field(array &$variables): void {
   $variables['field_label_bold'] = (bool) theme_get_setting('field_label_bold');
   $variables['field_label_separator'] = theme_get_setting('field_label_separator');
   $variables['field_container_vertical_padding'] = theme_get_setting('field_container_vertical_padding');

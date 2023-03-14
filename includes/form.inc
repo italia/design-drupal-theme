@@ -13,7 +13,7 @@ use Drupal\Core\Template\Attribute;
 /**
  * Implements hook_form_alter() for adding classes and placeholder text to the search forms.
  */
-function bootstrap_italia_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+function bootstrap_italia_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
   if (isset($form['actions']['submit']) && (count($form['actions'])) <= 2) {
     $form['actions']['submit']['#attributes']['class'][] = 'btn btn-primary';
   }
@@ -42,14 +42,14 @@ function bootstrap_italia_form_alter(&$form, FormStateInterface $form_state, $fo
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function bootstrap_italia_form_search_block_form_alter(&$form) {
+function bootstrap_italia_form_search_block_form_alter(array &$form): void {
   $form['keys']['#placeholder'] = t('Search by keyword or phrase.');
 }
 
 /**
  * Implements hook_preprocess_form_element().
  */
-function bootstrap_italia_preprocess_form_element(&$variables) {
+function bootstrap_italia_preprocess_form_element(array &$variables): void {
   FormElement::set($variables);
   FormElement::setActiveLabel($variables);
 }
@@ -57,7 +57,7 @@ function bootstrap_italia_preprocess_form_element(&$variables) {
 /**
  * Implements hook_preprocess_input().
  */
-function bootstrap_italia_preprocess_input(&$variables) {
+function bootstrap_italia_preprocess_input(array &$variables): void {
 
   FormInput::set($variables);
 
@@ -69,7 +69,7 @@ function bootstrap_italia_preprocess_input(&$variables) {
 /**
  * Implements hook_preprocess_form_element().
  */
-function bootstrap_italia_preprocess_select(&$variables) {
+function bootstrap_italia_preprocess_select(array &$variables): void {
   if (isset($variables['attributes']['multiple']) &&
     $variables['attributes']['multiple'] == 'multiple'
   ) {
@@ -80,7 +80,7 @@ function bootstrap_italia_preprocess_select(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function bootstrap_italia_preprocess_container(&$variables) {
+function bootstrap_italia_preprocess_container(array &$variables): void {
   if (isset($variables['element']['#attributes']) &&
     $variables['element']['#attributes'] instanceof Attribute &&
     $variables['element']['#attributes']->hasClass('webform-element-description')
@@ -112,7 +112,7 @@ function bootstrap_italia_preprocess_container(&$variables) {
 /**
  * Implements hook_template_preprocess_form_element_label().
  */
-function bootstrap_italia_preprocess_form_element_label(&$variables) {
+function bootstrap_italia_preprocess_form_element_label(array &$variables): void {
   if (isset($variables['required']) && $variables['required']) {
     $variables['forms_field_label_required_mark'] = (bool) theme_get_setting('forms_field_label_required_mark');
   }

@@ -13,14 +13,14 @@ use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 /**
  * Implements hook_theme_suggestions_page_alter().
  */
-function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, array &$variables): void {
   Suggestions::page($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_page_alter().
  */
-function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, array $variables): void {
 
   if (isset($variables['elements']['#view_mode'])) {
     $suggestions[] = $variables['theme_hook_original']
@@ -39,7 +39,7 @@ function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, arra
 /**
  * Implements hook_theme_suggestions_field_alter().
  */
-function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, array &$variables): void {
 
   if (isset($variables['element']['#view_mode'])) {
     $suggestions[] = $variables['theme_hook_original']
@@ -71,7 +71,7 @@ function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, arr
 /**
  * Implements hook_theme_suggestions_block_alter().
  */
-function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   try {
     Suggestions::block($suggestions, $variables);
   }
@@ -82,14 +82,14 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables): void {
   Suggestions::menu($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables): void {
   if (isset($variables['view'])) {
     $view = $variables['view'];
     $displayObj = $view->getDisplay();
@@ -102,7 +102,7 @@ function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, array &$variables): void {
 
   // Add a suggestion based on the form id name.
   if (isset($variables['element']['#form_id'])) {
@@ -118,35 +118,35 @@ function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, arra
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_form_element_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_theme_suggestions_form_element_alter(array &$suggestions, array &$variables): void {
   Suggestions::form($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_input_alter(array &$suggestions, array &$variables, string $hook) {
+function bootstrap_italia_theme_suggestions_input_alter(array &$suggestions, array &$variables, string $hook): void {
   Suggestions::form($suggestions, $variables, $hook);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_select_alter(array &$suggestions, array &$variables, string $hook) {
+function bootstrap_italia_theme_suggestions_select_alter(array &$suggestions, array &$variables, string $hook): void {
   Suggestions::form($suggestions, $variables, $hook);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_container_alter(array &$suggestions, array &$variables) {
+function bootstrap_italia_theme_suggestions_container_alter(array &$suggestions, array &$variables): void {
   Suggestions::form($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, array $variables): void {
 
   // Define the view mode.
   $mode = $variables['elements']['#view_mode'];
@@ -169,42 +169,42 @@ function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, arra
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables): void {
   Suggestions::imageFormatter($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_responsive_image_formatter_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_responsive_image_formatter_alter(array &$suggestions, array $variables): void {
   Suggestions::imageFormatter($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_image_style_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_image_style_alter(array &$suggestions, array $variables): void {
   Suggestions::imageStyle($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_image_alter(array &$suggestions, array $variables): void {
   Suggestions::imageStyle($suggestions, $variables);
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
-function bootstrap_italia_theme_suggestions_responsive_image_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_responsive_image_alter(array &$suggestions, array $variables): void {
   Suggestions::imageStyle($suggestions, $variables);
 }
 
 /**
  * Implements hook_link_alter().
  */
-function bootstrap_italia_theme_suggestions_details_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_theme_suggestions_details_alter(array &$suggestions, array $variables): void {
   if (!empty($variables['element']['#webform_element'])) {
     $suggestions[] = $variables['theme_hook_original'] . '__webform';
   }

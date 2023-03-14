@@ -10,7 +10,7 @@ use Drupal\user\Entity\User;
 /**
  * Implements hook_preprocess_menu().
  */
-function bootstrap_italia_preprocess_menu(&$variables) {
+function bootstrap_italia_preprocess_menu(array &$variables): void {
   // User menu.
   if ($variables['menu_name'] == 'account') {
     // Login button settings for logged user.
@@ -65,6 +65,6 @@ function bootstrap_italia_preprocess_menu(&$variables) {
 /**
  * Implements hook_preprocess_menu().
  */
-function bootstrap_italia_preprocess_menu_local_tasks(&$variables) {
+function bootstrap_italia_preprocess_menu_local_tasks(array &$variables): void {
   $variables['editor_nav_tabs_scrollable'] = (bool) theme_get_setting('editor_nav_tabs_scrollable');
 }

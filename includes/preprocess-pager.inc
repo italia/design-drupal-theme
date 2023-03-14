@@ -8,7 +8,7 @@
 /**
  * Implements hook_preprocess_pager().
  */
-function bootstrap_italia_preprocess_pager(&$variables) {
+function bootstrap_italia_preprocess_pager(array &$variables): void {
   $pager = \Drupal::service('pager.manager')->getPager();
   $variables['total_pages'] = $pager ? $pager->getTotalPages() : NULL;
 
