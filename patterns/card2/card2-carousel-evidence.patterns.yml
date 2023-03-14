@@ -41,7 +41,7 @@ card2_carousel_evidence:
       type: text
       label: 'Author name (field)'
       description: 'The author of the content or signature.'
-      preview: 'di Federico De Paolis'
+      preview: 'Federico De Paolis'
     card_read_more_url:
       type: text
       label: 'Link (eg. /node/id, raw text).'
