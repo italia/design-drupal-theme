@@ -10,7 +10,7 @@ use Drupal\bootstrap_italia_views_list\Plugin\views\style\ListStyle;
 /**
  * Implements hook_theme().
  */
-function bootstrap_italia_views_list_style_theme($existing, $type, $theme, $path) {
+function bootstrap_italia_views_list_style_theme($existing, $type, $theme, $path): array {
   return [
     'views_bootstrap_italia_views_list' => [
       'variables' => [
@@ -32,7 +32,7 @@ function bootstrap_italia_views_list_style_theme($existing, $type, $theme, $path
  *   - view: A ViewExecutable object.
  *   - rows: The raw row data.
  */
-function template_preprocess_views_bootstrap_italia_views_list(array &$variables) {
+function template_preprocess_views_bootstrap_italia_views_list(array &$variables): void {
   // Update options for twig.
   $variables['options'] = $variables['view']->style_plugin->options;
 }
@@ -40,7 +40,7 @@ function template_preprocess_views_bootstrap_italia_views_list(array &$variables
 /**
  * Implements hook_theme_suggestions_block_alter().
  */
-function bootstrap_italia_views_list_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_views_list_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 

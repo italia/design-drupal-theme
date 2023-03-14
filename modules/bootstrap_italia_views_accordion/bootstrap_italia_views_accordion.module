@@ -10,7 +10,7 @@ use Drupal\bootstrap_italia_views_accordion\Plugin\views\style\AccordionStyle;
 /**
  * Implements hook_theme().
  */
-function bootstrap_italia_views_accordion_style_theme($existing, $type, $theme, $path) {
+function bootstrap_italia_views_accordion_style_theme($existing, $type, $theme, $path): array {
   return [
     'views_bootstrap_italia_views_accordion' => [
       'variables' => [
@@ -32,7 +32,7 @@ function bootstrap_italia_views_accordion_style_theme($existing, $type, $theme, 
  *   - view: A ViewExecutable object.
  *   - rows: The raw row data.
  */
-function template_preprocess_views_bootstrap_italia_views_accordion(array &$variables) {
+function template_preprocess_views_bootstrap_italia_views_accordion(array &$variables): void {
   // Update options for twig.
   $variables['options'] = $variables['view']->style_plugin->options;
 }
@@ -40,7 +40,7 @@ function template_preprocess_views_bootstrap_italia_views_accordion(array &$vari
 /**
  * Implements hook_theme_suggestions_block_alter().
  */
-function bootstrap_italia_views_accordion_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+function bootstrap_italia_views_accordion_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 
