@@ -110,7 +110,7 @@ function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, arra
   }
 
   // Check to see if the form is layout builder form.
-  if (isset($element['#layout_builder_element_keys'])) {
+  if (isset($variables['element']['#layout_builder_element_keys'])) {
     $suggestions[] = $variables['theme_hook_original'] . '__' . 'layout__builder';
   }
 }
