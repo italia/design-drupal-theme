@@ -37,6 +37,9 @@ class Helper {
 
   /**
    * Return social name.
+   *
+   * @return array
+   *   All social.
    */
   public static function getSocialItems(): array {
     return [
@@ -67,8 +70,14 @@ class Helper {
 
   /**
    * Https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Returns breakpoints.
    */
-  public static function getBreakpoints($withLabel = FALSE): array {
+  public static function getBreakpoints(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         '' => t('Extra small (<576px)'),
@@ -85,8 +94,14 @@ class Helper {
 
   /**
    * Return bootstrap container type.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Returns container type.
    */
-  public static function getBootstrapContainerType($withLabel = FALSE): array {
+  public static function getBootstrapContainerType(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'container' => t('Container fixed'),

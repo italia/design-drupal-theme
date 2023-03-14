@@ -15,8 +15,14 @@ class Color {
    * Return all colors name.
    *
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   All colors.
    */
-  public static function getAll($withLabel = FALSE): array {
+  public static function getAll(bool $withLabel = FALSE): array {
     return self::getTheme($withLabel) +
       self::getPantone($withLabel) +
       self::getGrays($withLabel) +
@@ -29,8 +35,14 @@ class Color {
    * Return Theme colors name.
    *
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Theme colors.
    */
-  public static function getTheme($withLabel = FALSE): array {
+  public static function getTheme(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'primary' => 'Primary',
@@ -52,8 +64,14 @@ class Color {
    * Return extra colors name.
    *
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Pantone colors.
    */
-  public static function getPantone($withLabel = FALSE): array {
+  public static function getPantone(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'blue' => 'Blue',
@@ -79,8 +97,14 @@ class Color {
    * Return gray colors name.
    *
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Gray colors.
    */
-  public static function getGrays($withLabel = FALSE): array {
+  public static function getGrays(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'gray-100' => 'Gray 100',
@@ -105,8 +129,14 @@ class Color {
    * Return Utilities colors name.
    *
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Utilities colors.
    */
-  public static function getUtilities($withLabel = FALSE): array {
+  public static function getUtilities(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return ['body' => 'Body', 'muted' => 'Muted'];
     }
@@ -118,8 +148,14 @@ class Color {
    * Return Mode colors name.
    *
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Color mode.
    */
-  public static function getMode($withLabel = FALSE): array {
+  public static function getMode(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return ['light' => 'Light', 'dark' => 'Dark'];
     }
@@ -131,8 +167,14 @@ class Color {
    * Return Utilities colors name.
    *
    * Https://getbootstrap.com/docs/5.1/utilities/colors/#variables.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Monochromatic colors.
    */
-  public static function getMonochromatic($withLabel = FALSE): array {
+  public static function getMonochromatic(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return ['black' => 'Black', 'white' => 'White'];
     }

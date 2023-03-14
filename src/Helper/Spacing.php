@@ -14,8 +14,14 @@ class Spacing {
 
   /**
    * Return padding top.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Top paddings.
    */
-  public static function getPaddingTop($withLabel = FALSE): array {
+  public static function getPaddingTop(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'pt-0' => t('Zero'),
@@ -32,8 +38,14 @@ class Spacing {
 
   /**
    * Return padding right.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Right paddings.
    */
-  public static function getPaddingRight($withLabel = FALSE): array {
+  public static function getPaddingRight(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'pe-0' => t('Zero'),
@@ -50,8 +62,14 @@ class Spacing {
 
   /**
    * Return padding bottom.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Bottom paddings.
    */
-  public static function getPaddingBottom($withLabel = FALSE): array {
+  public static function getPaddingBottom(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'pb-0' => t('Zero'),
@@ -68,8 +86,14 @@ class Spacing {
 
   /**
    * Return padding left.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Left paddings.
    */
-  public static function getPaddingLeft($withLabel = FALSE): array {
+  public static function getPaddingLeft(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'ps-0' => t('Zero'),
@@ -86,8 +110,14 @@ class Spacing {
 
   /**
    * Return padding vertical.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Vertical paddings.
    */
-  public static function getPaddingVertical($withLabel = FALSE): array {
+  public static function getPaddingVertical(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'py-0' => t('Zero'),
@@ -104,8 +134,14 @@ class Spacing {
 
   /**
    * Return padding horizontal.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Horizontal paddings.
    */
-  public static function getPaddingHorizontal($withLabel = FALSE): array {
+  public static function getPaddingHorizontal(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'px-0' => t('Zero'),
@@ -122,8 +158,14 @@ class Spacing {
 
   /**
    * Return margin top.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Top margins.
    */
-  public static function getMarginTop($withLabel = FALSE): array {
+  public static function getMarginTop(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'mt-0' => t('Zero'),
@@ -140,8 +182,14 @@ class Spacing {
 
   /**
    * Return margin right.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Right margins.
    */
-  public static function getMarginRight($withLabel = FALSE): array {
+  public static function getMarginRight(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'me-0' => t('Zero'),
@@ -158,8 +206,14 @@ class Spacing {
 
   /**
    * Return margin bottom.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Bottom margins.
    */
-  public static function getMarginBottom($withLabel = FALSE): array {
+  public static function getMarginBottom(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'mb-0' => t('Zero'),
@@ -176,8 +230,14 @@ class Spacing {
 
   /**
    * Return margin left.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Left margins.
    */
-  public static function getMarginLeft($withLabel = FALSE): array {
+  public static function getMarginLeft(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'ms-0' => t('Zero'),
@@ -194,8 +254,14 @@ class Spacing {
 
   /**
    * Return margin vertical.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Vertical margins.
    */
-  public static function getMarginVertical($withLabel = FALSE): array {
+  public static function getMarginVertical(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'my-0' => t('Zero'),
@@ -212,8 +278,14 @@ class Spacing {
 
   /**
    * Return margin horizontal.
+   *
+   * @param bool $withLabel
+   *   Choose from array with label or not.
+   *
+   * @return array
+   *   Horizontal margins.
    */
-  public static function getMarginHorizontal($withLabel = FALSE): array {
+  public static function getMarginHorizontal(bool $withLabel = FALSE): array {
     if ($withLabel) {
       return [
         'mx-0' => t('Zero'),

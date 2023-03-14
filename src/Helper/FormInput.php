@@ -67,13 +67,13 @@ class FormInput {
   /**
    * Return variables type.
    *
-   * @param array &$variables
+   * @param array $variables
    *   Variables array.
    *
    * @return string
    *   Element type.
    */
-  private static function getType(array &$variables): string {
+  private static function getType(array $variables): string {
     $type = $variables['element']['#type'];
 
     // Search if a webform-password.
@@ -88,15 +88,21 @@ class FormInput {
 
   /**
    * Set text input type.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function setText(&$variables): void {
+  private static function setText(array &$variables): void {
     $variables['attributes']['class'][] = 'form-control';
   }
 
   /**
    * Set textfield input type.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function setTextfield(&$variables): void {
+  private static function setTextfield(array &$variables): void {
     // Ensure there is no collision with Bootstrap 5 default class names
     // by replacing ".form-text" with ".form-textfield".
     $attributes = &$variables['attributes'];
@@ -110,22 +116,31 @@ class FormInput {
 
   /**
    * Set range input type.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function setRange(&$variables): void {
+  private static function setRange(array &$variables): void {
     $variables['attributes']['class'][] = 'form-range';
   }
 
   /**
    * Set file input type.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function setFile(&$variables): void {
+  private static function setFile(array &$variables): void {
     $variables['attributes']['class'][] = 'upload';
   }
 
   /**
    * Set submit input type.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function setSubmit(&$variables): void {
+  private static function setSubmit(array &$variables): void {
     $variables['attributes']['class'][] = 'btn';
 
     if (isset($variables['attributes']['data-drupal-selector'])) {
@@ -171,8 +186,11 @@ class FormInput {
 
   /**
    * Set password input type.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function setPassword(&$variables): void {
+  private static function setPassword(array &$variables): void {
     $variables['attributes']['class'][] = 'form-control ';
     $variables['attributes']['class'][] = 'input-password';
 
@@ -189,8 +207,11 @@ class FormInput {
 
   /**
    * Check validation error on single field.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function checkErrors(&$variables): void {
+  private static function checkErrors(array &$variables): void {
     if (isset($variables['attributes']['class']) &&
       in_array('error', $variables['attributes']['class'], TRUE)
     ) {
@@ -205,8 +226,11 @@ class FormInput {
 
   /**
    * Check validation success on single field.
+   *
+   * @param array $variables
+   *   Variables array.
    */
-  private static function checkSuccess(&$variables): void {
+  private static function checkSuccess(array &$variables): void {
     if (isset($variables['attributes']['class'])) {
       if (in_array('success', $variables['attributes']['class'], TRUE) ||
         in_array('valid', $variables['attributes']['class'], TRUE) ||

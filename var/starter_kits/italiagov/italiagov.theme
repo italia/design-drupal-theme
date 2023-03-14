@@ -10,6 +10,6 @@ use Drupal\bootstrap_italia\Helper\Libraries;
 /**
  * Implements theme_library_info_build().
  */
-function italiagov_library_info_build() {
+function italiagov_library_info_build(): array {
   return Libraries::setLibraries();
 }
