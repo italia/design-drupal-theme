@@ -494,7 +494,7 @@ msgstr "Carosello"
 # Resetta
 #, fuzzy
 msgid "Unset"
-msgstr "Disinserisci"
+msgstr "Non impostato"
 
 #: components/components-2/chip/chip-demo.html.twig:26
 msgid "Standard"
@@ -4343,7 +4343,7 @@ msgstr "Bootstrap Italia Card Standard"
 
 #: includes/theme-settings.inc:1013
 msgid "PA Website Validator"
-msgstr ""
+msgstr "PA Website Validator"
 
 #: includes/theme-settings.inc:1045
 msgid ""
@@ -5046,4 +5046,7 @@ msgid ""
 "title=\"Read the docs\" target=\"_blank\">School sites</a>, or leave "
 "unset for generic sites.</p>"
 msgstr ""
-
+"<p>Impostazioni per <a href=\"@mSites\" title=\"Leggi la documentazione\" "
+"target=\"_blank\">siti comunali</a> o <a href=\"@sSites\" "
+"title=\"Leggi la documentazione\" target=\"_blank\">siti scolastici</a>, lascia "
+"non impostato per siti generici.</p>"
