@@ -2925,15 +2925,15 @@ msgstr "Senza bordi"
 
 #: includes/theme-settings.inc:799
 # Suggestions on the localization server:
-# Spunta per visualizzare tutte le tabelle con la variante senza bordo. Nota: Le impostazioni di bordatura non si possono combinare con questa variante. Predefinito: non spuntato.
+# Spunta per visualizzare tutte le tabelle con la variante senza bordo. Nota: non puoi combinare questa impostazione se è attivo bordato. Predefinito: non spuntato.
 #, fuzzy
 msgid ""
 "Enable to show all tables without borders. Note: bordered table can "
 "also be combined with the borderless variant. Default: unchecked."
 msgstr ""
 "Seleziona per visualizzare tutte le tabelle con la variante senza "
-"bordo. Nota: Le impostazioni di bordatura non si possono combinare con "
-"questa variante. Predefinito: non selezionato."
+"bordo. Nota: non puoi combinare questa impostazione se è attivo bordato. "
+"Predefinito: non selezionato."
 
 #: includes/theme-settings.inc:804
 # Suggestion on the localization server:
