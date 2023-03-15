@@ -424,7 +424,7 @@ msgstr "Campi"
 
 #: config/optional/core.entity_view_mode.node.gallery.yml:0; modules/bootstrap_italia_paragraph_gallery/config/optional/paragraphs.paragraphs_type.gallery.yml:0
 msgid "Gallery"
-msgstr "Gallery"
+msgstr "Galleria"
 
 #: includes/theme-settings.inc:235
 msgid "Search settings"
@@ -868,7 +868,7 @@ msgstr "Caricamento…"
 # Suggestion on the localization server:
 #, fuzzy
 msgid "Gallery item"
-msgstr "Immagine Galleria"
+msgstr "Elemento Galleria"
 
 #: modules/bootstrap_italia_views_gallery/src/Plugin/views/style/GalleryStyle.php:60
 # Suggestion on the localization server:
