@@ -26,7 +26,7 @@
     {% for item in items %}
       <div class="col-sm-6 col-lg-{{ col }} pb-4 footer-items-wrapper">
 
-        <h4>{{ link(item.title, item.url, item.attributes) }}</h4>
+        <h3 class="h4">{{ link(item.title, item.url, item.attributes) }}</h3>
         {% if item.below %}
           <div class="link-list-wrapper">
             <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
