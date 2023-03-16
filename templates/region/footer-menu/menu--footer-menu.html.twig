@@ -31,7 +31,7 @@
           <div class="link-list-wrapper">
             <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
               {% for item_second in item.below %}
-                <li{{ item_second.attributes }}>
+                <li{{ item_second.attributes.addClass('my-1') }}>
                   {% include '@bi-bcl/list/linklist-item.html.twig' with {
                     item: item_second,
                     list_type: 'footer-menu',
