@@ -1,3 +1,33 @@
+# Summary 2.2.3
+## Release notes
+
+This release are covered by the security advisory policy. 🥳🥳🥳
+
+## All changes
+- Fix(a11y): dropdown link in navbar [0d6671ca](https://git.drupalcode.org/project/bootstrap_italia/-/commit/0d6671caab67141fff7896c5af5197a31c152116)
+- Fix(a11y): spacing footer menu link [6b5715a0](https://git.drupalcode.org/project/bootstrap_italia/-/commit/6b5715a06658355308809bbca23df3fb8d4928ad)
+- Fix(a11y): H hierarchy in footer blocks [f497bb4a](https://git.drupalcode.org/project/bootstrap_italia/-/commit/f497bb4aec73b57b1e88f92b64c256261c80aa25)
+- Fix(sec): phpstan level 5 compliance [a58861b9](https://git.drupalcode.org/project/bootstrap_italia/-/commit/a58861b91fd550d92ce6e462ef60adf1fa090e95)
+- Fix(sec): return type [ad0cea33](https://git.drupalcode.org/project/bootstrap_italia/-/commit/ad0cea33863ed805478bf4d66e02ba082b4b0aaf)
+- Fix(sec): Issue #3346670 fix phpstan issue [7e9f53a2](https://git.drupalcode.org/project/bootstrap_italia/-/commit/7e9f53a2a6c1bec394dc43ebf34c96c7cf4408c1)
+- Fix(bug): sometimes the $region variable is empty
+  because if condition is always true [d4305ff8](https://git.drupalcode.org/project/bootstrap_italia/-/commit/d4305ff8ac9c2426b087e76377ab1897c7bf0141)
+- Fix(bug): variable $element in isset() is never defined [05ff9446](https://git.drupalcode.org/project/bootstrap_italia/-/commit/05ff9446f674e3f9676f5bdcd560bd89f53c92c6)
+- Issue #3346670 remove unused module and install file [443012f8](https://git.drupalcode.org/project/bootstrap_italia/-/commit/443012f8a8c85a447eaf87ee78e772e61f19781e)
+- Optimize footer-blocks code [1f4f6172](https://git.drupalcode.org/project/bootstrap_italia/-/commit/1f4f6172d1da4e5a1e522d6d09de25e05879913f)
+- Issue #3346670 move css and js folder in the root dir [c55cf3d2](https://git.drupalcode.org/project/bootstrap_italia/-/commit/c55cf3d289d3fda75dbff2db505c48203ecad108)
+- Update translations
+- Fix(docs): pattern card preview text [76d0dcd2](https://git.drupalcode.org/project/bootstrap_italia/-/commit/76d0dcd215e82e809b4fe3b130e5c42e67358a45)
+- Fix(docs): pattern card preview text [ce590bf5](https://git.drupalcode.org/project/bootstrap_italia/-/commit/ce590bf5b4baaaaef933cd7e9c36d18f0d3524b6)
+
+# Summary 2.2.2
+## Release notes
+- Fix font bug
+
+# Summary 2.2.1
+## Release notes
+- Fix font bug
+
 # Summary 2.2.0
 ## Release notes
 - Update sub-theme dependencies for compliance v2.2.0 bootstrap-italia library
