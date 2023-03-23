@@ -1,0 +1,3 @@
+Componenti da cooreggere:
+
+- steppers
