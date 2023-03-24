@@ -22,11 +22,8 @@
 
   {# Set options #}
   {% set _classes = [
-    'lg-border',
-    'lg-shadow',
     'mb-5',
     'p-lg-4',
-    'overflow-auto'
   ] %}
 
   {% if _demo_classes is not empty %}
@@ -40,7 +37,7 @@
 
   {# Component #}
   {% if title is not empty %}
-    <h3 class="mt-4 fw-semibold">{{ _title }}</h3>
+    <h3 class="mt-4 mb-3 fw-semibold border-bottom">{{ _title }}</h3>
   {% endif %}
 
   <div{{ demo_attributes }}>
