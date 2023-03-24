@@ -23,7 +23,7 @@ $ drush cr
 
 # All changes
 - Update bootstrap-italia compliance with v2.3.x
-- Check all components and update badge and chips
+- Check all components and update badge, chips and steppers
 - New `mastodon` icon
 
 # Summary 2.2.3

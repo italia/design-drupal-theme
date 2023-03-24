@@ -1,4 +1,0 @@
-Componenti da correggere:
-
-- steppers
-templates/form/webform/webform-progress-tracker.html.twig
