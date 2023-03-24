@@ -1,3 +1,31 @@
+# Summary 2.3.0
+## Release notes
+Compliance bootstrap-italia v2.3
+
+## Update from 2.2.x
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.2.0
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+```shell
+$ npm install bootstrap-italia@^2.3
+$ npm update
+```
+update:
+- `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+- `<your-sub-theme>/src/scss/custom-comuni/_variables.scss`
+```shell
+$ npm run build:prod
+$ drush cr
+```
+
+# All changes
+- Update bootstrap-italia compliance with v2.3.x
+- Check all components and update badge and chips
+- New `mastodon` icon
+
 # Summary 2.2.3
 ## Release notes
 
@@ -39,12 +67,12 @@ If you use vanilla libraries, download bootstrap-italia v2.2.0
 and update `<your-sub-theme>/dist` folder.
 
 If you use custom libraries built with webpack, do:
-```
+```shell
 $ npm install bootstrap-italia@2.2.0 --save-exact
 $ npm update
 ```
 - update `<your-sub-theme>/src/js/index.js`
-```
+```shell
 $ npm run build:prod
 $ drush cr
 ```
@@ -105,13 +133,13 @@ First v2 release.
 Go to your sub-theme settings -> PA Website Validator and choose your site type.
 
 Edit `<your-sub-theme>italiagov/package.json` and change
-```
+```json
 "dependencies": {
   "bootstrap-italia": "^2.0.9"
 }
 ```
 in
-```
+```json
   "dependencies": {
     "bootstrap-italia": "2.0.9"
   }
