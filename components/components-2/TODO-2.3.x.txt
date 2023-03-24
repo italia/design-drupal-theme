@@ -1,4 +1,9 @@
 Componenti da correggere:
 
 - steppers
-- toasts (non c'è mi sembra)
+templates/form/webform/webform-progress-tracker.html.twig
+
+- griglie
+https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/
+è cambiato 1140px -> 1184px
+
