@@ -117,7 +117,7 @@
 
   {# Component #}
   {% if _direction != 'down' %}
-    <span class="dropdown drop{{ _direction }}">
+    <div class="dropdown drop{{ _direction }}">
   {% endif %}
 
     {% embed '@bi-bcl/button/button.html.twig' with {
@@ -137,7 +137,7 @@
     } %}
 
       {% block before %}
-        {% if _icon_before is not empty %}
+        {% if _icon_before is not empty and _direction != 'start' %}
           {% if _icon_before_rounded %}
             <span class="rounded-icon">
           {% endif %}
@@ -151,6 +151,16 @@
             </span>&nbsp;
           {% endif %}
         {% endif %}
+
+        {% if _direction == 'start' %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-expand',
+            size: _size,
+            color: _icon_color,
+            icon_classes: ['icon-expand']
+          } %}
+        {% endif %}
+
       {% endblock %}
 
       {% block after %}
@@ -159,6 +169,7 @@
             name: 'it-expand',
             size: _size,
             color: _icon_color,
+            icon_classes: ['icon-expand']
           } %}
         {% endif %}
       {% endblock %}
@@ -169,6 +180,6 @@
     </div>
 
   {% if _direction != 'down' %}
-    </span>
+    </div>
   {% endif %}
 {% endapply %}

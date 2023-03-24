@@ -17,25 +17,23 @@
     title: 'Dropdown variant'|t,
   } %}
     {% block content %}
-      <div class="btn-group">
-        {% for variant in variants %}
-          {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-            label: 'Dropdown '~variant|t,
-            variant: variant,
-            button_classes: ['m-1'],
-          } %}
-            {% block dropdownContent %}
-              <div class="link-list-wrapper">
-                <ul class="link-list">
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
-                </ul>
-              </div>
-            {% endblock %}
-          {% endembed %}
-        {% endfor %}
-      </div>
+      {% for variant in variants %}
+        {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+          label: 'Dropdown '~variant|t,
+          variant: variant,
+          button_classes: ['m-1', 'mb-5'],
+        } %}
+          {% block dropdownContent %}
+            <div class="link-list-wrapper">
+              <ul class="link-list">
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
+              </ul>
+            </div>
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
     {% endblock %}
   {% endembed %}
 
@@ -43,26 +41,24 @@
     title: 'Dropdown link'|t,
   } %}
     {% block content %}
-      <div class="btn-group">
-        {% for variant in variants %}
-          {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-            label: 'Dropdown '~variant|t,
-            tag: 'a',
-            variant: variant,
-            button_classes: ['m-1'],
-          } %}
-            {% block dropdownContent %}
-              <div class="link-list-wrapper">
-                <ul class="link-list">
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
-                </ul>
-              </div>
-            {% endblock %}
-          {% endembed %}
-        {% endfor %}
-      </div>
+      {% for variant in variants %}
+        {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+          label: 'Dropdown '~variant|t,
+          tag: 'a',
+          variant: variant,
+          button_classes: ['m-1', 'mb-5'],
+        } %}
+          {% block dropdownContent %}
+            <div class="link-list-wrapper">
+              <ul class="link-list">
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
+              </ul>
+            </div>
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
     {% endblock %}
   {% endembed %}
 
@@ -70,25 +66,24 @@
     title: 'Dropdown direction'|trans,
   } %}
     {% block content %}
-      <div class="btn-group">
-        {% for direction in directions %}
-          {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-            label: 'Dropdown '~direction|trans,
-            direction: direction,
-            button_classes: ['m-1'],
-          } %}
-            {% block dropdownContent %}
-              <div class="link-list-wrapper">
-                <ul class="link-list">
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
-                </ul>
-              </div>
-            {% endblock %}
-          {% endembed %}
-        {% endfor %}
-      </div>
+      {% for direction in directions %}
+        {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+          label: 'Dropdown '~direction|trans,
+          direction: direction,
+          hide_block_after: direction == 'start' ? true,
+          button_classes: ['m-1', 'mb-5', direction == 'start' ? 'align-right'],
+        } %}
+          {% block dropdownContent %}
+            <div class="link-list-wrapper">
+              <ul class="link-list">
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
+              </ul>
+            </div>
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
     {% endblock %}
   {% endembed %}
 
@@ -96,26 +91,24 @@
     title: 'Dropdown dark variant'|trans,
   } %}
     {% block content %}
-      <div class="btn-group">
-        {% for variant in variants %}
-          {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-            label: 'Dropdown '~variant|trans,
-            variant: variant,
-            dropdown_dark: true,
-            button_classes: ['m-1'],
-          } %}
-            {% block dropdownContent %}
-              <div class="link-list-wrapper">
-                <ul class="link-list">
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
-                  <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
-                </ul>
-              </div>
-            {% endblock %}
-          {% endembed %}
-        {% endfor %}
-      </div>
+      {% for variant in variants %}
+        {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+          label: 'Dropdown '~variant|trans,
+          variant: variant,
+          dropdown_dark: true,
+          button_classes: ['m-1', 'mb-5'],
+        } %}
+          {% block dropdownContent %}
+            <div class="link-list-wrapper">
+              <ul class="link-list">
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
+              </ul>
+            </div>
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
     {% endblock %}
   {% endembed %}
 
