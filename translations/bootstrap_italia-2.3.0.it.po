@@ -1,4 +1,4 @@
-# Italian translation of Bootstrap Italia (2.1.3)
+# Italian translation of Bootstrap Italia (2.3.0)
 # Copyright (c) 2023 by the Italian translation team
 # Generated from files:
 #  bootstrap_italia/includes/theme-settings.inc: n/a
@@ -233,8 +233,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootstrap Italia (2.1.3)\n"
-"POT-Creation-Date: 2023-03-02 17:59+0100\n"
+"Project-Id-Version: Bootstrap Italia (2.3.0)\n"
+"POT-Creation-Date: 2023-03-24 13:00+0100\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Language-Team: Italian\n"
 "MIME-Version: 1.0\n"

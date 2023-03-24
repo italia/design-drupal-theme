@@ -4,7 +4,7 @@ Compliance bootstrap-italia v2.3
 
 ## Update from 2.2.x
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.2.0
+If you use vanilla libraries, download bootstrap-italia v2.3.6
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
