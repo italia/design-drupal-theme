@@ -51,6 +51,7 @@ class Helper {
       'Instagram',
       'Linkedin',
       'Medium',
+      'Mastodon',
       'Pinterest',
       'Quora',
       'Reddit',
