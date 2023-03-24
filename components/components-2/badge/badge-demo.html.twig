@@ -20,7 +20,7 @@
   } %}
     {% block content %}
       {% for i in 1..6 %}
-        <h{{ i }}>Example title
+        <h{{ i }}>Example title h{{ i }}
           {% include '@bi-bcl/badge/badge.html.twig' with {
             label: 'New'|t,
             background: 'secondary',
