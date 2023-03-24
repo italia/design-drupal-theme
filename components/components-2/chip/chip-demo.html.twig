@@ -16,14 +16,13 @@
 
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
-    title: 'Chips'|t,
+    title: 'Chips standard and big'|t,
   } %}
     {% block content %}
 
       <div class="row">
 
         <div class="col-12 col-md-6">
-          <h4>{{ 'Standard'|t }}</h4>
           <p class="mt-4 mb-2">{{ 'Only text'|t }}</p>
           {% include '@bi-bcl/chip/chip.html.twig' with {
             chip_label: 'Label'|t,
@@ -61,7 +60,6 @@
         </div>{# End Standard. #}
 
         <div class="col-12 col-md-6">
-          <h4>{{ 'Big variant' }}</h4>
 
           <p>{{ 'Only text'|t }}</p>
           {% include '@bi-bcl/chip/chip.html.twig' with {
