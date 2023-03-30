@@ -1,3 +1,15 @@
+# Summary 2.4.0
+## Release notes
+...
+
+## Update from 2.3.x
+...
+
+## All changes
+- Added fast and minimalistic 404-page template
+- Fix:
+  - maintenance-page id
+
 # Summary 2.3.0
 ## Release notes
 Compliance bootstrap-italia v2.3
