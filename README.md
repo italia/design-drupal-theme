@@ -1,6 +1,6 @@
 # Bootstrap Italia
 
-`bootstrap_italia` is a base theme for **Drupal** that implements
+`bootstrap_italia` is a low-code base theme for **Drupal** that implements
 [the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
 This theme uses `webpack` as a module bundler and includes the
 [bootstrap-italia](https://github.com/italia/bootstrap-italia/)
@@ -48,7 +48,7 @@ and change `hidden` variable to `false`
 $ sed -i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml
 ```
 
-## Manage and generate assets
+## Manage bootstrap Italia library
 You can install the bootstrap-Italy library in several ways.
 
 ### A. Bootstrap-italia vanilla
@@ -56,7 +56,7 @@ You can install the bootstrap-Italy library in several ways.
 Download https://github.com/italia/bootstrap-italia/releases/download/v2.3.6/bootstrap-italia.zip
 and unzip in `<your-subtheme>/dist`.
 
-### B. For developer or advanced user
+### B. Custom build for developer or advanced user
 `npm` is required: https://www.npmjs.com/get-npm
 
 Install assets
