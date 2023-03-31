@@ -7,6 +7,7 @@
 
 ## All changes
 - Added fast and minimalistic 404-page template
+- Added header shadow feature in theme settings
 - Fix:
   - maintenance-page id
 

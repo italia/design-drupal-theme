@@ -29,6 +29,28 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#type' => 'vertical_tabs',
     '#weight' => -10,
   ];
+  // Header --------------------------------------------------------------.
+  $form['header'] = [
+    '#type' => 'details',
+    '#title' => t('Header'),
+    '#description' => t('Header settings'),
+    '#open' => FALSE,
+    '#group' => 'bootstrap',
+    '#weight' => 0,
+  ];
+  // Header appearance.
+  $form['header']['appearance'] = [
+    '#type' => 'details',
+    '#title' => t('Appearance'),
+    '#open' => FALSE,
+    '#group' => 'header',
+  ];
+  $form['header']['appearance']['header_shadow'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable shadow'),
+    '#description' => t("Default: unchecked"),
+    '#default_value' => theme_get_setting('header_shadow'),
+  ];
 
   // Header slim --------------------------------------------------------------.
   $form['slim_header'] = [

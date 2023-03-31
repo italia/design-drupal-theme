@@ -7,6 +7,7 @@ features:
   node_user_picture: true
 logo:
   use_default: true
+header_shadow: 0
 slim_header_container_type: container
 slim_header_light: 0
 government_entity_name: 'Government entity name'

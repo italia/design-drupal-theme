@@ -1,7 +1,11 @@
 {% apply spaceless %}
   {% set it_header_wrapper_attributes = create_attribute() %}
   {% set it_header_wrapper_attributes =
-    it_header_wrapper_attributes.addClass(['it-header-wrapper', 'd-print-none'])
+    it_header_wrapper_attributes.addClass([
+      'it-header-wrapper',
+      'd-print-none',
+      header_shadow ? 'shadow'
+    ])
   %}
 
   {% if navigation_header_sticky %}

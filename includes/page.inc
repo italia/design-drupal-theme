@@ -40,6 +40,9 @@ function bootstrap_italia_preprocess_page_title(array &$variables): void {
 function bootstrap_italia_preprocess_page(array &$variables): void {
   $variables['pa_website_validator_type'] = theme_get_setting('pa_website_validator_type');
 
+  // Header.
+  $variables['header_shadow'] = theme_get_setting('header_shadow');
+
   // Slim header settings.
   $variables['slim_header_container_type'] = theme_get_setting('slim_header_container_type');
   $variables['slim_header_light'] = (bool) theme_get_setting('slim_header_light');
