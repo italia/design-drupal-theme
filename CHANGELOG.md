@@ -10,6 +10,8 @@
 - Added header shadow feature in theme settings
 - Fix:
   - maintenance-page id
+  - update share component
+  - wrong bootstrap5 class in dropdown component
 
 # Summary 2.3.0
 ## Release notes

@@ -42,7 +42,8 @@
 
   {# Set options #}
     {% set _classes = [
-      'list-item'
+      'list-item',
+      'dropdown-item'
     ] %}
 
   {% if _share_classes is not empty %}
@@ -61,6 +62,7 @@
   {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
     label: _label,
     icon_before: _icon,
+    size: 'sm',
     hide_block_after: true,
     icon_color: 'black',
     dropdown_classes: ['shadow-lg'],
@@ -87,7 +89,9 @@
                 <a href="{{ target['targetUrl'] }}"
                   {{ share_attributes }} {{ target['customAttributes'] }}>
                   {% include '@bi-bcl/icon/icon.html.twig' with {
-                    name: target['icon']
+                    name: target['icon'],
+                    color: 'primary',
+                    size: 'sm'
                   } %}
                   &nbsp;
                   <span>{{ target['label'] }}</span>
