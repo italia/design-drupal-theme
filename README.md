@@ -49,7 +49,7 @@ $ sed -i 's/hidden: true/hidden: false/g' custom/italiagov/italiagov.info.yml
 ```
 
 ## Manage bootstrap Italia library
-You can install the bootstrap-Italy library in several ways.
+You can install the bootstrap-italia library in several ways.
 
 ### A. Bootstrap-italia vanilla
 
