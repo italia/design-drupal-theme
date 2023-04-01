@@ -12,6 +12,7 @@
   - maintenance-page id
   - update share component
   - wrong bootstrap5 class in dropdown component
+  - user menu, dropdown tag
 
 # Summary 2.3.0
 ## Release notes
