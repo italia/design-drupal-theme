@@ -112,4 +112,31 @@
     {% endblock %}
   {% endembed %}
 
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Dropdown with icon'|t,
+  } %}
+    {% block content %}
+      {% for variant in variants %}
+        {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+          label: 'Dropdown '~variant|t,
+          variant: variant,
+          icon_before: 'it-user',
+          icon_before_rounded: true,
+          icon_color: 'white',
+          button_classes: ['m-1', 'mb-5'],
+        } %}
+          {% block dropdownContent %}
+            <div class="link-list-wrapper">
+              <ul class="link-list">
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
+                <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
+              </ul>
+            </div>
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+
 {% endapply %}
