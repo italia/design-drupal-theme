@@ -88,9 +88,9 @@ if [ "$enable_locale" == "y" ]; then
   ddev exec drush -y config:set system.date country.default IT
   ddev exec drush -y config:set system.date timezone.default Europe/Rome
   ddev exec drush -y config:set system.site default_langcode it
-  ddev exec drush -y config:set core.date_format.long pattern 'l, j F Y - H:i'
-  ddev exec drush -y config:set core.date_format.medium pattern 'D, d/m/Y - H:i'
-  ddev exec drush -y config:set core.date_format.short pattern 'd/m/Y - H:i'
+  ddev exec drush -y config:set "core.date_format.long pattern 'l, j F Y - H:i'"
+  ddev exec drush -y config:set "core.date_format.medium pattern 'D, d/m/Y - H:i'"
+  ddev exec drush -y config:set "core.date_format.short pattern 'd/m/Y - H:i'"
 fi
 
 echo "==[ Downloading and activating bootstrap_italia:${bootstrap_italia_version} ]=="
