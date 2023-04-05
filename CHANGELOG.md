@@ -13,6 +13,7 @@
   - update share component
   - wrong bootstrap5 class in dropdown component
   - user menu, dropdown tag
+  - update install script
 
 # Summary 2.3.0
 ## Release notes
