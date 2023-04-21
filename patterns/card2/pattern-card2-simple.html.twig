@@ -1,4 +1,20 @@
 {% apply spaceless %}
+  {% set card_body_classes = [
+    content_padding == 'xs' ? 'px-1',
+    content_padding == 'xs' ? 'px-md-2',
+
+    content_padding == 'sm' ? 'px-2',
+    content_padding == 'sm' ? 'px-md-3',
+
+    content_padding == 'md' ? 'px-3',
+    content_padding == 'md' ? 'px-md-4',
+
+    content_padding == 'lg' ? 'px-4',
+    content_padding == 'lg' ? 'px-md-5',
+
+    content_padding == 'xl' ? 'px-5',
+    content_padding == 'xxl' ? 'px-5',
+  ] %}
   {% if variant == 'article' %}
     {% include '@bi-bcl/card/card.html.twig' with {
       card_image: false,
@@ -13,6 +29,7 @@
       card_read_more_text: card_title|render|striptags|trim,
       card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
       card_shadow: card_shadow,
+      card_body_classes: card_body_classes
     } %}
   {% elseif variant == 'icon' %}
     {% include '@bi-bcl/card/card.html.twig' with {
@@ -30,6 +47,7 @@
       card_read_more_text: card_title|render|striptags|trim,
       card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
       card_shadow: card_shadow,
+      card_body_classes: card_body_classes
     } %}
   {% elseif variant == 'image' %}
     {% if card_date['date-full'] or
@@ -81,6 +99,7 @@
       card_read_more_text: card_title|render|striptags|trim,
       card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
       card_shadow: card_shadow,
+      card_body_classes: card_body_classes
     } %}
   {% else %}
     {% include '@bi-bcl/card/card.html.twig' with {
@@ -96,6 +115,7 @@
       card_read_more_text: card_title|render|striptags|trim,
       card_read_more_type: read_more_type == 'simple_link' ? 'simple-link' : 'read-more',
       card_shadow: card_shadow,
+      card_body_classes: card_body_classes
     } %}
   {% endif %}
 {% endapply %}

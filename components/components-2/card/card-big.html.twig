@@ -3,7 +3,7 @@
  * @file
  * Template for card component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
- * Latest revision: v2.3.6
+ * Latest revision: v2.3.8
  *
  * Parameters:
  * - card_tag_container (string) (default: 'div')
@@ -31,6 +31,7 @@
  * - card_shadow (boolean) (default: true)
  * - card_border_bottom (boolean) (default: false)
  * - card_rounded (boolean) (default: false)
+ * - card_body_classes (array) (default: '')
  * - card_classes (array) (default: '')
  * - card_attributes (obj attribute) (default: '')
  *
@@ -64,6 +65,7 @@
   {% set _card_read_more_type = card_read_more_type|default('link') %}
   {% set _card_rounded = card_rounded ?? false %}
 
+  {% set _card_body_classes = card_body_classes|default('') %}
   {% set _card_classes = card_classes|default('') %}
   {% set _card_attributes = card_attributes|default('') %}
 
@@ -101,6 +103,15 @@
     'card-space',
   ] %}
 
+  {# Set body options #}
+  {% set _body_classes = [
+    'card-body',
+  ] %}
+
+  {% if _card_body_classes is not empty %}
+    {% set _body_classes = _body_classes|merge(_card_body_classes) %}
+  {% endif %}
+
   {# Component #}
   <div class="{{ _wrapper_classes|join(' ')|trim }}">
     <{{ _card_tag_container }}{{ card_attributes }}>
@@ -111,7 +122,7 @@
         {% include '@bi-bcl/card/_partial.card-image-block.html.twig' %}
       {% endblock %}
 
-      <div class="card-body">
+      <div class="{{ _body_classes|join(' ')|trim }}">
 
         {% block cardBodyTop %}{% endblock %}
 

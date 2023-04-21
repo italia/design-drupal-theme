@@ -52,6 +52,18 @@ card2_carousel_evidence:
       label: 'Image (field)'
       description: 'Enter a image field.'
       preview: '<img src="https://via.placeholder.com/480x360/ebebeb/808080/?text=EXAMPLE%20IMAGE" title="Image title" alt="Card carousel evidence Image description">'
+    content_padding:
+      type: select
+      label: Card content padding
+      allow_expose: true
+      options:
+        default: Default (from CSS)
+        xs: Extra small
+        sm: Small
+        md: Medium
+        lg: Large
+        xl: Extra large
+        xxl: Extra extra large
 
   # Optional: Attached libraries.
   #

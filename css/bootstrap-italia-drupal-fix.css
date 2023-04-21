@@ -52,6 +52,11 @@
   z-index: 10000 !important;
 }
 
+/* Example background */
+.bd-example {
+  background-color: #f2f7fc;
+}
+
 /* Typography Fix -------------------------------------------------------------------------- */
 em.placeholder {
   background-color: unset;

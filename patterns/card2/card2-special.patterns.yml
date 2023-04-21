@@ -14,6 +14,21 @@ card2_special:
   label: "Card 2 Special"
   description: "A card is a flexible and extensible content container. It includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options. https://italia.github.io/bootstrap-italia/docs/componenti/card/#card-speciali"
 
+  # Settings (ui_patterns_settings module).
+  settings:
+    content_padding:
+      type: select
+      label: Card content padding
+      allow_expose: true
+      options:
+        default: Default (from CSS)
+        xs: Extra small
+        sm: Small
+        md: Medium
+        lg: Large
+        xl: Extra large
+        xxl: Extra extra large
+
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:

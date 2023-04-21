@@ -1,4 +1,20 @@
 {% apply spaceless %}
+  {% set card_body_classes = [
+    content_padding == 'xs' ? 'p-1',
+    content_padding == 'xs' ? 'p-md-2',
+
+    content_padding == 'sm' ? 'p-2',
+    content_padding == 'sm' ? 'p-md-3',
+
+    content_padding == 'md' ? 'p-3',
+    content_padding == 'md' ? 'p-md-4',
+
+    content_padding == 'lg' ? 'p-4',
+    content_padding == 'lg' ? 'p-md-5',
+
+    content_padding == 'xl' ? 'p-5',
+    content_padding == 'xxl' ? 'p-5',
+  ] %}
   {% set card_special_attribute = create_attribute() %}
   {% set card_target_url = card_target_url['node_link']['0']['0']['#context']['entity_url'] ? card_target_url['node_link']['0']['0']['#context']['entity_url']|render : card_target_url|render|striptags|trim %}
   {% set card_special_attribute = card_special_attribute.setAttribute('href', card_target_url) %}
@@ -6,7 +22,8 @@
     card_tag_container: 'a',
     card_image: card_image,
     card_title: card_title|render|striptags|trim,
-    card_attributes: card_special_attribute
+    card_attributes: card_special_attribute,
+    card_body_classes: card_body_classes
   } %}
     {% block cardCategoryTop %}
       <div class="head-tags">
