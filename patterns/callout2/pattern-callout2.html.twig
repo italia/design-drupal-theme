@@ -1,7 +1,7 @@
 {% embed '@bi-bcl/callout/callout.html.twig' with {
   callout_variant: callout_type ? callout_type|render|striptags|trim : default_type,
   title: title|render|striptags|trim,
-  display: variant,
+  display: variant == 'default' ? 'standard' : variant,
   icon_name: custom_icon is not empty ? custom_icon|render|striptags|trim : null
 } %}
   {% block content %}

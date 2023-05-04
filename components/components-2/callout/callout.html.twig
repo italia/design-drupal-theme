@@ -8,8 +8,8 @@
  * Parameters:
  * - callout_variant (string) (default: 'default')
  *   - options ["success", "warning", "danger", "important", "note", "default"]
- * - display (boolean) (default: '')
- *   - options ["highlight", "more"]
+ * - display (boolean) (default: 'standard')
+ *   - options ["standard","highlight", "more"]
  * - icon_name (string) (default: '')
  * - title (string) (default: '')
  * - assistive_text (string) (default: '')
@@ -41,7 +41,7 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _callout_variant = callout_variant|default('default') %}
-  {% set _display = display|default('') %}
+  {% set _display = display|default('standard') %}
   {% set _icon_name = icon_name|default('') %}
   {% set _title = title|default('') %}
   {% set _assistive_text = assistive_text|default('') %}
@@ -56,7 +56,7 @@
 
   {% set _classes = [
     'callout',
-    _display is not empty ? 'callout-' ~ _display,
+    _display is not empty and _display != 'standard' ? 'callout-' ~ _display,
     _display == 'more' ? 'note',
     _callout_variant != 'default' ? _callout_variant,
   ] %}
@@ -105,7 +105,7 @@
   {# Component #}
   <div {{ callout_attributes }}>
 
-    {% if _display is empty %}
+    {% if _display == 'standard' %}
       <div class="callout-inner">
     {% endif %}
 
@@ -117,7 +117,9 @@
       <span class="visually-hidden">{{ _assistive_text }}</span>
 
       {% if _title is not empty %}
-        {{- _title -}}
+        <span class="text">
+          {{- _title -}}
+        </span>
       {% endif %}
     </div>
 
@@ -127,7 +129,7 @@
       {% endif %}
     {% endblock %}
 
-    {% if _display is empty %}
+    {% if _display == 'standard' %}
       </div>
     {% endif %}
 
