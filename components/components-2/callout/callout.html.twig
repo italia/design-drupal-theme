@@ -3,7 +3,7 @@
  * @file
  * Template for Callout component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/callout/
- * Latest revision: v2.3.8
+ * Latest revision: v2.4.1
  *
  * Parameters:
  * - callout_variant (string) (default: 'default')
@@ -105,6 +105,10 @@
   {# Component #}
   <div {{ callout_attributes }}>
 
+    {% if _display is empty %}
+      <div class="callout-inner">
+    {% endif %}
+
     <div class="callout-title">
       {% include '@bi-bcl/icon/icon.html.twig' with {
         name: _icon_name,
@@ -122,6 +126,10 @@
         <p>{{ _text }}</p>
       {% endif %}
     {% endblock %}
+
+    {% if _display is empty %}
+      </div>
+    {% endif %}
 
   </div>
 {% endapply %}
