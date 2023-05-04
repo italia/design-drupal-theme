@@ -18,6 +18,7 @@ $ drush cr
 
 ## All changes
 - Update callout component to 2.4.1
+- Update card subtitle to 2.4.1
 
 # Summary 2.3.2
 ## Release notes
