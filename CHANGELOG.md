@@ -12,6 +12,10 @@ If you use custom libraries built with webpack, do:
 ```shell
 $ npm install bootstrap-italia@^2.4
 $ npm update
+```
+update:
+- `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+```shell
 $ npm run build:prod
 $ drush cr
 ```
@@ -19,6 +23,7 @@ $ drush cr
 ## All changes
 - Update callout component to 2.4.1
 - Update card subtitle to 2.4.1
+- update italiagov sub-theme
 
 # Summary 2.3.2
 ## Release notes
