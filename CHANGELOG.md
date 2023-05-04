@@ -1,3 +1,24 @@
+# Summary 2.4.0
+## Release notes
+Updated bootstrap-italia library to 2.4.1
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.4.1
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+```shell
+$ npm install bootstrap-italia@^2.4
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
+## All changes
+- Update callout component to 2.4.1
+
 # Summary 2.3.2
 ## Release notes
 Updated bootstrap-italia library to 2.3.8.
