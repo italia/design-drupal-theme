@@ -67,22 +67,24 @@
   } %}
     {% block content %}
       {% for direction in directions %}
-        {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-          label: 'Dropdown '~direction|trans,
-          direction: direction,
-          hide_block_after: direction == 'start' ? true,
-          button_classes: ['m-1', 'mb-5', direction == 'start' ? 'align-right'],
-        } %}
-          {% block dropdownContent %}
-            <div class="link-list-wrapper">
-              <ul class="link-list">
-                <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
-                <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
-                <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
-              </ul>
-            </div>
-          {% endblock %}
-        {% endembed %}
+        <div class="d-flex justify-content-center">
+          {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
+            label: 'Dropdown '~direction|trans,
+            direction: direction,
+            hide_block_after: direction == 'start' ? true,
+            button_classes: ['m-1', 'mb-5', direction == 'start' ? 'align-right'],
+          } %}
+            {% block dropdownContent %}
+              <div class="link-list-wrapper">
+                <ul class="link-list">
+                  <li><a class="dropdown-item list-item" href="#"><span>Azione 1</span></a></li>
+                  <li><a class="dropdown-item list-item" href="#"><span>Azione 2</span></a></li>
+                  <li><a class="dropdown-item list-item" href="#"><span>Azione 3</span></a></li>
+                </ul>
+              </div>
+            {% endblock %}
+          {% endembed %}
+        </div>
       {% endfor %}
     {% endblock %}
   {% endembed %}
