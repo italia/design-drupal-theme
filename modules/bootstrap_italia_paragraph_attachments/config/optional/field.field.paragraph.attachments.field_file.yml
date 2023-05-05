@@ -12,7 +12,7 @@ entity_type: paragraph
 bundle: attachments
 label: 'File legacy'
 description: 'Upload one or more files from your device. If you want to attach a file that has already been uploaded, use the <em>File Browser</em> by positioning yourself in the <strong>public://attachments</strong> folder.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
