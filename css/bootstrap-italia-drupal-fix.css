@@ -12,6 +12,10 @@
   z-index: 10001;
 }
 
+#toolbar-administration .toolbar-box {
+  display: flex;
+}
+
 /* Navbar sticky VS drupal toolbar */
 .toolbar-horizontal.toolbar-tray-open .bs-it-sticky-wrapper .is-sticky {
   top: 78px !important;
