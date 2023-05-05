@@ -25,6 +25,7 @@ $ drush cr
 - Update card subtitle to 2.4.1
 - update italiagov sub-theme
 - update demo code
+- Attachment Paragraph: remove required to field File Legacy
 
 # Summary 2.3.2
 ## Release notes
