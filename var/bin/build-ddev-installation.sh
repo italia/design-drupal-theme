@@ -133,7 +133,7 @@ if [ "$bi_libraries_type" == "vanilla" ]; then
   fi
 
   curl --request GET -sL \
-    --url 'https://github.com/italia/bootstrap-italia/releases/download/v2.3.8/bootstrap-italia.zip' \
+    --url 'https://github.com/italia/bootstrap-italia/releases/download/v2.4.1/bootstrap-italia.zip' \
     --output './web/themes/custom/italiagov/dist/bootstrap-italia.zip'
 
   unzip ./web/themes/custom/italiagov/dist/bootstrap-italia.zip -d ./web/themes/custom/italiagov/dist/

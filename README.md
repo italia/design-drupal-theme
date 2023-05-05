@@ -53,7 +53,7 @@ You can install the bootstrap-italia library in several ways.
 
 ### A. Bootstrap-italia vanilla
 
-Download https://github.com/italia/bootstrap-italia/releases/download/v2.3.8/bootstrap-italia.zip
+Download https://github.com/italia/bootstrap-italia/releases/download/v2.4.1/bootstrap-italia.zip
 and unzip in `<your-subtheme>/dist`.
 
 ### B. Custom build for developer or advanced user
@@ -410,7 +410,7 @@ $ drush en ui_patterns_views
 ## Italian Language
 Import/edit `translations/bootstrap_italia-2.x.it.po`
 ```shell
-$ drush locale-import it /absolute/path/to/bootstrap_italia-2.3.2.it.po \
+$ drush locale-import it /absolute/path/to/bootstrap_italia-2.4.0.it.po \
     --type=customized --override=all
 ```
 
