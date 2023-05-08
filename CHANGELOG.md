@@ -1,10 +1,10 @@
 # Summary 2.4.0
 ## Release notes
-Updated bootstrap-italia library to 2.4.1.
+Updated bootstrap-italia library to 2.4.2.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.4.1
+If you use vanilla libraries, download bootstrap-italia v2.4.2
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
@@ -23,6 +23,7 @@ $ drush cr
 ## All changes
 - Update callout component to 2.4.1
 - Update card subtitle to 2.4.1
+- Update steppers to 2.4.2
 - update italiagov sub-theme
 - update demo code
 - Attachment Paragraph: remove required to field File Legacy

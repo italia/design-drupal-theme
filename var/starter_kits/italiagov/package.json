@@ -1,6 +1,6 @@
 {
   "name": "bootstrap_italia",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "'A Drupal theme which implements the Italia Design System'",
   "main": "src/js/index.js",
   "engineStrict": true,
@@ -49,6 +49,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "bootstrap-italia": "^2.4.1"
+    "bootstrap-italia": "^2.4.2"
   }
 }
