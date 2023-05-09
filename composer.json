@@ -27,7 +27,7 @@
         }
     ],
     "require": {
-        "drupal/components": ">=2.4"
+        "drupal/components": "^2.4 || ^3.0@beta"
     },
     "support": {
         "issues": "https://drupal.org/project/issues/bootstrap_italia",
