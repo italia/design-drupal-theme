@@ -28,6 +28,7 @@ $ drush cr
 - update demo code
 - Attachment Paragraph: remove required to field File Legacy
 - Fix: the dividing line of the sidebar menu is reversed between left and right
+- Fix: the expanded element is assigned an incorrect href value which causes a 404 error in search engines
 
 # Summary 2.3.2
 ## Release notes

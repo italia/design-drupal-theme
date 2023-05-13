@@ -207,7 +207,7 @@
               .setAttribute('data-bs-target', '#'~aria_id)
               .setAttribute('aria-expandend', 'false')
               .setAttribute('aria-controls', aria_id)
-              .setAttribute('href', aria_id)
+              .setAttribute('href', '#'~aria_id)
             %}
           {%- else -%}
             {% set item_attributes = item_attributes.setAttribute('href', item.url|render()) %}
