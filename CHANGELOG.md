@@ -1,6 +1,6 @@
 # Summary 2.4.0
 ## Release notes
-Updated bootstrap-italia library to 2.4.2.
+Updated bootstrap-italia library to 2.4.2. Bug fix.
 
 ## Update libraries
 ### Vanilla libraries
@@ -28,7 +28,8 @@ $ drush cr
 - update demo code
 - Attachment Paragraph: remove required to field File Legacy
 - Fix: the dividing line of the sidebar menu is reversed between left and right
-- Fix: the expanded element is assigned an incorrect href value which causes a 404 error in search engines
+- Fix: the expanded element is assigned an incorrect href value which causes
+a 404 error in search engines
 
 # Summary 2.3.2
 ## Release notes
