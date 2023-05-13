@@ -27,6 +27,7 @@ $ drush cr
 - update italiagov sub-theme
 - update demo code
 - Attachment Paragraph: remove required to field File Legacy
+- Fix: the dividing line of the sidebar menu is reversed between left and right
 
 # Summary 2.3.2
 ## Release notes
