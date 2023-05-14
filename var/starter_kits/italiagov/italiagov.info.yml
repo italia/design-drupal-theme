@@ -14,6 +14,8 @@ libraries:
 #  - italiagov/hot
 #  - italiagov/ddev
   - bootstrap_italia/base
+  - bootstrap_italia/enable-all-tooltips
+  - bootstrap_italia/load-fonts
 
 # Check these settings, they must match the "libraries" choices.
 ckeditor_stylesheets:

@@ -1,12 +1,21 @@
 base:
+  version: 2.4.0
   css:
     theme:
       css/bootstrap-italia-drupal-fix.css: {weight: 50}
   js:
     js/bootstrap-italia-drupal-sticky-fix.js: {}
-    js/bootstrap-italia-enable-all-tooltip.js: {}
     #js/bootstrap-italia-drupal-speech.js: {}
-    js/load-fonts.js: {}
   dependencies:
     - core/drupal
     - core/once
+
+enable-all-tooltips:
+  version: 2.4.0
+  js:
+    js/bootstrap-italia-enable-all-tooltip.js: {}
+
+load-fonts:
+  version: 2.4.0
+  js:
+    js/load-fonts.js: {}

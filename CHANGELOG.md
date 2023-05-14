@@ -1,6 +1,49 @@
 # Summary 2.4.0
 ## Release notes
-Updated bootstrap-italia library to 2.4.2. Bug fix.
+- Updated bootstrap-italia library to 2.4.2.
+- Various bug fix.
+- Review library loads.
+
+### Breaking change!!!
+Font loading has been overhauled, it is now more flexible and allows
+experienced developers to customize the sub-theme without going crazy.
+Updating is simple, just add two lines to the theme configuration file.
+
+The same thing was done for the javascript which activates
+all the tooltips automatically.
+
+To keep your sub-theme working, edit the
+`/themes/custom/<your-sub-theme>/<theme-name>.info.yml` file and add
+after `- bootstrap_italia/load-fonts` the following strings:
+
+```yaml
+  - bootstrap_italia/enable-all-tooltips
+  - bootstrap_italia/load-fonts
+```
+N.B. Note the two spaces before the `-` character, don't delete them.
+Use this [file](var/starter_kits/italiagov/italiagov.info.yml) as a reference.
+
+This is the result:
+```yaml
+# omissis [...]
+# Choose libraries to use. Global is managed with theme settings UI.
+libraries:
+  - italiagov/libraries-ui
+#  - italiagov/vanilla
+#  - italiagov/custom
+#  - italiagov/cdn
+#  - italiagov/hot
+#  - italiagov/ddev
+  - bootstrap_italia/base
+  - bootstrap_italia/enable-all-tooltips
+  - bootstrap_italia/load-fonts
+
+# Check these settings, they must match the "libraries" choices.
+# [...] omissis
+```
+Read the [docs](README.md#manage-fonts) to find out about the other ways
+to load fonts that have been added in this release.
+
 
 ## Update libraries
 ### Vanilla libraries
