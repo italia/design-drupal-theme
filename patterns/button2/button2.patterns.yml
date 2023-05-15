@@ -35,6 +35,10 @@ button2:
       options:
         primary: Primary
         secondary: Secondary
+        success: Success
+        danger: Danger
+        warning: Warning
+        white: White
 
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
