@@ -1,6 +1,6 @@
 # Summary 2.4.0
 ## Release notes
-- Updated bootstrap-italia library to 2.4.2.
+- Updated bootstrap-italia library to 2.4.3.
 - Various bug fix.
 - Review library loads.
 
@@ -47,7 +47,7 @@ to load fonts that have been added in this release.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.4.2
+If you use vanilla libraries, download bootstrap-italia v2.4.3
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
