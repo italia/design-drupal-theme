@@ -54,7 +54,7 @@ and update `<your-sub-theme>/dist` folder.
 If you use custom libraries built with webpack, do:
 ```shell
 $ npm install bootstrap@5.2 --save-exact
-$ npm install bootstrap-italia@^2.4 --save-exact
+$ npm install bootstrap-italia@2.4 --save-exact
 $ npm update
 ```
 update:
