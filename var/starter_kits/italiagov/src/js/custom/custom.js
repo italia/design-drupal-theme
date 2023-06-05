@@ -7,3 +7,4 @@
 //import './example'
 //import './example-alert-event'
 //import './example-bootstrap-italia-modules'
+//import './icons'

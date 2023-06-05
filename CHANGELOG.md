@@ -61,6 +61,7 @@ $ npm update
 Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - update:
   - `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+  - `<your-sub-theme>/webpack.common.js`
 - add:
   - `<your-sub-theme>/src/scss/custom/_maps.scss`
   - `<your-sub-theme>/src/scss/custom-comuni/_maps.scss`
@@ -81,6 +82,7 @@ $ drush cr
 a 404 error in search engines
 - Add a scss hook to customize bootstrap maps
 - Fix: sticky-menu returns Uncaught TypeError if menu not exists
+- New: add custom svg icon to sprites built with webpack
 
 # Summary 2.3.2
 ## Release notes

@@ -21,7 +21,10 @@ module.exports = {
     rules: [
       {
         test: /\.svg$/,
-        include: paths.modules + '/bootstrap-italia/src/svg',
+        include: [
+          paths.modules + '/bootstrap-italia/src/svg',
+          paths.src + '/svg'
+        ],
         use: [
           {
             loader: 'svg-sprite-loader',
