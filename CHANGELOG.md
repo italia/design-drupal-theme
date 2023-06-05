@@ -3,6 +3,7 @@
 - Updated bootstrap-italia library to 2.4.3.
 - Various bug fix.
 - Review library loads.
+- Sub-theme update
 
 ### Breaking change!!!
 Font loading has been overhauled, it is now more flexible and allows
@@ -57,8 +58,12 @@ $ npm install bootstrap@5.2 --save-exact
 $ npm install bootstrap-italia@2.4 --save-exact
 $ npm update
 ```
-update:
-- `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+Using as reference the files contained in `/var/starter_kits/italiagov/...`
+- update:
+  - `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+- add:
+  - `<your-sub-theme>/src/scss/custom/_maps.scss`
+  - `<your-sub-theme>/src/scss/custom-comuni/_maps.scss`
 ```shell
 $ npm run build:prod
 $ drush cr
@@ -74,6 +79,7 @@ $ drush cr
 - Fix: the dividing line of the sidebar menu is reversed between left and right
 - Fix: the expanded element is assigned an incorrect href value which causes
 a 404 error in search engines
+- Add a scss hook to customize bootstrap maps
 
 # Summary 2.3.2
 ## Release notes
