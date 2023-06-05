@@ -46,7 +46,8 @@
   )
 
   let headerWrapperObserverTarget = document.querySelector(".it-header-wrapper")
-  if (headerWrapperObserverTarget) {
+  let headerNavWrapper = document.getElementById("header-nav-wrapper")
+  if (headerWrapperObserverTarget && headerNavWrapper) {
     headerWrapperObserver.observe(
       headerWrapperObserverTarget,
       {attributes: true}

@@ -80,6 +80,7 @@ $ drush cr
 - Fix: the expanded element is assigned an incorrect href value which causes
 a 404 error in search engines
 - Add a scss hook to customize bootstrap maps
+- Fix: sticky-menu returns Uncaught TypeError if menu not exists
 
 # Summary 2.3.2
 ## Release notes
