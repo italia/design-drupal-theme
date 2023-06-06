@@ -40,6 +40,9 @@ function bootstrap_italia_preprocess_page_title(array &$variables): void {
 function bootstrap_italia_preprocess_page(array &$variables): void {
   $variables['pa_website_validator_type'] = theme_get_setting('pa_website_validator_type');
 
+  // Site name.
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+
   // Header.
   $variables['header_shadow'] = theme_get_setting('header_shadow');
 

@@ -50,6 +50,8 @@
   {% include '@bootstrap_italia/layout/front/_partial.home-first-row.html.twig' %}
   {% include '@bootstrap_italia/layout/front/_partial.home-second-row.html.twig' %}
 
+  <h1 class="visually-hidden" id="it-main-content">{{ site_name }}</h1>
+
   {% if show_main_content_in_front %}
     {% include '@bootstrap_italia/layout/content/_partial.content.html.twig' %}
   {% endif %}
