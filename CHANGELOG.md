@@ -84,9 +84,10 @@ $ drush cr
 - Fix: the dividing line of the sidebar menu is reversed between left and right
 - Fix: the expanded element is assigned an incorrect href value which causes
 a 404 error in search engines
-- Add a scss hook to customize bootstrap maps
 - Fix: sticky-menu returns Uncaught TypeError if menu not exists
+- Fix: moved the back to top component code to the bottom of the page
 - New: add custom svg icon to sprites built with webpack
+- Add a scss hook to customize bootstrap maps
 
 # Summary 2.3.2
 ## Release notes
