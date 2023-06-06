@@ -48,8 +48,6 @@ libraries:
 # Check these settings, they must match the "libraries" choices.
 # [...] omissis
 ```
-Read the [docs](README.md#manage-fonts) to find out about the other ways
-to load fonts that have been added in this release.
 
 Check `h1` in home page.
 

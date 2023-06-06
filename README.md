@@ -139,9 +139,6 @@ example
 "bootstrap-italia": "github:italia/bootstrap-italia#main"
 ```
 
-## Manage fonts
-...
-
 ## Recommended modules
 This theme provides several modules that allow you to manage the components
 with the Drupal administration panel. Below is a list
