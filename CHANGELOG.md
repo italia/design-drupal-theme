@@ -4,6 +4,12 @@
 - Various bug fix.
 - Review library loads.
 - Sub-theme update
+- New features:
+  - button pattern (Crescenzo Velleca);
+  - custom svg icon to sprites built with webpack (Arturo Panetta)
+  - H1 in home page (Maurizio Cavalletti)
+  - hook to customize bootstrap map with webpack (Arturo Panetta)
+  - taxonomy suggestions (Maurizio Cavalletti)
 
 ### Breaking change!!!
 1. Font loading has been overhauled, it is now more flexible and allows
