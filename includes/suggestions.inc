@@ -18,7 +18,7 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
 }
 
 /**
- * Implements hook_theme_suggestions_page_alter().
+ * Implements hook_theme_suggestions_node_alter().
  */
 function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, array $variables): void {
 
