@@ -65,6 +65,10 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - add:
   - `<your-sub-theme>/src/scss/custom/_maps.scss`
   - `<your-sub-theme>/src/scss/custom-comuni/_maps.scss`
+- add (optional):
+  - `<your-sub-theme>/src/js/custom/icons.js`
+  - add line `import './icons'` to `<your-sub-theme>/src/js/custom/custom.js`
+  - `<your-sub-theme>/src/svg/it-drupal.svg`
 ```shell
 $ npm run build:prod
 $ drush cr
