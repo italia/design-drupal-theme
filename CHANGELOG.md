@@ -1,6 +1,6 @@
-# Summary 2.4.0
+# Summary 2.5.0
 ## Release notes
-- Updated bootstrap-italia library to 2.4.3.
+- Updated bootstrap-italia library to 2.5.0.
 - Various bug fix.
 - Review library loads.
 - Sub-theme update
@@ -53,14 +53,14 @@ Check `h1` in home page.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.4.3
+If you use vanilla libraries, download bootstrap-italia v2.5.0
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
 $ npm install bootstrap@5.2 --save-exact
-$ npm install bootstrap-italia@2.4 --save-exact
+$ npm install bootstrap-italia@2.5 --save-exact
 $ npm update
 ```
 Using as reference the files contained in `/var/starter_kits/italiagov/...`
@@ -99,6 +99,11 @@ a 404 error in search engines
 - Add a scss hook to customize bootstrap maps
 - Add: term suggestion
 - Feat(template)!: add block to home page title
+
+# Summary 2.4.0
+The version 2.4, even though it was not released, is fully incorporated
+into version 2.5. This means that all the changes, fixes, and new features
+planned for 2.4 are available in 2.5.
 
 # Summary 2.3.2
 ## Release notes
