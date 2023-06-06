@@ -54,6 +54,10 @@
       </a>
     </div>
 
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+
     {% if back_to_top_enable %}
       {% include '@bi-bcl/back-to-top/back-to-top.html.twig' with {
         back_to_top_small: back_to_top_small,
@@ -61,10 +65,6 @@
         back_to_top_shadow: back_to_top_shadow
       } %}
     {% endif %}
-
-    {{ page_top }}
-    {{ page }}
-    {{ page_bottom }}
 
     {% set _libraries_cdn_fonts_path = libraries_cdn_fonts is not empty ?
       libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/dist/fonts'
