@@ -91,6 +91,7 @@ a 404 error in search engines
 - Fix: moved the "back to top" component code to the bottom of the page
 - New: add custom svg icon to sprites built with webpack
 - Add a scss hook to customize bootstrap maps
+- Add: term suggestion
 
 # Summary 2.3.2
 ## Release notes
