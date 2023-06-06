@@ -6,13 +6,13 @@
 - Sub-theme update
 
 ### Breaking change!!!
-Font loading has been overhauled, it is now more flexible and allows
+1. Font loading has been overhauled, it is now more flexible and allows
 experienced developers to customize the sub-theme without going crazy.
+2. The same thing was done for the javascript which activates
+all the tooltips automatically;
+3. Added `h1` with "site name" in home page layout
+
 Updating is simple, just add two lines to the theme configuration file.
-
-The same thing was done for the javascript which activates
-all the tooltips automatically.
-
 To keep your sub-theme working, edit the
 `/themes/custom/<your-sub-theme>/<theme-name>.info.yml` file and add
 after `- bootstrap_italia/load-fonts` the following strings:
@@ -45,6 +45,7 @@ libraries:
 Read the [docs](README.md#manage-fonts) to find out about the other ways
 to load fonts that have been added in this release.
 
+Check `h1` in home page.
 
 ## Update libraries
 ### Vanilla libraries
@@ -76,6 +77,7 @@ $ drush cr
 
 ## Templates changes
 - `templates/layout/html.html.twig`
+- `templates/layout/page--front.html.twig`
 
 ## All changes
 - Update callout component to 2.4.1
@@ -92,6 +94,7 @@ a 404 error in search engines
 - New: add custom svg icon to sprites built with webpack
 - Add a scss hook to customize bootstrap maps
 - Add: term suggestion
+- Feat(template)!: add block to home page title
 
 # Summary 2.3.2
 ## Release notes
