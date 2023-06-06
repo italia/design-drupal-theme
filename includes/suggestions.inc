@@ -37,6 +37,25 @@ function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, arra
 }
 
 /**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function bootstrap_italia_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables): void {
+
+  if (isset($variables['elements']['#view_mode'])) {
+    $suggestions[] = $variables['theme_hook_original']
+      . '__view_mode__' . $variables['elements']['#view_mode'];
+
+    if (isset($variables['elements']['#taxonomy_term']) &&
+      ($variables['elements']['#taxonomy_term'] instanceof Term)
+    ) {
+      $suggestions[] = $variables['theme_hook_original']
+        . '__type_' . $variables['elements']['#taxonomy_term']->bundle()
+        . '__view_mode_' . $variables['elements']['#view_mode'];
+    }
+  }
+}
+
+/**
  * Implements hook_theme_suggestions_field_alter().
  */
 function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, array &$variables): void {
