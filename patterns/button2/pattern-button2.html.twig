@@ -1,0 +1,22 @@
+{% apply spaceless %}
+  {% if variant == 'link' %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: button_text|render|striptags|trim,
+      variant: color,
+      tag: 'a',
+      url: button_href|render|striptags|trim
+    } %}
+  {% elseif variant == 'input' %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: button_text|render|striptags|trim,
+      variant: color,
+      tag: 'input'
+    } %}
+  {% else %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: button_text|render|striptags|trim,
+      variant: color,
+      tag: 'button'
+    } %}
+  {% endif %}
+{% endapply %}
