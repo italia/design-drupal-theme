@@ -74,6 +74,9 @@ $ npm run build:prod
 $ drush cr
 ```
 
+## Templates changes
+- `templates/layout/html.html.twig`
+
 ## All changes
 - Update callout component to 2.4.1
 - Update card subtitle to 2.4.1
@@ -85,7 +88,7 @@ $ drush cr
 - Fix: the expanded element is assigned an incorrect href value which causes
 a 404 error in search engines
 - Fix: sticky-menu returns Uncaught TypeError if menu not exists
-- Fix: moved the back to top component code to the bottom of the page
+- Fix: moved the "back to top" component code to the bottom of the page
 - New: add custom svg icon to sprites built with webpack
 - Add a scss hook to customize bootstrap maps
 
