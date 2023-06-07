@@ -6,12 +6,13 @@
 - Sub-theme update
 - New features:
   - button pattern (Crescenzo Velleca);
+  - ckeditor5 styles (Arturo Panetta)
   - custom svg icon to sprites built with webpack (Arturo Panetta)
   - H1 in home page (Maurizio Cavalletti)
   - hook to customize bootstrap map with webpack (Arturo Panetta)
   - taxonomy suggestions (Maurizio Cavalletti)
 
-### Breaking change!!!
+### Breaking changes!!!
 1. Font loading has been overhauled, it is now more flexible and allows
 experienced developers to customize the sub-theme without going crazy.
 2. The same thing was done for the javascript which activates
@@ -61,15 +62,21 @@ If you use custom libraries built with webpack, do:
 ```shell
 $ npm install bootstrap@5.2 --save-exact
 $ npm install bootstrap-italia@2.5 --save-exact
+$ npm install rimraf --save-dev
 $ npm update
 ```
 Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - update:
   - `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
   - `<your-sub-theme>/webpack.common.js`
+  - `<your-sub-theme>/<your-sub-theme>.info.yml` check `ckeditor5-stylesheets`
+  - `<your-sub-theme>/webpack.common.js`
 - add:
   - `<your-sub-theme>/src/scss/custom/_maps.scss`
   - `<your-sub-theme>/src/scss/custom-comuni/_maps.scss`
+  - `<your-sub-theme>/src/scss/_fonts.scss`
+  - `<your-sub-theme>/src/scss/ckeditor5.scss`
+  - `<your-sub-theme>/src/scss/ckeditor5-comuni.scss`
 - add (optional):
   - `<your-sub-theme>/src/js/custom/icons.js`
   - add line `import './icons'` to `<your-sub-theme>/src/js/custom/custom.js`
@@ -99,6 +106,7 @@ a 404 error in search engines
 - Add a scss hook to customize bootstrap maps
 - Add: term suggestion
 - Feat(template)!: add block to home page title
+- Feat(sub-theme,ckeditor5): add ckeditor5 styles
 
 # Summary 2.4.0
 The version 2.4, even though it was not released, is fully incorporated
