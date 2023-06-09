@@ -67,7 +67,7 @@ function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$s
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 
-    // TODO: This condition is always false?
+    // @todo This condition is always false?
     if ($view->style_plugin instanceof CarouselStyle) {
       $suggestions[] = 'block__views_views_bi_carousel__' . $view->id();
       $suggestions[] = 'block__views_views_bi_carousel';

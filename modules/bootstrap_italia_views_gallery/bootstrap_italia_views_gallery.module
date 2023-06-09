@@ -44,7 +44,7 @@ function bootstrap_italia_views_gallery_theme_suggestions_block_alter(array &$su
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 
-    // TODO: This condition is always false?
+    // @todo This condition is always false?
     if ($view->style_plugin instanceof GalleryStyle) {
       $suggestions[] = 'block__views_views_bi_gallery__' . $view->id();
       $suggestions[] = 'block__views_views_bi_gallery';

@@ -60,7 +60,7 @@ class CarouselStyle extends StylePluginBase {
         'it-standard-image' => $this->t('Standard image (3 cols with loop)'),
         'it-carousel-landscape-abstract-three-cols' => $this->t('Landscape abstract (3 cols)'),
         'it-carousel-landscape-abstract-three-cols-arrow-visible' => $this->t('Landscape abstract (3 cols with arrows'),
-        'it-calendar-wrapper' => $this->t('Overlapping cards (4 cols)')
+        'it-calendar-wrapper' => $this->t('Overlapping cards (4 cols)'),
       ],
       '#default_value' =>
       $this->options['bi_carousel_settings']['carousel_col_type'] ?? 'it-carousel-landscape-abstract-three-cols',

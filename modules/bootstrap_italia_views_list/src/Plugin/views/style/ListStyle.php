@@ -48,7 +48,7 @@ class ListStyle extends StylePluginBase {
       '#title' => $this->t('Show title'),
       '#description' => $this->t('If checked shows title.'),
       '#default_value' =>
-        $this->options['bi_list_settings']['list_title_show'] ?? TRUE,
+      $this->options['bi_list_settings']['list_title_show'] ?? TRUE,
     ];
 
     // Title tag.
@@ -67,7 +67,7 @@ class ListStyle extends StylePluginBase {
         'div' => $this->t('Generic container'),
       ],
       '#default_value' =>
-        $this->options['bi_list_settings']['list_title_tag'] ?? 'h2',
+      $this->options['bi_list_settings']['list_title_tag'] ?? 'h2',
     ];
 
     // Title class.
@@ -76,7 +76,7 @@ class ListStyle extends StylePluginBase {
       '#title' => $this->t('Custom classes'),
       '#description' => $this->t('Fill with custom class, use space as separator.'),
       '#default_value' =>
-        $this->options['bi_timeline_settings']['list_title_classes'] ?? '',
+      $this->options['bi_timeline_settings']['list_title_classes'] ?? '',
     ];
 
   }

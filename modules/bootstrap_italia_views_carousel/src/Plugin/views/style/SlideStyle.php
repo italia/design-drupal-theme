@@ -55,7 +55,7 @@ class SlideStyle extends StylePluginBase {
       '#title' => $this->t('Show title'),
       '#description' => $this->t('If checked shows title.'),
       '#default_value' =>
-        $this->options['bi_carousel_slide_settings']['carousel_title_show'] ?? TRUE,
+      $this->options['bi_carousel_slide_settings']['carousel_title_show'] ?? TRUE,
     ];
 
     // Title tag.
@@ -74,7 +74,7 @@ class SlideStyle extends StylePluginBase {
         'div' => $this->t('Generic container'),
       ],
       '#default_value' =>
-        $this->options['bi_carousel_slide_settings']['carousel_title_tag'] ?? 'h2',
+      $this->options['bi_carousel_slide_settings']['carousel_title_tag'] ?? 'h2',
     ];
 
     // Title class.
@@ -83,7 +83,7 @@ class SlideStyle extends StylePluginBase {
       '#title' => $this->t('Custom classes'),
       '#description' => $this->t('Fill with custom class, use space as separator.'),
       '#default_value' =>
-        $this->options['bi_carousel_slide_settings']['carousel_title_classes'] ?? '',
+      $this->options['bi_carousel_slide_settings']['carousel_title_classes'] ?? '',
     ];
 
     // Carousel image type.
