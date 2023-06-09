@@ -44,9 +44,30 @@ function bootstrap_italia_views_accordion_theme_suggestions_block_alter(array &$
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 
+    // TODO: This condition is always false?
     if ($view->style_plugin instanceof AccordionStyle) {
       $suggestions[] = 'block__views_views_bi_accordion__' . $view->id();
       $suggestions[] = 'block__views_views_bi_accordion';
     }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
+function bootstrap_italia_views_accordion_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
+  if ($variables['view']->style_plugin instanceof AccordionStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_accordion__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_accordion';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_views_accordion_theme_suggestions_views_bootstrap_italia_views_accordion_alter(array &$suggestions, array $variables): void {
+  if ($variables['view']->style_plugin instanceof AccordionStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_accordion__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_accordion';
   }
 }
