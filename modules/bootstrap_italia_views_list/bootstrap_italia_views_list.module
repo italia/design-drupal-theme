@@ -44,9 +44,30 @@ function bootstrap_italia_views_list_theme_suggestions_block_alter(array &$sugge
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 
+    // TODO: This condition is always false?
     if ($view->style_plugin instanceof ListStyle) {
       $suggestions[] = 'block__views_views_bi_list__' . $view->id();
       $suggestions[] = 'block__views_views_bi_list';
     }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
+function bootstrap_italia_views_list_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
+  if ($variables['view']->style_plugin instanceof ListStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_list__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_list';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_views_list_theme_suggestions_views_bootstrap_italia_views_list_alter(array &$suggestions, array $variables): void {
+  if ($variables['view']->style_plugin instanceof ListStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_list__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_list';
   }
 }

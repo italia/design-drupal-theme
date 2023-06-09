@@ -106,6 +106,7 @@ a 404 error in search engines
 - Fix(views,accordion): fix wrong views suggestions
 - Fix(views,carousel): fix wrong views suggestions
 - Fix(views,gallery): fix wrong views suggestions
+- Fix(list,gallery): fix wrong views suggestions
 - New: add custom svg icon to sprites built with webpack
 - Add a scss hook to customize bootstrap maps
 - Add: term suggestion
