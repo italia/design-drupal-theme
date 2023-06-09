@@ -4,12 +4,21 @@
  *
  * Available variables:
  * - options.bi_list_settings: View plugin style options:
+ *   - list_title_show
+ *   - list_title_tag
+ *   - list_title_classes
  *
  * @see template_preprocess_views_bootstrap_italia_views_list()
  *
  * @ingroup themeable
  */
 #}
+{% if options.bi_list_settings.list_title_show %}
+  <{{ options.bi_list_settings.list_title_tag }} class="{{ options.bi_list_settings.list_title_classes }}">
+    {{ title }}
+  </{{ options.bi_list_settings.list_title_tag }}>
+{% endif %}
+
 {% embed '@bi-bcl/list/list.html.twig' with {
   list_attributes: attributes
 } %}

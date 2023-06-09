@@ -2,6 +2,7 @@
 
 namespace Drupal\bootstrap_italia_views_list\Plugin\views\style;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\views\Plugin\views\style\StylePluginBase;
 
 /**
@@ -27,19 +28,57 @@ class ListStyle extends StylePluginBase {
   protected $usesRowPlugin = TRUE;
 
   /**
-   * Does the Style plugin support grouping of rows?
-   *
-   * @var bool
-   */
-  protected $usesGrouping = FALSE;
-
-  /**
    * {@inheritdoc}
    */
   protected function defineOptions() {
     $options = parent::defineOptions();
     $options['list_settings'] = ['default' => []];
     return $options;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildOptionsForm(&$form, FormStateInterface $form_state): void {
+    parent::buildOptionsForm($form, $form_state);
+
+    // Manage title.
+    $form['bi_list_settings']['list_title_show'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Show title'),
+      '#description' => $this->t('If checked shows title.'),
+      '#default_value' =>
+        $this->options['bi_list_settings']['list_title_show'] ?? TRUE,
+    ];
+
+    // Title tag.
+    $form['bi_list_settings']['list_title_tag'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Title tag'),
+      '#description' => $this->t('Select title tag. Default: "Heading 2"'),
+      '#options' => [
+        'h1' => $this->t('Heading 1'),
+        'h2' => $this->t('Heading 2'),
+        'h3' => $this->t('Heading 3'),
+        'h4' => $this->t('Heading 4'),
+        'h5' => $this->t('Heading 5'),
+        'h6' => $this->t('Heading 6'),
+        'p' => $this->t('Paragraph'),
+        'div' => $this->t('Generic container'),
+      ],
+      '#default_value' =>
+        $this->options['bi_list_settings']['list_title_tag'] ?? 'h2',
+    ];
+
+    // Title class.
+    $form['bi_list_settings']['list_title_classes'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Custom classes'),
+      '#description' => $this->t('Fill with custom class, use space as separator.'),
+      '#default_value' =>
+        $this->options['bi_timeline_settings']['list_title_classes'] ?? '',
+    ];
+
   }
 
 }
