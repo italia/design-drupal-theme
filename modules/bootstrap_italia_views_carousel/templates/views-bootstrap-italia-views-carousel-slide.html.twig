@@ -5,6 +5,9 @@
  * Available variables:
  * - options.bi_carousel_slide_settings: View plugin style options:
  *   - carousel_image_type
+ *   - carousel_title_show
+ *   - carousel_title_tag
+ *   - carousel_title_classes
  *
  * @see template_preprocess_views_bootstrap_italia_views_carousel_slide()
  *
@@ -17,9 +20,13 @@
   slide_attributes: _slide_attributes
 } %}
   {% block slideContent %}
-    {{ title_prefix }}
-    {{ title }}
-    {{ title_suffix }}
+    {% if options.bi_carousel_settings.carousel_title_show %}
+      <{{ options.bi_carousel_settings.carousel_title_tag }} class="{{ options.bi_carousel_settings.carousel_title_classes }}">
+        {{ title_prefix }}
+        {{ title }}
+        {{ title_suffix }}
+      </{{ options.bi_carousel_settings.carousel_title_tag }}>
+    {% endif %}
     {% for slide in rows %}
       {{ slide }}
     {% endfor %}

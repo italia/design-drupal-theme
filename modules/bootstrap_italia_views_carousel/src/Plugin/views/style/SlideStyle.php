@@ -49,6 +49,43 @@ class SlideStyle extends StylePluginBase {
   public function buildOptionsForm(&$form, FormStateInterface $form_state): void {
     parent::buildOptionsForm($form, $form_state);
 
+    // Manage title.
+    $form['bi_carousel_slide_settings']['carousel_title_show'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Show title'),
+      '#description' => $this->t('If checked shows title.'),
+      '#default_value' =>
+        $this->options['bi_carousel_slide_settings']['carousel_title_show'] ?? TRUE,
+    ];
+
+    // Title tag.
+    $form['bi_carousel_slide_settings']['carousel_title_tag'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Title tag'),
+      '#description' => $this->t('Select title tag. Default: "Heading 2"'),
+      '#options' => [
+        'h1' => $this->t('Heading 1'),
+        'h2' => $this->t('Heading 2'),
+        'h3' => $this->t('Heading 3'),
+        'h4' => $this->t('Heading 4'),
+        'h5' => $this->t('Heading 5'),
+        'h6' => $this->t('Heading 6'),
+        'p' => $this->t('Paragraph'),
+        'div' => $this->t('Generic container'),
+      ],
+      '#default_value' =>
+        $this->options['bi_carousel_slide_settings']['carousel_title_tag'] ?? 'h2',
+    ];
+
+    // Title class.
+    $form['bi_carousel_slide_settings']['carousel_title_classes'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Custom classes'),
+      '#description' => $this->t('Fill with custom class, use space as separator.'),
+      '#default_value' =>
+        $this->options['bi_carousel_slide_settings']['carousel_title_classes'] ?? '',
+    ];
+
     // Carousel image type.
     $form['bi_carousel_slide_settings']['carousel_image_type'] = [
       '#type' => 'select',
