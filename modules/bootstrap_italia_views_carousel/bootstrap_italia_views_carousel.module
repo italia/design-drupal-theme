@@ -6,6 +6,7 @@
  */
 
 use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\CarouselStyle;
+use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\SlideStyle;
 
 /**
  * Implements hook_theme().
@@ -13,6 +14,13 @@ use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\CarouselStyle;
 function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $path): array {
   return [
     'views_bootstrap_italia_views_carousel' => [
+      'variables' => [
+        'view' => NULL,
+        'rows' => NULL,
+        'options' => NULL,
+      ],
+    ],
+    'views_bootstrap_italia_views_carousel_slide' => [
       'variables' => [
         'view' => NULL,
         'rows' => NULL,
@@ -38,15 +46,65 @@ function template_preprocess_views_bootstrap_italia_views_carousel(array &$varia
 }
 
 /**
+ * Prepares variables for bootstrap carousel slide templates.
+ *
+ * Default template: views-bootstrap-italia-views-carousel-slide.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - view: A ViewExecutable object.
+ *   - rows: The raw row data.
+ */
+function template_preprocess_views_bootstrap_italia_views_carousel_slide(array &$variables): void {
+  // Update options for twig.
+  $variables['options'] = $variables['view']->style_plugin->options;
+}
+
+/**
  * Implements hook_theme_suggestions_block_alter().
  */
 function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   if (isset($variables['elements']['content']['#view'])) {
     $view = $variables['elements']['content']['#view'];
 
+    // TODO: This condition is always false?
     if ($view->style_plugin instanceof CarouselStyle) {
       $suggestions[] = 'block__views_views_bi_carousel__' . $view->id();
       $suggestions[] = 'block__views_views_bi_carousel';
     }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
+function bootstrap_italia_views_carousel_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
+  if ($variables['view']->style_plugin instanceof CarouselStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel';
+  }
+  if ($variables['view']->style_plugin instanceof SlideStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_italia_views_carousel_alter(array &$suggestions, array $variables): void {
+  if ($variables['view']->style_plugin instanceof CarouselStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_italia_views_carousel_slide_alter(array &$suggestions, array $variables): void {
+  if ($variables['view']->style_plugin instanceof SlideStyle) {
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide';
   }
 }

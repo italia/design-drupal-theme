@@ -11,6 +11,7 @@
   - H1 in home page (Maurizio Cavalletti)
   - hook to customize bootstrap map with webpack (Arturo Panetta)
   - taxonomy suggestions (Maurizio Cavalletti)
+  - view carousel style: add new styles and columns options
 
 ### Breaking changes!!!
 1. Font loading has been overhauled, it is now more flexible and allows
@@ -107,6 +108,7 @@ a 404 error in search engines
 - Add: term suggestion
 - Feat(template)!: add block to home page title
 - Feat(sub-theme,ckeditor5): add ckeditor5 styles
+- Feat(views,carousel): add new styles and new columns options
 
 # Summary 2.4.0
 The version 2.4, even though it was not released, is fully incorporated
