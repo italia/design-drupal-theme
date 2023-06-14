@@ -1,6 +1,6 @@
 # Summary 2.5.0
 ## Release notes
-- Updated bootstrap-italia library to 2.5.0.
+- Updated bootstrap-italia library to 2.5.1.
 - Various bug fix.
 - Review library loads.
 - Sub-theme update
@@ -55,13 +55,12 @@ Check `h1` in home page.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.5.0
+If you use vanilla libraries, download bootstrap-italia v2.5.1
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap@5.2 --save-exact
 $ npm install bootstrap-italia@2.5 --save-exact
 $ npm install rimraf --save-dev
 $ npm update

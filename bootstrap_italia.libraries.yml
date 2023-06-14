@@ -1,5 +1,5 @@
 base:
-  version: 2.5.0
+  version: 2.5.1
   css:
     theme:
       css/bootstrap-italia-drupal-fix.css: {weight: 50}
@@ -11,11 +11,11 @@ base:
     - core/once
 
 enable-all-tooltips:
-  version: 2.5.0
+  version: 2.5.1
   js:
     js/bootstrap-italia-enable-all-tooltip.js: {}
 
 load-fonts:
-  version: 2.5.0
+  version: 2.5.1
   js:
     js/load-fonts.js: {}
