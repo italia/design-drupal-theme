@@ -102,6 +102,7 @@ $ drush cr
 a 404 error in search engines
 - Fix: sticky-menu returns Uncaught TypeError if menu not exists
 - Fix: moved the "back to top" component code to the bottom of the page
+- Fix(components,button): fix button_attributes example
 - Fix(suggestions,taxonomy): Term is not defined on line 49
 - Fix(views,accordion): fix wrong views suggestions
 - Fix(views,carousel): fix wrong views suggestions
