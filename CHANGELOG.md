@@ -1,3 +1,7 @@
+# Summary 2.3.3
+This release fixes a library build problem reported here
+https://github.com/italia/bootstrap-italia/issues/910.
+
 # Summary 2.3.2
 ## Release notes
 Updated bootstrap-italia library to 2.3.8.
