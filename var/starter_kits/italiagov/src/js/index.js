@@ -21,6 +21,10 @@ import * as icons from 'bootstrap-italia/src/js/icons'
  */
 import * as bootstrap from 'bootstrap-italia'
 
+if ('ProgressDonut' in bootstrap) {
+  bootstrap.ProgressDonut = undefined;
+}
+
 loadPlugin(icons)
 init()
 

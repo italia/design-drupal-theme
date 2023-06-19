@@ -1,3 +1,16 @@
+# Summary 2.3.4
+This release remove autoload for unused components: donuts.
+
+### Custom build
+If you use custom libraries built with webpack, update:
+- `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+- `<your-sub-theme>/src/js/index.js`
+and run
+```shell
+$ npm run build:prod
+$ drush cr
+```
+
 # Summary 2.3.3
 This release fixes a library build problem reported here
 https://github.com/italia/bootstrap-italia/issues/910.
