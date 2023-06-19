@@ -68,6 +68,7 @@ $ npm update
 Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - update:
   - `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+  - `<your-sub-theme>/src/js/index.js`
   - `<your-sub-theme>/webpack.common.js`
   - `<your-sub-theme>/<your-sub-theme>.info.yml` check `ckeditor5-stylesheets`
   - `<your-sub-theme>/webpack.common.js`
@@ -109,6 +110,8 @@ a 404 error in search engines
 - Fix(views,gallery): fix wrong views suggestions
 - Fix(views,list): fix wrong views suggestions, enable grouping
 - Fix(views,timeline): fix wrong views suggestions
+- Fix(sub-theme,deps): remove progressbar.js Objects
+[CVE-2023-26133](https://github.com/advisories/GHSA-89qm-hm2x-mxm3)
 and grouping title options
 - New: add custom svg icon to sprites built with webpack
 - Add a scss hook to customize bootstrap maps

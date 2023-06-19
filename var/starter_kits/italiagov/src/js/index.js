@@ -21,6 +21,11 @@ import * as icons from 'bootstrap-italia/src/js/icons'
  */
 import * as bootstrap from 'bootstrap-italia'
 
+// ProgressDonut was removed due to a public and unresolved safety issue.
+if ('ProgressDonut' in bootstrap) {
+  bootstrap.ProgressDonut = undefined;
+}
+
 loadPlugin(icons)
 init()
 
@@ -31,9 +36,8 @@ import './component-library-initialization'
 import './custom/custom'
 
 /**
- * Export all bootstrap-italia components as `bootstrap`, to choose components
- * use
- * window.bootstrap = {ComponentA, ComponentB, ...}
+ * Export all bootstrap-italia components as `bootstrap`,
+ * use your custom.js to customize object.
  *
  * @type {any}
  */
