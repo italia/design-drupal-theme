@@ -1,6 +1,6 @@
-# Summary 2.5.0
+# Summary 2.6.0
 ## Release notes
-- Updated bootstrap-italia library to 2.5.1.
+- Updated bootstrap-italia library to 2.6.0.
 - Various bug fix.
 - Review library loads.
 - Sub-theme update
@@ -55,13 +55,13 @@ Check `h1` in home page.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.5.1
+If you use vanilla libraries, download bootstrap-italia v2.6.0
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap-italia@2.5 --save-exact
+$ npm install bootstrap-italia@2.6 --save-exact
 $ npm install rimraf --save-dev
 $ npm update
 ```
@@ -121,10 +121,15 @@ and grouping title options
 - Feat(sub-theme,ckeditor5): add ckeditor5 styles
 - Feat(views,carousel): add new styles and new columns options
 
+# Summary 2.5.0
+The version 2.5, even though it was not released, is fully incorporated
+into version 2.6. This means that all the changes, fixes, and new features
+planned for 2.5 are available in 2.6.
+
 # Summary 2.4.0
 The version 2.4, even though it was not released, is fully incorporated
-into version 2.5. This means that all the changes, fixes, and new features
-planned for 2.4 are available in 2.5.
+into version 2.6. This means that all the changes, fixes, and new features
+planned for 2.4 are available in 2.6.
 
 # Summary 2.3.2
 ## Release notes
