@@ -94,10 +94,10 @@
     .setAttribute('aria-hidden', 'true')
   %}
 
-  {% if _icon_path is empty and _context.libraries_cdn_icons is empty %}
+  {% if _icon_path is empty and libraries_cdn_icons is empty %}
     {% set _icon_path = "/" ~ active_theme_path() ~ "/dist/svg/" ~ _library ~ "#" ~ _name %}
-  {% elseif _icon_path is empty and _context.libraries_cdn_icons is not empty %}
-    {% set _icon_path = _context.libraries_cdn_icons ~ "#" ~ _name %}
+  {% elseif _icon_path is empty and libraries_cdn_icons is not empty %}
+    {% set _icon_path = libraries_cdn_icons ~ "#" ~ _name %}
   {% else %}
     {% set _icon_path = _icon_path ~ "#" ~ _name %}
   {% endif %}

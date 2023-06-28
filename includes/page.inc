@@ -92,9 +92,6 @@ function bootstrap_italia_preprocess_page(array &$variables): void {
 
   // Home settings.
   $variables['show_main_content_in_front'] = (bool) theme_get_setting('show_main_content_in_front');
-
-  // Icon libraries from cdn.
-  $variables['libraries_cdn_icons'] = theme_get_setting('libraries_cdn_icons');
 }
 
 /**
