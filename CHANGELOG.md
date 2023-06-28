@@ -1,3 +1,18 @@
+# Summary 2.3.5
+This release fix:
+- Fix(components,icon): sometimes libraries_cdn_icons is not set correctly
+- Fix(sub-theme): build library in dev mode don't work
+
+## Update custom build
+If you use custom libraries built with webpack, update:
+- `<your-sub-theme>/src/js/index.js`
+  and run
+```shell
+$ npm update
+$ npm run build:prod # or build:dev
+$ drush cr
+```
+
 # Summary 2.3.4
 This release remove autoload for unused components: donuts.
 
