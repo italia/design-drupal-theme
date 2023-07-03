@@ -5,10 +5,10 @@ package: "Bootstrap Italia"
 type: module
 core_version_requirement: ^9 || ^10
 dependencies:
-  - drupal:paragraphs
-  - drupal:field_group
-  - drupal:imce
-  - drupal:bootstrap_italia_paragraph
+  - field_group:field_group
+  - imce:imce
+  - paragraphs:paragraphs
+  - bootstrap_italia:bootstrap_italia_paragraph
 
 components:
   namespaces:

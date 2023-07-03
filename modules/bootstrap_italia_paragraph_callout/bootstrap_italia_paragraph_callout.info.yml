@@ -5,7 +5,7 @@ package: "Bootstrap Italia"
 core_version_requirement: ^9 || ^10
 
 dependencies:
-  - drupal:bootstrap_italia_paragraph
+  - bootstrap_italia:bootstrap_italia_paragraph
 
 components:
   namespaces:

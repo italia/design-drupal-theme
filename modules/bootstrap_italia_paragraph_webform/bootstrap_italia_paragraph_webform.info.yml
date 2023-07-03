@@ -5,10 +5,10 @@ package: "Bootstrap Italia"
 type: module
 core_version_requirement: ^9 || ^10
 dependencies:
-  - drupal:webform
-  - drupal:webform_bootstrap
-  - drupal:webform_ui
-  - drupal:bootstrap_italia_paragraph
+  - webform:webform
+  - webform:webform_bootstrap
+  - webform:webform_ui
+  - bootstrap_italia:bootstrap_italia_paragraph
 
 components:
   namespaces:

@@ -5,8 +5,8 @@ package: "Bootstrap Italia"
 core_version_requirement: ^9 || ^10
 
 dependencies:
-  - drupal:entity_reference_display
-  - drupal:bootstrap_italia_paragraph
+  - entity_reference_display:entity_reference_display
+  - bootstrap_italia:bootstrap_italia_paragraph
 
 components:
   namespaces:

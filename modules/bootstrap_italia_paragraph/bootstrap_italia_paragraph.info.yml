@@ -6,10 +6,10 @@ type: module
 core_version_requirement: ^9 || ^10
 
 dependencies:
-  - drupal:paragraphs
-  - drupal:field_group
-  - drupal:imce
-  - drupal:color_field
+  - paragraphs:paragraphs
+  - field_group:field_group
+  - imce:imce
+  - color_field:color_field
 
 components:
   namespaces:

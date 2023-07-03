@@ -6,7 +6,7 @@ type: module
 core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:responsive_image
-  - drupal:focal_point
+  - focal_point:focal_point
 
 components:
   namespaces:

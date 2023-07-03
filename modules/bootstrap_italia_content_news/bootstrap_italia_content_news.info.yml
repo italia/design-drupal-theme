@@ -5,20 +5,20 @@ package: "Bootstrap Italia Example"
 type: module
 core_version_requirement: ^9 || ^10
 dependencies:
-  - drupal:focal_point
   - drupal:responsive_image
-  - drupal:imce
-  - drupal:paragraphs
-  - drupal:field_group
-  - drupal:toc_js
-  - drupal:bootstrap_italia_paragraph
-  - drupal:bootstrap_italia_paragraph_accordion
-  - drupal:bootstrap_italia_paragraph_attachments
-  - drupal:bootstrap_italia_paragraph_callout
-  - drupal:bootstrap_italia_paragraph_carousel
-  - drupal:bootstrap_italia_paragraph_citation
-  - drupal:bootstrap_italia_paragraph_map
-  - drupal:bootstrap_italia_paragraph_webform
+  - field_group:field_group
+  - focal_point:focal_point
+  - imce:imce
+  - paragraphs:paragraphs
+  - toc_js:toc_js
+  - bootstrap_italia:bootstrap_italia_paragraph
+  - bootstrap_italia:bootstrap_italia_paragraph_accordion
+  - bootstrap_italia:bootstrap_italia_paragraph_attachments
+  - bootstrap_italia:bootstrap_italia_paragraph_callout
+  - bootstrap_italia:bootstrap_italia_paragraph_carousel
+  - bootstrap_italia:bootstrap_italia_paragraph_citation
+  - bootstrap_italia:bootstrap_italia_paragraph_map
+  - bootstrap_italia:bootstrap_italia_paragraph_webform
 
 components:
   namespaces:

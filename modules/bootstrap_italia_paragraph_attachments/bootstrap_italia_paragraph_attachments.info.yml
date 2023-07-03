@@ -8,7 +8,7 @@ core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:media
   - drupal:media_library
-  - drupal:bootstrap_italia_paragraph
+  - bootstrap_italia:bootstrap_italia_paragraph
 
 components:
   namespaces:

@@ -105,6 +105,7 @@ a 404 error in search engines
 - Fix: moved the "back to top" component code to the bottom of the page
 - Fix(components,icon): sometimes libraries_cdn_icons is not set correctly.
 - Fix(components,button): fix button_attributes example
+- Fix(sub-modules): fix dependencies syntax
 - Fix(suggestions,taxonomy): Term is not defined on line 49
 - Fix(views,accordion): fix wrong views suggestions
 - Fix(views,carousel): fix wrong views suggestions
