@@ -17,8 +17,12 @@
 }
 
 /* Navbar sticky VS drupal toolbar */
+body.toolbar-horizontal.toolbar-fixed {
+  padding-top: 79px !important;
+}
+
 .toolbar-horizontal.toolbar-tray-open .bs-it-sticky-wrapper .is-sticky {
-  top: 78px !important;
+  top: 79px !important;
 }
 .toolbar-horizontal .bs-it-sticky-wrapper .is-sticky {
   top: 39px !important;

@@ -107,6 +107,7 @@ a 404 error in search engines
 - Fix(components,button): fix button_attributes example
 - Fix(sub-modules): fix dependencies syntax
 - Fix(suggestions,taxonomy): Term is not defined on line 49
+- Fix(toolbar): fix toolbar padding in Drupal 10.1
 - Fix(views,accordion): fix wrong views suggestions
 - Fix(views,carousel): fix wrong views suggestions
 - Fix(views,gallery): fix wrong views suggestions
