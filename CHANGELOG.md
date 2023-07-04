@@ -23,7 +23,7 @@ all the tooltips automatically;
 Updating is simple, just add two lines to the theme configuration file.
 To keep your sub-theme working, edit the
 `/themes/custom/<your-sub-theme>/<theme-name>.info.yml` file and add
-after `- bootstrap_italia/load-fonts` the following strings:
+after `- bootstrap_italia/base` the following strings:
 
 ```yaml
   - bootstrap_italia/enable-all-tooltips
