@@ -139,6 +139,107 @@ example
 "bootstrap-italia": "github:italia/bootstrap-italia#main"
 ```
 
+### Loading Fonts via CSS (Advanced Users)
+To load fonts via CSS, you need to disable the JavaScript font loading
+by commenting out the line `- bootstrap_italia/load-fonts` in the
+libraries array. Please note that you can continue to choose
+your preferred method for loading CSS and JS libraries
+(via UI, custom, hot, etc.).
+The following example demonstrates using the UI loading method:
+
+```yaml
+# Choose libraries to use. Global is managed with theme settings UI.
+libraries:
+- italiagov/libraries-ui
+#  - italiagov/vanilla
+#  - italiagov/custom
+#  - italiagov/cdn
+#  - italiagov/hot
+#  - italiagov/ddev
+- bootstrap_italia/base
+- bootstrap_italia/enable-all-tooltips
+#  - bootstrap_italia/load-fonts
+```
+To avoid duplicating fonts in the `dist` folder, you need to comment out
+or remove the following code from the `CopyWebpackPlugin` configuration
+in the `webpack.common.js` file:
+
+```js
+{
+  from: paths.modules + '/bootstrap-italia/src/fonts/',
+    to: paths.build + '/fonts/'
+},
+
+```
+After making the necessary changes, your configuration should look similar to:
+```js
+new CopyWebpackPlugin({
+  patterns: [
+    {
+      from: paths.modules + '/bootstrap-italia/src/assets/',
+      to: paths.build + '/assets/'
+    },
+    // {
+    //   from: paths.modules + '/bootstrap-italia/src/fonts/',
+    //   to: paths.build + '/fonts/'
+    // },
+    {
+      from: './src/images/',
+      to: paths.build + '/images/'
+    }
+  ]
+}),
+```
+Once you have made this change, you need to modify your subtheme's
+`src/scss/custom/custom.scss` file and add `@import "../fonts";`
+as the first rule. After that, run the following commands:
+```shell
+$ npm run build:prod
+$ drush cr
+```
+At this point, the fonts will be loaded via CSS from the `dist` folder.
+
+### Compiling CSS for CKEditor5 (Advanced Users)
+To compile CSS for CKEditor5, you need to uncomment the relevant line in the
+`webpack.common.js` file. Update the file from:
+```js
+entry: {
+  "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
+  //"bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss'],
+  //"ckeditor5": paths.src + '/scss/ckeditor5.scss',
+  //"ckeditor5-comuni": paths.src + '/scss/ckeditor5-comuni.scss',
+}
+```
+to:
+```js
+entry: {
+  "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
+  //"bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss'],
+  "ckeditor5": paths.src + '/scss/ckeditor5.scss',
+  //"ckeditor5-comuni": paths.src + '/scss/ckeditor5-comuni.scss',
+}
+```
+After making this change, proceed with the regular build process. If you're
+using this feature, it is recommended to load fonts via CSS (as described
+in the previous section) to avoid duplicating the fonts in the `dist` folder.
+
+### Adding Custom SVG Icons (Advanced Users)
+To add custom SVG icons, follow these steps:
+1) Add your SVG icons to the `src/svg` folder.
+Use the existing icon `it-drupal.svg` as a reference.
+Keep in mind the following:
+   - The file name is important as it will be used as the icon's ID.
+   - Do not use the fill attribute as it will prevent
+     the icon from being styled using CSS.
+   - Examples: [Bootstrap Italia SVG Icons](https://github.com/italia/bootstrap-italia/tree/main/src/svg).
+2) Load your icons using `src/js/custom/icons.js`.
+3) Make sure you import the icons JavaScript in your
+`src/js/custom/custom.js` file with: `import './icons'`.
+
+Perform the build process as usual. Your custom icons will be available
+in `dist/svg/sprites.svg` and can be used just like any other icon from
+the Bootstrap Italia library.
+
 ## Recommended modules
 This theme provides several modules that allow you to manage the components
 with the Drupal administration panel. Below is a list
