@@ -1,3 +1,24 @@
+# Summary 2.7.0
+## Release notes
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.7.0
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+
+```shell
+$ npm install bootstrap-italia@2.7 --save-exact
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
+## All changes
+
+
 # Summary 2.6.0
 ## Release notes
 - Updated bootstrap-italia library to 2.6.0.
@@ -111,11 +132,10 @@ a 404 error in search engines
 - Fix(views,accordion): fix wrong views suggestions
 - Fix(views,carousel): fix wrong views suggestions
 - Fix(views,gallery): fix wrong views suggestions
-- Fix(views,list): fix wrong views suggestions, enable grouping
+- Fix(views,list): fix wrong views suggestions, enable grouping and grouping title options
 - Fix(views,timeline): fix wrong views suggestions
 - Fix(sub-theme,deps): remove progressbar.js Objects
 [CVE-2023-26133](https://github.com/advisories/GHSA-89qm-hm2x-mxm3)
-and grouping title options
 - New: add custom svg icon to sprites built with webpack
 - Add a scss hook to customize bootstrap maps
 - Add: term suggestion
@@ -132,6 +152,38 @@ planned for 2.5 are available in 2.6.
 The version 2.4, even though it was not released, is fully incorporated
 into version 2.6. This means that all the changes, fixes, and new features
 planned for 2.4 are available in 2.6.
+
+# Summary 2.3.5
+This release fix:
+- Fix(components,icon): sometimes libraries_cdn_icons is not set correctly
+- Fix(sub-theme): build library in dev mode don't work
+
+## Update custom build
+If you use custom libraries built with webpack, update:
+- `<your-sub-theme>/src/js/index.js`
+  and run
+```shell
+$ npm update
+$ npm run build:prod # or build:dev
+$ drush cr
+```
+
+# Summary 2.3.4
+This release remove autoload for unused components: donuts.
+
+### Custom build
+If you use custom libraries built with webpack, update:
+- `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+- `<your-sub-theme>/src/js/index.js`
+  and run
+```shell
+$ npm run build:prod
+$ drush cr
+```
+
+# Summary 2.3.3
+This release fixes a library build problem reported here
+https://github.com/italia/bootstrap-italia/issues/910.
 
 # Summary 2.3.2
 ## Release notes
