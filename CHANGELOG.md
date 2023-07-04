@@ -71,7 +71,6 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
   - `<your-sub-theme>/src/js/index.js`
   - `<your-sub-theme>/webpack.common.js`
   - `<your-sub-theme>/<your-sub-theme>.info.yml` check `ckeditor5-stylesheets`
-  - `<your-sub-theme>/webpack.common.js`
 - add:
   - `<your-sub-theme>/src/scss/custom/_maps.scss`
   - `<your-sub-theme>/src/scss/custom-comuni/_maps.scss`
