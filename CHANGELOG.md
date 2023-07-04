@@ -44,7 +44,7 @@ all the tooltips automatically;
 Updating is simple, just add two lines to the theme configuration file.
 To keep your sub-theme working, edit the
 `/themes/custom/<your-sub-theme>/<theme-name>.info.yml` file and add
-after `- bootstrap_italia/load-fonts` the following strings:
+after `- bootstrap_italia/base` the following strings:
 
 ```yaml
   - bootstrap_italia/enable-all-tooltips
@@ -92,7 +92,6 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
   - `<your-sub-theme>/src/js/index.js`
   - `<your-sub-theme>/webpack.common.js`
   - `<your-sub-theme>/<your-sub-theme>.info.yml` check `ckeditor5-stylesheets`
-  - `<your-sub-theme>/webpack.common.js`
 - add:
   - `<your-sub-theme>/src/scss/custom/_maps.scss`
   - `<your-sub-theme>/src/scss/custom-comuni/_maps.scss`
