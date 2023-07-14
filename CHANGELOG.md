@@ -22,6 +22,7 @@ $ drush cr
 and link_attributes
 - fix(components,dropdown): fix margin lg-down in dropdown with icon
 and remove wrong space
+- fix(core): improved performance when fetching the social URL
 
 
 # Summary 2.6.0

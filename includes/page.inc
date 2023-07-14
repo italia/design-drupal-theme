@@ -66,9 +66,10 @@ function bootstrap_italia_preprocess_page(array &$variables): void {
   $variables['social_new_window'] = (bool) theme_get_setting('social_new_window');
   foreach (Helper::getSocialItems() as $social) {
     $low_social = strtolower($social);
-    if (theme_get_setting($low_social)) {
+    $social_url = theme_get_setting($low_social);
+    if ($social_url) {
       $variables['socials'][$low_social]['label'] = $social;
-      $variables['socials'][$low_social]['url'] = theme_get_setting($low_social);
+      $variables['socials'][$low_social]['url'] = $social_url;
     }
   }
   // Search.
