@@ -1,22 +1,23 @@
-# Summary 2.7.0
+# Summary 2.x.x
 ## Release notes
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.7.0
+If you use vanilla libraries, download bootstrap-italia v2.x.x
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 
 ```shell
-$ npm install bootstrap-italia@2.7 --save-exact
+$ npm install bootstrap-italia@2.x --save-exact
 $ npm update
 $ npm run build:prod
 $ drush cr
 ```
 
 ## All changes
+- feat(templates): add new twig blocks in header-nav
 
 
 # Summary 2.6.0
