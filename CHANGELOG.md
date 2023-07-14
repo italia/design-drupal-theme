@@ -20,6 +20,8 @@ $ drush cr
 - feat(templates): add new twig blocks in region--header-nav
 - feat(templates): add new twig block in block--system-branding-block
 and link_attributes
+- fix(components,dropdown): fix margin lg-down in dropdown with icon
+and remove wrong space
 
 
 # Summary 2.6.0
