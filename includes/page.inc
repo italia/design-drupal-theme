@@ -64,14 +64,7 @@ function bootstrap_italia_preprocess_page(array &$variables): void {
   $variables['center_header_small'] = (bool) theme_get_setting('center_header_small');
   // Social.
   $variables['social_new_window'] = (bool) theme_get_setting('social_new_window');
-  foreach (Helper::getSocialItems() as $social) {
-    $low_social = strtolower($social);
-    $social_url = theme_get_setting($low_social);
-    if ($social_url) {
-      $variables['socials'][$low_social]['label'] = $social;
-      $variables['socials'][$low_social]['url'] = $social_url;
-    }
-  }
+  $variables['socials'] = Helper::getActiveSocials();
   // Search.
   $variables['search_type'] = theme_get_setting('search_type');
   $variables['search_page_url'] = theme_get_setting('search_page_url');
