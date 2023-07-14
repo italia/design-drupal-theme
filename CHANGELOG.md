@@ -17,7 +17,9 @@ $ drush cr
 ```
 
 ## All changes
-- feat(templates): add new twig blocks in header-nav
+- feat(templates): add new twig blocks in region--header-nav
+- feat(templates): add new twig block in block--system-branding-block
+and link_attributes
 
 
 # Summary 2.6.0
