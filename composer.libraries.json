@@ -39,13 +39,13 @@
       "type": "package",
       "package": {
         "name": "italia/bootstrap-italia",
-        "version": "2.6.0",
+        "version": "2.6.1",
         "type": "drupal-library",
         "extra": {
           "installer-name": "italia.bootstrap-italia"
         },
         "dist": {
-          "url": "https://github.com/italia/bootstrap-italia/releases/download/v2.6.0/bootstrap-italia.zip",
+          "url": "https://github.com/italia/bootstrap-italia/releases/download/v2.6.1/bootstrap-italia.zip",
           "type": "zip"
         }
       }

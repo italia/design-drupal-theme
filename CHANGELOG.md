@@ -1,16 +1,17 @@
-# Summary 2.x.x
+# Summary 2.6.1
 ## Release notes
+- Updated bootstrap-italia library to 2.6.1.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.x.x
+If you use vanilla libraries, download bootstrap-italia v2.6.1
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 
 ```shell
-$ npm install bootstrap-italia@2.x --save-exact
+$ npm install bootstrap-italia@2.6 --save-exact
 $ npm update
 $ npm run build:prod
 $ drush cr
