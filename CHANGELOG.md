@@ -21,9 +21,11 @@ $ drush cr
 - feat(templates): add new twig blocks in region--header-nav
 - feat(templates): add new twig block in block--system-branding-block
 and link_attributes
+- fix(deps): bump to bootstrap-italia 2.6.1
 - fix(components,dropdown): fix margin lg-down in dropdown with icon
 and remove wrong space
 - fix(core): improved performance when fetching the social URL
+- fix(patterns,accordion): accordion title description
 
 
 # Summary 2.6.0
