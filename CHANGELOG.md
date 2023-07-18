@@ -24,6 +24,7 @@ and link_attributes
 - fix(deps): bump to bootstrap-italia 2.6.1
 - fix(components,dropdown): fix margin lg-down in dropdown with icon
 and remove wrong space
+- fix(components,linklist-item): missing class in wrapper
 - fix(core): improved performance when fetching the social URL
 - fix(patterns,accordion): accordion title description
 
