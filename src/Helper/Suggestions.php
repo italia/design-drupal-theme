@@ -33,10 +33,10 @@ class Suggestions {
       $suggestions[] = $hook . '__type__' . $variables['element']['#type'];
     }
     if (isset($variables['element']['#id'])) {
-      $suggestions[] = $variables['theme_hook_original'] . '__id__' . $variables['element']['#id'];
+      $suggestions[] = $variables['theme_hook_original'] . '__id__' . str_replace('-', '_',$variables['element']['#id']);
     }
     if (isset($variables['element']['#id']) && !is_null($hook)) {
-      $suggestions[] = $hook . '__id__' . $variables['element']['#id'];
+      $suggestions[] = $hook . '__id__' . str_replace('-', '_',$variables['element']['#id']);
     }
     if (isset($variables['element']['#name'])) {
       $suggestions[] = $variables['theme_hook_original'] . '__name__' . $variables['element']['#name'];
