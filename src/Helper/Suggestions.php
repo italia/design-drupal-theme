@@ -33,10 +33,10 @@ class Suggestions {
       $suggestions[] = $hook . '__type__' . $variables['element']['#type'];
     }
     if (isset($variables['element']['#id'])) {
-      $suggestions[] = $variables['theme_hook_original'] . '__id__' . str_replace('-', '_',$variables['element']['#id']);
+      $suggestions[] = $variables['theme_hook_original'] . '__id__' . self::sanitize($variables['element']['#id']);
     }
     if (isset($variables['element']['#id']) && !is_null($hook)) {
-      $suggestions[] = $hook . '__id__' . str_replace('-', '_',$variables['element']['#id']);
+      $suggestions[] = $hook . '__id__' . self::sanitize($variables['element']['#id']);
     }
     if (isset($variables['element']['#name'])) {
       $suggestions[] = $variables['theme_hook_original'] . '__name__' . $variables['element']['#name'];
@@ -84,7 +84,9 @@ class Suggestions {
       $suggestions[] = 'block__' . $region;
       // Adds suggestions with base and derivative plugin id.
       $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . $variables['elements']['#derivative_plugin_id'];
+      if ($variables['elements']['#derivative_plugin_id']){
+        $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($variables['elements']['#derivative_plugin_id']);
+      }
     }
   }
 
@@ -191,6 +193,19 @@ class Suggestions {
     if (isset($variables['style_name'])) {
       $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['style_name'];
     }
+  }
+
+  /**
+   * Sanitize string to use in suggestion
+   *
+   * @param string $s
+   *   String to sanitize
+   *
+   * @return string
+   *   Clean string
+   */
+  public static function sanitize(string $s): string {
+    return str_replace('-', '_',$s);
   }
 
 }
