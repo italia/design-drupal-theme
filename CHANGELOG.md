@@ -1,10 +1,10 @@
 # Summary 2.6.1
 ## Release notes
-- Updated bootstrap-italia library to 2.6.1.
+- Updated bootstrap-italia library to 2.6.2.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.6.1
+If you use vanilla libraries, download bootstrap-italia v2.6.2
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
@@ -22,6 +22,7 @@ $ drush cr
 - feat(templates): add new twig block in block--system-branding-block
 and link_attributes
 - fix(deps): bump to bootstrap-italia 2.6.1
+- fix(deps): bump to bootstrap-italia 2.6.2
 - fix(components,dropdown): fix margin lg-down in dropdown with icon
 and remove wrong space
 - fix(components,linklist-item): missing class in wrapper
