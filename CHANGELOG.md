@@ -28,8 +28,10 @@ and remove wrong space
 - fix(components,linklist-item): missing class in wrapper
 - fix(core): improved performance when fetching the social URL
 - fix(patterns,accordion): accordion title description
-- fix(suggestions,form): issue #3387106: Invalid file name suggestion on Drupal >= 10.1 hook_theme_suggestions_HOOK_alter()
-- fix(suggestions,block): issue #3387106: Invalid file name suggestion on Drupal >= 10.1 hook_theme_suggestions_HOOK_alter()
+- fix(suggestions,form): issue #3387106: Invalid file name suggestion
+on Drupal >= 10.1 hook_theme_suggestions_HOOK_alter()
+- fix(suggestions,block): issue #3387106: Invalid file name suggestion
+on Drupal >= 10.1 hook_theme_suggestions_HOOK_alter()
 
 
 # Summary 2.6.0
