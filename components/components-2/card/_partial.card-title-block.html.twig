@@ -1,10 +1,11 @@
 {# This is a partial reusable template for card component. #}
-{% set _card_title_classes = [
-  'card-title',
-  _card_big_title ? 'big-heading',
-  'h5',
-] %}
-<h3 class="{{ _card_title_classes|join(' ')|trim }}">
-  {{ _card_title }}
-</h3>
-
+{% if _card_title is not empty %}
+  {% set _card_title_classes = [
+    'card-title',
+    _card_big_title ? 'big-heading',
+    'h5',
+  ] %}
+  <h3 class="{{ _card_title_classes|join(' ')|trim }}">
+    {{ _card_title }}
+  </h3>
+{% endif %}
