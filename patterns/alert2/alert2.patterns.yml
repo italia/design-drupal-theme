@@ -15,6 +15,9 @@ alert2:
   description: "https://italia.github.io/bootstrap-italia/docs/componenti/alert/"
 
   variants:
+    primary:
+      label: Primary
+      description: Type Primary
     info:
       label: Info
       description: Type info

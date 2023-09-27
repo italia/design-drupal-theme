@@ -70,6 +70,25 @@ class Helper {
   }
 
   /**
+   * Return active social.
+   *
+   * @return array
+   *   Active social with url.
+   */
+  public static function getActiveSocials(): array {
+    $active_socials = [];
+    foreach (self::getSocialItems() as $social) {
+      $low_social = strtolower($social);
+      $social_url = theme_get_setting($low_social);
+      if ($social_url) {
+        $active_socials[$low_social]['label'] = $social;
+        $active_socials[$low_social]['url'] = $social_url;
+      }
+    }
+    return $active_socials;
+  }
+
+  /**
    * Https://italia.github.io/bootstrap-italia/docs/organizzare-gli-spazi/griglie/#le-opzioni.
    *
    * @param bool $withLabel

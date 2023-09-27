@@ -19,8 +19,8 @@ accordion2:
   fields:
     accordion_title:
       type: text
-      label: 'Title (field)'
-      description: 'Accordion title.'
+      label: 'Title (field, no link)'
+      description: 'Accordion title. Without link.'
       preview: 'Lorem ipsum dolor sit amet'
     accordion_content:
       type: text

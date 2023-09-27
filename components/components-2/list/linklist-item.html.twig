@@ -3,7 +3,7 @@
  * @file
  * Template for linklist-item component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#liste-per-men%C3%B9-di-navigazione
- * Latest revision: v2.4.1
+ * Latest revision: v2.6.1
  *
  * Parameters:
  * - item, item contains:
@@ -70,13 +70,16 @@
   {# If is a link item #}
   {% if _item['#options'].attributes|length > 0 %}
     {% set linklist_item_attributes = _item['#options'].attributes %}
+    {% set linklist_wrapper_classes = _item['#options'].attributes|join(' ')|trim %}
 
   {# If is a menu item #}
   {% elseif _item.attributes|length > 0 %}
     {% set linklist_item_attributes = _item.attributes %}
+    {% set linklist_wrapper_classes = _item.attributes.class|join(' ')|trim %}
 
   {% elseif _linklist_item_attributes is empty %}
     {% set linklist_item_attributes = create_attribute() %}
+    {% set linklist_wrapper_classes = '' %}
   {% endif %}
 
   {% set linklist_item_attributes = item.link['#type'] == 'link' ?
@@ -95,7 +98,7 @@
 
   {# Component #}
   {%- if _wrapper_tag is not empty -%}
-    <{{ _wrapper_tag }}>
+    <{{ _wrapper_tag }} class="{{ linklist_wrapper_classes }}">
   {%- endif -%}
     {# If a divider item #}
     {%- if _item.title == '<divider>' or _item['#title'] == '<divider>' -%}

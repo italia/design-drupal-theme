@@ -10,13 +10,25 @@
  * - site_logo: Logo for site as defined in Appearance or theme settings.
  * - site_name: Name for site as defined in Site information settings.
  * - site_slogan: Slogan for site as defined in Site information settings.
+ * - link_attributes (obj attribute) (default: '')
  *
  * @ingroup themeable
  */
 #}
 {% apply spaceless %}
+  {% set _link_attributes = link_attributes|default('') %}
+
+  {% if _link_attributes is empty %}
+    {% set link_attributes = create_attribute() %}
+    {% set link_attributes = link_attributes
+      .setAttribute('href', path('<front>'))
+      .setAttribute('title', 'Home'|t)
+      .setAttribute('rel', 'home')
+    %}
+  {% endif %}
+
   <div class="it-brand-wrapper">
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+    <a{{ link_attributes }}>
       {% if site_logo %}
         {% set check = site_logo %}
         {% if not (check ends with '.svg') %}
@@ -45,17 +57,19 @@
         {% endif %}
       {% endif %}
 
-      {% if site_name or site_slogan %}
-        <div class="it-brand-text">
-          {% if site_name %}
-            <div class="it-brand-title">{{ site_name }}</div>
-          {% endif %}
+      {% block brandText %}
+        {% if site_name or site_slogan %}
+          <div class="it-brand-text">
+            {% if site_name %}
+              <div class="it-brand-title">{{ site_name }}</div>
+            {% endif %}
 
-          {% if site_slogan %}
-            <div class="it-brand-tagline d-none d-md-block">{{ site_slogan }}</div>
-          {% endif %}
-        </div>
-      {% endif %}
+            {% if site_slogan %}
+              <div class="it-brand-tagline d-none d-md-block">{{ site_slogan }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endblock %}
     </a>
   </div>
 {% endapply %}

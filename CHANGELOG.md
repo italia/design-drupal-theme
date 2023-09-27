@@ -1,3 +1,40 @@
+# Summary 2.6.1
+## Release notes
+- Updated bootstrap-italia library to 2.6.2.
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.6.2
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+
+```shell
+$ npm install bootstrap-italia@2.6 --save-exact
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
+## All changes
+- feat(templates): add new twig blocks in region--header-nav
+- feat(templates): add new twig block in block--system-branding-block
+  and link_attributes
+- fix(deps): bump to bootstrap-italia 2.6.1
+- fix(deps): bump to bootstrap-italia 2.6.2
+- fix(components,dropdown): fix margin lg-down in dropdown with icon
+  and remove wrong space
+- fix(components,card): remove empty h3 tag if title is empty
+- fix(components,linklist-item): missing class in wrapper
+- fix(core): improved performance when fetching the social URL
+- fix(patterns,accordion): accordion title description
+- fix(suggestions,form): issue #3387106: Invalid file name suggestion
+  on Drupal >= 10.1 hook_theme_suggestions_HOOK_alter()
+- fix(suggestions,block): issue #3387106: Invalid file name suggestion
+  on Drupal >= 10.1 hook_theme_suggestions_HOOK_alter()
+
+
 # Summary 2.6.0
 ## Release notes
 - Updated bootstrap-italia library to 2.6.0.
@@ -15,9 +52,9 @@
 
 ### Breaking changes!!!
 1. Font loading has been overhauled, it is now more flexible and allows
-experienced developers to customize the sub-theme without going crazy.
+   experienced developers to customize the sub-theme without going crazy.
 2. The same thing was done for the javascript which activates
-all the tooltips automatically;
+   all the tooltips automatically;
 3. Added `h1` with "site name" in home page layout
 
 Updating is simple, just add two lines to the theme configuration file.
@@ -99,7 +136,7 @@ $ drush cr
 - Attachment Paragraph: remove required to field File Legacy
 - Fix: the dividing line of the sidebar menu is reversed between left and right
 - Fix: the expanded element is assigned an incorrect href value which causes
-a 404 error in search engines
+  a 404 error in search engines
 - Fix: sticky-menu returns Uncaught TypeError if menu not exists
 - Fix: moved the "back to top" component code to the bottom of the page
 - Fix(components,icon): sometimes libraries_cdn_icons is not set correctly.
@@ -110,11 +147,10 @@ a 404 error in search engines
 - Fix(views,accordion): fix wrong views suggestions
 - Fix(views,carousel): fix wrong views suggestions
 - Fix(views,gallery): fix wrong views suggestions
-- Fix(views,list): fix wrong views suggestions, enable grouping
+- Fix(views,list): fix wrong views suggestions, enable grouping and grouping title options
 - Fix(views,timeline): fix wrong views suggestions
 - Fix(sub-theme,deps): remove progressbar.js Objects
-[CVE-2023-26133](https://github.com/advisories/GHSA-89qm-hm2x-mxm3)
-and grouping title options
+  [CVE-2023-26133](https://github.com/advisories/GHSA-89qm-hm2x-mxm3)
 - New: add custom svg icon to sprites built with webpack
 - Add a scss hook to customize bootstrap maps
 - Add: term suggestion
@@ -131,6 +167,38 @@ planned for 2.5 are available in 2.6.
 The version 2.4, even though it was not released, is fully incorporated
 into version 2.6. This means that all the changes, fixes, and new features
 planned for 2.4 are available in 2.6.
+
+# Summary 2.3.5
+This release fix:
+- Fix(components,icon): sometimes libraries_cdn_icons is not set correctly
+- Fix(sub-theme): build library in dev mode don't work
+
+## Update custom build
+If you use custom libraries built with webpack, update:
+- `<your-sub-theme>/src/js/index.js`
+  and run
+```shell
+$ npm update
+$ npm run build:prod # or build:dev
+$ drush cr
+```
+
+# Summary 2.3.4
+This release remove autoload for unused components: donuts.
+
+### Custom build
+If you use custom libraries built with webpack, update:
+- `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
+- `<your-sub-theme>/src/js/index.js`
+  and run
+```shell
+$ npm run build:prod
+$ drush cr
+```
+
+# Summary 2.3.3
+This release fixes a library build problem reported here
+https://github.com/italia/bootstrap-italia/issues/910.
 
 # Summary 2.3.2
 ## Release notes
@@ -322,14 +390,14 @@ Go to your sub-theme settings -> PA Website Validator and choose your site type.
 Edit `<your-sub-theme>italiagov/package.json` and change
 ```json
 "dependencies": {
-  "bootstrap-italia": "^2.0.9"
+"bootstrap-italia": "^2.0.9"
 }
 ```
 in
 ```json
   "dependencies": {
-    "bootstrap-italia": "2.0.9"
-  }
+"bootstrap-italia": "2.0.9"
+}
 ```
 
 Update `<your-sub-theme>italiagov/src/js/index.js`
@@ -341,23 +409,23 @@ https://git.drupalcode.org/project/bootstrap_italia/-/compare/2.0.0-rc1...2.x?fr
 - `macro.icon` (deprecated in 0.11)
 
 - `macro.password_icon`, if you use this feature
-switch to `components/icon/password_icon` (deprecated in 0.21)
+  switch to `components/icon/password_icon` (deprecated in 0.21)
 
 - `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-evidenza.html.twig`
-   (deprecated in 0.22)
+  (deprecated in 0.22)
 - `bootstrap_italia/templates/views/views-view-unformatted--novita--novita-home.html.twig`
-   (deprecated in 0.22)
+  (deprecated in 0.22)
 - `italiagov/src/components/card/card-hp-intro.twig` (deprecated in 0.22)
 - `bootstrap_italia.libraries.yml` (deprecated in 0.22)
 
 ## Breaking changes
 - Removed experimental modules.
-If you want to continue using the old experimental modules
-(Bootstrap Italia Image Styles, Bootstrap Italia overlays and
-Bootstrap Italia Paragraphs), before performing the version upgrade,
-move all modules to the `/modules` folder in your `<sub-theme>/modules/`,
-move `/templates/paragraphs/paragraph--content--default.html.twig`
-in your sub-theme and clear cache (`drush cr`).
+  If you want to continue using the old experimental modules
+  (Bootstrap Italia Image Styles, Bootstrap Italia overlays and
+  Bootstrap Italia Paragraphs), before performing the version upgrade,
+  move all modules to the `/modules` folder in your `<sub-theme>/modules/`,
+  move `/templates/paragraphs/paragraph--content--default.html.twig`
+  in your sub-theme and clear cache (`drush cr`).
 
 - Regions changes:
   - `header_slim_lingua` to `header_slim_language`. After the update,
@@ -365,7 +433,7 @@ in your sub-theme and clear cache (`drush cr`).
     place the blocks in the right region.
 
 - Refactoring `theme_library_info_build()`,
-update `<sub-theme>/<sub-theme>.theme`.
+  update `<sub-theme>/<sub-theme>.theme`.
 
 - Theme Settings changes:
   - `theme_variants` to `libraries_source`
@@ -374,7 +442,7 @@ update `<sub-theme>/<sub-theme>.theme`.
   - `right_action_size` to `slim_header_action_type`
 
 - Suggestions change (check in your sub-theme if
-`template-name.html.twig` work correctly)
+  `template-name.html.twig` work correctly)
   - menu new formats:
     - `theme_hook_original`;
     - `theme_hook_original + region_name`
