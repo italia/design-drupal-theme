@@ -395,9 +395,9 @@ Edit `<your-sub-theme>italiagov/package.json` and change
 ```
 in
 ```json
-  "dependencies": {
-    "bootstrap-italia": "2.0.9"
-  }
+"dependencies": {
+  "bootstrap-italia": "2.0.9"
+}
 ```
 
 Update `<your-sub-theme>italiagov/src/js/index.js`
