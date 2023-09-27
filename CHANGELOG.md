@@ -390,14 +390,14 @@ Go to your sub-theme settings -> PA Website Validator and choose your site type.
 Edit `<your-sub-theme>italiagov/package.json` and change
 ```json
 "dependencies": {
-"bootstrap-italia": "^2.0.9"
+  "bootstrap-italia": "^2.0.9"
 }
 ```
 in
 ```json
   "dependencies": {
-"bootstrap-italia": "2.0.9"
-}
+    "bootstrap-italia": "2.0.9"
+  }
 ```
 
 Update `<your-sub-theme>italiagov/src/js/index.js`
