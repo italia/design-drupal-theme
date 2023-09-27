@@ -84,7 +84,7 @@ class Suggestions {
       $suggestions[] = 'block__' . $region;
       // Adds suggestions with base and derivative plugin id.
       $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
-      if ($variables['elements']['#derivative_plugin_id']){
+      if ($variables['elements']['#derivative_plugin_id']) {
         $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($variables['elements']['#derivative_plugin_id']);
       }
     }
@@ -196,16 +196,16 @@ class Suggestions {
   }
 
   /**
-   * Sanitize string to use in suggestion
+   * Sanitize string to use in suggestion.
    *
    * @param string $s
-   *   String to sanitize
+   *   String to sanitize.
    *
    * @return string
    *   Clean string
    */
   public static function sanitize(string $s): string {
-    return str_replace('-', '_',$s);
+    return str_replace('-', '_', $s);
   }
 
 }

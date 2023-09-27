@@ -5,8 +5,8 @@
  * Theme settings.
  */
 
-use Drupal\bootstrap_italia\Helper\Helper;
 use Drupal\bootstrap_italia\Helper\Color;
+use Drupal\bootstrap_italia\Helper\Helper;
 use Drupal\bootstrap_italia\Helper\Libraries;
 use Drupal\bootstrap_italia\Helper\Spacing;
 use Drupal\Core\Form\FormStateInterface;
