@@ -1,6 +1,7 @@
 # Summary 2.6.1
 ## Release notes
 - Updated bootstrap-italia library to 2.6.2.
+- Various Fix
 
 ## Update libraries
 ### Vanilla libraries
