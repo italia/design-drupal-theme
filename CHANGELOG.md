@@ -148,7 +148,8 @@ $ drush cr
 - Fix(views,accordion): fix wrong views suggestions
 - Fix(views,carousel): fix wrong views suggestions
 - Fix(views,gallery): fix wrong views suggestions
-- Fix(views,list): fix wrong views suggestions, enable grouping and grouping title options
+- Fix(views,list): fix wrong views suggestions,
+enable grouping and grouping title options
 - Fix(views,timeline): fix wrong views suggestions
 - Fix(sub-theme,deps): remove progressbar.js Objects
   [CVE-2023-26133](https://github.com/advisories/GHSA-89qm-hm2x-mxm3)

@@ -5,10 +5,10 @@
  * Hook THEME_suggestions_*.
  */
 
-use Drupal\node\Entity\Node;
 use Drupal\bootstrap_italia\Helper\Suggestions;
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 
 /**
