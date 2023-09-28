@@ -27,7 +27,7 @@ $ cd <drupal-root>
 # 1. Install end enable dependencies
 $ composer require drupal/components:^3.0@beta
 $ drush pm:enable components
-$ composer require drupal/bootstrap_italia:^2.3
+$ composer require drupal/bootstrap_italia
 
 # 2. Copy sub-theme to destination folder
 $ cd web/themes/
@@ -53,7 +53,7 @@ You can install the bootstrap-italia library in several ways.
 
 ### A. Bootstrap-italia vanilla
 
-Download https://github.com/italia/bootstrap-italia/releases/download/v2.6.2/bootstrap-italia.zip
+Download https://github.com/italia/bootstrap-italia/releases/download/v2.7.0/bootstrap-italia.zip
 and unzip in `<your-subtheme>/dist`.
 
 ### B. Custom build for developer or advanced user
@@ -511,7 +511,7 @@ $ drush en ui_patterns_views
 ## Italian Language
 Import/edit `translations/bootstrap_italia-2.x.it.po`
 ```shell
-$ drush locale-import it /absolute/path/to/bootstrap_italia-2.5.0.it.po \
+$ drush locale-import it /absolute/path/to/bootstrap_italia-<version>.it.po \
     --type=customized --override=all
 ```
 
