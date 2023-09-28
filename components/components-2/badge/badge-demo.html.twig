@@ -44,8 +44,9 @@
           &nbsp;
           {% include '@bi-bcl/badge/badge.html.twig' with {
             label: '4',
-            background: 'secondary',
+            text_color: 'secondary',
             assistive_text: 'Unread Messages'|t,
+            badge_classes: ['neutral-2-bg']
           } %}
         {% endblock %}
       {% endembed %}
