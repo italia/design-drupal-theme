@@ -24,6 +24,7 @@ $ drush cr
 - fix(component,card): compliance with bootstrap-italia >=2.7
 - fix(drupal): toolbar regression with bootstrap-italia >= 2.7
 - fix(italiagov): up to bootstrap-italia 2.7
+- fix(script): update install script
 
 # Summary 2.6.1
 ## Release notes
