@@ -12,6 +12,20 @@
   z-index: 10001;
 }
 
+#toolbar-administration.toolbar > .toolbar-bar {
+  background-color: var(--bs-dark);
+}
+#toolbar-administration.toolbar .toolbar-tab > a:not(.disabled):hover {
+  color: var(--bs-white);
+}
+.toolbar-icon-10 .toolbar-icon-admin-toolbar-tools-help::before {
+  background-image: url(/themes/contrib/bootstrap_italia/logo.svg);
+}
+
+#toolbar-administration.toolbar .link-list-wrapper ul li a {
+  line-height: 2.4rem;
+}
+
 #toolbar-administration .toolbar-box {
   display: flex;
 }
