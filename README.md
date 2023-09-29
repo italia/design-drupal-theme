@@ -511,7 +511,7 @@ $ drush en ui_patterns_views
 ## Italian Language
 Import/edit `translations/bootstrap_italia-2.x.it.po`
 ```shell
-$ drush locale-import it /absolute/path/to/bootstrap_italia-2.5.0.it.po \
+$ drush locale-import it /absolute/path/to/bootstrap_italia-2.6.1.it.po \
     --type=customized --override=all
 ```
 
