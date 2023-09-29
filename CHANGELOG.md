@@ -8,7 +8,10 @@ If you use vanilla libraries, download bootstrap-italia v2.7.0
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
-If you use custom libraries built with webpack, do:
+If you use custom libraries built with webpack,
+Using as reference the files contained in `/var/starter_kits/italiagov/...`,
+update:
+- `<your-sub-theme>/src/scss/_bootstrap-italia.scss`
 
 ```shell
 $ npm install bootstrap-italia@2.7 --save-exact
