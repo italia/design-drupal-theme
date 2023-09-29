@@ -523,5 +523,5 @@ This script works for ddev >= 1.18.0 (Sept 2021)
 
 Download ad run:
 ```shell
-$ bash <(curl -s https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh)
+$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.6.x/var/bin/build-ddev-installation.sh")
 ```
