@@ -1,7 +1,7 @@
 /* Theme fix */
 .block-region.demo-block {
   background-color: #aaa;
-  padding: 1em;
+  padding: 1rem;
   color: #000 !important;
   font-weight: bold;
 }
@@ -96,7 +96,7 @@ em.placeholder {
 a.tabledrag-handle .handle {
   width: 24px;
   height: 24px;
-  margin: 0 1em;
+  margin: 0 1rem;
 }
 
 /* Webform fix ------------------------------------------------------------------------ */
@@ -104,15 +104,15 @@ a.tabledrag-handle .handle {
 .webform-scale-small input + label {
   width: 26px;
   height: 26px;
-  font-size: 0.7em;
+  font-size: 0.7rem;
   line-height: 22px;
 }
 .webform-scale-medium input + label {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   line-height: 30px;
 }
 .webform-scale-large input + label {
-  font-size: 1.1em;
+  font-size: 1.1rem;
   line-height: 40px;
 }
 .webform-scale-text {
@@ -130,7 +130,7 @@ fieldset.webform-composite-hidden-title {
 }
 /* Editor */
 .js-text-format-wrapper {
-  margin-bottom: 3em;
+  margin-bottom: 3rem;
 }
 .js-text-format-wrapper .form-group {
   margin-bottom: 0;
@@ -141,13 +141,13 @@ button.link-edit-summary {
   text-decoration: underline;
 }
 .text-summary-wrapper {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 /* Edit node -------------------------------------------------------------------------- */
 .node-form .image-widget,
 .node-form .image-widget img {
-  margin-bottom: 3em;
+  margin-bottom: 3rem;
 }
 
 /* Overflow -_------------------------------------------------------------------------- */

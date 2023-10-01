@@ -22,6 +22,7 @@ $ drush cr
 
 ## All changes
 - fix(component,card): compliance with bootstrap-italia >=2.7
+- fix(core): switch em to rem fix css
 - fix(drupal): toolbar regression with bootstrap-italia >= 2.7
 - fix(italiagov): up to bootstrap-italia 2.7
 - fix(script): update install script
