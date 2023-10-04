@@ -2,6 +2,22 @@
 ## Release notes
 - Updated bootstrap-italia library to 2.7.0.
 
+**Important Change for Developers Overriding Card Component with Twig**
+
+If you're overriding the card component in your Drupal project
+using the following code:
+```
+{% embed '@bi-bcl/card/card.html.twig' with { foo: bar } %}
+ {% block cardText %}
+  Your custom code
+ {% endblock %}
+{% endembed %}
+```
+You need to review your card component override.
+In this specific case, we have added the class `font-serif` to the
+`<div class="card-text font-serif">...</div>` tag.
+For all other use cases of the card component, no action is required.
+
 ## Update libraries
 ### Vanilla libraries
 If you use vanilla libraries, download bootstrap-italia v2.7.0
