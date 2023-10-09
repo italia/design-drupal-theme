@@ -1,6 +1,6 @@
 {
   "name": "bootstrap_italia",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "'A Drupal theme which implements the Italia Design System'",
   "main": "src/js/index.js",
   "engineStrict": true,
@@ -37,8 +37,8 @@
     "css-loader": "^6.8.1",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^7.3.3",
-    "rimraf": "^5.0.1",
-    "sass": "^1.67.0",
+    "rimraf": "^5.0.5",
+    "sass": "^1.69.0",
     "sass-loader": "^13.3.2",
     "semver": "^7.5.4",
     "style-loader": "^3.3.3",
@@ -50,6 +50,6 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
-    "bootstrap-italia": "2.7.0"
+    "bootstrap-italia": "2.7.1"
   }
 }

@@ -1,3 +1,29 @@
+# Summary 2.7.1
+## Release notes
+- Updated bootstrap-italia library to 2.7.1.
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.7.1
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack,
+Using as reference the files contained in `/var/starter_kits/italiagov/...`,
+update:
+-
+
+```shell
+$ npm install bootstrap-italia@2.7 --save-exact
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
+## All changes
+feat(deps): up bootstrap-italia library to 2.7.1
+
+
 # Summary 2.7.0
 ## Release notes
 - Updated bootstrap-italia library to 2.7.0.
