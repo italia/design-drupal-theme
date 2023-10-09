@@ -1,10 +1,10 @@
 # Summary 2.7.1
 ## Release notes
-- Updated bootstrap-italia library to 2.7.1.
+- Updated bootstrap-italia library to 2.7.2.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.7.1
+If you use vanilla libraries, download bootstrap-italia v2.7.2
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
@@ -22,6 +22,7 @@ $ drush cr
 
 ## All changes
 feat(deps): up bootstrap-italia library to 2.7.1
+feat(deps): up bootstrap-italia library to 2.7.2
 feat(component,icon): add new icons 2.7.1 e fix Moodle icon
 fix(component,button-badge): fix class in button badge example
 feat(component,demo): add link to example code
