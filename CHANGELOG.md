@@ -24,6 +24,7 @@ $ drush cr
 feat(deps): up bootstrap-italia library to 2.7.1
 feat(component,icon): add new icons 2.7.1 e fix Moodle icon
 fix(component,button-badge): fix class in button badge example
+feat(component,demo): add link to example code
 
 
 # Summary 2.7.0

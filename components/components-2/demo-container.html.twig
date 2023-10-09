@@ -19,6 +19,8 @@
   {% set _title = title|default('') %}
   {% set _demo_classes = demo_classes|default('') %}
   {% set _demo_attributes = demo_attributes|default('') %}
+  {% set _base_url_demo_code = base_url_demo_code|default('https://git.drupalcode.org/project/bootstrap_italia/-/blob/2.7.x/components/components-2') %}
+  {% set _path_demo_code = path_demo_code|default('') %}
 
   {# Set options #}
   {% set _classes = [
@@ -38,7 +40,19 @@
 
   {# Component #}
   {% if title is not empty %}
-    <h3 class="mt-4 mb-3 fw-semibold border-bottom">{{ _title }}</h3>
+    <h3 class="mt-4 mb-3 fw-semibold border-bottom">
+      {{ _title }}
+      {% if _path_demo_code is not empty %}
+        <a href="{{ _base_url_demo_code ~ _path_demo_code }}" title="{{ 'View code'|t }}" target="_blank">
+          <span class="visually-hidden">{{ 'Go to example code in new window'|t }}</span>
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-code-circle',
+            color: 'primary',
+            icon_classes: ['pb-1']
+          } %}
+        </a>
+      {% endif %}
+    </h3>
   {% endif %}
 
   <div{{ demo_attributes }}>
