@@ -43,6 +43,8 @@ class Helper {
    */
   public static function getSocialItems(): array {
     return [
+      'Android',
+      'Apple',
       'Behance',
       'Facebook',
       'Figma',
@@ -52,6 +54,7 @@ class Helper {
       'Linkedin',
       'Medium',
       'Mastodon',
+      'Moodle',
       'Pinterest',
       'Quora',
       'Reddit',

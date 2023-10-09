@@ -22,6 +22,7 @@ $ drush cr
 
 ## All changes
 feat(deps): up bootstrap-italia library to 2.7.1
+feat(component,icon): add new icons 2.7.1 e fix Moodle icon
 
 
 # Summary 2.7.0
