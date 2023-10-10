@@ -29,6 +29,7 @@ $ drush cr
 - fix(component,footer): wrap `row` with `section` tag for compliance v2.7.1
 - fix(footer-menu): fixed the issue of the title without URL reported by
 search engines and the visual appearance
+- fix(footer-menu): check external links and add aria-label attribute
 
 
 # Summary 2.7.0

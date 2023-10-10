@@ -27,7 +27,16 @@
       <div class="col-sm-6 col-lg-{{ col }} pb-4 footer-items-wrapper">
 
         <h3 class="h6 text-uppercase">
-          {% if item.url.routeName is null or item.url.routeName == '<nolink>' or item.url.routeName == '<none>' %}
+          {% if item.url.external %}
+            {{ link(
+              item.title,
+              item.url,
+              item.attributes
+                .addClass(['text-decoration-none', 'text-light'])
+                .setAttribute('target', '_blank')
+                .setAttribute('aria-label', item.title ~ ' in new window'|t)
+            ) }}
+          {% elseif item.url.routeName or item.url.routeName == '<nolink>' or item.url.routeName == '<none>' %}
             {{ item.title }}
           {% else %}
             {{ link(item.title, item.url, item.attributes.addClass(['text-decoration-none', 'text-light'])) }}
