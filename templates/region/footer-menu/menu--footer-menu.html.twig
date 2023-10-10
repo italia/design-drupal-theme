@@ -26,7 +26,13 @@
     {% for item in items %}
       <div class="col-sm-6 col-lg-{{ col }} pb-4 footer-items-wrapper">
 
-        <h3 class="h4">{{ link(item.title, item.url, item.attributes) }}</h3>
+        <h3 class="h6 text-uppercase">
+          {% if item.url.routeName is null or item.url.routeName == '<nolink>' or item.url.routeName == '<none>' %}
+            {{ item.title }}
+          {% else %}
+            {{ link(item.title, item.url, item.attributes.addClass(['text-decoration-none', 'text-light'])) }}
+          {% endif %}
+        </h3>
         {% if item.below %}
           <div class="link-list-wrapper">
             <ul{{ attributes.addClass(['footer-list','link-list','clearfix']) }}>
