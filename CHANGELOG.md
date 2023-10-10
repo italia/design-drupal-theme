@@ -21,11 +21,13 @@ $ drush cr
 ```
 
 ## All changes
-feat(deps): up bootstrap-italia library to 2.7.1
-feat(deps): up bootstrap-italia library to 2.7.2
-feat(component,icon): add new icons 2.7.1 e fix Moodle icon
-fix(component,button-badge): fix class in button badge example
-feat(component,demo): add link to example code
+- feat(deps): up bootstrap-italia library to 2.7.1
+- feat(deps): up bootstrap-italia library to 2.7.2
+- feat(component,icon): add new icons 2.7.1 e fix Moodle icon
+- fix(component,button-badge): fix class in button badge example
+- feat(component,demo): add link to example code
+- fix(component,footer): wrap `row` with `section` tag for compliance v2.7.1
+- fix(footer-menu): fixed the issue of the title without URL reported by search engines and the visual appearance
 
 
 # Summary 2.7.0
