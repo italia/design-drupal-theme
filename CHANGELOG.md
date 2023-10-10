@@ -27,7 +27,8 @@ $ drush cr
 - fix(component,button-badge): fix class in button badge example
 - feat(component,demo): add link to example code
 - fix(component,footer): wrap `row` with `section` tag for compliance v2.7.1
-- fix(footer-menu): fixed the issue of the title without URL reported by search engines and the visual appearance
+- fix(footer-menu): fixed the issue of the title without URL reported by
+search engines and the visual appearance
 
 
 # Summary 2.7.0
