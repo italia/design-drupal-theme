@@ -1,3 +1,19 @@
+{#
+/**
+ * @file
+ * Template for footer component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/footer/
+ * Latest revision: v2.7.1
+ *
+ * Available variables:
+ *
+ * @see template_preprocess_page()
+ * @see page.html.twig
+ *
+ * @ingroup themeable
+ *
+ */
+#}
 {% apply spaceless %}
   <footer id="footer" class="it-footer d-print-none">
     <div class="it-footer-main">
@@ -5,17 +21,21 @@
 
         {% block footerBrand %}
           {% if page.brand %}
-            <div class="row">
-              <div class="col-sm-12 footer-items-wrapper logo-wrapper">
-                {{ page.brand }}
+            <section>
+              <div class="row clearfix">
+                <div class="col-sm-12 footer-items-wrapper logo-wrapper">
+                  {{ page.brand }}
+                </div>
               </div>
-            </div>
+            </section>
           {% endif %}
         {% endblock %}
 
         {% block footerMenu %}
           {% if page.footer_menu %}
-            {{ page.footer_menu }}
+            <section>
+              {{ page.footer_menu }}
+            </section>
           {% endif %}
         {% endblock %}
 
@@ -44,28 +64,30 @@
               'footer-items-wrapper'
             ] %}
 
-            <div class="row py-4{{ page.footer_menu ? ' border-white border-top' }}">
-              {% if page.footer_first %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_first }}
-                </div>
-              {% endif %}
-              {% if page.footer_second %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_second }}
-                </div>
-              {% endif %}
-              {% if page.footer_third %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_third }}
-                </div>
-              {% endif %}
-              {% if page.footer_fourth %}
-                <div class="{{ footer_blocks_classes|join(' ') }}">
-                  {{ page.footer_fourth }}
-                </div>
-              {% endif %}
-            </div>
+            <section class="py-4{{ page.footer_menu ? ' border-white border-top' }}">
+              <div class="row">
+                {% if page.footer_first %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_first }}
+                  </div>
+                {% endif %}
+                {% if page.footer_second %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_second }}
+                  </div>
+                {% endif %}
+                {% if page.footer_third %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_third }}
+                  </div>
+                {% endif %}
+                {% if page.footer_fourth %}
+                  <div class="{{ footer_blocks_classes|join(' ') }}">
+                    {{ page.footer_fourth }}
+                  </div>
+                {% endif %}
+              </div>
+            </section>
           {% endif %}
         {% endblock %}
       </div>{# End container. #}
@@ -74,7 +96,7 @@
     {% block footerSmallPrints %}
       {% if page.footer_small_prints or page.footer_credits %}
         {% set footer_small_prints_classes = page.footer_small_prints and page.footer_credits ? 'col-md-7 col-lg-9' : 'col' %}
-        {% set footer_credits_classes = page.footer_small_prints and page.footer_credits ? 'col-md-5 col-lg-3 pt-4 text-align-right' : 'col pt-4 text-align-right' %}
+        {% set footer_credits_classes = page.footer_small_prints and page.footer_credits ? 'col-md-5 col-lg-3 pt-4' : 'col pt-4' %}
 
         <div class="it-footer-small-prints clearfix">
           <div class="{{ footer_container_type ?: 'container' }}">
@@ -85,7 +107,7 @@
                 </div>
               {% endif %}
               {% if page.footer_credits %}
-                <div class="{{ footer_credits_classes }}">
+                <div class="text-light text-align-right {{ footer_credits_classes }}">
                   {{ page.footer_credits }}
                 </div>
               {% endif %}
