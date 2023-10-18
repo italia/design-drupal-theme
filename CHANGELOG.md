@@ -26,6 +26,9 @@ $ drush cr
 - feat(deps): up bootstrap-italia library to 2.7.2
 - feat(deps): up bootstrap-italia library to 2.7.3
 - feat(component,icon): add new icons 2.7.1 e fix Moodle icon
+- fix(component,button): in some particular cases the assistive information
+was duplicated generating the "Elements with visible text labels do not have
+matching accessible names." error
 - fix(component,button-badge): fix class in button badge example
 - feat(component,demo): add link to example code
 - fix(component,footer): wrap `row` with `section` tag for compliance v2.7.1

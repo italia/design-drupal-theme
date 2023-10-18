@@ -179,7 +179,8 @@
       <span{{ label_attributes }}>{{- _label -}}</span>
     {% endif %}
 
-    {%- if _assistive_text is not empty -%}
+    {%- if _assistive_text is not empty and _label is empty
+      and (not button_attributes['aria-label'] is defined or button_attributes['aria-label'] is empty) -%}
         <span class="visually-hidden">{{- _assistive_text -}}</span>
     {%- endif -%}
 
