@@ -521,7 +521,12 @@ If you want an automated script that works for you, run script located at
 
 This script works for ddev >= 1.18.0 (Sept 2021)
 
-Download ad run:
+Download ad run latest stable release:
+```shell
+$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.7.1/var/bin/build-ddev-installation.sh")
+```
+
+Download ad run dev release:
 ```shell
 $ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh")
 ```
