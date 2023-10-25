@@ -1,6 +1,13 @@
 # Summary 2.7.1
 ## Release notes
-- Updated bootstrap-italia library to 2.7.4.
+This release updates the bootstrap-italia library to version 2.7.4 and fixes
+several minor bugs. Bootstrap-Italia version 2.7.1 introduces a new component:
+the "Footer".
+This theme since its first versions (0.x) has used this component in
+the same way it was implemented in version 2.7.1 with the only difference
+being that the div.row elements are now enclosed in a <section> tag .
+This version incorporates this change and the update is automatic.
+If you have made any overrides, be sure to review them.
 
 ## Update libraries
 ### Vanilla libraries
