@@ -1,6 +1,6 @@
 # Summary 2.7.1
 ## Release notes
-This release updates the bootstrap-italia library to version 2.7.4 and fixes
+This release updates the bootstrap-italia library to version 2.7.5 and fixes
 several minor bugs. Bootstrap-Italia version 2.7.1 introduces a new component:
 the "Footer".
 This theme since its first versions (0.x) has used this component in
@@ -11,7 +11,7 @@ If you have made any overrides, be sure to review them.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.7.4
+If you use vanilla libraries, download bootstrap-italia v2.7.5
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
@@ -33,6 +33,7 @@ $ drush cr
 - feat(deps): up bootstrap-italia library to 2.7.2
 - feat(deps): up bootstrap-italia library to 2.7.3
 - feat(deps): up bootstrap-italia library to 2.7.4
+- feat(deps): up bootstrap-italia library to 2.7.5
 - feat(component,icon): add new icons 2.7.1 e fix Moodle icon
 - fix(component,button): in some particular cases the assistive information
 was duplicated generating the "Elements with visible text labels do not have

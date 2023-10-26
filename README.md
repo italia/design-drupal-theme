@@ -53,7 +53,7 @@ You can install the bootstrap-italia library in several ways.
 
 ### A. Bootstrap-italia vanilla
 
-Download https://github.com/italia/bootstrap-italia/releases/download/v2.7.4/bootstrap-italia.zip
+Download https://github.com/italia/bootstrap-italia/releases/download/v2.7.5/bootstrap-italia.zip
 and unzip in `<your-subtheme>/dist`.
 
 ### B. Custom build for developer or advanced user
@@ -523,7 +523,7 @@ This script works for ddev >= 1.18.0 (Sept 2021)
 
 Download ad run latest stable release:
 ```shell
-$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.7.1/var/bin/build-ddev-installation.sh")
+$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.7.x/var/bin/build-ddev-installation.sh")
 ```
 
 Download ad run dev release:
