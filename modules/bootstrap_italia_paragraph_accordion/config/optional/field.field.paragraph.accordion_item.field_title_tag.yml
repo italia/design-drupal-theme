@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title_tag
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - options
+id: paragraph.accordion_item.field_title_tag
+field_name: field_title_tag
+entity_type: paragraph
+bundle: accordion_item
+label: 'Title tag'
+description: 'Choose heading. Default: <code>h2</code>'
+required: false
+translatable: false
+default_value:
+  -
+    value: h2
+default_value_callback: ''
+settings: {  }
+field_type: list_string

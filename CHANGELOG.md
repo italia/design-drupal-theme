@@ -20,10 +20,17 @@ $ npm run build:prod
 $ drush cr
 ```
 
+## Update modules
+To update "Paragraph Accordion" run:
+```shell
+$ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_paragraph_accordion/config/optional/ --partial
+```
+
 ## All changes
 - feat(components,accordion): allow to customize accordion title tag
 - feat(components,field): add option to customize title tag
 - feat(components,field): field label code optimization
+- feat(paragraph_accordion): allow to customize accordion title tag
 - feat(patterns,accordion): allow to customize accordion title tag
 - feat(suggestions): add suggestion to select field view-mode in all bundles
 

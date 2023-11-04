@@ -49,6 +49,7 @@
 {% block paragraph %}
   {% embed '@bi-bcl/accordion/accordion-item.html.twig' with {
     title_id: paragraph.bundle() ~ '--' ~ paragraph.id(),
+    item_title_tag: content.field_title_tag[0] ? content.field_title_tag[0]['#markup']|render|striptags|trim : 'h2',
     item_show: content.field_accordion_item_show[0]['#markup']|render == 'True' ? true : false,
     container_id: always_open ? 'accordion-' ~ paragraph.getParentEntity().id() : ''
   } %}
