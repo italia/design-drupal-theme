@@ -34,6 +34,7 @@
  * - label_display: The display settings for the label.
  * - field_container_vertical_padding: Automatic vertical padding.
  * - field_container_vertical_margin: Automatic vertical margin.
+ * - field_title_tag: choose title tag, default('div')
  * - field_view_mode: View mode.
  *
  * @see template_preprocess_field()
@@ -42,6 +43,7 @@
  */
 #}
 {% apply spaceless %}
+  {% set _field_title_tag = field_title_tag|default('div') %}
 
   {% set container_classes = [
     'field',
@@ -78,7 +80,8 @@
 
   {% else %}
     <div{{ attributes.addClass(container_with_label_classes) }}>
-      <div{{ title_attributes.addClass(title_classes) }}>
+
+      <{{ _field_title_tag }}{{ title_attributes.addClass(title_classes) }}>
         {%- if field_label_bold -%}
           <strong>{{ label }}</strong>
         {%- else -%}
@@ -87,7 +90,7 @@
         {%- if field_label_separator is not empty -%}
           {{ field_label_separator }}&nbsp;
         {%- endif -%}
-      </div>{# End label container. #}
+      </{{ _field_title_tag }}>{# End label container. #}
 
       {% if multiple %}
         <div>

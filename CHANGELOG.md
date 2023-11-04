@@ -1,3 +1,29 @@
+# Summary 2.7.2
+## Release notes
+...
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.7.5
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack,
+Using as reference the files contained in `/var/starter_kits/italiagov/...`,
+update:
+- ...
+
+```shell
+$ npm install bootstrap-italia@2.7 --save-exact
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
+## All changes
+- feat(components,field): add option to customize title tag
+
+
 # Summary 2.7.1
 ## Release notes
 This release updates the bootstrap-italia library to version 2.7.5 and fixes
