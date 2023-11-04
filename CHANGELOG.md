@@ -21,6 +21,7 @@ $ drush cr
 ```
 
 ## All changes
+- feat(components,accordion): allow to customize accordion title tag
 - feat(components,field): add option to customize title tag
 - feat(components,field): field label code optimization
 - feat(suggestions): add suggestion to select field view-mode in all bundles

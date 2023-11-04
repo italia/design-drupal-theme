@@ -3,10 +3,11 @@
  * @file
  * Template for accordion_item component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/accordion/
- * Latest revision: v2.6.1
+ * Latest revision: v2.7.5
  *
  * Parameters:
  * - item_title (string) (default: '')
+ * - item_title_tag (string) (default: 'h2')
  * - item_body (string) (default: '')
  * - title_id (string) (default: 'accordion-title-' ~ random)
  * - item_show (boolean) (default: true)
@@ -40,6 +41,7 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _item_title = item_title|default('') %}
+  {% set _item_title_tag = item_title_tag|default('h2') %}
   {% set _item_body = item_body|default('') %}
   {% set _title_id = title_id|default('accordion-title-' ~ random()) %}
   {% set _item_show = item_show ?? false %}
@@ -65,7 +67,7 @@
 
   {# Component #}
   <div{{ accordion_item_attributes }}>
-    <h2 class="accordion-header" id="heading-{{ _title_id }}">
+    <{{ _item_title_tag }} class="accordion-header" id="heading-{{ _title_id }}">
       <button
         class="accordion-button{{ _item_show ? '' : ' collapsed' }}"
         type="button"
@@ -77,7 +79,7 @@
           {{ _item_title }}
         {% endblock %}
       </button>
-    </h2>
+    </{{ _item_title_tag }}>
     <div id="collapse-{{ _title_id }}"
       class="accordion-collapse collapse{{ _item_show ? ' show' : '' }}"
       aria-labelledby="heading-{{ _title_id }}"
