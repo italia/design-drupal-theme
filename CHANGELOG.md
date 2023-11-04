@@ -23,6 +23,7 @@ $ drush cr
 ## All changes
 - feat(components,field): add option to customize title tag
 - feat(components,field): field label code optimization
+- feat(suggestions): add suggestion to select field view-mode in all bundles
 
 
 # Summary 2.7.1
