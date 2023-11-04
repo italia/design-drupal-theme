@@ -22,6 +22,7 @@ $ drush cr
 
 ## All changes
 - feat(components,field): add option to customize title tag
+- feat(components,field): field label code optimization
 
 
 # Summary 2.7.1

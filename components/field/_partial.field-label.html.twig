@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Partial field title template
+ *
+ * This template reused in some files
+ *
+ * Available variables:
+ * - label: The label for the field.
+ * - label_display: The display settings for the label.
+ * - field_label_tag: choose label tag, default('div').
+ * - field_label_bold: boolean, make title bold.
+ * - field_label_separator: string, label separator.
+ * -
+ */
+#}
+{% apply spaceless %}
+  {% set _field_label_tag = field_label_tag|default('div') %}
+
+  {% set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ] %}
+
+  <{{ _field_label_tag }}{{ title_attributes.addClass(title_classes) }}>
+    {%- if field_label_bold -%}
+      <strong>{{ label }}</strong>
+    {%- else -%}
+      {{ label }}
+    {%- endif -%}
+
+    {%- if field_label_separator is not empty -%}
+      {{ field_label_separator }}&nbsp;
+    {%- endif -%}
+  </{{ _field_label_tag }}>{# End label container. #}
+{% endapply %}
