@@ -18,8 +18,15 @@
       },
       ...
     }
- * - label (string) (default: '')
- * - icon (string) (default: '')
+ * - label (string) (default: '') [deprecated: use dropdown_label]
+ * - icon (string) (default: '') [deprecated: use dropdown_icon]
+ * - dropdown_label (string) (default 'View actions')
+ * - dropdown_icon (string) (default 'it-more-items')
+ * - dropdown_icon_color (string) (default 'black')
+ * - dropdown_icon_size (string) (default 'sm')
+ * - dropdown_button_classes (array) (default: '')
+ * - item_icon_color (string) (default 'primary')
+ * - item_icon_size (string) (default 'sm')
  * - share_classes (array) (default: '')
  * - share_attributes (obj attribute) (default: '')
  *
@@ -35,10 +42,26 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _targets = targets|default('') %}
-  {% set _label = label|default('') %}
-  {% set _icon = icon|default('') %}
+  {% set _dropdown_label = dropdown_label|default('') %}
+  {% set _dropdown_icon = dropdown_icon|default('') %}
+  {% set _dropdown_icon_color = dropdown_icon_color|default('black') %}
+  {% set _dropdown_icon_size = dropdown_icon_size|default('sm') %}
+  {% set _dropdown_button_classes = dropdown_button_classes|default('') %}
+  {% set _item_icon_color = item_icon_color|default('primary') %}
+  {% set _item_icon_size = item_icon_size|default('sm') %}
+  {% set _label = label|default('') %} {# Deprecated #}
+  {% set _icon = icon|default('') %} {# Deprecated #}
   {% set _share_classes = share_classes|default('') %}
   {% set _share_attributes = share_attributes|default('') %}
+
+  {# Retrocompatibility settings #}
+  {% if _dropdown_label is empty and _label is not empty %}
+    {% set _dropdown_label = _label %}
+  {% endif %}
+
+  {% if _dropdown_icon is empty and _icon is not empty %}
+    {% set _dropdown_icon = _icon %}
+  {% endif %}
 
   {# Set options #}
     {% set _classes = [
@@ -60,13 +83,14 @@
 
   {# Component #}
   {% embed '@bi-bcl/dropdown/dropdown.html.twig' with {
-    label: _label,
-    icon_before: _icon,
-    size: 'xs',
+    label: _dropdown_label,
+    icon_before: _dropdown_icon,
+    size: _dropdown_icon_size,
     hide_block_after: true,
-    icon_color: 'black',
+    icon_color: _dropdown_icon_color,
+    button_classes: _dropdown_button_classes,
     dropdown_classes: ['shadow-lg'],
-  } %}
+  } only %}
     {% block dropdownContent %}
       <div class="link-list-wrapper">
         <ul class="link-list">
@@ -90,8 +114,8 @@
                   {{ share_attributes }} {{ target['customAttributes'] }}>
                   {% include '@bi-bcl/icon/icon.html.twig' with {
                     name: target['icon'],
-                    color: 'primary',
-                    size: 'sm'
+                    color: _item_icon_color,
+                    size: _item_icon_size,
                   } %}
                   &nbsp;
                   <span>{{ target['label'] }}</span>

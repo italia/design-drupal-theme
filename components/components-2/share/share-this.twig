@@ -3,13 +3,20 @@
  * @file
  * Template for share-this component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/esempi/comuni/template-novita-notizia/
- * Latest revision: v2.6.1
+ * Latest revision: v2.7.5
  *
  * Parameters:
  * - subject (string) (default: 'Read this news'|t)
  * - description (string) (default: subject)
  * - tags (string) (default: '')
  * - download_url (string) (default: '<current>')
+ * - dropdown_label (string) (default 'Share')
+ * - dropdown_icon (string) (default 'it-share')
+ * - dropdown_icon_color (string) (default 'black')
+ * - dropdown_icon_size (string) (default 'sm')
+ * - dropdown_button_classes (array) (default: '')
+ * - item_icon_color (string) (default 'primary')
+ * - item_icon_size (string) (default 'sm')
  *
  * Examples:
    {% include '@bi-bcl/share/share-this.html.twig' with {
@@ -26,6 +33,13 @@
   {% set _tags = tags ? tags : 'News'|t %}
   {% set _download_href = download_url ? download_url : url('<current>') %}
   {% set _current_url = url('<current>')|render %}
+  {% set _dropdown_label = dropdown_label|default('Share'|t) %}
+  {% set _dropdown_icon = dropdown_icon|default('it-share') %}
+  {% set _dropdown_icon_color = dropdown_icon_color|default('black') %}
+  {% set _dropdown_icon_size = dropdown_icon_size|default('sm') %}
+  {% set _dropdown_button_classes = dropdown_button_classes|default('') %}
+  {% set _item_icon_color = item_icon_color|default('primary') %}
+  {% set _item_icon_size = item_icon_size|default('sm') %}
 
   {% set targets = {
     'facebook': {
@@ -72,7 +86,12 @@
   {# Component #}
   {% include '@bi-bcl/share/share.html.twig' with {
     targets: targets,
-    label: 'Share'|t,
-    icon: 'it-share',
-  } %}
+    dropdown_label: _dropdown_label,
+    dropdown_icon: _dropdown_icon,
+    dropdown_icon_color: _dropdown_icon_color,
+    dropdown_icon_size: _dropdown_icon_size,
+    dropdown_button_classes: _dropdown_button_classes,
+    item_icon_color: _item_icon_color,
+    item_icon_size: _item_icon_size
+  } only %}
 {% endapply %}
