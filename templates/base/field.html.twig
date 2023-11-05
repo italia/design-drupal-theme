@@ -34,6 +34,7 @@
  * - label_display: The display settings for the label.
  * - field_container_vertical_padding: Automatic vertical padding.
  * - field_container_vertical_margin: Automatic vertical margin.
+ * - field_label_tag: choose label tag, default('div').
  * - field_view_mode: View mode.
  *
  * @see template_preprocess_field()
@@ -55,10 +56,6 @@
     field_container_vertical_margin is not empty and field_view_mode == 'full' ? field_container_vertical_margin,
   ] %}
 
-  {% set title_classes = [
-    label_display == 'visually_hidden' ? 'visually-hidden',
-  ] %}
-
   {% set container_with_label_classes = [
     label_display == 'inline' ? 'd-flex'
   ]|merge(container_classes) %}
@@ -78,16 +75,10 @@
 
   {% else %}
     <div{{ attributes.addClass(container_with_label_classes) }}>
-      <div{{ title_attributes.addClass(title_classes) }}>
-        {%- if field_label_bold -%}
-          <strong>{{ label }}</strong>
-        {%- else -%}
-          {{ label }}
-        {%- endif -%}
-        {%- if field_label_separator is not empty -%}
-          {{ field_label_separator }}&nbsp;
-        {%- endif -%}
-      </div>{# End label container. #}
+
+      {% block label %}
+        {% include '@bi-field/_partial.field-label.html.twig' %}
+      {% endblock %}
 
       {% if multiple %}
         <div>

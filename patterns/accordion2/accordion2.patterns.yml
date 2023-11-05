@@ -14,6 +14,20 @@ accordion2:
   label: "Accordion 2 Item"
   description: "The accordion uses collapse internally to make it collapsible. https://italia.github.io/bootstrap-italia/docs/componenti/accordion/"
 
+  # Settings (ui_patterns_settings module).
+  settings:
+    item_title_tag:
+      type: select
+      label: Title tag
+      allow_expose: true
+      preview: 'h2'
+      options:
+        h2: "Heading 2 (h2)"
+        h3: "Heading 3 (h3)"
+        h4: "Heading 4 (h4)"
+        h5: "Heading 5 (h5)"
+        h6: "Heading 6 (h6)"
+
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.
   fields:

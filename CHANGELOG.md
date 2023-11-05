@@ -1,3 +1,40 @@
+# Summary 2.7.2
+## Release notes
+...
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.7.5
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack,
+Using as reference the files contained in `/var/starter_kits/italiagov/...`,
+update:
+- ...
+
+```shell
+$ npm install bootstrap-italia@2.7 --save-exact
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
+## Update modules
+To update "Paragraph Accordion" run:
+```shell
+$ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_paragraph_accordion/config/optional/ --partial
+```
+
+## All changes
+- feat(components,accordion): allow to customize accordion title tag
+- feat(components,field): add option to customize title tag
+- feat(components,field): field label code optimization
+- feat(paragraph_accordion): allow to customize accordion title tag
+- feat(patterns,accordion): allow to customize accordion title tag
+- feat(suggestions): add suggestion to select field view-mode in all bundles
+
+
 # Summary 2.7.1
 ## Release notes
 This release updates the bootstrap-italia library to version 2.7.5 and fixes

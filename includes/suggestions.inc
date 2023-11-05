@@ -79,6 +79,11 @@ function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, arr
         if (isset($variables['element']['#field_name'])) {
           $suggestions[] = $variables['theme_hook_original']
             . '__view_mode_' . $variables['element']['#view_mode']
+            . '__type_' . $variables['element']['#field_type']
+            . '__name_' . $variables['element']['#field_name'];
+
+          $suggestions[] = $variables['theme_hook_original']
+            . '__view_mode_' . $variables['element']['#view_mode']
             . '__bundle_' . $variables['element']['#bundle']
             . '__type_' . $variables['element']['#field_type']
             . '__name_' . $variables['element']['#field_name'];
