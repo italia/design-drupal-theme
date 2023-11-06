@@ -35,6 +35,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - feat(patterns,accordion): allow to customize accordion title tag
 - feat(suggestions): add suggestion to select field view-mode in all bundles
 - fix(component,share): fix dropdown icon size
+- fix(component,share): fix X (ex-twitter) share url
 
 
 # Summary 2.7.1
