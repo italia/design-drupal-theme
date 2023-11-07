@@ -725,6 +725,35 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#options' =>
       ['' => t('Unset')] + Spacing::getMarginVertical(TRUE),
   ];
+  // File Attachments.
+  $form['content']['file'] = [
+    '#type' => 'details',
+    '#title' => t('File'),
+    '#open' => FALSE,
+    '#group' => 'content',
+  ];
+  $form['content']['file']['file_link_default_icon'] = [
+    '#type' => 'textfield',
+    '#title' => t('Default icon'),
+    '#description' => t('Choose an icon from this <a href="@link" title="@title" target="_blank">@label</a>. Default: "it-clip".', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili',
+      '@title' => 'View all icons',
+      '@label' => 'icons list',
+    ]),
+    '#default_value' => theme_get_setting('file_link_default_icon') ?: 'it-clip',
+  ];
+  $form['content']['file']['file_link_icon_autodetect'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Automatically detects file type'),
+    '#description' => t('If checked, it automatically recognizes the file type and sets a consistent icon. Default: unchecked.'),
+    '#default_value' => theme_get_setting('file_link_icon_autodetect') ?: FALSE,
+  ];
+  $form['content']['file']['file_link_show_size'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Shows the file size'),
+    '#description' => t('If checked, the file size will be displayed. Default: checked.'),
+    '#default_value' => theme_get_setting('file_link_show_size') ?: TRUE,
+  ];
   // Images settings.
   $form['content']['images'] = [
     '#type' => 'details',

@@ -71,6 +71,9 @@ field_label_bold: 0
 field_label_separator: ':'
 field_container_vertical_padding: ''
 field_container_vertical_margin: ''
+file_link_default_icon: 'it-clip'
+file_link_icon_autodetect: 0
+file_link_show_size: 1
 image_fluid: 1
 image_rounded: 0
 image_border: ''

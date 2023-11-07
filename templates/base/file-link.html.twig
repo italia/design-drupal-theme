@@ -6,6 +6,10 @@
  * Available variables:
  * - attributes: The HTML attributes for the containing element.
  * - link: A link to the file.
+ * - file_mime_type: File Mime Type.
+ * - file_link_default_icon: Default icon.
+ * - file_link_icon_autodetect: A boolean from theme settings.
+ * - file_link_show_size: A boolean from theme settings.
  * - file_size: The size of the file.
  *
  * @see template_preprocess_file_link()
@@ -13,21 +17,62 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bi-bcl/card/card.html.twig' with {
-  card_shadow: true,
-  card_icon: 'it-clip',
-  card_teaser: true,
-  card_rounded: true,
-  card_border: true,
-  card_attributes: attributes,
-} %}
-  {% block cardTitle %}
-    <h5 class="card-title">
-      {% include '@bi-bcl/icon/icon.html.twig' with {name: 'it-clip'} %}
-      {{ link }}
-      {% if file_size %}
-        <span> ({{ file_size }})</span>
-      {% endif %}
-    </h5>
+{% apply spaceless %}
+  {% if file_link_icon_autodetect %}
+    {% set _icon_name = [
+      file_link_mime_type == 'audio/ogg' ? 'it-file-audio',
+      file_link_mime_type == 'audio/mpeg' ? 'it-file-audio',
+      file_link_mime_type == 'audio/vorbis' ? 'it-file-audio',
+      file_link_mime_type == 'audio/mpeg3' ? 'it-file-audio',
+      file_link_mime_type == 'audio/x-mpeg-3' ? 'it-file-audio',
+      file_link_mime_type == 'audio/wav' ? 'it-file-audio',
+      file_link_mime_type == 'audio/wave' ? 'it-file-audio',
+      file_link_mime_type == 'audio/x-wav' ? 'it-file-audio',
+      file_link_mime_type == 'audio/x-pn-wav' ? 'it-file-audio',
+      file_link_mime_type == 'audio/webm' ? 'it-file-audio',
+      file_link_mime_type == 'application/x-7z-compressed' ? 'it-file-compressed',
+      file_link_mime_type == 'application/zip' ? 'it-file-compressed',
+      file_link_mime_type == 'application/gzip' ? 'it-file-compressed',
+      file_link_mime_type == 'text/csv' ? 'it-file-csv',
+      file_link_mime_type == 'application/json' ? 'it-file-json',
+      file_link_mime_type == 'application/pdf' ? 'it-file-pdf-ext',
+      file_link_mime_type == 'application/vnd.oasis.opendocument.text' ? 'it-file-odt',
+      file_link_mime_type == 'application/vnd.oasis.opendocument.spreadsheet' ? 'it-file-ods',
+      file_link_mime_type == 'application/vnd.oasis.opendocument.presentation' ? 'it-file-slides',
+      file_link_mime_type == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ? 'it-file-sheet',
+      file_link_mime_type == 'application/vnd.openxmlformats-officedocument.presentationml.presentation' ? 'it-file-ppt',
+      file_link_mime_type == 'text/plain' ? 'it-file-txt',
+      file_link_mime_type == 'application/xml' ? 'it-file-xml',
+      file_link_mime_type == 'video/mp4' ? 'it-file-video',
+      file_link_mime_type == 'video/ogg' ? 'it-file-video',
+      file_link_mime_type == 'video/webm' ? 'it-file-video',
+      file_link_mime_type == 'application/octet-stream' ? ' it-warning-circle',
+    ] %}
+  {% endif %}
+
+  {% if not _icon_name or _icon_name|join|trim is empty %}
+    {% set _icon_name = [file_link_default_icon] %}
+  {% endif %}
+
+
+  {% block fileLink %}
+    {% embed '@bi-bcl/card/card.html.twig' with {
+      card_shadow: true,
+      card_icon: _icon_name|join|trim,
+      card_teaser: true,
+      card_rounded: true,
+      card_border: true,
+      card_attributes: attributes,
+    } %}
+      {% block cardTitle %}
+        <h5 class="card-title">
+          {% include '@bi-bcl/icon/icon.html.twig' with {name: _icon_name|join|trim} %}
+          {{ link }}
+          {% if file_size and file_link_show_size %}
+            <span> ({{ file_size }})</span>
+          {% endif %}
+        </h5>
+      {% endblock %}
+    {% endembed %}
   {% endblock %}
-{% endembed %}
+{% endapply %}
