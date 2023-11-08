@@ -12,7 +12,7 @@ entity_type: paragraph
 bundle: slide
 label: 'Image legacy'
 description: 'Wallpaper \ image. <b>Use the "public://wallpapers" folder.</b>'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
