@@ -39,6 +39,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(component,share): fix dropdown icon size
 - fix(component,share): fix X (ex-twitter) share url
 - fix(template,header): fix attributes search button
+- fix(template,links--language): fix attributes search button
 
 
 # Summary 2.7.1
