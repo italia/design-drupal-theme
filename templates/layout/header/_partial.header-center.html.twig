@@ -55,7 +55,9 @@
                         {% block modalButton %}
                           <span class="d-none d-md-block">{{ 'Search'|t }}</span>
                           <a class="search-link rounded-icon"
-                             type="button"
+                             role="button"
+                             tabindex="0"
+                             aria-pressed="false"
                              aria-label="{{ 'Site search'|t }}"
                              data-bs-toggle="modal"
                              data-bs-target="#modal-header-center-search"

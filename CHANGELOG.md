@@ -38,6 +38,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(paragraph_carousel): remove require from legacy image
 - fix(component,share): fix dropdown icon size
 - fix(component,share): fix X (ex-twitter) share url
+- fix(template,header): fix attributes search button
 
 
 # Summary 2.7.1
