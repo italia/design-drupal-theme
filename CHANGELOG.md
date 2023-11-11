@@ -45,6 +45,8 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(a11y): aria-controls must point to an element in the same document
 - fix(breadcrumb): the navigation role is unnecessary for element nav
 - fix(template,layout): the main role is unnecessary for element main
+- fix(image): trailing slash on void elements has no effect and interacts badly
+with unquoted attribute values
 
 
 # Summary 2.7.1
