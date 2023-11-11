@@ -41,6 +41,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(template,header): fix attributes search button
 - fix(template,links--language): fix attributes search button
 - fix(template,menu-nav): the navigation role is unnecessary for element nav
+- fix(drupal-core,block-menu): navigation role is unnecessary for element nav
 
 
 # Summary 2.7.1
