@@ -46,7 +46,9 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(breadcrumb): the navigation role is unnecessary for element nav
 - fix(template,layout): the main role is unnecessary for element main
 - fix(image): trailing slash on void elements has no effect and interacts badly
-with unquoted attribute values
+  with unquoted attribute values
+- fix(input): trailing slash on void elements has no effect and interacts badly
+  with unquoted attribute values
 
 
 # Summary 2.7.1

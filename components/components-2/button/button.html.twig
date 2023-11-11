@@ -191,7 +191,7 @@
 
   {% if _tag == 'input' %}
     {% set button_attributes = button_attributes.setAttribute('value', _label) %}
-    <input {{- button_attributes -}} />
+    <input{{ button_attributes }}>
     {%- if _assistive_text is not empty -%}
       <span class="visually-hidden">{{- _assistive_text -}}</span>
     {%- endif -%}
