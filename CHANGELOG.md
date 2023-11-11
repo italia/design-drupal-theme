@@ -42,6 +42,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(template,links--language): fix attributes search button
 - fix(template,menu-nav): the navigation role is unnecessary for element nav
 - fix(drupal-core,block-menu): navigation role is unnecessary for element nav
+- fix(a11y): aria-controls must point to an element in the same document
 
 
 # Summary 2.7.1
