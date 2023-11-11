@@ -40,6 +40,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(component,share): fix X (ex-twitter) share url
 - fix(template,header): fix attributes search button
 - fix(template,links--language): fix attributes search button
+- fix(template,menu-nav): the navigation role is unnecessary for element nav
 
 
 # Summary 2.7.1

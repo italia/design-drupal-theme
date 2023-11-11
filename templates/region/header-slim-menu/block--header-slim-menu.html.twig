@@ -36,7 +36,7 @@
 {% apply spaceless %}
   <div class="nav-mobile">
     {% set heading_id = attributes.id ~ '-menu'|clean_id %}
-    <nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>
+    <nav aria-labelledby="{{ heading_id }}"{{ attributes|without('role', 'aria-labelledby') }}>
       {# Label. If not displayed, we still provide it for screen readers. #}
       {% set title_attributes = title_attributes.addClass(['visually-hidden', 'bg-white']) %}
       <h2{{ title_attributes.setAttribute('id', heading_id) }}>{{ configuration.label }}</h2>
