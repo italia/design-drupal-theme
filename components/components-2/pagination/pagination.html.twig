@@ -179,7 +179,7 @@
             {% set title = 'Go to page @key'|t({'@key': key}) %}
           {% endif %}
           <a
-            class="page-link" {{ current == key ? ' aria-current="page"' : '' }}
+            class="page-link"
             href="{{ item.href }}" title="{{ title }}"
             {{ item.attributes|without('href', 'title') }}
           >
