@@ -1,6 +1,24 @@
 # Summary 2.7.2
 ## Release notes
-...
+This release brings significant enhancements and fixes by updating
+compatibility to Bootstrap Italia library version 2.7.7.
+
+New Features:
+- The attachments component can now automatically identify file types and
+display a specific icon. To activate this feature, navigate to
+the theme settings and enable it manually;
+- You can now choose the tag for the accordion titles according
+to your preferences;
+- Customize the colors and style of the "Share" component directly
+through code. A graphical interface for this feature is still in development;
+- Added a new suggestion: you can now theme Content Types in relation
+to the 'view-mode'.
+
+Fixes:
+- Addressed accessibility issues and errors identified through analysis
+with tools such as WAVE, MAUVE++, and similar.
+
+For more details, please refer to the "All changes" section.
 
 ## Update libraries
 ### Vanilla libraries
@@ -8,10 +26,7 @@ If you use vanilla libraries, download bootstrap-italia v2.7.7
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
-If you use custom libraries built with webpack,
-Using as reference the files contained in `/var/starter_kits/italiagov/...`,
-update:
-- ...
+If you use custom libraries built with webpack, do:
 
 ```shell
 $ npm install bootstrap-italia@2.7 --save-exact
