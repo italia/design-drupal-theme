@@ -39,6 +39,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(paragraph_carousel): remove require from legacy image
 - fix(component,share): fix dropdown icon size
 - fix(component,share): fix X (ex-twitter) share url
+- fix(component,pagination): duplicate aria-current
 - fix(template,header): fix attributes search button
 - fix(template,links--language): fix attributes search button
 - fix(template,menu-nav): the navigation role is unnecessary for element nav
