@@ -16,7 +16,7 @@ drupal_versions="10|11"
 default_drupal_version="10"
 bootstrap_italia_versions="2.x|2.x-dev@dev|latest"
 default_bootstrap_italia_version="2.x-dev@dev"
-vanilla_library="https://github.com/italia/bootstrap-italia/releases/download/v2.7.6/bootstrap-italia.zip"
+vanilla_library="https://github.com/italia/bootstrap-italia/releases/download/v2.7.7/bootstrap-italia.zip"
 
 # Functions
 validate_project_name() {

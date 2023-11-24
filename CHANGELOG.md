@@ -4,7 +4,7 @@
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.7.6
+If you use vanilla libraries, download bootstrap-italia v2.7.7
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
@@ -28,6 +28,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 
 ## All changes
 - feat(deps): up bootstrap-italia library to 2.7.6
+- feat(deps): up bootstrap-italia library to 2.7.7
 - feat(components,accordion): allow to customize accordion title tag
 - feat(components,field): add option to customize title tag
 - feat(components,field): field label code optimization
