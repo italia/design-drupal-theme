@@ -24,6 +24,8 @@
  *   - Your custom library
  * - icon_path (string) (default: '')
  *   - Your custom path icons library
+ * - icon_decorative (boolean) (default: true)
+ *   - If set to TRUE it automatically adds accessibility attributes to indicate that it is a decorative element
  * - icon_classes (array) (default: '')
  * - icon_attributes (obj attribute) (default: '')
  *   - Object with extra attributes
@@ -62,6 +64,7 @@
   {% set _alignment = alignment|default('') %}
   {% set _library = library|default('sprites.svg') %}
   {% set _icon_path = icon_path|default('') %}
+  {% set _icon_decorative = icon_decorative ?? true %}
   {% set _icon_classes = icon_classes|default('') %}
   {% set _icon_attributes = icon_attributes|default('') %}
   {% set _merge_classes_reverse = merge_classes_reverse ?? false %}
@@ -91,8 +94,14 @@
   {% endif %}
   {% set icon_attributes = icon_attributes
     .addClass(_classes)
-    .setAttribute('aria-hidden', 'true')
   %}
+
+  {% if _icon_decorative %}
+    {% set icon_attributes = icon_attributes
+      .setAttribute('role', 'img')
+      .setAttribute('aria-hidden', 'true')
+    %}
+  {% endif %}
 
   {% if _icon_path is empty and libraries_cdn_icons is empty %}
     {% set _icon_path = "/" ~ active_theme_path() ~ "/dist/svg/" ~ _library ~ "#" ~ _name %}

@@ -53,6 +53,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - feat(suggestions): add suggestion to select field view-mode in all bundles
 - feat(template,file): add options to customize component
 - fix(paragraph_carousel): remove require from legacy image
+- fix(component,icon): fix icon role when element is decorative
 - fix(component,share): fix dropdown icon size
 - fix(component,share): fix X (ex-twitter) share url
 - fix(component,pagination): duplicate aria-current
