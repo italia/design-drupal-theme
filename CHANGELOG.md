@@ -1,3 +1,26 @@
+# Summary 2.8.0
+## Release notes
+
+## Update libraries
+### Vanilla libraries
+...
+
+### Custom build
+If you use custom libraries built with webpack, do:
+```shell
+...
+```
+Using as reference the files contained in `/var/starter_kits/italiagov/...`
+- update:
+  - `<your-sub-theme>/.nvmrc`
+- add:
+  - ...
+- delete:
+  - ...
+
+## All changes
+- feat(deps): up node version to 20 (lts/iron)
+
 # Summary 2.7.2
 ## Release notes
 This release brings significant enhancements and fixes by updating
