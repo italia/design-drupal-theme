@@ -3,11 +3,12 @@
  * @file
  * Template for alert component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/alert/
- * Latest revision: v2.6.2
+ * Latest revision: v2.8.2
  *
  * Parameters:
  * - heading (string) (default: '')
  *   - Optional heading
+ * - heading_tag (string) (default: 'h4')
  * - message (string) (default: '')
  *   - Alert message
  * - type (string) (default: 'info')
@@ -33,6 +34,7 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _heading = heading|default('') %}
+  {% set _heading_tag = heading_tag|default('h4') %}
   {% set _message = message|default('') %}
   {% set _type = type|default('info') %}
   {% set _dismissible = dismissible ?? true %}
@@ -63,9 +65,11 @@
 
   {# Component #}
   <div {{ alert_attributes }}>
-    {%- if _heading is not empty -%}
-      <h4 class="alert-heading">{{ _heading }}</h4>
-    {%- endif -%}
+    {% block alertHeading %}
+      {%- if _heading is not empty -%}
+        <{{ _heading_tag }} class="alert-heading{{ _heading_tag != 'h4' ? ' h4' }}">{{ _heading }}</{{ _heading_tag }}>
+      {%- endif -%}
+    {% endblock %}
 
     {% block alertContent %}
       {%- if _message is not empty -%}

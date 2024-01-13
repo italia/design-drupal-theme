@@ -20,6 +20,7 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
 
 ## All changes
 - feat(deps): up node version to 20 (lts/iron)
+- fix(component,alert): review v2.8.2
 
 # Summary 2.7.2
 ## Release notes
