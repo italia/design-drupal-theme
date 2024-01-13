@@ -27,6 +27,7 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - fix(component,carousel): review v2.8.2
 - fix(component,chip): review v2.8.2
 - fix(component,hero): review v2.8.2
+- fix(component,modal): review v2.8.2
 
 # Summary 2.7.2
 ## Release notes
