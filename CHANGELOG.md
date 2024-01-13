@@ -29,6 +29,7 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - fix(component,hero): review v2.8.2
 - fix(component,modal): review v2.8.2
 - fix(component,pagination): review v2.8.2
+- fix(component,timeline): review v2.8.2
 
 # Summary 2.7.2
 ## Release notes
