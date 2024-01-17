@@ -20,6 +20,7 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
 
 ## All changes
 - feat(deps): up node version to 20 (lts/iron)
+- feat(suggestion): add views_view suggestion
 - fix(component,alert): review v2.8.2
 - fix(component,avatar): review v2.8.2
 - fix(component,button): review v2.8.2

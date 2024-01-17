@@ -114,6 +114,17 @@ function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, arra
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  */
+function bootstrap_italia_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
+  if (isset($variables['view'])) {
+    $view = $variables['view'];
+    $displayObj = $view->getDisplay();
+    $suggestions[] = 'views_view__' . $view->id() . '__' . $displayObj->display['id'];
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
 function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables): void {
   if (isset($variables['view'])) {
     $view = $variables['view'];
