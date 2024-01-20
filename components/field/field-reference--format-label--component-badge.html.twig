@@ -85,9 +85,9 @@
 
   {% if label_hidden %}
     {% if multiple %}
-      <div{{ attributes.addClass(container_classes|merge(['d-flex'])) }}>
+      <div{{ attributes.addClass(container_classes|merge(['d-flex','flex-wrap'])) }}>
         {% for item in items %}
-          <div{{ item.attributes }}>
+          <div{{ item.attributes.addClass('pb-2') }}>
             {%- set item_badge -%}
               {% include '@bi-bcl/badge/badge.html.twig' with {
                 label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
@@ -149,7 +149,7 @@
         <div class="d-flex">
       {% endif %}
       {% for item in items %}
-        <div{{ item.attributes }}>
+        <div{{ item.attributes.addClass('pb-2') }}>
           {%- set item_badge -%}
             {% include '@bi-bcl/badge/badge.html.twig' with {
               label: item.content['#type'] == 'link' ? item.content['#title'] : item.content['#plain_text'],
