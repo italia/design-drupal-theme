@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_point_list_item
+    - paragraphs.paragraphs_type.point_list
+    - paragraphs.paragraphs_type.point_list_item
+  module:
+    - entity_reference_revisions
+id: paragraph.point_list.field_point_list_item
+field_name: field_point_list_item
+entity_type: paragraph
+bundle: point_list
+label: 'Point list item'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      point_list_item: point_list_item
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 21
+        enabled: false
+      accordion_item:
+        weight: 22
+        enabled: false
+      attachments:
+        weight: 23
+        enabled: false
+      callout:
+        weight: 24
+        enabled: false
+      carousel:
+        weight: 25
+        enabled: false
+      citation:
+        weight: 26
+        enabled: false
+      content:
+        weight: 27
+        enabled: false
+      gallery:
+        weight: 28
+        enabled: false
+      gallery_item:
+        weight: 29
+        enabled: false
+      hero:
+        weight: 30
+        enabled: false
+      map:
+        weight: 31
+        enabled: false
+      node_reference:
+        weight: 32
+        enabled: false
+      point_list:
+        weight: 33
+        enabled: false
+      point_list_item:
+        weight: 34
+        enabled: true
+      section:
+        weight: 35
+        enabled: false
+      settings:
+        weight: 36
+        enabled: false
+      slide:
+        weight: 37
+        enabled: false
+      timeline:
+        weight: 38
+        enabled: false
+      timeline_item:
+        weight: 39
+        enabled: false
+      webform:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

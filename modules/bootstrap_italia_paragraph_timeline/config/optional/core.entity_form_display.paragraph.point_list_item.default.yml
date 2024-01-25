@@ -1,0 +1,68 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.point_list_item.field_data_element
+    - field.field.paragraph.point_list_item.field_kicker
+    - field.field.paragraph.point_list_item.field_title
+    - field.field.paragraph.point_list_item.field_variants
+    - paragraphs.paragraphs_type.point_list_item
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_item_settings_container:
+      children:
+        - field_variants
+        - field_data_element
+      label: 'Item settings container'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        effect: bounceslide
+id: paragraph.point_list_item.default
+targetEntityType: paragraph
+bundle: point_list_item
+mode: default
+content:
+  field_data_element:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_kicker:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_variants:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

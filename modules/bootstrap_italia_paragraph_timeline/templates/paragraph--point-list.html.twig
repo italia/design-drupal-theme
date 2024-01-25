@@ -47,13 +47,6 @@
   is_admin: is_admin
 } %}
   {% block content %}
-
-    {% embed '@bi-bcl/timeline/timeline.html.twig' with {
-    } %}
-      {% block timelineItems %}
-        {{ content|without('field_settings') }}
-      {% endblock %}
-    {% endembed %}
-
+    {{ content|without('field_settings') }}
   {% endblock %}
 {% endembed %}

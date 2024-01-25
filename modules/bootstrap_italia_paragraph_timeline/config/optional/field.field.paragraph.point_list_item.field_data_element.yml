@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_data_element
+    - paragraphs.paragraphs_type.point_list_item
+id: paragraph.point_list_item.field_data_element
+field_name: field_data_element
+entity_type: paragraph
+bundle: point_list_item
+label: 'Data element'
+description: 'Fill with your custom data-element. Eg. <code class="color-success">service-calendar-list</code>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

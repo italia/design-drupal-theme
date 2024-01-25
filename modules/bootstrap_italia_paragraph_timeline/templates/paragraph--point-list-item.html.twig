@@ -38,22 +38,20 @@
  * @ingroup themeable
  */
 #}
-{% embed '@bootstrap_italia_paragraph/content/bi-paragraph-base.html.twig' with {
-  paragraph: paragraph,
-  content: content,
-  attributes: attributes,
-  view_mode: view_mode,
-  logged_in: logged_in,
-  is_admin: is_admin
-} %}
-  {% block content %}
+{% apply spaceless %}
+  {% set _date_from_kicker = content.field_kicker[0]|render|striptags|trim|split(' ') %}
+  {% set _data_element = content.field_data_element[0]|render|striptags|trim %}
+  {% include '@bi-bcl/timeline/point-list.html.twig' with {
+    date: _date_from_kicker[0],
+    month: _date_from_kicker[1],
+    card: {
+      card_title: content.field_title,
+      card_teaser: true,
+      card_rounded: true,
+      card_shadow: true,
+    },
+    variant: content.field_variants[0]['#markup']|striptags|trim,
+    point_list_attributes: _data_element is not empty ? create_attribute().setAttribute('data-element', _data_element)
+  } %}
+{% endapply %}
 
-    {% embed '@bi-bcl/timeline/timeline.html.twig' with {
-    } %}
-      {% block timelineItems %}
-        {{ content|without('field_settings') }}
-      {% endblock %}
-    {% endembed %}
-
-  {% endblock %}
-{% endembed %}

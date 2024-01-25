@@ -1,0 +1,87 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_settings
+    - paragraphs.paragraphs_type.point_list
+    - paragraphs.paragraphs_type.settings
+  module:
+    - entity_reference_revisions
+id: paragraph.point_list.field_settings
+field_name: field_settings
+entity_type: paragraph
+bundle: point_list
+label: Settings
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      settings: settings
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 10
+        enabled: false
+      accordion_item:
+        weight: 22
+        enabled: false
+      attachments:
+        weight: 23
+        enabled: false
+      callout:
+        weight: 24
+        enabled: false
+      carousel:
+        weight: 11
+        enabled: false
+      citation:
+        weight: 26
+        enabled: false
+      content:
+        weight: 12
+        enabled: false
+      gallery:
+        weight: 13
+        enabled: false
+      gallery_item:
+        weight: 29
+        enabled: false
+      hero:
+        weight: 30
+        enabled: false
+      map:
+        weight: 14
+        enabled: false
+      node_reference:
+        weight: 32
+        enabled: false
+      point_list:
+        weight: 33
+        enabled: false
+      point_list_item:
+        weight: 34
+        enabled: false
+      section:
+        weight: 35
+        enabled: false
+      settings:
+        weight: 15
+        enabled: true
+      slide:
+        weight: 16
+        enabled: false
+      timeline:
+        weight: 38
+        enabled: false
+      timeline_item:
+        weight: 39
+        enabled: false
+      webform:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

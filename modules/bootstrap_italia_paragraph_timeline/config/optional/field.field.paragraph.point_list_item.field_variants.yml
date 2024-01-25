@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_variants
+    - paragraphs.paragraphs_type.point_list_item
+  module:
+    - options
+id: paragraph.point_list_item.field_variants
+field_name: field_variants
+entity_type: paragraph
+bundle: point_list_item
+label: Variants
+description: 'Choose a variant.'
+required: true
+translatable: false
+default_value:
+  -
+    value: primary
+default_value_callback: ''
+settings: {  }
+field_type: list_string
