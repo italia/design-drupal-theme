@@ -19,7 +19,7 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
   - ...
 
 ## Update modules
-To update "Paragraph Accordion" run:
+To update "Paragraph Timeline" run:
 ```shell
 $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_paragraph_timeline/config/optional/ --partial
 ```
