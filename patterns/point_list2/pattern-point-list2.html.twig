@@ -1,0 +1,13 @@
+{% apply spaceless %}
+  {% include '@bi-bcl/timeline/point-list.html.twig' with {
+    date: date,
+    month: month,
+    card: {
+      card_title: content,
+      card_teaser: true,
+      card_rounded: true,
+      card_shadow: true,
+    },
+    variant: variant
+  } %}
+{% endapply %}

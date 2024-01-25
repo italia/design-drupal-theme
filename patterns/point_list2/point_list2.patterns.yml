@@ -1,0 +1,95 @@
+# This is the unique pattern ID.
+#
+# It is possible to define multiple patterns in a YML file, each with it's own
+# unique ID. However, I personally think that it is more logical to have one
+# pattern per file to keep them well-separated and organized.
+#
+# You can however, group similar patterns in a file.
+# Example:
+#   - button
+#   - button_with_icon
+#
+point_list2:
+  # The label and description are used in the Drupal UI and the pattern library.
+  label: "Point list 2"
+  description: "https://italia.github.io/bootstrap-italia/"
+
+  variants:
+    primary:
+      label: Primary
+      description: Type Primary
+    secondary:
+      label: Secondary
+      description: Type Primary
+    info:
+      label: Info
+      description: Type info
+    success:
+      label: Success
+      description: Type success
+    warning:
+      label: Warning
+      description: Type waring
+    danger:
+      label: Danger
+      description: danger
+    dark:
+      label: Danger
+      description: danger
+
+  # Fields of data supported by the pattern.
+  # This can include optional fields which you can handle in your TWIG.
+  fields:
+    date:
+      type: text
+      label: 'Date (raw text)'
+      description: 'Usually is the day, 1...31. Raw text'
+      preview: '14'
+    month:
+      type: text
+      label: 'Month (raw text)'
+      description: 'The month. Raw text'
+      preview: 'Oct'
+    content:
+      type: text
+      label: 'Content (raw text)'
+      description: 'The content.'
+      preview: '12:34 - Lorem ipsum dolor sit amet.'
+
+    # Optional: Attached libraries.
+    #
+    # You can include libraries defined by other modules / themes with dependencies.
+    #
+    # These libraries are also available for include in theme libraries as
+    # dependencies. Doing this ensures that the CSS / JS for the pattern are loaded
+    # irrespective of whether a pattern of that type appears on the page.
+    #   Example: ui_patterns/button.button
+    # libraries:
+    #   -
+    #     card_simple:
+    #       css:
+    #         component:
+    #           css/card_simple.css: {}
+
+    # Optional: Specify a TWIG template with 'use'.
+    #
+    #   Example:
+    #     use: 'themes/custom/THEME/patterns/blockquote/blockquote.html.twig'
+    #
+    # This usually contains a path relative to the Drupal root. Some documentation
+    # says that a theme-relative path can also be used, but it didn't work for me.
+    #
+    #   Example:
+    #     use: '@oldie/patterns/blockquote/blockquote.html.twig' (didn't work)
+    #
+    # Alternatively, you can use the 'components' module to have better-looking
+    # and flexible paths.
+    #
+    #   Examples:
+    # use: '@patterns/blockquote/blockquote.html.twig'
+    #     use: '@blockquote/blockquote.html.twig'
+    #
+    # Not defining 'use' makes the UI Patterns module look for a template with
+    # the name 'pattern-PATTERN.html.twig. Underscores are changed into dashes.
+    #
+  #   Example: pattern-blockquote.html.twig

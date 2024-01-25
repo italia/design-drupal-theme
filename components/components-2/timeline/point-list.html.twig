@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Template for point-list component.
+ * Docs: non è documentato
+ * Latest revision: 2.8.2
+ *
+ * Parameters:
+ * - date (string) (default: '14')
+ *   Usually is the day, 1...31
+ * - month (string) (default: 'Oct')
+ * - card (array) (default: '')
+ *   - The card component, see @bi-bcl/card/card
+ * - variant (string) (default: 'primary')
+ *   - options ["primary", "secondary", "info", "success", "warning", "danger", "dark" ]
+ * - point_list_classes (array) (default: '')
+ * - point_list_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+   {% include '@bi-bcl/timeline/point-list.html.twig' with {
+     date: '14',
+     month: 'Oct',
+     card: {
+      card_title: 'Lorem ipsum',
+      card_teaser: true,
+      card_rounded: true,
+      card_shadow: true,
+     },
+     variant: 'primary',
+     point_list_classes: ['your', 'custom', 'classes'],
+     point_list_attributes: create_attribute().setAttribute('data-element', 'service-calendar-list')
+   } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _date = date|default('14') %}
+  {% set _month = month|default('Oct') %}
+  {% set _card = card|default('') %}
+  {% set _variant = variant|default('primary') %}
+  {% set _point_list_classes = point_list_classes|default('') %}
+  {% set _point_list_attributes = point_list_attributes|default('') %}
+
+  {# Set options #}
+  {% set _classes = [
+    'point-list-wrapper',
+    'my-4'
+  ] %}
+
+  {% if _point_list_classes is not empty %}
+    {% set _classes = _classes|merge(point_list_classes) %}
+  {% endif %}
+
+  {% if _point_list_attributes is empty %}
+    {% set point_list_attributes = create_attribute() %}
+  {% endif %}
+  {% set point_list_attributes = point_list_attributes
+    .addClass(_classes)
+  %}
+
+  {# Check date length #}
+  {% if _date|length == 1 %}
+    {% set _date = '0' ~ _date %}
+  {% endif %}
+
+  {# Component #}
+  <div{{ point_list_attributes }}>
+    <div class="point-list">
+      <div class="point-list-aside point-list-{{ _variant }}">
+        <div class="point-date font-monospace">{{ _date }}</div>
+        <div class="point-month font-monospace">{{ _month }}</div>
+      </div>
+      <div class="point-list-content">
+        {% block pointListContent %}
+          {% if _card is not empty %}
+            {% include '@bi-bcl/card/card.html.twig' with _card %}
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+
+{% endapply %}

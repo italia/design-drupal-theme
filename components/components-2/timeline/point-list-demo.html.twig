@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * PointList demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/timeline/point-list-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Timeline - Point List'|t,
+    path_demo_code: '/timeline/point-list-demo.html.twig#L19',
+  } %}
+    {% block content %}
+
+      {% for i in 9..14 %}
+        {% include '@bi-bcl/timeline/point-list.html.twig' with {
+          date: i,
+          month: 'Oct',
+          card: {
+            card_title: 'Lorem ipsum',
+            card_teaser: true,
+            card_rounded: true,
+            card_shadow: true,
+          },
+          variant: random(["primary", "secondary", "info", "success", "warning", "danger", "dark" ])
+        } %}
+      {% endfor %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+{% endapply %}
