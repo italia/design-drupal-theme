@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Accordion demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/accordion/accordion-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Accordion'|t,
+    path_demo_code: '/accordion/accordion-demo.html.twig#L19',
+  } %}
+    {% block content %}
+
+      {% include '@bi-bcl/accordion/accordion.html.twig' with {
+        container_id: 'accordion-demo-' ~ random(),
+        background_active: true,
+        items: [
+          {
+            item_title: 'Lorem ipsum dolor sit amet',
+            item_body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+          },
+          {
+            item_title: 'Lorem ipsum dolor sit amet',
+            item_body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+          },
+          {
+            item_title: 'Lorem ipsum dolor sit amet',
+            item_body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+          }
+        ]
+      } %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+{% endapply %}

@@ -3,7 +3,7 @@
  * @file
  * Template for accordion_item component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/accordion/
- * Latest revision: v2.7.5
+ * Latest revision: v2.8.2
  *
  * Parameters:
  * - item_title (string) (default: '')
@@ -13,6 +13,8 @@
  * - item_show (boolean) (default: true)
  * - container_id (string) (default: '')
  *   Enable 'always open' feature
+ * - item_button_classes (array) (default: '')
+ * - item_button_attributes (obj attribute) (default: '')
  *
  * - accordionItemTitle (block) (default: item_title)
  * - accordionItemBody (block) (default: item_body)
@@ -46,6 +48,8 @@
   {% set _title_id = title_id|default('accordion-title-' ~ random()) %}
   {% set _item_show = item_show ?? false %}
   {% set _container_id = container_id|default('') %}
+  {% set _item_button_classes = item_button_classes|default('') %}
+  {% set _item_button_attributes = item_button_attributes|default('') %}
   {% set _accordion_item_classes = accordion_item_classes|default('') %}
   {% set _accordion_item_attributes = accordion_item_attributes|default('') %}
 
@@ -65,20 +69,40 @@
     .addClass(_classes)
   %}
 
+  {% set _button_classes = [
+    'accordion-button',
+    not _item_show ? 'collapsed'
+  ] %}
+
+  {% if _item_button_classes is not empty %}
+    {% set _button_classes = _button_classes|merge(item_button_classes) %}
+  {% endif %}
+
+  {% if _item_button_attributes is empty %}
+    {% set item_button_attributes = create_attribute() %}
+  {% endif %}
+  {% set item_button_attributes = item_button_attributes
+    .addClass(_classes)
+    .setAttribute('data-bs-toggle', 'collapse')
+    .setAttribute('data-bs-target', '#collapse-' ~ _title_id)
+    .setAttribute('aria-expanded', _item_show ? 'true' : 'false')
+    .setAttribute('aria-controls', 'collapse-' ~ _title_id)
+  %}
+
+  {% set _title_content %}
+    {% block accordionItemTitle %}
+      {{ _item_title }}
+    {% endblock %}
+  {% endset %}
+
   {# Component #}
   <div{{ accordion_item_attributes }}>
     <{{ _item_title_tag }} class="accordion-header" id="heading-{{ _title_id }}">
-      <button
-        class="accordion-button{{ _item_show ? '' : ' collapsed' }}"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapse-{{ _title_id }}"
-        aria-expanded="{{ _item_show ? 'true' : 'false' }}"
-        aria-controls="collapse-{{ _title_id }}">
-        {% block accordionItemTitle %}
-          {{ _item_title }}
-        {% endblock %}
-      </button>
+      {% include '@bi-bcl/button/button.html.twig' with {
+        label: _title_content,
+        button_classes: _button_classes,
+        button_attributes: item_button_attributes
+      } %}
     </{{ _item_title_tag }}>
     <div id="collapse-{{ _title_id }}"
       class="accordion-collapse collapse{{ _item_show ? ' show' : '' }}"
