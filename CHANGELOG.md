@@ -41,7 +41,8 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(component,pagination): review v2.8.2
 - fix(component,timeline): review v2.8.2
 - fix(component,field): fixed badges overflowing the container
-- fix(core,js): fix mutation is null when a scrolled page is refreshed and big_pipe has not finished loading
+- fix(core,js): fix mutation is null when a scrolled page is refreshed and
+big_pipe has not finished loading
 
 # Summary 2.7.2
 ## Release notes
