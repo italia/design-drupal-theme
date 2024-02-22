@@ -197,6 +197,8 @@
 
           {%- if item.original_link.getDescription() -%}
             {% set item_attributes = item_attributes.setAttribute('title', item.original_link.getDescription()) %}
+          {%- else -%}
+            {% set item_attributes = item_attributes.setAttribute('title', 'Go to: ' ~ item.title) %}
           {%- endif -%}
 
           {% set aria_id = menu_name ~ '--menu-recursive--' ~ uuid|clean_id %}
