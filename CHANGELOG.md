@@ -38,6 +38,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(component,chip): review v2.8.2
 - fix(component,hero): review v2.8.2
 - fix(component,menu-recursive): set a default value if empty title attribute
+- fix(component,menu-recursive): empty variables in recursive macro
 - fix(component,modal): review v2.8.2
 - fix(component,pagination): review v2.8.2
 - fix(component,timeline): review v2.8.2
