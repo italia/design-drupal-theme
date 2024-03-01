@@ -29,6 +29,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - feat(modules): add point-list component to timeline paragraph
 - feat(deps): up node version to 20 (lts/iron)
 - feat(suggestion): add views_view suggestion
+- feat(template): add block footerEnd in footer template
 - fix(component,accordion): review v2.8.2, add demo, improve code
 - fix(component,alert): review v2.8.2
 - fix(component,avatar): review v2.8.2
