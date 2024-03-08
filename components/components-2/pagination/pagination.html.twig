@@ -44,6 +44,7 @@
  * - text_previous (string) (default: '‹ Previous')
  * - text_next (string) (default: 'Next ›')
  * - show_total_pages (boolean) (default: false)
+ * - pa_website_validator_type (string) (default: '')
  *
  * @see template_preprocess_pager()
  *
@@ -78,6 +79,7 @@
   {% set _text_previous = text_previous|default('‹ Previous'|t) %}
   {% set _text_next = text_next|default('Next ›'|t) %}
   {% set _show_total_pages = show_total_pages ?? false %}
+  {% set _pa_website_validator_type = pa_website_validator_type|default('') %}
 
   {# Set options #}
   {% set _pager_nav_classes = [
@@ -126,7 +128,10 @@
       {# Print previous item. #}
       <li class="{{ _item_classes|merge(['pager__item--previous', not items.previous ? 'disabled'])|join(' ') }}">
         <a class="page-link{{ not items.previous ? ' text' }}"
-           href="{{ items.previous ? items.previous.href : '#' }}"
+          {% if _pa_website_validator_type is not empty %}
+            data-element="pager-link"
+          {% endif %}
+          href="{{ items.previous ? items.previous.href : '#' }}"
           {% if not items.previous %}
             tabindex="-1"
             aria-hidden="true"
@@ -155,7 +160,14 @@
       {# Print first item if we are not on the first page. #}
       {% if items.first and ellipses.previous and _show_first_last_page_link %}
         <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--first'])|join(' ')|trim }}">
-          <a class="page-link text" href="{{ items.first.href }}" title="{{ 'Go to first page'|t }}"{{ items.first.attributes|without('href', 'title') }}>
+          <a class="page-link text"
+            {% if _pa_website_validator_type is not empty %}
+              data-element="pager-link"
+            {% endif %}
+            href="{{ items.first.href }}"
+            title="{{ 'Go to first page'|t }}"
+            {{ items.first.attributes|without('href', 'title') }}
+          >
             <span class="visually-hidden">{{ 'First page'|t }}</span>
             <span aria-hidden="true">{{ _text_first_page }}</span>
           </a>
@@ -180,6 +192,9 @@
           {% endif %}
           <a
             class="page-link"
+            {% if _pa_website_validator_type is not empty and current != key %}
+              data-element="pager-link"
+            {% endif %}
             href="{{ item.href }}" title="{{ title }}"
             {{ item.attributes|without('href', 'title') }}
           >
@@ -224,7 +239,11 @@
       {# Print last item if we are not on the last page. #}
       {% if items.last and ellipses.next and _show_first_last_page_link %}
         <li class="{{ _item_classes|merge(_responsive_classes)|merge(['pager__item--last'])|join(' ')|trim }}">
-          <a class="page-link" href="{{ items.last.href }}" title="{{ 'Go to last page'|t }}"{{ items.last.attributes|without('href', 'title') }}>
+          <a class="page-link"
+             href="{{ items.last.href }}"
+             title="{{ 'Go to last page'|t }}"
+            {{ items.last.attributes|without('href', 'title') }}
+          >
             <span class="visually-hidden">{{ 'Last page'|t }}</span>
             <span aria-hidden="true">{{ _text_last_page }}</span>
           </a>
@@ -234,6 +253,9 @@
       {# Print next item if we are not on the last page. #}
       <li class="{{ _item_classes|merge(['pager__item--next', not items.next ? 'disabled'])|join(' ') }}">
         <a class="page-link{{ not items.next ? ' text' }}"
+          {% if _pa_website_validator_type is not empty %}
+            data-element="pager-link"
+          {% endif %}
           href="{{ items.next ? items.next.href : '#' }}"
           {% if not items.next %}
             tabindex="-1"
@@ -276,11 +298,11 @@
       %}
       <form id="pass-form" onsubmit="document.location.href = '?page=' + --this.goToPage.value + ''; return false;">
         <div class="form-group">
-          <input class="form-control"{{ _attributes_jump_to_page }}>
           <label class="active" for="{{ _id_jump_to_page }}">
             <span aria-hidden="true">{{ 'Go to'|t }}&hellip;</span>
             <span class="visually-hidden">{{ 'Write the page number you want to go to'|t }}</span>
           </label>
+          <input id="{{ _id_jump_to_page }}" class="form-control"{{ _attributes_jump_to_page }}>
         </div>
       </form>
     {% endif %}
