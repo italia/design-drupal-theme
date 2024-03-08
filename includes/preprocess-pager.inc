@@ -21,10 +21,3 @@ function bootstrap_italia_preprocess_pager(array &$variables): void {
 
   $variables['pa_website_validator_type'] = theme_get_setting('pa_website_validator_type');
 }
-
-/**
- * Implements template_preprocess_views_mini_pager().
- */
-function bootstrap_italia_preprocess_views_mini_pager(array &$variables): void {
-  $variables['pa_website_validator_type'] = theme_get_setting('pa_website_validator_type');
-}
