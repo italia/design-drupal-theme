@@ -128,7 +128,7 @@
       {# Print previous item. #}
       <li class="{{ _item_classes|merge(['pager__item--previous', not items.previous ? 'disabled'])|join(' ') }}">
         <a class="page-link{{ not items.previous ? ' text' }}"
-          {% if _pa_website_validator_type is not empty %}
+          {% if _pa_website_validator_type is not empty and items.previous %}
             data-element="pager-link"
           {% endif %}
           href="{{ items.previous ? items.previous.href : '#' }}"
@@ -253,7 +253,7 @@
       {# Print next item if we are not on the last page. #}
       <li class="{{ _item_classes|merge(['pager__item--next', not items.next ? 'disabled'])|join(' ') }}">
         <a class="page-link{{ not items.next ? ' text' }}"
-          {% if _pa_website_validator_type is not empty %}
+          {% if _pa_website_validator_type is not empty and items.next %}
             data-element="pager-link"
           {% endif %}
           href="{{ items.next ? items.next.href : '#' }}"
