@@ -24,6 +24,11 @@ To update "Paragraph Timeline" run:
 $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_paragraph_timeline/config/optional/ --partial
 ```
 
+If you use the experimental module `boostrap_italia_text_editor2` run:
+```shell
+$ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_text_editor2/config/optional/ --partial
+```
+
 ## All changes
 - feat(component): add point-list component
 - feat(component): add data-attribute to pager components
@@ -47,6 +52,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(component,field): fixed badges overflowing the container
 - fix(core,js): fix mutation is null when a scrolled page is refreshed and
 big_pipe has not finished loading
+- fix(module,ckeditor5): fix The <img> tag is not yet supported by the Style plugin
 
 # Summary 2.7.2
 ## Release notes
