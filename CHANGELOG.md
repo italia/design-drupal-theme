@@ -1,6 +1,12 @@
 # Summary 2.8.0
 ## Release notes
 
+
+### Breaking changes!!!
+1. After the update check the "Theme Settings -> Navigation settings ->
+Breadcrumb -> Include the current page" option if you want to display
+the current page as the last element of the breadcrumb.
+
 ## Update libraries
 ### Vanilla libraries
 ...
@@ -36,6 +42,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - feat(deps): up node version to 20 (lts/iron)
 - feat(suggestion): add views_view suggestion
 - feat(template): add block footerEnd in footer template
+- feat(component,breadcrumbs): add option to include current page
 - fix(component,accordion): review v2.8.2, add demo, improve code
 - fix(component,alert): review v2.8.2
 - fix(component,avatar): review v2.8.2

@@ -465,6 +465,12 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#open' => FALSE,
     '#group' => 'navigation_components',
   ];
+  $form['navigation_components']['breadcrumb']['breadcrumb_include_current_page'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Include the current page'),
+    '#description' => t('If checked, include the current page as the last segment in the breadcrumb. Leave unchecked if you use a module to handle the breadcrumb and use the third-party module options. Default: checked'),
+    '#default_value' => theme_get_setting('breadcrumb_include_current_page'),
+  ];
   $form['navigation_components']['breadcrumb']['breadcrumb_dark_background'] = [
     '#type' => 'checkbox',
     '#title' => t('Dark Background'),
