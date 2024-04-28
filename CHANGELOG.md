@@ -38,6 +38,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 ## All changes
 - feat(component): add point-list component
 - feat(component): add data-attribute to pager components
+- feat(component): add blocks to modal component
 - feat(modules): add point-list component to timeline paragraph
 - feat(deps): up node version to 20 (lts/iron)
 - feat(suggestion): add views_view suggestion

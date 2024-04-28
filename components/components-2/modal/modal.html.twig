@@ -171,34 +171,42 @@
 
         {% if _modal_icon or _modal_title or _dismissible %}
           <div class="modal-header">
-            {% if _modal_icon %}
-              {% include '@bi-bcl/icon/icon.html.twig' with {
-                name: _modal_icon,
-                color: 'primary',
-              } %}
-            {% endif %}
+            {% block modalIcon %}
+              {% if _modal_icon %}
+                {% include '@bi-bcl/icon/icon.html.twig' with {
+                  name: _modal_icon,
+                  color: 'primary',
+                } %}
+              {% endif %}
+            {% endblock %}
 
-            {% if _modal_title %}
-              <h2 class="modal-title h5" id="{{ _id~'-title' }}">
-                {% block modalTitle %}
-                  {{ _modal_title }}
-                {% endblock %}
-              </h2>
-            {% endif %}
+            {% block modalTitle %}
+              {% if _modal_title %}
+                <h2 class="modal-title h5" id="{{ _id~'-title' }}">
+                  {% block modalTitle %}
+                    {{ _modal_title }}
+                  {% endblock %}
+                </h2>
+              {% endif %}
+            {% endblock %}
 
-            {% if _dismissible %}
-              <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="{{ 'Close modal dialog'|t }}">
-                {% include '@bi-bcl/icon/icon.html.twig' with { name: 'it-close' } %}
-              </button>
-            {% endif %}
+            {% block modalClose %}
+              {% if _dismissible %}
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="{{ 'Close modal dialog'|t }}">
+                  {% include '@bi-bcl/icon/icon.html.twig' with { name: 'it-close' } %}
+                </button>
+              {% endif %}
+            {% endblock %}
           </div>
         {% endif %}
 
         <div class="modal-body">
 
-          {% if _modal_description %}
-            <p id="{{ _id~'-description' }}">{{ _modal_description }}</p>
-          {% endif %}
+          {% block modalDescription %}
+            {% if _modal_description %}
+              <p id="{{ _id~'-description' }}">{{ _modal_description }}</p>
+            {% endif %}
+          {% endblock %}
 
           {% block modalBody %}
             <p>{{ _modal_body }}</p>
