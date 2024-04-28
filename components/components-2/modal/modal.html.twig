@@ -180,15 +180,13 @@
               {% endif %}
             {% endblock %}
 
-            {% block modalTitle %}
-              {% if _modal_title %}
-                <h2 class="modal-title h5" id="{{ _id~'-title' }}">
-                  {% block modalTitle %}
-                    {{ _modal_title }}
-                  {% endblock %}
-                </h2>
-              {% endif %}
-            {% endblock %}
+            {% if _modal_title %}
+              <h2 class="modal-title h5" id="{{ _id~'-title' }}">
+                {% block modalTitle %}
+                  {{ _modal_title }}
+                {% endblock %}
+              </h2>
+            {% endif %}
 
             {% block modalClose %}
               {% if _dismissible %}
