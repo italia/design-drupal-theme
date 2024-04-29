@@ -15,7 +15,8 @@ use Drupal\Core\Template\Attribute;
  */
 function bootstrap_italia_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
   if (isset($form['actions']['submit']) && (count($form['actions'])) <= 2) {
-    $form['actions']['submit']['#attributes']['class'][] = 'btn btn-primary';
+    $form['actions']['submit']['#attributes']['class'][] = 'btn';
+    $form['actions']['submit']['#attributes']['class'][] = 'btn-primary';
   }
 
   switch ($form_id) {
@@ -24,13 +25,16 @@ function bootstrap_italia_form_alter(array &$form, FormStateInterface $form_stat
       $form['keys']['#attributes']['placeholder'] = t('Search by keyword or phrase.');
 
       // Add classes to the search form submit input.
-      $form['actions']['submit']['#attributes']['class'][] = 'btn btn-primary';
+      $form['actions']['submit']['#attributes']['class'][] = 'btn';
+      $form['actions']['submit']['#attributes']['class'][] = 'btn-primary';
       break;
 
     case 'search_form':
       $form['basic']['keys']['#attributes']['placeholder'] = t('Search by keyword or phrase.');
-      $form['basic']['submit']['#attributes']['class'][] = 'btn btn-primary';
-      $form['advanced']['submit']['#attributes']['class'][] = 'btn btn-primary';
+      $form['basic']['submit']['#attributes']['class'][] = 'btn';
+      $form['basic']['submit']['#attributes']['class'][] = 'btn-primary';
+      $form['advanced']['submit']['#attributes']['class'][] = 'btn';
+      $form['advanced']['submit']['#attributes']['class'][] = 'btn-primary';
       break;
   }
 

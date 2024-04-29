@@ -51,6 +51,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(component,card): review v2.8.2
 - fix(component,carousel): review v2.8.2
 - fix(component,chip): review v2.8.2
+- fix(component,form): fix bad practice for adding classes
 - fix(component,hero): review v2.8.2
 - fix(component,menu-recursive): set a default value if empty title attribute
 - fix(component,menu-recursive): empty variables in recursive macro
