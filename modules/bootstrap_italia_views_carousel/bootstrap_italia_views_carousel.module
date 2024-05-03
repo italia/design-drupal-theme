@@ -7,6 +7,7 @@
 
 use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\CarouselStyle;
 use Drupal\bootstrap_italia_views_carousel\Plugin\views\style\SlideStyle;
+use Drupal\bootstrap_italia\Helper\Suggestions;
 
 /**
  * Implements hook_theme().
@@ -69,7 +70,7 @@ function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$s
 
     // @todo This condition is always false?
     if ($view->style_plugin instanceof CarouselStyle) {
-      $suggestions[] = 'block__views_views_bi_carousel__' . $view->id();
+      $suggestions[] = 'block__views_views_bi_carousel__' . Suggestions::sanitize($view->id());
       $suggestions[] = 'block__views_views_bi_carousel';
     }
   }
@@ -80,11 +81,11 @@ function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$s
  */
 function bootstrap_italia_views_carousel_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof CarouselStyle) {
-    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel__' . Suggestions::sanitize($variables['view']->storage->id());
     $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel';
   }
   if ($variables['view']->style_plugin instanceof SlideStyle) {
-    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide__' . Suggestions::sanitize($variables['view']->storage->id());
     $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide';
   }
 }
@@ -94,7 +95,7 @@ function bootstrap_italia_views_carousel_theme_suggestions_views_view_alter(arra
  */
 function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_italia_views_carousel_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof CarouselStyle) {
-    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel__' . Suggestions::sanitize($variables['view']->storage->id());
     $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel';
   }
 }
@@ -104,7 +105,7 @@ function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_itali
  */
 function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_italia_views_carousel_slide_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof SlideStyle) {
-    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide__' . $variables['view']->storage->id();
+    $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide__' . Suggestions::sanitize($variables['view']->storage->id());
     $suggestions[] = $variables['theme_hook_original'] . '_bi_carousel_slide';
   }
 }
