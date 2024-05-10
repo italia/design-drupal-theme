@@ -23,6 +23,9 @@ function bootstrap_italia_preprocess_menu(array &$variables): void {
       $uid = $current_user->id();
       $account = User::load($uid);
       $variables['slim_header_action_username'] = $account->getDisplayName();
+
+      // Fix cache.
+      $variables['#cache']['contexts'][] = 'user';
     }
   }
   // Menu in main navbar.
