@@ -62,6 +62,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - fix(core,js): fix mutation is null when a scrolled page is refreshed and
 big_pipe has not finished loading
 - fix(module,ckeditor5): fix The <img> tag is not yet supported by the Style plugin
+- fix: issue #3368907
 
 # Summary 2.7.2
 ## Release notes
