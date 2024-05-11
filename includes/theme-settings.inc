@@ -995,6 +995,16 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#default_value' => theme_get_setting('libraries_type'),
     '#options' => Libraries::getLibraries(),
   ];
+  $form['libraries_settings']['libraries_fonts_load_from_css'] = [
+    '#type' => 'checkbox',
+    '#title' => t("My library loads fonts via css."),
+    '#description' => t('If your library loads fonts via css (<a href="@link" title="@title" target="_blank">@label</a>), check this option; you will get a small performance boost when loading fonts. Default: unchecked.', [
+      '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/#fonts',
+      '@title' => 'Read the docs',
+      '@label' => 'Docs'
+    ]),
+    '#default_value' => theme_get_setting('libraries_fonts_load_from_css'),
+  ];
 
   // Vanilla Settings.
   $form['libraries_settings']['vanilla'] = [

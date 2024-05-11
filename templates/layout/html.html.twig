@@ -66,10 +66,12 @@
       } %}
     {% endif %}
 
-    {% set _libraries_cdn_fonts_path = libraries_cdn_fonts is not empty ?
-      libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/dist/fonts'
-    %}
-    <script>window.__PUBLIC_PATH__ = '{{ _libraries_cdn_fonts_path }}'</script>
+    {% if libraries_fonts_load_from_css == 0 %}
+      {% set _libraries_cdn_fonts_path = libraries_cdn_fonts is not empty ?
+        libraries_cdn_fonts : base_path ~ "/" ~ directory ~ '/dist/fonts'
+      %}
+      <script>window.__PUBLIC_PATH__ = '{{ _libraries_cdn_fonts_path }}'</script>
+    {% endif %}
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>

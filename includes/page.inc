@@ -104,5 +104,6 @@ function bootstrap_italia_preprocess_html(array &$variables): void {
   }
 
   // Font from cdn.
+  $variables['libraries_fonts_load_from_css'] = (bool) theme_get_setting('libraries_fonts_load_from_css');
   $variables['libraries_cdn_fonts'] = theme_get_setting('libraries_cdn_fonts');
 }
