@@ -122,7 +122,7 @@
 
   {# Component #}
   {% if items %}
-  <nav class="{{ _pager_nav_classes|join(' ')|trim }}" aria-label="{{ 'Pagination results'|t }}">
+  <nav class="{{ _pager_nav_classes|join(' ')|trim }}" aria-description="{{ 'Pagination results'|t }}">
     <ul class="pagination pager__items js-pager__items" aria-label="{{ 'Page @current of @total_pages'|t({'@current': current, '@total_pages': total_pages}) }}">
 
       {# Print previous item. #}
