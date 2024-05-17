@@ -21,5 +21,7 @@
     image_border and image_border != '' ? 'border-'~image_border,
   ] %}
 
-  <img{{ attributes.addClass(classes) }}>
+  {% include '@system/image.html.twig' with {
+    attributes: attributes.addClass(classes)
+  } %}
 {% endapply %}
