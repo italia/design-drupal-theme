@@ -41,7 +41,7 @@
   ] %}
 
   <body{{ attributes.addClass(_body_classes) }}>
-    <div role="navigation" class="skip-navigation">
+    <div role="navigation" class="skip-navigation" aria-label="{{ 'Skip links'|t }}">
       {# Keyboard navigation/accessibility link to:
           - main content section in ./content/_partial.content.html.twig;
           - footer content in ./footer/_partial.footer.html.twig.
