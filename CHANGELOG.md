@@ -51,6 +51,7 @@ whether fonts are loaded via CSS
 - fix(a11y): remove wrong aria-label attribute from navbar
 - fix(a11y): remove wrong landmark attribute from pagination
 - fix(a11y): add aria-description attribute to navbar
+- fix(a11y): add aria-label to login navbar
 - fix(component,accordion): review v2.8.2, add demo, improve code
 - fix(component,alert): review v2.8.2
 - fix(component,avatar): review v2.8.2
