@@ -122,8 +122,8 @@
 
   {# Component #}
   {% if items %}
-  <nav class="{{ _pager_nav_classes|join(' ')|trim }}" aria-description="{{ 'Pagination results'|t }}">
-    <ul class="pagination pager__items js-pager__items" aria-label="{{ 'Page @current of @total_pages'|t({'@current': current, '@total_pages': total_pages}) }}">
+  <nav class="{{ _pager_nav_classes|join(' ')|trim }}" aria-description="{{ 'Pagination results'|t }}" aria-label="{{ heading_id }}">
+    <ul class="pagination pager__items js-pager__items" aria-description="{{ 'Page @current of @total_pages'|t({'@current': current, '@total_pages': total_pages}) }}">
 
       {# Print previous item. #}
       <li class="{{ _item_classes|merge(['pager__item--previous', not items.previous ? 'disabled'])|join(' ') }}">
