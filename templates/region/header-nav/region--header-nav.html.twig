@@ -18,7 +18,16 @@
   {% if content %}
     {% set _header_nav_id = region~'-main-navbar' %}
 
-    <div class="navbar navbar-expand-{{ navigation_header_breakpoint_expand ?: 'lg' }} has-megamenu" aria-label="{{ 'Main navigation'|t }}" role="navigation">
+    {% set attributes = attributes
+      .addClass([
+        'navbar',
+        'navbar-expand-' ~ navigation_header_breakpoint_expand ?: 'lg',
+        'has-megamenu'
+      ])
+      .setAttribute('aria-label', 'Main navigation'|t)
+    %}
+
+    <div{{ attributes }}>
       <button
         class="custom-navbar-toggler"
         type="button"
