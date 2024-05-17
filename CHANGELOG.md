@@ -46,6 +46,7 @@ whether fonts are loaded via CSS
 - feat(suggestion): add views_view suggestion
 - feat(template): add block footerEnd in footer template
 - feat(component,breadcrumbs): add option to include current page
+- fix(a11y): add correct landmark attribute to skip-links
 - fix(component,accordion): review v2.8.2, add demo, improve code
 - fix(component,alert): review v2.8.2
 - fix(component,avatar): review v2.8.2
