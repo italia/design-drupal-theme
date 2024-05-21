@@ -14,7 +14,16 @@ the current page as the last element of the breadcrumb.
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-...
+$ npm install bootstrap-italia@2.8.2 --save-exact
+$ npm install copy-webpack-plugin@^12 --save-dev
+$ npm install css-loader@^7 --save-dev
+$ npm install postcss-loader@^8 --save-dev
+$ npm install sass-loader@^14 --save-dev
+$ npm install style-loader@^4 --save-dev
+$ npm install webpack-dev-server@^5 --save-dev
+$ npm update
+$ npm run build:prod
+$ drush cr
 ```
 Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - update:
