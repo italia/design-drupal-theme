@@ -76,7 +76,8 @@ whether fonts are loaded via CSS
 - fix(component,carousel): review v2.8.2
 - fix(component,chip): review v2.8.2
 - fix(component,form): fix bad practice for adding classes
-- fix(component,form): manage breaking change prepend input v.2.8.0
+- fix(component,form): manage breaking change prepend input v2.8.0
+- fix(component,form): review textarea v2.8.2
 - fix(component,hero): review v2.8.2
 - fix(component,image): refactoring
 - fix(component,input-number): review v2.8.2
