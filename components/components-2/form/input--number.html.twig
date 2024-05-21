@@ -37,10 +37,12 @@
   {% if attributes.hasClass('input-number-currency') %}
     {% set wrapper_classes = wrapper_classes|merge(['input-number-currency']) %}
     {% set attributes = attributes.removeClass('input-number-currency') %}
+    {% set input_prefix = '€' %}
   {% endif %}
   {% if attributes.hasClass('input-number-percentage') %}
     {% set wrapper_classes = wrapper_classes|merge(['input-number-percentage']) %}
     {% set attributes = attributes.removeClass('input-number-percentage') %}
+    {% set input_prefix = '%' %}
   {% endif %}
   {% if attributes.hasClass('input-number-adaptive') %}
     {% set wrapper_classes = wrapper_classes|merge(['input-number-adaptive']) %}
@@ -49,6 +51,9 @@
 
   {# Component #}
   <div class="{{ wrapper_classes|join(' ') }}">
+    {% if input_prefix %}
+      <span class="input-group-text fw-semibold">{{ input_prefix }}</span>
+    {% endif %}
     <input{{ attributes }}>
     <span class="input-group-text align-buttons flex-column">
       <button class="input-number-add">
