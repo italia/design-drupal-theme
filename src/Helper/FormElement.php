@@ -279,7 +279,6 @@ class FormElement {
    */
   private static function setSelect(array &$variables): void {
     $variables['attributes']['class'][] = 'select-wrapper';
-    $variables['attributes']['class'][] = 'form-group';
   }
 
   /**

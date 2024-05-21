@@ -83,6 +83,7 @@ whether fonts are loaded via CSS
 - fix(component,menu-recursive): empty variables in recursive macro
 - fix(component,modal): review v2.8.2
 - fix(component,pagination): review v2.8.2
+- fix(component,select): review v2.8.2
 - fix(component,timeline): review v2.8.2
 - fix(component,field): fixed badges overflowing the container
 - fix(core,js): fix mutation is null when a scrolled page is refreshed and
