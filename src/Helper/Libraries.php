@@ -113,9 +113,7 @@ class Libraries {
       ? self::$distributionFolder . '/js/bootstrap-italia.bundle.min.js'
       : self::$distributionFolder . '/js/bootstrap-italia.min.js';
 
-    $css = Helper::getSettings()->get('libraries_vanilla_comuni')
-      ? self::$distributionFolder . '/css/bootstrap-italia-comuni.min.css'
-      : self::$distributionFolder . '/css/bootstrap-italia.min.css';
+    $css = self::$distributionFolder . '/css/bootstrap-italia.min.css';
 
     return [
       'css' => [

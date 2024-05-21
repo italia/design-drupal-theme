@@ -1024,12 +1024,6 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t("Default: checked"),
     '#default_value' => theme_get_setting('libraries_vanilla_bundle'),
   ];
-  $form['libraries_settings']['vanilla']['libraries_vanilla_comuni'] = [
-    '#type' => 'checkbox',
-    '#title' => t("Use the 'comuni' variant."),
-    '#description' => t("Default: unchecked"),
-    '#default_value' => theme_get_setting('libraries_vanilla_comuni'),
-  ];
 
   // CDN Settings.
   $form['libraries_settings']['cdn'] = [

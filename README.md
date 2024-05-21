@@ -53,7 +53,7 @@ You can install the bootstrap-italia library in several ways.
 
 ### A. Bootstrap-italia vanilla
 
-Download https://github.com/italia/bootstrap-italia/releases/download/v2.7.7/bootstrap-italia.zip
+Download https://github.com/italia/bootstrap-italia/releases/download/v2.8.2/bootstrap-italia.zip
 and unzip in `<your-subtheme>/dist`.
 
 ### B. Custom build for developer or advanced user
@@ -190,7 +190,7 @@ new CopyWebpackPlugin({
   ]
 }),
 ```
-Once you have made this change, you need to modify your subtheme's
+Once you have made this change, you need to modify your sub-theme's
 `src/scss/custom/custom.scss` file and add `@import "../fonts";`
 as the first rule. After that, run the following commands:
 ```shell
@@ -199,24 +199,23 @@ $ drush cr
 ```
 At this point, the fonts will be loaded via CSS from the `dist` folder.
 
+Finally, it is recommended to activate the option: "Appearance -> Settings ->
+your sub-theme -> Libraries -> My library loads fonts via css".
+
 ### Compiling CSS for CKEditor5 (Advanced Users)
 To compile CSS for CKEditor5, you need to uncomment the relevant line in the
 `webpack.common.js` file. Update the file from:
 ```js
 entry: {
   "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
-  //"bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss'],
   //"ckeditor5": paths.src + '/scss/ckeditor5.scss',
-  //"ckeditor5-comuni": paths.src + '/scss/ckeditor5-comuni.scss',
 }
 ```
 to:
 ```js
 entry: {
   "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
-  //"bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss'],
   "ckeditor5": paths.src + '/scss/ckeditor5.scss',
-  //"ckeditor5-comuni": paths.src + '/scss/ckeditor5-comuni.scss',
 }
 ```
 After making this change, proceed with the regular build process. If you're
@@ -523,7 +522,7 @@ This script works for ddev >= 1.18.0 (Sept 2021)
 
 Download ad run latest stable release:
 ```shell
-$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.7.x/var/bin/build-ddev-installation.sh")
+$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.8.x/var/bin/build-ddev-installation.sh")
 ```
 
 Download ad run dev release:

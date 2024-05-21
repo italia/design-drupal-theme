@@ -11,9 +11,7 @@ module.exports = {
   // Entry
   entry: {
     "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
-    //"bootstrap-italia-comuni": [paths.src + '/js/index.js', paths.src + '/scss/theme-comuni.scss'],
     //"ckeditor5": paths.src + '/scss/ckeditor5.scss',
-    //"ckeditor5-comuni": paths.src + '/scss/ckeditor5-comuni.scss',
   },
 
   // Output

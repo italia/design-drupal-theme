@@ -6,6 +6,9 @@
 1. After the update check the "Theme Settings -> Navigation settings ->
 Breadcrumb -> Include the current page" option if you want to display
 the current page as the last element of the breadcrumb.
+2. The "Comuni" variant has been removed, for more information see
+https://github.com/italia/bootstrap-italia/commit/35d56a266f27b53b90c4c66be0bc23513e1a86bb
+
 
 ## Update libraries
 ### Vanilla libraries
@@ -55,6 +58,7 @@ whether fonts are loaded via CSS
 - feat(suggestion): add views_view suggestion
 - feat(template): add block footerEnd in footer template
 - feat(component,breadcrumbs): add option to include current page
+- feat(libraries)!: remove comuni variant
 - fix(a11y): add correct landmark attribute to skip-links
 - fix(a11y): remove wrong landmark attribute from navbar
 - fix(a11y): remove wrong aria-label attribute from navbar
