@@ -79,9 +79,7 @@
   <div class="input-group">
   {% endif %}
     {% if prefix is not empty %}
-      <div class="input-group-prepend">
-        <div class="field-prefix input-group-text">{{ prefix }}</div>
-      </div>
+      <span class="input-group-text field-prefix">{ prefix }}</span>
     {% endif %}
 
     {% if label_display in ['before', 'invisible'] %}
@@ -95,9 +93,7 @@
     {% endif %}
 
     {% if suffix is not empty %}
-      <div class="input-group-append">
-        <span class="field-suffix">{{ suffix }}</span>
-      </div>
+      <div class="input-group-append field-suffix">{{ suffix }}</div>
     {% endif %}
   {% if prefix in not empty or suffix is not empty %}
   </div>
