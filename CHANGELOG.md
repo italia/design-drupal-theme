@@ -78,6 +78,7 @@ whether fonts are loaded via CSS
 - fix(component,form): fix bad practice for adding classes
 - fix(component,hero): review v2.8.2
 - fix(component,image): refactoring
+- fix(component,input-number): review v2.8.2
 - fix(component,menu-recursive): set a default value if empty title attribute
 - fix(component,menu-recursive): empty variables in recursive macro
 - fix(component,modal): review v2.8.2
