@@ -7,8 +7,8 @@
 Breadcrumb -> Include the current page" option if you want to display
 the current page as the last element of the breadcrumb.
 2. The "Comuni" variant has been removed, for more information see
-https://github.com/italia/bootstrap-italia/commit/35d56a266f27b53b90c4c66be0bc23513e1a86bb
-
+https://github.com/italia/bootstrap-italia/commit/35d56a266f27b53b90c4c66be0bc23513e1a86bb,
+new version are in https://github.com/italia/design-comuni-pagine-statiche
 
 ## Update libraries
 ### Vanilla libraries
@@ -34,7 +34,9 @@ Using as reference the files contained in `/var/starter_kits/italiagov/...`
 - add:
   - ...
 - delete:
-  - ...
+  - `<your-sub-theme>/src/scss/custom-comuni/*`
+  - `<your-sub-theme>/src/scss/ckeditor5-comuni.scss`
+  - `<your-sub-theme>/src/scss/theme-comuni.scss`
 
 ## Update modules
 To update "Paragraph Timeline" run:
