@@ -136,22 +136,22 @@
         {%- endif -%}
 
           {%- if _item.title -%}{# Menu item. #}
-            {{ _item.title }}
+            {{- _item.title -}}
           {%- elseif _item['#title'] -%}{# Link item. #}
-            {{ _item['#title'] }}
+            {{- _item['#title'] -}}
           {%- elseif item.text -%}{# Link item no url #}
-            {{ item.text }}
+            {{- item.text -}}
           {%- elseif _item['#options'].attributes['title'] -%}{# Link item no title #}
-            {{ _item['#options'].attributes['title'] }}
+            {{- _item['#options'].attributes['title'] -}}
+          {%- endif -%}
+
+          {# Original_link only in menu item #}
+          {%- if _item.original_link.getDescription() and _show_link_description -%}
+            <small class="d-block">{{ _item.original_link.getDescription() }}</small>
           {%- endif -%}
 
         {%- if _title_wrapper_tag is not empty -%}
           </{{ _title_wrapper_tag }}>
-        {%- endif -%}
-
-        {# Original_link only in menu item #}
-        {%- if _item.original_link.getDescription() and _show_link_description -%}
-          <p>{{ _item.original_link.getDescription() }}</p>
         {%- endif -%}
 
         {# in_active_trail only in menu item #}
