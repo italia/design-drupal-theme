@@ -53,14 +53,15 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - feat(component): add point-list component
 - feat(component): add data-attribute to pager components
 - feat(component): add blocks to modal component
+- feat(component,breadcrumbs): add option to include current page
+- feat(component,megamenu): review 2.8.0
 - feat(core,performance): Added an option in the Library settings to specify
-whether fonts are loaded via CSS
-- feat(modules): add point-list component to timeline paragraph
+  whether fonts are loaded via CSS
 - feat(deps): up node version to 20 (lts/iron)
+- feat(libraries)!: remove comuni variant
+- feat(modules): add point-list component to timeline paragraph
 - feat(suggestion): add views_view suggestion
 - feat(template): add block footerEnd in footer template
-- feat(component,breadcrumbs): add option to include current page
-- feat(libraries)!: remove comuni variant
 - fix(a11y): add correct landmark attribute to skip-links
 - fix(a11y): remove wrong landmark attribute from navbar
 - fix(a11y): remove wrong aria-label attribute from navbar

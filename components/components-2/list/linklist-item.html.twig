@@ -25,6 +25,7 @@
  * - active_items_bold (boolean) (default: false)
  * - show_link_description (boolean) (default: false)
  * - active_assistive_text (string) (default: '')
+ * - show_icon (boolean) (default: false)
  * - linklist_item_classes (array) (default: '')
  * - linklist_item_attributes (obj attribute) (default: '')
  *
@@ -50,13 +51,14 @@
   {% set _active_items_bold = active_items_bold ?? false %}
   {% set _show_link_description = show_link_description ?? false %}
   {% set _active_assistive_text = active_assistive_text|default('Current page'|trans) %}
+  {% set _show_icon = show_icon ?? false %}
   {% set _linklist_item_classes = linklist_item_classes|default('') %}
   {% set _linklist_item_attributes = linklist_item_attributes|default('') %}
 
   {# Set options #}
   {% set _classes = [
-    _list_type is not empty ? _list_type ~ '-item',
     'list-item',
+    _list_type is not empty ? _list_type ~ '-item',
     _verbose_classes and _level is not empty ? 'nav-link__level-' ~ _level,
     _item.in_active_trail ? 'active',
     _item.in_active_trail and _active_items_large ? 'large',
@@ -116,10 +118,18 @@
       (_item.url.isRouted and _item.url.routeName == '<button>') or
       (_item['#url'].isRouted and _item['#url'].routeName == '<button>')
     -%}
-      <h4 class="text-uppercase h6 pt-4">{{ _item.title }}</h4>
+      <div class="link-list-heading">{{ _item.title }}</div>
 
     {%- else -%}
       {%- set _linklist_title -%}
+
+        {% if _show_icon %}
+          {% include '@bi-bcl/icon/icon.html.twig' with {
+            name: 'it-arrow-right-triangle',
+            size: 'sm',
+            icon_classes: ['me-2']
+          } %}
+        {% endif %}
 
         {%- if _title_wrapper_tag is not empty -%}
         <{{ _title_wrapper_tag }}{{ item.text_attributes ? item.text_attributes }}>
