@@ -90,6 +90,12 @@
     .addClass(_classes)
   %}
 
+  {% if _chip_disabled %}
+    {% set chip_attributes = chip_attributes
+      .setAttribute('aria-disabled', true)
+    %}
+  {% endif %}
+
   {# Component #}
   <div{{ chip_attributes }}>
 
