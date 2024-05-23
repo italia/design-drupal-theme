@@ -5,7 +5,7 @@ namespace Drupal\bootstrap_italia\Helper;
 use Drupal\block_content\BlockContentInterface;
 use Drupal\Component\Utility\Html;
 use Drupal\node\NodeInterface;
-use Drupal\taxonomy\TermInterface;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Helper Suggestions class for bootstrap_italia theme.
@@ -129,8 +129,8 @@ class Suggestions {
     if (($term = \Drupal::request()->attributes->get('taxonomy_term')) &&
       !strpos($_SERVER['REQUEST_URI'], "revisions")
     ) {
-      if ($term instanceof TermInterface) {
-        if ($term->parent->target_id == 0) {
+      if ($term instanceof Term) {
+        if ($term->get('parent')->target_id == 0) {
           $suggestions[] = 'page__taxonomy__term__firstlevel';
         }
         else {
