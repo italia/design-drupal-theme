@@ -95,6 +95,7 @@ and bootstrap-italia variants
 - fix(a11y): add aria-label to login navbar
 - fix(a11y): remove wrong landmark attribute from pagination
 - fix(a11y): add unique aria-label attribute to pagination
+- fix(a11y): landmark h1 home, footer and remove duplicate id in home
 - fix(component,accordion): review v2.8.2, add demo, improve code
 - fix(component,alert): review v2.8.2
 - fix(component,avatar): review v2.8.2

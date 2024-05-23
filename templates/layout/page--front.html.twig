@@ -49,7 +49,16 @@
   {% include '@bootstrap_italia/layout/header/_partial.header.html.twig' %}
 
   {% block homePageTitle %}
-    <h1 class="visually-hidden" id="it-main-content">{{ site_name }}</h1>
+    {% set _h1_attributes = create_attribute()
+        .addClass(['visually-hidden'])
+    %}
+    {% if not show_main_content_in_front %}
+      {% set _h1_attributes = _h1_attributes
+        .setAttribute('id', 'it-main-content')
+        .setAttribute('role', 'main')
+      %}
+    {% endif %}
+    <h1{{ _h1_attributes }}>{{ site_name }}</h1>
   {% endblock %}
 
   {% include '@bootstrap_italia/layout/front/_partial.home-first-row.html.twig' %}
