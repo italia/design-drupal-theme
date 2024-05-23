@@ -78,6 +78,7 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
 - feat(component): add blocks to modal component
 - feat(component,breadcrumbs): add option to include current page
 - feat(component,megamenu): review 2.8.0
+- feat(component,socials): add Threads
 - feat(core,performance): Added an option in the Library settings to specify
   whether fonts are loaded via CSS
 - feat(deps): up node version to 20 (lts/iron)

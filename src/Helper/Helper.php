@@ -64,6 +64,7 @@ class Helper {
       'Stackexchange',
       'Stackoverflow',
       'Telegram',
+      'Threads',
       'Tiktok',
       'Twitter',
       'Vimeo',
