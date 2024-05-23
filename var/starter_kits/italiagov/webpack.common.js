@@ -81,12 +81,8 @@ module.exports = {
       apply: (compiler) => {
         compiler.hooks.afterEmit.tap('AfterEmitPlugin', (compilation) => {
           const ckeditorJsFile = compiler.options.output.path + '/js/ckeditor5.min.js';
-          const ckeditorComuniJsFile = compiler.options.output.path + '/js/ckeditor5-comuni.min.js';
           if (fs.existsSync(ckeditorJsFile)) {
             rimraf.sync(ckeditorJsFile);
-          }
-          if (fs.existsSync(ckeditorComuniJsFile)) {
-            rimraf.sync(ckeditorComuniJsFile);
           }
         });
       },

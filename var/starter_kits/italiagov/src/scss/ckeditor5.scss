@@ -11,22 +11,51 @@
 .ck-content {
   // Bootstrap Italia version variable.
   // Useful to check for the current version.
-  @import 'bootstrap-italia/src/scss/custom/version';
+  //@import 'bootstrap-italia/src/scss/custom/version';
 
   // Bootstrap Italia: functions.
   @import 'bootstrap-italia/src/scss/functions';
 
-  // Drupal theme: custom palette.
-  @import 'custom/palette';
+  // ------->> Drupal theme: custom colors. <<-------
+  @import 'custom/colors_vars';
 
   // Bootstrap Italia: color variables.
   @import 'bootstrap-italia/src/scss/utilities/colors_vars';
 
-  // Drupal theme: custom variables.
+  // ------->> Drupal theme: custom variables. <<-------
   @import 'custom/variables';
 
-  // Import boostrap-italia styles.
-  @import "bootstrap-italia";
+  // Bootstrap Italia: variables.
+  @import 'bootstrap-italia/src/scss/variables';
+
+  // Bootstrap Italia: color classes.
+  @import 'bootstrap-italia/src/scss/utilities/colors';
+
+  // BS5: Configuration.
+  @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  //@import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/mixins';
+
+  // Bootstrap Italia: custom mixins.
+  @import 'bootstrap-italia/src/scss/custom/mixins/buttons';
+  @import 'bootstrap-italia/src/scss/custom/mixins/text-emphasis';
+
+  // ------->> Drupal theme: custom maps. <<-------
+  @import 'custom/maps';
+
+  // BS5: Utilities.
+  @import 'bootstrap/scss/maps';
+  @import 'bootstrap/scss/utilities';
+
+  // ------->> Drupal theme: custom configuration. <<-------
+  @import "custom/bootstrap_configuration";
+
+  // BS5: Bootstrap components and layout.
+  @import "bootstrap_ckeditor5";
+
+  // Bootstrap Italia: components and styles.
+  @import "bootstrap-italia_ckeditor5";
 
   // Default ckeditor5 text style
   p, h1, h2, h3, h4, h5, h6 {
@@ -34,7 +63,6 @@
   };
 
   // Your custom styles.
-  @import "custom/custom";
-
+  @import "custom/custom_ckeditor5";
 
 }

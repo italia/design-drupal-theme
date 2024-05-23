@@ -1,6 +1,12 @@
 # Summary 2.8.0
 ## Release notes
-
+This version 2.8.0 of Bootstrap Italia introduces new features, improvements,
+and bug fixes.
+There are some significant changes that may require attention during
+the update, including changes in the style build process and
+the removal of the "Comuni" variant.
+Please make sure to read the following sections carefully to ensure
+a smooth transition to the new version.
 
 ### Breaking changes!!!
 1. After the update check the "Theme Settings -> Navigation settings ->
@@ -9,10 +15,16 @@ the current page as the last element of the breadcrumb.
 2. The "Comuni" variant has been removed, for more information see
 https://github.com/italia/bootstrap-italia/commit/35d56a266f27b53b90c4c66be0bc23513e1a86bb,
 new version are in https://github.com/italia/design-comuni-pagine-statiche
+3. The style build process has changed, new features have been added,
+if you want to use the new features you need to update your sub-theme
+as described in the following paragraphs.
+If you don't want the new features you don't have to change anything.
+It's almost a breaking change :).
 
 ## Update libraries
 ### Vanilla libraries
-...
+If you use vanilla libraries, download bootstrap-italia v2.8.7
+and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
@@ -29,10 +41,21 @@ $ npm run build:prod
 $ drush cr
 ```
 Using as reference the files contained in `/var/starter_kits/italiagov/...`
+and update `/themes/custom/<your-sub-theme>`
 - update:
-  - `<your-sub-theme>/.nvmrc`
+  - `.nvmrc`
+  - `src/scss/_bootstrap-italia.scss`
+  - `src/scss/theme.scss`
+  - `src/scss/ckeditor5.scss`
+  - `webpack.common.js`
+- rename:
+  - `src/scss/custom/_palette.sccs` in `_colors_vars.scss`
 - add:
-  - ...
+  - `src/scss/_bootstrap.scss`
+  - `src/scss/_bootstrap_ckeditor5.scss`
+  - `src/scss/_bootstrap-italia_ckeditor5.scss`
+  - `src/scss/custom/_bootstrap_configuration.sccs`
+  - `src/scss/custom/_custom_ckeditor5.sccs`
 - delete:
   - `<your-sub-theme>/src/scss/custom-comuni/*`
   - `<your-sub-theme>/src/scss/ckeditor5-comuni.scss`
@@ -59,6 +82,8 @@ $ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstra
   whether fonts are loaded via CSS
 - feat(deps): up node version to 20 (lts/iron)
 - feat(libraries)!: remove comuni variant
+- feat(libraries): review of the style build process, ckeditor customization
+and bootstrap-italia variants
 - feat(modules): add point-list component to timeline paragraph
 - feat(suggestion): add views_view suggestion
 - feat(template): add block footerEnd in footer template

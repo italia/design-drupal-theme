@@ -18,9 +18,6 @@ libraries:
   - bootstrap_italia/load-fonts
 
 # Check these settings, they must match the "libraries" choices.
-ckeditor_stylesheets:
-  - dist/css/bootstrap-italia.min.css
-
 #ckeditor5-stylesheets:
 #  - dist/css/ckeditor5.min.css
 
