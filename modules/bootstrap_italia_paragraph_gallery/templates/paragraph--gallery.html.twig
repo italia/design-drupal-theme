@@ -40,7 +40,7 @@
 #}
 {% apply spaceless %}
   {% set _gallery_grid_type = content.field_gallery_grid_type[0]['#markup']|render %}
-  {% embed '@bootstrap_italia_paragraph/content/bi-paragraph-base.html.twig' with {
+  {% embed '@bootstrap_italia_paragraph_components/content/bi-paragraph-base.html.twig' with {
     paragraph: paragraph,
     content: content,
     attributes: attributes,

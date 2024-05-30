@@ -13,7 +13,7 @@ dependencies:
 
 components:
   namespaces:
-    bootstrap_italia_paragraph: templates/components
+    bootstrap_italia_paragraph_components: templates/components
 
     # Components library 2.0
     bi-bcl:

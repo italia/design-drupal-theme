@@ -15,11 +15,19 @@ the current page as the last element of the breadcrumb.
 2. The "Comuni" variant has been removed, for more information see
 https://github.com/italia/bootstrap-italia/commit/35d56a266f27b53b90c4c66be0bc23513e1a86bb,
 new version are in https://github.com/italia/design-comuni-pagine-statiche
-3. The style build process has changed, new features have been added,
+3. If you use the twig namespace `@bootstrap_italia_paragraph` in your
+sub-theme, replace it with `@bootstrap_italia_paragraph_components`,
+issue #3449377 highlighted a bug that caused this change.
+4. The style build process has changed, new features have been added,
 if you want to use the new features you need to update your sub-theme
 as described in the following paragraphs.
 If you don't want the new features you don't have to change anything.
 It's almost a breaking change :).
+
+**Refresh all caches.** `drush cr`
+
+### Known issues
+- Callout component https://github.com/italia/bootstrap-italia/issues/1119
 
 ## Update libraries
 ### Vanilla libraries
@@ -121,6 +129,7 @@ big_pipe has not finished loading
 - fix(module,ckeditor5): fix The <img> tag is not yet supported by the Style plugin
 - fix: issue #3368907
 - fix(sec): phpstan --level 5
+- Fix!: issue #3449377 bi-paragraph-base.html.twig not found
 
 # Summary 2.7.2
 ## Release notes

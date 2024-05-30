@@ -44,7 +44,7 @@
   content.field_settings[0]['#paragraph'].field_background_image.entity.fileuri and content.field_settings[0]['#paragraph'].field_background_blend_mode.getString() == '' ? 'section-image'
 ] %}
 
-{% embed '@bootstrap_italia_paragraph/content/bi-paragraph-base.html.twig' with {
+{% embed '@bootstrap_italia_paragraph_components/content/bi-paragraph-base.html.twig' with {
   paragraph: paragraph,
   content: content,
   attributes: attributes.addClass(_section_classes),
