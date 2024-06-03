@@ -3,7 +3,7 @@
  * @file
  * Default theme implementation to display primary and secondary local tasks.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/tab/
- * Latest revision: v2.6.1
+ * Latest revision: v2.8.7
  *
  * Available variables:
  * - primary: HTML list items representing primary tasks.
@@ -15,23 +15,26 @@
  * @ingroup themeable
  */
 #}
-{% if primary %}
-  <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
-  {% if editor_nav_tabs_scrollable %}
-    <ul class="nav nav-tabs mb-3">{{ primary }}</ul>
-  {% else %}
-    <div class="nav-tabs-hidescroll">
-      <ul class="nav nav-tabs mb-3">{{ primary }}</ul>
-    </div>
+{% apply spaceless %}
+  {% set attributes = attributes.addClass(['nav', 'nav-tabs', 'mb-3']) %}
+  {% if primary %}
+    <h2 class="visually-hidden">{{ 'Primary tabs'|t }}</h2>
+    {% if editor_nav_tabs_scrollable %}
+      <ul{{ attributes }}>{{ primary }}</ul>
+    {% else %}
+      <div class="nav-tabs-hidescroll">
+        <ul{{ attributes }}>{{ primary }}</ul>
+      </div>
+    {% endif %}
   {% endif %}
-{% endif %}
-{% if secondary %}
-  <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
-  {% if editor_nav_tabs_scrollable %}
-    <ul class="nav nav-tabs mt-5 mb-3">{{ secondary }}</ul>
-  {% else %}
-    <div class="nav-tabs-hidescroll">
-      <ul class="nav nav-tabs mt-5 mb-3">{{ secondary }}</ul>
-    </div>
+  {% if secondary %}
+    <h2 class="visually-hidden">{{ 'Secondary tabs'|t }}</h2>
+    {% if editor_nav_tabs_scrollable %}
+      <ul{{ attributes.addClass('mt-5') }}>{{ secondary }}</ul>
+    {% else %}
+      <div class="nav-tabs-hidescroll">
+        <ul{{ attributes.addClass('mt-5') }}>{{ secondary }}</ul>
+      </div>
+    {% endif %}
   {% endif %}
-{% endif %}
+{% endapply %}

@@ -1,3 +1,10 @@
+# Summary 2.8.1
+## Release notes
+
+## All changes
+- fix(template): missing attributes in menu-local-tasks
+
+
 # Summary 2.8.0
 ## Release notes
 This version 2.8.0 of Bootstrap Italia introduces new features, improvements,
