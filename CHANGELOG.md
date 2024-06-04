@@ -1,6 +1,20 @@
 # Summary 2.8.1
 ## Release notes
 
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.8.8
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+```shell
+$ npm install bootstrap-italia@2.8.8 --save-exact
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
 ## All changes
 - feat(libraries): up to bootstrap-italia v2.8.8
 - fix(template): missing attributes in menu-local-tasks
