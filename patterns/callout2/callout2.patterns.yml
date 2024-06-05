@@ -53,6 +53,20 @@ callout2:
       description: "Choose default icon (only more variant)."
       allow_token: true
       preview: "it-download"
+    max_width:
+      type: select
+      label: Max width
+      description: 'Choose max width.'
+      preview: 'col-lg-6'
+      allow_expose: true
+      options:
+        full: "All available space"
+        col-md-6: 'Half form medium breakpoint (col-md-6)'
+        col-md-8: 'Two-thirds form medium breakpoint (col-md-8)'
+        col-lg-6: 'Half form large breakpoint (col-lg-6)'
+        col-lg-8: 'Two-thirds form large breakpoint (col-lg-8)'
+        col-xl-6: 'Half form extra-large breakpoint (col-xl-6)'
+        col-xl-8: 'Two-thirds form extra-large breakpoint (col-xl-8)'
 
   # Fields of data supported by the pattern.
   # This can include optional fields which you can handle in your TWIG.

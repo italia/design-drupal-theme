@@ -16,6 +16,7 @@ $ drush cr
 ```
 
 ## All changes
+- feat(components,callout): review v2.8.8
 - feat(libraries): up to bootstrap-italia v2.8.8
 - fix(template): missing attributes in menu-local-tasks
 

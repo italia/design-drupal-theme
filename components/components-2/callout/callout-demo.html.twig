@@ -28,6 +28,7 @@
           callout_variant: variant,
           title: variant,
           text: text,
+          callout_classes: ['col-lg-6']
         } %}
       {% endfor %}
     {% endblock %}
@@ -35,7 +36,7 @@
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Callout highlight'|t,
-    path_demo_code: '/callout/callout-demo.html.twig#L42',
+    path_demo_code: '/callout/callout-demo.html.twig#L43',
   } %}
     {% block content %}
       {% for variant in variants %}
@@ -44,7 +45,7 @@
           title: variant,
           display: 'highlight',
           text: text,
-          callout_classes: ['mb-5']
+          callout_classes: ['mb-5','col-lg-6']
         } %}
       {% endfor %}
     {% endblock %}
@@ -52,12 +53,13 @@
 
   {% embed '@bi-bcl/demo-container.html.twig' with {
     title: 'Callout more'|t,
-    path_demo_code: '/callout/callout-demo.html.twig#L58',
+    path_demo_code: '/callout/callout-demo.html.twig#L59',
   } %}
     {% block content %}
       {% embed '@bi-bcl/callout/callout.html.twig' with {
         title: 'More note',
         display: 'more',
+        callout_classes: ['col-lg-6']
       } %}
         {% block content %}
 
