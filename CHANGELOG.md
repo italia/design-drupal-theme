@@ -1,5 +1,10 @@
 # Summary 2.8.1
 ## Release notes
+This release fixes the issue documented here:
+https://github.com/italia/bootstrap-italia/issues/1119
+
+If you are upgrading from versions prior to 2.8.0, please read the 2.8.0
+release notes as it contains several breaking changes.
 
 ## Update libraries
 ### Vanilla libraries
