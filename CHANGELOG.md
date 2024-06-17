@@ -1,3 +1,9 @@
+# Summary 2.8.2
+## Release notes
+
+## All changes
+- fix(suggestions): issue #3387106 Invalid file name suggestion
+
 # Summary 2.8.1
 ## Release notes
 This release fixes the issue documented here:

@@ -137,7 +137,7 @@ class Suggestions {
           $suggestions[] = 'page__taxonomy__term__secondlevel';
         }
         $term_name = Html::getUniqueId(strtolower($term->getName()));
-        $suggestions[] = 'page__taxonomy__term__' . $term_name;
+        $suggestions[] = 'page__taxonomy__term__' . self::sanitize($term_name);
         $suggestions[] = 'page__taxonomy__term__' . $term->bundle();
       }
     }
