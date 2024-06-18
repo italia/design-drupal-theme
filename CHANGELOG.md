@@ -2,6 +2,7 @@
 ## Release notes
 
 ## All changes
+- feat(suggestions): add route to block suggestions
 - fix(suggestions): issue #3387106 Invalid file name suggestion
 
 # Summary 2.8.1

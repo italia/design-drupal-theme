@@ -66,6 +66,7 @@ class Suggestions {
       $suggestions[] = 'block__' . $view_mode;
       $suggestions[] = 'block__' . $bundle . $view_mode;
     }
+
     if (!empty($variables['elements']['#id'])) {
       /** @var \Drupal\block\BlockInterface $block */
       $block = \Drupal::entityTypeManager()
@@ -82,10 +83,18 @@ class Suggestions {
       $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#id'];
       // Adds suggestion with region id.
       $suggestions[] = 'block__' . $region;
-      // Adds suggestions with base and derivative plugin id.
-      $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
-      if ($variables['elements']['#derivative_plugin_id']) {
-        $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($variables['elements']['#derivative_plugin_id']);
+
+      if (isset($variables['elements']['#base_plugin_id'])) {
+        // Adds suggestions with base and derivative plugin id.
+        $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'];
+
+        if ($variables['elements']['#derivative_plugin_id']) {
+          $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($variables['elements']['#derivative_plugin_id']);
+        }
+
+        $route_name = str_replace('.', '_', \Drupal::routeMatch()->getRouteName());
+        $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($route_name);
+
       }
     }
   }
