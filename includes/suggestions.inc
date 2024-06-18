@@ -19,6 +19,15 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
 }
 
 /**
+ * Implements hook_theme_suggestions_HOOK_alter() for block templates.
+ */
+function bootstrap_italia_theme_suggestions_page_title_alter(array &$suggestions, array $variables): void {
+  $route_name = str_replace('.', '_', Drupal::routeMatch()->getRouteName());
+  $suggestions[] = $variables['theme_hook_original'] . '__' . $route_name;
+}
+
+
+/**
  * Implements hook_theme_suggestions_node_alter().
  */
 function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, array $variables): void {
