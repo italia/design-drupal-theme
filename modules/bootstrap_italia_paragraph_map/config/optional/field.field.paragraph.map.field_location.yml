@@ -16,7 +16,6 @@ required: true
 translatable: false
 default_value:
   -
-    title: ''
     value: 'POINT (16.331606 38.299063)'
     geo_type: Point
     lat: 38.299063
@@ -27,6 +26,7 @@ default_value:
     bottom: 38.299063
     geohash: sqg9gshk4nb1
     latlon: '38.299063,16.331606'
+    title: ''
 default_value_callback: ''
 settings: {  }
 field_type: geofield
