@@ -1,9 +1,16 @@
 # Summary 2.8.2
 ## Release notes
 
+## Update modules
+If you use the experimental module `boostrap_italia_text_editor2` run:
+```shell
+$ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_text_editor2/config/optional/ --partial
+```
+
 ## All changes
 - feat(suggestions): add route to block suggestions
 - feat(suggestions): add page title suggestions
+- fix(modules): update editor configuration
 - fix(suggestions): issue #3387106 Invalid file name suggestion
 
 # Summary 2.8.1
