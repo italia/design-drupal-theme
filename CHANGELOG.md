@@ -1,5 +1,9 @@
 # Summary 2.8.2
 ## Release notes
+This release fixes some issue and add small features.
+
+If you are upgrading from versions prior to 2.8.0, please read the 2.8.0
+release notes as it contains several breaking changes.
 
 ## All changes
 - feat(suggestions): add route to block suggestions
