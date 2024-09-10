@@ -3,7 +3,7 @@ description: This module adds different image styles in Admin -> Configurations 
 package: "Bootstrap Italia"
 
 type: module
-core_version_requirement: ^9.5 || ^10 || ^11
+core_version_requirement: ^10.3 || ^11
 dependencies:
   - drupal:responsive_image
   - focal_point:focal_point
