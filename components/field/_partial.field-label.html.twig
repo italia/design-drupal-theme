@@ -12,6 +12,12 @@
  * - field_label_bold: boolean, make title bold.
  * - field_label_separator: string, label separator.
  * -
+ * Examples:
+   {% include '@bi-field/_partial.field-label.html.twig' with {
+     label: 'My label',
+     title_attributes: title_attributes.addClass(['label', 'field-label', 'another-class']),
+     field_label_tag: 'span',
+   } %}
  */
 #}
 {% apply spaceless %}
