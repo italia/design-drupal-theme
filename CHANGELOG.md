@@ -1,3 +1,22 @@
+# Summary 2.9.0
+## Release notes
+
+Up to boostrap-italia 2.9.0.
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.9.0
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+```shell
+$ npm install bootstrap-italia@2.9.0 --save-exact
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
+
 # Summary 2.8.2
 ## Release notes
 This release fixes some issue and add small features.
