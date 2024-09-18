@@ -8,7 +8,7 @@
 
     {% block contentBreadcrumb %}
       {% if page.breadcrumb %}
-        <section class="it-breadcrumb__wrapper px-4 mt-4 {{ content_container_type ?: 'container' }}">
+        <section class="it-breadcrumb__wrapper px-4 mt-4 {{ content_container_type ?: 'container' }}" aria-label="{{ 'Breadcrumb section' }}">
           <div class="row">
             <div class="col px-lg-4">
               {{ page.breadcrumb }}
