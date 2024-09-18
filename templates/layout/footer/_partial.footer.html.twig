@@ -21,7 +21,7 @@
 
         {% block footerBrand %}
           {% if page.brand %}
-            <section>
+            <section aria-label="{{ 'Logo and branding section'|t }}">
               <div class="row clearfix">
                 <div class="col-sm-12 footer-items-wrapper logo-wrapper">
                   {{ page.brand }}
@@ -33,7 +33,7 @@
 
         {% block footerMenu %}
           {% if page.footer_menu %}
-            <section>
+            <section aria-label="{{ 'Footer menu section'|t }}">
               {{ page.footer_menu }}
             </section>
           {% endif %}
@@ -64,7 +64,7 @@
               'footer-items-wrapper'
             ] %}
 
-            <section class="py-4{{ page.footer_menu ? ' border-white border-top' }}">
+            <section class="py-4{{ page.footer_menu ? ' border-white border-top' }}" aria-label="{{ 'Footer blocks section' }}">
               <div class="row">
                 {% if page.footer_first %}
                   <div class="{{ footer_blocks_classes|join(' ') }}">
