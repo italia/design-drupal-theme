@@ -1,21 +1,27 @@
 # Summary 2.9.0
 ## Release notes
 
-Up to boostrap-italia 2.9.0.
+Up to boostrap-italia 2.9.1.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.9.0
+If you use vanilla libraries, download bootstrap-italia v2.9.1
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap-italia@2.9.0 --save-exact
+$ npm install bootstrap-italia@2.9.1 --save-exact
 $ npm update
 $ npm run build:prod
 $ drush cr
 ```
+
+## All changes
+- feat(modules): image style drupal 11 compatibility
+- feat(modules): news example drupal 11 compatibility
+- feat: up to bootstrap-italia 2.9.1 library
+- fix(modules): use div tag for sections wrapper
 
 # Summary 2.8.2
 ## Release notes
