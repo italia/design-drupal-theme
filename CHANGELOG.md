@@ -29,6 +29,7 @@ $ drush cr
 ## All changes
 - feat(modules): image style drupal 11 compatibility
 - feat(modules): news example drupal 11 compatibility
+- feat(modules): paragraph content drupal 11 compatibility
 - feat: up to bootstrap-italia 2.9.1 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
