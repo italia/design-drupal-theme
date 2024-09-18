@@ -1,4 +1,4 @@
 base:
   css:
     theme:
-      src/paragraph.css: {}
+      css/paragraph.css: {}
