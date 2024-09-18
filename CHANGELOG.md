@@ -12,7 +12,16 @@ and update `<your-sub-theme>/dist` folder.
 If you use custom libraries built with webpack, do:
 ```shell
 $ npm install bootstrap-italia@2.9.1 --save-exact
+$ npm install rimraf@^6 sass-loader@^16 webpack-merge@^6
 $ npm update
+```
+
+Using as reference the files contained in `/var/starter_kits/italiagov/...`
+and update `/themes/custom/<your-sub-theme>`
+- update:
+  - `src/scss/_bootstrap.scss`
+
+```shell
 $ npm run build:prod
 $ drush cr
 ```
