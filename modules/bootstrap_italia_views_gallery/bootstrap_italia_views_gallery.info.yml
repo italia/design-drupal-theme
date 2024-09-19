@@ -2,7 +2,7 @@ name: Bootstrap Italia Views Gallery
 type: module
 description: 'This module manages the integration of the gallery component into the views module.'
 package: "Bootstrap Italia"
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10.3 || ^11
 
 dependencies:
   - drupal:views
