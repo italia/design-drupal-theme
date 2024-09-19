@@ -27,8 +27,8 @@ $ drush cr
 ```
 
 ### CDN libraries
-If you load libreries from CDN, update `<your-sub-theme>/*.liraries.yml`
-and `drush cr`
+If you load libraries from CDN, update `<sub-theme>/<sub-theme>.liraries.yml`
+and clear cache.
 
 ## All changes
 - feat(modules): image style drupal 11 compatibility
