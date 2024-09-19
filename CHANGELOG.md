@@ -26,6 +26,10 @@ $ npm run build:prod
 $ drush cr
 ```
 
+### CDN libraries
+If you load libreries from CDN, update `<your-sub-theme>/*.liraries.yml`
+and `drush cr`
+
 ## All changes
 - feat(modules): image style drupal 11 compatibility
 - feat(modules): news example drupal 11 compatibility
