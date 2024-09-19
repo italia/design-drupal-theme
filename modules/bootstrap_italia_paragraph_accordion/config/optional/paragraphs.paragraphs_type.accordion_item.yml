@@ -3,8 +3,6 @@ status: true
 dependencies:
   content:
     - 'file:file:8cb9cd29-5807-4978-8e8a-3ba49db5d91a'
-_core:
-  default_config_hash: gsJ7oX2EuhfJdrBphj4vvDc-xHvCWVFkruHudKrXCVU
 id: accordion_item
 label: 'Accordion item'
 icon_uuid: 8cb9cd29-5807-4978-8e8a-3ba49db5d91a
