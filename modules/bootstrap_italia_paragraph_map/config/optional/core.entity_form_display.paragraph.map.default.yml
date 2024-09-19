@@ -15,88 +15,90 @@ third_party_settings:
       children:
         - group_place
         - group_settings
+      label: Container
+      region: content
       parent_name: ''
       weight: 0
       format_type: tabs
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
         direction: horizontal
         width_breakpoint: 640
-      label: Container
     group_place:
       children:
         - field_location
+      label: Place
+      region: content
       parent_name: group_container
       weight: 5
       format_type: tab
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         formatter: open
+        description: ''
         required_fields: true
-      label: Place
     group_settings:
       children:
         - field_settings
+      label: Settings
+      region: content
       parent_name: group_container
       weight: 6
       format_type: tab
-      region: content
       format_settings:
+        classes: ''
         show_empty_fields: false
         id: ''
-        classes: ''
-        description: ''
         formatter: closed
+        description: ''
         required_fields: true
-      label: Settings
 id: paragraph.map.default
 targetEntityType: paragraph
 bundle: map
 mode: default
 content:
   field_location:
+    type: leaflet_widget_default
     weight: 1
+    region: content
     settings:
       map:
         leaflet_map: 'OSM Mapnik'
-        height: '400'
-        locate: '1'
-        auto_center: '1'
+        height: 400
+        auto_center: 1
         map_position:
+          force: false
           center:
-            lat: '38.299046'
-            lon: '16.331649'
-          zoom: '10'
-          minZoom: '1'
-          maxZoom: '18'
-          zoomFiner: '0'
-          force: 0
-        scroll_zoom_enabled: '1'
+            lat: 38.299046
+            lon: 16.331649
+          zoom: 10
+          minZoom: 1
+          maxZoom: 18
+          zoomFiner: 0
+        scroll_zoom_enabled: 1
+        locate: 1
         fullscreen_control: 0
       input:
-        readonly: '1'
-        show: 0
+        show: false
+        readonly: true
       toolbar:
         position: topright
         marker: defaultMarker
-        drawPolyline: '1'
-        drawRectangle: '1'
-        drawPolygon: '1'
-        editMode: '1'
-        dragMode: '1'
-        cutPolygon: '1'
-        removalMode: '1'
+        drawPolyline: true
+        drawRectangle: true
+        drawPolygon: true
         drawCircle: false
+        editMode: true
+        dragMode: true
+        cutPolygon: true
+        removalMode: true
       reset_map:
+        control: false
         position: topright
-        control: 0
       path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
       geocoder:
         control: false
@@ -110,10 +112,10 @@ content:
           popup: false
           options: ''
     third_party_settings: {  }
-    type: leaflet_widget_default
-    region: content
   field_settings:
+    type: entity_reference_paragraphs
     weight: 2
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -122,8 +124,6 @@ content:
       form_display_mode: default
       default_paragraph_type: settings
     third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
 hidden:
   created: true
   status: true
