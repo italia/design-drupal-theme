@@ -38,7 +38,7 @@ filters:
     status: false
     weight: -10
     settings:
-      allowed_html: '<a class="text-decoration-none fw-bold"> <abbr class="attribute initialism"> <blockquote class="blockquote text-center text-end blockquote-simple blockquote-card dark"> <figure class="figure"> <figcaption class="figure-caption text-end"> <p class="fw-bold fw-semibold fw-normal fw-light fst-italic text-start text-center text-end small font-sans-serif font-serif font-monospace bd-highlight lead mark text-muted text-lowercase text-uppercase text-capitalize"> <table class="table table-responsive table-striped table-hover table-bordered table-borderless table-small table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark align-top align-middle align-bottom caption-top"> <thead class="table-light table-dark"> <tr class="align-top align-middle align-bottom table-active table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark"> <td class="align-top align-middle align-bottom table-active table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark"> <ul class="list-unstyled list-inline"> <li class="list-inline-item">'
+      allowed_html: '<a class="text-decoration-none fw-bold"> <abbr class="attribute initialism"> <blockquote class="blockquote text-center text-end blockquote-simple blockquote-card dark"> <img class="img-fluid img-thumbnail rounded float-start m-5 float-end mx-auto d-block my-5"> <figure class="figure"> <figcaption class="figure-caption text-end"> <p class="fw-bold fw-semibold fw-normal fw-light fst-italic text-start text-center text-end small font-sans-serif font-serif font-monospace bd-highlight lead mark text-muted text-lowercase text-uppercase text-capitalize"> <table class="table table-responsive table-striped table-hover table-bordered table-borderless table-small table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark align-top align-middle align-bottom caption-top"> <thead class="table-light table-dark"> <tr class="align-top align-middle align-bottom table-active table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark"> <td class="align-top align-middle align-bottom table-active table-primary table-secondary table-success table-danger table-warning table-info table-light table-dark"> <ul class="list-unstyled list-inline"> <li class="list-inline-item">'
       filter_html_help: true
       filter_html_nofollow: false
   filter_htmlcorrector:
@@ -46,6 +46,12 @@ filters:
     provider: filter
     status: true
     weight: 10
+    settings: {  }
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: 1
     settings: {  }
   media_embed:
     id: media_embed
