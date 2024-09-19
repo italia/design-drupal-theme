@@ -39,6 +39,7 @@ $ drush cr
 - feat(modules): paragraph hero drupal 11 compatibility
 - feat(modules): paragraph map drupal 11 compatibility
 - feat(modules): paragraph section drupal 11 compatibility
+- feat(modules): views styles modules drupal 11 compatibility
 - feat: up to bootstrap-italia 2.9.1 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
