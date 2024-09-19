@@ -34,6 +34,7 @@ $ drush cr
 - feat(modules): paragraph attachments drupal 11 compatibility
 - feat(modules): paragraph callout drupal 11 compatibility
 - feat(modules): paragraph carousel drupal 11 compatibility
+- feat(modules): paragraph citation drupal 11 compatibility
 - feat: up to bootstrap-italia 2.9.1 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
