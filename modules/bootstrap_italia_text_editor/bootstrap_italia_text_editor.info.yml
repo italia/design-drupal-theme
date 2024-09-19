@@ -1,6 +1,8 @@
 name: "Bootstrap Italia Text Editor"
 description: This module adds text editor styles.
 package: "Bootstrap Italia"
+lifecycle: deprecated
+lifecycle_link: https://www.drupal.org/project/bootstrap_italia
 
 type: module
 core_version_requirement: ^9 || ^10
