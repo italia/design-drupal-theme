@@ -19,7 +19,7 @@ mode: default
 content:
   field_background_image:
     type: image_focal_point
-    weight: 2
+    weight: 0
     region: content
     settings:
       progress_indicator: bar
@@ -38,7 +38,7 @@ content:
     third_party_settings: {  }
   field_text:
     type: text_textarea
-    weight: 0
+    weight: 2
     region: content
     settings:
       rows: 5

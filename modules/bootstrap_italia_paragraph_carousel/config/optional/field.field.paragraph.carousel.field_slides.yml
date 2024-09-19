@@ -20,9 +20,9 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       slide: slide
+    negate: 0
     target_bundles_drag_drop:
       carousel:
         weight: 7
@@ -37,8 +37,8 @@ settings:
         weight: 10
         enabled: false
       slide:
-        enabled: true
         weight: 11
+        enabled: true
       slideshow:
         weight: 12
         enabled: false
