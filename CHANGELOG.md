@@ -42,7 +42,9 @@ and clear cache.
 - feat(modules): paragraph gallery drupal 11 compatibility
 - feat(modules): paragraph hero drupal 11 compatibility
 - feat(modules): paragraph map drupal 11 compatibility
+- feat(modules): paragraph node reference drupal 11 compatibility
 - feat(modules): paragraph section drupal 11 compatibility
+- feat(modules): paragraph timeline drupal 11 compatibility
 - feat(modules): text editor (on ckeditor4) deprecated
 - feat(modules): text editor2 drupal 11 compatibility
 - feat(modules): views styles modules drupal 11 compatibility

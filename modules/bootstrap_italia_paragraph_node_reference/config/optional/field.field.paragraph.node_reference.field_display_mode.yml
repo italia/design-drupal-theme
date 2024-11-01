@@ -18,5 +18,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   exclude: {  }
-  negate: 0
+  negate: false
 field_type: entity_reference_display
