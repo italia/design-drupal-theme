@@ -1,17 +1,17 @@
 # Summary 2.9.0
 ## Release notes
 
-Up to boostrap-italia 2.9.1.
+Up to boostrap-italia 2.9.2.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.9.1
+If you use vanilla libraries, download bootstrap-italia v2.9.2
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap-italia@2.9.1 --save-exact
+$ npm install bootstrap-italia@2.9.2 --save-exact
 $ npm install rimraf@^6 sass-loader@^16 webpack-merge@^6
 $ npm update
 ```
