@@ -1,6 +1,8 @@
 # Summary 2.11.0
 ## Release notes
 
+Default size of header container is `container-xxl`
+
 Up to boostrap-italia 2.11.0.
 
 ## Update libraries
@@ -32,6 +34,7 @@ and clear cache.
 
 ## All changes
 - feat(components,card): review 2.11.0
+- feat(components,header): review 2.11.0 and change default size to xxl
 - feat(modules): image style drupal 11 compatibility
 - feat(modules): news example drupal 11 compatibility
 - feat(modules): paragraph content drupal 11 compatibility
