@@ -41,18 +41,26 @@
   ] %}
 
   <body{{ attributes.addClass(_body_classes) }}>
-    <div class="skip-navigation" aria-label="{{ 'Skip links'|t }}" role="navigation">
+    {% block main %}
       {# Keyboard navigation/accessibility link to:
-          - main content section in ./content/_partial.content.html.twig;
-          - footer content in ./footer/_partial.footer.html.twig.
+            - main content section in ./content/_partial.content.html.twig;
+            - footer content in ./footer/_partial.footer.html.twig.
       #}
-      <a href="#it-main-content" class="visually-hidden-focusable">
-        {{ 'Skip to main content'|t }}
-      </a>
-      <a href="#footer" class="visually-hidden-focusable">
-        {{ 'Skip to footer content'|t }}
-      </a>
-    </div>
+      <nav class="skiplinks" aria-label="{{ 'Skip links'|t }}">
+        <ul>
+          <li class="visually-hidden-focusable">
+            <a href="#it-main-content" class="visually-hidden-focusable">
+              {{ 'Skip to main content'|t }}
+            </a>
+          </li>
+          <li class="visually-hidden-focusable" >
+            <a href="#footer" class="visually-hidden-focusable">
+              {{ 'Skip to footer content'|t }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    {% endblock %}
 
     {{ page_top }}
     {{ page }}
