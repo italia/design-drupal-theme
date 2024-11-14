@@ -1,17 +1,17 @@
-# Summary 2.10.0
+# Summary 2.11.0
 ## Release notes
 
-Up to boostrap-italia 2.10.0.
+Up to boostrap-italia 2.11.0.
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.10.0
+If you use vanilla libraries, download bootstrap-italia v2.11.0
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap-italia@2.10.0 --save-exact
+$ npm install bootstrap-italia@2.11.0 --save-exact
 $ npm install rimraf@^6 sass-loader@^16 webpack-merge@^6
 $ npm update
 ```
@@ -48,15 +48,20 @@ and clear cache.
 - feat(modules): text editor (on ckeditor4) deprecated
 - feat(modules): text editor2 drupal 11 compatibility
 - feat(modules): views styles modules drupal 11 compatibility
-- feat: up to bootstrap-italia 2.9.1 library
+- feat: up to bootstrap-italia 2.11.0 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
 - fix(modules): use div tag for sections wrapper
 
+# Summary 2.10.0
+The version 2.10, even though it was not released, is fully incorporated
+into version 2.11. This means that all the changes, fixes, and new features
+planned for 2.10 are available in 2.11.
+
 # Summary 2.9.0
 The version 2.9, even though it was not released, is fully incorporated
-into version 2.10. This means that all the changes, fixes, and new features
-planned for 2.9 are available in 2.10.
+into version 2.11. This means that all the changes, fixes, and new features
+planned for 2.9 are available in 2.11.
 
 # Summary 2.8.2
 ## Release notes
