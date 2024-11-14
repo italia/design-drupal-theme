@@ -31,6 +31,7 @@ If you load libraries from CDN, update `<sub-theme>/<sub-theme>.liraries.yml`
 and clear cache.
 
 ## All changes
+- feat(components,card): review 2.11.0
 - feat(modules): image style drupal 11 compatibility
 - feat(modules): news example drupal 11 compatibility
 - feat(modules): paragraph content drupal 11 compatibility
