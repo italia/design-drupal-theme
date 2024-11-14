@@ -8,7 +8,7 @@ features:
 logo:
   use_default: true
 header_shadow: 0
-slim_header_container_type: container
+slim_header_container_type: container-xxl
 slim_header_light: 0
 government_entity_name: 'Government entity name'
 government_entity_url: 'https://example.gov.it'
@@ -18,7 +18,7 @@ slim_header_action_url: ''
 slim_header_action_icon: 1
 slim_header_action_username: 0
 slim_header_action_dark: 1
-center_header_container_type: container
+center_header_container_type: container-xxl
 center_header_light: 0
 center_header_small: 0
 svg_logo_id: ''
@@ -41,7 +41,7 @@ youtube: ''
 search_type: modal
 search_page_url: ''
 search_modal_size: fullscreen
-navigation_header_container_type: container
+navigation_header_container_type: container-xxl
 navigation_header_breakpoint_expand: lg
 navigation_header_light_desktop: 0
 navigation_header_dark_mobile: 0
