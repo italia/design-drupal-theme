@@ -119,14 +119,20 @@ a.tabledrag-handle .handle {
   margin-top: .25rem;
   font-size: 0.777rem;
 }
+
 /* Select in webform date list component */
-.select-wrapper select {
+/*.select-wrapper select {
   padding: .375rem 2.25rem .375rem .75rem;
-}
+}/* from version 2.11 it is not needed */
+
 /* Select in draggable tables */
 fieldset.webform-composite-hidden-title {
   margin-top: 0;
   margin-bottom: 0;
+}
+/* Likert fix */
+.webform-likert-table-wrapper .form-check [type="radio"] + label {
+  top: -1rem;
 }
 /* Editor */
 .js-text-format-wrapper {

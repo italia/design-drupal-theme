@@ -39,6 +39,7 @@ and clear cache.
 
 ## All changes
 - feat(components,card): review 2.11.0
+- feat(components,forms): review 2.11.0
 - feat(components,header): review 2.11.0 and change default size to xxl
 - feat(components,skiplinks): review 2.11.0 and add block for override
 - feat(modules): image style drupal 11 compatibility
