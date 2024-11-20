@@ -3,7 +3,7 @@
  * @file
  * Template for Gallery Item component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste-di-immagini/
- * Latest revision: v2.6.1
+ * Latest revision: v2.11.2
  *
  * Parameters:
  * - image_url (string) (default: '')
@@ -63,23 +63,23 @@
 
       <div class="img-responsive-wrapper">
         <div class="img-responsive">
-          <div class="img-wrapper">
+          <figure class="figure img-full w-100{{ _overlay ? ' img-wrapper' }}">
             {% block galleryItemImage %}
               <img src="{{ _image_url }}" alt="{{ _image_description }}">
             {% endblock %}
-          </div>
+            {% if _show_image_caption %}
+              <figcaption class="igure-caption it-griditem-text-wrapper">
+                {% if _image_description is not empty %}
+                  <span class="it-griditem-text">{{ _image_description }}</span>
+                {% endif %}
+                {% if _icon_name is not empty %}
+                  {% include '@bi-bcl/icon/icon.html.twig' with { name: _icon_name } %}
+                {% endif %}
+              </figcaption>
+            {% endif %}
+          </figure>
         </div>
       </div>
-      {% if _show_image_caption %}
-        <span class="it-griditem-text-wrapper">
-          {% if _image_description is not empty %}
-            <span class="it-griditem-text">{{ _image_description }}</span>
-          {% endif %}
-          {% if _icon_name is not empty %}
-            {% include '@bi-bcl/icon/icon.html.twig' with { name: _icon_name } %}
-          {% endif %}
-        </span>
-      {% endif %}
 
     {% if _call_to_action_url is not empty %}
       </a>

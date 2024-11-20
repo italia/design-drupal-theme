@@ -3,7 +3,7 @@
  * @file
  * Template for icon component
  * Docs: https://italia.github.io/bootstrap-italia/docs/utilities/icone/
- * Latest revision: v2.8.7
+ * Latest revision: v2.11.2
  *
  * Parameters:
  * - name (string) (default: 'it-warning-circle')
@@ -24,6 +24,8 @@
  *   - Your custom library
  * - icon_path (string) (default: '')
  *   - Your custom path icons library
+ * - icon_title (string) (default: '')
+ *   - Icon title. It sets automatically icon_decorative to false.
  * - icon_decorative (boolean) (default: true)
  *   - If set to TRUE it automatically adds accessibility attributes to indicate that it is a decorative element
  * - icon_classes (array) (default: '')
@@ -64,6 +66,7 @@
   {% set _alignment = alignment|default('') %}
   {% set _library = library|default('sprites.svg') %}
   {% set _icon_path = icon_path|default('') %}
+  {% set _icon_title = icon_title|default('') %}
   {% set _icon_decorative = icon_decorative ?? true %}
   {% set _icon_classes = icon_classes|default('') %}
   {% set _icon_attributes = icon_attributes|default('') %}
@@ -96,6 +99,13 @@
     .addClass(_classes)
   %}
 
+  {% if _icon_title is not empty %}
+    {% set icon_attributes = icon_attributes
+      .setAttribute('role', 'img')
+    %}
+    {% set _icon_decorative = false %}
+  {% endif %}
+
   {% if _icon_decorative %}
     {% set icon_attributes = icon_attributes
       .setAttribute('role', 'img')
@@ -113,6 +123,9 @@
 
   {# Component #}
   <svg{{ icon_attributes }}>
+    {% if _icon_title is not empty  %}
+      <title>{{ _icon_title }}</title>
+    {% endif %}
     <use href="{{ _icon_path }}" xlink:href="{{ _icon_path }}"></use>
   </svg>
 {% endapply %}
