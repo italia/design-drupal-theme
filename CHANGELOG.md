@@ -37,6 +37,11 @@ $ drush cr
 If you load libraries from CDN, update `<sub-theme>/<sub-theme>.liraries.yml`
 and clear cache.
 
+## Update your sub-theme for Drupal 11
+Change `core_version_requirement` in your `<sub-theme>/<sub-theme>.info.yml`
+from: `core_version_requirement: ^9 || ^10` to
+`core_version_requirement: ^10.3 || ^11`
+
 ## All changes
 - feat(components,card): review 2.11.0
 - feat(components,forms): review 2.11.0
@@ -60,6 +65,7 @@ and clear cache.
 - feat(modules): text editor (on ckeditor4) deprecated
 - feat(modules): text editor2 drupal 11 compatibility
 - feat(modules): views styles modules drupal 11 compatibility
+- feat: sub-themes drupal 11 compatibility
 - feat: up to bootstrap-italia 2.11.0 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
