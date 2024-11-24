@@ -1,14 +1,14 @@
 # Summary 2.11.0
 ## Release notes
 
-bootstrap-italia 2.11.0
+bootstrap-italia 2.11.2
 Default size of header container is `container-xxl`.
 Update skiplinks.
 Drupal 11 compatibility.
 Various a11y fix.
 
 
-Up to boostrap-italia 2.11.0.
+Up to boostrap-italia 2.11.2.
 
 ### Breaking changes!!!
 This release introduces breaking changes that require your attention.
@@ -34,13 +34,13 @@ https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.11.0
+If you use vanilla libraries, download bootstrap-italia v2.11.2
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap-italia@2.11.0 --save-exact
+$ npm install bootstrap-italia@2.11.2 --save-exact
 $ npm install rimraf@^6 sass-loader@^16 webpack-merge@^6
 $ npm update
 ```
@@ -90,7 +90,7 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(modules): text editor2 drupal 11 compatibility
 - feat(modules): views styles modules drupal 11 compatibility
 - feat: sub-themes drupal 11 compatibility
-- feat: up to bootstrap-italia 2.11.0 library
+- feat: up to bootstrap-italia 2.11.2 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
 - fix(modules): use div tag for sections wrapper
