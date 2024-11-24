@@ -97,7 +97,8 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(modules): text editor (on ckeditor4) deprecated
 - feat(modules): text editor2 drupal 11 compatibility
 - feat(modules): views styles modules drupal 11 compatibility
-- feat: sub-themes drupal 11 compatibility
+- feat: base-theme drupal 11 compatibility
+- feat: sub-theme drupal 11 compatibility
 - feat: up to bootstrap-italia 2.11.2 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
