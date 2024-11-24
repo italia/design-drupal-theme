@@ -1,14 +1,22 @@
 # Summary 2.11.0
 ## Release notes
 
-bootstrap-italia 2.11.2
-Default size of header container is `container-xxl`.
-Update skiplinks.
-Drupal 11 compatibility.
-Various a11y fix.
+This release brings significant updates and improvements.
+The Bootstrap Italia library has been upgraded to version 2.11.2,
+introducing changes to components and default configurations,
+such as setting the default size of the header container to `container-xxl`.
+Skiplinks functionality has been enhanced to improve usability
+and customization options.
 
+A key highlight of this release is full compatibility with Drupal 11,
+ensuring smooth integration with the latest core updates.
+Additionally, several accessibility fixes have been implemented
+including updates to breadcrumb and footer sections.
 
-Up to boostrap-italia 2.11.2.
+Please note that this release includes breaking changes that require
+manual intervention, particularly in managing specific components like menus,
+link-lists, and timelines.
+Comprehensive instructions are provided to guide you through these updates.
 
 ### Breaking changes!!!
 This release introduces breaking changes that require your attention.
