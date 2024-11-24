@@ -10,6 +10,26 @@ Various a11y fix.
 
 Up to boostrap-italia 2.11.0.
 
+### Breaking changes!!!
+This release introduces breaking changes that require your attention.
+The following changes must be handled manually and
+cannot be managed automatically.
+
+1. Menus and link lists: if an item is set as a title without a link,
+it will now be rendered with an `h<n>` tag instead of a `span`. If not handled
+properly, this may lead to accessibility issues. This change only affects cases
+where titles without links are used in menus or lists.
+https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#intestazione-e-divisore
+
+2. Similar to the previous point,
+but it applies to the "Multiline with icon" variant.
+https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#multiline-con-icona
+
+3. Similar to the previous points,
+but it applies to the "With additional text, multiple actions, and metadata" variant.
+https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#con-testo-aggiuntivo-azioni-multiple-e-metadata
+
+
 ## Update libraries
 ### Vanilla libraries
 If you use vanilla libraries, download bootstrap-italia v2.11.0
@@ -47,6 +67,7 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(components,forms): review 2.11.0
 - feat(components,header): review 2.11.0 and change default size to xxl
 - feat(components,list-image,gallery,icon): review 2.11.0
+- feat(components,list,link-list): review 2.11.0 and manage breaking change
 - feat(components,skiplinks): review 2.11.0 and add block for override
 - feat(modules): image style drupal 11 compatibility
 - feat(modules): news example drupal 11 compatibility

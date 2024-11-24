@@ -3,7 +3,7 @@
  * @file
  * Template for linklist-item component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#liste-per-men%C3%B9-di-navigazione
- * Latest revision: v2.8.7
+ * Latest revision: v2.11.2
  *
  * Parameters:
  * - item, item contains:
@@ -16,6 +16,7 @@
  *   - is_collapsed: TRUE if the link has children within the current menu tree
  *     that are not currently visible.
  *   - in_active_trail: TRUE if the link is in the active trail.
+ * - title_tag (string) (default: 'h3')
  * - list_type (string) (default: '')
  * - wrapper_tag (string) (default: '')
  * - title_wrapper_tag (string) (default: '')
@@ -42,6 +43,7 @@
   {# Set defaults #}
   {# Check item type: link-item|menu-item #}
   {% set _item = item.link['#type'] == 'link' ? item.link : item %}
+  {% set _title_tag = title_tag|default('h3') %}
   {% set _list_type = list_type|default('') %}
   {% set _wrapper_tag = wrapper_tag|default('') %}
   {% set _title_wrapper_tag = title_wrapper_tag|default('') %}
@@ -111,14 +113,14 @@
       (_item.url.isRouted and _item.url.routeName == '<nolink>') or
       (_item['#url'].isRouted and _item['#url'].routeName == '<nolink>')
     -%}
-      <div class="link-list-heading">{{ _item.title }}</div>
+      <{{ _title_tag }} class="link-list-heading">{{ _item.title }}</{{ _title_tag }}>
 
     {# If a button item #}
     {%- elseif
       (_item.url.isRouted and _item.url.routeName == '<button>') or
       (_item['#url'].isRouted and _item['#url'].routeName == '<button>')
     -%}
-      <div class="link-list-heading">{{ _item.title }}</div>
+      <{{ _title_tag }} class="link-list-heading">{{ _item.title }}</{{ _title_tag }}>
 
     {%- else -%}
       {%- set _linklist_title -%}
