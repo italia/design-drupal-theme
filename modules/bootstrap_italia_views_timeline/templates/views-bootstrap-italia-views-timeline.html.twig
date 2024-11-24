@@ -7,6 +7,7 @@
  *   - date_format
  *   - today_check
  *   - today_check_period
+ *   - pin_heading_tag
  *   - icon_past_event
  *   - icon_event
  *
@@ -44,6 +45,7 @@
             now_event: _is_now_event and options.bi_timeline_settings.today_check and not _check_first_now_event ? true : false,
             pin_text: item['#node'].getCreatedTime()|date(options.bi_timeline_settings.date_format),
             pin_icon: _is_past_event ? options.bi_timeline_settings.icon_past_event : options.bi_timeline_settings.icon_event,
+            timeline_pin_heading_tag: options.bi_timeline_settings.pin_heading_tag ?? 'h3'
           } %}
             {% block timelineItemContent %}
               {{ item }}

@@ -3,11 +3,12 @@
  * @file
  * Template for timeline_item component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
- * Latest revision: v2.8.7
+ * Latest revision: v2.11.2
  *
  * Parameters:
  * - past_event (boolean) (default: false)
  * - now_event (boolean) (default: false)
+ * - timeline_pin_heading_tag (array) (default: 'h3')
  * - pin_icon (string) (default: '')
  *   options ["it-name", ...]
  * - pin_text (string) (default: '')
@@ -32,6 +33,7 @@
   {# Set defaults #}
   {% set _past_event = past_event ?? false %}
   {% set _now_event = now_event ?? false %}
+  {% set _timeline_pin_heading_tag = timeline_pin_heading_tag|default('h3') %}
   {% set _pin_icon = pin_icon|default('') %}
   {% set _pin_text = pin_text|default('') %}
   {% set _timeline_item_classes = timeline_item_classes|default('') %}
@@ -65,14 +67,14 @@
     {% if _now_event and not _past_event %}
       <span class="it-now-label d-none d-lg-flex">{{ 'Today'|t }}</span>
     {% endif %}
-    <div{{ timeline_item_attributes }}>
+    <{{ _timeline_pin_heading_tag }}{{ timeline_item_attributes }}>
       <div class="pin-icon">
         {% include '@bi-bcl/icon/icon.html.twig' with { name: _pin_icon } %}
       </div>
       {% if _pin_text is not empty %}
         <div class="pin-text"><span>{{ _pin_text }}</span></div>
       {% endif %}
-    </div>
+    </{{ _timeline_pin_heading_tag }}>
     {% block timelineItemContent %}
       {{ content }}
     {% endblock %}

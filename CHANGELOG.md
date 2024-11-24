@@ -29,6 +29,8 @@ https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#mu
 but it applies to the "With additional text, multiple actions, and metadata" variant.
 https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#con-testo-aggiuntivo-azioni-multiple-e-metadata
 
+4. Similar to the previous points, but it applies to the "Timeline" component
+https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
 
 ## Update libraries
 ### Vanilla libraries
@@ -67,8 +69,9 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(components,forms): review 2.11.0
 - feat(components,header): review 2.11.0 and change default size to xxl
 - feat(components,list-image,gallery,icon): review 2.11.0
-- feat(components,list,link-list): review 2.11.0 and manage breaking change
+- feat(components,list,link-list)!: review 2.11.0 and manage breaking change
 - feat(components,skiplinks): review 2.11.0 and add block for override
+- feat(components,timeline)!: review 2.11.0 and manage breaking change
 - feat(modules): image style drupal 11 compatibility
 - feat(modules): news example drupal 11 compatibility
 - feat(modules): paragraph content drupal 11 compatibility

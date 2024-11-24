@@ -79,6 +79,23 @@ class TimelineStyle extends StylePluginBase {
       $this->options['bi_timeline_settings']['today_check_period'] ?? 'month',
     ];
 
+    // Heading.
+    $form['bi_timeline_settings']['pin_heading_tag'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Pin heading level'),
+      '#description' => $this->t('Choose a pin heading level. Default: "Heading 3 (h3)".'),
+      '#options' => [
+        'h1' => $this->t('Heading 1 (h1)'),
+        'h2' => $this->t('Heading 2 (h2)'),
+        'h3' => $this->t('Heading 3 (h3)'),
+        'h4' => $this->t('Heading 4 (h4)'),
+        'h5' => $this->t('Heading 5 (h5)'),
+        'h6' => $this->t('Heading 6 (h6)'),
+      ],
+      '#default_value' =>
+        $this->options['bi_timeline_settings']['pin_heading_tag'] ?? 'h3',
+    ];
+
     // Icons.
     $form['bi_timeline_settings']['icon_past_event'] = [
       '#type' => 'textfield',
