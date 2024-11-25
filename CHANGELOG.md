@@ -1,8 +1,8 @@
-# Summary 2.11.0
+# Summary 2.12.0
 ## Release notes
 
 This release brings significant updates and improvements.
-The Bootstrap Italia library has been upgraded to version 2.11.2,
+The Bootstrap Italia library has been upgraded to version 2.12.0,
 introducing changes to components and default configurations,
 such as setting the default size of the header container to `container-xxl`.
 Skiplinks functionality has been enhanced to improve usability
@@ -42,13 +42,13 @@ https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.11.2
+If you use vanilla libraries, download bootstrap-italia v2.12.0
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap-italia@2.11.2 --save-exact
+$ npm install bootstrap-italia@2.12.0 --save-exact
 $ npm install rimraf@^6 sass-loader@^16 webpack-merge@^6
 $ npm update
 ```
@@ -74,6 +74,7 @@ from: `core_version_requirement: ^9 || ^10` to
 
 ## All changes
 - feat(components,card): review 2.11.0
+- feat(components,backtotop): review 2.12.0
 - feat(components,forms): review 2.11.0
 - feat(components,header): review 2.11.0 and change default size to xxl
 - feat(components,list-image,gallery,icon): review 2.11.0
@@ -99,20 +100,25 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(modules): views styles modules drupal 11 compatibility
 - feat: base-theme drupal 11 compatibility
 - feat: sub-theme drupal 11 compatibility
-- feat: up to bootstrap-italia 2.11.2 library
+- feat: up to bootstrap-italia 2.12.0 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
 - fix(modules): use div tag for sections wrapper
 
+# Summary 2.11.0
+The version 2.11, even though it was not released, is fully incorporated
+into version 2.12. This means that all the changes, fixes, and new features
+planned for 2.11 are available in 2.12.
+
 # Summary 2.10.0
 The version 2.10, even though it was not released, is fully incorporated
-into version 2.11. This means that all the changes, fixes, and new features
-planned for 2.10 are available in 2.11.
+into version 2.12. This means that all the changes, fixes, and new features
+planned for 2.10 are available in 2.12.
 
 # Summary 2.9.0
 The version 2.9, even though it was not released, is fully incorporated
-into version 2.11. This means that all the changes, fixes, and new features
-planned for 2.9 are available in 2.11.
+into version 2.12. This means that all the changes, fixes, and new features
+planned for 2.9 are available in 2.12.
 
 # Summary 2.8.2
 ## Release notes
