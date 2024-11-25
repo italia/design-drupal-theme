@@ -74,6 +74,7 @@ from: `core_version_requirement: ^9 || ^10` to
 
 ## All changes
 - feat(components,card): review 2.11.0
+- feat(components,chip): review 2.12.0
 - feat(components,backtotop): review 2.12.0
 - feat(components,forms): review 2.11.0
 - feat(components,header): review 2.11.0 and change default size to xxl

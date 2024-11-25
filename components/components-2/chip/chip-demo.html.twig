@@ -146,6 +146,24 @@
     {% endblock %}
   {% endembed %}{# End embed demo. #}
 
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'Chip Link'|t,
+    path_demo_code: '/chip/chip-demo.html.twig#L156',
+  } %}
+    {% block content %}
 
+      {% for variant in variants %}
+        {% include '@bi-bcl/chip/chip.html.twig' with {
+          chip_label: 'Label'|t,
+          chip_dismissibile: true,
+          chip_icon: 'it-github',
+          chip_large: true,
+          chip_color: variant,
+          chip_url: '#'
+        } %}
+      {% endfor %}
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
 
 {% endapply %}
