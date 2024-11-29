@@ -40,6 +40,12 @@ https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#co
 4. Similar to the previous points, but it applies to the "Timeline" component
 https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
 
+5. **[Important!] Before applying this update**,
+you need to uninstall the "Bootstrap Italia Text Editor"
+(`drush pm:uninstall boostrap_italia_text_editor`) submodule.
+Don't worry, no configuration will be lost.
+If you are using a custom CKEditor 4 module, it will continue to work fine.
+
 ## Update libraries
 ### Vanilla libraries
 If you use vanilla libraries, download bootstrap-italia v2.12.1
@@ -97,7 +103,7 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(modules): paragraph section drupal 11 compatibility
 - feat(modules): paragraph timeline drupal 11 compatibility
 - feat(modules): paragraph webform drupal 11 compatibility
-- feat(modules): text editor (on ckeditor4) deprecated
+- feat(modules): text editor (on ckeditor4) remove deprecated
 - feat(modules): text editor2 drupal 11 compatibility
 - feat(modules): views styles modules drupal 11 compatibility
 - feat: base-theme drupal 11 compatibility
