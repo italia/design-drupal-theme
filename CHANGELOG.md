@@ -2,7 +2,7 @@
 ## Release notes
 
 This release brings significant updates and improvements.
-The Bootstrap Italia library has been upgraded to version 2.12.0,
+The Bootstrap Italia library has been upgraded to version 2.12.1,
 introducing changes to components and default configurations,
 such as setting the default size of the header container to `container-xxl`.
 Skiplinks functionality has been enhanced to improve usability
@@ -42,13 +42,13 @@ https://italia.github.io/bootstrap-italia/docs/componenti/timeline/
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.12.0
+If you use vanilla libraries, download bootstrap-italia v2.12.1
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
-$ npm install bootstrap-italia@2.12.0 --save-exact
+$ npm install bootstrap-italia@2.12.1 --save-exact
 $ npm install rimraf@^6 sass-loader@^16 webpack-merge@^6
 $ npm update
 ```
@@ -96,12 +96,13 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(modules): paragraph node reference drupal 11 compatibility
 - feat(modules): paragraph section drupal 11 compatibility
 - feat(modules): paragraph timeline drupal 11 compatibility
+- feat(modules): paragraph webform drupal 11 compatibility
 - feat(modules): text editor (on ckeditor4) deprecated
 - feat(modules): text editor2 drupal 11 compatibility
 - feat(modules): views styles modules drupal 11 compatibility
 - feat: base-theme drupal 11 compatibility
 - feat: sub-theme drupal 11 compatibility
-- feat: up to bootstrap-italia 2.12.0 library
+- feat: up to bootstrap-italia 2.12.1 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
 - fix(modules): use div tag for sections wrapper
