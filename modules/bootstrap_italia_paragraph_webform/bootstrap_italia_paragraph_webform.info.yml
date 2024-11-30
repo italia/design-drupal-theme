@@ -6,7 +6,6 @@ type: module
 core_version_requirement: ^10.3 || ^11
 dependencies:
   - webform:webform
-  - webform:webform_bootstrap
   - webform:webform_ui
   - bootstrap_italia:bootstrap_italia_paragraph
 
