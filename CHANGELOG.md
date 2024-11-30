@@ -1,6 +1,8 @@
 # Summary 2.12.0
 ## Release notes
 
+🎉🎉🎉 With this 60th release we celebrate 5 years of development of this project.
+
 This release brings significant updates and improvements.
 The Bootstrap Italia library has been upgraded to version 2.12.1,
 introducing changes to components and default configurations,
