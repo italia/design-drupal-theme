@@ -9,6 +9,10 @@ use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_breadcrumb(array &$variables): void {
   $variables['breadcrumb_include_current_page'] = (bool) theme_get_setting('breadcrumb_include_current_page');

@@ -12,9 +12,12 @@ use Drupal\Core\Template\Attribute;
 
 /**
  * Implements hook_form_alter() for adding classes and placeholder text to the search forms.
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
-  /** @var array<string, mixed> $form */
   if (isset($form['actions']['submit']) && (count($form['actions'])) <= 2) {
     $form['actions']['submit']['#attributes']['class'][] = 'btn';
     $form['actions']['submit']['#attributes']['class'][] = 'btn-primary';
@@ -46,6 +49,10 @@ function bootstrap_italia_form_alter(array &$form, FormStateInterface $form_stat
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_form_search_block_form_alter(array &$form): void {
   $form['keys']['#placeholder'] = t('Search by keyword or phrase.');
@@ -53,6 +60,10 @@ function bootstrap_italia_form_search_block_form_alter(array &$form): void {
 
 /**
  * Implements hook_preprocess_form_element().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_form_element(array &$variables): void {
   FormElement::set($variables);
@@ -61,6 +72,10 @@ function bootstrap_italia_preprocess_form_element(array &$variables): void {
 
 /**
  * Implements hook_preprocess_input().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_input(array &$variables): void {
 
@@ -73,6 +88,10 @@ function bootstrap_italia_preprocess_input(array &$variables): void {
 
 /**
  * Implements hook_preprocess_select().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_select(array &$variables): void {
   if (isset($variables['attributes']['multiple']) &&
@@ -84,6 +103,10 @@ function bootstrap_italia_preprocess_select(array &$variables): void {
 
 /**
  * Implements hook_preprocess_container().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_container(array &$variables): void {
   if (isset($variables['element']['#attributes']) &&
@@ -116,6 +139,10 @@ function bootstrap_italia_preprocess_container(array &$variables): void {
 
 /**
  * Implements hook_template_preprocess_form_element_label().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_form_element_label(array &$variables): void {
   if (isset($variables['required']) && $variables['required']) {

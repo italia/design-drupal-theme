@@ -7,6 +7,10 @@
 
 /**
  * Implements hook_preprocess_links().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_links(array &$variables): void {
   // Add current language to block.

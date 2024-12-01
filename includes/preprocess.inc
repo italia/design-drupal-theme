@@ -9,16 +9,24 @@ use Drupal\file\Entity\File;
 
 /**
  * Implements hook_preprocess_HOOK() for all templates.
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
-function bootstrap_italia_preprocess(&$variables): void {
+function bootstrap_italia_preprocess(array &$variables): void {
   // Icon libraries from cdn.
   $variables['libraries_cdn_icons'] = theme_get_setting('libraries_cdn_icons');
 }
 
 /**
  * Implements hook_preprocess_file_link().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
-function bootstrap_italia_preprocess_file_link(&$variables): void {
+function bootstrap_italia_preprocess_file_link(array &$variables): void {
   /** @var \Drupal\file\Entity\File $file */
   $file = $variables['file'];
 

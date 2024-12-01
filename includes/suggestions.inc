@@ -13,6 +13,10 @@ use Drupal\taxonomy\Entity\Term;
 
 /**
  * Implements hook_theme_suggestions_page_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, array &$variables): void {
   Suggestions::page($suggestions, $variables);
@@ -20,6 +24,10 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for block templates.
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_page_title_alter(array &$suggestions, array $variables): void {
   $route_name = str_replace('.', '_', Drupal::routeMatch()->getRouteName());
@@ -28,6 +36,10 @@ function bootstrap_italia_theme_suggestions_page_title_alter(array &$suggestions
 
 /**
  * Implements hook_theme_suggestions_node_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, array $variables): void {
 
@@ -47,6 +59,10 @@ function bootstrap_italia_theme_suggestions_node_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_taxonomy_term_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables): void {
 
@@ -66,6 +82,10 @@ function bootstrap_italia_theme_suggestions_taxonomy_term_alter(array &$suggesti
 
 /**
  * Implements hook_theme_suggestions_field_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, array &$variables): void {
 
@@ -103,6 +123,10 @@ function bootstrap_italia_theme_suggestions_field_alter(array &$suggestions, arr
 
 /**
  * Implements hook_theme_suggestions_block_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   try {
@@ -114,6 +138,10 @@ function bootstrap_italia_theme_suggestions_block_alter(array &$suggestions, arr
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, array $variables): void {
   Suggestions::menu($suggestions, $variables);
@@ -121,6 +149,10 @@ function bootstrap_italia_theme_suggestions_menu_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
   if (isset($variables['view'])) {
@@ -132,6 +164,10 @@ function bootstrap_italia_theme_suggestions_views_view_alter(array &$suggestions
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &$suggestions, array $variables): void {
   if (isset($variables['view'])) {
@@ -145,6 +181,10 @@ function bootstrap_italia_theme_suggestions_views_view_unformatted_alter(array &
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, array &$variables): void {
 
@@ -161,6 +201,10 @@ function bootstrap_italia_theme_suggestions_form_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_form_element_alter(array &$suggestions, array &$variables): void {
   Suggestions::form($suggestions, $variables);
@@ -168,6 +212,10 @@ function bootstrap_italia_theme_suggestions_form_element_alter(array &$suggestio
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_input_alter(array &$suggestions, array &$variables, string $hook): void {
   Suggestions::form($suggestions, $variables, $hook);
@@ -175,6 +223,10 @@ function bootstrap_italia_theme_suggestions_input_alter(array &$suggestions, arr
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_select_alter(array &$suggestions, array &$variables, string $hook): void {
   Suggestions::form($suggestions, $variables, $hook);
@@ -182,6 +234,10 @@ function bootstrap_italia_theme_suggestions_select_alter(array &$suggestions, ar
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_container_alter(array &$suggestions, array &$variables): void {
   Suggestions::form($suggestions, $variables);
@@ -189,6 +245,10 @@ function bootstrap_italia_theme_suggestions_container_alter(array &$suggestions,
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, array $variables): void {
 
@@ -212,6 +272,10 @@ function bootstrap_italia_theme_suggestions_user_alter(array &$suggestions, arra
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$suggestions, array $variables): void {
   Suggestions::imageFormatter($suggestions, $variables);
@@ -219,6 +283,10 @@ function bootstrap_italia_theme_suggestions_image_formatter_alter(array &$sugges
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_responsive_image_formatter_alter(array &$suggestions, array $variables): void {
   Suggestions::imageFormatter($suggestions, $variables);
@@ -226,6 +294,10 @@ function bootstrap_italia_theme_suggestions_responsive_image_formatter_alter(arr
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_image_style_alter(array &$suggestions, array $variables): void {
   Suggestions::imageStyle($suggestions, $variables);
@@ -233,6 +305,10 @@ function bootstrap_italia_theme_suggestions_image_style_alter(array &$suggestion
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_image_alter(array &$suggestions, array $variables): void {
   Suggestions::imageStyle($suggestions, $variables);
@@ -240,6 +316,10 @@ function bootstrap_italia_theme_suggestions_image_alter(array &$suggestions, arr
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_responsive_image_alter(array &$suggestions, array $variables): void {
   Suggestions::imageStyle($suggestions, $variables);
@@ -247,6 +327,10 @@ function bootstrap_italia_theme_suggestions_responsive_image_alter(array &$sugge
 
 /**
  * Implements hook_link_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_details_alter(array &$suggestions, array $variables): void {
   if (!empty($variables['element']['#webform_element'])) {

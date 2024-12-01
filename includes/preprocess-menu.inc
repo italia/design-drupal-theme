@@ -9,6 +9,10 @@ use Drupal\user\Entity\User;
 
 /**
  * Implements hook_preprocess_menu().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_menu(array &$variables): void {
   // User menu.
@@ -67,6 +71,10 @@ function bootstrap_italia_preprocess_menu(array &$variables): void {
 
 /**
  * Implements hook_preprocess_menu().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_menu_local_tasks(array &$variables): void {
   $variables['editor_nav_tabs_scrollable'] = (bool) theme_get_setting('editor_nav_tabs_scrollable');

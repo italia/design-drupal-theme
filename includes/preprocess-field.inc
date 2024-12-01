@@ -7,6 +7,10 @@
 
 /**
  * Implements hook_preprocess_field().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_field(array &$variables): void {
   $variables['field_label_bold'] = (bool) theme_get_setting('field_label_bold');
