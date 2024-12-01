@@ -254,7 +254,7 @@ class FormElement {
   /**
    * Text element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setText(array &$variables): void {
