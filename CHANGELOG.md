@@ -14,6 +14,9 @@ A key highlight of this release is full compatibility with Drupal 11,
 ensuring smooth integration with the latest core updates.
 Additionally, several accessibility fixes have been implemented
 including updates to breadcrumb and footer sections.
+Additionally, the code has been updated to achieve compliance
+with PHPStan level 7 (compared to level 5 in the previous version),
+ensuring more rigorous code analysis and overall greater reliability.
 
 Please note that this release includes breaking changes that require
 manual intervention, particularly in managing specific components like menus,
@@ -144,6 +147,7 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat: sub-theme drupal 11 compatibility
 - feat: upgrade sub-theme from CommonJS to ECMAScript Modules (ESM)
 - feat: up to bootstrap-italia 2.12.1 library
+- fix: phpstan level 7 compliance
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections
 - fix(modules): use div tag for sections wrapper
