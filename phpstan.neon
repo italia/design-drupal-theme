@@ -2,38 +2,7 @@
 
 parameters:
   level: 7
-  inferPrivatePropertyTypeFromConstructor: true
-  reportUnmatchedIgnoredErrors: false
 
   excludePaths:
     - */bower_components/*
     - */node_modules/*
-
-  ignoreErrors:
-    # Ignore some type hint errors due to hooks that should not have typed hint parameters or return.
-    - identifier: missingType.generics
-    - identifier: missingType.iterableValue
-    # Ignoring generic function parameter issues in Drupal hooks.
-    -
-      message: '#Function bootstrap_italia_.+ has parameter \$[a-zA-Z0-9\\_]+ with no type specified\.#'
-      paths:
-        - *.inc
-        - *.install
-        - *.module
-        - *.profile
-        - *.theme
-    -
-      message: '#Function [a-zA-Z0-9\\_]+\(\) has parameter \$[a-zA-Z0-9\\_]+ with no value type specified in iterable type [a-zA-Z0-9\\_]+\.#'
-      paths:
-        - *.inc
-        - *.install
-        - *.module
-        - *.profile
-        - *.theme
-    # Ignoring certain StringTranslation issues in Drupal.
-    - '#expects string\|null, Drupal\\Core\\StringTranslation\\TranslatableMarkup given\.#'
-    - '#expects string, Drupal\\Core\\StringTranslation\\TranslatableMarkup given\.#'
-    - '#expects string, Drupal\\Core\\StringTranslation\\TranslatableMarkup\|string given\.#'
-    - '#should return array\<string\> but returns array\<int, Drupal\\Core\\StringTranslation\\TranslatableMarkup\>\.#'
-    - '#should return string but returns Drupal\\Core\\StringTranslation\\TranslatableMarkup\.#'
-    - '#Parameter \#1 \$field of method Drupal\\Core\\Entity\\Query\\QueryInterface::condition\(\) expects Drupal\\Core\\Condition\\ConditionInterface\|string, Drupal\\Core\\Entity\\Query\\ConditionInterface given\.#'
