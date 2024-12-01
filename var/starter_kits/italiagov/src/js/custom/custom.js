@@ -4,10 +4,10 @@
  */
 
 // Example JS
-//import './example.js'
-//import './example-alert-event.js'
-//import './example-bootstrap-italia-modules.js'
-//import './icons.js'
+// import './example.js'
+// import './example-alert-event.js'
+// import './example-bootstrap-italia-modules.js'
+// import './icons.js'
 
 /**
  * Customize your bootstrap

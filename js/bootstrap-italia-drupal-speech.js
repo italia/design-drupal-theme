@@ -1,82 +1,96 @@
 (function (Drupal, once) {
-  'use strict';
-
   Drupal.behaviors.speechSynthesisUtterance = {
-    attach: function (context, settings) {
-      once('speechSynthesisUtterance', '#it-block-italiagov-content', context).forEach(function (element) {
+    attach(context, settings) {
+      once(
+        'speechSynthesisUtterance',
+        '#it-block-italiagov-content',
+        context
+      ).forEach(function (element) {
+        const lang = navigator.language;
+        const voiceIndex = 1;
+        const rate = 0.9;
 
-        let lang = navigator.language
-        let voiceIndex = 1
-        let rate = 0.9
-
-        const speak = async text => {
+        const speak = async (text) => {
           if (!speechSynthesis) {
-            return
+            return;
           }
-          const message = new SpeechSynthesisUtterance(text)
-          message.voice = await chooseVoice()
-          message.rate = rate
-          speechSynthesis.speak(message)
-        }
+          const message = new SpeechSynthesisUtterance(text);
+          message.voice = await chooseVoice();
+          message.rate = rate;
+          speechSynthesis.speak(message);
+        };
 
         const getVoices = () => {
-          return new Promise(resolve => {
-            let voices = speechSynthesis.getVoices()
+          return new Promise((resolve) => {
+            let voices = speechSynthesis.getVoices();
             if (voices.length) {
-              resolve(voices)
-              return
+              resolve(voices);
+              return;
             }
             speechSynthesis.onvoiceschanged = () => {
-              voices = speechSynthesis.getVoices()
-              resolve(voices)
-            }
-          })
-        }
+              voices = speechSynthesis.getVoices();
+              resolve(voices);
+            };
+          });
+        };
 
         const chooseVoice = async () => {
-          const voices = (await getVoices()).filter(voice => voice.lang == lang)
+          const voices = (await getVoices()).filter(
+            (voice) => voice.lang === lang
+          );
 
-          return new Promise(resolve => {
-            resolve(voices[voiceIndex])
-          })
-        }
+          return new Promise((resolve) => {
+            resolve(voices[voiceIndex]);
+          });
+        };
 
-        const extractTextFromNode = el => {
-          let n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
-          while(n=walk.nextNode()) a.push(n.textContent);
+        const extractTextFromNode = (el) => {
+          const a = [];
+          const walk = document.createTreeWalker(
+            el,
+            NodeFilter.SHOW_TEXT,
+            null,
+            false
+          );
+          let n;
+          while ((n = walk.nextNode())) {
+            a.push(n.textContent);
+          }
           return a.join(' ');
-        }
+        };
 
-        //SETTING THE PLAY CONTROL
-        //first we get the value of the textarea or document
-        document.getElementById("it-share-action-speak").addEventListener("click", () => {
-          let classToRead = document.getElementById("it-share-action-speak").dataset.biRead;
-          let elementToRead = document.querySelector('.'+classToRead);
-          speak(extractTextFromNode(elementToRead));
-        });
+        // SETTING THE PLAY CONTROL
+        // First we get the value of the textarea or document
+        document
+          .getElementById('it-share-action-speak')
+          .addEventListener('click', () => {
+            const classToRead = document.getElementById(
+              'it-share-action-speak'
+            ).dataset.biRead;
+            const elementToRead = document.querySelector(`.${classToRead}`);
+            speak(extractTextFromNode(elementToRead));
+          });
 
-/*        // optionals // TODO more tag?
-        //PAUSE
+        /* // Optionals // TODO more tag?
+        // PAUSE
         document.getElementById("pause").addEventListener("click", () => {
           // Pause the speechSynthesis instance
           window.speechSynthesis.pause();
         });
 
-        //RESUME
+        // RESUME
         document.getElementById("resume").addEventListener("click", () => {
           // Resume the paused speechSynthesis instance
           window.speechSynthesis.resume();
         });
 
-        //CANCEL
+        // CANCEL
         document.querySelector("cancel").addEventListener("click", () => {
           // Cancel the speechSynthesis instance
           window.speechSynthesis.cancel();
         });
-        // end optionals*/
-
+        // End optionals */
       });
-    }
+    },
   };
-
 })(Drupal, once);

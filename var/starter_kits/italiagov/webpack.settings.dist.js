@@ -1,10 +1,10 @@
 export default {
-  /*** Basic settings ***/
+  // Basic settings
   sourceDir: 'src',
   destinationDir: 'dist',
   moduleDir: 'node_modules',
 
-  /*** Hot mode settings ***/
+  // Hot mode settings
   /**
    * If you edit this variable, change relative path in "<theme>.libraries.yml" on 'hot' array.
    */

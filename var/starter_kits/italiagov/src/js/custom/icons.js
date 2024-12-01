@@ -1,1 +1,1 @@
-import '../../svg/it-drupal.svg'
+import '../../svg/it-drupal.svg';

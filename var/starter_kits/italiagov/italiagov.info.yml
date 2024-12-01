@@ -8,11 +8,11 @@ base theme: bootstrap_italia
 # Choose libraries to use. Global is managed with theme settings UI.
 libraries:
   - italiagov/libraries-ui
-#  - italiagov/vanilla
-#  - italiagov/custom
-#  - italiagov/cdn
-#  - italiagov/hot
-#  - italiagov/ddev
+  #- italiagov/vanilla
+  #- italiagov/custom
+  #- italiagov/cdn
+  #- italiagov/hot
+  #- italiagov/ddev
   - bootstrap_italia/base
   - bootstrap_italia/enable-all-tooltips
   - bootstrap_italia/load-fonts

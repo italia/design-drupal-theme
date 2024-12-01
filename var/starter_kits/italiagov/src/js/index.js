@@ -8,9 +8,9 @@
  */
 
 // Import Bootstrap-italia components.
-import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin.js'
-import init from 'bootstrap-italia/src/js/plugins/init.js'
-import * as icons from 'bootstrap-italia/src/js/icons.js'
+import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin.js';
+import init from 'bootstrap-italia/src/js/plugins/init.js';
+import * as icons from 'bootstrap-italia/src/js/icons.js';
 
 /**
  * Import all components, to choose components use
@@ -19,16 +19,16 @@ import * as icons from 'bootstrap-italia/src/js/icons.js'
  * Docs: https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/#javascript
  * Examples: https://github.com/astagi/demo-bsitalia-2
  */
-import * as bootstrap from 'bootstrap-italia'
+import * as bootstrap from 'bootstrap-italia';
 
-loadPlugin(icons)
-init()
+loadPlugin(icons);
+init();
 
 // Component library initialization.
-import './component-library-initialization.js'
+import './component-library-initialization.js';
 
 // Import custom JS.
-import './custom/custom.js'
+import './custom/custom.js';
 
 /**
  * Export all bootstrap-italia components as `bootstrap`,
@@ -36,4 +36,4 @@ import './custom/custom.js'
  *
  * @type {any}
  */
-window.bootstrap = bootstrap
+window.bootstrap = bootstrap;
