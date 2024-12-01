@@ -93,7 +93,7 @@ class TimelineStyle extends StylePluginBase {
         'h6' => $this->t('Heading 6 (h6)'),
       ],
       '#default_value' =>
-        $this->options['bi_timeline_settings']['pin_heading_tag'] ?? 'h3',
+      $this->options['bi_timeline_settings']['pin_heading_tag'] ?? 'h3',
     ];
 
     // Icons.

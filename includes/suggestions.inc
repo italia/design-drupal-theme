@@ -26,7 +26,6 @@ function bootstrap_italia_theme_suggestions_page_title_alter(array &$suggestions
   $suggestions[] = $variables['theme_hook_original'] . '__' . $route_name;
 }
 
-
 /**
  * Implements hook_theme_suggestions_node_alter().
  */

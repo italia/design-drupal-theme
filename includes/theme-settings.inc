@@ -14,7 +14,7 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, string $form_id = NULL): void {
+function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
 
   // General "alters" use a form id. Settings should not be set here. The only
   // thing useful about this is if you need to alter the form for the running
@@ -1001,7 +1001,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
     '#description' => t('If your library loads fonts via css (<a href="@link" title="@title" target="_blank">@label</a>), check this option; you will get a small performance boost when loading fonts. Default: unchecked.', [
       '@link' => 'https://italia.github.io/bootstrap-italia/docs/come-iniziare/introduzione/#fonts',
       '@title' => 'Read the docs',
-      '@label' => 'Docs'
+      '@label' => 'Docs',
     ]),
     '#default_value' => theme_get_setting('libraries_fonts_load_from_css'),
   ];

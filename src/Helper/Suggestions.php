@@ -24,7 +24,7 @@ class Suggestions {
    * @param string|null $hook
    *   Specific hook.
    */
-  public static function form(array &$suggestions, array $variables, string $hook = NULL): void {
+  public static function form(array &$suggestions, array $variables, ?string $hook = NULL): void {
     // Add a suggestion based on the element type.
     if (isset($variables['element']['#type'])) {
       $suggestions[] = $variables['theme_hook_original'] . '__type__' . $variables['element']['#type'];

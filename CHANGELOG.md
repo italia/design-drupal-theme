@@ -44,7 +44,8 @@ but it applies to the "Multiline with icon" variant.
 https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#multiline-con-icona
 
 3. Similar to the previous points,
-but it applies to the "With additional text, multiple actions, and metadata" variant.
+but it applies to the "With additional text, multiple actions,
+and metadata" variant.
 https://italia.github.io/bootstrap-italia/docs/organizzare-i-contenuti/liste/#con-testo-aggiuntivo-azioni-multiple-e-metadata
 
 4. Similar to the previous points, but it applies to the "Timeline" component
@@ -67,7 +68,8 @@ If you use custom libraries built with webpack, do:
 $ npm install bootstrap-italia@2.12.1 --save-exact
 $ npm install sass-loader@^16 webpack-merge@^6
 $ npm uninstall svg-sprite-loader rimraf
-$ npm install svg-chunk-webpack-plugin terser-webpack-plugin css-minimizer-webpack-plugin --save-dev
+$ npm install svg-chunk-webpack-plugin --save-dev
+$ npm install terser-webpack-plugin css-minimizer-webpack-plugin --save-dev
 $ npm update
 ```
 
@@ -330,7 +332,8 @@ and bootstrap-italia variants
 - fix(component,field): fixed badges overflowing the container
 - fix(core,js): fix mutation is null when a scrolled page is refreshed and
 big_pipe has not finished loading
-- fix(module,ckeditor5): fix The <img> tag is not yet supported by the Style plugin
+- fix(module,ckeditor5): fix The <img> tag is not yet supported by
+the Style plugin
 - fix: issue #3368907
 - fix(sec): phpstan --level 5
 - Fix!: issue #3449377 bi-paragraph-base.html.twig not found
