@@ -38,7 +38,7 @@ class Helper {
   /**
    * Return social name.
    *
-   * @return array
+   * @return array<string>
    *   All social.
    */
   public static function getSocialItems(): array {
@@ -76,7 +76,7 @@ class Helper {
   /**
    * Return active social.
    *
-   * @return array
+   * @return array<string, mixed>
    *   Active social with url.
    */
   public static function getActiveSocials(): array {
@@ -98,7 +98,7 @@ class Helper {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Returns breakpoints.
    */
   public static function getBreakpoints(bool $withLabel = FALSE): array {
@@ -122,7 +122,7 @@ class Helper {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Returns container type.
    */
   public static function getBootstrapContainerType(bool $withLabel = FALSE): array {

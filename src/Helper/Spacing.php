@@ -18,7 +18,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Top paddings.
    */
   public static function getPaddingTop(bool $withLabel = FALSE): array {
@@ -42,7 +42,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Right paddings.
    */
   public static function getPaddingRight(bool $withLabel = FALSE): array {
@@ -66,7 +66,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Bottom paddings.
    */
   public static function getPaddingBottom(bool $withLabel = FALSE): array {
@@ -90,7 +90,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Left paddings.
    */
   public static function getPaddingLeft(bool $withLabel = FALSE): array {
@@ -114,7 +114,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Vertical paddings.
    */
   public static function getPaddingVertical(bool $withLabel = FALSE): array {
@@ -138,7 +138,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Horizontal paddings.
    */
   public static function getPaddingHorizontal(bool $withLabel = FALSE): array {
@@ -162,7 +162,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Top margins.
    */
   public static function getMarginTop(bool $withLabel = FALSE): array {
@@ -186,7 +186,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Right margins.
    */
   public static function getMarginRight(bool $withLabel = FALSE): array {
@@ -210,7 +210,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Bottom margins.
    */
   public static function getMarginBottom(bool $withLabel = FALSE): array {
@@ -234,7 +234,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Left margins.
    */
   public static function getMarginLeft(bool $withLabel = FALSE): array {
@@ -258,7 +258,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Vertical margins.
    */
   public static function getMarginVertical(bool $withLabel = FALSE): array {
@@ -282,7 +282,7 @@ class Spacing {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Horizontal margins.
    */
   public static function getMarginHorizontal(bool $withLabel = FALSE): array {

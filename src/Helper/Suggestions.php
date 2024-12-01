@@ -17,9 +17,9 @@ class Suggestions {
   /**
    * Set form suggestions.
    *
-   * @param array &$suggestions
+   * @param array<string> &$suggestions
    *   Referenced $suggestions.
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Referenced $variables.
    * @param string|null $hook
    *   Specific hook.
@@ -49,9 +49,9 @@ class Suggestions {
   /**
    * Set blocks suggestions.
    *
-   * @param array &$suggestions
+   * @param array<string> &$suggestions
    *   Referenced $suggestions.
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Referenced $variables.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
@@ -102,9 +102,9 @@ class Suggestions {
   /**
    * Set menu suggestions.
    *
-   * @param array &$suggestions
+   * @param array<string> &$suggestions
    *   Referenced $suggestions.
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Referenced $variables.
    */
   public static function menu(array &$suggestions, array $variables): void {
@@ -119,9 +119,9 @@ class Suggestions {
   /**
    * Set page suggestions.
    *
-   * @param array &$suggestions
+   * @param array<string> &$suggestions
    *   Referenced $suggestions.
-   * @param array &$variables
+   * @param array<string, mixed> &$variables
    *   Referenced $variables.
    */
   public static function page(array &$suggestions, array &$variables): void {
@@ -156,9 +156,9 @@ class Suggestions {
   /**
    * Set image_formatter suggestions.
    *
-   * @param array &$suggestions
+   * @param array<string> &$suggestions
    *   Referenced $suggestions.
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Referenced $variables.
    */
   public static function imageFormatter(array &$suggestions, array $variables): void {
@@ -193,9 +193,9 @@ class Suggestions {
   /**
    * Set image_style suggestions.
    *
-   * @param array &$suggestions
+   * @param array<string> &$suggestions
    *   Referenced $suggestions.
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Referenced $variables.
    */
   public static function imageStyle(array &$suggestions, array $variables): void {

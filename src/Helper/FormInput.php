@@ -12,7 +12,7 @@ class FormInput {
   /**
    * Set form input.
    *
-   * @param array &$variables
+   * @param array<string, mixed> &$variables
    *   Referenced $variables.
    */
   public static function set(array &$variables): void {
@@ -67,7 +67,7 @@ class FormInput {
   /**
    * Return variables type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    *
    * @return string
@@ -89,7 +89,7 @@ class FormInput {
   /**
    * Set text input type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setText(array &$variables): void {
@@ -99,7 +99,7 @@ class FormInput {
   /**
    * Set textfield input type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setTextfield(array &$variables): void {
@@ -117,7 +117,7 @@ class FormInput {
   /**
    * Set range input type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setRange(array &$variables): void {
@@ -127,7 +127,7 @@ class FormInput {
   /**
    * Set file input type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setFile(array &$variables): void {
@@ -137,7 +137,7 @@ class FormInput {
   /**
    * Set submit input type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setSubmit(array &$variables): void {
@@ -187,7 +187,7 @@ class FormInput {
   /**
    * Set password input type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setPassword(array &$variables): void {
@@ -208,7 +208,7 @@ class FormInput {
   /**
    * Check validation error on single field.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function checkErrors(array &$variables): void {
@@ -227,7 +227,7 @@ class FormInput {
   /**
    * Check validation success on single field.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function checkSuccess(array &$variables): void {

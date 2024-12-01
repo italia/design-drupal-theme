@@ -12,7 +12,7 @@ class Table {
   /**
    * Table settings.
    *
-   * @param array &$variables
+   * @param array<string, mixed> &$variables
    *   Referenced $suggestions.
    */
   public static function set(array &$variables): void {

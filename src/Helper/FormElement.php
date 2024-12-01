@@ -12,7 +12,7 @@ class FormElement {
   /**
    * Set form element.
    *
-   * @param array &$variables
+   * @param array<string, mixed> &$variables
    *   Referenced $variables array.
    */
   public static function set(array &$variables): void {
@@ -79,7 +79,7 @@ class FormElement {
   /**
    * Check if label is active.
    *
-   * @param array &$variables
+   * @param array<string, mixed> &$variables
    *   Referenced $variables array.
    */
   public static function setActiveLabel(array &$variables): void {
@@ -98,7 +98,7 @@ class FormElement {
   /**
    * Return variables type.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    *
    * @return string
@@ -194,7 +194,7 @@ class FormElement {
   /**
    * Number element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setNumber(array &$variables): void {
@@ -206,7 +206,7 @@ class FormElement {
   /**
    * Number composite element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setNumberComposite(array &$variables): void {
@@ -217,7 +217,7 @@ class FormElement {
   /**
    * Telephone element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setTel(array &$variables): void {
@@ -232,7 +232,7 @@ class FormElement {
   /**
    * Textarea element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setTextarea(array &$variables): void {
@@ -243,7 +243,7 @@ class FormElement {
   /**
    * Date time element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setDateTime(array &$variables): void {
@@ -264,7 +264,7 @@ class FormElement {
   /**
    * Boolean element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setBoolean(array &$variables): void {
@@ -274,7 +274,7 @@ class FormElement {
   /**
    * Select element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setSelect(array &$variables): void {
@@ -284,7 +284,7 @@ class FormElement {
   /**
    * Select composite element settings.
    *
-   * @param array $variables
+   * @param array<string, mixed> $variables
    *   Variables array.
    */
   private static function setSelectComposite(array &$variables): void {

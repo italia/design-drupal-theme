@@ -19,7 +19,7 @@ class Libraries {
   /**
    * Returns available theme libraries.
    *
-   * @return array
+   * @return array<int|string, mixed>
    *   Array with theme libraries options.
    */
   public static function getLibraries(): array {
@@ -68,11 +68,12 @@ class Libraries {
   /**
    * Set themes libraries.
    *
-   * @return array
+   * @return array<int|string|empty>
    *   Libraries array.
    */
   public static function setLibraries(): array {
     // Get libraries_type from Drupal config.
+    /** @var string $libraries_type */
     $libraries_type = Helper::getSettings()->get('libraries_type');
 
     if (!empty($libraries_type) && $libraries_type == 'vanilla') {
@@ -105,7 +106,7 @@ class Libraries {
   /**
    * Returns vanilla libraries.
    *
-   * @return array
+   * @return array<string, mixed>
    *   Array with vanilla libraries
    */
   public static function getLibrariesVanilla(): array {
@@ -133,7 +134,7 @@ class Libraries {
   /**
    * Returns CDN libraries.
    *
-   * @return array
+   * @return array<string, mixed>
    *   Array with CDN libraries
    */
   public static function getLibrariesCdn(): array {
