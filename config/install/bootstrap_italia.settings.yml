@@ -1,1 +1,4 @@
-
+favicon:
+  use_default: true
+logo:
+  use_default: true
