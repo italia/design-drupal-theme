@@ -9,6 +9,10 @@ use Drupal\bootstrap_italia_views_list\Plugin\views\style\ListStyle;
 
 /**
  * Implements hook_theme().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.parameter, missingType.parameter, missingType.parameter, missingType.parameter, missingType.iterableValue
  */
 function bootstrap_italia_views_list_style_theme($existing, $type, $theme, $path): array {
   return [
@@ -27,7 +31,7 @@ function bootstrap_italia_views_list_style_theme($existing, $type, $theme, $path
  *
  * Default template: views-bootstrap-italia-views-list.html.twig.
  *
- * @param array $variables
+ * @param array<string, mixed> $variables
  *   An associative array containing:
  *   - view: A ViewExecutable object.
  *   - rows: The raw row data.
@@ -39,6 +43,10 @@ function template_preprocess_views_bootstrap_italia_views_list(array &$variables
 
 /**
  * Implements hook_theme_suggestions_block_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_views_list_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   if (isset($variables['elements']['content']['#view'])) {
@@ -54,6 +62,10 @@ function bootstrap_italia_views_list_theme_suggestions_block_alter(array &$sugge
 
 /**
  * Implements hook_theme_suggestions_views_view_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_views_list_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof ListStyle) {
@@ -64,6 +76,10 @@ function bootstrap_italia_views_list_theme_suggestions_views_view_alter(array &$
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_views_list_theme_suggestions_views_bootstrap_italia_views_list_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof ListStyle) {

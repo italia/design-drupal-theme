@@ -36,6 +36,9 @@ class AccordionStyle extends StylePluginBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @return array<string, mixed>
+   *   Options array.
    */
   protected function defineOptions(): array {
     $options = parent::defineOptions();
@@ -46,7 +49,7 @@ class AccordionStyle extends StylePluginBase {
   /**
    * {@inheritdoc}
    *
-   * @param array $form
+   * @param array<string, mixed> $form
    *   Nested array of form elements that comprise the form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The current state of the form.

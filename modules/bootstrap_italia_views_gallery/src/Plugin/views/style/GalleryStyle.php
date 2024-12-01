@@ -36,8 +36,11 @@ class GalleryStyle extends StylePluginBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @return array<string, mixed>
+   *   Options array.
    */
-  protected function defineOptions() {
+  protected function defineOptions(): array {
     $options = parent::defineOptions();
     $options['gallery_settings'] = ['default' => []];
     return $options;
@@ -46,10 +49,10 @@ class GalleryStyle extends StylePluginBase {
   /**
    * {@inheritdoc}
    *
-   * @param array $form
-   *    Nested array of form elements that comprise the form.
+   * @param array<string, mixed> $form
+   *   Nested array of form elements that comprise the form.
    * @param \Drupal\Core\Form\FormStateInterface $form_state
-   *    The current state of the form.
+   *   The current state of the form.
    */
   public function buildOptionsForm(&$form, FormStateInterface $form_state): void {
     parent::buildOptionsForm($form, $form_state);
