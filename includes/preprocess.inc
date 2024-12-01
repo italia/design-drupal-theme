@@ -5,6 +5,8 @@
  * Hook THEME_preprocess.
  */
 
+use Drupal\file\Entity\File;
+
 /**
  * Implements hook_preprocess_HOOK() for all templates.
  */
@@ -17,8 +19,12 @@ function bootstrap_italia_preprocess(&$variables): void {
  * Implements hook_preprocess_file_link().
  */
 function bootstrap_italia_preprocess_file_link(&$variables): void {
-  /** @var Drupal\file\Entity\File $variables['file'] */
-  $variables['file_link_mime_type'] = $variables['file']->getMimeType();
+  /** @var \Drupal\file\Entity\File $file */
+  $file = $variables['file'];
+
+  if ($file instanceof File) {
+    $variables['file_link_mime_type'] = $file->getMimeType();
+  }
   $variables['file_link_default_icon'] = theme_get_setting('file_link_default_icon') ?: 'it-clip';
   $variables['file_link_icon_autodetect'] = theme_get_setting('file_link_icon_autodetect') ?: FALSE;
   $variables['file_link_show_size'] = theme_get_setting('file_link_show_size') ?: TRUE;

@@ -19,7 +19,7 @@ class Color {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   All colors.
    */
   public static function getAll(bool $withLabel = FALSE): array {
@@ -39,7 +39,7 @@ class Color {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Theme colors.
    */
   public static function getTheme(bool $withLabel = FALSE): array {
@@ -68,7 +68,7 @@ class Color {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Pantone colors.
    */
   public static function getPantone(bool $withLabel = FALSE): array {
@@ -101,7 +101,7 @@ class Color {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Gray colors.
    */
   public static function getGrays(bool $withLabel = FALSE): array {
@@ -133,7 +133,7 @@ class Color {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Utilities colors.
    */
   public static function getUtilities(bool $withLabel = FALSE): array {
@@ -152,7 +152,7 @@ class Color {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Color mode.
    */
   public static function getMode(bool $withLabel = FALSE): array {
@@ -171,7 +171,7 @@ class Color {
    * @param bool $withLabel
    *   Choose from array with label or not.
    *
-   * @return array
+   * @return array<int|string>
    *   Monochromatic colors.
    */
   public static function getMonochromatic(bool $withLabel = FALSE): array {
