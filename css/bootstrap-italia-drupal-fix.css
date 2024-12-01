@@ -1,15 +1,15 @@
 /* Theme fix */
 .block-region.demo-block {
-  background-color: #aaa;
   padding: 1rem;
+  background-color: #aaa;
   color: #000 !important;
   font-weight: bold;
 }
 
 #toolbar-administration.toolbar {
+  z-index: 10001;
   height: auto;
   max-width: fit-content;
-  z-index: 10001;
 }
 
 #toolbar-administration.toolbar > .toolbar-bar {
@@ -30,14 +30,14 @@
   display: flex;
 }
 
-/* fix toolbar regression with bootstrap-italia >= 2.7 */
+/* Fix toolbar regression with bootstrap-italia >= 2.7 */
 @media (min-width: 576px) {
   #toolbar-administration ul {
     font-size: 0.81rem;
   }
 }
 
-/* Navbar sticky VS drupal toolbar */
+/* Navbar sticky vs drupal toolbar */
 body.toolbar-horizontal.toolbar-fixed {
   padding-top: 79px !important;
 }
@@ -89,7 +89,7 @@ body.toolbar-horizontal.toolbar-fixed {
 /* Typography Fix -------------------------------------------------------------------------- */
 em.placeholder {
   background-color: unset;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 /* Table Fix -------------------------------------------------------------------------- */
@@ -116,14 +116,9 @@ a.tabledrag-handle .handle {
   line-height: 40px;
 }
 .webform-scale-text {
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   font-size: 0.777rem;
 }
-
-/* Select in webform date list component */
-/*.select-wrapper select {
-  padding: .375rem 2.25rem .375rem .75rem;
-}/* from version 2.11 it is not needed */
 
 /* Select in draggable tables */
 fieldset.webform-composite-hidden-title {
@@ -156,7 +151,7 @@ button.link-edit-summary {
   margin-bottom: 3rem;
 }
 
-/* Overflow -_------------------------------------------------------------------------- */
+/* Overflow --------------------------------------------------------------------------- */
 html {
   overflow-x: hidden;
 }
