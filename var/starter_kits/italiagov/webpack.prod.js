@@ -39,25 +39,23 @@ export default merge(common, {
   optimization: {
     minimize: true,
     minimizer: [
-      // Aggiungi TerserPlugin per minimizzare il JavaScript
       new TerserPlugin({
         terserOptions: {
           compress: {
-            drop_console: true, // Rimuove i console.log dal codice di produzione
+            drop_console: true, // Removes console.logs from production code
           },
           format: {
-            comments: false, // Rimuove tutti i commenti
+            comments: false, // Remove all comments
           },
         },
-        extractComments: false, // Impedisce l'estrazione dei commenti in file separati
+        extractComments: false, // Prevents extracting comments into separate files
       }),
-      // Aggiungi CssMinimizerPlugin per minimizzare il CSS
       new CssMinimizerPlugin({
         minimizerOptions: {
           preset: [
             'default',
             {
-              svgo: false, // Disabilita SVGO
+              svgo: false, // Disable SVGO (inline scss issue)
             },
           ],
         },

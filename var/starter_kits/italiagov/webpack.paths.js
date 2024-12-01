@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const customSettingsFile = path.resolve(__dirname, './webpack.settings.js');
 const defaultSettingsFile = path.resolve(__dirname, './webpack.settings.dist.js');
 
-// Verifica se il file delle impostazioni personalizzato esiste
+// Check if the custom settings file exists
 let settings;
 if (fs.existsSync(customSettingsFile)) {
   settings = await import(customSettingsFile);
@@ -17,10 +17,9 @@ if (fs.existsSync(customSettingsFile)) {
   settings = await import(defaultSettingsFile);
 }
 
-// Assicurati che `settings` sia il modulo esportato come default
+// Export setting as default
 settings = settings.default;
 
-// Definizione dei percorsi
 const paths = {
   // Source files
   src: path.resolve(__dirname, settings.sourceDir),
