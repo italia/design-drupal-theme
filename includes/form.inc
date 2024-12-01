@@ -14,6 +14,7 @@ use Drupal\Core\Template\Attribute;
  * Implements hook_form_alter() for adding classes and placeholder text to the search forms.
  */
 function bootstrap_italia_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  /** @var array<string, mixed> $form */
   if (isset($form['actions']['submit']) && (count($form['actions'])) <= 2) {
     $form['actions']['submit']['#attributes']['class'][] = 'btn';
     $form['actions']['submit']['#attributes']['class'][] = 'btn-primary';
@@ -71,7 +72,7 @@ function bootstrap_italia_preprocess_input(array &$variables): void {
 }
 
 /**
- * Implements hook_preprocess_form_element().
+ * Implements hook_preprocess_select().
  */
 function bootstrap_italia_preprocess_select(array &$variables): void {
   if (isset($variables['attributes']['multiple']) &&
@@ -82,7 +83,7 @@ function bootstrap_italia_preprocess_select(array &$variables): void {
 }
 
 /**
- * Implements hook_preprocess_HOOK().
+ * Implements hook_preprocess_container().
  */
 function bootstrap_italia_preprocess_container(array &$variables): void {
   if (isset($variables['element']['#attributes']) &&

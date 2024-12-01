@@ -7,6 +7,11 @@
 
 // Include all files from the includes directory.
 $includes_path = __DIR__ . '/includes/*.inc';
-foreach (glob($includes_path) as $filename) {
+
+/** @var array<int, string>|false $files */
+$files = glob($includes_path);
+
+/** @var string $filename */
+foreach ((array) $files as $filename) {
   require_once __DIR__ . '/includes/' . basename($filename);
 }
