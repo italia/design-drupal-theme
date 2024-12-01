@@ -58,7 +58,7 @@ back_to_top_enable: 1
 back_to_top_small: 0
 back_to_top_dark: 0
 back_to_top_shadow: 1
-content_container_type: container
+content_container_type: container-xxl
 content_padding_bottom: ''
 content_margin_bottom: ''
 show_main_content_in_front: 0
@@ -107,7 +107,7 @@ pager_show_total_pages: 0
 forms_field_label_required_mark: 0
 forms_action_alignment: left
 forms_action_spacing: 1
-footer_container_type: container
+footer_container_type: container-xxl
 libraries_type: 'vanilla'
 libraries_fonts_load_from_css: 0
 libraries_vanilla_bundle: 1

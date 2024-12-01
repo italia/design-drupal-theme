@@ -75,7 +75,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['slim_header']['appearance']['slim_header_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
-    '#description' => t('Choose container type. Default: Container fixed'),
+    '#description' => t('Choose container type. Default: container xxl'),
     '#default_value' => theme_get_setting('slim_header_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
@@ -179,7 +179,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['center_header']['appearance']['center_header_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
-    '#description' => t('Choose container type. Default: Container fixed'),
+    '#description' => t('Choose container type. Default: container xxl'),
     '#default_value' => theme_get_setting('center_header_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
@@ -317,7 +317,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['navigation_header']['appearance']['navigation_header_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
-    '#description' => t('Choose container type. Default: Container fixed'),
+    '#description' => t('Choose container type. Default: container xxl'),
     '#default_value' => theme_get_setting('navigation_header_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
@@ -638,7 +638,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['content']['appearance']['content_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
-    '#description' => t('Choose container type. Default: Container fixed'),
+    '#description' => t('Choose container type. Default: container xxl'),
     '#default_value' => theme_get_setting('content_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
@@ -968,7 +968,7 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
   $form['footer']['appearance']['footer_container_type'] = [
     '#type' => 'select',
     '#title' => t("Container"),
-    '#description' => t('Choose container type. Default: Container fixed'),
+    '#description' => t('Choose container type. Default: container xxl'),
     '#default_value' => theme_get_setting('footer_container_type'),
     '#options' => Helper::getBootstrapContainerType(TRUE),
   ];
