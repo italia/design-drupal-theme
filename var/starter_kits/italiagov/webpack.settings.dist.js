@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /*** Basic settings ***/
   sourceDir: 'src',
   destinationDir: 'dist',
@@ -39,4 +39,4 @@ module.exports = {
      */
     port: 8080,
   }
-}
+};

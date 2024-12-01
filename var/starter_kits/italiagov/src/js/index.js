@@ -8,9 +8,9 @@
  */
 
 // Import Bootstrap-italia components.
-import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin'
-import init from 'bootstrap-italia/src/js/plugins/init'
-import * as icons from 'bootstrap-italia/src/js/icons'
+import { loadPlugin } from 'bootstrap-italia/src/js/load-plugin.js'
+import init from 'bootstrap-italia/src/js/plugins/init.js'
+import * as icons from 'bootstrap-italia/src/js/icons.js'
 
 /**
  * Import all components, to choose components use
@@ -25,10 +25,10 @@ loadPlugin(icons)
 init()
 
 // Component library initialization.
-import './component-library-initialization'
+import './component-library-initialization.js'
 
 // Import custom JS.
-import './custom/custom'
+import './custom/custom.js'
 
 /**
  * Export all bootstrap-italia components as `bootstrap`,

@@ -20,7 +20,15 @@ manual intervention, particularly in managing specific components like menus,
 link-lists, and timelines.
 Comprehensive instructions are provided to guide you through these updates.
 
-### Breaking changes!!!
+### Upgrade from CommonJS to ECMAScript Modules (ESM)
+
+With this release, the sub-theme build process moves from CommonJS
+to ECMAScript Modules (ESM).
+This shift is intended to leverage modern JavaScript features,
+improve compatibility with current tooling,
+and ensure better optimization opportunities during the build process.
+
+### ⚠️ Breaking changes!!!
 This release introduces breaking changes that require your attention.
 The following changes must be handled manually and
 cannot be managed automatically.
@@ -57,15 +65,36 @@ and update `<your-sub-theme>/dist` folder.
 If you use custom libraries built with webpack, do:
 ```shell
 $ npm install bootstrap-italia@2.12.1 --save-exact
-$ npm install rimraf@^6 sass-loader@^16 webpack-merge@^6
+$ npm install sass-loader@^16 webpack-merge@^6
+$ npm uninstall svg-sprite-loader rimraf
+$ npm install svg-chunk-webpack-plugin terser-webpack-plugin css-minimizer-webpack-plugin --save-dev
 $ npm update
 ```
 
 Using as reference the files contained in `/var/starter_kits/italiagov/...`
 and update `/themes/custom/<your-sub-theme>`
+- add:
+  - `svgo.config.js`
 - update:
   - `src/scss/_bootstrap.scss`
+  - `src/js/index.js` (added .js extension to imported files)
+  - `webpack.*.js`
+  - `package.json` (add field `"type": "module"`)
+- remove:
+  - `webpack.check.js`
 
+Add the `.js` extension when importing a javascript otherwise you will receive
+an error during the build process.
+Before:
+```
+import './example'
+```
+after
+```
+import './example.js'
+```
+
+Finally execute:
 ```shell
 $ npm run build:prod
 $ drush cr
@@ -110,6 +139,7 @@ from: `core_version_requirement: ^9 || ^10` to
 - feat(modules): views styles modules drupal 11 compatibility
 - feat: base-theme drupal 11 compatibility
 - feat: sub-theme drupal 11 compatibility
+- feat: upgrade sub-theme from CommonJS to ECMAScript Modules (ESM)
 - feat: up to bootstrap-italia 2.12.1 library
 - fix(a11y): add aria label in breadcrumb section
 - fix(a11y): add aria label in footer sections

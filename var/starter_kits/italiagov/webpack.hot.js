@@ -1,16 +1,15 @@
-const { merge } = require('webpack-merge')
+import { merge } from 'webpack-merge';
+import fs from 'fs';
+import dev from './webpack.dev.js';
 
-const fs = require('fs')
-const customSettingsFile = './webpack.settings.js'
+const customSettingsFile = './webpack.settings.js';
 const settings = fs.existsSync(customSettingsFile)
-  ? require('./webpack.settings')
-  : require('./webpack.settings.dist')
+  ? await import('./webpack.settings.js')
+  : await import('./webpack.settings.dist.js');
 
-const dev = require('./webpack.dev')
-
-module.exports = merge(dev, {
+export default merge(dev, {
   output: {
     publicPath: settings.hotPublicPath,
   },
   devServer: settings.devServer,
-})
+});

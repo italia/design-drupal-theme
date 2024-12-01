@@ -1,9 +1,9 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { merge } = require('webpack-merge')
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { merge } from 'webpack-merge';
 
-const common = require('./webpack.common')
+import common from './webpack.common.js';
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
 
@@ -19,7 +19,7 @@ module.exports = merge(common, {
               importLoaders: 1,
               sourceMap: true,
               modules: false,
-            }
+            },
           },
           { loader: 'postcss-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } },
@@ -27,4 +27,4 @@ module.exports = merge(common, {
       },
     ],
   },
-})
+});
