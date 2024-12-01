@@ -78,6 +78,7 @@ and update `/themes/custom/<your-sub-theme>`
 - add:
   - `svgo.config.js`
 - update:
+  - `<your-sub-theme>.theme` (example: `italiagov.theme`)
   - `src/scss/_bootstrap.scss`
   - `src/js/index.js` (added .js extension to imported files)
   - `webpack.*.js`

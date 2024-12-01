@@ -9,6 +9,9 @@ use Drupal\bootstrap_italia\Helper\Libraries;
 
 /**
  * Implements theme_library_info_build().
+ *
+ * @return array<string, mixed>
+ *   Libraries array.
  */
 function multisite_example_library_info_build(): array {
   return Libraries::setLibraries();
