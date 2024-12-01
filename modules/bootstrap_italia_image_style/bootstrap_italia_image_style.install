@@ -9,6 +9,10 @@ declare(strict_types=1);
 
 /**
  * Implements hook_install().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.parameter
  */
 function bootstrap_italia_image_style_install($is_syncing): void {
   // Set quality image.
@@ -20,6 +24,10 @@ function bootstrap_italia_image_style_install($is_syncing): void {
 
 /**
  * Implements hook_uninstall().
+ *
+ * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ *
+ * @phpstan-ignore missingType.parameter
  */
 function bootstrap_italia_image_style_uninstall($is_syncing): void {
   // Remove image styles configuration.
