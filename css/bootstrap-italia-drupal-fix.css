@@ -1,15 +1,15 @@
 /* Theme fix */
 .block-region.demo-block {
   padding: 1rem;
-  background-color: #aaa;
   color: #000 !important;
+  background-color: #aaa;
   font-weight: bold;
 }
 
 #toolbar-administration.toolbar {
   z-index: 10001;
-  height: auto;
   max-width: fit-content;
+  height: auto;
 }
 
 #toolbar-administration.toolbar > .toolbar-bar {
@@ -88,8 +88,8 @@ body.toolbar-horizontal.toolbar-fixed {
 
 /* Typography Fix -------------------------------------------------------------------------- */
 em.placeholder {
-  background-color: unset;
   opacity: 0.9;
+  background-color: unset;
 }
 
 /* Table Fix -------------------------------------------------------------------------- */
@@ -137,9 +137,9 @@ fieldset.webform-composite-hidden-title {
   margin-bottom: 0;
 }
 button.link-edit-summary {
-  background-color: transparent;
-  border: none;
   text-decoration: underline;
+  border: none;
+  background-color: transparent;
 }
 .text-summary-wrapper {
   margin-bottom: 2rem;
