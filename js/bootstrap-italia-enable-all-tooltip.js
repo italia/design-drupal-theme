@@ -1,5 +1,4 @@
 (function (Drupal, once, bootstrap) {
-  'use strict';
 
   Drupal.behaviors.enableAllTooltip = {
     attach: function (context) {
