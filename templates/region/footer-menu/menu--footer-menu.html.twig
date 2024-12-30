@@ -36,7 +36,7 @@
                 .setAttribute('target', '_blank')
                 .setAttribute('aria-label', item.title ~ ' in new window'|t)
             ) }}
-          {% elseif item.url.routeName or item.url.routeName == '<nolink>' or item.url.routeName == '<none>' %}
+          {% elseif item.url.routeName is null or item.url.routeName == '<nolink>' or item.url.routeName == '<none>' %}
             {{ item.title }}
           {% else %}
             {{ link(item.title, item.url, item.attributes.addClass(['text-decoration-none', 'text-light'])) }}

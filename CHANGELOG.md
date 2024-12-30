@@ -8,6 +8,7 @@ Work in progress
 ## All changes
 feat: organize in directory font via CSS
 fix: disable remove attr in svgo configuration
+Issue #3494524 by marcob77: Footer menu non visualizza i link
 
 # Summary 2.12.0
 ## Release notes
