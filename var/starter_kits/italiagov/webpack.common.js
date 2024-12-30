@@ -37,6 +37,17 @@ export default {
           },
         ],
       },
+      // Uncomment if you use loading fonts via CSS https://git.drupalcode.org/project/bootstrap_italia#loading-fonts-via-css-advanced-users
+      // {
+      //   test: /\.(woff|woff2|eot|ttf|svg)$/,
+      //   include: [
+      //     paths.modules + '/bootstrap-italia/src/fonts',
+      //   ],
+      //   type: 'asset/resource',
+      //   generator: {
+      //     filename: 'fonts/[name]/[name][ext]',
+      //   },
+      // },
     ],
   },
 

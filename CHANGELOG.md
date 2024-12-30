@@ -1,3 +1,14 @@
+# Summary 2.12.1
+## Release notes
+Work in progress
+
+## Update libraries
+Work in progress
+
+## All changes
+feat: organize in directory font via CSS
+fix: disable remove attr in svgo configuration
+
 # Summary 2.12.0
 ## Release notes
 

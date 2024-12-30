@@ -150,15 +150,15 @@ The following example demonstrates using the UI loading method:
 ```yaml
 # Choose libraries to use. Global is managed with theme settings UI.
 libraries:
-- italiagov/libraries-ui
-#  - italiagov/vanilla
-#  - italiagov/custom
-#  - italiagov/cdn
-#  - italiagov/hot
-#  - italiagov/ddev
-- bootstrap_italia/base
-- bootstrap_italia/enable-all-tooltips
-#  - bootstrap_italia/load-fonts
+  - italiagov/libraries-ui
+  #- italiagov/vanilla
+  #- italiagov/custom
+  #- italiagov/cdn
+  #- italiagov/hot
+  #- italiagov/ddev
+  - bootstrap_italia/base
+  - bootstrap_italia/enable-all-tooltips
+  #- bootstrap_italia/load-fonts
 ```
 To avoid duplicating fonts in the `dist` folder, you need to comment out
 or remove the following code from the `CopyWebpackPlugin` configuration
@@ -190,6 +190,28 @@ new CopyWebpackPlugin({
   ]
 }),
 ```
+
+Under "module" section uncomment follow code
+```js
+  module: {
+  rules: [
+    // ...
+
+    // Uncomment if you use loading fonts via CSS
+    {
+      test: /\.(woff|woff2|eot|ttf|svg)$/,
+      include: [
+        paths.modules + '/bootstrap-italia/src/fonts',
+      ],
+      type: 'asset/resource',
+      generator: {
+        filename: 'fonts/[name]/[name][ext]',
+      },
+    },
+  ],
+},
+```
+
 Once you have made this change, you need to modify your sub-theme's
 `src/scss/custom/custom.scss` file and add `@import "../fonts";`
 as the first rule. After that, run the following commands:
@@ -238,6 +260,10 @@ Keep in mind the following:
 Perform the build process as usual. Your custom icons will be available
 in `dist/svg/sprites.svg` and can be used just like any other icon from
 the Bootstrap Italia library.
+
+If you need to customize the SVG output,
+modify `<your-sub-theme>/svgo.config.js`
+using [this guide](https://svgo.dev/docs/plugins/) as reference.
 
 ## Recommended modules
 This theme provides several modules that allow you to manage the components
