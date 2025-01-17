@@ -3,12 +3,13 @@
  * @file
  * Template for point-list component.
  * Docs: non è documentato
- * Latest revision: 2.8.2
+ * Latest revision: 2.12.1
  *
  * Parameters:
  * - date (string) (default: '14')
  *   Usually is the day, 1...31
  * - month (string) (default: 'Oct')
+ * - year (string) (default: '')
  * - card (array) (default: '')
  *   - The card component, see @bi-bcl/card/card
  * - variant (string) (default: 'primary')
@@ -37,6 +38,7 @@
   {# Set defaults #}
   {% set _date = date|default('14') %}
   {% set _month = month|default('Oct') %}
+  {% set _year = year|default('') %}
   {% set _card = card|default('') %}
   {% set _variant = variant|default('primary') %}
   {% set _point_list_classes = point_list_classes|default('') %}
@@ -44,8 +46,7 @@
 
   {# Set options #}
   {% set _classes = [
-    'point-list-wrapper',
-    'my-4'
+    'point-list-wrapper'
   ] %}
 
   {% if _point_list_classes is not empty %}
@@ -68,10 +69,13 @@
   <div{{ point_list_attributes }}>
     <div class="point-list">
       <div class="point-list-aside point-list-{{ _variant }}">
+        {% if _year is not empty %}
+          <div class="point-year font-monospace">{{ _year }}</div>
+        {% endif %}
         <div class="point-date font-monospace">{{ _date }}</div>
         <div class="point-month font-monospace">{{ _month }}</div>
       </div>
-      <div class="point-list-content">
+      <div class="point-list-content mb-5">
         {% block pointListContent %}
           {% if _card is not empty %}
             {% include '@bi-bcl/card/card.html.twig' with _card %}
