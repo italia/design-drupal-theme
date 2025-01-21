@@ -9,6 +9,7 @@ Work in progress
 - feat: organize in directory font via CSS
 - feat: review point list component
 - fix: disable remove attr in svgo configuration
+- fix: boostrap not exists on loadFont via js
 - Issue #3494524 by marcob77: Footer menu non visualizza i link
 - Issue #3418905: Importare bootstrap_italia/enable-all-tooltips
 insieme a bootstrap_italia/base causa errori di dipendenza
