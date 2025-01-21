@@ -13,6 +13,7 @@ Work in progress
 - Issue #3494524 by marcob77: Footer menu non visualizza i link
 - Issue #3418905: Importare bootstrap_italia/enable-all-tooltips
 insieme a bootstrap_italia/base causa errori di dipendenza
+- Issue #3501035: Drupal 11.1 breaks theme
 
 # Summary 2.12.0
 ## Release notes

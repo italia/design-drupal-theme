@@ -12,11 +12,12 @@
 ################################################################################
 
 # Settings
-drupal_versions="10|11"
-default_drupal_version="10"
+drupal_versions="10|11|12"
+default_drupal_version="11"
 bootstrap_italia_versions="2.x|2.x-dev@dev|latest"
-default_bootstrap_italia_version="2.x-dev@dev"
+default_bootstrap_italia_version="latest"
 vanilla_library="https://github.com/italia/bootstrap-italia/releases/download/v2.12.1/bootstrap-italia.zip"
+node_version=20
 
 # Functions
 validate_project_name() {
@@ -62,11 +63,11 @@ while true; do
     if [[ "$drupal_version" =~ ^($drupal_versions)$ ]]; then
         break
     else
-        echo "Error: Please enter only '10' or '11'. Try again."
+        echo "Error: Please enter only '10', '11' or '12'. Try again."
     fi
 done
 
-if [ "$drupal_version" != "$default_drupal_version" ]; then
+if [ "$drupal_version" == "12" ]; then
   read -r -p "The $drupal_version is unstable, use it for development only. Do you really want to install $drupal_version (if you choose no, $default_drupal_version will be installed)? [Y/n]: " unstable_response
   if [[ "$unstable_response" =~ ^[Nn]$ ]]; then
     drupal_version=$default_drupal_version
@@ -95,9 +96,6 @@ enable_experimental_modules=${enable_experimental_modules:-n}
 read -r -p "Bootstrap libraries type [vanilla|webpack] (webpack): " bi_libraries_type
 bi_libraries_type=${bi_libraries_type:-webpack}
 
-read -r -p "Do you want enable dev mode? [y|n] (n): " enable_dev_mode
-enable_dev_mode=${enable_dev_mode:-n}
-
 # Admin Password
 read -r -p "Enter the admin password [minimum 12 characters] (random): " admin_password
 while [[ -z $admin_password || ${#admin_password} -lt 12 ]]; do
@@ -120,7 +118,11 @@ echo 'Run docker containers'
 ddev start
 
 echo "Download Drupal ${drupal_version} and drush"
-ddev composer create --no-install "drupal/recommended-project:^$drupal_version"
+if [ "$drupal_version" == "11" ]; then
+  ddev composer create --no-install "drupal/recommended-project:11.0.*"
+else
+  ddev composer create --no-install "drupal/recommended-project:^$drupal_version"
+fi
 ddev composer require drush/drush --no-install
 ddev composer install
 
@@ -129,7 +131,7 @@ ddev exec drush -y site:install "--account-pass=${admin_password}"
 
 echo '==[ Install end enable bootstrap_italia dependencies ]=='
 ddev exec drush -y pm:enable inline_form_errors responsive_image
-ddev composer require 'drupal/components:^3.0@beta'
+ddev composer require 'drupal/components:^3.1'
 ddev exec drush -y pm:enable components
 
 if [ "$enable_locale" == "y" ]; then
@@ -169,6 +171,8 @@ ddev exec drush -y config:set system.theme default italiagov
 echo 'Install italiagov libraries'
 if [ "$bi_libraries_type" == "webpack" ]; then
   echo 'Install webpack libraries'
+  ddev exec nvm install ${node_version}
+  ddev exec nvm use ${node_version}
   ddev exec npm install --prefix web/themes/custom/italiagov/
   ddev exec npm run build:prod --prefix web/themes/custom/italiagov/
 
@@ -298,12 +302,6 @@ if [ "$enable_experimental_modules" == "y" ]; then
   echo "==[ Install experimental modules ]=="
 
   ddev exec drush -y pm:enable ckeditor5 bootstrap_italia_text_editor2
-fi
-
-if [ "$enable_dev_mode" == "y" ]; then
-  echo "==[ Enable dev mode ]=="
-  ddev composer require drupal/devel drupal/dev_mode
-  ddev exec drush -y pm:enable devel dev_mode
 fi
 
 if [[ "$enable_content_type" == "y" ]]; then
