@@ -10,6 +10,8 @@ Work in progress
 - feat: review point list component
 - fix: disable remove attr in svgo configuration
 - Issue #3494524 by marcob77: Footer menu non visualizza i link
+- Issue #3418905: Importare bootstrap_italia/enable-all-tooltips
+insieme a bootstrap_italia/base causa errori di dipendenza
 
 # Summary 2.12.0
 ## Release notes
