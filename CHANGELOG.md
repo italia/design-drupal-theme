@@ -1,9 +1,9 @@
 # Summary 2.12.1
 ## Release notes
-Work in progress
+This release fixes some issue.
 
-## Update libraries
-Work in progress
+If you are upgrading from versions prior to 2.12.0, please read the 2.12.0
+release notes as it contains several breaking changes.
 
 ## All changes
 - feat: organize in directory font via CSS
