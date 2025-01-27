@@ -2,9 +2,13 @@
 
 `bootstrap_italia` is a low-code base theme for **Drupal** that implements
 [the Italian guidelines for designing public digital services](https://docs.italia.it/italia/designers-italia/design-linee-guida-docs/).
-This theme uses `webpack` as a module bundler and includes the
-[bootstrap-italia](https://github.com/italia/bootstrap-italia/)
-library as a dependency. [View a bootstrap italia Demo site](https://bootstrap-italia.arturu.it)
+This theme requires [bootstrap-italia](https://github.com/italia/bootstrap-italia/)
+Library as a dependency. You can load the library in different methods:
+A) download a package from GitHub with the vanilla library;
+B) you can use Webpack to streamline your development, creating custom compiled
+Bootstrap Italia styles just by changing some variables;
+C) load from CDN.
+Continue reading for more details.
 
 ## Drupal configuration
 Install `drupal` and `drush` with `composer` (https://getcomposer.org/)
@@ -25,7 +29,7 @@ $ drush site:install
 $ cd <drupal-root>
 
 # 1. Install end enable dependencies
-$ composer require drupal/components:^3.0@beta
+$ composer require drupal/components
 $ drush pm:enable components
 $ composer require drupal/bootstrap_italia
 
@@ -275,13 +279,6 @@ Admin -> Configurations -> Media -> Image Styles.
 ```shell
 $ composer require drupal/focal_point
 $ drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
-```
-
-### Bootstrap Italia Text editor
-This module adds new text editor format (ckeditor 4) in
-"Configuration" -> "Text formats and editors".
-```shell
-$ drush -y pm:enable bootstrap_italia_text_editor
 ```
 
 ### Bootstrap Italia Text editor 2 (Experimental)
@@ -543,8 +540,6 @@ $ drush locale-import it /absolute/path/to/bootstrap_italia-<version>.it.po \
 ## How to start a ddev container
 If you want an automated script that works for you, run script located at
 `themes/bootstrap_italia/var/bin/build-ddev-installation.sh` and enjoy it
-
-This script works for ddev >= 1.18.0 (Sept 2021)
 
 Download ad run latest stable release:
 ```shell
