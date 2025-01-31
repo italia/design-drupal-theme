@@ -3,7 +3,7 @@
 
 # Bootstrap-italia library if you use a vanilla release
 vanilla:
-  version: 2.12.0
+  version: 2.12.2
   css:
     theme:
       dist/css/bootstrap-italia.min.css: { minified: true }
@@ -15,7 +15,7 @@ vanilla:
 
 # Bootstrap-italia library if you use a custom compiled library
 custom:
-  version: 2.12.0
+  version: 2.12.2
   css:
     theme:
       dist/css/bootstrap-italia.min.css: { minified: true }

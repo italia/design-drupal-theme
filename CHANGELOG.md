@@ -1,3 +1,7 @@
+# Summary 2.12.2
+## Release notes
+Fix library version
+
 # Summary 2.12.1
 ## Release notes
 This release fixes some issue.
