@@ -1,3 +1,15 @@
+# Summary 2.12.3
+# Release notes
+This release fixes some issue.
+
+If you are upgrading from versions prior to 2.12.0, please read the 2.12.0
+release notes as it contains several breaking changes.
+
+## All changes
+- Issue #3506622: The pager does not use the custom value
+for "Text for the previous page link
+
+
 # Summary 2.12.2
 ## Release notes
 Fix library version
