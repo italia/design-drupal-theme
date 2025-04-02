@@ -7,7 +7,8 @@ release notes as it contains several breaking changes.
 
 ## All changes
 - Issue #3506622: The pager does not use the custom value
-for "Text for the previous page link
+for "Text for the previous page link"
+- fix: crash search modal on scrolled page and lint js
 
 
 # Summary 2.12.2
