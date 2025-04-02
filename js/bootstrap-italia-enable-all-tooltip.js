@@ -1,4 +1,4 @@
-(function (Drupal, once) {
+(function (Drupal, once, bootstrap) {
   Drupal.behaviors.enableAllTooltip = {
     attach: function (context) {
       once('enableAllTooltip', '[data-bs-toggle="tooltip"]', context).forEach(function (element) {
@@ -6,4 +6,4 @@
       });
     },
   };
-})(Drupal, once);
+})(Drupal, once, bootstrap);

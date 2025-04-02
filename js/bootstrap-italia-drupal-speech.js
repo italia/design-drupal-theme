@@ -4,11 +4,21 @@
       once(
         'speechSynthesisUtterance',
         '#it-block-italiagov-content',
-        context
+        context,
       ).forEach(function (element) {
         const lang = navigator.language;
         const voiceIndex = 1;
         const rate = 0.9;
+
+        const chooseVoice = async () => {
+          const voices = (await getVoices()).filter(
+            (voice) => voice.lang === lang,
+          );
+
+          return new Promise((resolve) => {
+            resolve(voices[voiceIndex]);
+          });
+        };
 
         const speak = async (text) => {
           if (!speechSynthesis) {
@@ -34,23 +44,13 @@
           });
         };
 
-        const chooseVoice = async () => {
-          const voices = (await getVoices()).filter(
-            (voice) => voice.lang === lang
-          );
-
-          return new Promise((resolve) => {
-            resolve(voices[voiceIndex]);
-          });
-        };
-
         const extractTextFromNode = (el) => {
           const a = [];
           const walk = document.createTreeWalker(
             el,
             NodeFilter.SHOW_TEXT,
             null,
-            false
+            false,
           );
           let n;
           while ((n = walk.nextNode())) {
