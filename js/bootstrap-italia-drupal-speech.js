@@ -10,6 +10,20 @@
         const voiceIndex = 1;
         const rate = 0.9;
 
+        const getVoices = () => {
+          return new Promise((resolve) => {
+            let voices = speechSynthesis.getVoices();
+            if (voices.length) {
+              resolve(voices);
+              return;
+            }
+            speechSynthesis.onvoiceschanged = () => {
+              voices = speechSynthesis.getVoices();
+              resolve(voices);
+            };
+          });
+        };
+
         const chooseVoice = async () => {
           const voices = (await getVoices()).filter(
             (voice) => voice.lang === lang,
@@ -30,20 +44,6 @@
           speechSynthesis.speak(message);
         };
 
-        const getVoices = () => {
-          return new Promise((resolve) => {
-            let voices = speechSynthesis.getVoices();
-            if (voices.length) {
-              resolve(voices);
-              return;
-            }
-            speechSynthesis.onvoiceschanged = () => {
-              voices = speechSynthesis.getVoices();
-              resolve(voices);
-            };
-          });
-        };
-
         const extractTextFromNode = (el) => {
           const a = [];
           const walk = document.createTreeWalker(
@@ -53,7 +53,7 @@
             false,
           );
           let n;
-          while ((n = walk.nextNode())) {
+          while ((n = walk.nextNode()) !== null) {
             a.push(n.textContent);
           }
           return a.join(' ');
@@ -64,7 +64,8 @@
         document
           .getElementById('it-share-action-speak')
           .addEventListener('click', () => {
-            const classToRead = document.getElementById('it-share-action-speak').dataset.biRead;
+            const classToRead = document.getElementById('it-share-action-speak')
+              .dataset.biRead;
             const elementToRead = document.querySelector(`.${classToRead}`);
             speak(extractTextFromNode(elementToRead));
           });

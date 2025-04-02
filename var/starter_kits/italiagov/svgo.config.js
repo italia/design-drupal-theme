@@ -1,4 +1,4 @@
-// https://svgo.dev/docs/plugins/
+// Docs: https://svgo.dev/docs/plugins/
 export default {
   multipass: true,
   plugins: [
