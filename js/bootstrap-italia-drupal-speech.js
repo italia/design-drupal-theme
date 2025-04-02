@@ -64,9 +64,7 @@
         document
           .getElementById('it-share-action-speak')
           .addEventListener('click', () => {
-            const classToRead = document.getElementById(
-              'it-share-action-speak'
-            ).dataset.biRead;
+            const classToRead = document.getElementById('it-share-action-speak').dataset.biRead;
             const elementToRead = document.querySelector(`.${classToRead}`);
             speak(extractTextFromNode(elementToRead));
           });
