@@ -16,7 +16,7 @@
               if (logoElement?.dataset?.stickyViewbox) {
                 logoElement.setAttribute(
                   'viewBox',
-                  logoElement.dataset.stickyViewbox
+                  logoElement.dataset.stickyViewbox,
                 );
               }
 
@@ -31,10 +31,7 @@
               if (searchButtonElement && searchModalElement) {
                 const newID = 'modal-header-center-search-cloned';
                 searchModalElement.setAttribute('id', newID);
-                searchButtonElement.setAttribute(
-                  'data-bs-target',
-                  `#${newID}`
-                );
+                searchButtonElement.setAttribute('data-bs-target', `#${newID}`);
 
                 if (!searchModalElement.dataset.listenerAttached) {
                   searchModalElement.addEventListener('shown.bs.modal', () => {
