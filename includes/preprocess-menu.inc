@@ -26,7 +26,9 @@ function bootstrap_italia_preprocess_menu(array &$variables): void {
       $current_user = \Drupal::currentUser();
       $uid = $current_user->id();
       $account = User::load($uid);
-      $variables['slim_header_action_username'] = $account->getDisplayName();
+      if ($account) {
+        $variables['slim_header_action_username'] = $account->getDisplayName();
+      }
 
       // Fix cache.
       $variables['#cache']['contexts'][] = 'user';

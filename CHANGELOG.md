@@ -10,6 +10,7 @@ release notes as it contains several breaking changes.
 for "Text for the previous page link"
 - fix: crash search modal on scrolled page and lint js
 - fix: check if RouteName is null
+- fix: check if user exists in menu suggestion
 
 # Summary 2.12.2
 ## Release notes
