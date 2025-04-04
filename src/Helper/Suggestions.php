@@ -92,8 +92,10 @@ class Suggestions {
           $suggestions[] = 'block__' . $region . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($variables['elements']['#derivative_plugin_id']);
         }
 
-        $route_name = str_replace('.', '_', \Drupal::routeMatch()->getRouteName());
-        $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($route_name);
+        if (\Drupal::routeMatch()->getRouteName()) {
+          $route_name = str_replace('.', '_', \Drupal::routeMatch()->getRouteName());
+          $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['elements']['#base_plugin_id'] . '__' . self::sanitize($route_name);
+        }
 
       }
     }
