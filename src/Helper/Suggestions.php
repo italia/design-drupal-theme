@@ -111,8 +111,14 @@ class Suggestions {
    */
   public static function menu(array &$suggestions, array $variables): void {
     // See bootstrap_italia_preprocess_block().
-    if (isset($variables['attributes']['data-block']['region'])) {
-      $region = $variables['attributes']['data-block']['region'];
+    /** @var array<string, mixed> $attributes */
+    $attributes = $variables['attributes'];
+
+    /** @var array<string, mixed> $data_block */
+    $data_block = $attributes['data-block'] ?? [];
+
+    if (isset($data_block['region'])) {
+      $region = $data_block['region'];
       $suggestions[] = $variables['theme_hook_original'] . '__' . $region;
       $suggestions[] = 'menu__' . $region;
     }
@@ -164,8 +170,10 @@ class Suggestions {
    *   Referenced $variables.
    */
   public static function imageFormatter(array &$suggestions, array $variables): void {
-    $entity = $variables['item']->getEntity();
-    $field_name = $variables['item']->getParent()->getName();
+    /** @var \Drupal\Core\Field\FieldItemInterface $item */
+    $item = $variables['item'];
+
+    $entity = $item->getEntity();
 
     $suggestions[] =
       $variables['theme_hook_original'] . '__' . $entity->getEntityTypeId();
@@ -173,23 +181,26 @@ class Suggestions {
     $suggestions[] =
       $variables['theme_hook_original'] . '__' . $entity->bundle();
 
-    $suggestions[] =
-      $variables['theme_hook_original'] . '__' . $field_name;
-
     $suggestions[] = $variables['theme_hook_original']
       . '__' . $entity->getEntityTypeId() . '__' . $entity->bundle();
 
-    $suggestions[] = $variables['theme_hook_original']
-      . '__' . $entity->getEntityTypeId() . '__' . $field_name;
+    if ($item->getParent()) {
+      $field_name = $item->getParent()->getName();
+      $suggestions[] =
+        $variables['theme_hook_original'] . '__' . $field_name;
 
-    $suggestions[] = $variables['theme_hook_original']
-      . '__' . $entity->bundle() . '__' . $field_name;
+      $suggestions[] = $variables['theme_hook_original']
+        . '__' . $entity->getEntityTypeId() . '__' . $field_name;
 
-    $suggestions[] =
-      $variables['theme_hook_original']
-      . '__' . $entity->getEntityTypeId()
-      . '__' . $entity->bundle()
-      . '__' . $field_name;
+      $suggestions[] = $variables['theme_hook_original']
+        . '__' . $entity->bundle() . '__' . $field_name;
+
+      $suggestions[] =
+        $variables['theme_hook_original']
+        . '__' . $entity->getEntityTypeId()
+        . '__' . $entity->bundle()
+        . '__' . $field_name;
+    }
   }
 
   /**
