@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Template\Attribute;
+use Symfony\Component\Routing\Route;
 
 /**
  * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
@@ -23,17 +24,21 @@ function bootstrap_italia_preprocess_breadcrumb(array &$variables): void {
   // Add current page to breadcrumb.
   if ($variables['breadcrumb'] && $variables['breadcrumb_include_current_page']) {
     $request = Drupal::request();
-    $route_match = Drupal::routeMatch();
-    $page_title = Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+    $route_object = Drupal::routeMatch()->getRouteObject();
     $route_name = Drupal::routeMatch()->getRouteName();
 
-    if (!empty($page_title && $route_name != 'search.view_node_search')) {
-      // Fix cache.
-      $variables['#cache']['contexts'][] = 'url';
-      $variables['breadcrumb'][] = [
-        'text' => $page_title,
-        'attributes' => new Attribute(['class' => ['active']]),
-      ];
+    if ($route_object instanceof Route) {
+      $page_title = Drupal::service('title_resolver')
+        ->getTitle($request, $route_object);
+
+      if (!empty($page_title && $route_name != 'search.view_node_search')) {
+        // Fix cache.
+        $variables['#cache']['contexts'][] = 'url';
+        $variables['breadcrumb'][] = [
+          'text' => $page_title,
+          'attributes' => new Attribute(['class' => ['active']]),
+        ];
+      }
     }
   }
 }
