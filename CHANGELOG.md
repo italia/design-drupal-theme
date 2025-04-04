@@ -6,6 +6,7 @@ If you are upgrading from versions prior to 2.12.0, please read the 2.12.0
 release notes as it contains several breaking changes.
 
 ## All changes
+- feat: up to phpstan level 8 compliance
 - Issue #3506622: The pager does not use the custom value
 for "Text for the previous page link"
 - fix: crash search modal on scrolled page and lint js

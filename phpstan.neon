@@ -1,7 +1,7 @@
 # ./vendor/bin/phpstan analyse --configuration=web/themes/custom/bootstrap_italia/phpstan.neon web/themes/custom/bootstrap_italia
 
 parameters:
-  level: 7
+  level: 8
 
   excludePaths:
     - */bower_components/*
