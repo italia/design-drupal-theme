@@ -30,8 +30,10 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
  * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
  */
 function bootstrap_italia_theme_suggestions_page_title_alter(array &$suggestions, array $variables): void {
-  $route_name = str_replace('.', '_', Drupal::routeMatch()->getRouteName());
-  $suggestions[] = $variables['theme_hook_original'] . '__' . $route_name;
+  if (Drupal::routeMatch()->getRouteName()) {
+    $route_name = str_replace('.', '_', Drupal::routeMatch()->getRouteName());
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $route_name;
+  }
 }
 
 /**
