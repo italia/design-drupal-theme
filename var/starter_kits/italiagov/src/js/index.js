@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 /**
  * Main entry
  * This file will be updated periodically by the maintainers,

@@ -11,7 +11,7 @@
             if (mutation.target.className.includes('is-sticky')) {
               // fix for logo
               const logoElement = document.querySelector(
-                '.it-brand-wrapper.cloned-element .icon'
+                '.it-brand-wrapper.cloned-element .icon',
               );
               if (logoElement?.dataset?.stickyViewbox) {
                 logoElement.setAttribute(
@@ -22,10 +22,10 @@
 
               // fix for search button
               const searchButtonElement = document.querySelector(
-                '.it-search-wrapper.cloned-element a.search-link'
+                '.it-search-wrapper.cloned-element a.search-link',
               );
               const searchModalElement = document.querySelector(
-                '.it-search-wrapper.cloned-element div#modal-header-center-search'
+                '.it-search-wrapper.cloned-element div#modal-header-center-search',
               );
 
               if (searchButtonElement && searchModalElement) {
@@ -37,22 +37,16 @@
                 );
 
                 if (!searchModalElement.dataset.listenerAttached) {
-                  searchModalElement.addEventListener(
-                    'shown.bs.modal',
-                    () => {
-                      document
-                        .getElementById('toolbar-administration')
-                        ?.classList.add('d-none');
-                    }
-                  );
-                  searchModalElement.addEventListener(
-                    'hidden.bs.modal',
-                    () => {
-                      document
-                        .getElementById('toolbar-administration')
-                        ?.classList.remove('d-none');
-                    }
-                  );
+                  searchModalElement.addEventListener('shown.bs.modal', () => {
+                    document
+                      .getElementById('toolbar-administration')
+                      ?.classList.add('d-none');
+                  });
+                  searchModalElement.addEventListener('hidden.bs.modal', () => {
+                    document
+                      .getElementById('toolbar-administration')
+                      ?.classList.remove('d-none');
+                  });
                   searchModalElement.dataset.listenerAttached = 'true';
                 }
               }
@@ -70,7 +64,7 @@
               attributes: true,
             });
           }
-        }
+        },
       );
     },
   };
