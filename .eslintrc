@@ -1,16 +1,20 @@
 {
+  "globals": {
+    "bootstrap": "readonly"
+  },
   "rules": {
     "import/extensions": [
       "error",
       "ignorePackages",
       {
-        "js": "never",
+        "js": "always",
         "jsx": "never"
       }
     ],
     "import/no-unresolved": [
       "off"
-    ]
+    ],
+    "no-cond-assign": ["error", "except-parens"]
   },
   "settings": {
     "import/resolver": {

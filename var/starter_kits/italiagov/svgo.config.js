@@ -6,7 +6,7 @@ export default {
     'cleanupAttrs',
     'removeEmptyAttrs',
     'removeComments',
-    //'convertStyleToAttrs',
+    // 'convertStyleToAttrs',
     'removeEmptyContainers',
     'removeEmptyText',
     'removeRasterImages',
