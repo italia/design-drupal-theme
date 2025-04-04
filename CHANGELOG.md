@@ -12,6 +12,7 @@ for "Text for the previous page link"
 - fix: check if RouteName is null
 - fix: check if user exists in menu suggestion
 - fix: check if routeObject exists in breadcrumb suggestion
+- fix: check if view exists in install and uninstall hook
 
 # Summary 2.12.2
 ## Release notes

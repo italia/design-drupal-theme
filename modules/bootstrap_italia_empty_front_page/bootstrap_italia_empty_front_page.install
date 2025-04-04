@@ -5,24 +5,25 @@
  * The Bootstrap Italia Empty Front Page install file.
  */
 
+use Drupal\views\Entity\View;
+
 /**
  * Implements hook_install().
  */
 function bootstrap_italia_empty_front_page_install(): void {
-  // Disable frontapage view.
-  \Drupal::entityTypeManager()->getStorage('view')
-    ->load('frontpage')
-    ->setStatus(FALSE)
-    ->save();
+  $view = \Drupal::entityTypeManager()->getStorage('view')->load('frontpage');
+  if ($view instanceof View) {
+    $view->setStatus(FALSE)->save();
+  }
 }
 
 /**
  * Implements hook_uninstall().
  */
 function bootstrap_italia_empty_front_page_uninstall(): void {
-  Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save();
-  \Drupal::entityTypeManager()->getStorage('view')
-    ->load('frontpage')
-    ->setStatus(TRUE)
-    ->save();
+  \Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node')->save();
+  $view = \Drupal::entityTypeManager()->getStorage('view')->load('frontpage');
+  if ($view instanceof View) {
+    $view->setStatus(TRUE)->save();
+  }
 }
