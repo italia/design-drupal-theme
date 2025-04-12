@@ -56,6 +56,7 @@ No action required if you upgrade from 2.12.x.
 If you use custom libraries built with webpack, update devDependencies in
 `package.json` and do:
 ```shell
+$ npx npm-check-updates -u
 $ npm update
 $ npm run build:prod
 $ drush cr

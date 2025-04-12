@@ -114,8 +114,6 @@ the URL `http://127.0.0.1:<ddev-port>`
 ```yaml
 # <project-name>/.ddev/docker-compose.ports.yaml
 
-version: '3.6'
-
 services:
   web:
     expose:
