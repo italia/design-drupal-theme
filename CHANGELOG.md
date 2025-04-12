@@ -1,9 +1,23 @@
 # Summary 2.12.3
 # Release notes
-This release fixes some issue.
+This release fixes some issues, including compatibility with the latest version
+of node.js (20.19.x) and webpack-cli compatibility with ESM.
 
 If you are upgrading from versions prior to 2.12.0, please read the 2.12.0
 release notes as it contains several breaking changes.
+
+## Update libraries
+### Vanilla libraries
+No action required if you upgrade from 2.12.x.
+
+### Custom build
+If you use custom libraries built with webpack, update devDependencies in
+`package.json` and do:
+```shell
+$ npm update
+$ npm run build:prod
+$ drush cr
+```
 
 ## All changes
 - feat: up to phpstan level 8 compliance
@@ -14,6 +28,7 @@ for "Text for the previous page link"
 - fix: check if user exists in menu suggestion
 - fix: check if routeObject exists in breadcrumb suggestion
 - fix: check if view exists in install and uninstall hook
+- fix: node 20.19.x and webpack-cli ESM compliance
 
 # Summary 2.12.2
 ## Release notes
