@@ -14,7 +14,7 @@
 # Settings
 drupal_versions="10|11|12"
 default_drupal_version="11"
-bootstrap_italia_versions="2.x|2.x-dev@dev|latest"
+bootstrap_italia_versions="2.n.n|2.n.x-dev@dev|2.x-dev@dev|latest"
 default_bootstrap_italia_version="latest"
 vanilla_library="https://github.com/italia/bootstrap-italia/releases/download/v2.12.1/bootstrap-italia.zip"
 node_version=20
@@ -142,9 +142,9 @@ if [ "$enable_locale" == "y" ]; then
   ddev exec drush -y config:set system.date country.default IT
   ddev exec drush -y config:set system.date timezone.default Europe/Rome
   ddev exec drush -y config:set system.site default_langcode it
-  ddev exec drush -y config:set "core.date_format.long pattern 'l, j F Y - H:i'"
-  ddev exec drush -y config:set "core.date_format.medium pattern 'D, d/m/Y - H:i'"
-  ddev exec drush -y config:set "core.date_format.short pattern 'd/m/Y - H:i'"
+  ddev exec drush -y config:set core.date_format.long pattern 'l, j F Y - H:i'
+  ddev exec drush -y config:set core.date_format.medium pattern 'D, d/m/Y - H:i'
+  ddev exec drush -y config:set core.date_format.short pattern 'd/m/Y - H:i'
 fi
 
 echo "==[ Downloading and activating bootstrap_italia:${bootstrap_italia_version} ]=="
@@ -159,7 +159,7 @@ ddev exec mkdir /var/www/html/web/themes/custom/
 ddev exec cp -r /var/www/html/web/themes/contrib/bootstrap_italia/var/starter_kits/italiagov /var/www/html/web/themes/custom/
 
 echo 'Show italiagov sub-theme in theme list'
-ddev exec sed "-i 's/hidden: true/hidden: false/g' /var/www/html/web/themes/custom/italiagov/italiagov.info.yml"
+ddev exec sed -i 's/hidden: true/hidden: false/g' /var/www/html/web/themes/custom/italiagov/italiagov.info.yml
 
 echo 'Enable themes'
 ddev exec drush -y theme:enable bootstrap_italia
