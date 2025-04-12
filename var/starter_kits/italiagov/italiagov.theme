@@ -8,11 +8,8 @@
 use Drupal\bootstrap_italia\Helper\Libraries;
 
 /**
- * Implements theme_library_info_build().
- *
- * @return array<string, mixed>
- *   Libraries array.
+ * Implements theme_library_info_alter().
  */
-function italiagov_library_info_build(): array {
-  return Libraries::setLibraries();
+function italiagov_library_info_alter(&$libraries): void {
+  Libraries::setLibraries($libraries);
 }

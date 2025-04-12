@@ -2,7 +2,7 @@ name: "Bootstrap Italia"
 type: theme
 description: "Bootstrap Italia is a Bootstrap 5 theme compliant with the design guidelines for the PA web services"
 package: Italia
-core_version_requirement: ^10.3 || 11.0.*
+core_version_requirement: ^10.3 || ^11
 base theme: false
 
 engine: twig

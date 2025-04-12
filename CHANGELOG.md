@@ -1,3 +1,37 @@
+# Summary 2.14.0
+# Release notes
+Coming soon.
+
+### ⚠️ Breaking changes!!!
+Edit your `<sub-theme>.theme` file (e.g. `italiagov.theme`) and change this:
+
+```php
+/**
+ * Implements theme_library_info_build().
+ */
+function skenografia_library_info_build(): array {
+  return Libraries::setLibraries();
+}
+```
+
+with this:
+```php
+/**
+ * Implements theme_library_info_alter().
+ */
+function italiagov_library_info_alter(&$libraries): void {
+  Libraries::setLibraries($libraries);
+}
+```
+
+## All changes
+- Issue #3501035: Drupal 11.1.x breaks theme
+
+# Summary 2.13.0
+The version 2.13, even though it was not released, is fully incorporated
+into version 2.14. This means that all the changes, fixes, and new features
+planned for 2.13 are available in 2.14.
+
 # Summary 2.12.3
 # Release notes
 This release fixes some issues, including compatibility with the latest version

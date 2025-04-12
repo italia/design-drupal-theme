@@ -119,7 +119,7 @@ ddev start
 
 echo "Download Drupal ${drupal_version} and drush"
 if [ "$drupal_version" == "11" ]; then
-  ddev composer create --no-install "drupal/recommended-project:11.0.*"
+  ddev composer create --no-install "drupal/recommended-project:^11"
 else
   ddev composer create --no-install "drupal/recommended-project:^$drupal_version"
 fi
