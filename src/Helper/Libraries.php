@@ -68,13 +68,13 @@ class Libraries {
   /**
    * Set themes libraries.
    *
-   * @param array $libraries
+   * @param array<mixed, string> $libraries
    *   Libraries array.
    *
    * @return void
    *   Libraries array.
    */
-  public static function setLibraries(&$libraries): void {
+  public static function setLibraries(array &$libraries): void {
     // Get libraries_type from Drupal config.
     /** @var string $libraries_type */
     $libraries_type = Helper::getSettings()->get('libraries_type');

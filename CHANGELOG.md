@@ -9,17 +9,24 @@ Edit your `<sub-theme>.theme` file (e.g. `italiagov.theme`) and change this:
 /**
  * Implements theme_library_info_build().
  */
-function skenografia_library_info_build(): array {
+function italiagov_library_info_build(): array {
   return Libraries::setLibraries();
 }
 ```
 
 with this:
+
 ```php
 /**
  * Implements theme_library_info_alter().
+ *
+ * @param array<mixed, string> $libraries
+ *   Libraries array.
+ *
+ * @return void
+ *   Libraries array.
  */
-function italiagov_library_info_alter(&$libraries): void {
+function italiagov_library_info_alter(array &$libraries): void {
   Libraries::setLibraries($libraries);
 }
 ```
