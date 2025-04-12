@@ -29,6 +29,7 @@ for "Text for the previous page link"
 - fix: check if routeObject exists in breadcrumb suggestion
 - fix: check if view exists in install and uninstall hook
 - fix: node 20.19.x and webpack-cli ESM compliance
+- fix: check if boostrap exists in load-fonts.js
 
 # Summary 2.12.2
 ## Release notes

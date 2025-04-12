@@ -1,7 +1,7 @@
-(function (bootstrap) {
+(function () {
   Drupal.behaviors.bootstrapItaliaLoadFonts = {
-    attach: function (context) {
-      bootstrap.loadFonts();
+    attach() {
+      window?.bootstrap?.loadFonts();
     },
   };
-})(bootstrap);
+})();
