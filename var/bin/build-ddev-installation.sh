@@ -212,12 +212,6 @@ if [ "$enable_modules" == "y" ]; then
   ddev composer require drupal/focal_point
   ddev exec drush -y pm:enable responsive_image focal_point bootstrap_italia_image_style
 
-  # Deprecated
-  if [ "$drupal_version" == "9" ]; then
-    echo 'Install module: Bootstrap Italia Text Editor'
-    ddev exec drush -y pm:enable bootstrap_italia_text_editor
-  fi
-
   echo 'Install module: Bootstrap Italia Paragraph'
   ddev composer require drupal/paragraphs drupal/field_group drupal/imce drupal/color_field
   ddev exec drush -y pm:enable paragraphs field_group imce color_field bootstrap_italia_paragraph
