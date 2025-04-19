@@ -33,6 +33,7 @@ function italiagov_library_info_alter(array &$libraries): void {
 
 ## All changes
 - Issue #3501035: Drupal 11.1.x breaks theme
+- feat: add new icons
 - fix: install script
 
 # Summary 2.13.0
