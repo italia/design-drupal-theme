@@ -31,9 +31,39 @@ function italiagov_library_info_alter(array &$libraries): void {
 }
 ```
 
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.14.0
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+```shell
+$ npx npm-check-updates -u
+$ npm install bootstrap-italia@2.14.0 --save-exact
+$ npm update
+```
+
+Using as reference the files contained in `/var/starter_kits/italiagov/...`
+and update `/themes/custom/<your-sub-theme>`
+- add:
+  - `src/scss/overrides/_carousel.scss`
+- update:
+  - `src/scss/_bootstrap-italia.scss`
+  - `src/scss/_bootstrap-italia_ckeditor5.scss`
+  - `src/scss/ckeditor5.scss`
+  - `src/scss/theme.scss`
+- remove:
+  - `src/scss/_bootstrap.scss`
+  - `src/scss/_bootstrap_ckeditor5.scss`
+
+- Deprecated:
+  - `src/scss/custom/_bootstrap_configuration.scss`, merge with _variables.scss
+
 ## All changes
 - Issue #3501035: Drupal 11.1.x breaks theme
 - feat: add new icons
+- feat: refactoring styles
 - fix: install script
 
 # Summary 2.13.0
@@ -58,6 +88,7 @@ If you use custom libraries built with webpack, update devDependencies in
 `package.json` and do:
 ```shell
 $ npx npm-check-updates -u
+$ npm install bootstrap-italia@2.12.1 --save-exact
 $ npm update
 $ npm run build:prod
 $ drush cr
