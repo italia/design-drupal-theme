@@ -30,28 +30,32 @@
       <button
         class="custom-navbar-toggler"
         type="button"
-        aria-controls="{{ _header_nav_id }}"
-        aria-expanded="false"
         aria-label="{{ 'Show/hide navigation bar'|t }}"
+        aria-controls="{{ _header_nav_id }}"
         data-bs-toggle="navbarcollapsible"
         data-bs-target="#{{ _header_nav_id }}"
+        data-focus-mouse="false"
+        aria-expanded="false"
       >
-        {% block togglerIcon %}
-          {% include '@bi-bcl/icon/icon.html.twig' with {
-            name: 'it-burger',
-            color: 'white',
-          } %}
-        {% endblock %}
+        <span>
+          {% block togglerIcon %}
+            {% include '@bi-bcl/icon/icon.html.twig' with {
+              name: 'it-burger',
+              color: 'white',
+              icon_title: 'Show/hide navigation bar'|t
+            } %}
+          {% endblock %}
+        </span>
       </button>
       <div id="{{ _header_nav_id }}" class="navbar-collapsable">
-        <div class="overlay" style="display: none;"></div>
         {% block closeMenuButton %}
           <div class="close-div">
-            <button class="btn close-menu" type="button">
-              <span class="visually-hidden">{{ 'Hide navigation'|t }}</span>
+            <button class="btn close-menu" type="button" aria-label="{{ 'Hide navigation'|t }}">
+              <span>
               {% include '@bi-bcl/icon/icon.html.twig' with {
-                name: 'it-close-big'
-              } %}
+                name: 'it-close-big',
+                icon_title: 'Hide navigation bar'|t
+              } %}</span>
             </button>
           </div>
         {% endblock %}
