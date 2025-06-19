@@ -13,6 +13,13 @@
  * @phpstan-ignore missingType.iterableValue
  */
 function bootstrap_italia_preprocess_block(array &$variables): void {
+
+  // When a #lazy_builder callback is specified, no properties can exist.
+  // ref https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Renderer.php/function/Renderer%3A%3AdoRender/11.x
+  if (isset($variables['elements']['content']['#lazy_builder'])) {
+    return;
+  }
+
   // All blocks.
   if (isset($variables['elements']['#id'])) {
     /** @var \Drupal\block\BlockInterface $block */
