@@ -1,4 +1,4 @@
-# Summary 2.14.0
+# Summary 2.15.0
 # Release notes
 Coming soon.
 
@@ -65,6 +65,11 @@ and update `/themes/custom/<your-sub-theme>`
 - feat: add new icons
 - feat: refactoring styles
 - fix: install script
+
+# Summary 2.14.0
+The version 2.14, even though it was not released, is fully incorporated
+into version 2.15. This means that all the changes, fixes, and new features
+planned for 2.14 are available in 2.15.
 
 # Summary 2.13.0
 The version 2.13, even though it was not released, is fully incorporated
