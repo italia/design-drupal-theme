@@ -1269,7 +1269,7 @@ function bootstrap_italia_form_system_theme_settings_validate(array &$form, Form
     $image_factory = \Drupal::service('image.factory');
     $supported_extensions = $image_factory->getSupportedExtensions();
     $supported_extensions[] = 'svg';
-    $validators = ['file_validate_extensions' => [implode(' ', $supported_extensions)]];
+    $validators = ['FileExtension' => [implode(' ', $supported_extensions)]];
 
     // Check for a new uploaded logo.
     $file = file_save_upload('logo_upload', $validators, FALSE, 0);
