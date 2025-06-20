@@ -61,7 +61,9 @@ and update `/themes/custom/<your-sub-theme>`
   - `src/scss/custom/_bootstrap_configuration.scss`, merge with _variables.scss
 
 ## All changes
-- Issue #3501035: Drupal 11.1.x breaks theme
+- Issue #3501035: Drupal 11.1.x breaks' theme
+- Issue #3530966 by scalas89: Error when adding a block with lazy_builder
+- Issue #3507049 by dhruv.mittal, arturopanetta, gbonline, divyansh.gupta: The "file_validate_extensions" plugin does not exist
 - feat: add new icons
 - feat: refactoring styles
 - fix: install script
