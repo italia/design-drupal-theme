@@ -105,6 +105,8 @@ $ drush cr
 ## All changes
 - feat: up to phpstan level 8 compliance
 - Issue #3506622: The pager does not use the custom value
+- Issue #3530966 by scalas89: Error when adding a block with lazy_builder
+- Issue #3507049 by dhruv.mittal, arturopanetta, gbonline, divyansh.gupta: The "file_validate_extensions" plugin does not exist
 for "Text for the previous page link"
 - fix: crash search modal on scrolled page and lint js
 - fix: check if RouteName is null
