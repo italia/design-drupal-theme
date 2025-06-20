@@ -11,8 +11,8 @@ release notes as it contains several breaking changes.
 No action required if you upgrade from 2.12.x.
 
 ### Custom build
-If you use custom libraries built with webpack, update devDependencies in
-`package.json` and do:
+If you use custom libraries built with webpack,
+update `webpack.common.js` (line 7th) then devDependencies in `package.json`:
 ```shell
 $ npx npm-check-updates -u
 $ npm update
