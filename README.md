@@ -57,7 +57,7 @@ You can install the bootstrap-italia library in several ways.
 
 ### A. Bootstrap-italia vanilla
 
-Download https://github.com/italia/bootstrap-italia/releases/download/v2.15.0/bootstrap-italia.zip
+Download https://github.com/italia/bootstrap-italia/releases/download/v2.15.1/bootstrap-italia.zip
 and unzip in `<your-subtheme>/dist`.
 
 ### B. Custom build for developer or advanced user
