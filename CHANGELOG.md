@@ -33,14 +33,14 @@ function italiagov_library_info_alter(array &$libraries): void {
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.14.0
+If you use vanilla libraries, download bootstrap-italia v2.15.0
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
 $ npx npm-check-updates -u
-$ npm install bootstrap-italia@2.14.0 --save-exact
+$ npm install bootstrap-italia@2.15.0 --save-exact
 $ npm update
 ```
 
