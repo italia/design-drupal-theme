@@ -4,7 +4,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import SvgChunkWebpackPlugin from 'svg-chunk-webpack-plugin';
 import paths from './webpack.paths.js';
 import semver from 'semver';
-import packageJson from './package.json' assert { type: 'json' };
+import packageJson from './package.json' with { type: 'json' };
 
 if (!semver.satisfies(process.version, packageJson.engines.node)) {
   throw new Error(`The current Node.js version (${process.version}) does not satisfy the required version (${packageJson.engines.node}).`);
