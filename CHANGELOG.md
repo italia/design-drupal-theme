@@ -71,6 +71,7 @@ and update `/themes/custom/<your-sub-theme>`
 - feat: refactoring styles
 - fix: install script
 - fix(a11y): main navigation
+- fix(modules): deps in paragraph module
 
 # Summary 2.14.0
 The version 2.14, even though it was not released, is fully incorporated
