@@ -16,6 +16,7 @@ update `webpack.common.js` (line 7th) then devDependencies in `package.json`:
 ```shell
 $ npx npm-check-updates -u
 $ npm update
+$ npm install bootstrap-italia@2.12.1 --save-exact
 $ npm run build:prod
 $ drush cr
 ```
