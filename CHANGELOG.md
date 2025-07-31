@@ -100,8 +100,8 @@ If you use custom libraries built with webpack, update devDependencies in
 `package.json` and do:
 ```shell
 $ npx npm-check-updates -u
-$ npm install bootstrap-italia@2.12.1 --save-exact
 $ npm update
+$ npm install bootstrap-italia@2.12.1 --save-exact
 $ npm run build:prod
 $ drush cr
 ```
