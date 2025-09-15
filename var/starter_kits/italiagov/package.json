@@ -1,12 +1,12 @@
 {
   "name": "bootstrap_italia",
-  "version": "2.15.1",
+  "version": "2.16.1",
   "description": "'A Drupal theme which implements the Italia Design System'",
   "main": "src/js/index.js",
   "type": "module",
   "engineStrict": true,
   "engines": {
-    "node": ">=v20.0.0"
+    "node": ">=v22.0.0"
   },
   "scripts": {
     "test": "npm run test-htmlprofiler",
@@ -33,25 +33,25 @@
   "license": "GPL-2.0-only",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^13.0.0",
-    "cross-env": "^7.0.3",
+    "copy-webpack-plugin": "^13.0.1",
+    "cross-env": "^10.0.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
-    "mini-css-extract-plugin": "^2.9.2",
-    "postcss-loader": "^8.1.1",
-    "sass": "^1.89.2",
+    "mini-css-extract-plugin": "^2.9.4",
+    "postcss-loader": "^8.2.0",
+    "sass": "^1.92.1",
     "sass-loader": "^16.0.5",
     "semver": "^7.7.2",
     "style-loader": "^4.0.0",
     "svg-chunk-webpack-plugin": "^7.0.0",
     "svgo-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.14",
-    "webpack": "^5.99.9",
+    "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2",
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "bootstrap-italia": "2.15.1"
+    "bootstrap-italia": "2.16.1"
   }
 }

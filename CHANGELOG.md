@@ -1,6 +1,22 @@
-# Summary 2.15.0
+# Summary 2.16.0
 # Release notes
-Coming soon.
+With this release, the theme evolves once again to stay aligned with
+the latest ecosystem updates. The Bootstrap Italia library has been upgraded
+to v2.16.1, bringing refinements, new icons, and style improvements.
+At the same time, the project now adopts Node.js 22, the current LTS version,
+ensuring long-term stability and compatibility with modern toolchains.
+
+This version introduces an important **breaking change** in the way libraries
+are declared in your sub-theme: the previous `theme_library_info_build()` hook
+has been replaced by `theme_library_info_alter()`. Although the migration is
+straightforward, it is mandatory to keep your sub-theme fully functional
+with Drupal 11.1.x.
+
+For those relying on vanilla libraries, the update simply requires replacing
+the distributed assets with the new version. For projects using custom builds
+with webpack, additional adjustments are required in SCSS files, configuration,
+and the `webpack.common.js` entry point. Deprecated files have been removed
+or merged, helping simplify and streamline the theme structure.
 
 ### ⚠️ Breaking changes!!!
 Edit your `<sub-theme>.theme` file (e.g. `italiagov.theme`) and change this:
@@ -33,14 +49,14 @@ function italiagov_library_info_alter(array &$libraries): void {
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.15.1
+If you use vanilla libraries, download bootstrap-italia v2.16.1
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
 $ npx npm-check-updates -u
-$ npm install bootstrap-italia@2.15.1 --save-exact
+$ npm install bootstrap-italia@2.16.1 --save-exact
 $ npm update
 ```
 
@@ -54,6 +70,7 @@ and update `/themes/custom/<your-sub-theme>`
   - `src/scss/ckeditor5.scss`
   - `src/scss/theme.scss`
   - `webpack.common.js` (line 7th)
+  - `.nvmmrc`
 - remove:
   - `src/scss/_bootstrap.scss`
   - `src/scss/_bootstrap_ckeditor5.scss`
@@ -69,19 +86,25 @@ and update `/themes/custom/<your-sub-theme>`
 - Issue #3507049 by dhruv.mittal, arturopanetta, gbonline, divyansh.gupta: The "file_validate_extensions" plugin does not exist
 - feat: add new icons
 - feat: refactoring styles
+- feat: up to boostrap-italia 2.16.1
 - fix: install script
 - fix(a11y): main navigation
 - fix(modules): deps in paragraph module
 
+# Summary 2.15.0
+The version 2.15, even though it was not released, is fully incorporated
+into version 2.16. This means that all the changes, fixes, and new features
+planned for 2.15 are available in 2.16.
+
 # Summary 2.14.0
 The version 2.14, even though it was not released, is fully incorporated
-into version 2.15. This means that all the changes, fixes, and new features
-planned for 2.14 are available in 2.15.
+into version 2.16. This means that all the changes, fixes, and new features
+planned for 2.14 are available in 2.16.
 
 # Summary 2.13.0
 The version 2.13, even though it was not released, is fully incorporated
-into version 2.14. This means that all the changes, fixes, and new features
-planned for 2.13 are available in 2.14.
+into version 2.16. This means that all the changes, fixes, and new features
+planned for 2.13 are available in 2.16.
 
 # Summary 2.12.3
 # Release notes

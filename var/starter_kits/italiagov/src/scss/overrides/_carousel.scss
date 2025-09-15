@@ -1,5 +1,7 @@
 @import '../../../node_modules/@splidejs/splide/src/css/core/index';
-//@import '@splidejs/splide/dist/css/splide-core.min.css';
+//@import '@splidejs/splide/src/css/core/index.scss';
+
+// Keep all .card-SOMETHING till next major? (.card is deprecated)
 
 //mobile
 .it-carousel-wrapper {
@@ -25,6 +27,7 @@
     }
   }
   .it-special-card {
+    // xxx deprecated with old .card
     h5.card-title {
       margin-bottom: 0;
     }
@@ -44,12 +47,16 @@
     padding-bottom: 0;
   }
   .card-wrapper {
+    // xxx deprecated with old .card
+    padding-bottom: $v-gap * 2;
+  }
+  .it-card {
     padding-bottom: $v-gap * 2;
   }
   // Landscape abstract
   &.it-carousel-landscape-abstract {
+    // xxx deprecated with old .card
     .it-single-slide-wrapper {
-      background-color: $white;
       > a {
         position: relative;
         display: block;
@@ -122,11 +129,13 @@
     margin: 0 auto;
     // with img
     .card.card-img {
+      // xxx deprecated with old .card
       margin-left: 0;
       margin-right: 0;
     }
     // with shadow
     .it-card-bg {
+      // xxx deprecated with old .card
       .card.card-bg {
         margin-left: 0;
         margin-right: 0;
@@ -173,6 +182,7 @@
         .it-text-slider-wrapper-outside {
           flex-basis: 50%;
           .card {
+            // xxx deprecated with old .card
             border-right: none;
             margin-right: 0;
             &:after {
@@ -197,16 +207,6 @@
             }
           }
         }
-      }
-      .splide__pagination {
-        position: absolute;
-        left: 50%;
-        margin-left: $v-gap * 5;
-        right: 0;
-        bottom: $crs-landscape-bottom;
-        text-align: left;
-        justify-content: left;
-        margin-bottom: 8px;
       }
     }
     &.it-carousel-landscape-abstract-three-cols-arrow-visible {
