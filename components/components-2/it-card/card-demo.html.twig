@@ -1,0 +1,622 @@
+{#
+/**
+ * @file
+ * Card demo.
+ *
+ * Example:
+ *
+   {% include '@bi-bcl/card/card-demo.html.twig' %}
+ */
+#}
+{% apply spaceless %}
+
+  {% set card_demo_title = 'Lorem ipsum dolor sit amet' %}
+  {% set card_demo_subtitle = 'Subtitle' %}
+  {% set card_demo_text_short = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' %}
+  {% set card_demo_image_url = 'https://placeholderimage.eu/api/nature/800/600' %}
+  {% set card_demo_date = '14 Ottobre ' ~ "now"|date("Y") %}
+  {% set card_demo_datetime = "now"|date("Y") ~ '-10-14' %}
+  {% set card_demo_signature = 'Maria Verde' %}
+  {% set card_demo_read_more_url = '#' %}
+
+  {% set card_demo_taxonomy_category %}
+    <a href="#" class="it-card-category it-card-link link-secondary"><span class="visually-hidden">{{ 'Related category'|t }}: </span>{{ 'Category'|t }}</a>
+  {% endset %}
+
+  {% set card_demo_taxonomy_topics %}
+    <ul class="it-card-chips chips-list" aria-label="{{ 'Related topic: '|t }}">
+      <li class="list-item">
+        {% include '@bi-bcl/chip/chip.html.twig' with {
+          chip_label: 'Label'|t,
+          chip_a11y_text: 'Topic: ',
+          chip_url: '#'
+        } %}
+      </li>
+      <li class="list-item">
+        {% include '@bi-bcl/chip/chip.html.twig' with {
+          chip_label: 'Label'|t,
+          chip_a11y_text: 'Topic: ',
+          chip_url: '#'
+        } %}
+      </li>
+    </ul>
+  {% endset %}
+
+  {% set card_demo_taxonomy_status %}
+    <ul class="it-card-chips chips-list" aria-label="{{ 'Related topic: '|t }}">
+      <li class="list-item">
+        {% include '@bi-bcl/chip/chip.html.twig' with {
+          chip_label: 'Enabled'|t,
+          chip_a11y_text: 'Status: ',
+          chip_color: 'success'
+        } %}
+      </li>
+    </ul>
+  {% endset %}
+
+  {% set card_demo_custom_footer_events1 %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Register'|t,
+      variant: 'link',
+      tag: 'a',
+      url: '#',
+      button_classes: ['it-card-link']
+    } %}
+  {% endset %}
+
+  {% set card_demo_custom_footer_events2 %}
+    {% include '@bi-bcl/button/button.html.twig' with {
+      label: 'Register'|t,
+      variant: 'secondary',
+      outline: true
+    } %}
+  {% endset %}
+
+  {% set card_demo_custom_footer_attachments %}
+    <span class="me-2">{{ 'Download as'|t }}:</span>
+    <a href="#" class="it-card-link">ODT (300Kb)<span class="visually-hidden">: {{ 'Document title'|t }}</span></a>
+    <a href="#" class="it-card-link">ODS (400Kb)<span class="visually-hidden">: {{ 'Document title'|t }}</span></a>
+  {% endset %}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: minimal'|t,
+    path_demo_code: '/it-card/card-demo.html.twig#L71',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short
+          } %}
+        </div>
+        <div class="col">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: base'|t,
+    path_demo_code: '/card/card-demo.html.twig#L99',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/nature/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: publishing card'|t,
+    path_demo_code: '/card/card-demo.html.twig#L123',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/monument/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/city/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_topics,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: publishing featured card'|t,
+    path_demo_code: '/card/card-demo.html.twig#L176',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-file', color: 'primary'},
+            it_card_subtitle: card_demo_subtitle,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/nature/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-designers-italia', color: 'primary'},
+            it_card_subtitle: card_demo_subtitle,
+            it_card_signature: card_demo_signature,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/city/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_topics,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-external-link', color: 'primary'},
+            it_card_signature: card_demo_signature,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: inline'|t,
+    path_demo_code: '/card/card-demo.html.twig#L176',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-10 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/monument/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-10 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline-reverse',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/nature/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: inline mini'|t,
+    path_demo_code: '/card/card-demo.html.twig#L176',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline',
+            it_card_inline_mini: true,
+            it_card_title: card_demo_title,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/city/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+        <div class="col-12 col-md-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline-reverse',
+            it_card_inline_mini: true,
+            it_card_title: card_demo_title,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/monument/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: events'|t,
+    path_demo_code: '/card/card-demo.html.twig#L236',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_subtitle: 'From 4 to 6 August',
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/nature/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_custom_footer: card_demo_custom_footer_events1,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_subtitle: 'From 4 to 6 November',
+            it_card_signature: card_demo_signature,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/city/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_custom_footer: card_demo_custom_footer_events2,
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_subtitle: '19 August, 11:30-13:00',
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: inline events'|t,
+    path_demo_code: '/card/card-demo.html.twig#L236',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-10 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline',
+            it_card_title: card_demo_title,
+            it_card_subtitle: 'From 4 to 6 August',
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/monument/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_custom_footer: card_demo_custom_footer_events1,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-10 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline-reverse',
+            it_card_title: card_demo_title,
+            it_card_subtitle: 'From 4 to 6 November',
+            it_card_signature: card_demo_signature,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/nature/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_custom_footer: card_demo_custom_footer_events2,
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: for media'|t,
+    path_demo_code: '/card/card-demo.html.twig#L176',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-video', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/nature/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-video', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/city/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_topics,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-horn', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-horn', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_topics,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: media inline'|t,
+    path_demo_code: '/card/card-demo.html.twig#L236',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-10 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-video', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/monument/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-xl-10 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_inline: 'inline-reverse',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-video', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_with_image: true,
+            it_card_image_url: 'https://placeholderimage.eu/api/nature/800/600',
+            it_card_image_description: card_demo_text_short,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime}],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: for info and services'|t,
+    path_demo_code: '/card/card-demo.html.twig#L176',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_category,
+          } %}
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_status,
+            it_card_custom_footer: card_demo_custom_footer_events1,
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-horn', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_status,
+            it_card_custom_footer: card_demo_custom_footer_events2,
+            it_card_date: [{label: card_demo_date, datetime: card_demo_datetime, type: 'warning', accessible_text: 'Expire: ' }],
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+  {% embed '@bi-bcl/demo-container.html.twig' with {
+    title: 'it-Card: for documents and attachments'|t,
+    path_demo_code: '/card/card-demo.html.twig#L176',
+  } %}
+    {% block content %}
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-file', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_category,
+          } %}
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-file', color: 'primary'},
+            it_card_text: card_demo_text_short,
+            it_card_target_url: card_demo_read_more_url,
+            it_card_taxonomy: card_demo_taxonomy_category,
+            it_card_custom_footer: card_demo_custom_footer_attachments,
+          } %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+          {% include '@bi-bcl/it-card/card.html.twig' with {
+            it_card_title_tag: 'h4',
+            it_card_title: card_demo_title,
+            it_card_title_icon: {name: 'it-file-odt', color: 'primary'},
+            it_card_text: 'Format ODT (200Kb)'|t,
+            it_card_target_url: card_demo_read_more_url,
+          } %}
+        </div>
+      </div>
+
+    {% endblock %}
+  {% endembed %}{# End embed demo. #}
+
+{% endapply %}

@@ -3,10 +3,11 @@
  * @file
  * Template for chip component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/chips/
- * Latest revision: v2.12.0
+ * Latest revision: v2.16.1
  *
  * Parameters:
  * - chip_label (string) (default: '')
+ * - chip_a11y_text (string) (default: '')
  * - chip_simple (boolean) (default: false)
  * - chip_icon (string) (default: '')
  *   - options ['it-icon-name']
@@ -61,6 +62,7 @@
 {% apply spaceless %}
   {# Set defaults #}
   {% set _chip_label = chip_label|default('') %}
+  {% set _chip_a11y_text = chip_a11y_text|default('') %}
   {% set _chip_simple = chip_simple ?? false %}
   {% set _chip_icon = chip_icon|default('') %}
   {% set _chip_dismissibile = chip_dismissibile ?? false %}
@@ -121,7 +123,10 @@
 
     {% block content %}
       {% if _chip_label is not empty %}
-        <span class="chip-label">{{ _chip_label }}</span>
+        <span class="chip-label">
+          {% if _chip_a11y_text is not empty %}<span class="visually-hidden">{{ _chip_a11y_text }}</span>{% endif %}
+          {{ _chip_label }}
+        </span>
       {% endif %}
     {% endblock %}
 

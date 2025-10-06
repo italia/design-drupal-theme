@@ -1,0 +1,207 @@
+{#
+/**
+ * @file
+ * Template for it-card component.
+ * Docs: https://italia.github.io/bootstrap-italia/docs/componenti/card/
+ * Latest revision: v2.16.1
+ *
+ * Parameters:
+ * - it_card_tag_container (string) (default: 'article')
+ * - it_card_inline (string) (default: '')
+ *   - option ["", "inline", "inline-reverse"]
+ * - it_card_inline_mini (boolean) (default: false)
+ * - it_card_title (string) (default: 'Card title')
+ * - it_card_title_tag (string) (default: 'h3')
+ * - it_card_title_icon (false|array icon) (default: false)
+ *    see components/components-2/icon/icon.html.twig
+ * - it_card_subtitle (string) (default: '')
+ * - it_card_signature (string) default('')
+ * - it_card_text (string) (default: '')
+ * - it_card_target_url (string) default('')
+ * - it_card_with_image (boolean) (default: false)
+ * - it_card_image_ratio (string) default('16x9')
+ *   - option ["1x1","4x3","16x9","21x9"]
+ * - it_card_image_url (string) default('')
+ * - it_card_image_description (string) default('')
+ * - it_card_taxonomy (string|field) (default: '')
+ * - it_card_custom_footer (string|field) (default: '')
+ * - it_card_date (array) default('')
+ *   - [{label: '14 Ottobre 2025', datetime: '2025-10-14', type: 'null|default|primary|secondary|info|warning|danger', accessible_text: 'Expire: '}],
+ * - it_card_rounded (boolean) (default: true)
+ * - it_card_shadow (string) (default: 'sm')
+ *   - option ["sm","","lg"]
+ * - it_card_border (boolean) (default: true)
+ * - it_card_border_top_type (string) (default '')
+ *   - option ["primary","secondary","success","info",...]
+ * - it_card_classes (array) (default: '')
+ * - it_card_attributes (obj attribute) (default: '')
+ *
+ * Examples:
+    {% include '@bi-bcl/it-card/card.html.twig' with {
+      it_card_title: 'Card title',
+      it_card_text: 'Card text',
+      it_card_target_url: '#'
+    } %}
+ *
+ */
+#}
+{% apply spaceless %}
+  {# Set defaults #}
+  {% set _it_card_tag_container = it_card_tag_container|default('article') %}
+  {% set _it_card_inline = it_card_inline|default('') %}
+  {% set _it_card_inline_mini = it_card_inline_mini ?? false %}
+  {% set _it_card_title = it_card_title|default('Card title') %}
+  {% set _it_card_title_tag = it_card_title_tag|default('h3') %}
+  {% set _it_card_title_icon = it_card_title_icon ?? false %}
+  {% set _it_card_subtitle = it_card_subtitle|default('') %}
+  {% set _it_card_signature = it_card_signature|default('') %}
+  {% set _it_card_text = it_card_text|default('') %}
+  {% set _it_card_target_url = it_card_target_url|default('') %}
+  {% set _it_card_with_image = it_card_with_image ?? false %}
+  {% set _it_card_image_ratio = it_card_image_ratio|default('16x9') %}
+  {% set _it_card_image_url = it_card_image_url|default('') %}
+  {% set _it_card_image_description = it_card_image_description|default('') %}
+  {% set _it_card_taxonomy = it_card_taxonomy|default('') %}
+  {% set _it_card_custom_footer = it_card_custom_footer|default('') %}
+  {% set _it_card_date = it_card_date|default('') %}
+  {% set _it_card_rounded = it_card_rounded ?? true %}
+  {% set _it_card_shadow = it_card_shadow|default('sm') %}
+  {% set _it_card_border = it_card_border ?? true %}
+  {% set _it_card_border_top_type = it_card_border_top_type|default('') %}
+  {% set _it_card_classes = it_card_classes|default('') %}
+  {% set _it_card_attributes = it_card_attributes|default('') %}
+
+  {# Check if card-inline is possibile #}
+  {% set _it_card_inline = _it_card_inline is not empty and _it_card_with_image ? _it_card_inline : false %}
+
+  {# Set options #}
+    {% set _classes = [
+      'it-card',
+      _it_card_inline is not empty ? 'it-card-inline',
+      _it_card_inline == 'inline-reverse' ? 'it-card-inline-reverse' : '',
+      _it_card_inline_mini and _it_card_inline is not empty ? 'it-card-inline-mini',
+      _it_card_with_image ? 'it-card-image',
+      _it_card_taxonomy ? 'it-card-height-full',
+      _it_card_rounded ? 'rounded',
+      _it_card_shadow ? 'shadow' ~ _it_card_shadow,
+      _it_card_border ? 'border',
+      _it_card_border_top_type is not empty ? 'it-card-border-top',
+      _it_card_border_top_type is not empty ? 'it-card-border-top-' ~ _it_card_border_top_type,
+    ] %}
+
+  {% if _it_card_classes is not empty %}
+    {% set _classes = _classes|merge(it_card_classes) %}
+  {% endif %}
+
+  {% if _it_card_attributes is empty %}
+    {% set it_card_attributes = create_attribute() %}
+  {% endif %}
+  {% set it_card_attributes = it_card_attributes
+    .addClass(_classes)
+  %}
+
+  {% set _footer %}
+    {# the card footer metadata (optional) #}
+    {% if _it_card_taxonomy is not empty or _it_card_date is not empty %}
+      <footer class="it-card-related{{ _it_card_custom_footer is empty ? ' it-card-footer'}}">
+
+        {% if _it_card_taxonomy %}
+          <div class="it-card-taxonomy">
+            {% block cardTaxonomy %}{{ _it_card_taxonomy }}{% endblock %}
+          </div>
+        {% endif %}
+
+        {% if _it_card_date is not empty %}
+          <span class="it-card-date{{ _it_card_date[0].type ? ' text-' ~ _it_card_date[0].type }}">
+            {{ _it_card_date[0].accessible_text }}
+            <time datetime="{{ _it_card_date[0].datetime }}">{{ _it_card_date[0].label }}</time>
+          </span>
+        {% endif %}
+      </footer>
+    {% endif %}
+  {% endset %}
+
+  {# Component #}
+  <{{ _it_card_tag_container }}{{ it_card_attributes }}>
+
+    {% if _it_card_inline is not empty %}
+      <div class="it-card-inline-content">
+    {% endif %}
+
+      {# card first child is the title (link) #}
+      {% block cardTitle %}
+        <{{ _it_card_title_tag }} class="it-card-title{{ _it_card_title_icon ? ' it-card-title-icon' }}{{ _it_card_inline_mini ? ' h4' }}">
+          {% if _it_card_target_url is not empty %}
+            <a href="{{ _it_card_target_url }}" title="{{ 'Read more about: '|t }}{{ _it_card_title }}">
+          {% endif %}
+
+          {{ _it_card_title }}
+
+          {% if _it_card_title_icon is not empty %}
+            <div class="it-card-title-icon-wrapper">
+              {% include '@bi-bcl/icon/icon.html.twig' with _it_card_title_icon %}
+            </div>
+          {% endif %}
+
+          {% if _it_card_target_url is not empty %}
+            </a>
+          {% endif %}
+
+        </{{ _it_card_title_tag }}>
+      {% endblock %}
+
+      {# card body content #}
+      <div class="it-card-body">
+        {% block cardSubtitle %}
+          {% if _it_card_subtitle is not empty %}
+            <p class="it-card-subtitle">{{ _it_card_subtitle }}</p>
+          {% endif %}
+        {% endblock %}
+
+        {% block cardSignature %}
+          {% if _it_card_signature is not empty %}
+            <address class="it-card-signature">{{ 'by'|t }} {{ _it_card_signature }}</address>
+          {% endif %}
+        {% endblock %}
+
+        {% block cardText %}
+          {% if _it_card_text is not empty %}
+            <p class="it-card-text">{{ _it_card_text }}</p>
+          {% endif %}
+        {% endblock %}
+
+        {% if _it_card_custom_footer is not empty %}
+          {{ _footer }}
+        {% endif %}
+      </div>
+
+      {% if _it_card_custom_footer is not empty %}
+        {% block cardFooter %}
+          <div class="it-card-footer" aria-label="Link correlati:">
+            {{ _it_card_custom_footer }}
+          </div>
+        {% endblock %}
+      {% else %}
+        {{ _footer }}
+      {% endif %}
+
+    {% if _it_card_inline is not empty %}
+      </div>
+    {% endif %}
+
+    {# card second child is the image (optional) #}
+    {% if _it_card_with_image %}
+      <div class="it-card-image-wrapper">
+        <div class="ratio ratio-{{ _it_card_image_ratio }}">
+          {% block cardImage %}
+            <figure class="figure img-full">
+              <img src="{{ _it_card_image_url }}" alt="{{ _it_card_image_description }}">
+            </figure>
+          {% endblock %}
+        </div>
+      </div>
+    {% endif %}
+
+  </{{ _it_card_tag_container }}>
+
+{% endapply %}
