@@ -2,7 +2,7 @@
 # Release notes
 With this release, the theme evolves once again to stay aligned with
 the latest ecosystem updates. The Bootstrap Italia library has been upgraded
-to v2.16.1, bringing refinements, new icons, and style improvements.
+to v2.16.2, bringing refinements, new icons, and style improvements.
 At the same time, the project now adopts Node.js 22, the current LTS version,
 ensuring long-term stability and compatibility with modern toolchains.
 
@@ -49,14 +49,14 @@ function italiagov_library_info_alter(array &$libraries): void {
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.16.1
+If you use vanilla libraries, download bootstrap-italia v2.16.2
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
 $ npx npm-check-updates -u
-$ npm install bootstrap-italia@2.16.1 --save-exact
+$ npm install bootstrap-italia@2.16.2 --save-exact
 $ npm update
 ```
 
