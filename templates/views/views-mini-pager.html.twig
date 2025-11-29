@@ -12,13 +12,14 @@
  * @ingroup themeable
  */
 #}
-{% if items["next"] or items["previous"] %}
+{% if items.next or items.previous %}
   {% include '@bi-bcl/pagination/pagination.html.twig' with {
     heading_id: heading_id,
+    pagination_heading_level: pagination_heading_level,
     items: items,
     current: null,
     ellipses: null,
-    total_pages: null,
+    total_pages: '0',
     alignment: pager_alignment,
     responsive: false,
     jump_to_page: false,
