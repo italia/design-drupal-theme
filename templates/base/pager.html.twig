@@ -5,6 +5,7 @@
  *
  * Available variables:
  * - heading_id: Pagination heading ID.
+ * - pagination_heading_level: The heading level to use for the pager.
  * - items: List of pager items.
  *   The list is keyed by the following elements:
  *   - first: Item for the first page; not present on the first page of results.
@@ -40,6 +41,7 @@
 #}
 {% include '@bi-bcl/pagination/pagination.html.twig' with {
   heading_id: heading_id,
+  pagination_heading_level: pagination_heading_level,
   items: items,
   current: current,
   ellipses: ellipses,

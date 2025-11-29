@@ -127,7 +127,7 @@
   {% if items %}
     <nav class="{{ _pager_nav_classes|join(' ')|trim }}" aria-labelledby="{{ heading_id }}">
       <{{ _pagination_heading_level }} id="{{ heading_id }}" class="visually-hidden">{{ 'Pagination'|t }}</{{ _pagination_heading_level }}>
-      <ul class="pagination pager__items js-pager__items" aria-description="{{ 'Page @current'|t({'@current': items.current}) }}">
+      <ul class="pagination pager__items js-pager__items">
 
         {# Print previous item. #}
         <li class="{{ _item_classes|merge(['pager__item--previous', not items.previous ? 'disabled'])|join(' ') }}">
