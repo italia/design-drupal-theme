@@ -16,8 +16,14 @@
  * - icon_color (string) (default: '')
  * - blank (boolean) (default: true)
  *   - Open link in new window
+ * - socials_inline (boolean) (default: false)
+ *   - Display list inline
+ * - hide_social_label (boolean) (default: true)
+ *   - Display the social name
  * - followus_classes (array) (default: '')
  * - followus_attributes (obj attribute) (default: '')
+ * - social_list_attributes (obj attribute) (default: '')
+ * - social_list_item_attributes (obj attribute) (default: '')
  *
  * Examples:
    {% include '@bi-bcl/share/followus.html.twig' with {
@@ -35,8 +41,12 @@
   {% set _label = label|default('') %}
   {% set _icon_color = icon_color|default('') %}
   {% set _blank = blank ?? true %}
+  {% set _socials_inline = socials_inline ?? false %}
+  {% set _hide_social_label = hide_social_label ?? true %}
   {% set _followus_classes = followus_classes|default('') %}
   {% set _followus_attributes = followus_attributes|default('') %}
+  {% set _social_list_attributes = social_list_attributes|default('') %}
+  {% set _social_list_item_attributes = social_list_item_attributes|default('') %}
 
   {# Set options #}
   {% set _classes = [
@@ -58,13 +68,26 @@
     {% set title_attributes = create_attribute() %}
   {% endif %}
 
+  {% if _social_list_attributes is empty %}
+    {% set social_list_attributes = create_attribute() %}
+  {% endif %}
+
+  {% if _social_list_item_attributes is empty %}
+    {% set social_list_item_attributes = create_attribute() %}
+  {% endif %}
+
+  {% if _socials_inline %}
+    {% set social_list_attributes = social_list_attributes.addClass(['list-inline']) %}
+    {% set social_list_item_attributes = social_list_item_attributes.addClass(['list-inline-item']) %}
+  {% endif %}
+
   {# Component #}
   <div{{ followus_attributes }}>
     <{{ _title_tag }}{{ title_attributes }}>{{ _label }}</{{ _title_tag }}>
-    <ul>
+    <ul{{ social_list_attributes }}>
       {%- for social in socials -%}
         {%- if social.url -%}
-          <li>
+          <li{{ social_list_item_attributes }}>
             {%- set social_attributes = create_attribute() -%}
             {%- set social_attributes = social_attributes
               .setAttribute('href', social.url)
@@ -84,7 +107,7 @@
                 color: _icon_color,
                 icon_classes: ['align-top']
               } -%}
-              <span class="visually-hidden-focusable">{{ social.label }}</span>
+              <span class="{{ _hide_social_label ? 'visually-hidden-focusable' }}">{{ social.label }}</span>
             </a>
           </li>
         {%- endif -%}
