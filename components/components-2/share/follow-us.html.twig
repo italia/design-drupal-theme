@@ -13,7 +13,6 @@
  * - title_tag (string) (default 'span')
  * - title_attributes (attributes) (default '')
  * - label (string) (default: '')
- * - icon_color (string) (default: '')
  * - blank (boolean) (default: true)
  *   - Open link in new window
  * - socials_inline (boolean) (default: false)
@@ -21,9 +20,19 @@
  * - hide_social_label (boolean) (default: true)
  *   - Display the social name
  * - followus_classes (array) (default: '')
+ *   - Wrapper classes
  * - followus_attributes (obj attribute) (default: '')
+ *   - Wrapper attributes
  * - social_list_attributes (obj attribute) (default: '')
+ *   - List (ul) attributes
  * - social_list_item_attributes (obj attribute) (default: '')
+ *   - List item (li) attributes
+ * - social_attributes (obj attribute) (default: '')
+ *   - Link (a) attributes
+ * - icon_color (string) (default: '')
+ * - icon_size (string) (default: 'sm')
+ * - icon_attributes (obj attribute) (default: '')
+ *   - Social icon attributes
  *
  * Examples:
    {% include '@bi-bcl/share/followus.html.twig' with {
@@ -39,7 +48,6 @@
   {% set _title_tag = title_tag|default('span') %}
   {% set _title_attributes = title_attributes|default('') %}
   {% set _label = label|default('') %}
-  {% set _icon_color = icon_color|default('') %}
   {% set _blank = blank ?? true %}
   {% set _socials_inline = socials_inline ?? false %}
   {% set _hide_social_label = hide_social_label ?? true %}
@@ -47,6 +55,10 @@
   {% set _followus_attributes = followus_attributes|default('') %}
   {% set _social_list_attributes = social_list_attributes|default('') %}
   {% set _social_list_item_attributes = social_list_item_attributes|default('') %}
+  {% set _social_attributes = social_attributes|default('') %}
+  {% set _icon_size = icon_size|default('sm') %}
+  {% set _icon_color = icon_color|default('') %}
+  {% set _icon_attributes = icon_attributes|default('') %}
 
   {# Set options #}
   {% set _classes = [
@@ -81,6 +93,14 @@
     {% set social_list_item_attributes = social_list_item_attributes.addClass(['list-inline-item']) %}
   {% endif %}
 
+  {% if _social_attributes is empty %}
+    {% set social_attributes = create_attribute() %}
+  {% endif %}
+
+  {% if _icon_attributes is empty %}
+    {% set icon_attributes = create_attribute() %}
+  {% endif %}
+
   {# Component #}
   <div{{ followus_attributes }}>
     <{{ _title_tag }}{{ title_attributes }}>{{ _label }}</{{ _title_tag }}>
@@ -88,7 +108,6 @@
       {%- for social in socials -%}
         {%- if social.url -%}
           <li{{ social_list_item_attributes }}>
-            {%- set social_attributes = create_attribute() -%}
             {%- set social_attributes = social_attributes
               .setAttribute('href', social.url)
               .setAttribute('rel', 'noopener')
@@ -103,9 +122,10 @@
             <a{{- social_attributes -}}>
               {%- include '@bi-bcl/icon/icon.html.twig' with {
                 name: 'it-' ~ (social.label|lower),
-                size: 'sm',
+                size: _icon_size,
                 color: _icon_color,
-                icon_classes: ['align-top']
+                icon_classes: ['align-top'],
+                icon_attributes: icon_attributes
               } -%}
               <span class="{{ _hide_social_label ? 'visually-hidden-focusable' }}">{{ social.label }}</span>
             </a>
