@@ -31,6 +31,7 @@
  *   - Link (a) attributes
  * - icon_color (string) (default: '')
  * - icon_size (string) (default: 'sm')
+ * - icon_square (boolean) (default: false)
  * - icon_attributes (obj attribute) (default: '')
  *   - Social icon attributes
  *
@@ -56,6 +57,7 @@
   {% set _social_list_attributes = social_list_attributes|default('') %}
   {% set _social_list_item_attributes = social_list_item_attributes|default('') %}
   {% set _social_attributes = social_attributes|default('') %}
+  {% set _icon_square = icon_square ?? false %}
   {% set _icon_size = icon_size|default('sm') %}
   {% set _icon_color = icon_color|default('') %}
   {% set _icon_attributes = icon_attributes|default('') %}
@@ -121,7 +123,7 @@
             {%- endif -%}
             <a{{- social_attributes -}}>
               {%- include '@bi-bcl/icon/icon.html.twig' with {
-                name: 'it-' ~ (social.label|lower),
+                name: _icon_square ? 'it-' ~ (social.label|lower) ~ '-square' : 'it-' ~ (social.label|lower),
                 size: _icon_size,
                 color: _icon_color,
                 icon_classes: ['align-top'],
