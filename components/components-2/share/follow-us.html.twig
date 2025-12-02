@@ -3,13 +3,15 @@
  * @file
  * Template for follow us component.
  * Docs: https://italia.github.io/bootstrap-italia/docs/menu-di-navigazione/header/#header-centrale
- * Latest revision: v2.6.1
+ * Latest revision: v2.17.0
  *
  * Parameters:
  * - socials (array) (default: '')
  *   - social-name
  *     - label (string)
  *     - url (url)
+ * - title_tag (string) (default 'span')
+ * - title_attributes (attributes) (default '')
  * - label (string) (default: '')
  * - icon_color (string) (default: '')
  * - blank (boolean) (default: true)
@@ -28,6 +30,8 @@
 #}
 {% apply spaceless %}
   {# Set defaults #}
+  {% set _title_tag = title_tag|default('span') %}
+  {% set _title_attributes = title_attributes|default('') %}
   {% set _label = label|default('') %}
   {% set _icon_color = icon_color|default('') %}
   {% set _blank = blank ?? true %}
@@ -50,9 +54,13 @@
     .addClass(_classes)
   %}
 
+  {% if _title_attributes is empty %}
+    {% set title_attributes = create_attribute() %}
+  {% endif %}
+
   {# Component #}
   <div{{ followus_attributes }}>
-    <span>{{ _label }}</span>
+    <{{ _title_tag }}{{ title_attributes }}>{{ _label }}</{{ _title_tag }}>
     <ul>
       {%- for social in socials -%}
         {%- if social.url -%}
