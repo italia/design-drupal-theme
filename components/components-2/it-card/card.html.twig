@@ -28,6 +28,7 @@
  * - it_card_date (array) default('')
  *   - [{label: '14 Ottobre 2025', datetime: '2025-10-14', type: 'null|default|primary|secondary|info|warning|danger', accessible_text: 'Expire: '}],
  * - it_card_rounded (boolean) (default: true)
+ * - it_card_equal_height (boolean) (default: false)
  * - it_card_shadow (string) (default: 'sm')
  *   - option ["sm","","lg"]
  * - it_card_border (boolean) (default: true)
@@ -65,6 +66,7 @@
   {% set _it_card_custom_footer = it_card_custom_footer|default('') %}
   {% set _it_card_date = it_card_date|default('') %}
   {% set _it_card_rounded = it_card_rounded ?? true %}
+  {% ser _it_card_equal_height = it_card_equal_height ?? false %}
   {% set _it_card_shadow = it_card_shadow|default('sm') %}
   {% set _it_card_border = it_card_border ?? true %}
   {% set _it_card_border_top_type = it_card_border_top_type|default('') %}
@@ -81,7 +83,7 @@
       _it_card_inline == 'inline-reverse' ? 'it-card-inline-reverse' : '',
       _it_card_inline_mini and _it_card_inline is not empty ? 'it-card-inline-mini',
       _it_card_with_image ? 'it-card-image',
-      _it_card_taxonomy ? 'it-card-height-full',
+      _it_card_taxonomy or _it_card_equal_height ? 'it-card-height-full',
       _it_card_rounded ? 'rounded',
       _it_card_shadow ? 'shadow-' ~ _it_card_shadow,
       _it_card_border ? 'border',
@@ -132,7 +134,7 @@
       {% block cardTitle %}
         <{{ _it_card_title_tag }} class="it-card-title{{ _it_card_title_icon ? ' it-card-title-icon' }}{{ _it_card_inline_mini ? ' h4' }}">
           {% if _it_card_target_url is not empty %}
-            <a href="{{ _it_card_target_url }}" title="{{ 'Read more about: '|t }}{{ _it_card_title }}">
+            <a href="{{ _it_card_target_url }}" title="{{ 'Read more about: '|t }}{{ _it_card_title|render|striptags|trim }}">
           {% endif %}
 
           {{ _it_card_title }}
