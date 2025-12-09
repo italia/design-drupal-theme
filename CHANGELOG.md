@@ -35,6 +35,7 @@ for "Text for the previous page link"
 - fix: node 20.19.x and webpack-cli ESM compliance
 - fix: check if boostrap exists in load-fonts.js
 - fix(modules): deps in paragraph module
+- fix: typo in form element
 
 # Summary 2.12.2
 ## Release notes
