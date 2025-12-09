@@ -93,6 +93,7 @@ and update `/themes/custom/<your-sub-theme>`
 - fix(modules): deps in paragraph module
 - fix: #3540683 TypeError breaks the theme with mini paginator
 - fix: improve a11y in follow us component
+- fix: typo in form element
 
 # Summary 2.16.0
 The version 2.16, even though it was not released, is fully incorporated
