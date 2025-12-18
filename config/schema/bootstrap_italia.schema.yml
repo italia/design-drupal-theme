@@ -1,3 +1,11 @@
 bootstrap_italia.settings:
   type: theme_settings
   label: 'Bootstrap Italia settings'
+  mapping:
+    government_entity_name:
+      type: label
+      label: 'Government entity name'
+      translatable: true
+    government_entity_url:
+      type: uri
+      label: 'Government entity web site'
