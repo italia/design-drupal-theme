@@ -8,14 +8,13 @@
 use Drupal\bootstrap_italia\Helper\Libraries;
 
 /**
- * Implements theme_library_info_alter().
+ * Implements hook_library_info_alter().
  *
- * @param array<mixed, string> $libraries
- *   Libraries array.
- *
- * @return void
+ * @phpstan-param array<string> $libraries
  *   Libraries array.
  */
 function multisite_example_library_info_alter(array &$libraries): void {
-  Libraries::setLibraries($libraries);
+  if (class_exists(Libraries::class)) {
+    Libraries::setLibraries($libraries);
+  }
 }

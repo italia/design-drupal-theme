@@ -2,7 +2,7 @@
 # Release notes
 With this release, the theme evolves once again to stay aligned with
 the latest ecosystem updates. The Bootstrap Italia library has been upgraded
-to v2.17.0, bringing refinements, new icons, and style improvements.
+to v2.17.3, bringing refinements, new icons, and style improvements.
 At the same time, the project now adopts Node.js 22, the current LTS version,
 ensuring long-term stability and compatibility with modern toolchains.
 
@@ -34,29 +34,35 @@ with this:
 
 ```php
 /**
- * Implements theme_library_info_alter().
+ * @file
+ * Theme file for Bootstrap Italia.
+ */
+
+use Drupal\bootstrap_italia\Helper\Libraries;
+
+/**
+ * Implements hook_library_info_alter().
  *
- * @param array<mixed, string> $libraries
- *   Libraries array.
- *
- * @return void
+ * @phpstan-param array<string> $libraries
  *   Libraries array.
  */
 function italiagov_library_info_alter(array &$libraries): void {
-  Libraries::setLibraries($libraries);
+  if (class_exists(Libraries::class)) {
+    Libraries::setLibraries($libraries);
+  }
 }
 ```
 
 ## Update libraries
 ### Vanilla libraries
-If you use vanilla libraries, download bootstrap-italia v2.17.0
+If you use vanilla libraries, download bootstrap-italia v2.17.3
 and update `<your-sub-theme>/dist` folder.
 
 ### Custom build
 If you use custom libraries built with webpack, do:
 ```shell
 $ npx npm-check-updates -u
-$ npm install bootstrap-italia@2.17.0 --save-exact
+$ npm install bootstrap-italia@2.17.3 --save-exact
 $ npm update
 ```
 
@@ -87,13 +93,14 @@ and update `/themes/custom/<your-sub-theme>`
 - fix: #3540683 TypeError breaks the theme with mini paginator
 - feat: add new icons
 - feat: refactoring styles
-- feat: up to boostrap-italia 2.17.0
+- feat: up to boostrap-italia 2.17.3
 - fix: install script
 - fix(a11y): main navigation
 - fix(modules): deps in paragraph module
 - fix: #3540683 TypeError breaks the theme with mini paginator
 - fix: improve a11y in follow us component
 - fix: typo in form element
+- a11y: fix breadcrumb separator aria-hidden attribute
 
 # Summary 2.16.0
 The version 2.16, even though it was not released, is fully incorporated
