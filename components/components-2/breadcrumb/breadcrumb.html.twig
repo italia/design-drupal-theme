@@ -76,7 +76,7 @@
               {{ item.text }}
             {% endif %}
             {% if breadcrumb_separator and loop.last == false %}
-              <span class="separator">{{ breadcrumb_separator }}</span>
+              <span class="separator" aria-hidden="true">{{ breadcrumb_separator }}</span>
             {% endif %}
           </li>
         {% endfor %}
