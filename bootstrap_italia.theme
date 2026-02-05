@@ -9,14 +9,14 @@
 $includes_path = __DIR__ . '/includes/*.inc';
 
 /**
- * All files in path.
+ * All files in a path.
  *
- * @var array<int, string>|false $files
+ * @var list<string>|false $files
  */
 $files = glob($includes_path);
 
 /**
- * Name of single file.
+ * Name of a single file.
  *
  * @var string $filename
  */
