@@ -2,7 +2,7 @@ name: Multisite Example - Sub ItaliaGov
 type: theme
 description: This is an example italiagov sub-theme
 package: Italia
-core_version_requirement: ^10.3 || ^11
+core_version_requirement: ^10.5 || ^11
 base theme: italiagov # <---- Check if theme name is correct
 
 libraries-override:

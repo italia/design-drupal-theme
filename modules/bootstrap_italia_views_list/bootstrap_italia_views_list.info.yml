@@ -2,7 +2,7 @@ name: Bootstrap Italia Views List
 type: module
 description: 'This module manages the integration of the list component into the views module.'
 package: "Bootstrap Italia"
-core_version_requirement: ^10.3 || ^11
+core_version_requirement: ^10.5 || ^11
 
 dependencies:
   - drupal:views

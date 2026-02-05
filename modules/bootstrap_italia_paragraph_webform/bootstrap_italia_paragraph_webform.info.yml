@@ -3,7 +3,7 @@ description: This module manages the integration of webform with paragraph.
 package: "Bootstrap Italia"
 
 type: module
-core_version_requirement: ^10.3 || ^11
+core_version_requirement: ^10.5 || ^11
 dependencies:
   - webform:webform
   - webform:webform_ui
