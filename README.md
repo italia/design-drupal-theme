@@ -231,14 +231,20 @@ To compile CSS for CKEditor5, you need to uncomment the relevant line in the
 `webpack.common.js` file. Update the file from:
 ```js
 entry: {
-  "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
+  "bootstrap-italia": [
+    paths.src + '/js/index.js',
+    paths.src + '/scss/theme.scss'
+  ],
   //"ckeditor5": paths.src + '/scss/ckeditor5.scss',
 }
 ```
 to:
 ```js
 entry: {
-  "bootstrap-italia": [paths.src + '/js/index.js', paths.src + '/scss/theme.scss'],
+  "bootstrap-italia": [
+    paths.src + '/js/index.js',
+    paths.src + '/scss/theme.scss'
+  ],
   "ckeditor5": paths.src + '/scss/ckeditor5.scss',
 }
 ```
@@ -541,10 +547,14 @@ If you want an automated script that works for you, run script located at
 
 Download ad run latest stable release:
 ```shell
-$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.17.x/var/bin/build-ddev-installation.sh")
+$ bash <(curl -s -H "Cache-Control: no-cache" \
+  "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.17.x/var/bin/build-ddev-installation.sh"
+)
 ```
 
 Download ad run dev release:
 ```shell
-$ bash <(curl -s -H "Cache-Control: no-cache" "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh")
+$ bash <(curl -s -H "Cache-Control: no-cache" \
+  "https://git.drupalcode.org/project/bootstrap_italia/-/raw/2.x/var/bin/build-ddev-installation.sh"
+)
 ```

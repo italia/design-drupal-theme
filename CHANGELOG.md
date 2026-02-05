@@ -84,7 +84,8 @@ and update `/themes/custom/<your-sub-theme>`
 ## All changes
 - Issue #3501035: Drupal 11.1.x breaks' theme
 - Issue #3530966 by scalas89: Error when adding a block with lazy_builder
-- Issue #3507049 by dhruv.mittal, arturopanetta, gbonline, divyansh.gupta: The "file_validate_extensions" plugin does not exist
+- Issue #3507049 by dhruv.mittal, arturopanetta,
+gbonline, divyansh.gupta: The "file_validate_extensions" plugin does not exist
 - fix: #3540683 TypeError breaks the theme with mini paginator
 - feat: add new icons
 - feat: refactoring styles
@@ -144,7 +145,8 @@ $ drush cr
 - feat: up to phpstan level 8 compliance
 - Issue #3506622: The pager does not use the custom value
 - Issue #3530966 by scalas89: Error when adding a block with lazy_builder
-- Issue #3507049 by dhruv.mittal, arturopanetta, gbonline, divyansh.gupta: The "file_validate_extensions" plugin does not exist
+- Issue #3507049 by dhruv.mittal, arturopanetta, gbonline,
+divyansh.gupta: The "file_validate_extensions" plugin does not exist
 for "Text for the previous page link"
 - fix: crash search modal on scrolled page and lint js
 - fix: check if RouteName is null
@@ -460,12 +462,15 @@ and update `/themes/custom/<your-sub-theme>`
 ## Update modules
 To update "Paragraph Timeline" run:
 ```shell
-$ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_paragraph_timeline/config/optional/ --partial
+$ drush config:import
+  --source=/path/to//bootstrap_italia_paragraph_timeline/config/optional/ \
+  --partial
 ```
 
 If you use the experimental module `boostrap_italia_text_editor2` run:
 ```shell
-$ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_text_editor2/config/optional/ --partial
+$ drush config:import \
+  --source=/path/to/bootstrap_italia_text_editor2/config/optional/ --partial
 ```
 
 ## All changes
@@ -560,7 +565,9 @@ $ drush cr
 ## Update modules
 To update "Paragraph Accordion" run:
 ```shell
-$ drush config:import --source=/absolute/path/drupal/web/themes/contrib/bootstrap_italia/modules/bootstrap_italia_paragraph_accordion/config/optional/ --partial
+$ drush config:import \
+  --source=/path/to/bootstrap_italia_paragraph_accordion/config/optional/ \
+  --partial
 ```
 
 ## All changes
