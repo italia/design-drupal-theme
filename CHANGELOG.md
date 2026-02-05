@@ -43,7 +43,7 @@ use Drupal\bootstrap_italia\Helper\Libraries;
 /**
  * Implements hook_library_info_alter().
  *
- * @phpstan-param array<string> $libraries
+ * @phpstan-param array<string, mixed> $libraries
  *   Libraries array.
  */
 function italiagov_library_info_alter(array &$libraries): void {

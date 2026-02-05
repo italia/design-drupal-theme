@@ -68,7 +68,7 @@ class Libraries {
   /**
    * Set themes libraries.
    *
-   * @param array<mixed, string> $libraries
+   * @param array<string, mixed> $libraries
    *   Libraries array.
    *
    * @return void
@@ -79,14 +79,12 @@ class Libraries {
     /** @var string $libraries_type */
     $libraries_type = Helper::getSettings()->get('libraries_type');
 
-    if (!empty($libraries_type) && $libraries_type == 'vanilla') {
-      $libraries['libraries-ui'] = self::getLibrariesVanilla();
-    }
-    elseif (!empty($libraries_type) && $libraries_type == 'cdn') {
-      $libraries['libraries-ui'] = self::getLibrariesCdn();
-    }
-    elseif (!empty($libraries_type) && $libraries_type != '') {
-      $libraries['libraries-ui'] = [
+    /** @var array<string, mixed>|null $library */
+    $library = match ($libraries_type) {
+      'vanilla' => self::getLibrariesVanilla(),
+      'cdn' => self::getLibrariesCdn(),
+      '' => null,
+      default => [
         'css' => [
           'theme' => [
             self::$distributionFolder . '/css/' . $libraries_type . '.css' => ['minified' => TRUE],
@@ -98,10 +96,11 @@ class Libraries {
         'dependencies' => [
           'core/drupal',
         ],
-      ];
-    }
-    else {
-      $libraries = [];
+      ],
+    };
+
+    if ($library !== null) {
+      $libraries['libraries-ui'] = $library;
     }
   }
 
@@ -140,8 +139,13 @@ class Libraries {
    *   Array with CDN libraries
    */
   public static function getLibrariesCdn(): array {
+    /** @var string $css */
     $css = Helper::getSettings()->get('libraries_cdn_css');
+
+    /** @var string $js */
     $js = Helper::getSettings()->get('libraries_cdn_js');
+
+    /** @var bool $min */
     $min = Helper::getSettings()->get('libraries_cdn_minified');
     return [
       'css' => [
