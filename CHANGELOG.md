@@ -81,11 +81,6 @@ and update `/themes/custom/<your-sub-theme>`
   - `src/scss/_bootstrap.scss`
   - `src/scss/_bootstrap_ckeditor5.scss`
 
-- Deprecated:
-  - `src/scss/custom/_bootstrap_configuration.scss`, merge with _variables.scss
-    (if you remove file remember to remove `@import` from `theme.scss`
-     and `ckeditor5.scss`)
-
 ## All changes
 - Issue #3501035: Drupal 11.1.x breaks' theme
 - Issue #3530966 by scalas89: Error when adding a block with lazy_builder

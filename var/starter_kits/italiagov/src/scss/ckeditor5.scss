@@ -23,11 +23,11 @@
   // ------->> Drupal theme: custom colors. (Retro compatibility) <<-------
   @import 'custom/colors_vars';
   @import 'custom/variables';
-  @import 'custom/bootstrap_configuration'; // Deprecated
   // ------------------------------
 
   // Variables
   @import 'bootstrap-italia/src/scss/base/variables';
+  @import 'custom/bootstrap_configuration';
   // ------------------------------
 
   // ------->> Drupal theme: custom maps. <<-------
