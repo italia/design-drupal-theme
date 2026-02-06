@@ -148,4 +148,78 @@ class Helper {
     ];
   }
 
+  /**
+   * Ensure $variables['attributes']['class'] exists and is a list<string>.
+   *
+   * @param array<string, mixed> $variables
+   *
+   * @return array<string, mixed>
+   */
+  public static function &attributes(array &$variables): array {
+    if (!isset($variables['attributes']) || !is_array($variables['attributes'])) {
+      $variables['attributes'] = [];
+    }
+
+    /** @var array<string, mixed> $attributes */
+    $attributes = &$variables['attributes'];
+
+    if (!isset($attributes['class']) || !is_array($attributes['class'])) {
+      $attributes['class'] = [];
+    }
+
+    // Normalize to list<string>.
+    $attributes['class'] = array_values(array_filter($attributes['class'], 'is_string'));
+
+    return $attributes;
+  }
+
+  /**
+   * Ensure $variables['label']['#attributes']['class'] exists and is a list<string>.
+   *
+   * @param array<string, mixed> $variables
+   *
+   * @return array<string, mixed>
+   */
+  public static function &labelAttributes(array &$variables): array {
+    if (!isset($variables['label']) || !is_array($variables['label'])) {
+      $variables['label'] = [];
+    }
+
+    /** @var array<string, mixed> $label */
+    $label = &$variables['label'];
+
+    if (!isset($label['#attributes']) || !is_array($label['#attributes'])) {
+      $label['#attributes'] = [];
+    }
+
+    /** @var array<string, mixed> $labelAttributes */
+    $labelAttributes = &$label['#attributes'];
+
+    if (!isset($labelAttributes['class']) || !is_array($labelAttributes['class'])) {
+      $labelAttributes['class'] = [];
+    }
+
+    // Normalize to list<string>.
+    $labelAttributes['class'] = array_values(array_filter($labelAttributes['class'], 'is_string'));
+
+    return $labelAttributes;
+  }
+
+  /**
+   * @param array<string, mixed> $variables
+   * @param string $class
+   *
+   * @return void
+   */
+  public static function addLabelClass(array &$variables, string $class): void {
+    $attributes = &self::labelAttributes($variables);
+
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    $classes[] = $class;
+
+    $attributes['class'] = $classes;
+  }
+
 }

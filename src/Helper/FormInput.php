@@ -118,7 +118,7 @@ class FormInput {
    *   Variables array.
    */
   private static function setText(array &$variables): void {
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -137,7 +137,7 @@ class FormInput {
   private static function setTextfield(array &$variables): void {
     // Ensure there is no collision with Bootstrap 5 default class names
     // by replacing ".form-text" with ".form-textfield".
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -159,7 +159,7 @@ class FormInput {
    *   Variables array.
    */
   private static function setRange(array &$variables): void {
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -176,7 +176,7 @@ class FormInput {
    *   Variables array.
    */
   private static function setFile(array &$variables): void {
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -193,7 +193,7 @@ class FormInput {
    *   Variables array.
    */
   private static function setSubmit(array &$variables): void {
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -252,7 +252,7 @@ class FormInput {
    *   Variables array.
    */
   private static function setPassword(array &$variables): void {
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -276,7 +276,7 @@ class FormInput {
    *   Variables array.
    */
   private static function checkErrors(array &$variables): void {
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -295,7 +295,7 @@ class FormInput {
    *   Variables array.
    */
   private static function checkSuccess(array &$variables): void {
-    $attributes = &self::attributes($variables);
+    $attributes = &Helper::attributes($variables);
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];
@@ -311,28 +311,4 @@ class FormInput {
     $attributes['class'] = $classes;
   }
 
-  /**
-   * Ensure $variables['attributes']['class'] exists and is a list<string>.
-   *
-   * @param array<string, mixed> $variables
-   *
-   * @return array<string, mixed>
-   */
-  private static function &attributes(array &$variables): array {
-    if (!isset($variables['attributes']) || !is_array($variables['attributes'])) {
-      $variables['attributes'] = [];
-    }
-
-    /** @var array<string, mixed> $attributes */
-    $attributes = &$variables['attributes'];
-
-    if (!isset($attributes['class']) || !is_array($attributes['class'])) {
-      $attributes['class'] = [];
-    }
-
-    // Normalize to list<string>.
-    $attributes['class'] = array_values(array_filter($attributes['class'], 'is_string'));
-
-    return $attributes;
-  }
 }
