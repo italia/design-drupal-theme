@@ -47,7 +47,9 @@ function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $
  */
 function template_preprocess_views_bootstrap_italia_views_carousel(array &$variables): void {
   // Update options for twig.
-  $variables['options'] = $variables['view']->style_plugin->options;
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  $variables['options'] = $view->style_plugin->options;
 }
 
 /**
@@ -62,7 +64,9 @@ function template_preprocess_views_bootstrap_italia_views_carousel(array &$varia
  */
 function template_preprocess_views_bootstrap_italia_views_carousel_slide(array &$variables): void {
   // Update options for twig.
-  $variables['options'] = $variables['view']->style_plugin->options;
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  $variables['options'] = $view->style_plugin->options;
 }
 
 /**

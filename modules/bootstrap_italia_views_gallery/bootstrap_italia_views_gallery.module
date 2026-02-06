@@ -38,7 +38,9 @@ function bootstrap_italia_views_gallery_style_theme($existing, $type, $theme, $p
  */
 function template_preprocess_views_bootstrap_italia_views_gallery(array &$variables): void {
   // Update options for twig.
-  $variables['options'] = $variables['view']->style_plugin->options;
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  $variables['options'] = $view->style_plugin->options;
 }
 
 /**

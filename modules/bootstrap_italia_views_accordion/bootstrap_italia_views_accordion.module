@@ -38,7 +38,9 @@ function bootstrap_italia_views_accordion_style_theme($existing, $type, $theme, 
  */
 function template_preprocess_views_bootstrap_italia_views_accordion(array &$variables): void {
   // Update options for twig.
-  $variables['options'] = $variables['view']->style_plugin->options;
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+  $variables['options'] = $view->style_plugin->options;
 }
 
 /**
