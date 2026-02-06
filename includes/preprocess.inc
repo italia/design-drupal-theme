@@ -10,9 +10,7 @@ use Drupal\file\Entity\File;
 /**
  * Implements hook_preprocess_HOOK() for all templates.
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_preprocess(array &$variables): void {
   // Icon libraries from cdn.
@@ -22,12 +20,9 @@ function bootstrap_italia_preprocess(array &$variables): void {
 /**
  * Implements hook_preprocess_file_link().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_preprocess_file_link(array &$variables): void {
-  /** @var \Drupal\file\Entity\File $file */
   $file = $variables['file'];
 
   if ($file instanceof File) {

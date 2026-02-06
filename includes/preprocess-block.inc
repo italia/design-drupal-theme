@@ -8,9 +8,10 @@
 /**
  * Implements hook_preprocess_block() for block templates.
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
+ * @phpstan-param array<string, mixed> $variables
  *
- * @phpstan-ignore missingType.iterableValue
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
 function bootstrap_italia_preprocess_block(array &$variables): void {
 

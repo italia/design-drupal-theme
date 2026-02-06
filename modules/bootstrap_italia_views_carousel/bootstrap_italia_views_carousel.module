@@ -12,11 +12,9 @@ use Drupal\bootstrap_italia\Helper\Suggestions;
 /**
  * Implements hook_theme().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.parameter, missingType.parameter, missingType.parameter, missingType.parameter, missingType.iterableValue
+ * @phpstan-return array<string, mixed>
  */
-function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $path): array {
+function bootstrap_italia_views_carousel_style_theme(): array {
   return [
     'views_bootstrap_italia_views_carousel' => [
       'variables' => [
@@ -40,7 +38,7 @@ function bootstrap_italia_views_carousel_style_theme($existing, $type, $theme, $
  *
  * Default template: views-bootstrap-italia-views-carousel.html.twig.
  *
- * @param array<string, mixed> $variables
+ * @phpstan-param array<string, mixed> $variables
  *   An associative array containing:
  *   - view: A ViewExecutable object.
  *   - rows: The raw row data.
@@ -57,7 +55,7 @@ function template_preprocess_views_bootstrap_italia_views_carousel(array &$varia
  *
  * Default template: views-bootstrap-italia-views-carousel-slide.html.twig.
  *
- * @param array<string, mixed> $variables
+ * @phpstan-param array<string, mixed> $variables
  *   An associative array containing:
  *   - view: A ViewExecutable object.
  *   - rows: The raw row data.
@@ -72,9 +70,8 @@ function template_preprocess_views_bootstrap_italia_views_carousel_slide(array &
 /**
  * Implements hook_theme_suggestions_block_alter().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
+ * @phpstan-param list<string> $suggestions
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$suggestions, array $variables): void {
   if (isset($variables['elements']['content']['#view'])) {
@@ -91,9 +88,8 @@ function bootstrap_italia_views_carousel_theme_suggestions_block_alter(array &$s
 /**
  * Implements hook_theme_suggestions_views_view_alter().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
+ * @phpstan-param list<string> $suggestions
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_views_carousel_theme_suggestions_views_view_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof CarouselStyle) {
@@ -109,9 +105,8 @@ function bootstrap_italia_views_carousel_theme_suggestions_views_view_alter(arra
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
+ * @phpstan-param list<string> $suggestions
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_italia_views_carousel_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof CarouselStyle) {
@@ -123,9 +118,8 @@ function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_itali
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue, missingType.iterableValue
+ * @phpstan-param list<string> $suggestions
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_views_carousel_theme_suggestions_views_bootstrap_italia_views_carousel_slide_alter(array &$suggestions, array $variables): void {
   if ($variables['view']->style_plugin instanceof SlideStyle) {

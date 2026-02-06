@@ -2,7 +2,21 @@
 
 parameters:
   level: 8
+  paths:
+    - .
 
   excludePaths:
-    - */bower_components/*
+    - */vendor/*
     - */node_modules/*
+    - */bower_components/*
+    - */build/*
+    - */dist/*
+
+  ignoreErrors:
+    # For compatibility with Drupal 10
+    # TODO: remove when dropping Drupal 10 support.
+    # Call to deprecated function theme_get_setting():
+    #   in drupal:11.3.0 and is removed from drupal:13.0.0. Use
+    #   \Drupal::service('Drupal\Core\Extension\ThemeSettingsProvider')
+    #      ->getSetting()
+    - '#Call to deprecated function theme_get_setting\(\)#'

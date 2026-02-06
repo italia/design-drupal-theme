@@ -14,9 +14,9 @@ use Drupal\Core\Form\FormStateInterface;
 /**
  * Implements hook_form_system_theme_settings_alter().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $form
+ * @phpstan-param \Drupal\Core\Form\FormStateInterface $form_state
+ * @phpstan-param string|null $form_id
  */
 function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormStateInterface $form_state, ?string $form_id = NULL): void {
 
@@ -1259,9 +1259,8 @@ function bootstrap_italia_form_system_theme_settings_alter(array &$form, FormSta
 /**
  * Implements hook_form_system_theme_settings_validate().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $form
+ * @phpstan-param \Drupal\Core\Form\FormStateInterface $form_state
  */
 function bootstrap_italia_form_system_theme_settings_validate(array &$form, FormStateInterface $form_state): void {
   if (function_exists('file_save_upload')) {

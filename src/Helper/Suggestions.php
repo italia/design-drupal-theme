@@ -17,7 +17,7 @@ class Suggestions {
   /**
    * Set form suggestions.
    *
-   * @param array<string> &$suggestions
+   * @param list<string> &$suggestions
    *   Referenced $suggestions.
    * @param array<string, mixed> $variables
    *   Referenced $variables.
@@ -72,7 +72,7 @@ class Suggestions {
   /**
    * Set blocks suggestions.
    *
-   * @param array<string> &$suggestions
+   * @param list<string> &$suggestions
    *   Referenced $suggestions.
    * @param array<string, mixed> $variables
    *   Referenced $variables.
@@ -165,7 +165,7 @@ class Suggestions {
   /**
    * Set menu suggestions.
    *
-   * @param array<string> &$suggestions
+   * @param list<string> &$suggestions
    *   Referenced $suggestions.
    * @param array<string, mixed> $variables
    *   Referenced $variables.
@@ -198,7 +198,7 @@ class Suggestions {
   /**
    * Set page suggestions.
    *
-   * @param array<string> &$suggestions
+   * @param list<string> &$suggestions
    *   Referenced $suggestions.
    * @param array<string, mixed> &$variables
    *   Referenced $variables.
@@ -234,7 +234,7 @@ class Suggestions {
   /**
    * Set image_formatter suggestions.
    *
-   * @param array<string> &$suggestions
+   * @param list<string> &$suggestions
    *   Referenced $suggestions.
    * @param array<string, mixed> $variables
    *   Referenced $variables.
@@ -276,7 +276,7 @@ class Suggestions {
   /**
    * Set image_style suggestions.
    *
-   * @param array<string> &$suggestions
+   * @param list<string> &$suggestions
    *   Referenced $suggestions.
    * @param array<string, mixed> $variables
    *   Referenced $variables.

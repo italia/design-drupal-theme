@@ -10,10 +10,3 @@ include:
 
 .phpunit-base:
   allow_failure: true
-
-job_name:
-  stage: test
-  script:
-    - echo "Exec on 2.12.x"
-  only:
-    - 2.12.x

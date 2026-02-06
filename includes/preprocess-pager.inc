@@ -8,9 +8,7 @@
 /**
  * Implements hook_preprocess_pager().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_preprocess_pager(array &$variables): void {
   $pager = \Drupal::service('pager.manager')->getPager();

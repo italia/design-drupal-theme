@@ -10,9 +10,7 @@ use Drupal\bootstrap_italia\Helper\Helper;
 /**
  * Implements page_attachments_alter().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $page
  */
 function bootstrap_italia_page_attachments_alter(array &$page): void {
   $viewport = [
@@ -29,9 +27,7 @@ function bootstrap_italia_page_attachments_alter(array &$page): void {
 /**
  * Implements hook_preprocess_page().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_preprocess_page_title(array &$variables): void {
   if (theme_get_setting('page_title_semibold')) {
@@ -45,9 +41,7 @@ function bootstrap_italia_preprocess_page_title(array &$variables): void {
 /**
  * Implements hook_preprocess_page().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_preprocess_page(array &$variables): void {
   $variables['pa_website_validator_type'] = theme_get_setting('pa_website_validator_type');
@@ -103,9 +97,7 @@ function bootstrap_italia_preprocess_page(array &$variables): void {
 /**
  * Implements hook_preprocess_html().
  *
- * Ref: https://www.drupal.org/project/coding_standards/issues/3056368
- *
- * @phpstan-ignore missingType.iterableValue
+ * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_preprocess_html(array &$variables): void {
   // Back to top.
