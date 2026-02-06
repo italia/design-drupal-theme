@@ -103,7 +103,7 @@ class Suggestions {
         $suggestions[] = 'block__' . $view_mode;
       }
 
-      if (!empty($bundle) && !empty($view_mode)){
+      if (!empty($bundle) && !empty($view_mode)) {
         $suggestions[] = 'block__' . $bundle . $view_mode;
       }
     }

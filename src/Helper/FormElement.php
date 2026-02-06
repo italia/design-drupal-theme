@@ -125,14 +125,14 @@ class FormElement {
       $element = [];
     }
 
-    $titleDisplay = $element['#title_display'] ?? null;
+    $titleDisplay = $element['#title_display'] ?? NULL;
     if (!is_string($titleDisplay)) {
-      $titleDisplay = null;
+      $titleDisplay = NULL;
     }
 
-    $labelDisplay = $variables['label_display'] ?? null;
+    $labelDisplay = $variables['label_display'] ?? NULL;
     if (!is_string($labelDisplay)) {
-      $labelDisplay = null;
+      $labelDisplay = NULL;
     }
 
     $isComposite = ($titleDisplay === 'invisible' && $labelDisplay === 'invisible');
@@ -149,19 +149,19 @@ class FormElement {
     /** @var list<string> $attrClass */
     $attrClass = array_values(array_filter($attrClass, 'is_string'));
 
-    $multiple = $attributes['multiple'] ?? null;
+    $multiple = $attributes['multiple'] ?? NULL;
     if (!is_string($multiple)) {
-      $multiple = null;
+      $multiple = NULL;
     }
 
-    return match (true) {
+    return match (TRUE) {
       $type === 'select' && $multiple === 'multiple' => 'select_multiple',
-      $type === 'select' && in_array('webform-select2', $attrClass, true) => 'select2',
+      $type === 'select' && in_array('webform-select2', $attrClass, TRUE) => 'select2',
 
-      $type === 'radio' && in_array('visually-hidden', $attrClass, true) => 'radio_composite',
+      $type === 'radio' && in_array('visually-hidden', $attrClass, TRUE) => 'radio_composite',
 
-      $type === 'checkbox' && in_array('tableselect', $attrClass, true) => 'checkbox_tableselect',
-      $type === 'checkbox' && in_array('webform-tableselect-sort', $attrClass, true) => 'checkbox_tableselect_sort',
+      $type === 'checkbox' && in_array('tableselect', $attrClass, TRUE) => 'checkbox_tableselect',
+      $type === 'checkbox' && in_array('webform-tableselect-sort', $attrClass, TRUE) => 'checkbox_tableselect_sort',
 
       $type === 'textfield' && $isComposite => 'textfield_composite',
       $type === 'number' && $isComposite => 'number_composite',
@@ -173,7 +173,6 @@ class FormElement {
     };
   }
 
-
   /**
    * Number element settings.
    *
@@ -183,15 +182,7 @@ class FormElement {
   private static function setNumber(array &$variables): void {
     Helper::addLabelClass($variables, 'input-number-label');
     Helper::addLabelClass($variables, 'active');
-
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $attributesClasses */
-    $attributesClasses = $attributes['class'];
-
-    $attributesClasses[] = 'form-group';
-
-    $attributes['class'] = $attributesClasses;
+    Helper::addClass($variables, 'form-group');
   }
 
   /**
@@ -212,7 +203,7 @@ class FormElement {
    *   Variables array.
    */
   private static function setTel(array &$variables): void {
-    $element = $variables['element'] ?? null;
+    $element = $variables['element'] ?? NULL;
     if (!is_array($element)) {
       $element = [];
     }
@@ -221,14 +212,7 @@ class FormElement {
       Helper::addLabelClass($variables, 'active');
     }
 
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $attributesClasses */
-    $attributesClasses = $attributes['class'];
-
-    $attributesClasses[] = 'form-group';
-
-    $attributes['class'] = $attributesClasses;
+    Helper::addClass($variables, 'form-group');
   }
 
   /**
@@ -239,15 +223,7 @@ class FormElement {
    */
   private static function setTextarea(array &$variables): void {
     Helper::addLabelClass($variables, 'active');
-
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $attributesClasses */
-    $attributesClasses = $attributes['class'];
-
-    $attributesClasses[] = 'form-group';
-
-    $attributes['class'] = $attributesClasses;
+    Helper::addClass($variables, 'form-group');
   }
 
   /**
@@ -258,15 +234,7 @@ class FormElement {
    */
   private static function setDateTime(array &$variables): void {
     Helper::addLabelClass($variables, 'active');
-
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $attributesClasses */
-    $attributesClasses = $attributes['class'];
-
-    $attributesClasses[] = 'form-group';
-
-    $attributes['class'] = $attributesClasses;
+    Helper::addClass($variables, 'form-group');
   }
 
   /**
@@ -276,14 +244,7 @@ class FormElement {
    *   Variables array.
    */
   private static function setText(array &$variables): void {
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $classes */
-    $classes = $attributes['class'];
-
-    $classes[] = 'form-group';
-
-    $attributes['class'] = $classes;
+    Helper::addClass($variables, 'form-group');
   }
 
   /**
@@ -293,14 +254,7 @@ class FormElement {
    *   Variables array.
    */
   private static function setBoolean(array &$variables): void {
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $classes */
-    $classes = $attributes['class'];
-
-    $classes[] = 'form-check';
-
-    $attributes['class'] = $classes;
+    Helper::addClass($variables, 'form-check');
   }
 
   /**
@@ -310,14 +264,7 @@ class FormElement {
    *   Variables array.
    */
   private static function setSelect(array &$variables): void {
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $classes */
-    $classes = $attributes['class'];
-
-    $classes[] = 'select-wrapper';
-
-    $attributes['class'] = $classes;
+    Helper::addClass($variables, 'select-wrapper');
   }
 
   /**
@@ -327,14 +274,7 @@ class FormElement {
    *   Variables array.
    */
   private static function setSelectComposite(array &$variables): void {
-    $attributes = &Helper::attributes($variables);
-
-    /** @var list<string> $classes */
-    $classes = $attributes['class'];
-
-    $classes[] = 'select-wrapper';
-
-    $attributes['class'] = $classes;
+    Helper::addClass($variables, 'select-wrapper');
   }
 
 }

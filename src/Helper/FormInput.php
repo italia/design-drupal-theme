@@ -16,12 +16,12 @@ class FormInput {
    *   Referenced $variables.
    */
   public static function set(array &$variables): void {
-    $element = $variables['element'] ?? null;
+    $element = $variables['element'] ?? NULL;
     if (!is_array($element)) {
       return;
     }
 
-    $type = $element['#type'] ?? null;
+    $type = $element['#type'] ?? NULL;
     if (!is_string($type)) {
       return;
     }
@@ -83,7 +83,7 @@ class FormInput {
    *   Element type.
    */
   private static function getType(array $variables): string {
-    $element = $variables['element'] ?? null;
+    $element = $variables['element'] ?? NULL;
     if (!is_array($element)) {
       return '';
     }
@@ -104,7 +104,7 @@ class FormInput {
     }
     $classes = array_values(array_filter($classes, 'is_string'));
 
-    if (in_array('js-webform-input-hide', $classes, true)) {
+    if (in_array('js-webform-input-hide', $classes, TRUE)) {
       return 'webform_password';
     }
 
@@ -142,8 +142,8 @@ class FormInput {
     /** @var list<string> $classes */
     $classes = $attributes['class'];
 
-    $classIndex = array_search('form-text', $classes, true);
-    if ($classIndex !== false) {
+    $classIndex = array_search('form-text', $classes, TRUE);
+    if ($classIndex !== FALSE) {
       $classes[$classIndex] = 'form-textfield';
     }
 
@@ -200,7 +200,7 @@ class FormInput {
 
     $classes[] = 'btn';
 
-    $selector = $attributes['data-drupal-selector'] ?? null;
+    $selector = $attributes['data-drupal-selector'] ?? NULL;
     if (!is_string($selector)) {
       return;
     }
@@ -260,13 +260,13 @@ class FormInput {
     $classes[] = 'form-control';
     $classes[] = 'input-password';
 
-    $classIndex = array_search('form-text', $classes, true);
-    if ($classIndex !== false) {
+    $classIndex = array_search('form-text', $classes, TRUE);
+    if ($classIndex !== FALSE) {
       unset($classes[$classIndex]);
     }
 
     $attributes['class'] = $classes;
-    $attributes['data-bs-input'] = true;
+    $attributes['data-bs-input'] = TRUE;
   }
 
   /**
@@ -281,7 +281,7 @@ class FormInput {
     /** @var list<string> $classes */
     $classes = $attributes['class'];
 
-    if (in_array('error', $classes, true)) {
+    if (in_array('error', $classes, TRUE)) {
       $classes[] = 'is-invalid';
     }
 
@@ -301,9 +301,9 @@ class FormInput {
     $classes = $attributes['class'];
 
     if (
-      in_array('success', $classes, true) ||
-      in_array('valid', $classes, true) ||
-      in_array('validated', $classes, true)
+      in_array('success', $classes, TRUE) ||
+      in_array('valid', $classes, TRUE) ||
+      in_array('validated', $classes, TRUE)
     ) {
       $classes[] = 'just-validate-success-field';
     }

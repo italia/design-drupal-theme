@@ -152,8 +152,10 @@ class Helper {
    * Ensure $variables['attributes']['class'] exists and is a list<string>.
    *
    * @param array<string, mixed> $variables
+   *   Variables array.
    *
    * @return array<string, mixed>
+   *   Returns attributes.
    */
   public static function &attributes(array &$variables): array {
     if (!isset($variables['attributes']) || !is_array($variables['attributes'])) {
@@ -174,11 +176,16 @@ class Helper {
   }
 
   /**
-   * Ensure $variables['label']['#attributes']['class'] exists and is a list<string>.
+   * This function is used to get label attributes.
+   *
+   * Ensure $variables['label']['#attributes']['class'] exists and
+   * is a list<string>.
    *
    * @param array<string, mixed> $variables
+   *   Variables array.
    *
    * @return array<string, mixed>
+   *   Returns label attributes.
    */
   public static function &labelAttributes(array &$variables): array {
     if (!isset($variables['label']) || !is_array($variables['label'])) {
@@ -192,27 +199,48 @@ class Helper {
       $label['#attributes'] = [];
     }
 
-    /** @var array<string, mixed> $labelAttributes */
-    $labelAttributes = &$label['#attributes'];
+    /** @var array<string, mixed> $attributes */
+    $attributes = &$label['#attributes'];
 
-    if (!isset($labelAttributes['class']) || !is_array($labelAttributes['class'])) {
-      $labelAttributes['class'] = [];
+    if (!isset($attributes['class']) || !is_array($attributes['class'])) {
+      $attributes['class'] = [];
     }
 
     // Normalize to list<string>.
-    $labelAttributes['class'] = array_values(array_filter($labelAttributes['class'], 'is_string'));
+    $attributes['class'] = array_values(array_filter($attributes['class'], 'is_string'));
 
-    return $labelAttributes;
+    return $attributes;
   }
 
   /**
-   * @param array<string, mixed> $variables
-   * @param string $class
+   * This function is used to add class to label.
    *
-   * @return void
+   * @param array<string, mixed> $variables
+   *   Variables array.
+   * @param string $class
+   *   Class to add.
    */
   public static function addLabelClass(array &$variables, string $class): void {
-    $attributes = &self::labelAttributes($variables);
+    self::addClass($variables, $class, 'label');
+  }
+
+  /**
+   * This function is used to add class to label or attributes.
+   *
+   * @param array<string, mixed> $variables
+   *   Variables array.
+   * @param string $class
+   *   Class to add.
+   * @param string $element
+   *   Element type: label or attributes.
+   */
+  public static function addClass(array &$variables, string $class, string $element = 'attributes'): void {
+    if ($element === 'label') {
+      $attributes = &self::labelAttributes($variables);
+    }
+    else {
+      $attributes = &self::attributes($variables);
+    }
 
     /** @var list<string> $classes */
     $classes = $attributes['class'];

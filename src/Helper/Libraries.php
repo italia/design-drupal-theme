@@ -83,7 +83,7 @@ class Libraries {
     $library = match ($libraries_type) {
       'vanilla' => self::getLibrariesVanilla(),
       'cdn' => self::getLibrariesCdn(),
-      '' => null,
+      '' => NULL,
       default => [
         'css' => [
           'theme' => [
@@ -99,7 +99,7 @@ class Libraries {
       ],
     };
 
-    if ($library !== null) {
+    if ($library !== NULL) {
       $libraries['libraries-ui'] = $library;
     }
   }
