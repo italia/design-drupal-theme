@@ -97,6 +97,7 @@ gbonline, divyansh.gupta: The "file_validate_extensions" plugin does not exist
 - fix: improve a11y in follow us component
 - fix: typo in form element
 - a11y: fix breadcrumb separator aria-hidden attribute
+- feat: compliance phpstan level 8 and code standards
 
 # Summary 2.16.0
 The version 2.16, even though it was not released, is fully incorporated

@@ -2,6 +2,8 @@
   "version": "0.2",
   "language": "en,it",
   "ignoreWords": [
+    "languageswitcher",
+    "readmore",
     "megamenu",
     "slimtop",
     "smallprints",

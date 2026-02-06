@@ -26,7 +26,7 @@
  * - it_card_taxonomy (string|field) (default: '')
  * - it_card_custom_footer (string|field) (default: '')
  * - it_card_date (array) default('')
- *   - [{label: '14 Ottobre 2025', datetime: '2025-10-14', type: 'null|default|primary|secondary|info|warning|danger', accessible_text: 'Expire: '}],
+ *   - [{label: '14 October 2025', datetime: '2025-10-14', type: 'null|default|primary|secondary|info|warning|danger', accessible_text: 'Expire: '}],
  * - it_card_rounded (boolean) (default: true)
  * - it_card_equal_height (boolean) (default: false)
  * - it_card_shadow (string) (default: 'sm')
@@ -73,7 +73,7 @@
   {% set _it_card_classes = it_card_classes|default('') %}
   {% set _it_card_attributes = it_card_attributes|default('') %}
 
-  {# Check if card-inline is possibile #}
+  {# Check if card-inline is possible #}
   {% set _it_card_inline = _it_card_inline is not empty and _it_card_with_image ? _it_card_inline : false %}
 
   {# Set options #}
