@@ -16,48 +16,57 @@ class FormInput {
    *   Referenced $variables.
    */
   public static function set(array &$variables): void {
-    if (isset($variables['element']['#type'])) {
-      $variables['type'] = self::getType($variables);
+    $element = $variables['element'] ?? null;
+    if (!is_array($element)) {
+      return;
+    }
 
-      switch ($variables['type']) {
-        case 'text':
-        case 'email':
-        case 'tel':
-        case 'search':
-        case 'date':
-        case 'datetime-local':
-        case 'datetime':
-        case 'datelist':
-        case 'webform_time':
-        case 'time':
-        case 'color':
-        case 'url':
-        case 'month':
-        case 'week':
-          self::setText($variables);
-          break;
+    $type = $element['#type'] ?? null;
+    if (!is_string($type)) {
+      return;
+    }
 
-        case 'textfield':
-          self::setTextfield($variables);
-          break;
+    // Find the type of the element.
+    $variables['type'] = self::getType($variables);
 
-        case 'range':
-          self::setRange($variables);
-          break;
+    switch ($variables['type']) {
+      case 'text':
+      case 'email':
+      case 'tel':
+      case 'search':
+      case 'date':
+      case 'datetime-local':
+      case 'datetime':
+      case 'datelist':
+      case 'webform_time':
+      case 'time':
+      case 'color':
+      case 'url':
+      case 'month':
+      case 'week':
+        self::setText($variables);
+        break;
 
-        case 'file':
-          self::setFile($variables);
-          break;
+      case 'textfield':
+        self::setTextfield($variables);
+        break;
 
-        case 'password':
-        case 'webform_password':
-          self::setPassword($variables);
-          break;
+      case 'range':
+        self::setRange($variables);
+        break;
 
-        case 'submit':
-          self::setSubmit($variables);
-          break;
-      }
+      case 'file':
+        self::setFile($variables);
+        break;
+
+      case 'password':
+      case 'webform_password':
+        self::setPassword($variables);
+        break;
+
+      case 'submit':
+        self::setSubmit($variables);
+        break;
     }
 
     self::checkErrors($variables);
@@ -74,13 +83,29 @@ class FormInput {
    *   Element type.
    */
   private static function getType(array $variables): string {
-    $type = $variables['element']['#type'];
+    $element = $variables['element'] ?? null;
+    if (!is_array($element)) {
+      return '';
+    }
 
-    // Search if a webform-password.
-    if (isset($variables['attributes']['class']) &&
-      in_array('js-webform-input-hide', $variables['attributes']['class'], TRUE)
-    ) {
-      $type = 'webform_password';
+    $type = $element['#type'] ?? '';
+    if (!is_string($type)) {
+      return '';
+    }
+
+    $attributes = $variables['attributes'] ?? [];
+    if (!is_array($attributes)) {
+      $attributes = [];
+    }
+
+    $classes = $attributes['class'] ?? [];
+    if (!is_array($classes)) {
+      $classes = [];
+    }
+    $classes = array_values(array_filter($classes, 'is_string'));
+
+    if (in_array('js-webform-input-hide', $classes, true)) {
+      return 'webform_password';
     }
 
     return $type;
@@ -93,7 +118,14 @@ class FormInput {
    *   Variables array.
    */
   private static function setText(array &$variables): void {
-    $variables['attributes']['class'][] = 'form-control';
+    $attributes = &self::attributes($variables);
+
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    $classes[] = 'form-control';
+
+    $attributes['class'] = $classes;
   }
 
   /**
@@ -105,13 +137,19 @@ class FormInput {
   private static function setTextfield(array &$variables): void {
     // Ensure there is no collision with Bootstrap 5 default class names
     // by replacing ".form-text" with ".form-textfield".
-    $attributes = &$variables['attributes'];
+    $attributes = &self::attributes($variables);
 
-    if (!empty($attributes['class'])) {
-      $classIndex = array_search('form-text', $attributes['class']);
-      $attributes['class'][$classIndex] = 'form-textfield';
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    $classIndex = array_search('form-text', $classes, true);
+    if ($classIndex !== false) {
+      $classes[$classIndex] = 'form-textfield';
     }
-    $variables['attributes']['class'][] = 'form-control';
+
+    $classes[] = 'form-control';
+
+    $attributes['class'] = $classes;
   }
 
   /**
@@ -121,7 +159,14 @@ class FormInput {
    *   Variables array.
    */
   private static function setRange(array &$variables): void {
-    $variables['attributes']['class'][] = 'form-range';
+    $attributes = &self::attributes($variables);
+
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    $classes[] = 'form-range';
+
+    $attributes['class'] = $classes;
   }
 
   /**
@@ -131,7 +176,14 @@ class FormInput {
    *   Variables array.
    */
   private static function setFile(array &$variables): void {
-    $variables['attributes']['class'][] = 'upload';
+    $attributes = &self::attributes($variables);
+
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    $classes[] = 'upload';
+
+    $attributes['class'] = $classes;
   }
 
   /**
@@ -141,47 +193,56 @@ class FormInput {
    *   Variables array.
    */
   private static function setSubmit(array &$variables): void {
-    $variables['attributes']['class'][] = 'btn';
+    $attributes = &self::attributes($variables);
 
-    if (isset($variables['attributes']['data-drupal-selector'])) {
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
 
-      if ($variables['attributes']['data-drupal-selector'] == 'edit-submit' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-actions-submit' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-submit-watchdog'
-      ) {
-        $variables['attributes']['class'][] = 'btn-primary';
-        $variables['attributes']['class'][] = 'me-3';
-      }
+    $classes[] = 'btn';
 
-      if ($variables['attributes']['data-drupal-selector'] == 'edit-reset') {
-        $variables['attributes']['class'][] = 'btn-outline-danger';
-        $variables['attributes']['class'][] = 'me-3';
-      }
-
-      if ($variables['attributes']['data-drupal-selector'] == 'edit-delete') {
-        $variables['attributes']['class'][] = 'btn-danger';
-        $variables['attributes']['class'][] = 'me-3';
-      }
-
-      if ($variables['attributes']['data-drupal-selector'] == 'edit-apply-above' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-apply-below' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-preview-next' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-preview' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-submit-content' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-overview' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-wizard-next' ||
-        $variables['attributes']['data-drupal-selector'] == 'edit-wizard-prev'
-      ) {
-        $variables['attributes']['class'][] = 'btn-outline-primary';
-        $variables['attributes']['class'][] = 'me-3';
-      }
-
-      // Detect ajax remove buttons.
-      if (str_ends_with($variables['attributes']['data-drupal-selector'], '-remove-button')) {
-        $variables['attributes']['class'][] = 'btn-outline-danger';
-      }
-
+    $selector = $attributes['data-drupal-selector'] ?? null;
+    if (!is_string($selector)) {
+      return;
     }
+
+    if (
+      $selector === 'edit-submit' ||
+      $selector === 'edit-actions-submit' ||
+      $selector === 'edit-submit-watchdog'
+    ) {
+      $classes[] = 'btn-primary';
+      $classes[] = 'me-3';
+    }
+
+    if ($selector === 'edit-reset') {
+      $classes[] = 'btn-outline-danger';
+      $classes[] = 'me-3';
+    }
+
+    if ($selector === 'edit-delete') {
+      $classes[] = 'btn-danger';
+      $classes[] = 'me-3';
+    }
+
+    if (
+      $selector === 'edit-apply-above' ||
+      $selector === 'edit-apply-below' ||
+      $selector === 'edit-preview-next' ||
+      $selector === 'edit-preview' ||
+      $selector === 'edit-submit-content' ||
+      $selector === 'edit-overview' ||
+      $selector === 'edit-wizard-next' ||
+      $selector === 'edit-wizard-prev'
+    ) {
+      $classes[] = 'btn-outline-primary';
+      $classes[] = 'me-3';
+    }
+
+    if (str_ends_with($selector, '-remove-button')) {
+      $classes[] = 'btn-outline-danger';
+    }
+
+    $attributes['class'] = $classes;
   }
 
   /**
@@ -191,18 +252,21 @@ class FormInput {
    *   Variables array.
    */
   private static function setPassword(array &$variables): void {
-    $variables['attributes']['class'][] = 'form-control ';
-    $variables['attributes']['class'][] = 'input-password';
+    $attributes = &self::attributes($variables);
 
-    // Ensure there is no collision with Bootstrap 5 default class names
-    // unset ".form-text".
-    $attributes = &$variables['attributes'];
-    if (!empty($attributes['class'])) {
-      $classIndex = array_search('form-text', $attributes['class']);
-      unset($attributes['class'][$classIndex]);
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    $classes[] = 'form-control';
+    $classes[] = 'input-password';
+
+    $classIndex = array_search('form-text', $classes, true);
+    if ($classIndex !== false) {
+      unset($classes[$classIndex]);
     }
 
-    $variables['attributes']['data-bs-input'] = TRUE;
+    $attributes['class'] = $classes;
+    $attributes['data-bs-input'] = true;
   }
 
   /**
@@ -212,16 +276,16 @@ class FormInput {
    *   Variables array.
    */
   private static function checkErrors(array &$variables): void {
-    if (isset($variables['attributes']['class']) &&
-      in_array('error', $variables['attributes']['class'], TRUE)
-    ) {
-      $variables['attributes']['class'][] = 'is-invalid';
+    $attributes = &self::attributes($variables);
+
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    if (in_array('error', $classes, true)) {
+      $classes[] = 'is-invalid';
     }
-    if (isset($variables['attributes']['class']) &&
-      in_array('error', $variables['attributes']['class'], TRUE)
-    ) {
-      $variables['attributes']['class'][] = 'is-invalid';
-    }
+
+    $attributes['class'] = $classes;
   }
 
   /**
@@ -231,14 +295,44 @@ class FormInput {
    *   Variables array.
    */
   private static function checkSuccess(array &$variables): void {
-    if (isset($variables['attributes']['class'])) {
-      if (in_array('success', $variables['attributes']['class'], TRUE) ||
-        in_array('valid', $variables['attributes']['class'], TRUE) ||
-        in_array('validated', $variables['attributes']['class'], TRUE)
-      ) {
-        $variables['attributes']['class'][] = 'just-validate-success-field';
-      }
+    $attributes = &self::attributes($variables);
+
+    /** @var list<string> $classes */
+    $classes = $attributes['class'];
+
+    if (
+      in_array('success', $classes, true) ||
+      in_array('valid', $classes, true) ||
+      in_array('validated', $classes, true)
+    ) {
+      $classes[] = 'just-validate-success-field';
     }
+
+    $attributes['class'] = $classes;
   }
 
+  /**
+   * Ensure $variables['attributes']['class'] exists and is a list<string>.
+   *
+   * @param array<string, mixed> $variables
+   *
+   * @return array<string, mixed>
+   */
+  private static function &attributes(array &$variables): array {
+    if (!isset($variables['attributes']) || !is_array($variables['attributes'])) {
+      $variables['attributes'] = [];
+    }
+
+    /** @var array<string, mixed> $attributes */
+    $attributes = &$variables['attributes'];
+
+    if (!isset($attributes['class']) || !is_array($attributes['class'])) {
+      $attributes['class'] = [];
+    }
+
+    // Normalize to list<string>.
+    $attributes['class'] = array_values(array_filter($attributes['class'], 'is_string'));
+
+    return $attributes;
+  }
 }
