@@ -1,3 +1,6 @@
+# Summary 2.17.2
+fix: typo in filename
+
 # Summary 2.17.1
 fix: #3572125 symfony dumper visible
 
