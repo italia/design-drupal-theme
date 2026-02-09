@@ -1,3 +1,6 @@
+# Summary 2.17.1
+fix: #3572125 symfony dumper visible
+
 # Summary 2.17.0
 # Release notes
 With this release, the theme evolves once again to stay aligned with

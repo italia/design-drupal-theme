@@ -18,7 +18,6 @@ use Drupal\taxonomy\Entity\Term;
  * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, array &$variables): void {
-  dump($suggestions);
   Suggestions::page($suggestions, $variables);
 }
 
@@ -29,7 +28,6 @@ function bootstrap_italia_theme_suggestions_page_alter(array &$suggestions, arra
  * @phpstan-param array<string, mixed> $variables
  */
 function bootstrap_italia_theme_suggestions_page_title_alter(array &$suggestions, array $variables): void {
-  dump($suggestions);
   if (Drupal::routeMatch()->getRouteName()) {
     $route_name = str_replace('.', '_', Drupal::routeMatch()->getRouteName());
     $suggestions[] = $variables['theme_hook_original'] . '__' . $route_name;
