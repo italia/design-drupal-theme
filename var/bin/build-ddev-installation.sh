@@ -16,7 +16,7 @@ drupal_versions="10|11|12"
 default_drupal_version="11"
 bootstrap_italia_versions="2.n.n|2.n.x-dev@dev|2.x-dev@dev|latest"
 default_bootstrap_italia_version="latest"
-vanilla_library="https://github.com/italia/bootstrap-italia/releases/download/v2.17.3/bootstrap-italia.zip"
+vanilla_library="https://github.com/italia/bootstrap-italia/releases/download/v2.17.5/bootstrap-italia.zip"
 node_version=20
 
 # Functions

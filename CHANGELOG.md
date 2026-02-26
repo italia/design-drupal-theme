@@ -1,3 +1,23 @@
+# Summary 2.17.3
+# Release notes
+The Bootstrap Italia library has been upgraded to v2.17.5.
+
+## Update libraries
+### Vanilla libraries
+If you use vanilla libraries, download bootstrap-italia v2.17.5
+and update `<your-sub-theme>/dist` folder.
+
+### Custom build
+If you use custom libraries built with webpack, do:
+```shell
+$ npx npm-check-updates -u
+$ npm install bootstrap-italia@2.17.5 --save-exact
+$ npm update
+```
+
+## All changes
+feat: up to boostrap-italia v2.17.5
+
 # Summary 2.17.2
 fix: typo in filename
 
