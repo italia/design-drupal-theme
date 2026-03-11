@@ -1,0 +1,29 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+name: Badge
+status: experimental
+description: 'Small count or label indicator. Mirrors upstream .badge pattern.'
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: 'Label'
+      description: 'Badge text content.'
+    color:
+      type: string
+      title: 'Color'
+      description: 'Adds class badge-{color}.'
+      enum: ['primary', 'secondary', 'success', 'warning', 'danger', 'light', 'dark']
+    size:
+      type: string
+      title: 'Size'
+      description: 'Adds class badge-{size}. Currently only "sm" is supported.'
+      enum: ['sm']
+    tag:
+      type: string
+      title: 'HTML tag'
+      description: 'Element to render. Defaults to "span".'
+  required:
+    - label
+stylesheets:
+  - badge.css

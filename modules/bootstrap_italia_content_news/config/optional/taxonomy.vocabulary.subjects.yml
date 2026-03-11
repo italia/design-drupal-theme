@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: Subjects
-vid: subjects
-description: null
-weight: 0
-new_revision: false

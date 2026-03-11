@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Icon component.
+ *
+ * Props:
+ *   - name (string, required): icon name without "it-" prefix.
+ *   - size (string): xs | sm | lg | xl
+ *   - color (string): primary | secondary | success | warning | danger | inverse | disabled | white
+ *   - padded (bool): adds icon-padded class.
+ *   - rounded (bool): wraps the SVG in a .rounded-icon container.
+ *   - label (string): aria-label override (defaults to name).
+ *
+ * Usage:
+ *   {% include 'bootstrap_italia:icon' with { name: 'user' } only %}
+ *   {% include 'bootstrap_italia:icon' with { name: 'arrow-right', size: 'lg', color: 'primary' } only %}
+ */
+#}
+{% set classes = [
+  'icon',
+  size ? 'icon-' ~ size,
+  color ? 'icon-' ~ color,
+  padded ? 'icon-padded',
+] | merge([]) | filter(v => v) %}
+
+{% set sprite_url = base_path ~ directory ~ '/dist/svg/sprites.svg' %}
+
+{% if rounded %}
+  <div class="rounded-icon">
+{% endif %}
+
+<svg class="{{ classes | join(' ') }}"
+     aria-label="{{ label | default(name) }}"
+     role="img">
+  <use href="{{ sprite_url }}#it-{{ name }}"></use>
+</svg>
+
+{% if rounded %}
+  </div>
+{% endif %}

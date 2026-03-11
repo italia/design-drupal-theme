@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Avatar component.
+ *
+ * Props:
+ *   - src (string): image URL.
+ *   - alt (string): image alt text, or initials when no image.
+ *   - size (string): xs | sm | md | lg | xl | xxl
+ *   - color (string): background color variant (primary, secondary, red…)
+ *   - icon (object): nested icon props { name, size } — used when no image or initials.
+ *   - presence (string): active | busy | offline | notify
+ *   - status (string): approved | declined
+ *
+ * Usage:
+ *   {% include 'bootstrap_italia:avatar' with { src: '/path/to/img.jpg', alt: 'Mario Rossi' } only %}
+ *   {% include 'bootstrap_italia:avatar' with { alt: 'MR', color: 'primary', size: 'lg' } only %}
+ *   {% include 'bootstrap_italia:avatar' with { icon: { name: 'user' }, size: 'xl' } only %}
+ */
+#}
+{% set classes = [
+  'avatar',
+  size ? 'avatar-size-' ~ size,
+  color ? 'avatar-' ~ color,
+] | filter(v => v) %}
+
+<div class="{{ classes | join(' ') }}">
+  {% if src %}
+    <img src="{{ src }}" alt="{{ alt | default('') }}">
+  {% elseif alt and not icon %}
+    <p aria-hidden="true">{{ alt }}</p>
+  {% elseif icon %}
+    {% include 'bootstrap_italia:icon' with icon only %}
+  {% endif %}
+
+  {% if presence %}
+    <div class="avatar-presence {{ presence }}"></div>
+  {% endif %}
+
+  {% if status %}
+    <div class="avatar-status {{ status }}"></div>
+  {% endif %}
+</div>

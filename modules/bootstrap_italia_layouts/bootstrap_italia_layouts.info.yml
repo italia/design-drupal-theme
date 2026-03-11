@@ -1,15 +1,5 @@
-name: "Bootstrap Italia Layouts"
-description: This module adds several layouts that can be used immediately with Layout Builder, Display Suite or any other layout consuming module.
-package: "Bootstrap Italia"
-
+name: Bootstrap Italia Layouts
 type: module
-core_version_requirement: ^10.5 || ^11
-dependencies:
-  - drupal:layout_discovery
-  - drupal:layout_builder
-
-components:
-  namespaces:
-    # Components library 2.0
-    bi-bcl:
-      - ../../components/components-2
+description: 'Layout support per Bootstrap Italia v3. Fornisce layout regions basati sul grid system Bootstrap Italia.'
+package: Bootstrap Italia
+core_version_requirement: ^11.4

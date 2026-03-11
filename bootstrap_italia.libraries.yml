@@ -1,21 +1,22 @@
-base:
-  version: 2.17.3
+# Bootstrap Italia v3 – Libraries
+#
+# Struttura B2:
+#  - global.base   → CSS globale compilato da Vite (token, reset, typography, grid)
+#  - global.fonts  → font loader JS (upstream fonts-loader.js con path da drupalSettings)
+#  - component CSS/JS dichiarato direttamente in NAME.component.yml (percorsi relativi)
+
+global.base:
+  version: VERSION
   css:
     theme:
-      css/bootstrap-italia-drupal-fix.css: {weight: 50}
-  js:
-    js/bootstrap-italia-drupal-sticky-fix.js: {}
-    #js/bootstrap-italia-drupal-speech.js: {}
+      dist/css/base.css: {}
   dependencies:
     - core/drupal
-    - core/once
 
-enable-all-tooltips:
-  version: 2.17.3
+global.fonts:
+  version: VERSION
   js:
-    js/bootstrap-italia-enable-all-tooltip.js: {}
-
-load-fonts:
-  version: 2.17.3
-  js:
-    js/load-fonts.js: {}
+    dist/js/fonts.js: { type: external, minified: true }
+  dependencies:
+    - core/drupal
+    - bootstrap_italia/global.base

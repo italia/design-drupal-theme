@@ -1,0 +1,7 @@
+name: Bootstrap Italia Views
+type: module
+description: 'Views integration per Bootstrap Italia v3. Fornisce stili e template Views compatibili con Bootstrap Italia.'
+package: Bootstrap Italia
+core_version_requirement: ^11.4
+dependencies:
+  - drupal:views

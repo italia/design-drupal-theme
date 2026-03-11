@@ -1,0 +1,38 @@
+// Bootstrap Italia v3 – Global base stylesheet
+//
+// Compiled by Vite (vite.config.js) from upstream Bootstrap Italia sources.
+// Upstream SCSS partials are resolved via the loadPaths configuration:
+//   - node_modules/bootstrap-italia/src/scss
+//   - node_modules/  (for design-tokens-italia and other npm deps)
+//
+// Design tokens (--it-* CSS custom properties) are NOT imported here:
+// they are loaded as a plain CSS file in base.entry.js so Vite inlines them.
+// dart-sass would emit a plain CSS @import passthrough instead of inlining.
+//
+// Import order follows upstream bootstrap-italia.scss (base layer only,
+// no component imports — those are per-SDC in Milestone 2+).
+// Uses @import to match upstream SCSS style (all upstream partials use @import).
+
+// 1. Sass-only infrastructure: functions, variables, mixins, maps (no CSS output)
+@import 'base/functions';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/mixins/focus';
+@import 'base/maps';
+
+// 2. Utility map definitions (no CSS output yet — API generates classes below)
+@import 'base/utilities';
+
+// 3. Base CSS: root variables, reset, typography, containers, transitions, helpers
+@import 'base/root';
+@import 'base/reboot';
+@import 'base/containers';
+@import 'base/transitions';
+@import 'base/helpers';
+
+// 4. Utility API (generates utility classes from maps)
+@import 'base/utilities/api';
+
+// 5. Global utilities needed independently of any component
+@import 'utilities/focus';
+@import 'utilities/colors';

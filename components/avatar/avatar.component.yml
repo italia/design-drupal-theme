@@ -1,0 +1,46 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+name: Avatar
+status: experimental
+description: 'User avatar. Supports image, initials text, or icon. Mirrors upstream .avatar pattern.'
+props:
+  type: object
+  properties:
+    src:
+      type: string
+      title: 'Image source'
+      description: 'URL of the avatar image.'
+    alt:
+      type: string
+      title: 'Alt text'
+      description: 'Alt text for the image, or visible initials when no image is provided.'
+    size:
+      type: string
+      title: 'Size'
+      description: 'Adds class avatar-size-{size}.'
+      enum: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl']
+    color:
+      type: string
+      title: 'Color'
+      description: 'Background color variant. Adds class avatar-{color}.'
+      enum: ['primary', 'secondary', 'red', 'orange', 'yellow', 'green', 'teal', 'cyan']
+    icon:
+      type: object
+      title: 'Icon'
+      description: 'Display an icon instead of image or initials.'
+      properties:
+        name:
+          type: string
+        size:
+          type: string
+    presence:
+      type: string
+      title: 'Presence status'
+      description: 'Online presence indicator badge.'
+      enum: ['active', 'busy', 'offline', 'notify']
+    status:
+      type: string
+      title: 'Status badge'
+      description: 'Approval/review status indicator.'
+      enum: ['approved', 'declined']
+stylesheets:
+  - avatar.css

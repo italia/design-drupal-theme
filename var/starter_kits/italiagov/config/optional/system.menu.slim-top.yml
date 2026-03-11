@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: slim-top
-label: 'Slim top'
-description: 'Top slim menu'
-locked: false

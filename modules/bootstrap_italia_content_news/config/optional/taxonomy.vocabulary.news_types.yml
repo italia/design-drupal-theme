@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'News types'
-vid: news_types
-description: null
-weight: 0
-new_revision: false

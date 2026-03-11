@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Badge component.
+ *
+ * Props:
+ *   - label (string, required): badge text.
+ *   - color (string): primary | secondary | success | warning | danger | light | dark
+ *   - size (string): sm
+ *   - tag (string): HTML element, defaults to "span".
+ *
+ * Usage:
+ *   {% include 'bootstrap_italia:badge' with { label: '3' } only %}
+ *   {% include 'bootstrap_italia:badge' with { label: 'Nuovo', color: 'primary' } only %}
+ */
+#}
+{% set classes = [
+  'badge',
+  color ? 'badge-' ~ color,
+  size ? 'badge-' ~ size,
+] | filter(v => v) %}
+
+<{{ tag | default('span') }} class="{{ classes | join(' ') }}">
+  {{- label -}}
+</{{ tag | default('span') }}>

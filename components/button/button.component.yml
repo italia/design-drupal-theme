@@ -1,0 +1,59 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+name: Button
+status: experimental
+description: 'Clickable button. Mirrors upstream .btn pattern. Supports nested icon via the icon prop.'
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: 'Label'
+      description: 'Visible button text.'
+    color:
+      type: string
+      title: 'Color'
+      description: 'Color variant. Defaults to primary.'
+      enum: ['primary', 'secondary', 'success', 'warning', 'danger', 'link']
+    size:
+      type: string
+      title: 'Size'
+      description: 'Adds class btn-{size}.'
+      enum: ['xs', 'sm', 'lg']
+    outline:
+      type: boolean
+      title: 'Outline'
+      description: 'Uses btn-outline-{color} instead of btn-{color}.'
+    type:
+      type: string
+      title: 'Type attribute'
+      description: 'HTML button type. Defaults to "button".'
+      enum: ['button', 'submit', 'reset']
+    disabled:
+      type: boolean
+      title: 'Disabled'
+    icon:
+      type: object
+      title: 'Icon'
+      description: 'Nested icon component props. Adds btn-icon class to the button.'
+      properties:
+        name:
+          type: string
+        size:
+          type: string
+        color:
+          type: string
+    icon_position:
+      type: string
+      title: 'Icon position'
+      description: 'Position of the icon relative to the label. Defaults to start.'
+      enum: ['start', 'end']
+  required:
+    - label
+slots:
+  content:
+    title: 'Content'
+    description: 'Optional slot for fully custom button content (overrides label + icon props).'
+stylesheets:
+  - button.css
+scripts:
+  - button.js

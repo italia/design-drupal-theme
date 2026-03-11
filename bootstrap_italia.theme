@@ -2,24 +2,11 @@
 
 /**
  * @file
- * Theme file for Bootstrap Italia.
- */
-
-// Include all files from the includes directory.
-$includes_path = __DIR__ . '/includes/*.inc';
-
-/**
- * All files in a path.
+ * Bootstrap Italia v3 theme hooks.
  *
- * @var list<string>|false $files
+ * OOP hook implementations are in src/Hook/BootstrapItaliaHooks.php.
+ * This file is intentionally minimal: use the Hook attribute pattern
+ * (Drupal 11.3+) for all new hook implementations.
  */
-$files = glob($includes_path);
 
-/**
- * Name of a single file.
- *
- * @var string $filename
- */
-foreach ((array) $files as $filename) {
-  require_once __DIR__ . '/includes/' . basename($filename);
-}
+declare(strict_types=1);

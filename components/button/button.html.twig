@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Button component.
+ *
+ * Props:
+ *   - label (string, required): button text.
+ *   - color (string): primary | secondary | success | warning | danger | link (default: primary)
+ *   - size (string): xs | sm | lg
+ *   - outline (bool): uses btn-outline-{color} instead of btn-{color}.
+ *   - type (string): button | submit | reset (default: button)
+ *   - disabled (bool)
+ *   - icon (object): nested icon props { name, size, color }
+ *   - icon_position (string): start | end (default: start)
+ *
+ * Slots:
+ *   - content: fully custom button content (overrides label + icon props).
+ *
+ * Usage:
+ *   {% include 'bootstrap_italia:button' with { label: 'Scopri di più' } only %}
+ *   {% include 'bootstrap_italia:button' with {
+ *     label: 'Scarica',
+ *     color: 'primary',
+ *     icon: { name: 'download', size: 'sm' }
+ *   } only %}
+ */
+#}
+{% set _color = color | default('primary') %}
+{% set _color_class = outline ? 'btn-outline-' ~ _color : 'btn-' ~ _color %}
+
+{% set classes = [
+  'btn',
+  _color_class,
+  size ? 'btn-' ~ size,
+  icon ? 'btn-icon',
+  disabled ? 'disabled',
+] | filter(v => v) %}
+
+<button
+  type="{{ type | default('button') }}"
+  class="{{ classes | join(' ') }}"
+  {% if disabled %}disabled aria-disabled="true"{% endif %}
+>
+  {% block content %}
+    {% if icon and icon_position != 'end' %}
+      {% include 'bootstrap_italia:icon' with icon only %}
+    {% endif %}
+    <span>{{ label }}</span>
+    {% if icon and icon_position == 'end' %}
+      {% include 'bootstrap_italia:icon' with icon only %}
+    {% endif %}
+  {% endblock %}
+</button>

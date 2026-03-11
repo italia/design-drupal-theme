@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for Bootstrap Italia.
+ *
+ * Runtime requirements are implemented via OOP hooks in
+ * src/Hook/BootstrapItaliaHooks.php using hook_runtime_requirements()
+ * (Drupal 11.4+). This file is intentionally empty.
+ */
