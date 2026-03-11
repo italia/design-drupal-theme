@@ -1,7 +1,0 @@
-name: Bootstrap Italia Paragraphs
-type: module
-description: 'Paragraphs integration per Bootstrap Italia v3. Fornisce tipi di paragrafo e template compatibili con Bootstrap Italia.'
-package: Bootstrap Italia
-core_version_requirement: ^11.4
-dependencies:
-  - paragraphs:paragraphs

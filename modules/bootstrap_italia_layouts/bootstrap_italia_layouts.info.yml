@@ -1,5 +1,0 @@
-name: Bootstrap Italia Layouts
-type: module
-description: 'Layout support per Bootstrap Italia v3. Fornisce layout regions basati sul grid system Bootstrap Italia.'
-package: Bootstrap Italia
-core_version_requirement: ^11.4
