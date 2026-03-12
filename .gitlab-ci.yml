@@ -9,4 +9,4 @@ include:
       - '/includes/include.drupalci.workflows.yml'
 
 .phpunit-base:
-  allow_failure: true
+  allow_failure: false
