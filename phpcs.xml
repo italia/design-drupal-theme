@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="Drupal module">
+  <description>Drupal coding standards.</description>
+
+  <arg name="extensions" value="php,module,inc,install,test,profile,theme,info,yml,md"/>
+  <arg name="colors"/>
+
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <exclude-pattern>build/*</exclude-pattern>
+
+  <rule ref="Drupal"/>
+  <rule ref="DrupalPractice"/>
+</ruleset>
