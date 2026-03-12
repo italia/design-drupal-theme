@@ -13,6 +13,10 @@ dist/**/*.map
 assets
 node_modules
 package-lock.json
+.eslintcache
+.stylelintcache
+.sass-cache
+.vite
 
 # Numerous always-ignore extensions
 *.diff

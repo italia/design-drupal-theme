@@ -1,0 +1,9 @@
+name: "Bootstrap Italia"
+type: theme
+description: "Bootstrap Italia is a Bootstrap 5 theme compliant with the design guidelines for the PA web services"
+package: Italia
+core_version_requirement: ^11.3 || ^12
+base theme: false
+
+libraries:
+  - bootstrap_italia/global

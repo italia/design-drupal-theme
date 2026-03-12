@@ -1,3 +1,5 @@
 **/node_modules/**/*
 js/load-fonts.js
+dist/**/*
+vite.config.*
 webpack.*

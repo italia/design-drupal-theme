@@ -1,0 +1,12 @@
+global:
+  remote: https://github.com/italia/bootstrap-italia
+  version: 3.0.0-alpha.4
+  license:
+    name: BSD-3-Clause license
+    url: https://github.com/italia/bootstrap-italia/blob/main/LICENSE
+    gpl-compatible: true
+  css:
+    theme:
+      /libraries/italia.bootstrap-italia/css/bootstrap-italia.min.css: { minified: true }
+  js:
+    /libraries/italia.bootstrap-italia/js/bootstrap-italia.min.js: { minified: true }
