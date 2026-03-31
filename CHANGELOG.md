@@ -1,4 +1,7 @@
-# Summary 2.17.3
+# Summary 2.17.3, 2.17.4 and 2.17.6
+Dummy tag for order mistake
+
+# Summary 2.17.5
 # Release notes
 The Bootstrap Italia library has been upgraded to v2.17.5.
 
