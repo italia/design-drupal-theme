@@ -1,0 +1,21 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+name: Link
+status: experimental
+description: 'Primitive link component. Thin <a> wrapper — the caller controls all HTML attributes via the attributes prop (Drupal Attribute object).'
+props:
+  type: object
+  properties:
+    url:
+      type: string
+      title: 'URL'
+      description: 'The href attribute. Cast Drupal URL objects with url.toString().'
+    label:
+      type: string
+      title: 'Label'
+      description: 'Visible link text. Rendered inside <span>. Ignored when using {% embed %} with block overrides.'
+    attributes:
+      type: object
+      title: 'HTML Attributes'
+      description: 'Drupal Attribute object. Build with create_attribute() to set class (link-primary, stretched-link), target, rel, aria-*, data-*, etc.'
+  required:
+    - url

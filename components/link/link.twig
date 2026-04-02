@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Link component.
+ *
+ * A thin <a> wrapper. The caller is responsible for building the correct
+ * HTML attributes (classes, target, rel, aria-*, data-*) via the Drupal
+ * Attribute object passed as the `attributes` prop.
+ *
+ * Props:
+ *   - url        (string, required): href value.
+ *   - label      (string): visible link text, rendered inside <span>.
+ *   - attributes (object): Drupal Attribute object built with create_attribute().
+ *
+ * Blocks (available when using {% embed %}):
+ *   - before: rendered before <span>{{ label }}</span> — use for leading icons.
+ *   - after:  rendered after  <span>{{ label }}</span> — use for trailing icons.
+ *
+ * ── Usage: simple include ──────────────────────────────────────────────────
+ *
+ *   {% include 'bootstrap_italia:link' with {
+ *     url:   item.url.toString(),
+ *     label: item.title,
+ *     attributes: create_attribute({'class': ['link-primary']}),
+ *   } only %}
+ *
+ * ── Usage: external link (caller builds attributes) ────────────────────────
+ *
+ *   {% set link_attr = create_attribute() %}
+ *   {% set link_attr = link_attr.addClass('link-secondary') %}
+ *   {% set link_attr = link_attr.setAttribute('target', '_blank') %}
+ *   {% set link_attr = link_attr.setAttribute('rel', 'noopener noreferrer') %}
+ *
+ *   {% include 'bootstrap_italia:link' with {
+ *     url:        'https://example.com',
+ *     label:      'External link',
+ *     attributes: link_attr,
+ *   } only %}
+ *
+ * ── Usage: embed with icon blocks ──────────────────────────────────────────
+ *
+ *   {% embed 'bootstrap_italia:link' with {
+ *     url:        path('entity.node.canonical', {node: node.id()}),
+ *     label:      node.title.value,
+ *     attributes: create_attribute({'class': ['link-primary']}),
+ *   } only %}
+ *     {% block after %}
+ *       {{ icon('bootstrap_italia', 'it-arrow-right', {size: 'sm'}) }}
+ *     {% endblock %}
+ *   {% endembed %}
+ */
+#}
+<a href="{{ url }}"{{ attributes }}>
+  {% block before %}{% endblock %}
+  <span>{{ label }}</span>
+  {% block after %}{% endblock %}
+</a>
