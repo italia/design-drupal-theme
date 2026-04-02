@@ -1,7 +1,7 @@
-$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Link
 status: experimental
-description: 'Primitive link component. Thin <a> wrapper — the caller controls all HTML attributes via the attributes prop (Drupal Attribute object).'
+description: 'Primitive link component. Thin <a> wrapper with explicit text content. The caller controls HTML attributes via the attributes prop (Drupal Attribute object) and is responsible for target, rel, aria-*, and data-* attributes when needed.'
 props:
   type: object
   properties:
@@ -12,10 +12,18 @@ props:
     label:
       type: string
       title: 'Label'
-      description: 'Visible link text. Rendered inside <span>. Ignored when using {% embed %} with block overrides.'
+      description: 'Required accessible link text. Rendered inside <span>. For icon-only links, keep a textual label and hide it visually via CSS classes on attributes.'
     attributes:
       type: object
       title: 'HTML Attributes'
-      description: 'Drupal Attribute object. Build with create_attribute() to set class (link-primary, stretched-link), target, rel, aria-*, data-*, etc.'
+      description: 'Optional Drupal Attribute object. Build with create_attribute() to set class (link-primary, stretched-link), target, rel, aria-*, data-*, etc.'
   required:
     - url
+    - label
+slots:
+  before:
+    title: 'Before'
+    description: 'Optional content rendered before the label inside the anchor. Use for leading icons or other small inline adornments.'
+  after:
+    title: 'After'
+    description: 'Optional content rendered after the label inside the anchor. Use for trailing icons or other small inline adornments.'

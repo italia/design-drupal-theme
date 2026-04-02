@@ -1,10 +1,10 @@
 {% stories link with { title: 'Bootstrap Italia/Primitives/Link' } %}
 
-  {% story default with { name: '1. Default', args: { url: 'https://www.example.com', label: 'Leggi di più' } } %}
+  {% story default with { name: '1. Default', args: { url: 'https://www.example.com', label: 'Read more' } } %}
     {% include 'bootstrap_italia:link' with { url: url, label: label } only %}
   {% endstory %}
 
-  {% story primary with { name: '2. Primary (link-primary)', args: { url: 'https://www.example.com', label: 'Link primario' } } %}
+  {% story primary with { name: '2. Primary (link-primary)', args: { url: 'https://www.example.com', label: 'Primary link' } } %}
     {% include 'bootstrap_italia:link' with {
       url: url,
       label: label,
@@ -12,7 +12,7 @@
     } only %}
   {% endstory %}
 
-  {% story external with { name: '3. External', args: { url: 'https://www.example.com', label: 'Sito esterno' } } %}
+  {% story external with { name: '3. External', args: { url: 'https://www.example.com', label: 'External site' } } %}
     {% set link_attr = create_attribute({'class': ['link-primary']}) %}
     {% set link_attr = link_attr.setAttribute('target', '_blank') %}
     {% set link_attr = link_attr.setAttribute('rel', 'noopener noreferrer') %}
@@ -23,7 +23,7 @@
     } only %}
   {% endstory %}
 
-  {% story secondary with { name: '4. Secondary (link-secondary)', args: { url: '/pagina', label: 'Link secondario' } } %}
+  {% story secondary with { name: '4. Secondary (link-secondary)', args: { url: '/page', label: 'Secondary link' } } %}
     {% include 'bootstrap_italia:link' with {
       url: url,
       label: label,
@@ -31,12 +31,39 @@
     } only %}
   {% endstory %}
 
-  {% story danger with { name: '5. Danger (link-danger)', args: { url: '/elimina', label: 'Elimina elemento' } } %}
+  {% story danger with { name: '5. Danger (link-danger)', args: { url: '/delete', label: 'Delete item' } } %}
     {% include 'bootstrap_italia:link' with {
       url: url,
       label: label,
       attributes: create_attribute({'class': ['link-danger']}),
     } only %}
+  {% endstory %}
+
+  {% story with_slots with { name: '6. With slots', args: { url: 'https://www.example.com', label: 'Read the documentation' } } %}
+    {% embed 'bootstrap_italia:link' with {
+      url: url,
+      label: label,
+      attributes: create_attribute({'class': ['link-primary']}),
+    } only %}
+      {% block before %}
+        <span aria-hidden="true">[</span>
+      {% endblock %}
+      {% block after %}
+        <span aria-hidden="true">]</span>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+  {% story inside_paragraph with { name: '7. Inside paragraph', args: { url: 'https://www.example.com', label: 'inline link' } } %}
+    <p>
+      This sentence contains an
+      {% include 'bootstrap_italia:link' with {
+        url: url,
+        label: label,
+        attributes: create_attribute({'class': ['link-primary']}),
+      } only %}
+      inside a paragraph.
+    </p>
   {% endstory %}
 
 {% endstories %}

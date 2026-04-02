@@ -9,12 +9,19 @@
  *
  * Props:
  *   - url        (string, required): href value.
- *   - label      (string): visible link text, rendered inside <span>.
- *   - attributes (object): Drupal Attribute object built with create_attribute().
+ *   - label      (string, required): accessible visible link text, rendered inside <span>.
+ *   - attributes (object, optional): Drupal Attribute object built with create_attribute().
  *
  * Blocks (available when using {% embed %}):
  *   - before: rendered before <span>{{ label }}</span> — use for leading icons.
  *   - after:  rendered after  <span>{{ label }}</span> — use for trailing icons.
+ *
+ * Accessibility:
+ *   - `label` is required and is the accessible name by default.
+ *   - For links opening a new tab/window, the caller should provide the proper
+ *     `target`, `rel`, and any extra screen-reader context via `attributes`.
+ *   - Decorative icons inserted through blocks should be hidden from assistive
+ *     technologies by the caller.
  *
  * ── Usage: simple include ──────────────────────────────────────────────────
  *
@@ -50,7 +57,9 @@
  *   {% endembed %}
  */
 #}
-<a href="{{ url }}"{{ attributes }}>
+{% set link_attributes = attributes|default(create_attribute()) %}
+
+<a href="{{ url }}"{{ link_attributes }}>
   {% block before %}{% endblock %}
   <span>{{ label }}</span>
   {% block after %}{% endblock %}
