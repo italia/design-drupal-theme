@@ -1,7 +1,11 @@
 {
   "version": "0.2",
   "language": "en,it",
-  "ignoreWords": [ ],
+  "ignoreWords": [
+    "endstories",
+    "endstory",
+    "inotifywait"
+  ],
   "ignorePaths": [
     "**/node_modules/**",
     "**/bower_components/**",
