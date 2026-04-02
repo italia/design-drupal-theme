@@ -21,6 +21,7 @@ Copy these files into the Drupal project:
 cp web/themes/contrib/bootstrap_italia/docs/storybook/config.storybook.yaml .ddev/config.storybook.yaml
 cp web/themes/contrib/bootstrap_italia/docs/storybook/storybook .ddev/commands/host/storybook
 cp web/themes/contrib/bootstrap_italia/docs/storybook/storybook-setup .ddev/commands/host/storybook-setup
+cp web/themes/contrib/bootstrap_italia/docs/storybook/storybook-watch .ddev/commands/host/storybook-watch
 ```
 
 Merge `web/themes/contrib/bootstrap_italia/docs/storybook/services.storybook.yml`
@@ -30,7 +31,7 @@ not exist, create it with that content.
 Make the copied DDEV command files executable:
 
 ```bash
-chmod +x .ddev/commands/host/storybook .ddev/commands/host/storybook-setup
+chmod +x .ddev/commands/host/storybook .ddev/commands/host/storybook-setup .ddev/commands/host/storybook-watch
 ```
 
 Run the one-time setup:
@@ -46,6 +47,12 @@ Start Storybook:
 ddev storybook --start
 ```
 
+Watch component changes and regenerate `*.stories.json` automatically:
+
+```bash
+ddev storybook-watch
+```
+
 Storybook may print `http://localhost:6006/` or `http://0.0.0.0:6006/` in the
 terminal. In DDEV this is expected and can be ignored.
 
@@ -55,7 +62,7 @@ Open it in the browser:
 ddev storybook
 ```
 
-When a `*.stories.twig` file changes, regenerate the JSON files:
+If you are not using `ddev storybook-watch`, regenerate the JSON files manually:
 
 ```bash
 ddev drush storybook:generate-all-stories --force --uri="$(ddev drush status --fields=uri --format=list | tail -n 1)"

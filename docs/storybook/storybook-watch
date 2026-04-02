@@ -1,0 +1,89 @@
+#!/bin/bash
+
+## Description: Watch bootstrap_italia component files and regenerate Storybook JSON.
+## Usage: storybook-watch
+
+set -eu
+
+theme_components="web/themes/contrib/bootstrap_italia/components"
+
+if [ ! -d "${theme_components}" ]; then
+  echo "Missing ${theme_components}"
+  exit 1
+fi
+
+generate_stories() {
+  local uri
+  uri="$(ddev drush status --fields=uri --format=list | tail -n 1)"
+
+  if [ -z "${uri}" ]; then
+    echo "Unable to detect the Drupal site URI."
+    exit 1
+  fi
+
+  echo "Regenerating Storybook JSON for ${uri}..."
+  ddev drush storybook:generate-all-stories --force --uri="${uri}" >/dev/null
+  echo "Done."
+}
+
+rebuild_cache() {
+  echo "Rebuilding Drupal cache..."
+  ddev drush cr >/dev/null
+  echo "Cache rebuilt."
+}
+
+snapshot() {
+  find "${theme_components}" -type f \
+    \( -name '*.stories.twig' -o -name '*.twig' -o -name '*.component.yml' \) \
+    -printf '%T@ %p\n' | sort
+}
+
+echo "Watching ${theme_components} for changes..."
+echo "Press Ctrl+C to stop."
+echo
+
+generate_stories
+
+if command -v inotifywait >/dev/null 2>&1; then
+  inotifywait -m -r \
+    -e close_write -e create -e delete -e move \
+    --format '%w%f' \
+    "${theme_components}" | while read -r changed; do
+      case "${changed}" in
+        *.stories.twig)
+          echo "Change detected: ${changed}"
+          generate_stories
+          ;;
+        *.twig|*.component.yml)
+          echo "Change detected: ${changed}"
+          rebuild_cache
+          generate_stories
+          ;;
+      esac
+    done
+else
+  echo "inotifywait not found; using polling every 2 seconds."
+  last_snapshot="$(snapshot)"
+
+  while true; do
+    sleep 2
+    current_snapshot="$(snapshot)"
+    if [ "${current_snapshot}" != "${last_snapshot}" ]; then
+      echo "Change detected."
+      changed_files="$(comm -3 \
+        <(printf '%s\n' "${last_snapshot}") \
+        <(printf '%s\n' "${current_snapshot}") | sed 's/^[[:space:]]*//' || true)"
+
+      if printf '%s\n' "${changed_files}" | grep -Eq '\.(twig|component\.yml)$' &&
+         ! printf '%s\n' "${changed_files}" | grep -Eq '\.stories\.twig$'; then
+        rebuild_cache
+      elif printf '%s\n' "${changed_files}" | grep -Eq '\.stories\.twig$' &&
+           printf '%s\n' "${changed_files}" | grep -Eq '\.(twig|component\.yml)$'; then
+        rebuild_cache
+      fi
+
+      generate_stories
+      last_snapshot="${current_snapshot}"
+    fi
+  done
+fi
