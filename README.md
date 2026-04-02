@@ -47,7 +47,7 @@ Start Storybook:
 ddev storybook --start
 ```
 
-Watch component changes and regenerate `*.stories.json` automatically:
+Watch component changes and regenerate local `*.stories.json` artifacts automatically:
 
 ```bash
 ddev storybook-watch
@@ -62,8 +62,15 @@ Open it in the browser:
 ddev storybook
 ```
 
+`*.stories.json` files are generated artifacts compiled from `*.stories.twig`.
+They are ignored in Git and should not be edited manually.
+
 If you are not using `ddev storybook-watch`, regenerate the JSON files manually:
 
 ```bash
-ddev drush storybook:generate-all-stories --force --uri="$(ddev drush status --fields=uri --format=list | tail -n 1)"
+ddev drush storybook:generate-all-stories --force --omit-server-url --uri="$(ddev drush status --fields=uri --format=list | tail -n 1)"
 ```
+
+The Storybook server URL is provided by [`preview.js`](./.storybook/preview.js)
+through `STORYBOOK_SERVER_URL` or `DDEV_PRIMARY_URL`, so generated JSON files do
+not need to embed environment-specific URLs.

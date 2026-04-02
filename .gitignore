@@ -46,7 +46,10 @@ Thumbs.db
 /components/*/*.js
 !/components/*/_*.js
 
+# Storybook artefact
 *storybook.log
 debug-storybook.log
 storybook-static/
 stories/
+components/*/*.stories.json
+components/*/.*.stories.json.swp
