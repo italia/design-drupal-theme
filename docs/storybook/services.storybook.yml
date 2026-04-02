@@ -1,0 +1,11 @@
+# Merge this content into web/sites/default/services.yml in the Drupal project.
+parameters:
+  storybook.development: true
+  cors.config:
+    enabled: true
+    allowedHeaders: ['*']
+    allowedMethods: ['*']
+    allowedOrigins: ['*']
+    exposedHeaders: false
+    maxAge: false
+    supportsCredentials: true

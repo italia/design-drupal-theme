@@ -23,6 +23,7 @@
         "drupal/core-recipe-unpack": "^11.3",
         "drupal/core-recommended": "^11.3",
         "drupal/gin": "^5.0",
+        "drupal/storybook": "^1.0",
         "drush/drush": "^13.7",
         "wikimedia/composer-merge-plugin": "^2.1"
     },

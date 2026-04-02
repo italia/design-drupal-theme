@@ -1,0 +1,16 @@
+{
+  "name": "bootstrap_italia-storybook",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006 -h 0.0.0.0",
+    "build-storybook": "storybook build"
+  },
+  "devDependencies": {
+    "storybook": "^10.3.3",
+    "@storybook/server-webpack5": "^10.3.3",
+    "@storybook/addon-webpack5-compiler-swc": "^4.0.3",
+    "@storybook/addon-a11y": "^10.3.3",
+    "@storybook/addon-docs": "^10.3.3"
+  }
+}

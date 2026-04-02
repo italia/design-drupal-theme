@@ -1,0 +1,38 @@
+#!/bin/bash
+
+## Description: Launch the Storybook website for the bootstrap_italia theme.
+## Usage: storybook [flags]
+## Example: "ddev storybook" or "ddev storybook --start"
+
+theme_dir="/var/www/html/web/themes/contrib/bootstrap_italia"
+
+start_storybook_server() {
+  echo "Storybook may print localhost/0.0.0.0 URLs from inside the DDEV container."
+  echo "Use 'ddev storybook' to open the correct DDEV URL in your browser."
+  echo
+
+  command="ddev exec bash -lc 'cd ${theme_dir} && npm run storybook -- --no-open'"
+
+  if test -f ./web/themes/contrib/bootstrap_italia/yarn.lock; then
+    command="ddev exec bash -lc 'cd ${theme_dir} && yarn storybook -- --no-open'"
+  fi
+
+  $command
+  exit 0
+}
+
+launch() {
+  ddev launch :6006
+}
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+  -s | --start)
+    start_storybook_server
+    shift
+    ;;
+  esac
+  shift
+done
+
+launch

@@ -1,0 +1,40 @@
+#!/bin/bash
+
+## Description: Install and configure Drupal Storybook for bootstrap_italia.
+## Usage: storybook-setup
+
+set -eu
+
+theme_path="web/themes/contrib/bootstrap_italia"
+
+if [ ! -f "${theme_path}/package.json" ]; then
+  echo "Missing ${theme_path}/package.json"
+  exit 1
+fi
+
+echo "Checking Drupal status..."
+ddev drush status --fields=bootstrap,uri >/dev/null
+
+echo "Installing frontend dependencies..."
+ddev exec npm install --prefix /var/www/html/${theme_path}
+
+echo "Ensuring Drupal Storybook module is enabled..."
+ddev drush en storybook -y >/dev/null
+
+echo "Rebuilding Drupal cache..."
+ddev drush cr >/dev/null
+
+echo "Granting Storybook render permission to anonymous users..."
+ddev drush role:perm:add anonymous 'render storybook stories' -y >/dev/null || true
+
+uri="$(ddev drush status --fields=uri --format=list | tail -n 1)"
+if [ -z "${uri}" ]; then
+  echo "Unable to detect the Drupal site URI."
+  exit 1
+fi
+
+echo "Generating Storybook JSON for ${uri}..."
+ddev drush storybook:generate-all-stories --force --uri="${uri}" >/dev/null
+
+echo "Setup complete."
+echo "Next: ddev storybook --start"
