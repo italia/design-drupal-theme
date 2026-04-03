@@ -8,9 +8,11 @@
  * Attribute object passed as the `attributes` prop.
  *
  * Props:
- *   - url        (string, required): href value.
- *   - label      (string, required): accessible visible link text, rendered inside <span>.
- *   - attributes (object, optional): Drupal Attribute object built with create_attribute().
+ *   - url        (string, required): Link destination.
+ *   - label      (string, required): Accessible link text, rendered inside a
+ *                                    `<span>`.
+ *   - attributes (object, optional): Drupal Attribute object applied to the
+ *                                    `<a>` element.
  *
  * Blocks (available when using {% embed %}):
  *   - before: rendered before <span>{{ label }}</span> — use for leading icons.
@@ -52,15 +54,27 @@
  *     attributes: create_attribute({'class': ['link-primary']}),
  *   } only %}
  *     {% block after %}
- *       {{ icon('bootstrap_italia', 'it-arrow-right', {size: 'sm'}) }}
+ *       {% include 'bootstrap_italia:icon' with {
+ *         name: 'it-arrow-right',
+ *         size: 'sm',
+ *         color: 'primary',
+ *         decorative: false,
+ *         label: 'Arrow right',
+ *       } only %}
  *     {% endblock %}
  *   {% endembed %}
  */
 #}
-{% set link_attributes = attributes|default(create_attribute()) %}
+{% apply spaceless %}
+  {# Defaults #}
+  {% set _attributes = attributes|default(create_attribute()) %}
 
-<a href="{{ url }}"{{ link_attributes }}>
-  {% block before %}{% endblock %}
-  <span>{{ label }}</span>
-  {% block after %}{% endblock %}
-</a>
+  {# Configuration #}
+
+  {# Component #}
+  <a href="{{ url }}"{{ _attributes }}>
+    {% block before %}{% endblock %}
+    <span>{{ label }}</span>
+    {% block after %}{% endblock %}
+  </a>
+{% endapply %}

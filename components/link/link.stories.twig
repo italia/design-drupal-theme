@@ -46,10 +46,21 @@
       attributes: create_attribute({'class': ['link-primary']}),
     } only %}
       {% block before %}
-        <span aria-hidden="true">[</span>
+        {% include 'bootstrap_italia:icon' with {
+          name: 'it-link',
+          size: 'sm',
+          color: 'primary',
+          decorative: true,
+        } only %}
       {% endblock %}
       {% block after %}
-        <span aria-hidden="true">]</span>
+        {% include 'bootstrap_italia:icon' with {
+          name: 'it-arrow-right',
+          size: 'sm',
+          color: 'primary',
+          decorative: false,
+          label: 'Arrow right',
+        } only %}
       {% endblock %}
     {% endembed %}
   {% endstory %}
@@ -63,6 +74,66 @@
         attributes: create_attribute({'class': ['link-primary']}),
       } only %}
       inside a paragraph.
+    </p>
+  {% endstory %}
+
+  {% story inline_link_with_icon with { name: '8. Inline link with icon', args: { url: '#', label: 'link with icon' } } %}
+    <p>
+      Example of
+      {% embed 'bootstrap_italia:link' with {
+        url: url,
+        label: label,
+        attributes: create_attribute({'class': ['link-primary']}),
+      } only %}
+        {% block after %}
+          {% include 'bootstrap_italia:icon' with {
+            name: 'it-arrow-right',
+            size: 'sm',
+            color: 'primary',
+            decorative: false,
+            label: 'Arrow right',
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    </p>
+  {% endstory %}
+
+  {% story inline_link_with_leading_icon with {
+    name: '9. Inline link with leading icon',
+    args: {
+      url: '#',
+      label: 'link with icon',
+      icon_name: 'it-link',
+      icon_assistive_text: 'Link icon'
+    },
+    argTypes: {
+      icon_name: {
+        control: { type: 'select' },
+        options: ['it-link', 'it-arrow-right', 'it-info-circle', 'it-help-circle', 'it-external-link', 'it-download', 'it-upload', 'it-search', 'it-mail', 'it-user']
+      },
+      icon_assistive_text: {
+        control: { type: 'text' }
+      }
+    },
+    parameters: { controls: { include: ['icon_name', 'icon_assistive_text'] } }
+  } %}
+    <p>
+      Example of
+      {% embed 'bootstrap_italia:link' with {
+        url: url,
+        label: label,
+        attributes: create_attribute({'class': ['link-primary']}),
+      } only %}
+        {% block before %}
+          {% include 'bootstrap_italia:icon' with {
+            name: icon_name|default('it-link'),
+            size: 'sm',
+            color: 'primary',
+            decorative: false,
+            label: icon_assistive_text|default('Link icon'),
+          } only %}
+        {% endblock %}
+      {% endembed %}
     </p>
   {% endstory %}
 
