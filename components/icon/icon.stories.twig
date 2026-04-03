@@ -1,42 +1,151 @@
-{% stories icon with { title: 'Bootstrap Italia/Primitives/Icon' } %}
+{% stories icon with {
+  title: 'Bootstrap Italia/Primitives/Icon',
+  args: { color: '' },
+  argTypes: {
+    color: {
+      control: { type: 'select' },
+      options: ['', 'primary', 'secondary', 'success', 'warning', 'danger', 'light', 'white', 'disabled', 'inverse']
+    }
+  },
+  parameters: { controls: { include: ['color'] } }
+} %}
 
-  {% story default with { name: '1. Default' } %}
-    {% include 'bootstrap_italia:icon' with { name: 'arrow-right' } only %}
+  {% story basic with { name: '1. Basic sprite usage' } %}
+    {% include 'bootstrap_italia:icon' with { name: 'it-tool', color: color } only %}
   {% endstory %}
 
   {% story sizes with { name: '2. Sizes' } %}
     <div class="d-flex align-items-center gap-3">
-      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-xs']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-sm']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'star' } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-lg']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-xl']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xs', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'sm', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'lg', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xl', color: color } only %}
     </div>
   {% endstory %}
 
-  {% story colors with { name: '3. Colors' } %}
+  {% story padded_sizes with { name: '3. Padded sizes' } %}
     <div class="d-flex align-items-center gap-3">
-      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-primary']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-secondary']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-success']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-warning']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-danger']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xs', padded: true, color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'sm', padded: true, color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', padded: true, color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'lg', padded: true, color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xl', padded: true, color: color } only %}
     </div>
   {% endstory %}
 
-  {% story padded with { name: '4. Padded' } %}
-    {% include 'bootstrap_italia:icon' with {
-      name: 'info-circle',
-      attributes: create_attribute({'class': ['icon-lg', 'icon-padded']}),
-    } only %}
+  {% story colors with {
+    name: '4. Colors',
+    args: { size: '' },
+    argTypes: {
+      size: {
+        control: { type: 'select' },
+        options: ['xs', 'sm', '', 'lg', 'xl']
+      }
+    },
+    parameters: { controls: { include: ['size'] } }
+  } %}
+    <div class="d-flex align-items-center gap-3">
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'primary', size: size|default('') } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'secondary', size: size|default('') } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'success', size: size|default('') } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'warning', size: size|default('') } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'danger', size: size|default('') } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'light', size: size|default('') } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'white', size: size|default('') } only %}
+    </div>
   {% endstory %}
 
-  {% story rounded with { name: '5. Rounded container' } %}
-    <div class="d-flex gap-3">
-      {% include 'bootstrap_italia:icon' with { name: 'user', rounded: true, attributes: create_attribute({'class': ['icon-lg']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'mail', rounded: true, attributes: create_attribute({'class': ['icon-lg']}) } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'phone', rounded: true, attributes: create_attribute({'class': ['icon-lg']}) } only %}
+  {% story alignments with { name: '5. Alignments' } %}
+    <div style="line-height: 4em;">
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'bottom', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'middle', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'top', color: color } only %}
     </div>
+  {% endstory %}
+
+  {% story icon_catalog with {
+    name: '6. Icon catalog'
+  } %}
+    {% set icon_groups = {
+      'Regular': [
+        'it-arrow-down', 'it-arrow-down-circle', 'it-arrow-down-triangle',
+        'it-arrow-left', 'it-arrow-left-circle', 'it-arrow-left-triangle',
+        'it-arrow-right', 'it-arrow-right-circle', 'it-arrow-right-triangle',
+        'it-arrow-up', 'it-arrow-up-circle', 'it-arrow-up-triangle',
+        'it-ban', 'it-bookmark', 'it-box', 'it-burger', 'it-calendar',
+        'it-camera', 'it-car', 'it-card', 'it-cart', 'it-chart-line',
+        'it-check', 'it-check-circle', 'it-chevron-left', 'it-chevron-right',
+        'it-clip', 'it-clock', 'it-close', 'it-close-big', 'it-close-circle',
+        'it-code-circle', 'it-collapse', 'it-comment', 'it-copy', 'it-delete',
+        'it-download', 'it-error', 'it-exchange-circle', 'it-expand',
+        'it-external-link', 'it-flag', 'it-folder', 'it-fullscreen',
+        'it-funnel', 'it-hearing', 'it-help', 'it-help-circle', 'it-horn',
+        'it-inbox', 'it-info-circle', 'it-key', 'it-link', 'it-list',
+        'it-locked', 'it-logout', 'it-mail', 'it-mail-open', 'it-map-marker',
+        'it-map-marker-circle', 'it-map-marker-minus', 'it-map-marker-plus',
+        'it-maximize', 'it-maximize-alt', 'it-minimize', 'it-minus',
+        'it-minus-circle', 'it-more-actions', 'it-more-items', 'it-note',
+        'it-open-source', 'it-pa', 'it-password-invisible',
+        'it-password-visible', 'it-pencil', 'it-piattaforme', 'it-pin',
+        'it-plug', 'it-plus', 'it-plus-circle', 'it-presentation',
+        'it-print', 'it-refresh', 'it-restore', 'it-rss', 'it-rss-square',
+        'it-search', 'it-settings', 'it-share', 'it-software', 'it-star-full',
+        'it-star-outline', 'it-telephone', 'it-tool', 'it-sign',
+        'it-unlocked', 'it-upload', 'it-user', 'it-video', 'it-warning',
+        'it-warning-circle', 'it-wifi', 'it-zoom-in', 'it-zoom-out'
+      ],
+      'Platforms': [
+        'it-android', 'it-android-square', 'it-apple', 'it-apple-square',
+        'it-behance', 'it-bluesky', 'it-facebook', 'it-facebook-square',
+        'it-figma', 'it-figma-square', 'it-flickr', 'it-flickr-square',
+        'it-github', 'it-instagram', 'it-linkedin', 'it-linkedin-square',
+        'it-mastodon', 'it-mastodon-square', 'it-medium', 'it-medium-square',
+        'it-moodle', 'it-moodle-square', 'it-pinterest',
+        'it-pinterest-square', 'it-quora', 'it-quora-square', 'it-reddit',
+        'it-reddit-square', 'it-slack', 'it-slack-square', 'it-snapchat',
+        'it-snapchat-square', 'it-stackexchange', 'it-stackexchange-square',
+        'it-stackoverflow', 'it-stackoverflow-square', 'it-spotify',
+        'it-telegram', 'it-threads', 'it-threads-square', 'it-tiktok',
+        'it-tiktok-square', 'it-twitter', 'it-twitter-square', 'it-vimeo',
+        'it-vimeo-square', 'it-whatsapp', 'it-whatsapp-square', 'it-youtube',
+        'it-google'
+      ],
+      'Extra': [
+        'it-designers-italia', 'it-team-digitale'
+      ],
+      'Files': [
+        'it-file', 'it-files', 'it-file-audio', 'it-file-compressed',
+        'it-file-csv', 'it-file-docx', 'it-file-json', 'it-file-image',
+        'it-file-odp', 'it-file-ods', 'it-file-odt', 'it-file-pdf',
+        'it-file-pdf-ext', 'it-file-ppt', 'it-file-sheet', 'it-file-signed',
+        'it-file-slides', 'it-file-txt', 'it-file-video', 'it-file-xlsx',
+        'it-file-xml'
+      ],
+    } %}
+    {% set icon_color = color|default('') %}
+
+    {% for group_name, icons in icon_groups %}
+      <section class="mb-5">
+        <h3 class="mb-3">{{ group_name }}</h3>
+        <div class="row g-3">
+          {% for icon_name in icons %}
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+              <div class="border rounded p-3 h-100 text-center">
+                <div class="mb-2">
+                  {% include 'bootstrap_italia:icon' with {
+                    name: icon_name,
+                    color: icon_color,
+                    decorative: true,
+                  } only %}
+                </div>
+                <code class="small">{{ icon_name }}</code>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
   {% endstory %}
 
 {% endstories %}

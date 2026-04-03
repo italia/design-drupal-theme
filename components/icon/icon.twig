@@ -6,54 +6,106 @@
  * Thin <svg> wrapper. The caller controls all modifier classes via the
  * attributes prop. The base .icon class is always added automatically.
  *
+ * Refs:
+ *  - https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/utilities/icone/
+ *  - https://italia.github.io/dev-kit-italia/?path=/docs/componenti-icon--documentazione
+ *
+ * Last revision: v3.0.0-alpha.6
+ *
  * Props:
- *   - name       (string, required): icon ID, with or without "it-" prefix.
- *                                    "arrow-right" and "it-arrow-right" both work.
- *   - label      (string): aria-label override. Defaults to the resolved icon name.
- *   - rounded    (bool):   wraps the SVG in a .rounded-icon container.
- *   - attributes (object): Drupal Attribute object for the <svg> element.
- *                          Use to set class: icon-xs, icon-sm, icon-lg, icon-xl,
- *                          icon-primary, icon-secondary, icon-success, icon-warning,
- *                          icon-danger, icon-inverse, icon-disabled, icon-white,
- *                          icon-padded, align-bottom, align-middle, align-top.
+ *   - name       (string, required): Sprite icon ID, for example `it-arrow-right`.
+ *   - label      (string): Accessible text for non-decorative icons. If omitted,
+ *                          the component falls back to the icon name.
+ *   - align      (string): Optional vertical alignment modifier: `bottom`,
+ *                          `middle`, or `top`.
+ *   - padded     (bool):   Adds the `icon-padded` utility class. Defaults to `false`.
+ *   - size       (string): Optional size modifier: `xs`, `sm`, `lg`, or `xl`.
+ *   - color      (string): Optional color modifier such as `primary`,
+ *                          `secondary`, `success`, `warning`, `danger`,
+ *                          `disabled`, `inverse`, `light`, or `white`.
+ *   - src        (string): Path to the SVG sprite file. Defaults to the
+ *                          Bootstrap Italia sprite shipped with the theme.
+ *   - decorative (bool):   When `true`, the icon is hidden from assistive
+ *                          technologies. Defaults to `true`.
+ *   - wrapper_attributes (Drupal\Core\Template\Attribute): Attributes applied to
+ *                          the outer `<svg>` element.
+ *   - attributes (Drupal\Core\Template\Attribute): Attributes applied to the
+ *                          inner `<use>` element.
+ *
+ * Slots: none.
  *
  * ── Usage: default ────────────────────────────────────────────────────────
- *   {% include 'bootstrap_italia:icon' with { name: 'arrow-right' } only %}
+ *   {% include 'bootstrap_italia:icon' with { name: 'it-arrow-right' } only %}
  *
  * ── Usage: large, primary ──────────────────────────────────────────────────
  *   {% include 'bootstrap_italia:icon' with {
- *     name: 'check-circle',
- *     attributes: create_attribute({'class': ['icon-lg', 'icon-primary']}),
+ *     name: 'it-check-circle',
+ *     size: 'lg',
+ *     color: 'primary',
  *   } only %}
  *
  * ── Usage: padded, aligned middle ─────────────────────────────────────────
  *   {% include 'bootstrap_italia:icon' with {
- *     name: 'info-circle',
- *     attributes: create_attribute({'class': ['icon-lg', 'icon-padded', 'align-middle']}),
- *   } only %}
- *
- * ── Usage: rounded container ──────────────────────────────────────────────
- *   {% include 'bootstrap_italia:icon' with {
- *     name: 'user',
- *     rounded: true,
- *     attributes: create_attribute({'class': ['icon-lg']}),
+ *     name: 'it-info-circle',
+ *     align: 'middle'
+ *     padded: true,
+ *     size: 'lg',
  *   } only %}
  */
 #}
-{# Normalize name: add "it-" prefix if not already present. #}
-{% set _name = name starts with 'it-' ? name : 'it-' ~ name %}
+{% apply spaceless %}
+  {# Defaults #}
+  {% set _name = name|default('it-warning-circle') %}
+  {% set _label = label|default('') %}
+  {% set _align = align|default('') %}
+  {% set _padded = padded ?? false %}
+  {% set _size = size|default('') %}
+  {% set _color = color|default('') %}
+  {% set _src = src|default('/libraries/italia.bootstrap-italia/svg/sprites.svg') %}
+  {% set _decorative = decorative ?? true %}
+  {% set _wrapper_attributes = wrapper_attributes|default(create_attribute()) %}
+  {% set _attributes = attributes|default(create_attribute()) %}
 
-{# Always inject the base .icon class into the caller's Attribute object. #}
-{% if attributes %}
-  {% set _svg_attr = attributes.addClass('icon') %}
-{% else %}
-  {% set _svg_attr = create_attribute({'class': ['icon']}) %}
-{% endif %}
+  {# Accessibility settings #}
+  {% if not _decorative and _label is empty %}
+    {# Set fallback label #}
+    {% set _label = _name %}
+  {% endif %}
 
-{% if rounded %}<div class="rounded-icon">{% endif %}
+  {% if _label is not empty %}
+    {% set _label_id = _name ~ '--label-' ~ random() %}
+    {% set _wrapper_attributes = _wrapper_attributes
+      .setAttribute('role', 'img')
+      .setAttribute('aria-labelledby', _label_id)
+    %}
+  {% else %}
+    {% set _wrapper_attributes = _wrapper_attributes
+      .setAttribute('role', 'presentation')
+      .setAttribute('aria-hidden', 'true')
+    %}
+  {% endif %}
 
-<svg{{ _svg_attr }} aria-label="{{ label | default(_name) }}" role="img">
-  <use href="/libraries/italia.bootstrap-italia/svg/sprites.svg#{{ _name }}"></use>
-</svg>
+  {# Configuration #}
+  {% set _wrapper_classes = [
+    'icon',
+    _align ? 'align-' ~ _align,
+    _padded ? 'icon-padded',
+    _size ? 'icon-' ~ _size,
+    _color ? 'icon-' ~ _color,
+  ] %}
 
-{% if rounded %}</div>{% endif %}
+  {% set _wrapper_attributes = _wrapper_attributes.addClass(_wrapper_classes) %}
+
+  {% set _attributes = _attributes
+    .setAttribute('href', _src ~ '#' ~ _name)
+    .setAttribute('xlink:href', _src ~ '#' ~ _name)
+  %}
+
+  {# Component #}
+  <svg{{ _wrapper_attributes }}>
+    {% if _label is not empty %}
+      <title id="{{ _label_id }}">{{ _label }}</title>
+    {% endif %}
+    <use{{ _attributes }}"></use>
+  </svg>
+{% endapply %}

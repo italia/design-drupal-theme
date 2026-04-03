@@ -1,25 +1,71 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Icon
 status: experimental
-description: 'SVG icon from the Bootstrap Italia sprite. Thin wrapper — the caller controls all classes (size, color, alignment) via the attributes prop.'
+description: 'SVG icon from the Bootstrap Italia sprite. Thin wrapper with explicit props for accessibility and utility-class modifiers.'
 props:
   type: object
   properties:
     name:
       type: string
       title: 'Icon name'
-      description: 'Icon identifier. Accepts both short ("arrow-right") and prefixed ("it-arrow-right") form — the "it-" prefix is added automatically.'
+      description: 'Sprite icon ID, for example `it-arrow-right`.'
     label:
       type: string
       title: 'Accessible label'
-      description: 'aria-label for the SVG. Defaults to the resolved icon name.'
-    rounded:
+      description: 'Accessible text for non-decorative icons. If omitted, the component falls back to the icon name.'
+    align:
+      type: string
+      title: 'Vertical alignment'
+      description: 'Optional vertical alignment modifier: `bottom`, `middle`, or `top`.'
+      enum:
+        - ''
+        - bottom
+        - middle
+        - top
+    padded:
       type: boolean
-      title: 'Rounded container'
-      description: 'Wraps the SVG in a .rounded-icon container. Structural prop — cannot be expressed via attributes alone.'
+      title: 'Padded icon'
+      description: 'Adds the `icon-padded` utility class.'
+    size:
+      type: string
+      title: 'Size'
+      description: 'Optional size modifier: `xs`, `sm`, `lg`, or `xl`.'
+      enum:
+        - xs
+        - sm
+        - ''
+        - lg
+        - xl
+    color:
+      type: string
+      title: 'Color'
+      description: 'Optional color modifier such as `primary`, `secondary`, `success`, `warning`, `danger`, `light`, `white`, `disabled`, or `inverse`.'
+      enum:
+        - ''
+        - primary
+        - secondary
+        - success
+        - warning
+        - danger
+        - light
+        - white
+        - disabled
+        - inverse
+    src:
+      type: string
+      title: 'Sprite path'
+      description: 'Path to the SVG sprite file. Defaults to the Bootstrap Italia sprite shipped with the theme.'
+    decorative:
+      type: boolean
+      title: 'Decorative icon'
+      description: 'When `true`, the icon is hidden from assistive technologies.'
+    wrapper_attributes:
+      type: Drupal\Core\Template\Attribute
+      title: 'SVG attributes'
+      description: 'Drupal Attribute object applied to the outer `<svg>` element.'
     attributes:
       type: Drupal\Core\Template\Attribute
-      title: 'HTML Attributes'
-      description: 'Drupal Attribute object for the <svg> element. Use to set class (icon-lg, icon-sm, icon-primary, icon-padded, align-middle, etc.). The base .icon class is always added automatically.'
+      title: 'Use attributes'
+      description: 'Drupal Attribute object applied to the inner `<use>` element.'
   required:
     - name

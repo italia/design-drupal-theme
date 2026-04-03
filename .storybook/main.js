@@ -3,6 +3,12 @@
 /** @type { import('@storybook/server-webpack5').StorybookConfig } */
 const config = {
   stories: ["../components/**/*.stories.@(json|yaml|yml)"],
+  staticDirs: [
+    {
+      from: "../../../../libraries",
+      to: "/libraries",
+    },
+  ],
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-a11y",
