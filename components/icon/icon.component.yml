@@ -18,7 +18,7 @@ props:
       title: 'Rounded container'
       description: 'Wraps the SVG in a .rounded-icon container. Structural prop — cannot be expressed via attributes alone.'
     attributes:
-      type: object
+      type: Drupal\Core\Template\Attribute
       title: 'HTML Attributes'
       description: 'Drupal Attribute object for the <svg> element. Use to set class (icon-lg, icon-sm, icon-primary, icon-padded, align-middle, etc.). The base .icon class is always added automatically.'
   required:

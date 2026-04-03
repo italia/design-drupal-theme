@@ -14,7 +14,7 @@ props:
       title: 'Label'
       description: 'Required accessible link text. Rendered inside <span>. For icon-only links, keep a textual label and hide it visually via CSS classes on attributes.'
     attributes:
-      type: object
+      type: Drupal\Core\Template\Attribute
       title: 'HTML Attributes'
       description: 'Optional Drupal Attribute object. Build with create_attribute() to set class (link-primary, stretched-link), target, rel, aria-*, data-*, etc.'
   required:
