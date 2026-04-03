@@ -1,0 +1,47 @@
+bootstrap_italia_sprite:
+  enabled: true
+  label: 'Bootstrap Italia'
+  description: 'Bootstrap Italia icons exposed through the Drupal Icon API.'
+  extractor: svg_sprite
+  config:
+    sources:
+      - /libraries/italia.bootstrap-italia/svg/sprites.svg
+  settings:
+    size:
+      title: 'Size'
+      type: 'string'
+      enum: ['xs', 'sm', '', 'lg', 'xl']
+      default: ''
+    color:
+      title: 'Color'
+      type: 'string'
+      enum: ['', 'primary', 'secondary', 'success', 'warning', 'danger', 'light', 'white', 'disabled', 'inverse']
+      default: ''
+    align:
+      title: 'Vertical alignment'
+      type: 'string'
+      enum: ['', 'bottom', 'middle', 'top']
+      default: ''
+    padded:
+      title: 'Padded'
+      type: 'boolean'
+      default: false
+    decorative:
+      title: 'Decorative'
+      type: 'boolean'
+      default: true
+    label:
+      title: 'Accessible label'
+      type: 'string'
+      default: ''
+  template: >-
+    {{ include('bootstrap_italia:icon', {
+      name: icon_id,
+      src: source,
+      size: size|default(''),
+      color: color|default(''),
+      align: align|default(''),
+      padded: padded|default(false),
+      decorative: decorative|default(true),
+      label: label|default('')
+    }, with_context = false) }}
