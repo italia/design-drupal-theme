@@ -1,0 +1,27 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+name: Icon
+status: experimental
+description: 'SVG icon from the Bootstrap Italia sprite. Thin wrapper — the caller controls all classes (size, color, alignment) via the attributes prop.'
+props:
+  type: object
+  properties:
+    name:
+      type: string
+      title: 'Icon name'
+      description: 'Icon identifier. Accepts both short ("arrow-right") and prefixed ("it-arrow-right") form — the "it-" prefix is added automatically.'
+    label:
+      type: string
+      title: 'Accessible label'
+      description: 'aria-label for the SVG. Defaults to the resolved icon name.'
+    rounded:
+      type: boolean
+      title: 'Rounded container'
+      description: 'Wraps the SVG in a .rounded-icon container. Structural prop — cannot be expressed via attributes alone.'
+    attributes:
+      type: object
+      title: 'HTML Attributes'
+      description: 'Drupal Attribute object for the <svg> element. Use to set class (icon-lg, icon-sm, icon-primary, icon-padded, align-middle, etc.). The base .icon class is always added automatically.'
+  required:
+    - name
+stylesheets:
+  - icon.css

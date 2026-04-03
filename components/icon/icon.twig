@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Icon component.
+ *
+ * Thin <svg> wrapper. The caller controls all modifier classes via the
+ * attributes prop. The base .icon class is always added automatically.
+ *
+ * Props:
+ *   - name       (string, required): icon ID, with or without "it-" prefix.
+ *                                    "arrow-right" and "it-arrow-right" both work.
+ *   - label      (string): aria-label override. Defaults to the resolved icon name.
+ *   - rounded    (bool):   wraps the SVG in a .rounded-icon container.
+ *   - attributes (object): Drupal Attribute object for the <svg> element.
+ *                          Use to set class: icon-xs, icon-sm, icon-lg, icon-xl,
+ *                          icon-primary, icon-secondary, icon-success, icon-warning,
+ *                          icon-danger, icon-inverse, icon-disabled, icon-white,
+ *                          icon-padded, align-bottom, align-middle, align-top.
+ *
+ * ── Usage: default ────────────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:icon' with { name: 'arrow-right' } only %}
+ *
+ * ── Usage: large, primary ──────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:icon' with {
+ *     name: 'check-circle',
+ *     attributes: create_attribute({'class': ['icon-lg', 'icon-primary']}),
+ *   } only %}
+ *
+ * ── Usage: padded, aligned middle ─────────────────────────────────────────
+ *   {% include 'bootstrap_italia:icon' with {
+ *     name: 'info-circle',
+ *     attributes: create_attribute({'class': ['icon-lg', 'icon-padded', 'align-middle']}),
+ *   } only %}
+ *
+ * ── Usage: rounded container ──────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:icon' with {
+ *     name: 'user',
+ *     rounded: true,
+ *     attributes: create_attribute({'class': ['icon-lg']}),
+ *   } only %}
+ */
+#}
+{# Normalize name: add "it-" prefix if not already present. #}
+{% set _name = name starts with 'it-' ? name : 'it-' ~ name %}
+
+{# Always inject the base .icon class into the caller's Attribute object. #}
+{% if attributes %}
+  {% set _svg_attr = attributes.addClass('icon') %}
+{% else %}
+  {% set _svg_attr = create_attribute({'class': ['icon']}) %}
+{% endif %}
+
+{% if rounded %}<div class="rounded-icon">{% endif %}
+
+<svg{{ _svg_attr }} aria-label="{{ label | default(_name) }}" role="img">
+  <use href="/libraries/italia.bootstrap-italia/svg/sprites.svg#{{ _name }}"></use>
+</svg>
+
+{% if rounded %}</div>{% endif %}

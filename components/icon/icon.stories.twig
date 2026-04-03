@@ -1,0 +1,42 @@
+{% stories icon with { title: 'Bootstrap Italia/Primitives/Icon' } %}
+
+  {% story default with { name: '1. Default' } %}
+    {% include 'bootstrap_italia:icon' with { name: 'arrow-right' } only %}
+  {% endstory %}
+
+  {% story sizes with { name: '2. Sizes' } %}
+    <div class="d-flex align-items-center gap-3">
+      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-xs']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-sm']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'star' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-lg']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'star', attributes: create_attribute({'class': ['icon-xl']}) } only %}
+    </div>
+  {% endstory %}
+
+  {% story colors with { name: '3. Colors' } %}
+    <div class="d-flex align-items-center gap-3">
+      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-primary']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-secondary']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-success']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-warning']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'check-circle', attributes: create_attribute({'class': ['icon-lg', 'icon-danger']}) } only %}
+    </div>
+  {% endstory %}
+
+  {% story padded with { name: '4. Padded' } %}
+    {% include 'bootstrap_italia:icon' with {
+      name: 'info-circle',
+      attributes: create_attribute({'class': ['icon-lg', 'icon-padded']}),
+    } only %}
+  {% endstory %}
+
+  {% story rounded with { name: '5. Rounded container' } %}
+    <div class="d-flex gap-3">
+      {% include 'bootstrap_italia:icon' with { name: 'user', rounded: true, attributes: create_attribute({'class': ['icon-lg']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'mail', rounded: true, attributes: create_attribute({'class': ['icon-lg']}) } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'phone', rounded: true, attributes: create_attribute({'class': ['icon-lg']}) } only %}
+    </div>
+  {% endstory %}
+
+{% endstories %}
