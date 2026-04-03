@@ -48,13 +48,13 @@
       "type": "package",
       "package": {
         "name": "italia/bootstrap-italia",
-        "version": "v3.0.0-alpha.4",
+        "version": "v3.0.0-alpha.6",
         "type": "drupal-library",
         "extra": {
           "installer-name": "italia.bootstrap-italia"
         },
         "dist": {
-          "url": "https://github.com/italia/bootstrap-italia/releases/download/v3.0.0-alpha.4/bootstrap-italia.zip",
+          "url": "https://github.com/italia/bootstrap-italia/releases/download/v3.0.0-alpha.6/bootstrap-italia.zip",
           "type": "zip"
         }
       }
