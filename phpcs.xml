@@ -2,9 +2,15 @@
 <ruleset name="Drupal module">
   <description>Drupal coding standards.</description>
 
-  <arg name="extensions" value="php,module,inc,install,test,profile,theme,info,yml,md"/>
+  <arg name="extensions" value="php,module,inc,install,test,profile,theme,info,yml,md,twig"/>
   <arg name="colors"/>
 
+  <exclude-pattern>.cache/*</exclude-pattern>
+  <exclude-pattern>node_modules/*</exclude-pattern>
+  <exclude-pattern>stories/*</exclude-pattern>
+  <exclude-pattern>storybook-static/*</exclude-pattern>
+  <exclude-pattern>debug-storybook.log</exclude-pattern>
+  <exclude-pattern>package-lock.json</exclude-pattern>
   <exclude-pattern>vendor/*</exclude-pattern>
   <exclude-pattern>build/*</exclude-pattern>
 

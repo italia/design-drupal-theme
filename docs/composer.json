@@ -27,6 +27,16 @@
         "drush/drush": "^13.7",
         "wikimedia/composer-merge-plugin": "^2.1"
     },
+    "require-dev": {
+        "drupal/core-dev": "11.3.*",
+        "drupal/coder": "^8.3",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1",
+        "mglaman/phpstan-drupal": "^2",
+        "phpstan/extension-installer": "^1",
+        "phpstan/phpstan": "^2",
+        "phpstan/phpstan-deprecation-rules": "^2",
+        "squizlabs/php_codesniffer": "^3"
+    },
     "conflict": {
         "drupal/drupal": "*"
     },
@@ -40,13 +50,14 @@
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
-            "drupal/core-composer-scaffold": true,
-            "drupal/core-recipe-unpack": true,
-            "drupal/core-project-message": true,
-            "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "drupal/core-recipe-unpack": true,
             "php-http/discovery": true,
             "php-tuf/composer-integration": true,
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true,
             "wikimedia/composer-merge-plugin": true
         },
         "sort-packages": true
