@@ -1,4 +1,4 @@
-$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Icon
 status: experimental
 description: 'SVG icon from the Bootstrap Italia sprite. Thin wrapper — the caller controls all classes (size, color, alignment) via the attributes prop.'
@@ -23,5 +23,3 @@ props:
       description: 'Drupal Attribute object for the <svg> element. Use to set class (icon-lg, icon-sm, icon-primary, icon-padded, align-middle, etc.). The base .icon class is always added automatically.'
   required:
     - name
-stylesheets:
-  - icon.css
