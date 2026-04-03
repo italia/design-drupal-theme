@@ -59,7 +59,7 @@
           size: 'sm',
           color: 'primary',
           decorative: false,
-          label: 'Arrow right',
+          label: 'Arrow right'|t,
         } only %}
       {% endblock %}
     {% endembed %}
@@ -67,19 +67,19 @@
 
   {% story inside_paragraph with { name: '7. Inside paragraph', args: { url: 'https://www.example.com', label: 'inline link' } } %}
     <p>
-      This sentence contains an
+      {{ 'This sentence contains an'|t }}
       {% include 'bootstrap_italia:link' with {
         url: url,
         label: label,
         attributes: create_attribute({'class': ['link-primary']}),
       } only %}
-      inside a paragraph.
+      {{ 'inside a paragraph.'|t }}
     </p>
   {% endstory %}
 
   {% story inline_link_with_icon with { name: '8. Inline link with icon', args: { url: '#', label: 'link with icon' } } %}
     <p>
-      Example of
+      {{ 'Example of'|t }}
       {% embed 'bootstrap_italia:link' with {
         url: url,
         label: label,
@@ -91,7 +91,7 @@
             size: 'sm',
             color: 'primary',
             decorative: false,
-            label: 'Arrow right',
+            label: 'Arrow right'|t,
           } only %}
         {% endblock %}
       {% endembed %}
@@ -118,7 +118,7 @@
     parameters: { controls: { include: ['icon_name', 'icon_assistive_text'] } }
   } %}
     <p>
-      Example of
+      {{ 'Example of'|t }}
       {% embed 'bootstrap_italia:link' with {
         url: url,
         label: label,
@@ -130,7 +130,7 @@
             size: 'sm',
             color: 'primary',
             decorative: false,
-            label: icon_assistive_text|default('Link icon'),
+            label: icon_assistive_text|default('Link icon'|t),
           } only %}
         {% endblock %}
       {% endembed %}

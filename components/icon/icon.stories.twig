@@ -127,7 +127,7 @@
 
     {% for group_name, icons in icon_groups %}
       <section class="mb-5">
-        <h3 class="mb-3">{{ group_name }}</h3>
+        <h3 class="mb-3">{{ group_name|t }}</h3>
         <div class="row g-3">
           {% for icon_name in icons %}
             <div class="col-6 col-sm-4 col-md-3 col-xl-2">
