@@ -1,0 +1,77 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Badge component.
+ *
+ * Thin inline label. The caller controls color and shape via the attributes prop.
+ * The base .badge class is always injected automatically.
+ * Renders as <span> (static) or <a> (interactive link) depending on the url prop.
+ *
+ * Props:
+ *   - label      (string, required): badge text.
+ *   - url        (string): if provided, renders an <a href> with hover states.
+ *   - attributes (object): Drupal Attribute object.
+ *                          Color: badge-primary | badge-secondary | badge-success |
+ *                                 badge-danger | badge-warning | badge-inverse
+ *                          Shape: rounded-pill
+ *                          Size:  badge-sm (compact padding, for use inside buttons)
+ *
+ * Blocks:
+ *   - before: rendered before the label text — use for leading icons via {% embed %}.
+ *   - after:  rendered after  the label text — use for trailing icons via {% embed %}.
+ *
+ * ── Usage: simple badge ────────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:badge' with {
+ *     label: '5',
+ *     attributes: create_attribute({'class': ['badge-primary']}),
+ *   } only %}
+ *
+ * ── Usage: pill badge ─────────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:badge' with {
+ *     label: 'Nuovo',
+ *     attributes: create_attribute({'class': ['badge-secondary', 'rounded-pill']}),
+ *   } only %}
+ *
+ * ── Usage: link badge ─────────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:badge' with {
+ *     label: 'Categoria',
+ *     url: '/categoria/notizie',
+ *     attributes: create_attribute({'class': ['badge-primary']}),
+ *   } only %}
+ *
+ * ── Usage: with icon via embed ────────────────────────────────────────────
+ *   {% embed 'bootstrap_italia:badge' with {
+ *     label: 'Approvato',
+ *     attributes: create_attribute({'class': ['badge-success']}),
+ *   } only %}
+ *     {% block before %}
+ *       {% include 'bootstrap_italia:icon' with {
+ *         name: 'check',
+ *         label: '',
+ *         attributes: create_attribute({'class': ['icon-inverse']}),
+ *       } only %}
+ *     {% endblock %}
+ *   {% endembed %}
+ */
+#}
+
+{# Always inject the base .badge class. #}
+{% if attributes %}
+  {% set _attr = attributes.addClass('badge') %}
+{% else %}
+  {% set _attr = create_attribute({'class': ['badge']}) %}
+{% endif %}
+
+{% if url %}
+  <a href="{{ url }}"{{ _attr }}>
+    {% block before %}{% endblock %}
+    {{- label -}}
+    {% block after %}{% endblock %}
+  </a>
+{% else %}
+  <span{{ _attr }}>
+    {% block before %}{% endblock %}
+    {{- label -}}
+    {% block after %}{% endblock %}
+  </span>
+{% endif %}

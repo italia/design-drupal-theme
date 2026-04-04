@@ -1,0 +1,23 @@
+$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+name: Badge
+status: experimental
+description: 'Inline badge label. Thin wrapper — the caller controls color and shape via attributes. Renders <span> or <a> depending on the url prop. Base class .badge always injected.'
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: 'Label'
+      description: 'Badge text (e.g. a count, status label, or short keyword).'
+    url:
+      type: string
+      title: 'URL'
+      description: 'If provided, renders the badge as an <a> element with hover states.'
+    attributes:
+      type: object
+      title: 'HTML Attributes'
+      description: 'Drupal Attribute object. Use to set class: badge-primary, badge-secondary, badge-success, badge-danger, badge-warning, badge-inverse; badge-sm (compact, for use inside buttons); rounded-pill. The base .badge class is always added automatically.'
+  required:
+    - label
+stylesheets:
+  - badge.css

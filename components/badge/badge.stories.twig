@@ -1,0 +1,62 @@
+{% stories badge with { title: 'Bootstrap Italia/Components/Badge' } %}
+
+  {% story colors with { name: '1. Colors' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:badge' with { label: 'Primary', attributes: create_attribute({'class': ['badge-primary']}) } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Secondary', attributes: create_attribute({'class': ['badge-secondary']}) } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Success', attributes: create_attribute({'class': ['badge-success']}) } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Warning', attributes: create_attribute({'class': ['badge-warning']}) } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Danger', attributes: create_attribute({'class': ['badge-danger']}) } only %}
+    </div>
+  {% endstory %}
+
+  {% story pill with { name: '2. Pill (rounded-pill)' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:badge' with { label: 'Nuovo', attributes: create_attribute({'class': ['badge-primary', 'rounded-pill']}) } only %}
+      {% include 'bootstrap_italia:badge' with { label: '42', attributes: create_attribute({'class': ['badge-danger', 'rounded-pill']}) } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'In corso', attributes: create_attribute({'class': ['badge-warning', 'rounded-pill']}) } only %}
+    </div>
+  {% endstory %}
+
+  {% story link with { name: '3. Link badge' } %}
+    <div class="d-flex gap-2">
+      {% include 'bootstrap_italia:badge' with {
+        label: 'Notizie',
+        url: '#',
+        attributes: create_attribute({'class': ['badge-primary']}),
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        label: 'Servizi',
+        url: '#',
+        attributes: create_attribute({'class': ['badge-secondary', 'rounded-pill']}),
+      } only %}
+    </div>
+  {% endstory %}
+
+  {% story small with { name: '4. Small (badge-sm, inside button)' } %}
+    <button type="button" class="btn btn-primary">
+      Messaggi
+      {% include 'bootstrap_italia:badge' with {
+        label: '7',
+        attributes: create_attribute({'class': ['badge-inverse', 'badge-sm', 'rounded-pill']}),
+      } only %}
+      <span class="visually-hidden">nuovi messaggi</span>
+    </button>
+  {% endstory %}
+
+  {% story with_icon with { name: '5. With Icon' } %}
+    {% embed 'bootstrap_italia:badge' with {
+      label: 'Approvato',
+      attributes: create_attribute({'class': ['badge-success', 'rounded-pill']}),
+    } only %}
+      {% block before %}
+        {% include 'bootstrap_italia:icon' with {
+          name: 'check',
+          label: '',
+          attributes: create_attribute({'class': ['icon-inverse']}),
+        } only %}
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+{% endstories %}
