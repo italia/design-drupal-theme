@@ -1,0 +1,90 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Alert component.
+ *
+ * Thin wrapper around the Bootstrap Italia alert pattern. The caller controls
+ * variant and all CSS classes via the attributes prop.
+ * role="alert" is always present (mandatory for accessibility).
+ *
+ * Props:
+ *   - dismissible    (bool):   adds a close button + injects .alert-dismissible.
+ *   - dismiss_label  (string): aria-label for the close button (default: "Chiudi avviso").
+ *   - attributes     (object): Drupal Attribute object for the wrapper <div>.
+ *                              Set class: alert, alert-success, alert-warning,
+ *                              alert-danger, alert-primary, alert-secondary.
+ *                              Add fade + show for animated dismiss.
+ *
+ * Blocks:
+ *   - content: arbitrary HTML inside the alert (text, headings, icons, links).
+ *
+ * ── Usage: simple alert ───────────────────────────────────────────────────
+ *   {% embed 'bootstrap_italia:alert' with {
+ *     attributes: create_attribute({'class': ['alert', 'alert-success']}),
+ *   } %}
+ *     {% block content %}
+ *       <p class="mb-0">Operazione completata con successo.</p>
+ *     {% endblock %}
+ *   {% endembed %}
+ *
+ * ── Usage: with icon component ────────────────────────────────────────────
+ *   {% embed 'bootstrap_italia:alert' with {
+ *     attributes: create_attribute({'class': ['alert', 'alert-warning']}),
+ *   } %}
+ *     {% block content %}
+ *       <p class="mb-0">
+ *         {% include 'bootstrap_italia:icon' with {
+ *           name: 'warning-circle',
+ *           label: 'attenzione',
+ *           attributes: create_attribute({'class': ['alert-icon', 'icon-warning']}),
+ *         } only %}
+ *         Attenzione: verifica i dati prima di procedere.
+ *       </p>
+ *     {% endblock %}
+ *   {% endembed %}
+ *
+ * ── Usage: with heading ────────────────────────────────────────────────────
+ *   {% embed 'bootstrap_italia:alert' with {
+ *     attributes: create_attribute({'class': ['alert', 'alert-danger']}),
+ *   } %}
+ *     {% block content %}
+ *       <h4 class="alert-heading">Errore</h4>
+ *       <p>Operazione non riuscita.</p>
+ *     {% endblock %}
+ *   {% endembed %}
+ *
+ * ── Usage: dismissible ────────────────────────────────────────────────────
+ *   {% embed 'bootstrap_italia:alert' with {
+ *     dismissible: true,
+ *     attributes: create_attribute({'class': ['alert', 'alert-primary', 'fade', 'show']}),
+ *   } %}
+ *     {% block content %}
+ *       <p class="mb-0">Questo avviso può essere chiuso.</p>
+ *     {% endblock %}
+ *   {% endembed %}
+ */
+#}
+
+{# Inject .alert-dismissible when the close button is enabled. #}
+{% if dismissible %}
+  {% if attributes %}
+    {% set _attr = attributes.addClass('alert-dismissible') %}
+  {% else %}
+    {% set _attr = create_attribute({'class': ['alert-dismissible']}) %}
+  {% endif %}
+{% else %}
+  {% set _attr = attributes %}
+{% endif %}
+
+<div role="alert"{{ _attr }}>
+  {% block content %}{% endblock %}
+  {% if dismissible %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="{{ dismiss_label | default('Chiudi avviso') }}">
+      {% include 'bootstrap_italia:icon' with {
+        name: 'close',
+        label: dismiss_label | default('Chiudi avviso'),
+      } only %}
+    </button>
+  {% endif %}
+</div>

@@ -1,0 +1,102 @@
+{% stories alert with { title: 'Bootstrap Italia/Components/Alert' } %}
+
+  {% story success with { name: '1. Success' } %}
+    {% embed 'bootstrap_italia:alert' with {
+      attributes: create_attribute({'class': ['alert', 'alert-success']}),
+    } %}
+      {% block content %}
+        <p class="mb-0">
+          {% include 'bootstrap_italia:icon' with {
+            name: 'check-circle',
+            label: 'successo',
+            attributes: create_attribute({'class': ['alert-icon', 'icon-success']}),
+          } only %}
+          Operazione completata con successo.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+  {% story warning with { name: '2. Warning' } %}
+    {% embed 'bootstrap_italia:alert' with {
+      attributes: create_attribute({'class': ['alert', 'alert-warning']}),
+    } %}
+      {% block content %}
+        <p class="mb-0">
+          {% include 'bootstrap_italia:icon' with {
+            name: 'warning-circle',
+            label: 'attenzione',
+            attributes: create_attribute({'class': ['alert-icon', 'icon-warning']}),
+          } only %}
+          Attenzione: verifica i dati inseriti prima di procedere.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+  {% story danger with { name: '3. Danger' } %}
+    {% embed 'bootstrap_italia:alert' with {
+      attributes: create_attribute({'class': ['alert', 'alert-danger']}),
+    } %}
+      {% block content %}
+        <p class="mb-0">
+          {% include 'bootstrap_italia:icon' with {
+            name: 'close-circle',
+            label: 'errore',
+            attributes: create_attribute({'class': ['alert-icon', 'icon-danger']}),
+          } only %}
+          Errore: operazione non riuscita.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+  {% story primary with { name: '4. Primary' } %}
+    {% embed 'bootstrap_italia:alert' with {
+      attributes: create_attribute({'class': ['alert', 'alert-primary']}),
+    } %}
+      {% block content %}
+        <p class="mb-0">
+          {% include 'bootstrap_italia:icon' with {
+            name: 'info-circle',
+            label: 'informazione',
+            attributes: create_attribute({'class': ['alert-icon', 'icon-primary']}),
+          } only %}
+          Informazione: nuova versione disponibile.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+  {% story with_heading with { name: '5. With Heading' } %}
+    {% embed 'bootstrap_italia:alert' with {
+      attributes: create_attribute({'class': ['alert', 'alert-danger']}),
+    } %}
+      {% block content %}
+        <h4 class="alert-heading">Errore di validazione</h4>
+        <p>Il modulo contiene degli errori. Controlla i campi evidenziati e riprova.</p>
+        <hr>
+        <p class="mb-0">Se il problema persiste, contatta il supporto.</p>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+  {% story dismissible with { name: '6. Dismissible' } %}
+    {% embed 'bootstrap_italia:alert' with {
+      dismissible: true,
+      attributes: create_attribute({'class': ['alert', 'alert-primary', 'fade', 'show']}),
+    } %}
+      {% block content %}
+        <p class="mb-0">
+          {% include 'bootstrap_italia:icon' with {
+            name: 'info-circle',
+            label: 'informazione',
+            attributes: create_attribute({'class': ['alert-icon', 'icon-primary']}),
+          } only %}
+          Questo avviso può essere chiuso.
+        </p>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+
+{% endstories %}
