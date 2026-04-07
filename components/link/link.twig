@@ -72,12 +72,16 @@
 #}
 {% apply spaceless %}
   {# Defaults #}
+  {% set _url = url|default('#') %}
   {% set _attributes = attributes|default(create_attribute()) %}
 
   {# Configuration #}
+  {% set _attributes = _attributes
+    .setAttribute('url', _url)
+  %}
 
   {# Component #}
-  <a href="{{ url }}"{{ _attributes }}>
+  <a{{ _attributes }}>
     {% block before %}{% endblock %}
     <span>{{ label }}</span>
     {% block after %}{% endblock %}
