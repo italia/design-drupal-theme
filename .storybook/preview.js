@@ -8,6 +8,11 @@ const serverUrl =
 const preview = {
   ...(serverUrl ? { server: { url: serverUrl } } : {}),
   parameters: {
+    // options: {
+    //   storySort: {
+    //     order: ['Bootstrap Italia', ['Content', 'Components', 'Utilities']],
+    //   },
+    // },
     controls: {
       matchers: {
         color: /(background|color)$/i,
