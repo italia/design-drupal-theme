@@ -94,7 +94,10 @@
     _color ? 'icon-' ~ _color,
   ] %}
 
-  {% set _wrapper_attributes = _wrapper_attributes.addClass(_wrapper_classes) %}
+  {% set _wrapper_attributes = _wrapper_attributes.setAttribute(
+    'class',
+    _wrapper_classes|merge(_attributes.class|default([]))
+  ) %}
 
   {% set _attributes = _attributes
     .setAttribute('href', _src ~ '#' ~ _name)

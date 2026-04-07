@@ -78,7 +78,10 @@
     _rounded ? 'rounded-pill'
   ] %}
 
-  {% set _attributes = _attributes.addClass(_classes) %}
+  {% set _attributes = _attributes.setAttribute(
+    'class',
+    _classes|merge(_attributes.class|default([]))
+  ) %}
 
   {# Component #}
   {% if _url %}
