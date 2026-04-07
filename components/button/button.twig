@@ -1,0 +1,99 @@
+{#
+/**
+ * @file
+ * Bootstrap Italia v3 – Button component.
+ *
+ * Interactive button. The base .btn class is always injected automatically.
+ * Adds .btn-icon automatically when icon_name is set.
+ * Renders <a> when url is provided, <button> otherwise.
+ *
+ * Props:
+ *   - label      (string, required): button text.
+ *   - url        (string): if provided, renders an <a href>.
+ *   - type       (string): HTML type for <button> (button|submit|reset). Default: 'button'.
+ *   - disabled   (boolean): disabled on <button>, aria-disabled + .disabled on <a>.
+ *   - icon_name  (string): Bootstrap Italia icon name. Adds .btn-icon automatically.
+ *   - attributes (object): Drupal Attribute object.
+ *                          Color: btn-primary | btn-secondary | btn-success |
+ *                                 btn-warning | btn-danger
+ *                          Outline: btn-outline-* variants
+ *                          Size:  btn-xs | btn-lg
+ *                          Modifiers: btn-full | btn-link
+ *                          Toggle: data-bs-toggle="button"
+ *
+ * Blocks:
+ *   - before: rendered before the icon/label — use via {% embed %}.
+ *   - after:  rendered after  the label     — use via {% embed %}.
+ *
+ * ── Usage: simple button ──────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:button' with {
+ *     label: 'Conferma',
+ *     attributes: create_attribute({'class': ['btn-primary']}),
+ *   } only %}
+ *
+ * ── Usage: link CTA ───────────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:button' with {
+ *     label: 'Scopri di più',
+ *     url: '/scopri',
+ *     attributes: create_attribute({'class': ['btn-primary']}),
+ *   } only %}
+ *
+ * ── Usage: icon button ────────────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:button' with {
+ *     label: 'Invia email',
+ *     icon_name: 'mail',
+ *     attributes: create_attribute({'class': ['btn-primary']}),
+ *   } only %}
+ *
+ * ── Usage: with badge via embed ───────────────────────────────────────────
+ *   {% embed 'bootstrap_italia:button' with {
+ *     label: 'Messaggi',
+ *     attributes: create_attribute({'class': ['btn-primary']}),
+ *   } only %}
+ *     {% block after %}
+ *       {% include 'bootstrap_italia:badge' with {
+ *         label: '7',
+ *         attributes: create_attribute({'class': ['badge-inverse', 'badge-sm', 'rounded-pill']}),
+ *       } only %}
+ *     {% endblock %}
+ *   {% endembed %}
+ */
+#}
+
+{# Inject .btn base class; add .btn-icon modifier when icon_name is set. #}
+{% set _base_classes = ['btn'] %}
+{% if icon_name %}
+  {% set _base_classes = _base_classes | merge(['btn-icon']) %}
+{% endif %}
+{% if attributes %}
+  {% set _attr = attributes.addClass(_base_classes) %}
+{% else %}
+  {% set _attr = create_attribute({'class': _base_classes}) %}
+{% endif %}
+
+{% if url %}
+  {% if disabled %}
+    {% set _attr = _attr.addClass('disabled').setAttribute('aria-disabled', 'true') %}
+  {% endif %}
+  <a href="{{ url }}"{{ _attr }}>
+    {% block before %}{% endblock %}
+    {% if icon_name %}
+      {% include 'bootstrap_italia:icon' with { name: icon_name, label: '' } only %}
+    {% endif %}
+    {{- label -}}
+    {% block after %}{% endblock %}
+  </a>
+{% else %}
+  {% set _type = type in ['submit', 'reset'] ? type : 'button' %}
+  {% if disabled %}
+    {% set _attr = _attr.setAttribute('disabled', true) %}
+  {% endif %}
+  <button type="{{ _type }}"{{ _attr }}>
+    {% block before %}{% endblock %}
+    {% if icon_name %}
+      {% include 'bootstrap_italia:icon' with { name: icon_name, label: '' } only %}
+    {% endif %}
+    {{- label -}}
+    {% block after %}{% endblock %}
+  </button>
+{% endif %}

@@ -1,0 +1,141 @@
+{% stories button with { title: 'Bootstrap Italia/Components/Button' } %}
+
+  {% story solid_colors with { name: '1. Solid Colors' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:button' with { label: 'Primary', attributes: create_attribute({'class': ['btn-primary']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Secondary', attributes: create_attribute({'class': ['btn-secondary']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Success', attributes: create_attribute({'class': ['btn-success']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Warning', attributes: create_attribute({'class': ['btn-warning']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Danger', attributes: create_attribute({'class': ['btn-danger']}) } only %}
+    </div>
+  {% endstory %}
+
+  {% story outline with { name: '2. Outline' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:button' with { label: 'Outline Primary', attributes: create_attribute({'class': ['btn-outline-primary']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Outline Secondary', attributes: create_attribute({'class': ['btn-outline-secondary']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Outline Danger', attributes: create_attribute({'class': ['btn-outline-danger']}) } only %}
+    </div>
+  {% endstory %}
+
+  {% story sizes with { name: '3. Sizes' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:button' with { label: 'Extra Small (btn-xs)', attributes: create_attribute({'class': ['btn-primary', 'btn-xs']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Default', attributes: create_attribute({'class': ['btn-primary']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Large (btn-lg)', attributes: create_attribute({'class': ['btn-primary', 'btn-lg']}) } only %}
+    </div>
+  {% endstory %}
+
+  {% story with_icon with { name: '4. With Icon' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:button' with {
+        label: 'Invia email',
+        icon_name: 'mail',
+        attributes: create_attribute({'class': ['btn-primary']}),
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Scarica',
+        icon_name: 'download',
+        attributes: create_attribute({'class': ['btn-outline-primary']}),
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Cerca',
+        icon_name: 'search',
+        attributes: create_attribute({'class': ['btn-primary', 'btn-lg']}),
+      } only %}
+      {# Icon only — label visually hidden #}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Condividi',
+        icon_name: 'share',
+        attributes: create_attribute({'class': ['btn-outline-primary'], 'aria-label': 'Condividi'}),
+      } only %}
+    </div>
+  {% endstory %}
+
+  {% story link_cta with { name: '5. Link CTA (<a>)' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:button' with {
+        label: 'Scopri di più',
+        url: '#',
+        attributes: create_attribute({'class': ['btn-primary']}),
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Vai al portale',
+        url: '#',
+        attributes: create_attribute({'class': ['btn-outline-primary']}),
+      } only %}
+    </div>
+  {% endstory %}
+
+  {% story disabled with { name: '6. Disabled' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {# disabled <button> — native disabled attribute #}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Button Disabilitato',
+        disabled: true,
+        attributes: create_attribute({'class': ['btn-primary']}),
+      } only %}
+      {# disabled <a> — aria-disabled + .disabled class #}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Link Disabilitato',
+        url: '#',
+        disabled: true,
+        attributes: create_attribute({'class': ['btn-primary']}),
+      } only %}
+    </div>
+  {% endstory %}
+
+  {% story toggle with { name: '7. Toggle (data-bs-toggle)' } %}
+    <p class="text-muted mb-3">Clic per attivare/disattivare. Il plugin JS imposta <code>.active</code> e <code>aria-pressed</code>.</p>
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:button' with {
+        label: 'Toggle',
+        attributes: create_attribute({'class': ['btn-primary'], 'data-bs-toggle': 'button'}),
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Toggle Outline',
+        attributes: create_attribute({'class': ['btn-outline-primary'], 'data-bs-toggle': 'button'}),
+      } only %}
+    </div>
+  {% endstory %}
+
+  {% story with_badge with { name: '8. With Badge (composizione)' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% embed 'bootstrap_italia:button' with {
+        label: 'Messaggi',
+        attributes: create_attribute({'class': ['btn-primary']}),
+      } only %}
+        {% block after %}
+          {% include 'bootstrap_italia:badge' with {
+            label: '7',
+            attributes: create_attribute({'class': ['badge-inverse', 'badge-sm', 'rounded-pill']}),
+          } only %}
+          <span class="visually-hidden">nuovi messaggi</span>
+        {% endblock %}
+      {% endembed %}
+
+      {% embed 'bootstrap_italia:button' with {
+        label: 'Notifiche',
+        attributes: create_attribute({'class': ['btn-outline-danger']}),
+      } only %}
+        {% block after %}
+          {% include 'bootstrap_italia:badge' with {
+            label: '3',
+            attributes: create_attribute({'class': ['badge-danger', 'badge-sm', 'rounded-pill']}),
+          } only %}
+        {% endblock %}
+      {% endembed %}
+    </div>
+  {% endstory %}
+
+  {% story full_width_submit with { name: '9. Full Width + Submit' } %}
+    <div style="max-width: 400px;">
+      {% include 'bootstrap_italia:button' with {
+        label: 'Invia modulo',
+        type: 'submit',
+        attributes: create_attribute({'class': ['btn-primary', 'btn-full']}),
+      } only %}
+    </div>
+  {% endstory %}
+
+{% endstories %}
