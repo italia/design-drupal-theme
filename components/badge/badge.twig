@@ -3,75 +3,91 @@
  * @file
  * Bootstrap Italia v3 – Badge component.
  *
- * Thin inline label. The caller controls color and shape via the attributes prop.
- * The base .badge class is always injected automatically.
- * Renders as <span> (static) or <a> (interactive link) depending on the url prop.
+ * Thin inline label with optional link behavior.
+ * The base `.badge` class is always injected automatically.
+ * Renders as `<span>` by default or delegates to `bootstrap_italia:link` when
+ * the `url` prop is provided.
+ *
+ * Refs:
+ *  - https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/componenti/badge/
+ *  - https://italia.github.io/dev-kit-italia/?path=/docs/componenti-badge--documentazione
+ *
+ * Last revision: v3.0.0-alpha.6
  *
  * Props:
- *   - label      (string, required): badge text.
- *   - url        (string): if provided, renders an <a href> with hover states.
- *   - attributes (object): Drupal Attribute object.
- *                          Color: badge-primary | badge-secondary | badge-success |
- *                                 badge-danger | badge-warning | badge-inverse
- *                          Shape: rounded-pill
- *                          Size:  badge-sm (compact padding, for use inside buttons)
+ *   - label      (string, required): Short badge text, such as a count, status,
+ *                                    or compact keyword.
+ *   - color      (string): Optional color modifier such as `primary`,
+ *                          `secondary`, `success`, `warning`, `danger`,
+ *                          `disabled`, `inverse`, `light`, or `white`.
+ *   - small      (bool): Adds the compact `badge-sm` modifier. Useful when the
+ *                        badge is nested inside buttons or dense UI.
+ *   - rounded    (bool): Adds the `rounded-pill` modifier.
+ *   - url        (string): Optional link destination. When provided, the badge
+ *                          is rendered through `bootstrap_italia:link`.
+ *   - attributes (Drupal\Core\Template\Attribute): Attributes applied to the
+ *                          rendered badge element.
  *
- * Blocks:
- *   - before: rendered before the label text — use for leading icons via {% embed %}.
- *   - after:  rendered after  the label text — use for trailing icons via {% embed %}.
+ * Slots: none.
  *
  * ── Usage: simple badge ────────────────────────────────────────────────────
  *   {% include 'bootstrap_italia:badge' with {
  *     label: '5',
- *     attributes: create_attribute({'class': ['badge-primary']}),
+ *     color: 'primary',
  *   } only %}
  *
  * ── Usage: pill badge ─────────────────────────────────────────────────────
  *   {% include 'bootstrap_italia:badge' with {
- *     label: 'Nuovo',
- *     attributes: create_attribute({'class': ['badge-secondary', 'rounded-pill']}),
+ *     label: 'New',
+ *     color: 'secondary',
+ *     rounded: true,
  *   } only %}
  *
  * ── Usage: link badge ─────────────────────────────────────────────────────
  *   {% include 'bootstrap_italia:badge' with {
- *     label: 'Categoria',
- *     url: '/categoria/notizie',
- *     attributes: create_attribute({'class': ['badge-primary']}),
+ *     label: 'News',
+ *     color: 'primary',
+ *     url: '/news',
+ *     attributes: create_attribute({'class': ['custom-class']}),
  *   } only %}
  *
- * ── Usage: with icon via embed ────────────────────────────────────────────
- *   {% embed 'bootstrap_italia:badge' with {
- *     label: 'Approvato',
- *     attributes: create_attribute({'class': ['badge-success']}),
+ * ── Usage: mapping from Drupal link data ──────────────────────────────────
+ *   {% include 'bootstrap_italia:badge' with {
+ *     label: item.title,
+ *     url: item.url.toString(),
+ *     attributes: item.attributes,
+ *     color: 'secondary',
  *   } only %}
- *     {% block before %}
- *       {% include 'bootstrap_italia:icon' with {
- *         name: 'check',
- *         label: '',
- *         attributes: create_attribute({'class': ['icon-inverse']}),
- *       } only %}
- *     {% endblock %}
- *   {% endembed %}
+ *
  */
 #}
+{% apply spaceless %}
+  {# Defaults #}
+  {% set _label = label|default('') %}
+  {% set _color = color|default('secondary') %}
+  {% set _small = small ?? false %}
+  {% set _rounded = rounded ?? false %}
+  {% set _url = url|default('') %}
+  {% set _attributes = attributes|default(create_attribute()) %}
 
-{# Always inject the base .badge class. #}
-{% if attributes %}
-  {% set _attr = attributes.addClass('badge') %}
-{% else %}
-  {% set _attr = create_attribute({'class': ['badge']}) %}
-{% endif %}
+  {# Configuration #}
+  {% set _classes = [
+    'badge',
+    'badge-' ~ _color,
+    _small ? 'badge-sm',
+    _rounded ? 'rounded-pill'
+  ] %}
 
-{% if url %}
-  <a href="{{ url }}"{{ _attr }}>
-    {% block before %}{% endblock %}
-    {{- label -}}
-    {% block after %}{% endblock %}
-  </a>
-{% else %}
-  <span{{ _attr }}>
-    {% block before %}{% endblock %}
-    {{- label -}}
-    {% block after %}{% endblock %}
-  </span>
-{% endif %}
+  {% set _attributes = _attributes.addClass(_classes) %}
+
+  {# Component #}
+  {% if _url %}
+    {% include 'bootstrap_italia:link' with {
+      url: _url,
+      label: _label,
+      attributes: _attributes,
+    } only %}
+  {% else %}
+    <span{{ _attributes }}>{{ _label }}</span>
+  {% endif %}
+{% endapply %}

@@ -1,62 +1,88 @@
 {% stories badge with { title: 'Bootstrap Italia/Components/Badge' } %}
 
-  {% story colors with { name: '1. Colors' } %}
-    <div class="d-flex gap-2 align-items-center flex-wrap">
-      {% include 'bootstrap_italia:badge' with { label: 'Primary', attributes: create_attribute({'class': ['badge-primary']}) } only %}
-      {% include 'bootstrap_italia:badge' with { label: 'Secondary', attributes: create_attribute({'class': ['badge-secondary']}) } only %}
-      {% include 'bootstrap_italia:badge' with { label: 'Success', attributes: create_attribute({'class': ['badge-success']}) } only %}
-      {% include 'bootstrap_italia:badge' with { label: 'Warning', attributes: create_attribute({'class': ['badge-warning']}) } only %}
-      {% include 'bootstrap_italia:badge' with { label: 'Danger', attributes: create_attribute({'class': ['badge-danger']}) } only %}
+  {% story headings with { name: '1. Headings' } %}
+    <div class="d-flex flex-column gap-3">
+      <h1>Example heading {% include 'bootstrap_italia:badge' with { label: 'New', color: 'primary' } only %}</h1>
+      <h2>Example heading {% include 'bootstrap_italia:badge' with { label: 'New', color: 'secondary' } only %}</h2>
+      <h3>Example heading {% include 'bootstrap_italia:badge' with { label: 'New', color: 'success' } only %}</h3>
+      <h4>Example heading {% include 'bootstrap_italia:badge' with { label: 'New', color: 'warning' } only %}</h4>
+      <h5>Example heading {% include 'bootstrap_italia:badge' with { label: 'New', color: 'danger' } only %}</h5>
+      <h6>Example heading {% include 'bootstrap_italia:badge' with { label: 'New', color: 'inverse' } only %}</h6>
     </div>
   {% endstory %}
 
-  {% story pill with { name: '2. Pill (rounded-pill)' } %}
-    <div class="d-flex gap-2 align-items-center flex-wrap">
-      {% include 'bootstrap_italia:badge' with { label: 'Nuovo', attributes: create_attribute({'class': ['badge-primary', 'rounded-pill']}) } only %}
-      {% include 'bootstrap_italia:badge' with { label: '42', attributes: create_attribute({'class': ['badge-danger', 'rounded-pill']}) } only %}
-      {% include 'bootstrap_italia:badge' with { label: 'In corso', attributes: create_attribute({'class': ['badge-warning', 'rounded-pill']}) } only %}
-    </div>
-  {% endstory %}
-
-  {% story link with { name: '3. Link badge' } %}
-    <div class="d-flex gap-2">
-      {% include 'bootstrap_italia:badge' with {
-        label: 'Notizie',
-        url: '#',
-        attributes: create_attribute({'class': ['badge-primary']}),
-      } only %}
-      {% include 'bootstrap_italia:badge' with {
-        label: 'Servizi',
-        url: '#',
-        attributes: create_attribute({'class': ['badge-secondary', 'rounded-pill']}),
-      } only %}
-    </div>
-  {% endstory %}
-
-  {% story small with { name: '4. Small (badge-sm, inside button)' } %}
+  {% story button_counter with { name: '2. Button with counter' } %}
     <button type="button" class="btn btn-primary">
-      Messaggi
+      Notifications
       {% include 'bootstrap_italia:badge' with {
-        label: '7',
-        attributes: create_attribute({'class': ['badge-inverse', 'badge-sm', 'rounded-pill']}),
+        label: '4',
+        color: 'inverse',
+        small: true,
+        rounded: true,
       } only %}
-      <span class="visually-hidden">nuovi messaggi</span>
     </button>
   {% endstory %}
 
-  {% story with_icon with { name: '5. With Icon' } %}
-    {% embed 'bootstrap_italia:badge' with {
-      label: 'Approvato',
-      attributes: create_attribute({'class': ['badge-success', 'rounded-pill']}),
-    } only %}
-      {% block before %}
-        {% include 'bootstrap_italia:icon' with {
-          name: 'check',
-          label: '',
-          attributes: create_attribute({'class': ['icon-inverse']}),
-        } only %}
-      {% endblock %}
-    {% endembed %}
+  {% story button_counter_accessible with { name: '3. Button with accessible counter' } %}
+    <button type="button" class="btn btn-primary">
+      Messages
+      {% include 'bootstrap_italia:badge' with {
+        label: '7',
+        color: 'inverse',
+        small: true,
+        rounded: true,
+      } only %}
+      <span class="visually-hidden">{{ 'unread messages'|t }}</span>
+    </button>
+  {% endstory %}
+
+  {% story contextual_colors with { name: '4. Contextual colors' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:badge' with { label: 'Primary', color: 'primary' } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Secondary', color: 'secondary' } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Success', color: 'success' } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Warning', color: 'warning' } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Danger', color: 'danger' } only %}
+      {% include 'bootstrap_italia:badge' with {
+        label: 'Light',
+        color: 'light',
+        attributes: create_attribute({'class': ['bg-dark']}),
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        label: 'White',
+        color: 'white',
+        attributes: create_attribute({'class': ['bg-dark']}),
+      } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Inverse', color: 'inverse' } only %}
+    </div>
+  {% endstory %}
+
+  {% story rounded_pills with { name: '5. Rounded pills' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:badge' with { label: 'Primary', color: 'primary', rounded: true } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Secondary', color: 'secondary', rounded: true } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Success', color: 'success', rounded: true } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Warning', color: 'warning', rounded: true } only %}
+      {% include 'bootstrap_italia:badge' with { label: 'Danger', color: 'danger', rounded: true } only %}
+    </div>
+  {% endstory %}
+
+  {% story links with { name: '6. Link badges' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:badge' with {
+        label: 'News',
+        color: 'primary',
+        url: '#',
+        attributes: create_attribute({'class': ['custom-class']}),
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        label: 'Services',
+        color: 'secondary',
+        rounded: true,
+        url: '#',
+        attributes: create_attribute({'class': ['custom-class']}),
+      } only %}
+    </div>
   {% endstory %}
 
 {% endstories %}
