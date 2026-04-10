@@ -3,97 +3,166 @@
  * @file
  * Bootstrap Italia v3 – Button component.
  *
- * Interactive button. The base .btn class is always injected automatically.
- * Adds .btn-icon automatically when icon_name is set.
- * Renders <a> when url is provided, <button> otherwise.
+ * Interactive button primitive.
+ *
+ * The component always injects the base `.btn` class.
+ * Use `url` only for real navigation. When `url` is provided, the component
+ * renders an `<a>`. Otherwise it renders a semantic `<button>`.
+ *
+ * Accessibility contract:
+ *   - Use `<button>` for in-page actions such as toggles, dialogs, form
+ *     actions, or JavaScript interactions that do not navigate.
+ *   - Use `<a>` only when the action changes location or opens a real
+ *     destination.
+ *   - This component does not style non-interactive elements as buttons.
+ *   - This component does not add `role="button"` to links, because links used
+ *     here are expected to remain semantic navigation elements.
  *
  * Props:
- *   - label      (string, required): button text.
- *   - url        (string): if provided, renders an <a href>.
- *   - type       (string): HTML type for <button> (button|submit|reset). Default: 'button'.
- *   - disabled   (boolean): disabled on <button>, aria-disabled + .disabled on <a>.
- *   - icon_name  (string): Bootstrap Italia icon name. Adds .btn-icon automatically.
- *   - attributes (object): Drupal Attribute object.
- *                          Color: btn-primary | btn-secondary | btn-success |
- *                                 btn-warning | btn-danger
- *                          Outline: btn-outline-* variants
- *                          Size:  btn-xs | btn-lg
- *                          Modifiers: btn-full | btn-link
- *                          Toggle: data-bs-toggle="button"
+ *   - type          (string, optional): Button type used for the `<button>`
+ *                                       variant. Defaults to `button`.
+ *   - label         (string, required): Visible button text.
+ *   - url           (string, optional): When provided, forces rendering as an
+ *                                       `<a>` and maps the value to `href`.
+ *   - size          (string, optional): Size variant appended as `.btn-{size}`.
+ *                                       Example: `sm`, `lg`.
+ *   - color         (string, optional): Color variant appended as `.btn-{color}`
+ *                                       or `.btn-outline-{color}`. Default:
+ *                                       `primary`.
+ *   - outline       (boolean, optional): When true, uses the outline color
+ *                                       variant.
+ *   - disabled      (boolean, optional): Disables the button. On links, sets
+ *                                       `aria-disabled="true"` and adds the
+ *                                       `disabled` class for visual parity.
+ *   - icon          (object, optional): Context passed to the
+ *                                       `bootstrap_italia:icon` component.
+ *   - icon_position (string, optional): Icon placement. Supported values:
+ *                                       `before`, `after`. Default: `after`.
+ *   - attributes    (object, optional): Drupal Attribute object applied to the
+ *                                       root element.
  *
- * Blocks:
- *   - before: rendered before the icon/label — use via {% embed %}.
- *   - after:  rendered after  the label     — use via {% embed %}.
+ * Slots:
+ *   - before: Rendered before the label. By default, renders the icon when
+ *             `icon` is provided and `icon_position` is `before`.
+ *   - after:  Rendered after the label. By default, renders the icon when
+ *             `icon` is provided and `icon_position` is `after`.
  *
- * ── Usage: simple button ──────────────────────────────────────────────────
+ * ── Usage: primary button ────────────────────────────────────────────────
  *   {% include 'bootstrap_italia:button' with {
- *     label: 'Conferma',
- *     attributes: create_attribute({'class': ['btn-primary']}),
+ *     label: 'Confirm',
+ *     color: 'primary',
  *   } only %}
  *
- * ── Usage: link CTA ───────────────────────────────────────────────────────
+ * ── Usage: outline link button ───────────────────────────────────────────
  *   {% include 'bootstrap_italia:button' with {
- *     label: 'Scopri di più',
- *     url: '/scopri',
- *     attributes: create_attribute({'class': ['btn-primary']}),
+ *     label: 'Learn more',
+ *     url: '/learn-more',
+ *     color: 'primary',
+ *     outline: true,
  *   } only %}
  *
  * ── Usage: icon button ────────────────────────────────────────────────────
  *   {% include 'bootstrap_italia:button' with {
- *     label: 'Invia email',
- *     icon_name: 'mail',
- *     attributes: create_attribute({'class': ['btn-primary']}),
+ *     label: 'Send email',
+ *     color: 'primary',
+ *     icon: {
+ *       name: 'it-mail',
+ *       size: 'sm',
+ *       decorative: true,
+ *     },
+ *     icon_position: 'before',
  *   } only %}
  *
- * ── Usage: with badge via embed ───────────────────────────────────────────
+ * ── Usage: custom trailing content via embed ─────────────────────────────
  *   {% embed 'bootstrap_italia:button' with {
- *     label: 'Messaggi',
- *     attributes: create_attribute({'class': ['btn-primary']}),
+ *     label: 'Messages',
+ *     color: 'secondary',
  *   } only %}
  *     {% block after %}
  *       {% include 'bootstrap_italia:badge' with {
  *         label: '7',
- *         attributes: create_attribute({'class': ['badge-inverse', 'badge-sm', 'rounded-pill']}),
+ *         color: 'inverse',
+ *         small: true,
+ *         rounded: true,
  *       } only %}
  *     {% endblock %}
  *   {% endembed %}
  */
 #}
+{% apply spaceless %}
+  {# Defaults #}
+  {% set _type = type|default('button') %}
+  {% set _label = label|default('') %}
+  {% set _url = url|default('') %}
+  {% set _size = size|default('') %}
+  {% set _color = color|default('primary') %}
+  {% set _outline = outline ?? false %}
+  {% set _disabled = disabled ?? false %}
+  {% set _icon = icon|default({}) %}
+  {% set _icon_position = icon_position|default('after') %}
+  {% set _attributes = attributes|default(create_attribute()) %}
 
-{# Inject .btn base class; add .btn-icon modifier when icon_name is set. #}
-{% set _base_classes = ['btn'] %}
-{% if icon_name %}
-  {% set _base_classes = _base_classes | merge(['btn-icon']) %}
-{% endif %}
-{% if attributes %}
-  {% set _attr = attributes.addClass(_base_classes) %}
-{% else %}
-  {% set _attr = create_attribute({'class': _base_classes}) %}
-{% endif %}
+  {# Tag settings #}
+  {% set _tag = _url is not empty ? 'a' : 'button' %}
 
-{% if url %}
-  {% if disabled %}
-    {% set _attr = _attr.addClass('disabled').setAttribute('aria-disabled', 'true') %}
+  {% if _tag == 'a' %}
+    {% set _attributes = _attributes.setAttribute('href', _url) %}
+  {% else %}
+    {% set _attributes = _attributes.removeAttribute('href') %}
+    {% set _attributes = _attributes.setAttribute('type', _type) %}
   {% endif %}
-  <a href="{{ url }}"{{ _attr }}>
-    {% block before %}{% endblock %}
-    {% if icon_name %}
-      {% include 'bootstrap_italia:icon' with { name: icon_name, label: '' } only %}
-    {% endif %}
-    {{- label -}}
-    {% block after %}{% endblock %}
-  </a>
-{% else %}
-  {% set _type = type in ['submit', 'reset'] ? type : 'button' %}
-  {% if disabled %}
-    {% set _attr = _attr.setAttribute('disabled', true) %}
+
+  {# Accessibility settings #}
+  {% if _tag == 'a' and _disabled %}
+    {% set _attributes = _attributes.setAttribute('aria-disabled', 'true') %}
+    {% set _attributes = _attributes.setAttribute('tabindex', '-1') %}
+  {% elseif _disabled %}
+    {% set _attributes = _attributes.setAttribute('disabled', true) %}
   {% endif %}
-  <button type="{{ _type }}"{{ _attr }}>
-    {% block before %}{% endblock %}
-    {% if icon_name %}
-      {% include 'bootstrap_italia:icon' with { name: icon_name, label: '' } only %}
+
+  {# Configuration #}
+  {% set _classes = [
+    'btn',
+    _outline and _color is not empty ? 'btn-outline-' ~ _color,
+    not _outline and _color is not empty ? 'btn-' ~ _color,
+    _size is not empty ? 'btn-' ~ _size,
+    _disabled ? 'disabled',
+    _icon is not empty ? 'btn-icon',
+    _icon is not empty ? 'me-2',
+  ] %}
+
+  {% set _attributes = _attributes.setAttribute(
+    'class',
+    _classes|merge(_attributes.class|default([]))
+  ) %}
+
+  {# Component #}
+  <{{ _tag }}{{ _attributes }}>
+    {% block before %}
+      {% if _icon is not empty and _icon_position == 'before' %}
+        <span class="rounded-icon">
+          {% include 'bootstrap_italia:icon' with _icon|merge({
+            size: _outline and _size == 'lg' ? 'sm' : 'xs',
+            color: _color,
+          }) only %}
+        </span>
+      {% endif %}
+    {% endblock %}
+
+    {% if _icon is not empty %}
+      <span>{{ _label }}</span>
+    {% else %}
+      {{- _label -}}
     {% endif %}
-    {{- label -}}
-    {% block after %}{% endblock %}
-  </button>
-{% endif %}
+
+    {% block after %}
+      {% if _icon is not empty and _icon_position == 'after' %}
+        {% include 'bootstrap_italia:icon' with _icon|merge({
+          size: _size == 'xs' ? 'xs' : 'sm',
+          color: not _outline ? 'inverse' : _color,
+        }) only %}
+      {% endif %}
+    {% endblock %}
+  </{{ _tag }}>
+
+{% endapply %}

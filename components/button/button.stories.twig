@@ -1,139 +1,369 @@
 {% stories button with { title: 'Bootstrap Italia/Components/Button' } %}
 
-  {% story solid_colors with { name: '1. Solid Colors' } %}
+  {% story playground with {
+    name: '0. Playground',
+    args: {
+      label: 'Action',
+      url: '',
+      type: 'button',
+      size: '',
+      color: 'primary',
+      outline: false,
+      disabled: false,
+      icon_name: '',
+      icon_position: 'after'
+    },
+    argTypes: {
+      type: {
+        control: { type: 'select' },
+        options: ['button', 'submit', 'reset']
+      },
+      size: {
+        control: { type: 'select' },
+        options: ['', 'xs', 'sm', 'lg']
+      },
+      color: {
+        control: { type: 'select' },
+        options: ['primary', 'secondary', 'success', 'warning', 'danger', 'link']
+      },
+      outline: {
+        control: { type: 'boolean' }
+      },
+      disabled: {
+        control: { type: 'boolean' }
+      },
+      icon_name: {
+        control: { type: 'select' },
+        options: ['', 'it-mail', 'it-download', 'it-arrow-right', 'it-link', 'it-search']
+      },
+      icon_position: {
+        control: { type: 'select' },
+        options: ['before', 'after']
+      }
+    },
+    parameters: { controls: { include: ['label', 'url', 'type', 'size', 'color', 'outline', 'disabled', 'icon_name', 'icon_position'] } }
+  } %}
+    {% include 'bootstrap_italia:button' with {
+      label: label,
+      url: url,
+      type: type,
+      size: size,
+      color: color,
+      outline: outline,
+      disabled: disabled,
+      icon: icon_name ? {
+        name: icon_name,
+        size: 'sm',
+        decorative: true,
+      } : {},
+      icon_position: icon_position,
+    } only %}
+  {% endstory %}
+
+  {% story solid_variants with { name: '1. Solid variants' } %}
     <div class="d-flex gap-2 align-items-center flex-wrap">
-      {% include 'bootstrap_italia:button' with { label: 'Primary', attributes: create_attribute({'class': ['btn-primary']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Secondary', attributes: create_attribute({'class': ['btn-secondary']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Success', attributes: create_attribute({'class': ['btn-success']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Warning', attributes: create_attribute({'class': ['btn-warning']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Danger', attributes: create_attribute({'class': ['btn-danger']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Primary', color: 'primary' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Secondary', color: 'secondary' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Success', color: 'success' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Warning', color: 'warning' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Danger', color: 'danger' } only %}
     </div>
   {% endstory %}
 
-  {% story outline with { name: '2. Outline' } %}
+  {% story outline_variants with { name: '2. Outline variants' } %}
     <div class="d-flex gap-2 align-items-center flex-wrap">
-      {% include 'bootstrap_italia:button' with { label: 'Outline Primary', attributes: create_attribute({'class': ['btn-outline-primary']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Outline Secondary', attributes: create_attribute({'class': ['btn-outline-secondary']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Outline Danger', attributes: create_attribute({'class': ['btn-outline-danger']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Primary', color: 'primary', outline: true } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Secondary', color: 'secondary', outline: true } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Success', color: 'success', outline: true } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Warning', color: 'warning', outline: true } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Danger', color: 'danger', outline: true } only %}
     </div>
   {% endstory %}
 
-  {% story sizes with { name: '3. Sizes' } %}
+  {% story size_variants with { name: '3. Size variants' } %}
     <div class="d-flex gap-2 align-items-center flex-wrap">
-      {% include 'bootstrap_italia:button' with { label: 'Extra Small (btn-xs)', attributes: create_attribute({'class': ['btn-primary', 'btn-xs']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Default', attributes: create_attribute({'class': ['btn-primary']}) } only %}
-      {% include 'bootstrap_italia:button' with { label: 'Large (btn-lg)', attributes: create_attribute({'class': ['btn-primary', 'btn-lg']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Extra small', color: 'primary', size: 'xs' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Small', color: 'primary', size: 'sm' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Default', color: 'primary' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Large', color: 'primary', size: 'lg' } only %}
     </div>
   {% endstory %}
 
-  {% story with_icon with { name: '4. With Icon' } %}
-    <div class="d-flex gap-2 align-items-center flex-wrap">
-      {% include 'bootstrap_italia:button' with {
-        label: 'Invia email',
-        icon_name: 'mail',
-        attributes: create_attribute({'class': ['btn-primary']}),
-      } only %}
-      {% include 'bootstrap_italia:button' with {
-        label: 'Scarica',
-        icon_name: 'download',
-        attributes: create_attribute({'class': ['btn-outline-primary']}),
-      } only %}
-      {% include 'bootstrap_italia:button' with {
-        label: 'Cerca',
-        icon_name: 'search',
-        attributes: create_attribute({'class': ['btn-primary', 'btn-lg']}),
-      } only %}
-      {# Icon only — label visually hidden #}
-      {% include 'bootstrap_italia:button' with {
-        label: 'Condividi',
-        icon_name: 'share',
-        attributes: create_attribute({'class': ['btn-outline-primary'], 'aria-label': 'Condividi'}),
-      } only %}
+  {% story block_layout with { name: '4. Block layout' } %}
+    <div class="d-grid gap-2" style="max-width: 32rem;">
+      {% include 'bootstrap_italia:button' with { label: 'Primary block button', color: 'primary', attributes: create_attribute({'class': ['w-100']}) } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Secondary block button', color: 'secondary', attributes: create_attribute({'class': ['w-100']}) } only %}
     </div>
   {% endstory %}
 
-  {% story link_cta with { name: '5. Link CTA (<a>)' } %}
-    <div class="d-flex gap-2 align-items-center flex-wrap">
-      {% include 'bootstrap_italia:button' with {
-        label: 'Scopri di più',
-        url: '#',
-        attributes: create_attribute({'class': ['btn-primary']}),
-      } only %}
-      {% include 'bootstrap_italia:button' with {
-        label: 'Vai al portale',
-        url: '#',
-        attributes: create_attribute({'class': ['btn-outline-primary']}),
-      } only %}
+  {% story state_matrix with { name: '5. State matrix' } %}
+    <div class="py-1">
+      <div class="btn-example mb-3">
+        {% include 'bootstrap_italia:button' with { label: 'Primary', color: 'primary' } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Primary outline', color: 'primary', outline: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Primary disabled', color: 'primary', disabled: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Primary outline disabled', color: 'primary', outline: true, disabled: true } only %}
+      </div>
+      <div class="btn-example mb-3">
+        {% include 'bootstrap_italia:button' with { label: 'Secondary', color: 'secondary' } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Secondary outline', color: 'secondary', outline: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Secondary disabled', color: 'secondary', disabled: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Secondary outline disabled', color: 'secondary', outline: true, disabled: true } only %}
+      </div>
+      <div class="btn-example mb-3">
+        {% include 'bootstrap_italia:button' with { label: 'Success', color: 'success' } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Success outline', color: 'success', outline: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Success disabled', color: 'success', disabled: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Success outline disabled', color: 'success', outline: true, disabled: true } only %}
+      </div>
+      <div class="btn-example mb-3">
+        {% include 'bootstrap_italia:button' with { label: 'Danger', color: 'danger' } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Danger outline', color: 'danger', outline: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Danger disabled', color: 'danger', disabled: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Danger outline disabled', color: 'danger', outline: true, disabled: true } only %}
+      </div>
+      <div class="btn-example mb-3">
+        {% include 'bootstrap_italia:button' with { label: 'Warning', color: 'warning' } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Warning outline', color: 'warning', outline: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Warning disabled', color: 'warning', disabled: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Warning outline disabled', color: 'warning', outline: true, disabled: true } only %}
+      </div>
     </div>
   {% endstory %}
 
-  {% story disabled with { name: '6. Disabled' } %}
+  {% story dark_state_matrix with { name: '6. Dark state matrix' } %}
+    <div class="bg-dark p-5">
+      <div class="btn-example mb-3">
+        {% include 'bootstrap_italia:button' with { label: 'Primary', color: 'primary' } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Primary outline', color: 'primary', outline: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Primary disabled', color: 'primary', disabled: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Primary outline disabled', color: 'primary', outline: true, disabled: true } only %}
+      </div>
+      <div class="btn-example">
+        {% include 'bootstrap_italia:button' with { label: 'Secondary', color: 'secondary' } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Secondary outline', color: 'secondary', outline: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Secondary disabled', color: 'secondary', disabled: true } only %}
+        {% include 'bootstrap_italia:button' with { label: 'Secondary outline disabled', color: 'secondary', outline: true, disabled: true } only %}
+      </div>
+    </div>
+  {% endstory %}
+
+  {% story link_buttons with { name: '7. Link buttons' } %}
     <div class="d-flex gap-2 align-items-center flex-wrap">
-      {# disabled <button> — native disabled attribute #}
       {% include 'bootstrap_italia:button' with {
-        label: 'Button Disabilitato',
+        label: 'Read more',
+        url: '/read-more',
+        color: 'primary',
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Open service',
+        url: '/service',
+        color: 'secondary',
+        outline: true,
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Disabled link',
+        url: '/disabled-link',
+        color: 'primary',
         disabled: true,
-        attributes: create_attribute({'class': ['btn-primary']}),
-      } only %}
-      {# disabled <a> — aria-disabled + .disabled class #}
-      {% include 'bootstrap_italia:button' with {
-        label: 'Link Disabilitato',
-        url: '#',
-        disabled: true,
-        attributes: create_attribute({'class': ['btn-primary']}),
       } only %}
     </div>
   {% endstory %}
 
-  {% story toggle with { name: '7. Toggle (data-bs-toggle)' } %}
-    <p class="text-muted mb-3">Clic per attivare/disattivare. Il plugin JS imposta <code>.active</code> e <code>aria-pressed</code>.</p>
+  {% story disabled_state with { name: '8. Disabled state' } %}
     <div class="d-flex gap-2 align-items-center flex-wrap">
       {% include 'bootstrap_italia:button' with {
-        label: 'Toggle',
-        attributes: create_attribute({'class': ['btn-primary'], 'data-bs-toggle': 'button'}),
+        label: 'Disabled button',
+        color: 'primary',
+        disabled: true,
       } only %}
       {% include 'bootstrap_italia:button' with {
-        label: 'Toggle Outline',
-        attributes: create_attribute({'class': ['btn-outline-primary'], 'data-bs-toggle': 'button'}),
+        label: 'Disabled link',
+        url: '/disabled-link',
+        color: 'secondary',
+        disabled: true,
       } only %}
     </div>
   {% endstory %}
 
-  {% story with_badge with { name: '8. With Badge (composizione)' } %}
+  {% story with_icons with { name: '9. With icons' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'success',
+        size: 'lg',
+        icon: {name: 'it-star-full'},
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'primary',
+        icon: {name: 'it-star-full'},
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'danger',
+        icon: {name: 'it-star-full'},
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'secondary',
+        size: 'xs',
+        icon: {name: 'it-star-full'},
+      } only %}
+    </div>
+    <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'secondary',
+        outline: true,
+        size: 'xs',
+        icon: {name: 'it-star-full'},
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'danger',
+        outline: true,
+        icon: {name: 'it-star-full'},
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'primary',
+        outline: true,
+        icon: {name: 'it-star-full'},
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Add to bookmarks',
+        color: 'success',
+        outline: true,
+        size: 'lg',
+        icon: {name: 'it-star-full'},
+      } only %}
+    </div>
+
+    <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'success',
+        size: 'lg',
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'primary',
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'danger',
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'secondary',
+        size: 'xs',
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+    </div>
+    <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'secondary',
+        outline: true,
+        size: 'xs',
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'danger',
+        outline: true,
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'primary',
+        outline: true,
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'User profile',
+        color: 'success',
+        outline: true,
+        size: 'lg',
+        icon: {name: 'it-user'},
+        icon_position: 'before',
+      } only %}
+    </div>
+  {% endstory %}
+
+  {% story toggle_buttons with { name: '10. Toggle buttons' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:button' with {
+        label: 'Toggle primary',
+        color: 'primary',
+        type: 'button',
+        attributes: create_attribute({'data-bs-toggle': 'button'}),
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Toggle outline',
+        color: 'secondary',
+        outline: true,
+        type: 'button',
+        attributes: create_attribute({'data-bs-toggle': 'button'}),
+      } only %}
+    </div>
+  {% endstory %}
+
+  {% story with_badge with { name: '11. With badge' } %}
     <div class="d-flex gap-2 align-items-center flex-wrap">
       {% embed 'bootstrap_italia:button' with {
-        label: 'Messaggi',
-        attributes: create_attribute({'class': ['btn-primary']}),
+        label: 'Notifications',
+        color: 'primary',
+      } only %}
+        {% block after %}
+          {% include 'bootstrap_italia:badge' with {
+            label: '4',
+            color: 'inverse',
+            small: true,
+            rounded: true,
+          } only %}
+        {% endblock %}
+      {% endembed %}
+
+      {% embed 'bootstrap_italia:button' with {
+        label: 'Messages',
+        color: 'secondary',
       } only %}
         {% block after %}
           {% include 'bootstrap_italia:badge' with {
             label: '7',
-            attributes: create_attribute({'class': ['badge-inverse', 'badge-sm', 'rounded-pill']}),
+            color: 'inverse',
+            small: true,
+            rounded: true,
           } only %}
-          <span class="visually-hidden">nuovi messaggi</span>
-        {% endblock %}
-      {% endembed %}
-
-      {% embed 'bootstrap_italia:button' with {
-        label: 'Notifiche',
-        attributes: create_attribute({'class': ['btn-outline-danger']}),
-      } only %}
-        {% block after %}
-          {% include 'bootstrap_italia:badge' with {
-            label: '3',
-            attributes: create_attribute({'class': ['badge-danger', 'badge-sm', 'rounded-pill']}),
-          } only %}
+          <span class="visually-hidden">{{ 'unread messages'|t }}</span>
         {% endblock %}
       {% endembed %}
     </div>
   {% endstory %}
 
-  {% story full_width_submit with { name: '9. Full Width + Submit' } %}
-    <div style="max-width: 400px;">
+  {% story form_actions with { name: '12. Form actions' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
       {% include 'bootstrap_italia:button' with {
-        label: 'Invia modulo',
+        label: 'Save changes',
+        color: 'primary',
         type: 'submit',
-        attributes: create_attribute({'class': ['btn-primary', 'btn-full']}),
+      } only %}
+      {% include 'bootstrap_italia:button' with {
+        label: 'Reset form',
+        color: 'danger',
+        type: 'reset',
       } only %}
     </div>
   {% endstory %}

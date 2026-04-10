@@ -1,44 +1,75 @@
-$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Button
 status: experimental
-description: >
-  Interactive button. The base .btn class is always injected automatically.
-  Renders <a> when url is provided, <button> otherwise.
-  Caller controls color/variant/size via attributes.
+description: 'Interactive button primitive. Renders a semantic `<button>` for in-page actions and an `<a>` only for real navigation.'
 props:
   type: object
   properties:
+    type:
+      type: string
+      title: 'Type'
+      description: 'Button type used for the `<button>` variant.'
+      enum:
+        - button
+        - submit
+        - reset
     label:
       type: string
       title: 'Label'
+      description: 'Visible button text.'
     url:
       type: string
       title: 'URL'
-      description: 'If set, renders <a href>. Omit for <button>.'
-    type:
+      description: 'Optional navigation target. When provided, the component renders as `<a>`.'
+    size:
       type: string
-      title: 'Button type'
-      description: 'HTML type for <button>. Ignored when url is set.'
-      enum: ['button', 'submit', 'reset']
+      title: 'Size'
+      description: 'Optional size modifier appended as `.btn-{size}`.'
+      enum:
+        - ''
+        - xs
+        - sm
+        - lg
+    color:
+      type: string
+      title: 'Color'
+      description: 'Color variant appended as `.btn-{color}` or `.btn-outline-{color}`.'
+      enum:
+        - primary
+        - secondary
+        - success
+        - warning
+        - danger
+        - link
+    outline:
+      type: boolean
+      title: 'Outline'
+      description: 'When `true`, uses the outline variant for the selected color.'
     disabled:
       type: boolean
       title: 'Disabled'
-      description: 'disabled on <button>, aria-disabled + .disabled on <a>.'
-    icon_name:
-      type: string
-      title: 'Icon name'
-      description: 'Bootstrap Italia icon name. Adds .btn-icon modifier automatically.'
-    attributes:
+      description: 'Disables the button. On links, sets `aria-disabled="true"` and adds the `disabled` class.'
+    icon:
       type: object
+      title: 'Icon'
+      description: 'Context passed through to the `bootstrap_italia:icon` component.'
+    icon_position:
+      type: string
+      title: 'Icon position'
+      description: 'Controls whether the icon is rendered before or after the label.'
+      enum:
+        - before
+        - after
+    attributes:
+      type: Drupal\Core\Template\Attribute
       title: 'HTML Attributes'
-      description: >
-        Drupal Attribute object. Color: btn-primary | btn-secondary | btn-success |
-        btn-warning | btn-danger. Outline: btn-outline-* variants. Size: btn-xs | btn-lg.
-        Modifiers: btn-full | btn-link. Toggle: data-bs-toggle="button".
-        Base .btn class always added automatically.
+      description: 'Drupal Attribute object applied to the root element. The base `.btn` class is always added automatically.'
   required:
     - label
-stylesheets:
-  - button.css
-scripts:
-  - button.js
+slots:
+  before:
+    title: 'Before'
+    description: 'Optional content rendered before the label. By default, this slot renders the icon when `icon` is provided and `icon_position` is `before`.'
+  after:
+    title: 'After'
+    description: 'Optional content rendered after the label. By default, this slot renders the icon when `icon` is provided and `icon_position` is `after`.'
