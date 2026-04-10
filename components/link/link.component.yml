@@ -20,10 +20,3 @@ props:
   required:
     - url
     - label
-slots:
-  before:
-    title: 'Before'
-    description: 'Optional content rendered before the label inside the anchor. Use for leading icons or other small inline adornments.'
-  after:
-    title: 'After'
-    description: 'Optional content rendered after the label inside the anchor. Use for trailing icons or other small inline adornments.'

@@ -43,7 +43,7 @@
     },
     parameters: { controls: { include: ['label', 'url', 'type', 'size', 'color', 'outline', 'disabled', 'icon_name', 'icon_position'] } }
   } %}
-    {% include 'bootstrap_italia:button' with {
+    {% set button_props = {
       label: label,
       url: url,
       type: type,
@@ -51,13 +51,18 @@
       color: color,
       outline: outline,
       disabled: disabled,
-      icon: icon_name ? {
-        name: icon_name,
-        size: 'sm',
-        decorative: true,
-      } : {},
       icon_position: icon_position,
-    } only %}
+    } %}
+    {% if icon_name %}
+      {% set button_props = button_props|merge({
+        icon: {
+          name: icon_name,
+          size: 'sm',
+          decorative: true,
+        }
+      }) %}
+    {% endif %}
+    {% include 'bootstrap_italia:button' with button_props only %}
   {% endstory %}
 
   {% story solid_variants with { name: '1. Solid variants' } %}

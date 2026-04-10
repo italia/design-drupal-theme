@@ -53,6 +53,63 @@ props:
       type: object
       title: 'Icon'
       description: 'Context passed through to the `bootstrap_italia:icon` component.'
+      properties:
+        name:
+          type: string
+          title: 'Icon name'
+          description: 'Sprite icon ID, for example `it-arrow-right`.'
+        label:
+          type: string
+          title: 'Accessible label'
+          description: 'Accessible text for non-decorative icons. If omitted, the icon component falls back to the icon name.'
+        align:
+          type: string
+          title: 'Vertical alignment'
+          description: 'Optional vertical alignment modifier forwarded to the icon component.'
+          enum:
+            - ''
+            - bottom
+            - middle
+            - top
+        padded:
+          type: boolean
+          title: 'Padded icon'
+          description: 'Adds the `icon-padded` utility class on the nested icon.'
+        size:
+          type: string
+          title: 'Icon size'
+          description: 'Optional icon size modifier.'
+          enum:
+            - xs
+            - sm
+            - ''
+            - lg
+            - xl
+        color:
+          type: string
+          title: 'Icon color'
+          description: 'Optional icon color modifier. The button template may override this to preserve variant contrast.'
+          enum:
+            - ''
+            - primary
+            - secondary
+            - success
+            - warning
+            - danger
+            - light
+            - white
+            - disabled
+            - inverse
+        src:
+          type: string
+          title: 'Sprite path'
+          description: 'Optional custom SVG sprite path.'
+        decorative:
+          type: boolean
+          title: 'Decorative icon'
+          description: 'When `true`, the nested icon is hidden from assistive technologies.'
+      required:
+        - name
     icon_position:
       type: string
       title: 'Icon position'
@@ -66,10 +123,3 @@ props:
       description: 'Drupal Attribute object applied to the root element. The base `.btn` class is always added automatically.'
   required:
     - label
-slots:
-  before:
-    title: 'Before'
-    description: 'Optional content rendered before the label. By default, this slot renders the icon when `icon` is provided and `icon_position` is `before`.'
-  after:
-    title: 'After'
-    description: 'Optional content rendered after the label. By default, this slot renders the icon when `icon` is provided and `icon_position` is `after`.'
