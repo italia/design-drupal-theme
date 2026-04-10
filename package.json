@@ -7,10 +7,10 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "storybook": "^10.3.3",
-    "@storybook/server-webpack5": "^10.3.3",
+    "storybook": "^10.3.5",
+    "@storybook/server-webpack5": "^10.3.5",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.3",
-    "@storybook/addon-a11y": "^10.3.3",
-    "@storybook/addon-docs": "^10.3.3"
+    "@storybook/addon-a11y": "^10.3.5",
+    "@storybook/addon-docs": "^10.3.5"
   }
 }
