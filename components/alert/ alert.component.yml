@@ -1,4 +1,4 @@
-$schema: 'https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/modules/sdc/src/metadata.schema.json'
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Alert
 status: experimental
 description: 'Contextual alert box. Thin wrapper — the caller controls variant and classes (alert, alert-success, etc.) via the attributes prop. role="alert" is always injected.'
@@ -19,5 +19,3 @@ props:
       description: 'Drupal Attribute object for the wrapper element. Use to set class: alert, alert-success, alert-warning, alert-danger, alert-primary, alert-secondary. add fade + show for animated dismiss.'
 stylesheets:
   - alert.css
-scripts:
-  - alert.js

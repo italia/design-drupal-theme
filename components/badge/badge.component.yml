@@ -2,6 +2,9 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Badge
 status: experimental
 description: 'Inline badge label with optional link behavior. The base `.badge` class is always injected automatically.'
+links:
+  - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/componenti/badge/"
+  - "https://italia.github.io/dev-kit-italia/?path=/docs/componenti-badge--documentazione"
 props:
   type: object
   properties:

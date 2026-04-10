@@ -2,6 +2,8 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Link
 status: experimental
 description: 'Primitive link component. Thin <a> wrapper with explicit text content. The caller controls HTML attributes via the attributes prop (Drupal Attribute object) and is responsible for target, rel, aria-*, and data-* attributes when needed.'
+links:
+  - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/organizzare-i-contenuti/tipografia/#link"
 props:
   type: object
   properties:

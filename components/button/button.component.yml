@@ -2,6 +2,9 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Button
 status: experimental
 description: 'Interactive button primitive. Renders a semantic `<button>` for in-page actions and an `<a>` only for real navigation.'
+links:
+  - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/componenti/buttons/#pulsante-con-icona"
+  - "https://italia.github.io/dev-kit-italia/?path=/docs/componenti-button--documentazione"
 props:
   type: object
   properties:

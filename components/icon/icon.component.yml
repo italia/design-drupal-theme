@@ -2,6 +2,9 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Icon
 status: experimental
 description: 'SVG icon from the Bootstrap Italia sprite. Thin wrapper with explicit props for accessibility and utility-class modifiers.'
+links:
+  - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/utilities/icone/"
+  - "https://italia.github.io/dev-kit-italia/?path=/docs/componenti-icon--documentazione"
 props:
   type: object
   properties:
