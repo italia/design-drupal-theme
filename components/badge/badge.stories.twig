@@ -12,28 +12,36 @@
   {% endstory %}
 
   {% story button_counter with { name: '2. Button with counter' } %}
-    <button type="button" class="btn btn-primary">
-      Notifications
-      {% include 'bootstrap_italia:badge' with {
-        label: '4',
-        color: 'inverse',
-        small: true,
-        rounded: true,
-      } only %}
-    </button>
+    {% embed 'bootstrap_italia:button' with {
+      label: 'Notifications',
+      color: 'primary',
+    } only %}
+      {% block after %}
+        {% include 'bootstrap_italia:badge' with {
+          label: '4',
+          color: 'inverse',
+          small: true,
+          rounded: true,
+        } only %}
+      {% endblock %}
+    {% endembed %}
   {% endstory %}
 
   {% story button_counter_accessible with { name: '3. Button with accessible counter' } %}
-    <button type="button" class="btn btn-primary">
-      Messages
-      {% include 'bootstrap_italia:badge' with {
-        label: '7',
-        color: 'inverse',
-        small: true,
-        rounded: true,
-      } only %}
-      <span class="visually-hidden">{{ 'unread messages'|t }}</span>
-    </button>
+    {% embed 'bootstrap_italia:button' with {
+      label: 'Messages',
+      color: 'primary',
+    } only %}
+      {% block after %}
+        {% include 'bootstrap_italia:badge' with {
+          label: '7',
+          color: 'inverse',
+          small: true,
+          rounded: true,
+        } only %}
+        <span class="visually-hidden">{{ 'unread messages'|t }}</span>
+      {% endblock %}
+    {% endembed %}
   {% endstory %}
 
   {% story contextual_colors with { name: '4. Contextual colors' } %}
