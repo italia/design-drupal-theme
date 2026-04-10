@@ -96,7 +96,7 @@
 
   {% set _wrapper_attributes = _wrapper_attributes.setAttribute(
     'class',
-    _wrapper_classes|merge(_attributes.class|default([]))
+    _wrapper_classes|merge(_wrapper_attributes.class|default([]))
   ) %}
 
   {% set _attributes = _attributes
