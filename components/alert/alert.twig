@@ -3,91 +3,157 @@
  * @file
  * Bootstrap Italia v3 – Alert component.
  *
- * Thin wrapper around the Bootstrap Italia alert pattern. The caller controls
- * variant and all CSS classes via the attributes prop.
- * role="alert" is always present (mandatory for accessibility).
+ * Thin wrapper around the Bootstrap Italia alert pattern.
+ * The component always renders a root `<div>` with `role="alert"` and injects
+ * the base `.alert` class plus the contextual `.alert-{color}` class.
+ * By default it renders a single `<p class="mb-0">` containing the optional
+ * leading icon and the `content` slot.
  *
  * Refs:
- *  -
+ *  - https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/componenti/alert/
+ *  - https://italia.github.io/dev-kit-italia/?path=/docs/componenti-alert--documentazione
+ *
+ * Last revision: v3.0.0-alpha.6
  *
  * Props:
- *   - dismissible    (bool):   adds a close button + injects .alert-dismissible.
- *   - dismiss_label  (string): aria-label for the close button (default: "Chiudi avviso").
- *   - attributes     (object): Drupal Attribute object for the wrapper <div>.
- *                              Set class: alert, alert-success, alert-warning,
- *                              alert-danger, alert-primary, alert-secondary.
- *                              Add fade + show for animated dismiss.
+ *   - color        (string): Optional contextual variant such as `primary`,
+ *                            `secondary`, `info`, `success`, `warning`, or
+ *                            `danger`. Defaults to `info`.
+ *   - icon         (object): Optional context forwarded to the
+ *                            `bootstrap_italia:icon` component.
+ *   - default_icon (bool):   When `true` and `icon` is empty, a preset icon is
+ *                            built for `primary`, `secondary`, `success`,
+ *                            `warning`, and `danger`. Defaults to `false`.
+ *   - dismissible  (bool):   When `true`, adds dismissible alert classes.
+ *                            Defaults to `false`.
+ *   - dismissible_effects (array): Optional extra classes added only when
+ *                            `dismissible` is `true`. Defaults to
+ *                            `['fade', 'show']`.
+ *   - dismiss_label (string): Optional accessible label applied to the close
+ *                            button when `dismissible` is `true`. Defaults to
+ *                            `Close this alert`.
+ *   - attributes   (Drupal\Core\Template\Attribute): Attributes applied to the
+ *                            root `<div>`.
  *
- * Blocks:
- *   - content: arbitrary HTML inside the alert (text, headings, icons, links).
+ * Slots:
+ *   - content: Inline alert body rendered inside the default
+ *              `<p class="mb-0">`.
  *
- * ── Usage: simple alert ───────────────────────────────────────────────────
+ * Blocks (available when using {% embed %}):
+ *   - alert_content: Rendered inside the root alert `<div>`. By default,
+ *             renders the standard alert
+ *             body as a single `<p class="mb-0">` containing the optional icon
+ *             and the `content` slot. Override this block when you need
+ *             multiple paragraphs or a different body structure.
+ *
+ * ── Usage: simple alert with default body ─────────────────────────────────
+ *   {% set alert_content %}
+ *     Operation completed successfully.
+ *   {% endset %}
+ *   {% include 'bootstrap_italia:alert' with {
+ *     color: 'success',
+ *     default_icon: true,
+ *     content: alert_content,
+ *   } only %}
+ *
+ * ── Usage: custom body structure via embed ────────────────────────────────
  *   {% embed 'bootstrap_italia:alert' with {
- *     attributes: create_attribute({'class': ['alert', 'alert-success']}),
- *   } %}
- *     {% block content %}
- *       <p class="mb-0">Operazione completata con successo.</p>
- *     {% endblock %}
- *   {% endembed %}
- *
- * ── Usage: with icon component ────────────────────────────────────────────
- *   {% embed 'bootstrap_italia:alert' with {
- *     attributes: create_attribute({'class': ['alert', 'alert-warning']}),
- *   } %}
- *     {% block content %}
+ *     color: 'warning',
+ *     content: 'Warning: review the data before continuing.',
+ *   } only %}
+ *     {% block alert_content %}
  *       <p class="mb-0">
  *         {% include 'bootstrap_italia:icon' with {
- *           name: 'warning-circle',
- *           label: 'attenzione',
- *           attributes: create_attribute({'class': ['alert-icon', 'icon-warning']}),
+ *           name: 'it-warning-circle',
+ *           label: 'warning',
+ *           wrapper_attributes: create_attribute({'class': ['alert-icon']}),
  *         } only %}
- *         Attenzione: verifica i dati prima di procedere.
+ *         {{ content }}
  *       </p>
+ *       <p class="mb-0">Additional detail in a second paragraph.</p>
  *     {% endblock %}
  *   {% endembed %}
  *
- * ── Usage: with heading ────────────────────────────────────────────────────
- *   {% embed 'bootstrap_italia:alert' with {
- *     attributes: create_attribute({'class': ['alert', 'alert-danger']}),
- *   } %}
- *     {% block content %}
- *       <h4 class="alert-heading">Errore</h4>
- *       <p>Operazione non riuscita.</p>
- *     {% endblock %}
- *   {% endembed %}
+ * ── Usage: explicit a11y icon text without default mapping ────────────────
+ *   {% include 'bootstrap_italia:alert' with {
+ *     color: 'primary',
+ *     icon: {
+ *       name: 'it-info-circle',
+ *       label: 'This is an information',
+ *       wrapper_attributes: create_attribute({'class': ['alert-icon']}),
+ *     },
+ *     content: 'This is an informational alert.',
+ *   } only %}
  *
- * ── Usage: dismissible ────────────────────────────────────────────────────
- *   {% embed 'bootstrap_italia:alert' with {
+ * ── Usage: dismissible alert ───────────────────────────────────────────────
+ *   {% include 'bootstrap_italia:alert' with {
+ *     color: 'warning',
  *     dismissible: true,
- *     attributes: create_attribute({'class': ['alert', 'alert-primary', 'fade', 'show']}),
- *   } %}
- *     {% block content %}
- *       <p class="mb-0">Questo avviso può essere chiuso.</p>
- *     {% endblock %}
- *   {% endembed %}
+ *     dismiss_label: 'Close alert',
+ *     content: 'Review the highlighted fields before submitting.',
+ *   } only %}
  */
 #}
+{% apply spaceless %}
+  {# Defaults #}
+  {% set _color = color|default('info') %}
+  {% set _icon = icon|default({}) %}
+  {% set _default_icon = default_icon ?? false %}
+  {% set _dismissible = dismissible ?? false %}
+  {% set _dismissible_effects = dismissible_effects|default(['fade', 'show']) %}
+  {% set _dismiss_label = dismiss_label|default('Close this alert') %}
+  {% set _attributes = attributes|default(create_attribute()) %}
 
-{# Inject .alert-dismissible when the close button is enabled. #}
-{% if dismissible %}
-  {% if attributes %}
-    {% set _attr = attributes.addClass('alert-dismissible') %}
-  {% else %}
-    {% set _attr = create_attribute({'class': ['alert-dismissible']}) %}
-  {% endif %}
-{% else %}
-  {% set _attr = attributes %}
-{% endif %}
+  {# Accessibility settings #}
+  {% set _attributes = _attributes.setAttribute('role', 'alert') %}
 
-<div role="alert"{{ _attr }}>
-  {% block content %}{% endblock %}
-  {% if dismissible %}
-    <button type="button" class="btn-close" data-bs-dismiss="alert"
-            aria-label="{{ dismiss_label | default('Chiudi avviso') }}">
-      {% include 'bootstrap_italia:icon' with {
-        name: 'close',
-        label: dismiss_label | default('Chiudi avviso'),
-      } only %}
-    </button>
+  {# Configuration #}
+  {% set _classes = [
+    'alert',
+    _color is not empty ? 'alert-' ~ _color,
+    _dismissible ? 'alert-dismissible',
+  ] %}
+
+  {% set _classes = _classes|merge(_dismissible ? _dismissible_effects : []) %}
+
+  {% set _attributes = _attributes.setAttribute(
+    'class',
+    _classes|merge(_attributes.class|default([]))
+  ) %}
+
+  {% set _default_icon_maps = {
+    primary: 'it-info-circle',
+    secondary: 'it-info-circle',
+    success: 'it-check-circle',
+    warning: 'it-warning-circle',
+    danger: 'it-error',
+  } %}
+
+  {% if _default_icon and _icon is empty %}
+    {% set _icon = {
+      name: _default_icon_maps[_color],
+      color: _color,
+      wrapper_attributes: create_attribute().addClass(['alert-icon']),
+    } %}
   {% endif %}
-</div>
+
+  {# Component #}
+  <div{{ _attributes }}>
+    {% block alert_content %}
+      <p class="mb-0">
+        {% if _icon is not empty %}
+          {% include 'bootstrap_italia:icon' with _icon only %}
+        {% endif %}
+        {{ content }}
+      </p>
+    {% endblock %}
+    {% if _dismissible %}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"{% if _dismiss_label is not empty %} aria-label="{{ _dismiss_label }}"{% endif %}>
+        {% include 'bootstrap_italia:icon' with {
+          name: 'it-close',
+          decorative: true,
+        } only %}
+      </button>
+    {% endif %}
+  </div>
+{% endapply %}

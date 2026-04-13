@@ -1,0 +1,103 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Alert
+status: experimental
+description: 'Alert wrapper with contextual color, optional icon context, and a `content` slot. By default the component renders a single `<p class="mb-0">` containing the optional icon and the `content` slot.'
+props:
+  type: object
+  properties:
+    color:
+      type: string
+      title: 'Color'
+      description: 'Contextual alert variant appended as `.alert-{color}`.'
+      enum:
+        - primary
+        - secondary
+        - info
+        - success
+        - warning
+        - danger
+    icon:
+      type: object
+      title: 'Icon'
+      description: 'Optional context forwarded to the `bootstrap_italia:icon` component inside the default body block.'
+      properties:
+        name:
+          type: string
+          title: 'Icon name'
+        label:
+          type: string
+          title: 'Accessible label'
+        align:
+          type: string
+          title: 'Vertical alignment'
+          enum:
+            - ''
+            - bottom
+            - middle
+            - top
+        padded:
+          type: boolean
+          title: 'Padded icon'
+        size:
+          type: string
+          title: 'Icon size'
+          enum:
+            - xs
+            - sm
+            - ''
+            - lg
+            - xl
+        color:
+          type: string
+          title: 'Icon color'
+          enum:
+            - ''
+            - primary
+            - secondary
+            - success
+            - warning
+            - danger
+            - light
+            - white
+            - disabled
+            - inverse
+        src:
+          type: string
+          title: 'Sprite path'
+        decorative:
+          type: boolean
+          title: 'Decorative icon'
+        wrapper_attributes:
+          type: object
+          title: 'SVG attributes'
+        attributes:
+          type: object
+          title: 'Use attributes'
+      required:
+        - name
+    default_icon:
+      type: boolean
+      title: 'Default icon'
+      description: 'When `true` and `icon` is empty, the component builds a preset icon for `primary`, `secondary`, `success`, `warning`, and `danger`.'
+    dismissible:
+      type: boolean
+      title: 'Dismissible'
+      description: 'When `true`, adds dismissible alert classes and renders the close button.'
+    dismissible_effects:
+      type: array
+      title: 'Dismissible effects'
+      description: 'Optional extra classes added only when `dismissible` is `true`.'
+      items:
+        type: string
+    dismiss_label:
+      type: string
+      title: 'Dismiss label'
+      description: 'Optional accessible label applied to the close button when `dismissible` is `true`.'
+    attributes:
+      type: Drupal\Core\Template\Attribute
+      title: 'HTML Attributes'
+      description: 'Drupal Attribute object applied to the root alert `<div>`.'
+slots:
+  content:
+    title: 'Content'
+    description: 'Inline alert body rendered inside the default `<p class="mb-0">`.'

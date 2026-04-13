@@ -1,102 +1,91 @@
 {% stories alert with { title: 'Bootstrap Italia/Components/Alert' } %}
 
-  {% story success with { name: '1. Success' } %}
-    {% embed 'bootstrap_italia:alert' with {
-      attributes: create_attribute({'class': ['alert', 'alert-success']}),
-    } %}
-      {% block content %}
-        <p class="mb-0">
-          {% include 'bootstrap_italia:icon' with {
-            name: 'check-circle',
-            label: 'successo',
-            attributes: create_attribute({'class': ['alert-icon', 'icon-success']}),
-          } only %}
-          Operazione completata con successo.
-        </p>
-      {% endblock %}
-    {% endembed %}
+  {% story contextual_alerts with { name: '1. Contextual alerts' } %}
+    {% set primary_content %}
+      This is a "<strong>primary</strong>" alert.
+    {% endset %}
+    {% set info_content %}
+      This is an "<strong>info</strong>" alert.
+    {% endset %}
+    {% set success_content %}
+      This is a "<strong>success</strong>" alert.
+    {% endset %}
+    {% set warning_content %}
+      This is a "<strong>warning</strong>" alert.
+    {% endset %}
+    {% set danger_content %}
+      This is a "<strong>danger</strong>" alert.
+    {% endset %}
+
+    <div class="d-flex flex-column gap-3">
+      {% include 'bootstrap_italia:alert' with {
+        color: 'primary',
+        default_icon: true,
+        content: primary_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        color: 'secondary',
+        default_icon: true,
+        content: info_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        color: 'success',
+        default_icon: true,
+        content: success_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        color: 'warning',
+        default_icon: true,
+        content: warning_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        color: 'danger',
+        default_icon: true,
+        content: danger_content,
+      } only %}
+    </div>
   {% endstory %}
 
-  {% story warning with { name: '2. Warning' } %}
-    {% embed 'bootstrap_italia:alert' with {
-      attributes: create_attribute({'class': ['alert', 'alert-warning']}),
-    } %}
-      {% block content %}
-        <p class="mb-0">
-          {% include 'bootstrap_italia:icon' with {
-            name: 'warning-circle',
-            label: 'attenzione',
-            attributes: create_attribute({'class': ['alert-icon', 'icon-warning']}),
-          } only %}
-          Attenzione: verifica i dati inseriti prima di procedere.
-        </p>
-      {% endblock %}
-    {% endembed %}
+  {% story alert_with_link with { name: '2. Alert with link' } %}
+    {% set linked_content %}
+      This is an alert with an example of a highlighted <a href="#" class="alert-link">link</a>.
+    {% endset %}
+    {% include 'bootstrap_italia:alert' with {
+      color: 'danger',
+      content: linked_content,
+    } only %}
   {% endstory %}
 
-  {% story danger with { name: '3. Danger' } %}
+  {% story alert_with_heading with { name: '3. Alert with heading' } %}
     {% embed 'bootstrap_italia:alert' with {
-      attributes: create_attribute({'class': ['alert', 'alert-danger']}),
-    } %}
-      {% block content %}
-        <p class="mb-0">
-          {% include 'bootstrap_italia:icon' with {
-            name: 'close-circle',
-            label: 'errore',
-            attributes: create_attribute({'class': ['alert-icon', 'icon-danger']}),
-          } only %}
-          Errore: operazione non riuscita.
+      color: 'success',
+    } only %}
+      {% block alert_content %}
+        <h4 class="alert-heading">Success alert!</h4>
+        <p>
+          You are reading this important success alert message. This example text
+          is going to run a bit longer so that you can see how spacing works
+          within an alert with this kind of content.
         </p>
-      {% endblock %}
-    {% endembed %}
-  {% endstory %}
-
-  {% story primary with { name: '4. Primary' } %}
-    {% embed 'bootstrap_italia:alert' with {
-      attributes: create_attribute({'class': ['alert', 'alert-primary']}),
-    } %}
-      {% block content %}
-        <p class="mb-0">
-          {% include 'bootstrap_italia:icon' with {
-            name: 'info-circle',
-            label: 'informazione',
-            attributes: create_attribute({'class': ['alert-icon', 'icon-primary']}),
-          } only %}
-          Informazione: nuova versione disponibile.
-        </p>
-      {% endblock %}
-    {% endembed %}
-  {% endstory %}
-
-  {% story with_heading with { name: '5. With Heading' } %}
-    {% embed 'bootstrap_italia:alert' with {
-      attributes: create_attribute({'class': ['alert', 'alert-danger']}),
-    } %}
-      {% block content %}
-        <h4 class="alert-heading">Errore di validazione</h4>
-        <p>Il modulo contiene degli errori. Controlla i campi evidenziati e riprova.</p>
         <hr>
-        <p class="mb-0">Se il problema persiste, contatta il supporto.</p>
+        <p class="mb-0">
+          Whenever you need to, be sure to use margin utilities to keep things
+          nicely aligned.
+        </p>
       {% endblock %}
     {% endembed %}
   {% endstory %}
 
-  {% story dismissible with { name: '6. Dismissible' } %}
-    {% embed 'bootstrap_italia:alert' with {
+  {% story dismissible_alert with { name: '4. Dismissible alert' } %}
+    {% set dismissible_content %}
+      <strong>Warning</strong> Some entered fields need to be checked.
+    {% endset %}
+    {% include 'bootstrap_italia:alert' with {
+      color: 'warning',
       dismissible: true,
-      attributes: create_attribute({'class': ['alert', 'alert-primary', 'fade', 'show']}),
-    } %}
-      {% block content %}
-        <p class="mb-0">
-          {% include 'bootstrap_italia:icon' with {
-            name: 'info-circle',
-            label: 'informazione',
-            attributes: create_attribute({'class': ['alert-icon', 'icon-primary']}),
-          } only %}
-          Questo avviso può essere chiuso.
-        </p>
-      {% endblock %}
-    {% endembed %}
+      dismiss_label: 'Close alert',
+      content: dismissible_content,
+    } only %}
   {% endstory %}
 
 {% endstories %}
