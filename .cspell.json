@@ -9,6 +9,7 @@
   "ignorePaths": [
     "**/node_modules/**",
     "**/bower_components/**",
-    "**/translations/**"
+    "**/translations/**",
+    "**/*.stories.twig"
   ]
 }
