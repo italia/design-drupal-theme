@@ -2,6 +2,9 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Alert
 status: experimental
 description: 'Alert wrapper with contextual color, optional icon context, and a `content` slot. By default the component renders a single `<p class="mb-0">` containing the optional icon and the `content` slot.'
+links:
+  - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/componenti/alert/"
+  - "https://italia.github.io/dev-kit-italia/?path=/docs/componenti-alert--documentazione"
 variants:
   primary:
     title: 'Primary'
