@@ -16,6 +16,12 @@
  * Last revision: v3.0.0-alpha.6
  *
  * Props:
+ *   - variant      (string): Optional SDC variant used as a convenience layer
+ *                            to derive internal defaults using the pattern
+ *                            `{tone}[__{modifier}]*`. Supported tones:
+ *                            `primary`, `secondary`, `success`, `warning`,
+ *                            `danger`, `info`. Supported modifiers:
+ *                            `dismissible`.
  *   - color        (string): Optional contextual variant such as `primary`,
  *                            `secondary`, `info`, `success`, `warning`, or
  *                            `danger`. Defaults to `info`.
@@ -96,10 +102,17 @@
 #}
 {% apply spaceless %}
   {# Defaults #}
-  {% set _color = color|default('info') %}
+  {% set _variant = variant|default('') %}
+  {% set _variant_parts = _variant ? _variant|split('__') : [] %}
+  {% set _variant_tone = _variant_parts|length ? _variant_parts|first : '' %}
+  {% set _variant_modifiers = _variant_parts|slice(1) %}
+  {% set _variant_color = _variant_tone in ['primary', 'secondary', 'success', 'warning', 'danger', 'info'] ? _variant_tone : '' %}
+  {% set _variant_dismissible = 'dismissible' in _variant_modifiers %}
+
+  {% set _color = color|default(_variant_color ?: 'info') %}
   {% set _icon = icon|default({}) %}
   {% set _default_icon = default_icon ?? false %}
-  {% set _dismissible = dismissible ?? false %}
+  {% set _dismissible = dismissible ?? _variant_dismissible %}
   {% set _dismissible_effects = dismissible_effects|default(['fade', 'show']) %}
   {% set _dismiss_label = dismiss_label|default('Close this alert') %}
   {% set _attributes = attributes|default(create_attribute()) %}

@@ -5,9 +5,158 @@ description: 'Interactive button primitive. Renders a semantic `<button>` for in
 links:
   - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/componenti/buttons/#pulsante-con-icona"
   - "https://italia.github.io/dev-kit-italia/?path=/docs/componenti-button--documentazione"
+variants:
+  primary:
+    title: 'Primary'
+    description: 'Preconfigures the button color as primary.'
+  secondary:
+    title: 'Secondary'
+    description: 'Preconfigures the button color as secondary.'
+  success:
+    title: 'Success'
+    description: 'Preconfigures the button color as success.'
+  warning:
+    title: 'Warning'
+    description: 'Preconfigures the button color as warning.'
+  danger:
+    title: 'Danger'
+    description: 'Preconfigures the button color as danger.'
+  link:
+    title: 'Link'
+    description: 'Preconfigures the button color as link.'
+  primary__xs:
+    title: 'Primary extra small'
+    description: 'Preconfigures the button color as primary and the size as xs.'
+  secondary__xs:
+    title: 'Secondary extra small'
+    description: 'Preconfigures the button color as secondary and the size as xs.'
+  success__xs:
+    title: 'Success extra small'
+    description: 'Preconfigures the button color as success and the size as xs.'
+  warning__xs:
+    title: 'Warning extra small'
+    description: 'Preconfigures the button color as warning and the size as xs.'
+  danger__xs:
+    title: 'Danger extra small'
+    description: 'Preconfigures the button color as danger and the size as xs.'
+  link__xs:
+    title: 'Link extra small'
+    description: 'Preconfigures the button color as link and the size as xs.'
+  primary__sm:
+    title: 'Primary small'
+    description: 'Preconfigures the button color as primary and the size as sm.'
+  secondary__sm:
+    title: 'Secondary small'
+    description: 'Preconfigures the button color as secondary and the size as sm.'
+  success__sm:
+    title: 'Success small'
+    description: 'Preconfigures the button color as success and the size as sm.'
+  warning__sm:
+    title: 'Warning small'
+    description: 'Preconfigures the button color as warning and the size as sm.'
+  danger__sm:
+    title: 'Danger small'
+    description: 'Preconfigures the button color as danger and the size as sm.'
+  link__sm:
+    title: 'Link small'
+    description: 'Preconfigures the button color as link and the size as sm.'
+  primary__lg:
+    title: 'Primary large'
+    description: 'Preconfigures the button color as primary and the size as lg.'
+  secondary__lg:
+    title: 'Secondary large'
+    description: 'Preconfigures the button color as secondary and the size as lg.'
+  success__lg:
+    title: 'Success large'
+    description: 'Preconfigures the button color as success and the size as lg.'
+  warning__lg:
+    title: 'Warning large'
+    description: 'Preconfigures the button color as warning and the size as lg.'
+  danger__lg:
+    title: 'Danger large'
+    description: 'Preconfigures the button color as danger and the size as lg.'
+  link__lg:
+    title: 'Link large'
+    description: 'Preconfigures the button color as link and the size as lg.'
+  primary__outline:
+    title: 'Primary outline'
+    description: 'Preconfigures the button color as primary and enables outline mode.'
+  secondary__outline:
+    title: 'Secondary outline'
+    description: 'Preconfigures the button color as secondary and enables outline mode.'
+  success__outline:
+    title: 'Success outline'
+    description: 'Preconfigures the button color as success and enables outline mode.'
+  warning__outline:
+    title: 'Warning outline'
+    description: 'Preconfigures the button color as warning and enables outline mode.'
+  danger__outline:
+    title: 'Danger outline'
+    description: 'Preconfigures the button color as danger and enables outline mode.'
+  link__outline:
+    title: 'Link outline'
+    description: 'Preconfigures the button color as link and enables outline mode.'
+  primary__outline__xs:
+    title: 'Primary outline extra small'
+    description: 'Preconfigures primary color, outline mode, and xs size.'
+  secondary__outline__xs:
+    title: 'Secondary outline extra small'
+    description: 'Preconfigures secondary color, outline mode, and xs size.'
+  success__outline__xs:
+    title: 'Success outline extra small'
+    description: 'Preconfigures success color, outline mode, and xs size.'
+  warning__outline__xs:
+    title: 'Warning outline extra small'
+    description: 'Preconfigures warning color, outline mode, and xs size.'
+  danger__outline__xs:
+    title: 'Danger outline extra small'
+    description: 'Preconfigures danger color, outline mode, and xs size.'
+  link__outline__xs:
+    title: 'Link outline extra small'
+    description: 'Preconfigures link color, outline mode, and xs size.'
+  primary__outline__sm:
+    title: 'Primary outline small'
+    description: 'Preconfigures primary color, outline mode, and sm size.'
+  secondary__outline__sm:
+    title: 'Secondary outline small'
+    description: 'Preconfigures secondary color, outline mode, and sm size.'
+  success__outline__sm:
+    title: 'Success outline small'
+    description: 'Preconfigures success color, outline mode, and sm size.'
+  warning__outline__sm:
+    title: 'Warning outline small'
+    description: 'Preconfigures warning color, outline mode, and sm size.'
+  danger__outline__sm:
+    title: 'Danger outline small'
+    description: 'Preconfigures danger color, outline mode, and sm size.'
+  link__outline__sm:
+    title: 'Link outline small'
+    description: 'Preconfigures link color, outline mode, and sm size.'
+  primary__outline__lg:
+    title: 'Primary outline large'
+    description: 'Preconfigures primary color, outline mode, and lg size.'
+  secondary__outline__lg:
+    title: 'Secondary outline large'
+    description: 'Preconfigures secondary color, outline mode, and lg size.'
+  success__outline__lg:
+    title: 'Success outline large'
+    description: 'Preconfigures success color, outline mode, and lg size.'
+  warning__outline__lg:
+    title: 'Warning outline large'
+    description: 'Preconfigures warning color, outline mode, and lg size.'
+  danger__outline__lg:
+    title: 'Danger outline large'
+    description: 'Preconfigures danger color, outline mode, and lg size.'
+  link__outline__lg:
+    title: 'Link outline large'
+    description: 'Preconfigures link color, outline mode, and lg size.'
 props:
   type: object
   properties:
+    variant:
+      type: string
+      title: 'Variant'
+      description: 'Optional SDC variant used as a convenience layer to derive `color`, `outline`, and `size` defaults.'
     type:
       type: string
       title: 'Type'

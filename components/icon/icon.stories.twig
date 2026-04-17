@@ -149,4 +149,18 @@
     {% endfor %}
   {% endstory %}
 
+  {% story variants with { name: '7. Variants' } %}
+    <div class="d-flex align-items-center gap-3 flex-wrap">
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'success' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'warning' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'danger' } only %}
+      <span class="bg-dark p-2">{% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'inverse' } only %}</span>
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__xs' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__sm' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__lg' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__xl' } only %}
+    </div>
+  {% endstory %}
+
 {% endstories %}

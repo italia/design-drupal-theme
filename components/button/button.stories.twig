@@ -373,4 +373,30 @@
     </div>
   {% endstory %}
 
+  {% story variants with { name: '13. Variants' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+      {% include 'bootstrap_italia:button' with { label: 'Primary', variant: 'primary' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Secondary', variant: 'secondary' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Success', variant: 'success' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Warning', variant: 'warning' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Danger', variant: 'danger' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Link', variant: 'link' } only %}
+    </div>
+    <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+      {% include 'bootstrap_italia:button' with { label: 'Primary outline', variant: 'primary__outline' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Secondary outline', variant: 'secondary__outline' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Success outline', variant: 'success__outline' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Warning outline', variant: 'warning__outline' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Danger outline', variant: 'danger__outline' } only %}
+    </div>
+    <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+      {% include 'bootstrap_italia:button' with { label: 'Primary xs', variant: 'primary__xs' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Primary sm', variant: 'primary__sm' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Primary lg', variant: 'primary__lg' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Primary outline xs', variant: 'primary__outline__xs' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Primary outline sm', variant: 'primary__outline__sm' } only %}
+      {% include 'bootstrap_italia:button' with { label: 'Primary outline lg', variant: 'primary__outline__lg' } only %}
+    </div>
+  {% endstory %}
+
 {% endstories %}

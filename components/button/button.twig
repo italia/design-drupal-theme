@@ -25,6 +25,14 @@
  *     here are expected to remain semantic navigation elements.
  *
  * Props:
+ *   - variant       (string, optional): Optional SDC variant used as a
+ *                                       convenience layer to derive internal
+ *                                       defaults using the pattern
+ *                                       `{tone}[__{modifier}]*`. Supported
+ *                                       tones: `primary`, `secondary`,
+ *                                       `success`, `warning`, `danger`,
+ *                                       `link`. Supported modifiers:
+ *                                       `outline`, `xs`, `sm`, `lg`.
  *   - type          (string, optional): Button type used for the `<button>`
  *                                       variant. Defaults to `button`.
  *   - label         (string, required): Visible button text.
@@ -99,12 +107,26 @@
 #}
 {% apply spaceless %}
   {# Defaults #}
+  {% set _variant = variant|default('') %}
+  {% set _variant_parts = _variant ? _variant|split('__') : [] %}
+  {% set _variant_tone = _variant_parts|length ? _variant_parts|first : '' %}
+  {% set _variant_modifiers = _variant_parts|slice(1) %}
+  {% set _variant_color = _variant_tone in ['primary', 'secondary', 'success', 'warning', 'danger', 'link'] ? _variant_tone : '' %}
+  {% set _variant_outline = 'outline' in _variant_modifiers %}
+  {% set _variant_size = '' %}
+  {% if 'xs' in _variant_modifiers %}
+    {% set _variant_size = 'xs' %}
+  {% elseif 'sm' in _variant_modifiers %}
+    {% set _variant_size = 'sm' %}
+  {% elseif 'lg' in _variant_modifiers %}
+    {% set _variant_size = 'lg' %}
+  {% endif %}
   {% set _type = type|default('button') %}
   {% set _label = label|default('') %}
   {% set _url = url|default('') %}
-  {% set _size = size|default('') %}
-  {% set _color = color|default('primary') %}
-  {% set _outline = outline ?? false %}
+  {% set _size = size|default(_variant_size) %}
+  {% set _color = color|default(_variant_color ?: 'primary') %}
+  {% set _outline = outline ?? _variant_outline %}
   {% set _disabled = disabled ?? false %}
   {% set _icon = icon|default({}) %}
   {% set _icon_position = icon_position|default('after') %}

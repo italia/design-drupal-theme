@@ -5,9 +5,68 @@ description: 'Inline badge label with optional link behavior. The base `.badge` 
 links:
   - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/componenti/badge/"
   - "https://italia.github.io/dev-kit-italia/?path=/docs/componenti-badge--documentazione"
+variants:
+  primary:
+    title: 'Primary'
+    description: 'Preconfigures the badge color as primary.'
+  secondary:
+    title: 'Secondary'
+    description: 'Preconfigures the badge color as secondary.'
+  success:
+    title: 'Success'
+    description: 'Preconfigures the badge color as success.'
+  warning:
+    title: 'Warning'
+    description: 'Preconfigures the badge color as warning.'
+  danger:
+    title: 'Danger'
+    description: 'Preconfigures the badge color as danger.'
+  disabled:
+    title: 'Disabled'
+    description: 'Preconfigures the badge color as disabled.'
+  inverse:
+    title: 'Inverse'
+    description: 'Preconfigures the badge color as inverse.'
+  light:
+    title: 'Light'
+    description: 'Preconfigures the badge color as light.'
+  white:
+    title: 'White'
+    description: 'Preconfigures the badge color as white.'
+  primary__small:
+    title: 'Primary small'
+    description: 'Preconfigures the badge color as primary and enables the small modifier.'
+  secondary__small:
+    title: 'Secondary small'
+    description: 'Preconfigures the badge color as secondary and enables the small modifier.'
+  success__small:
+    title: 'Success small'
+    description: 'Preconfigures the badge color as success and enables the small modifier.'
+  warning__small:
+    title: 'Warning small'
+    description: 'Preconfigures the badge color as warning and enables the small modifier.'
+  danger__small:
+    title: 'Danger small'
+    description: 'Preconfigures the badge color as danger and enables the small modifier.'
+  disabled__small:
+    title: 'Disabled small'
+    description: 'Preconfigures the badge color as disabled and enables the small modifier.'
+  inverse__small:
+    title: 'Inverse small'
+    description: 'Preconfigures the badge color as inverse and enables the small modifier.'
+  light__small:
+    title: 'Light small'
+    description: 'Preconfigures the badge color as light and enables the small modifier.'
+  white__small:
+    title: 'White small'
+    description: 'Preconfigures the badge color as white and enables the small modifier.'
 props:
   type: object
   properties:
+    variant:
+      type: string
+      title: 'Variant'
+      description: 'Optional SDC variant used as a convenience layer to derive `color` and `small` defaults.'
     label:
       type: string
       title: 'Label'

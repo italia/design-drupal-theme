@@ -88,4 +88,60 @@
     } only %}
   {% endstory %}
 
+  {% story variants with { name: '5. Variants' } %}
+    {% set primary_variant_content %}
+      Variant <code>primary</code> only.
+    {% endset %}
+    {% set secondary_variant_content %}
+      Variant <code>secondary</code> only.
+    {% endset %}
+    {% set success_variant_content %}
+      Variant <code>success</code> only.
+    {% endset %}
+    {% set warning_content %}
+      Variant <code>warning</code> only.
+    {% endset %}
+    {% set danger_content %}
+      Variant <code>danger</code> only.
+    {% endset %}
+    {% set info_variant_content %}
+      Variant <code>info</code> only.
+    {% endset %}
+    {% set dismissible_variant_content %}
+      Variant <code>warning__dismissible</code> only.
+    {% endset %}
+
+    <div class="d-flex flex-column gap-3">
+      {% include 'bootstrap_italia:alert' with {
+        variant: 'primary',
+        content: primary_variant_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        variant: 'secondary',
+        content: secondary_variant_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        variant: 'success',
+        content: success_variant_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        variant: 'warning',
+        content: warning_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        variant: 'danger',
+        content: danger_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        variant: 'info',
+        content: info_variant_content,
+      } only %}
+      {% include 'bootstrap_italia:alert' with {
+        variant: 'warning__dismissible',
+        dismiss_label: 'Close alert',
+        content: dismissible_variant_content,
+      } only %}
+    </div>
+  {% endstory %}
+
 {% endstories %}

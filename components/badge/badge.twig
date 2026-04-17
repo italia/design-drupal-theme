@@ -15,6 +15,12 @@
  * Last revision: v3.0.0-alpha.6
  *
  * Props:
+ *   - variant    (string): Optional SDC variant used as a convenience layer
+ *                          to derive internal defaults using the pattern
+ *                          `{tone}[__{modifier}]*`. Supported tones:
+ *                          `primary`, `secondary`, `success`, `warning`,
+ *                          `danger`, `disabled`, `inverse`, `light`, `white`.
+ *                          Supported modifiers: `small`.
  *   - label      (string, required): Short badge text, such as a count, status,
  *                                    or compact keyword.
  *   - color      (string): Optional color modifier such as `primary`,
@@ -63,9 +69,15 @@
 #}
 {% apply spaceless %}
   {# Defaults #}
+  {% set _variant = variant|default('') %}
+  {% set _variant_parts = _variant ? _variant|split('__') : [] %}
+  {% set _variant_tone = _variant_parts|length ? _variant_parts|first : '' %}
+  {% set _variant_modifiers = _variant_parts|slice(1) %}
+  {% set _variant_color = _variant_tone in ['primary', 'secondary', 'success', 'warning', 'danger', 'disabled', 'inverse', 'light', 'white'] ? _variant_tone : '' %}
+  {% set _variant_small = 'small' in _variant_modifiers %}
   {% set _label = label|default('') %}
-  {% set _color = color|default('secondary') %}
-  {% set _small = small ?? false %}
+  {% set _color = color|default(_variant_color ?: 'secondary') %}
+  {% set _small = small ?? _variant_small %}
   {% set _rounded = rounded ?? false %}
   {% set _url = url|default('') %}
   {% set _attributes = attributes|default(create_attribute()) %}

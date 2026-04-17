@@ -5,9 +5,149 @@ description: 'SVG icon from the Bootstrap Italia sprite. Thin wrapper with expli
 links:
   - "https://bootstrap-italia-git-3x-dip-trasformazione-digitale.vercel.app/docs/utilities/icone/"
   - "https://italia.github.io/dev-kit-italia/?path=/docs/componenti-icon--documentazione"
+variants:
+  primary:
+    title: 'Primary'
+    description: 'Preconfigures the icon color as primary.'
+  secondary:
+    title: 'Secondary'
+    description: 'Preconfigures the icon color as secondary.'
+  success:
+    title: 'Success'
+    description: 'Preconfigures the icon color as success.'
+  warning:
+    title: 'Warning'
+    description: 'Preconfigures the icon color as warning.'
+  danger:
+    title: 'Danger'
+    description: 'Preconfigures the icon color as danger.'
+  light:
+    title: 'Light'
+    description: 'Preconfigures the icon color as light.'
+  white:
+    title: 'White'
+    description: 'Preconfigures the icon color as white.'
+  disabled:
+    title: 'Disabled'
+    description: 'Preconfigures the icon color as disabled.'
+  inverse:
+    title: 'Inverse'
+    description: 'Preconfigures the icon color as inverse.'
+  primary__xs:
+    title: 'Primary extra small'
+    description: 'Preconfigures the icon color as primary and the size as xs.'
+  secondary__xs:
+    title: 'Secondary extra small'
+    description: 'Preconfigures the icon color as secondary and the size as xs.'
+  success__xs:
+    title: 'Success extra small'
+    description: 'Preconfigures the icon color as success and the size as xs.'
+  warning__xs:
+    title: 'Warning extra small'
+    description: 'Preconfigures the icon color as warning and the size as xs.'
+  danger__xs:
+    title: 'Danger extra small'
+    description: 'Preconfigures the icon color as danger and the size as xs.'
+  light__xs:
+    title: 'Light extra small'
+    description: 'Preconfigures the icon color as light and the size as xs.'
+  white__xs:
+    title: 'White extra small'
+    description: 'Preconfigures the icon color as white and the size as xs.'
+  disabled__xs:
+    title: 'Disabled extra small'
+    description: 'Preconfigures the icon color as disabled and the size as xs.'
+  inverse__xs:
+    title: 'Inverse extra small'
+    description: 'Preconfigures the icon color as inverse and the size as xs.'
+  primary__sm:
+    title: 'Primary small'
+    description: 'Preconfigures the icon color as primary and the size as sm.'
+  secondary__sm:
+    title: 'Secondary small'
+    description: 'Preconfigures the icon color as secondary and the size as sm.'
+  success__sm:
+    title: 'Success small'
+    description: 'Preconfigures the icon color as success and the size as sm.'
+  warning__sm:
+    title: 'Warning small'
+    description: 'Preconfigures the icon color as warning and the size as sm.'
+  danger__sm:
+    title: 'Danger small'
+    description: 'Preconfigures the icon color as danger and the size as sm.'
+  light__sm:
+    title: 'Light small'
+    description: 'Preconfigures the icon color as light and the size as sm.'
+  white__sm:
+    title: 'White small'
+    description: 'Preconfigures the icon color as white and the size as sm.'
+  disabled__sm:
+    title: 'Disabled small'
+    description: 'Preconfigures the icon color as disabled and the size as sm.'
+  inverse__sm:
+    title: 'Inverse small'
+    description: 'Preconfigures the icon color as inverse and the size as sm.'
+  primary__lg:
+    title: 'Primary large'
+    description: 'Preconfigures the icon color as primary and the size as lg.'
+  secondary__lg:
+    title: 'Secondary large'
+    description: 'Preconfigures the icon color as secondary and the size as lg.'
+  success__lg:
+    title: 'Success large'
+    description: 'Preconfigures the icon color as success and the size as lg.'
+  warning__lg:
+    title: 'Warning large'
+    description: 'Preconfigures the icon color as warning and the size as lg.'
+  danger__lg:
+    title: 'Danger large'
+    description: 'Preconfigures the icon color as danger and the size as lg.'
+  light__lg:
+    title: 'Light large'
+    description: 'Preconfigures the icon color as light and the size as lg.'
+  white__lg:
+    title: 'White large'
+    description: 'Preconfigures the icon color as white and the size as lg.'
+  disabled__lg:
+    title: 'Disabled large'
+    description: 'Preconfigures the icon color as disabled and the size as lg.'
+  inverse__lg:
+    title: 'Inverse large'
+    description: 'Preconfigures the icon color as inverse and the size as lg.'
+  primary__xl:
+    title: 'Primary extra large'
+    description: 'Preconfigures the icon color as primary and the size as xl.'
+  secondary__xl:
+    title: 'Secondary extra large'
+    description: 'Preconfigures the icon color as secondary and the size as xl.'
+  success__xl:
+    title: 'Success extra large'
+    description: 'Preconfigures the icon color as success and the size as xl.'
+  warning__xl:
+    title: 'Warning extra large'
+    description: 'Preconfigures the icon color as warning and the size as xl.'
+  danger__xl:
+    title: 'Danger extra large'
+    description: 'Preconfigures the icon color as danger and the size as xl.'
+  light__xl:
+    title: 'Light extra large'
+    description: 'Preconfigures the icon color as light and the size as xl.'
+  white__xl:
+    title: 'White extra large'
+    description: 'Preconfigures the icon color as white and the size as xl.'
+  disabled__xl:
+    title: 'Disabled extra large'
+    description: 'Preconfigures the icon color as disabled and the size as xl.'
+  inverse__xl:
+    title: 'Inverse extra large'
+    description: 'Preconfigures the icon color as inverse and the size as xl.'
 props:
   type: object
   properties:
+    variant:
+      type: string
+      title: 'Variant'
+      description: 'Optional SDC variant used as a convenience layer to derive `color` and `size` defaults.'
     name:
       type: string
       title: 'Icon name'

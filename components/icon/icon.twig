@@ -13,6 +13,12 @@
  * Last revision: v3.0.0-alpha.6
  *
  * Props:
+ *   - variant    (string): Optional SDC variant used as a convenience layer
+ *                          to derive internal defaults using the pattern
+ *                          `{tone}[__{modifier}]*`. Supported tones:
+ *                          `primary`, `secondary`, `success`, `warning`,
+ *                          `danger`, `light`, `white`, `disabled`, `inverse`.
+ *                          Supported modifiers: `xs`, `sm`, `lg`, `xl`.
  *   - name       (string, required): Sprite icon ID, for example `it-arrow-right`.
  *   - label      (string): Accessible text for non-decorative icons. If omitted,
  *                          the component falls back to the icon name.
@@ -57,12 +63,27 @@
 #}
 {% apply spaceless %}
   {# Defaults #}
+  {% set _variant = variant|default('') %}
+  {% set _variant_parts = _variant ? _variant|split('__') : [] %}
+  {% set _variant_tone = _variant_parts|length ? _variant_parts|first : '' %}
+  {% set _variant_modifiers = _variant_parts|slice(1) %}
+  {% set _variant_color = _variant_tone in ['primary', 'secondary', 'success', 'warning', 'danger', 'light', 'white', 'disabled', 'inverse'] ? _variant_tone : '' %}
+  {% set _variant_size = '' %}
+  {% if 'xs' in _variant_modifiers %}
+    {% set _variant_size = 'xs' %}
+  {% elseif 'sm' in _variant_modifiers %}
+    {% set _variant_size = 'sm' %}
+  {% elseif 'lg' in _variant_modifiers %}
+    {% set _variant_size = 'lg' %}
+  {% elseif 'xl' in _variant_modifiers %}
+    {% set _variant_size = 'xl' %}
+  {% endif %}
   {% set _name = name|default('it-warning-circle') %}
   {% set _label = label|default('') %}
   {% set _align = align|default('') %}
   {% set _padded = padded ?? false %}
-  {% set _size = size|default('') %}
-  {% set _color = color|default('') %}
+  {% set _size = size|default(_variant_size) %}
+  {% set _color = color|default(_variant_color) %}
   {% set _src = src|default('/libraries/italia.bootstrap-italia/svg/sprites.svg') %}
   {% set _decorative = decorative ?? true %}
   {% set _wrapper_attributes = wrapper_attributes|default(create_attribute()) %}

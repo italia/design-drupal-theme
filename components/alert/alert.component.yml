@@ -2,6 +2,43 @@ $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schema
 name: Alert
 status: experimental
 description: 'Alert wrapper with contextual color, optional icon context, and a `content` slot. By default the component renders a single `<p class="mb-0">` containing the optional icon and the `content` slot.'
+variants:
+  primary:
+    title: 'Primary'
+    description: 'Preconfigures the alert color as primary.'
+  secondary:
+    title: 'Secondary'
+    description: 'Preconfigures the alert color as secondary.'
+  success:
+    title: 'Success'
+    description: 'Preconfigures the alert color as success.'
+  warning:
+    title: 'Warning'
+    description: 'Preconfigures the alert color as warning.'
+  danger:
+    title: 'Danger'
+    description: 'Preconfigures the alert color as danger.'
+  info:
+    title: 'Info'
+    description: 'Preconfigures the alert color as info.'
+  primary__dismissible:
+    title: 'Primary dismissible'
+    description: 'Preconfigures the alert color as primary and enables dismissible mode.'
+  secondary__dismissible:
+    title: 'Secondary dismissible'
+    description: 'Preconfigures the alert color as secondary and enables dismissible mode.'
+  success__dismissible:
+    title: 'Success dismissible'
+    description: 'Preconfigures the alert color as success and enables dismissible mode.'
+  warning__dismissible:
+    title: 'Warning dismissible'
+    description: 'Preconfigures the alert color as warning and enables dismissible mode.'
+  danger__dismissible:
+    title: 'Danger dismissible'
+    description: 'Preconfigures the alert color as danger and enables dismissible mode.'
+  info__dismissible:
+    title: 'Info dismissible'
+    description: 'Preconfigures the alert color as info and enables dismissible mode.'
 props:
   type: object
   properties:

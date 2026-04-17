@@ -93,4 +93,45 @@
     </div>
   {% endstory %}
 
+  {% story variants with { name: '7. Variants' } %}
+    <div class="d-flex gap-2 align-items-center flex-wrap">
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'primary',
+        label: 'Primary',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'secondary',
+        label: 'Secondary',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'success',
+        label: 'Success',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'warning',
+        label: 'Warning',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'danger',
+        label: 'Danger',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'inverse',
+        label: 'Inverse',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'primary__small',
+        label: 'Primary small',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'warning__small',
+        label: 'Warning small',
+      } only %}
+      {% include 'bootstrap_italia:badge' with {
+        variant: 'inverse__small',
+        label: 'Inverse small',
+      } only %}
+    </div>
+  {% endstory %}
+
 {% endstories %}
