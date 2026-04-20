@@ -153,10 +153,6 @@ variants:
 props:
   type: object
   properties:
-    variant:
-      type: string
-      title: 'Variant'
-      description: 'Optional SDC variant used as a convenience layer to derive `color`, `outline`, and `size` defaults.'
     type:
       type: string
       title: 'Type'

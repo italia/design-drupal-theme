@@ -74,7 +74,8 @@
   {% elseif 'xl' in _variant_modifiers %}
     {% set _variant_size = 'xl' %}
   {% endif %}
-  {% set _name = name|default('it-warning-circle') %}
+  {% set _has_fallback_name = name is not defined or name is empty %}
+  {% set _name = _has_fallback_name ? 'it-warning-circle' : name %}
   {% set _label = label|default('') %}
   {% set _align = align|default('') %}
   {% set _padded = padded ?? false %}
@@ -117,6 +118,12 @@
     'class',
     _wrapper_classes|merge(_wrapper_attributes.class|default([]))
   ) %}
+
+  {% if _has_fallback_name %}
+    {% set _wrapper_attributes = _wrapper_attributes
+      .setAttribute('data-missing-icon-name', 'true')
+    %}
+  {% endif %}
 
   {% set _attributes = _attributes
     .setAttribute('href', _src ~ '#' ~ _name)
