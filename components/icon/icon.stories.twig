@@ -11,26 +11,26 @@
 } %}
 
   {% story basic with { name: '1. Basic sprite usage' } %}
-    {% include 'bootstrap_italia:icon' with { name: 'it-tool', color: color } only %}
+    {% include 'bootstrap_italia:icon' with { name: 'it-tool', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
   {% endstory %}
 
   {% story sizes with { name: '2. Sizes' } %}
     <div class="d-flex align-items-center gap-3">
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xs', color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'sm', color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'lg', color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xl', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xs', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'sm', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'lg', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xl', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
     </div>
   {% endstory %}
 
   {% story padded_sizes with { name: '3. Padded sizes' } %}
     <div class="d-flex align-items-center gap-3">
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xs', padded: true, color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'sm', padded: true, color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', padded: true, color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'lg', padded: true, color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xl', padded: true, color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xs', padded: true, color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'sm', padded: true, color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', padded: true, color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'lg', padded: true, color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', size: 'xl', padded: true, color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
     </div>
   {% endstory %}
 
@@ -46,21 +46,21 @@
     parameters: { controls: { include: ['size'] } }
   } %}
     <div class="d-flex align-items-center gap-3">
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'primary', size: size|default('') } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'secondary', size: size|default('') } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'success', size: size|default('') } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'warning', size: size|default('') } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'danger', size: size|default('') } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'light', size: size|default('') } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'white', size: size|default('') } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'primary', size: size|default(''), wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'secondary', size: size|default(''), wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'success', size: size|default(''), wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'warning', size: size|default(''), wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'danger', size: size|default(''), wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'light', size: size|default(''), wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', color: 'white', size: size|default(''), wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
     </div>
   {% endstory %}
 
   {% story alignments with { name: '5. Alignments' } %}
     <div style="line-height: 4em;">
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'bottom', color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'middle', color: color } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'top', color: color } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'bottom', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'middle', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', align: 'top', color: color, wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
     </div>
   {% endstory %}
 
@@ -138,6 +138,8 @@
                     name: icon_name,
                     color: icon_color,
                     decorative: true,
+                    wrapper_attributes: create_attribute(),
+                    attributes: create_attribute(),
                   } only %}
                 </div>
                 <code class="small">{{ icon_name }}</code>
@@ -151,15 +153,15 @@
 
   {% story variants with { name: '7. Variants' } %}
     <div class="d-flex align-items-center gap-3 flex-wrap">
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary' } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'success' } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'warning' } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'danger' } only %}
-      <span class="bg-dark p-2">{% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'inverse' } only %}</span>
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__xs' } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__sm' } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__lg' } only %}
-      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__xl' } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'success', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'warning', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'danger', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      <span class="bg-dark p-2">{% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'inverse', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}</span>
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__xs', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__sm', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__lg', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
+      {% include 'bootstrap_italia:icon' with { name: 'it-check-circle', variant: 'primary__xl', wrapper_attributes: create_attribute(), attributes: create_attribute() } only %}
     </div>
   {% endstory %}
 

@@ -1,7 +1,11 @@
 {% stories link with { title: 'Bootstrap Italia/Content/Link' } %}
 
   {% story default with { name: '1. Default', args: { url: 'https://www.example.com', label: 'Read more' } } %}
-    {% include 'bootstrap_italia:link' with { url: url, label: label } only %}
+    {% include 'bootstrap_italia:link' with {
+      url: url,
+      label: label,
+      attributes: create_attribute(),
+    } only %}
   {% endstory %}
 
   {% story primary with { name: '2. Primary (link-primary)', args: { url: 'https://www.example.com', label: 'Primary link' } } %}
@@ -40,10 +44,11 @@
   {% endstory %}
 
   {% story with_slots with { name: '6. With slots', args: { url: 'https://www.example.com', label: 'Read the documentation' } } %}
+    {% set link_attributes = create_attribute({'class': ['link-primary']}) %}
     {% embed 'bootstrap_italia:link' with {
       url: url,
       label: label,
-      attributes: create_attribute({'class': ['link-primary']}),
+      attributes: link_attributes,
     } only %}
       {% block before %}
         {% include 'bootstrap_italia:icon' with {
@@ -51,6 +56,8 @@
           size: 'sm',
           color: 'primary',
           decorative: true,
+          wrapper_attributes: create_attribute(),
+          attributes: create_attribute(),
         } only %}
       {% endblock %}
       {% block after %}
@@ -60,6 +67,8 @@
           color: 'primary',
           decorative: false,
           label: 'Arrow right'|t,
+          wrapper_attributes: create_attribute(),
+          attributes: create_attribute(),
         } only %}
       {% endblock %}
     {% endembed %}
@@ -80,10 +89,11 @@
   {% story inline_link_with_icon with { name: '8. Inline link with icon', args: { url: '#', label: 'link with icon' } } %}
     <p>
       {{ 'Example of'|t }}
+      {% set link_attributes = create_attribute({'class': ['link-primary']}) %}
       {% embed 'bootstrap_italia:link' with {
         url: url,
         label: label,
-        attributes: create_attribute({'class': ['link-primary']}),
+        attributes: link_attributes,
       } only %}
         {% block after %}
           {% include 'bootstrap_italia:icon' with {
@@ -92,6 +102,8 @@
             color: 'primary',
             decorative: false,
             label: 'Arrow right'|t,
+            wrapper_attributes: create_attribute(),
+            attributes: create_attribute(),
           } only %}
         {% endblock %}
       {% endembed %}
@@ -119,10 +131,11 @@
   } %}
     <p>
       {{ 'Example of'|t }}
+      {% set link_attributes = create_attribute({'class': ['link-primary']}) %}
       {% embed 'bootstrap_italia:link' with {
         url: url,
         label: label,
-        attributes: create_attribute({'class': ['link-primary']}),
+        attributes: link_attributes,
       } only %}
         {% block before %}
           {% include 'bootstrap_italia:icon' with {
@@ -131,6 +144,8 @@
             color: 'primary',
             decorative: false,
             label: icon_assistive_text|default('Link icon'|t),
+            wrapper_attributes: create_attribute(),
+            attributes: create_attribute(),
           } only %}
         {% endblock %}
       {% endembed %}

@@ -102,10 +102,10 @@
   {% set _variant_parts = _variant ? _variant|split('__') : [] %}
   {% set _variant_tone = _variant_parts|length ? _variant_parts|first : '' %}
   {% set _variant_modifiers = _variant_parts|slice(1) %}
-  {% set _variant_color = _variant_tone in ['primary', 'secondary', 'success', 'warning', 'danger', 'info'] ? _variant_tone : '' %}
+  {% set _variant_color = _variant_tone in ['primary', 'secondary', 'success', 'warning', 'danger'] ? _variant_tone : '' %}
   {% set _variant_dismissible = 'dismissible' in _variant_modifiers %}
 
-  {% set _color = color|default(_variant_color ?: 'info') %}
+  {% set _color = color|default(_variant_color ?: 'secondary') %}
   {% set _icon = icon|default({}) %}
   {% set _default_icon = default_icon ?? false %}
   {% set _dismissible = dismissible ?? _variant_dismissible %}
@@ -143,6 +143,7 @@
       name: _default_icon_maps[_color],
       color: _color,
       wrapper_attributes: create_attribute().addClass(['alert-icon']),
+      attributes: create_attribute(),
     } %}
   {% endif %}
 
@@ -151,7 +152,10 @@
     {% block alert_content %}
       <p class="mb-0">
         {% if _icon is not empty %}
-          {% include 'bootstrap_italia:icon' with _icon only %}
+          {% include 'bootstrap_italia:icon' with _icon|merge({
+            wrapper_attributes: _icon.wrapper_attributes|default(create_attribute()),
+            attributes: _icon.attributes|default(create_attribute()),
+          }) only %}
         {% endif %}
         {{ content }}
       </p>
@@ -161,6 +165,8 @@
         {% include 'bootstrap_italia:icon' with {
           name: 'it-close',
           decorative: true,
+          wrapper_attributes: create_attribute(),
+          attributes: create_attribute(),
         } only %}
       </button>
     {% endif %}

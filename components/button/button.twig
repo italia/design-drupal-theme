@@ -169,6 +169,8 @@
           {% include 'bootstrap_italia:icon' with _icon|merge({
             size: _outline and _size == 'lg' ? 'sm' : 'xs',
             color: _color,
+            wrapper_attributes: _icon.wrapper_attributes|default(create_attribute()),
+            attributes: _icon.attributes|default(create_attribute()),
           }) only %}
         </span>
       {% endif %}
@@ -185,6 +187,8 @@
         {% include 'bootstrap_italia:icon' with _icon|merge({
           size: _size == 'xs' ? 'xs' : 'sm',
           color: not _outline ? 'inverse' : _color,
+          wrapper_attributes: _icon.wrapper_attributes|default(create_attribute()),
+          attributes: _icon.attributes|default(create_attribute()),
         }) only %}
       {% endif %}
     {% endblock %}
