@@ -74,3 +74,11 @@ ddev drush storybook:generate-all-stories --force --omit-server-url --uri="$(dde
 The Storybook server URL is provided by [`preview.js`](./.storybook/preview.js)
 through `STORYBOOK_SERVER_URL` or `DDEV_PRIMARY_URL`, so generated JSON files do
 not need to embed environment-specific URLs.
+
+## Agent instructions
+
+This theme ships with an [`AGENTS.md`](./AGENTS.md) file containing the
+repository-specific instructions for AI agents and reviewers. It documents the
+v3 architectural direction, SDC component contract rules, Storybook exceptions,
+and review heuristics that should be followed when making or evaluating
+changes.
