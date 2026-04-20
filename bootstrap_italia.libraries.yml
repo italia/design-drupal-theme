@@ -1,6 +1,6 @@
 global:
   remote: https://github.com/italia/bootstrap-italia
-  version: 3.0.0-alpha.6
+  version: 3.0.0-alpha.8
   license:
     name: BSD-3-Clause license
     url: https://github.com/italia/bootstrap-italia/blob/main/LICENSE
