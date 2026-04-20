@@ -256,6 +256,14 @@ props:
           type: boolean
           title: 'Decorative icon'
           description: 'When `true`, the nested icon is hidden from assistive technologies.'
+        wrapper_attributes:
+          type: object
+          title: 'SVG attributes'
+          description: 'Drupal Attribute object forwarded to the nested icon `<svg>` element.'
+        attributes:
+          type: object
+          title: 'Use attributes'
+          description: 'Drupal Attribute object forwarded to the nested icon `<use>` element.'
       required:
         - name
     icon_position:
