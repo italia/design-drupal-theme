@@ -112,52 +112,73 @@ class Suggestions {
       /** @var string|int $elements_id_original */
       $elements_id_original = $elements['#id'];
 
-      /** @var \Drupal\block\BlockInterface $block */
+      /** @var \Drupal\block\BlockInterface|null $block */
       $block = \Drupal::entityTypeManager()
         ->getStorage('block')
         ->load($elements_id_original);
 
-      $region_name_from_block = self::sanitize($block->getRegion());
-
       /** @var array<string, mixed> $block_configuration */
-      $block_configuration = $elements['#configuration'];
+      $block_configuration = $elements['#configuration'] ?? [];
+
+      $region_name_from_block = '';
+
+      if ($block !== NULL) {
+        $region_name_from_block = self::sanitize($block->getRegion());
+      }
 
       if (!empty($region_name_from_block)) {
         $region = $region_name_from_block;
       }
+      elseif (
+        isset($block_configuration['region'])
+        && is_string($block_configuration['region'])
+      ) {
+        $region = self::sanitize($block_configuration['region']);
+      }
       else {
-        $region = is_string($block_configuration['region'])
-          ? self::sanitize($block_configuration['region'])
-          : '';
+        $region = '';
       }
 
-      $base_plugin_id = is_string($elements['#base_plugin_id'])
-        ? self::sanitize($elements['#base_plugin_id']) : '';
+      $base_plugin_id = isset($elements['#base_plugin_id'])
+        && is_string($elements['#base_plugin_id'])
+          ? self::sanitize($elements['#base_plugin_id'])
+          : '';
 
-      $derivate_plugin_id = is_string($elements['#derivative_plugin_id'])
-        ? self::sanitize($elements['#derivative_plugin_id']) : '';
+      $derivate_plugin_id = isset($elements['#derivative_plugin_id'])
+        && is_string($elements['#derivative_plugin_id'])
+          ? self::sanitize($elements['#derivative_plugin_id'])
+          : '';
 
-      $route_name = is_string(\Drupal::routeMatch()->getRouteName())
-        ? self::sanitize(\Drupal::routeMatch()->getRouteName()) : '';
+      $route_name_raw = \Drupal::routeMatch()->getRouteName();
+      $route_name = is_string($route_name_raw)
+        ? self::sanitize($route_name_raw)
+        : '';
 
       // Adds suggestions with region id.
       if (!empty($region)) {
         $suggestions[] = 'block__' . $region;
-
         $suggestions[] = 'block__' . $region . '__' . $elements_id_original;
 
         if (!empty($base_plugin_id)) {
-          // Adds suggestions with base and derivative plugin id.
           $suggestions[] = 'block__' . $region . '__' . $base_plugin_id;
 
           if (!empty($derivate_plugin_id)) {
-            $suggestions[] = 'block__' . $region . '__' . $base_plugin_id . '__' . $derivate_plugin_id;
+            $suggestions[] = 'block__'
+              . $region
+              . '__'
+              . $base_plugin_id
+              . '__'
+              . $derivate_plugin_id;
           }
         }
       }
 
       if (!empty($base_plugin_id) && !empty($route_name)) {
-        $suggestions[] = $hook_original . '__' . $base_plugin_id . '__' . $route_name;
+        $suggestions[] = $hook_original
+          . '__'
+          . $base_plugin_id
+          . '__'
+          . $route_name;
       }
     }
   }

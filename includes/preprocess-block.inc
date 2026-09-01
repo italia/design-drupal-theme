@@ -23,11 +23,21 @@ function bootstrap_italia_preprocess_block(array &$variables): void {
 
   // All blocks.
   if (isset($variables['elements']['#id'])) {
-    /** @var \Drupal\block\BlockInterface $block */
+    /** @var \Drupal\block\BlockInterface|null $block */
     $block = \Drupal::entityTypeManager()
       ->getStorage('block')
       ->load($variables['elements']['#id']);
-    $region = $block->getRegion();
+    $region = '';
+
+    if ($block !== NULL) {
+      $region = $block->getRegion();
+    }
+    elseif (
+      isset($variables['elements']['#configuration']['region'])
+      && is_string($variables['elements']['#configuration']['region'])
+    ) {
+      $region = $variables['elements']['#configuration']['region'];
+    }
 
     // Add region and id to data-block.
     // Pass block region value to content so this can be used in
