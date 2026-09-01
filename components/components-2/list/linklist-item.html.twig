@@ -79,7 +79,7 @@
   {# If is a menu item #}
   {% elseif _item.attributes|length > 0 %}
     {% set linklist_item_attributes = _item.attributes %}
-    {% set linklist_wrapper_classes = (_item.attributes.class ?? [])|join(' ')|trim %}}
+    {% set linklist_wrapper_classes = (_item.attributes.class ?? [])|join(' ')|trim %}
 
   {% elseif _linklist_item_attributes is empty %}
     {% set linklist_item_attributes = create_attribute() %}
