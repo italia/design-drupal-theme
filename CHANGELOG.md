@@ -1,3 +1,11 @@
+# Summary 2.17.7
+Maintenance release.
+
+## All changes
+- Issue #3612692 by scalas89: Fatal error when block configuration entity cannot be loaded
+- Issue #3620103 by turneight, OProf77: Warning Array to string conversion in Twig join
+- fix(list): correct Twig syntax in linklist item template
+
 # Summary 2.17.3, 2.17.4 and 2.17.6
 Dummy tag for order mistake
 
