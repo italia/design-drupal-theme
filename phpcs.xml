@@ -6,10 +6,11 @@
   <arg name="colors"/>
 
   <exclude-pattern>vendor/*</exclude-pattern>
-  <exclude-pattern>node_modules/*</exclude-pattern>>
+  <exclude-pattern>node_modules/*</exclude-pattern>
   <exclude-pattern>bower_components/*</exclude-pattern>
   <exclude-pattern>build/*</exclude-pattern>
   <exclude-pattern>dist/*</exclude-pattern>
+  <exclude-pattern>gitlab_templates_version.txt</exclude-pattern>
 
   <rule ref="Drupal"/>
   <rule ref="DrupalPractice"/>
