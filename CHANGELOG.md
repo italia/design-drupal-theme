@@ -1,3 +1,6 @@
+# Summary 2.17.8
+Up dependencies for empty front page.
+
 # Summary 2.17.7
 Maintenance release.
 
